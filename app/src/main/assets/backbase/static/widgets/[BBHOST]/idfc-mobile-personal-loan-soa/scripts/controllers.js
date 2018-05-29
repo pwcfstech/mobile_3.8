@@ -222,7 +222,15 @@ define(function(require, exports, module) {
 					     plSoaCtrl.dates.todaysDate = new Date(dateArray[2],dateArray[1]-1, dateArray[0]);
 
                                         for (var i = 0; i < response.length; i++) {
-                                              if ('VANILLA_PP' === response[i].prdCd || 'VANILLA_NP' === response[i].prdCd) { 
+                                             // if ('VANILLA_PP' === response[i].prdCd || 'VANILLA_NP' === response[i].prdCd) { /*old 3.7 codes below 3.8 code added*/
+                                               if ('VANILLA_PP' === response[i].prdCd || 'VANILLA_NP' === response[i].prdCd
+                                              											  || 'DIGITAL_PL' === response[i].prdCd
+                                              											  || 'IDFCNXT_NP' === response[i].prdCd
+                                              											  || 'IDFCNXT_PP' === response[i].prdCd
+                                              											  || 'VANILLA_PL_NPP' === response[i].prdCd
+                                              											  || 'VANILLA_PL_PP' === response[i].prdCd
+                                              											  ) {
+
                                                 plSoaCtrl.names.push(response[i].acctNb);
 											var actNb = response[i].acctNb;
 											//To be used for PDF generation

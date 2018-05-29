@@ -16,13 +16,15 @@ define(function(require, exports) {
         $scope.selectedProductName = '';
         $scope.futureReferenceNumber = '';
         $scope.isComplience = true;
+        $scope.refNum ='';
+        $scope.uniqueId='';
         var initialize = function() {
             console.log("Initialize call");
             //dummy call
             var generateOTPServiceURL = lpCoreUtils.resolvePortalPlaceholders(lpWidget.getPreference('otpGenerateService'));
             var data = $.param({
-                mobile: '1234567890',
-                randomrefNum: '1'
+                mobile: '1234567890'/*,
+                randomrefNum: '1'*/
             });
 
             var config = {
@@ -154,12 +156,12 @@ define(function(require, exports) {
 
         $scope.generateOTP = function() {
             $scope.errorSpin = true;
-            var generateOTPServiceURL = lpCoreUtils.resolvePortalPlaceholders(lpWidget.getPreference('otpGenerateService'));
+           var generateOTPServiceURL = lpCoreUtils.resolvePortalPlaceholders(lpWidget.getPreference('otpGenerateService'));
             //var generateOTPServiceURL = 'http://adobuatweb.idfcbank.com/bin/sendotpservlet.html';
 
             var data = $.param({
-                mobile: $scope.userFormData.mobileNum,
-                randomrefNum: $scope.referenceNumber
+                mobile: $scope.userFormData.mobileNum/*,
+                randomrefNum: $scope.referenceNumber*/
             });
 
             var config = {
@@ -170,7 +172,13 @@ define(function(require, exports) {
             $http.post(generateOTPServiceURL, data, config)
                 .success(function(data, status, headers, config) {
                     $scope.errorSpin = false;
-
+                    if(data!=null)
+                    {
+                      $scope.refNum =  data.generatePwdResponse.msgBdy.refNum;
+                      $scope.uniqueId = data.uniqueID;
+                      console.log("$scope.refNum generateOTP@" +$scope.refNum);
+                     console.log("$scope.uniqueId generateOTP@" +$scope.uniqueId);
+                    }
                     if (count < 4) {
                         $scope.success = {
                             happened: true,
@@ -215,7 +223,7 @@ define(function(require, exports) {
         $scope.sendOTP = function(isValid, form) {
 
             var generateOTPServiceURL = lpCoreUtils.resolvePortalPlaceholders(lpWidget.getPreference('otpGenerateService'));
-           // var generateOTPServiceURL = 'http://adobuatweb.idfcbank.com/bin/sendotpservlet.html';
+          // var generateOTPServiceURL = 'http://adobuatweb.idfcbank.com/bin/sendotpservlet.html';
             if (!isValid) {
 
                 //  form.submitted=false;
@@ -242,8 +250,8 @@ define(function(require, exports) {
                 console.log("Mobile Number:" + $scope.userFormData.mobileNum);
                 $scope.errorSpin = true;
                 var data = $.param({
-                    mobile: $scope.userFormData.mobileNum,
-                    randomrefNum: randomRefNumber
+                    mobile: $scope.userFormData.mobileNum/*,
+                    randomrefNum: randomRefNumber*/
                 });
 
                 var config = {
@@ -273,6 +281,11 @@ define(function(require, exports) {
                             };
                             /*rslt*/
                         } else {
+                            $scope.refNum =  data.generatePwdResponse.msgBdy.refNum;
+                            $scope.uniqueId = data.uniqueID;
+                            console.log("$scope.refNum sendOTP@" +$scope.refNum);
+                            console.log("$scope.uniqueId sendOTP@" +$scope.uniqueId);
+
                             $scope.sendOtpError = false;
                             //open otp form
                             $scope.resendOtpBtn = true;
@@ -389,7 +402,7 @@ define(function(require, exports) {
                 var mobileNum = $scope.userFormData.mobileNum;
                 var data = $.param({
                     otp: $scope.userFormData.OtpValue,
-                    randomrefNum: $scope.referenceNumber,
+                   /* randomrefNum: $scope.referenceNumber,*/
                     prdCdId: prdCdId,
                     lob: lobValue,
                     frstNm: $scope.userFormData.firstname,
@@ -412,6 +425,8 @@ define(function(require, exports) {
                     toaFlag: '',
                     customerCategory: custCategory,
                     city: $scope.userFormData.city.cityName,
+                    randomrefNum:$scope.refNum,
+                    uniqueID: $scope.uniqueId,
                     pageFlag: '/bin/applynowservlet'
                 });
 

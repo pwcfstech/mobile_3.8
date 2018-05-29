@@ -6,10 +6,14 @@
 */
 
 .userChallenge-question-list {
-    width: 60%;
-    height: 34px;
+   /* width: 60%; update challenge select issue*/
+   /* height: 34px; update challenge select issue**/
+    white-space: normal;
+     height: auto;
+     padding-top:10px!important;
+     padding-bottom:10px!important;
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: 12.5px;
     line-height: 1.42857143;
     color: #555555;
     background-color: #ffffff;
@@ -75,12 +79,15 @@
 }
 
 .userChallenge-ques {
-    width: 61%;
-    margin-top: .5%
+  /*  width: 61%; update challenge question issue*/
+    width:100%;
+    margin-top: .5%;
+    margin-bottom:1.5%;
 }
 
 .userChallenge-inp {
-    width: 36%;
+   /* width: 36%; widget challenge question issue*/
+    width:97%;
     margin-left: 1%
 }
 
@@ -172,9 +179,11 @@
 }
 
 .list-cq-chall-floatleft {
-    float: left;
+   /* float: left; update select issue*/
     width: 100%;
     list-style-type: decimal;
+    margin-top:2%;
+    margint-bottom:2%;
 }
 
 .CQbutton {

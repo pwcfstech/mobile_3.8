@@ -109,13 +109,22 @@ define(function(require, exports) {
 
                   }
                   // Home Saver product codes
-                  else if (loanAccount.prdCd == "MON_SAVER" || loanAccount.prdCd == "4000" || loanAccount.prdCd == "MONEY_TOP") {
+                 /* else if (loanAccount.prdCd == "MON_SAVER" || loanAccount.prdCd == "4000" || loanAccount.prdCd == "MONEY_TOP") {
 
                       loanAccountObj.accountNumber = loanAccount.acctNb;
                       loanAccountObj.loanType = "Short&Sweet";
                       loanAccountObj.loanObj = loanAccount;
 
-                  }
+                  }*/ /*old codes 3.7*/
+                  /*3.8 change below code added*/
+                    else if (loanAccount.prdCd == "MON_SAVER" || (loanAccount.prdCd == "4000" && loanAccount.productName==='Overdraft-Home Saver' ) || (loanAccount.prdCd == "4000" && loanAccount.productName==='Home saver TOP UP' )|| (loanAccount.prdCd == "4000" && loanAccount.productName==='Short & Sweet Home Loan' )|| loanAccount.prdCd == "MONEY_TOP") {
+
+                                        loanAccountObj.accountNumber = loanAccount.acctNb;
+                                        loanAccountObj.loanType = "Short&Sweet";
+                                        loanAccountObj.loanObj = loanAccount;
+
+                    }
+
 
                   if(!ctrlRepay.loanAccountNumbersObjectList.hasOwnProperty(loanAccount.acctNb)){
                     ctrlRepay.loanAccountNumbers.push(loanAccountObj);
@@ -214,7 +223,8 @@ define(function(require, exports) {
 
                       }
                       // Home Saver product codes
-                      else if (list.prdCd == "MON_SAVER" || list.prdCd == "4000" || list.prdCd == "MONEY_TOP") {
+                      else if (list.prdCd == "MON_SAVER" || (list.prdCd == "4000" && list.productName==='Overdraft-Home Saver') || (list.prdCd == "4000" && list.productName==='Short & Sweet Home Loan') || (list.prdCd == "4000" && list.productName==='Home saver TOP UP')  || list.prdCd == "MONEY_TOP") {
+                      //else if (list.prdCd == "MON_SAVER" || list.prdCd == "4000" || list.prdCd == "MONEY_TOP") { /*old product code above 3.8 added*/
 
                           loanAccountObj.accountNumber = list.acctNb;
                           loanAccountObj.loanType = "Short&Sweet";

@@ -244,7 +244,14 @@ define(function(require, exports) {
 					
 					lpCoreUtils.forEach(response, function(list) {
 						//commenting Live for dummy test
-						if(('L'===list.acctSts) && ('VANILLA_NP'===list.prdCd || 'VANILLA_PP'===list.prdCd)){
+						//if(('L'===list.acctSts) && ('VANILLA_NP'===list.prdCd || 'VANILLA_PP'===list.prdCd)){ /*old 3.7 codes below 3.8 added*/
+						if(('L'===list.acctSts) && ('VANILLA_NP'===list.prdCd || 'VANILLA_PP'===list.prdCd
+                        							|| 'DIGITAL_PL'===list.prdCd
+                        							|| 'IDFCNXT_NP'===list.prdCd
+                        							|| 'IDFCNXT_PP'===list.prdCd
+                        							|| 'VANILLA_PL_NPP'===list.prdCd
+                        							|| 'VANILLA_PL_PP'===list.prdCd
+                        						)){
 							plRsCtrl.loanAccountNumbers.push(list.acctNb) ;				 
 						}
 						

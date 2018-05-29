@@ -49,7 +49,7 @@ define(function (require, exports) {
                     var rsaSuccessCallback = function(data) {
                         var rsaObj = data['rsaData'];
                         var rsaJson = JSON.parse(rsaObj);
-                        $scope.mobileSdkData = rsaJson.data;
+                        challengeCtrl.mobileSdkData = rsaJson.data;
                     };
                     var rsaErrorCallback = function(data) {
                         console.log('Something really bad happened');
@@ -232,7 +232,7 @@ define(function (require, exports) {
 			}
 			postData.length = challengeCtrl.challengeQuesAns.length;
 			postData.devicePrint = setdeviceprint();
-			postdata.mobileSdkData = JSON.stringify($scope.mobileSdkData);
+			postData.mobileSdkData = JSON.stringify(challengeCtrl.mobileSdkData);
 			var data1 = $.param(postData || {});
 			var xhr = ChallengeQuesService.rsaAnalyzeService(rsaAnalyzeService, data1);
 

@@ -58,9 +58,9 @@
                             <input class="userChallenge-input-answer userChallenge-inp" type="text" name="answer{{$index}}" required="true" maxlength="20" autocomplete="off" ng-model="challengeCntrl.challengeQuesAns[$index].answer" ng-disabled="challengeCntrl.isChallengeDisabled" />
                         </li>
                     </ul>
-                    <small class="text-danger chall-floatleft" style="width:38%;margin-left:28px" ng-show="challengeCntrl.evalOrExp(challengeCntrl.showAnsPaternErr0, challengeCntrl.showAnsPaternErr1, challengeCntrl.showAnsPaternErr2, challengeCntrl.showAnsPaternErr3, challengeCntrl.showAnsPaternErr4)" lp-i18n="Answer should not contain any special character"></small>
+                    <small class="text-danger chall-floatleft" style="margin-left:28px" ng-show="challengeCntrl.evalOrExp(challengeCntrl.showAnsPaternErr0, challengeCntrl.showAnsPaternErr1, challengeCntrl.showAnsPaternErr2, challengeCntrl.showAnsPaternErr3, challengeCntrl.showAnsPaternErr4)" lp-i18n="Answer should not contain any special character"></small>
                     <br></br>
-                    <small class="text-danger chall-floatleft" style="width:38%;margin-left:28px" ng-show="challengeCntrl.evalExp(QuestionForm.submitted, challengeCntrl.showAnsReqErr)" lp-i18n="Please select question and enter the Answer"></small>
+                    <small class="text-danger chall-floatleft" style="margin-left:28px" ng-show="challengeCntrl.evalExp(QuestionForm.submitted, challengeCntrl.showAnsReqErr)" lp-i18n="Please select question and enter the Answer"></small>
                     <br/>
                     <div style="text-align: center;" ng-show="challengeCntrl.btnFlag">
                         <button class="btn btn-primary primary-btn-btn CQbutton" type="submit" ng-click="QuestionForm.submitted=true; challengeCntrl.QuesAns(QuestionForm.$valid)" lp-i18n="Submit Answers"></button>

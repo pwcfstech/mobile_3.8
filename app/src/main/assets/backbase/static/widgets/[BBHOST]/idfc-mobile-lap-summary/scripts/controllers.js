@@ -49,10 +49,11 @@ define(function(require, exports, $filter, $timeout) {
     var extractPersonalLoanData = function() {
       var personalLoanList = [];
       var personalLoanClosedList = [];
+      /*3.8 4127 code added*/
       for (var countNo in $scope.loanAccountList) {
-        if (($scope.loanAccountList[countNo].prdCd == "LAPSAVER" || $scope.loanAccountList[countNo].prdCd == "LAPTERM" || $scope.loanAccountList[countNo].prdCd == "LAPTL" || $scope.loanAccountList[countNo].prdCd == "LAPDROP" || $scope.loanAccountList[countNo].prdCd == "LTL") && $scope.loanAccountList[countNo].acctSts != "C") {
+        if (($scope.loanAccountList[countNo].prdCd == "4127" || $scope.loanAccountList[countNo].prdCd == "LAPSAVER" || $scope.loanAccountList[countNo].prdCd == "LAPTERM" || $scope.loanAccountList[countNo].prdCd == "LAPTL" || $scope.loanAccountList[countNo].prdCd == "LAPDROP" || $scope.loanAccountList[countNo].prdCd == "LTL") && $scope.loanAccountList[countNo].acctSts != "C") {
           personalLoanList.push($scope.loanAccountList[countNo]);
-        } else if (($scope.loanAccountList[countNo].prdCd == "LAPSAVER" || $scope.loanAccountList[countNo].prdCd == "LAPTERM" || $scope.loanAccountList[countNo].prdCd == "LAPTL" || $scope.loanAccountList[countNo].prdCd == "LAPDROP" || $scope.loanAccountList[countNo].prdCd == "LTL") && $scope.loanAccountList[countNo].acctSts == "C") {
+        } else if (($scope.loanAccountList[countNo].prdCd == "4127" || $scope.loanAccountList[countNo].prdCd == "LAPSAVER" || $scope.loanAccountList[countNo].prdCd == "LAPTERM" || $scope.loanAccountList[countNo].prdCd == "LAPTL" || $scope.loanAccountList[countNo].prdCd == "LAPDROP" || $scope.loanAccountList[countNo].prdCd == "LTL") && $scope.loanAccountList[countNo].acctSts == "C") {
           personalLoanClosedList.push($scope.loanAccountList[countNo]);
         }
       }

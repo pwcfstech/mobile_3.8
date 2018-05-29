@@ -170,7 +170,10 @@ define(function(require, exports) {
                     loanAccountObj.serverDate = loanAccount.serverDt;
 
 
-                } else if (loanAccount.prdCd == "MON_SAVER" || loanAccount.prdCd == "4000" || loanAccount.prdCd == "MONEY_TOP") {
+                }
+                else if (loanAccount.prdCd == "MON_SAVER" || (loanAccount.prdCd == "4000" && loanAccount.productName ==='Home saver TOP UP') || (loanAccount.prdCd == "4000" && loanAccount.productName ==='Overdraft-Home Saver') || (loanAccount.prdCd == "4000" && loanAccount.productName ==='Short & Sweet Home Loan') || loanAccount.prdCd == "MONEY_TOP")
+               // else if (loanAccount.prdCd == "MON_SAVER" || loanAccount.prdCd == "4000" || loanAccount.prdCd == "MONEY_TOP") /*old product codes above 3.8 added*/
+                {
 
                     loanAccountObj.acctNb = loanAccount.acctNb;
                     loanAccountObj.loanType = "Short&Sweet";
@@ -272,7 +275,9 @@ define(function(require, exports) {
                         soaCtrl.loanAccountNumbers.push(loanAcct);
                         soaCtrl.loanAccountNumbersObjectList[list.acctNb] = list;
 
-                    } else if (list.prdCd == "4000" || list.prdCd == "MON_SAVER" || list.prdCd == "MONEY_TOP") {
+                    }
+                    //else if (list.prdCd == "4000" || list.prdCd == "MON_SAVER" || list.prdCd == "MONEY_TOP") {/*old product code below new added*/
+                    else if ((list.prdCd == "4000" && list.productName ==='Home saver TOP UP') || (list.prdCd == "4000" && list.productName ==='Overdraft-Home Saver') || (list.prdCd == "4000" && list.productName ==='Short & Sweet Home Loan') || list.prdCd == "MON_SAVER" || list.prdCd == "MONEY_TOP") {
                         loanAcct.acctNb = list.acctNb;
                         loanAcct.loanType = "Short&Sweet";
                         loanAcct.active = list.acctSts == null ? "" : list.acctSts;
