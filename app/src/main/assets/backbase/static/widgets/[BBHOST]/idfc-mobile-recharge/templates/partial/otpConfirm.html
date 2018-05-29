@@ -1,0 +1,237 @@
+<div>
+	<div ng-show="confirmform">
+		<div data-ng-include="template.success"></div>
+	</div>
+	<div ng-show="errorform">
+		<div data-ng-include="template.error"></div>
+	</div>
+	<div ng-hide="errorform">
+		<div ng-if="errorSpinRecharge">
+			<div class="panel-message loading-panel" role="alert">
+				<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+				<span class="sr-only">Busy</span>
+			</div>
+		</div>
+		<div ng-hide="confirmform">
+			<div class="recharge-error-msg">{{validationError}}</div>
+			<label class="addbiller-confirm confirm-recharge">Confirm Mobile Number</label>
+			<div class="validatemargin">
+				<div class="form-group">
+					<div class="add-floatLeft">
+						<div>
+							<label name="mobileNumber" class="add-acc-type-add addressbook-select add-bill-auth"> {{mobileNumber}}</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="add-floatLeft">
+						<label for="Provider" class="label-font confirmchanges">Provider</label>
+					</div>
+					<div class="add-floatLeft">
+						<div>
+							<label name="Provider" class="add-acc-type-add addressbook-select add-bill-auth">{{rechargeProviderSelected}}</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="add-floatLeft">
+							<label for="State" class="label-font confirmchanges">State</label>
+						</div>
+						<div class="add-floatLeft">
+							<div>
+								<label name="State" class="add-acc-type-add addressbook-select add-bill-auth">{{rechargeCircleSelected}}</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+			<div class="validatemargin confirm-recharge">
+				<div class="form-group">
+					<div class="add-floatLeft">
+						<label for="amount" class="label-font confirmchanges">Amount</label>
+					</div>
+					<div class="add-floatLeft">
+						<div>
+							<label name="amount" class="add-acc-type-add addressbook-select add-bill-auth"><span class="rupee-symbol-span"></span>{{amount | currency:' '}}</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="add-floatLeft">
+						<label class="label-font recharge-bill-label">Account for Payment</label>
+					</div>
+					<div class="add-floatLeft">
+						<div>
+							<label class="add-acc-type-add addressbook-select add-bill-auth">{{rechargeAccountNumber.id}}</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<hr>
+
+			<!-- RSA changes by Xebia starts -->
+
+                <div ng-show="showDenyMessage">
+                    <div class="rsa-deny-message">
+                        {{cqObject.RSA_DENY_MESSAGE}} 
+                    </div>
+                </div>
+
+                <div ng-show="showCancelTransactionMessage">
+                    <div class="rsa-cancel-transaction-message">
+                            {{cqObject.CANCEL_TRANSACTION}} 
+                    </div>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                class="rsa-margin-top" type="submit" name="No"
+                                ng-click="cancelRSATransaction()">Okay</button>
+                    </div>
+                </div>
+
+                <div ng-show="showSetupCQMessage">
+                    <p>
+                        <center class="rsa-setupCQMessage">{{cqObject.SETUP_CQ_MESSAGE}}
+                        </center>
+                    </p>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="Yes"
+                                ng-click="showSetupCQ()">Update Now</button>
+
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="No"
+                                ng-click="showSetupCQMessage = false; showCancelTransactionMessage = true;">Cancel</button>
+                    </div>
+                </div>
+
+                <div ng-hide="hideQuesFlag" class="rsa-border-div">
+                    
+                    <div ng-bind="showCQError" class="rsa-cancel-transaction-message">
+                    </div>
+
+                    <!-- <form name="Questionform" class="form-horizontal"> -->
+                        <div ng-if="showQuestionDiv">
+                            
+                                <div class="rsa-margin-top">
+                                    <label ng-bind="challengeQuestions" class="rsa-bold-font"></label>
+                                    <input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer"
+                                    ng-model="challengeQuestion.answer"
+                                    required="true"/>
+                                </div>
+                            
+                             
+                            <div class="rsa-text-center rsa-margin-bottom">
+                                <button class="rsa-button btn btn-primary primary-btn-btn primary-btn-ft"
+                                    type="submit" name="verifyAnswers"
+                                    ng-click="verifyCQAnswer()"
+                                    ng-disabled="!(challengeQuestion.answer)"
+                                    lp-i18n="Submit Answer">  
+                                </button>
+                            </div>
+                        </div>
+
+                        <div ng-show="showWrongAnswerMessage" class="rsa-button" >
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="tryAgain"
+                                ng-click="fetchCQ()">Try Again</button>
+                        </div>
+
+                    <!-- </form> -->
+                </div>
+
+        <!-- RSA changes by Xebia ends -->
+
+			<div ng-hide="hideCombineFlag" class="otpques-div">
+				<h4>
+					<div class="text-success sucessOTP text-center" ng-show="success.happened">
+						<div class="img_padding"><img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+							<img ng-src="{{tick}}"/></div>
+						{{success.msg }}
+					</div>
+				</h4>
+				<form name="mainform" class="newuserregistration-form-horizontal form-horizontal newuserregistration-otp-align">
+					<div>
+						<div lp-field="lp-field" label="Mobile_Label" tip="" class="otp-lp-field rsaOtpAlignment">
+							<div>
+								<input class="newuserregistration-form-control newuserregistration-otp-input inputfontstyle" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true"/>
+							</div>
+						</div>
+						<input style="display:none" type="text" name="fakeusernameremembered"/>
+						<input style="display:none" type="password" name="fakepasswordremembered"/>
+						<div lp-field="lp-field" label="OTP_Label" class="otp-lp-field otp-lp-field-last" tip="{{'Tip_OTP'|translate}}" class="rsaOtpAlignment">
+							<div>
+								<input class="newuserregistration-form-control newuserregistration-otp-input inputfontstyle otpcolor" type="tel" name="otp" autocomplete="off" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="controlPass.otpValue" required="true" style="-webkit-text-security:disc"/>
+								<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+								<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+								<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+								<small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+							</div>
+						</div>
+						<div class="otp-lp-field otp-lp-field-last">
+							<div ng-if="showQuestionDiv" style="padding-left:6.2%">
+								<div ng-repeat="question in challengeQuestions" style="margin-top:20px">
+									<label style="width:90%">{{question.questionText}} </label>
+									<input class="newuserregistration-form-control newuserregistration-otp-input inputfontstyle" type="text" name="answer" autocomplete="off" placeholder="Enter answer" ng-model="challengeQuesAnswers[$index].answer" required="true" ng-disabled="isChallengeDisabled"/>
+									<input type="hidden" ng-value="question.questionId" ng-model="challengeQuesAnswers[$index].question" />
+								</div>
+							</div>
+						</div>
+						<div class="borderTop"></div>
+						<div class="confirmdiv otpmargin">
+							<!-- handling for recharge otp changes minor release 2.0-->
+							<button class="btn btn-primary secondary-btn-btn ng-binding confirmbutton" type="submit" name="verifyAnswers_otp"  ng-disabled="lockFieldsOTP"  ng-click="mainform.submitted=true; initiateTransaction(mainform.$valid, credentialType); submitfunction()"> SUBMIT </button>
+							<button class="btn btn-primary primary-btn-btn ng-binding confirmbutton" type="button" name="resendOTP" ng-disabled="stop"  ng-click="generateOTP('resend'); resendfunction()">{{'btn_ResendOTP'|translate}}</button>
+							<!--	<button class="btn btn-primary secondary-btn-btn ng-binding confirmbutton" type="submit" name="verifyAnswers_otp" ng-click="mainform.submitted=true; initiateTransaction(mainform.$valid, credentialType)"> SUBMIT </button>
+                                <button class="btn btn-primary primary-btn-btn ng-binding confirmbutton" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>-->
+						</div>
+					</div>
+				</form>
+			</div>
+			<div ng-hide="hideOTPFlag" class="otv-div">
+				<h4>
+					<div class="text-success sucessOTP text-center" ng-show="success.happened">
+						<div class="img_padding"><img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+							<img ng-src="{{tick}}"/></div>
+						{{success.msg }}
+					</div>
+					<div class="text-danger text-center" ng-show="error.happened">
+						<div class="text-center">{{ error.msg }}</div></div>
+				</h4>
+				<form name="OTPform" class="newuserregistration-form-horizontal form-horizontal newuserregistration-otp-align">
+					<div lp-field="lp-field" class="otpmargin" label="Mobile Number" tip="">
+						<div>
+							<input class="newuserregistration-form-control newuserregistration-otp-input inputfontstyle" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+						</div>
+					</div>
+					<input style="display:none" type="text" name="fakeusernameremembered"/>
+					<input style="display:none" type="password" name="fakepasswordremembered"/>
+					<div lp-field="lp-field" label="OTP" tip="{{'Tip_OTP'|translate}}">
+						<div>
+							<input class="newuserregistration-form-control newuserregistration-otp-input inputfontstyle otpcolor" type="tel" name="otp" autocomplete="off" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="controlPass.otpValue" required="true" style="-webkit-text-security:disc"/>
+							<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">
+								{{'Error_Required_OTP'|translate}}
+							</small>
+							<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">
+								{{'Error_Invalid_Length_OTP'|translate}}
+							</small>
+							<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">
+								{{'Error_Invalid_Length_OTP'|translate}}
+							</small>
+							<small class="text-danger" ng-show="OTPform.otp.$error.pattern">
+								{{'Error_Invalid_OTP'|translate}}
+							</small>
+						</div>
+					</div>
+					<div class="borderTop"></div>
+					<div class="confirmdiv otpmargin" ng-hide="confirmform">
+						<!-- handling for recharge otp changes minor release 2.0-->
+						<button class="btn btn-primary secondary-btn-btn ng-binding confirmbutton" type="submit" name="verifyOTP" id="verifyOTP-btn-recharge" ng-disabled="lockFieldsOTP" ng-click="OTPform.submitted=true; initiateTransaction(OTPform.$valid, 'OTP'); submitfunction()">SUBMIT</button>
+						<button class="btn btn-primary primary-btn-btn ng-binding confirmbutton" type="button" name="resendOTP"  ng-disabled="stop" ng-click="generateOTP('resend'); resendfunction()">RESEND</button>
+						<!--<button class="btn btn-primary secondary-btn-btn ng-binding confirmbutton" type="submit" id="verifyOTP-btn-recharge" name="verifyOTP" ng-disabled="cancelTransaction" ng-click="OTPform.submitted=true; initiateTransaction(OTPform.$valid, credentialType)">SUBMIT</button>
+						<button class="btn btn-primary primary-btn-btn ng-binding confirmbutton" type="button" name="resendOTP" ng-disabled="cancelTransaction" ng-click="readSMS('resend')">RESEND</button>-->
+					</div>
+				</form>
+			</div>
+		</div>
+	</div></div>
+</div>

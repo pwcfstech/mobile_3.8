@@ -1,0 +1,450 @@
+<div class="ng-cloak"
+   ng-controller="LimitFungibilityController as limitMgmtCtrl">
+<!-- Loading indicator -->
+<div ng-if="limitMgmtCtrl.errorSpin">
+   <!--<error-spin></error-spin>-->
+   <div class="panel-message loading-panel" role="alert" style="height:1150px; z-index:20 !important;">
+      <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+      <span class="sr-only">Busy</span>
+   </div>
+</div>
+    <br>
+   <div class="text-danger" ng-show="limitMgmtCtrl.cardEnquiryErr.happened"
+        style="text-align: center;padding:1em;" ng-bind="limitMgmtCtrl.cardEnquiryErr.msg"></div>
+<!--  Alerts -->
+<div class="lp-alerts">
+   <div alert="alert" ng-repeat="alert in limitMgmtCtrl.alerts"
+      type="alert.type" close="closeAlert($index)"
+      ng-bind="limitMgmtCtrl.alert.msg"></div>
+   <!--<div class="text-danger" ng-show="limitMgmtCtrl.cardEnquiryErr.happened"
+      style="text-align: center" ng-bind="limitMgmtCtrl.cardEnquiryErr.msg"></div>-->
+</div>
+<div ng-hide="limitMgmtCtrl.serviceError" id="bodyDiv" style="display:none;">
+   <div class="lp-widget-content">
+      <!--  Body Content -->
+      <div ng-show="limitMgmtCtrl.limitFormFlag && !limitMgmtCtrl.successPage" id="limitForm">
+         <form novalidate="" class="form-horizontal" role="form"
+            name="limitmanagementForm" id="limitmanagementForm">
+            <!-- Start debit card slider -->
+            <div class="container-Card">
+               <div class="row">
+                  <div id="u290" class="ax_image">
+                     <a
+                        ng-click="(limitMgmtCtrl.leftArrowLock) && limitMgmtCtrl.switchcard('left');"
+                        ng-style="{ opacity: { true: 1, false: 0.2 }[limitMgmtCtrl.leftArrowLock == true] }" style="padding:60px 0px">
+                     <img id="u290_img" class="img1"  ng-src="{{arrowImagePath}}">
+                     </a>
+                     <!-- Unnamed () -->
+                     <div id="u291" class="text"
+                        style="top: 13px; transform-origin: 11px 0px 0px;">
+                        <p>
+                           <span></span>
+                        </p>
+                     </div>
+                  </div>
+                  <div id="u41" class="ax_shape">
+                     <!-- Unnamed () -->
+                     <div id="u42" class="text card-mob">
+                        <div class="row">
+                           <!-- <div class="col-md-12 col-sm-12 col-lg-12 pull-left">Card No.</div>
+                              <div class="col-md-12 col-sm-12 col-lg-12 pull-left"><span>{{limitMgmtCtrl.debitCardNum}}</span></div>
+                              <div class="col-md-12 col-sm-12 col-lg-12 pull-left"><span>Account No. : {{limitMgmtCtrl.cardAccntNum}}</span>
+                              </div>-->
+                           <div class="col-md-12 col-sm-12 col-lg-12 pull-left width"><span class="smallTextt">{{limitMgmtCtrl.cardName}}</span></div>
+                           <div class="col-md-12 col-sm-12 col-lg-12 pull-left cardName"><span class="cardNFonts">{{limitMgmtCtrl.debitCardNum}}</span></div>
+                           <div class="col-md-12 col-sm-12 col-lg-12 pull-left"><span class="smallText">VALID TRHU</span></div>
+                           <div class="col-md-12 col-sm-12 col-lg-12 pull-left"><span class="dateText">&shy;{{limitMgmtCtrl.expryDt | date:'MM/yy'}}&shy;</span></div>
+                           <div class="col-md-12 col-sm-12 col-lg-12 pull-left cardName"><span class="dateText">{{limitMgmtCtrl.cstmrNm}}</span></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="u292" class="ax_image">
+                     <a
+                        ng-click="(limitMgmtCtrl.rightArrowLock) && limitMgmtCtrl.switchcard('right');"
+                        ng-style="{ opacity: { true: 1, false: 0.2 }[limitMgmtCtrl.rightArrowLock == true] }" style="padding:60px 0px">
+                     <img id="u292_img" class="img1"
+                        ng-src="{{arrowImagePath}}">
+                     </a>
+                     <!-- Unnamed () -->
+                     <div id="u293" class="text"
+                        style="top: 13px; transform-origin: 11px 0px 0px;">
+                        <p>
+                           <span></span>
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- End debit card slider -->
+            <div class="backgroundColor">
+               <div class="switchContainer" ng-show="limitMgmtCtrl.showSwitch">
+                  <div class="switch switchFloat">
+                     <switch id="enabled1" name="enabled" ng-model="limitMgmtCtrl.IntOnOff" class="green switchAlignment" ng-change="enableOrDisableIntSlider()"></switch>
+                  </div>
+                  <div class="switchText">
+                     <label style="padding-top:5px;" class="Switchlabel" ng-if="!limitMgmtCtrl.IntOnOff">International Usage Off</label>
+                     <label style="padding-top:5px;" class="Switchlabel" ng-if="limitMgmtCtrl.IntOnOff">International Usage On</label>
+                  </div>
+               </div>
+            </div>
+            <div class="panel-body">
+               <div class="container">
+                  <div class="lmt-NoteDiv atmNote">
+                     <p>{{'Exceed_limit_Msg'|translate}}</p>
+                  </div>
+                  <div  class="lmt-NoteDiv purchaseNote">
+                     <p>{{'Exceed_limit_Msg'|translate}}</p>
+                  </div>
+                  <div ng-show="limitMgmtCtrl.AtmLimitNote || limitMgmtCtrl.prchaseLimitNote" class="lmt-NoteDiv">
+                     <p>{{'Limit_Management_Flg_Off_Note'|translate}}</p>
+                  </div>
+               </div>
+            </div>
+            <!--New Tab Implementaion-->
+            <div class="flow">
+               <ul id="tabs">
+                  <li id="MyElement" class="firstChild" ng-click="limitMgmtCtrl.atmWidrwlTabActive();">
+                     <a href="javascript:void(0)" name="#tab1" data-toggle="tab" class="custome-tab lineAlignment">
+                     <img id="u95_img" class="img1" ng-src="{{atmImagePath}}"><span class="review-text-bold">ATM&nbsp;Withdrawal</span>
+                     </a>
+                  </li>
+                  <li class="secondChild selectedLi" id="MyElement1" ng-click="limitMgmtCtrl.purchseTabActive();">
+                     <a href="javascript:void(0)" name="#tab2" data-toggle="tab" class="custome-tab lineAlignment">
+                     <img id="u95_img2" class="img1 secondImg" ng-src="{{purchaseImagePath}}">
+                     <span class="review-text-bold">Purchase</span>
+                     </a>
+                  </li>
+                  <li class="pull-right" ng-show="limitMgmtCtrl.showSwitch"></li>
+                  <div modal-dialog="" show="limitMgmtCtrl.modalSwitchChange"
+                     closable="false" style="min-height: 482px;">
+                     <div data-ng-include="limitMgmtCtrl.templates.switchConfirmTemplate"
+                        style="min-height: auto !important"></div>
+                  </div>
+               </ul>
+               <div id="content">
+                  <div id="tab1">
+                     <div id="atm-withdrawal" ng-show="limitMgmtCtrl.atmWidrwlTabLock"
+                        class="tab-pane fade in active panel panel-default" style="margin-top:6%;">
+                        <div class="panel-heading">
+                           <div class="atmWithd">
+                              <div>
+                                 <img id="u95_img3"
+                                    ng-src="{{atmImagePath}}">
+                              </div>
+                              <div class="review-text-bold bold">
+                                 ATM WITHDRAWAL
+                                 <p> <small style="color: #9b9b9b;">Max. Limit <span lp-amount="maxATMLimit"></span></small></p>
+                              </div>
+                           </div>
+                           <div class="pieChart">
+                              <pie-chart data="data" options="options" style="font-family:gotham-medium; color:#4a4a4a; font-size:12px"></pie-chart>
+                              <small class="smallPieText" style="font-family:gotham-medium; color:#4a4a4a; font-size:11px;">Limit used</small>
+                              <div style="clear:both"></div>
+                           </div>
+                        </div>
+                        <div class="panel-body" style="padding:0;">
+                           <div class="container" style="padding:0;">
+                              <!--	<div class="lmt-NoteDiv atmNote">
+                                 <p>{{'Exceed_limit_Msg'|translate}}</p>
+                                 </div>	
+                                 
+                                 
+                                 <div ng-show="limitMgmtCtrl.AtmLimitNote" class="lmt-NoteDiv">
+                                 <ul>
+                                 	<li>{{'Limit_Management_Flg_Off_Note'|translate}}</li>
+                                 </ul>
+                                 </div>-->
+                              <div class="row domestic-bg" style="font-weight:normal;padding:0%;">
+                                 <div class="col-sm-12 col-lg-12 col-xs-12"  style="margin-top: 4%;">
+                                    <div class="row remove-row">
+                                       <div class="col-sm-6 col-xs-6 domestic-txt">Domestic Limit:</div>
+                                       <div class="col-sm-1 col-xs-1" style="left:55%; top:5px;"><span class="rupee-symbol-span"></span></div>
+                                       <div class="col-sm-4 col-xs-4" style="float:right;"><input type="number" id="txtAtmD" class="idfc-form-control idfc-input-slider-textbox" ng-model="limitMgmtCtrl.getAtmD" ng-blur="keydownevt_domestic()"/></div><!--ng-change="limitMgmtCtrl.updateSliderValue('atmSliderD','getAtmD');"-->
+                                    </div>
+                                    <br/>
+                                    <div class="row remove-row" id="atmSliderD">
+                                       <!-- <div class="col-md-2" id="getAtmD"  ></div> -->
+                                    </div>
+                                    <div class="row remove-row" ng-show="limitMgmtCtrl.showSwitch">
+                                       <div class="col-sm-6 col-xs-6 domestic-txt">International Limit:</div>
+                                       <div class="col-sm-1 col-xs-1" style="left:55%; top:5px;"><span class="rupee-symbol-span"></span></div>
+                                       <div class="col-sm-4 col-xs-4" style="float:right;"><input type="number" id="txtAtmI" class="idfc-form-control idfc-input-slider-textbox" ng-model="limitMgmtCtrl.getAtmI" ng-blur="keydownevt_international()"/></div> <!--ng-change="limitMgmtCtrl.updateSliderValue('atmSliderI','getAtmI');"-->
+                                    </div>
+                                    <br/>
+                                    <div class="row remove-row" id="atmSliderI">
+                                       <!-- <div class="col-md-2" id="getAtmD"  ></div> -->
+                                    </div>
+                                    <small class="label-limit-multiples-hundred">Limit would be accepted only in multiples of hundred.</small>
+                                 </div>
+                                 <!-- <div class="col-lg-2">
+                                    <div id="dbtcwLimitMeter" class="rslider"></div>
+                                    	<div id ="atmMaxLimit" class="atm-tot-limit" style="margin-left:5px; margin-top: 20px;"></div>
+                                    <div style="clear:both"></div>
+                                    </div> -->
+                                 <!-- <div class="col-lg-2">
+                                    <pie-chart data="data" options="options"></pie-chart>
+                                    <div style="clear:both"></div>
+                                    </div>-->
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="tab2">
+                     <div id="purchase" class="panel panel-default"
+                        ng-show="limitMgmtCtrl.purchseTabLock"
+                        class="tab-pane fade  panel panel-default" style="margin-top:6%;">
+                        <div class="panel-heading">
+                           <!--  <img id="u114_img2" class="img1"
+                              ng-src="purchaseImagePath">
+                              <span class="review-text-bold">Purchase</span><br>-->
+                           <div class="atmWithd">
+                              <div>
+                                 <img id="u95_img3" ng-src="{{purchaseImagePath}}">
+                              </div>
+                              <div class="review-text-bold bold">
+                                 Purchase
+                                 <p> <small style="color: #9b9b9b;">Max. Limit <span lp-amount="maxPurchaseLimit"></span></small></p>
+                              </div>
+                           </div>
+                           <div class="pieChart">
+                              <pie-chart data="data1" options="options1"></pie-chart>
+                              <small class="smallPieText">Limit used</small>
+                              <div style="clear:both"></div>
+                           </div>
+                        </div>
+                        <div class="panel-body" tabindex="0" style="padding:0;">
+                           <div class="container" style="padding:0;">
+                              <!--	<div  class="lmt-NoteDiv purchaseNote">
+                                 <p>{{'Exceed_limit_Msg'|translate}}</p>
+                                 </div>
+
+                                 	<div ng-show="limitMgmtCtrl.prchaseLimitNote" class="lmt-NoteDiv">
+                                 <ul>
+                                 <li>{{'Limit_Management_Flg_Off_Note'|translate}}</li>
+                                 </ul>
+                                 </div>-->
+                              <div class="row domestic-bg" style="font-weight:normal;padding:0%;">
+                                 <div class="col-sm-12 col-lg-12 col-xs-12 " style="margin-top: 4%;">
+                                    <div class="row remove-row">
+                                       <div class="col-sm-6 col-xs-6 domestic-txt">Domestic Limit:</div>
+                                       <div class="col-sm-1 col-xs-1" style="left:55%; top:5px;"><span class="rupee-symbol-span"></span></div>
+                                       <div class="col-sm-4 col-xs-4" style="float:right;"><input type="number" id="txtPrchsD" class="idfc-form-control idfc-input-slider-textbox" ng-blur="keydownevt_domesticpurchase()" ng-model="limitMgmtCtrl.getPrchsD"  /></div><!--ng-change="limitMgmtCtrl.updateSliderValue('prchsSliderD','getPrchsD');"-->
+                                    </div>
+                                    <br/>
+                                    <div class="row remove-row" id="prchsSliderD"></div>
+                                    <div class="row remove-row" ng-show="limitMgmtCtrl.showSwitch">
+                                       <div class="col-sm-6 col-xs-6  domestic-txt">International Limit:</div>
+                                       <div class="col-sm-1 col-xs-1" style="left:55%; top:5px;"><span class="rupee-symbol-span"></span></div>
+                                       <div class="col-sm-4 col-xs-4" style="float:right;"><input type="number" id="txtPrchsI" class="idfc-form-control idfc-input-slider-textbox" ng-blur="keydownevt_internationalpurchase()" ng-model="limitMgmtCtrl.getPrchsI"  /></div><!--ng-change="limitMgmtCtrl.updateSliderValue('prchsSliderI','getPrchsI');"-->
+                                    </div>
+                                    <br/>
+                                    <div class="row remove-row" id="prchsSliderI">
+                                       <!-- <div class="col-md-2" id="getPrchsI" ></div> -->
+                                    </div>
+                                    <small class="label-limit-multiples-hundred">Limit would be accepted only in multiples of hundred.</small>
+                                    <!-- <div class="col-lg-2">
+                                       <div id="dbtprchsLimitMeter" class="rslider"></div>
+                                       <div id ="prchaseMaxLimit" style="margin-left:5px; margin-top: 20px;"></div>
+                                       <div style="clear:both"></div>
+                                       </div>-->
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--New Tab Implementaion-->
+            <script>
+               
+            </script>
+            <div class="container" style="border:none;">
+               <!-- End OF Slider --->
+               <!--<div class="lmt-NoteDiv col-md-9">
+                  <h5>Note:</h5>
+                  <ol>
+                  <li><p>{{'Limit_Management_Note1'|translate}}</p></li>
+                  <li><p>{{'Limit_Management_Note2'|translate}}</p></li>
+                  </ol>
+                  </div>	-->
+               <div class="row updateLimitBtn col-md-12">
+                  <div ng-show="limitMgmtCtrl.hideOTPFlag" name="submitForm"
+                     id="submitForm" class="widget-new-footer modal-footer limitManagement-div-td-dep-ab">
+                     <button class="red"
+                        type="submit" name="submitLimit"
+                        ng-disabled="limitMgmtCtrl.canShowUpdateLimitButton" ng-click="limitmanagementForm.submitted=true;limitMgmtCtrl.updateLimitOTP()"
+                        lp-i18n="Update limit">
+                     </button>
+                  </div>
+               </div>
+            </div>
+            </form>
+         </div>
+
+         <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: center">
+            <div ng-show="limitMgmtCtrl.successPage">
+               <h4>
+                  <div ng-show="limitMgmtCtrl.cardLimitSuccess.happened"
+                     style="text-align: center" ng-bind="limitMgmtCtrl.cardLimitSuccess.msg"></div>
+                  <div class="text-danger" ng-show="limitMgmtCtrl.dcmsAndCrmError.happened"
+                     style="text-align: center" ng-bind="limitMgmtCtrl.dcmsAndCrmError.msg"></div>
+               </h4>
+               <button class="red" type="button" ng-click="limitMgmtCtrl.refreshPage();" name="okBtn" lp-i18n="Ok"></button>
+            </div>
+         </div>
+         <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: center">
+            <div ng-if="limitMgmtCtrl.updateErrorSpin">
+               <!--<error-spin></error-spin>-->
+            </div>
+
+         <!-- RSA changes by Xebia starts -->
+         <div ng-show="limitMgmtCtrl.cqFlaglmt">
+
+            <div ng-show="limitMgmtCtrl.showDenyMessage">
+               <div class="rsa-deny-message">
+                  {{limitMgmtCtrl.cqObject.RSA_DENY_MESSAGE}}   
+               </div>
+            </div>
+
+            <div ng-show="limitMgmtCtrl.showCancelTransactionMessage">
+               <div class="rsa-cancel-transaction-message">
+                     {{limitMgmtCtrl.cqObject.CANCEL_TRANSACTION}}  
+               </div>
+               <div class="rsa-button">
+                     <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                        class="rsa-margin-top" type="submit" name="No"
+                        ng-click="limitMgmtCtrl.cancelRSATransaction()">Okay</button>
+               </div>
+            </div>
+
+            <div ng-show="limitMgmtCtrl.showSetupCQMessage">
+               <p>
+                  <center>{{limitMgmtCtrl.cqObject.SETUP_CQ_MESSAGE}}
+                  </center>
+               </p>
+               <div class="rsa-button">
+                     <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                        type="submit" name="Yes"
+                        ng-click="limitMgmtCtrl.showSetupCQ()">Update Now</button>
+
+                     <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                        type="submit" name="No"
+                        ng-click="limitMgmtCtrl.showSetupCQMessage = false; limitMgmtCtrl.showCancelTransactionMessage = true;">Cancel</button>
+               </div>
+            </div>
+
+            <div ng-hide="limitMgmtCtrl.hideQuesFlag" class="rsa-border-div">
+               
+               <div ng-bind="limitMgmtCtrl.showCQError" class="rsa-cancel-transaction-message">
+               </div>
+
+               <!-- <form name="Questionform" class="form-horizontal"> -->
+                  <div ng-if="limitMgmtCtrl.showQuestionDiv">
+                     
+                        <div class="rsa-margin-top">
+                           <label ng-bind="limitMgmtCtrl.challengeQuestions" class="rsa-bold-font"></label>
+                           <input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer" ng-model="limitMgmtCtrl.challengeQuestionAnswer"
+                           required="true"/>
+                        </div>
+                     
+                      
+                     <div class="rsa-text-center">
+                        <button class="btn btn-primary primary-btn-btn primary-btn-ft rsa-button"
+                           type="submit" name="verifyAnswers"
+                           ng-click="limitMgmtCtrl.verifyCQAnswer('cardLimiting')"
+                           ng-disabled="!(limitMgmtCtrl.challengeQuestionAnswer)"
+                           lp-i18n="Submit Answer">  
+                        </button>
+                     </div>
+                  </div>
+
+                  <div ng-show="limitMgmtCtrl.showWrongAnswerMessage" class="rsa-button" >
+                     <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                        type="submit" name="tryAgain"
+                        ng-click="limitMgmtCtrl.fetchCQ('cardLimiting')">Try Again</button>
+                  </div>
+
+               <!-- </form> -->
+            </div>
+         </div>   
+         <!-- RSA changes by Xebia ends -->
+
+            <div ng-hide="limitMgmtCtrl.hideOTPFlag || limitMgmtCtrl.successPage" class="limit-otv-div">
+               <h4>
+                  <div class="text-success"
+                     ng-show="limitMgmtCtrl.success.happened"
+                     style="text-align: center" ng-bind="limitMgmtCtrl.success.msg"></div>
+                  <div class="text-danger" ng-show="limitMgmtCtrl.error.happened"
+                     style="text-align: center" ng-bind="limitMgmtCtrl.error.msg"></div>
+               </h4>
+               <form name="OTPform" id="OTPform" class="form-horizontal otpFormMargimTop otpTipAdjust">
+                  <div class="idfc-mainDiv-center">
+                     <div lp-field="lp-field" label="Mobile Number"
+                        class="idfc-form-label idfc-form-otp-label">
+                        <div>
+                           <input class="idfc-form-control idfc-input-otp" type="text"
+                              name="OTPMobile" ng-model="limitMgmtCtrl.customerMobMasked"
+                              ng-disabled="true" disabled style="cursor: not-allowed;background-color: #eeeeee;opacity: 1;"/>
+                        </div>
+                     </div>
+                     <input style="display: none" type="text"
+                        name="fakeusernameremembered" /> <input style="display: none"
+                        type="password" name="fakepasswordremembered" />
+                     <div lp-field="lp-field" label="OTP"
+                        tip="Please enter the 6 digit OTP we sent to your registered mobile number"
+                        class="idfc-form-label idfc-form-otp-label">
+                        <div>
+                           <input class="idfc-form-control idfc-input-otp" type="tel" name="otp" autocomplete="off" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="limitMgmtCtrl.otpValue" style="-webkit-text-security:disc" required="true"/>
+                           <!---->
+                           <!---->
+                           <!--<input class="idfc-form-control idfc-input-otp"-->
+                           <!--type="password" name="otp"-->
+                           <!--ng-disabled="limitMgmtCtrl.lockFieldsOTP || limitMgmtCtrl.vrfyBtnLock" autocomplete="off"-->
+                           <!--ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"-->
+                           <!--ng-model="limitMgmtCtrl.otpValue" required="true" />				-->
+                           <!---->
+                           <!---->
+                           <!---->
+                           <small class="text-danger limitchng_otperr_margin ng-binding ng-hide" style="width:38%;" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">OTP is required</small>
+                           <small class="text-danger ng-binding" style="width:38%;margin-right: 31%;" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">Please enter 6 digit valid value</small>
+                           <small class="text-danger ng-binding ng-hide" style="width:38%;margin-right: 31%;" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">Please enter 6 digit valid value</small>
+                           <small class="text-danger ng-binding ng-hide" style="width:38%;margin-right: 45%;" ng-show="OTPform.otp.$error.pattern">Please enter a valid OTP</small>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="btnmargin_right">
+                     <div >
+                        <button class="red"
+                           type="submit" name="verifyOTP" id="verify-btn-updateLimit"
+                           ng-disabled="limitMgmtCtrl.lockFieldsOTP || limitMgmtCtrl.vrfyBtnLock"
+                           ng-click="OTPform.submitted=true;  limitMgmtCtrl.updateCardLimit(OTPform.$valid,'OTP');limitMgmtCtrl.otpSbmtFncn();"
+                           style="float: right;" lp-i18n="Verify"></button>
+                     </div>
+                     <div>
+                        <button type="button"
+                           class="btn-whitePop"
+                           ng-click="limitMgmtCtrl.backOnScreen()" style="float: right;"
+                           lp-i18n="Back"></button>
+                     </div>
+                     <div>
+                        <button class="btn-whitePop"
+                           ng-disabled="limitMgmtCtrl.lockFieldsOTP || limitMgmtCtrl.resendBtnLock"
+                           type="button" name="resendOTP"
+                           ng-click="limitMgmtCtrl.otpResendFnctn();"
+                           style="float: right; margin-bottom:5%" lp-i18n="Resend OTP"></button>
+                        <!--removed to address issue 5561-->
+                        <!--<button class="btn-whitePop"-->
+                        <!--ng-disabled="limitMgmtCtrl.lockFieldsOTP || limitMgmtCtrl.resendBtnLock"-->
+                        <!--type="button" name="resendOTP"-->
+                        <!--ng-click="limitMgmtCtrl.generateOTP('resend','modalHide');limitMgmtCtrl.otpResendFnctn();"-->
+                        <!--style="float: right;" lp-i18n="Resend OTP"></button>-->
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

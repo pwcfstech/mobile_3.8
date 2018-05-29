@@ -1,0 +1,2 @@
+include ':app', ':backbase-3.3.2.1', ':collection-sdk-3.8.0'
+//project (':backbase.sdk').projectDir = new File('../android-sdk/backbase.sdk')

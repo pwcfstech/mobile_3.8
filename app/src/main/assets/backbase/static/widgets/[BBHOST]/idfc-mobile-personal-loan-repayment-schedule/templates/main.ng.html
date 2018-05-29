@@ -1,0 +1,22 @@
+<div ng-controller="PLRepaymentScheduleCtrl as plRsCtrl">
+	
+	<div ng-if="plRsCtrl.errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span
+				class="sr-only">Busy</span>
+		</div>
+	</div>
+
+	<div class="container">
+	
+		<div ng-include="plRsCtrl.templates.header"></div>		
+		
+		
+		<div ng-include="plRsCtrl.templates.details"></div>		
+		
+		
+		<div ng-include="plRsCtrl.templates.footer"></div>		
+		
+	</div>
+	
+</div> 

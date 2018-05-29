@@ -1,0 +1,1211 @@
+@media only screen and (max-device-width:240px) {
+    input {
+        height: 35px!important
+    }
+    .btn-primary {
+        height: 35px!important;
+        line-height: 16px!important
+    }
+    .pull-left-custom {
+        height: 14px!important
+    }
+    .label_status {
+        height: 15px!important
+    }
+    .pull-right-account {
+        height: 23px!important;
+        font-size: 18px!important;
+        line-height: 19px!important
+    }
+    .pull-accbal {
+        height: 20px!important;
+        font-family: gotham_book
+    }
+    .pratz-pull-accbal {
+        font-size: 18px!important;
+        line-height: 19px!important
+    }
+    .accTab1 {
+        height: 95px!important
+    }
+    .pratz-li-from-dt {
+        font-size: 9px!important;
+        line-height: 11px!important;
+        height: 13px!important
+    }
+    .pratz-li-from-inbox {
+        height: 26px!important
+    }
+    .pratz-main-content-trans,
+    pratz-main-content-trans>div>div {
+        padding-top: 11px!important;
+        font-size: 8px!important;
+        line-height: 13px!important
+    }
+    .pratz-main-content-trans>div>div {
+        font-size: 8px!important
+    }
+    .OnlyHeight {
+        height: 26px!important
+    }
+    .deposit {
+        width: 29px;
+        height: 36px;
+        margin-right: 8px
+    }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+    input {
+        height: 35px!important
+    }
+    .btn-primary {
+        height: 35px!important;
+        line-height: 16px!important
+    }
+    .pull-left-custom {
+        height: 19px!important
+    }
+    .label_status {
+        height: 20px!important
+    }
+    .pull-right-account {
+        height: 30px!important;
+        font-size: 24px!important;
+        line-height: 25px!important
+    }
+    .pull-accbal {
+        height: 27px!important
+    }
+    .pratz-pull-accbal {
+        font-size: 24px!important;
+        line-height: 25px!important
+    }
+    .accTab1 {
+        height: 127px!important
+    }
+    .pratz-li-from-dt {
+        font-size: 12px!important;
+        line-height: 15px!important;
+        height: 17px!important;
+        color: #4a4a4a!important;
+        font-family: gotham_medium!important
+    }
+    .pratz-li-from-inbox {
+        height: 35px!important
+    }
+    .pratz-main-content-trans {
+        padding-top: 15px!important;
+        font-size: 10px!important;
+        line-height: 17px!important
+    }
+    .pratz-main-content-trans>div>div {
+        font-size: 12px!important
+    }
+    .OnlyHeight {
+        height: 35px!important
+    }
+    .deposit {
+        width: 38px;
+        height: 48px;
+        margin-right: 10px
+    }
+}
+
+.acclab {
+    padding-top: 1%!important
+}
+
+.pull-left-custom {
+    font-family: gotham_book!important;
+    font-size: 100%!important;
+    height: 17px!important;
+    margin-left: 4.3%!important;
+    margin-top: 3%!important;
+    width: 44%!important
+}
+
+.labelAcc {
+    color: #4a4a4a!important;
+    font-size: 11px!important;
+    font-family: gotham_book!important
+}
+
+.acctTab1 {
+    margin-top: 31.25%;
+    width: 100%;
+    height: 127px;
+    color: #eaeaea
+}
+
+.pull-accbal {
+    color: #aeaeae;
+    size: 3.75%;
+    height: 27px;
+    margin-left: 5%!important;
+    margin-top: 18%!important;
+    font-family: gotham_book
+}
+
+.pratz-pull-accbal {
+    color: #000;
+    size: 3.75%;
+    height: 27px;
+    margin-top: 15%!important;
+    font-family: Gotham_Light!important;
+    width: 400%
+}
+
+.pratz-main-content-trans {
+    text-overflow: wrap!important
+}
+
+.label_status {
+    color: #fff;
+    background-color: #39ca74;
+    height: 20px;
+    width: 100%!important;
+    margin-left: 140%!important;
+    font-family: Gotham_Medium!important;
+    font-size: 100%!important;
+    border-radius: 3px;
+    font-size: 10px;
+    padding: 5% 10px
+}
+
+.label_status-green {
+    color: #fff;
+    height: 20px;
+    width: 35%;
+    margin-left: 120%!important;
+    margin-right: 4%!important;
+    font-family: Gotham_Medium!important;
+    font-size: 100%!important;
+    border-radius: 3px;
+    background-color: #39ca74;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 10px
+}
+
+.label_status-red {
+    color: #fff;
+    height: 20px;
+    width: 40%;
+    margin-left: 100%!important;
+    margin-right: 4%!important;
+    text-align: center;
+    font-family: Gotham_Medium!important;
+    font-size: 100%!important;
+    border-radius: 3px;
+    background-color: red;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 10px
+}
+
+.pull-right-account {
+    width: 95.31%;
+    height: 30px;
+    margin-left: 4.68%;
+    font-family: Gotham_Light
+}
+
+.labelTopBottom {
+    /*margin-top: %!important;
+    margin-bottom: %!important*/
+}
+
+.btn-primary {
+    width: 76.25%!important;
+    padding-top: 2.5%!important;
+    padding-bottom: 2.5%!important;
+    color: #000;
+    margin-left: 11.875%
+}
+
+input {
+    width: 76.23%!important
+}
+
+.marginTopNext {
+    /*margin-top: %!important;*/
+    text-transform: uppercase;
+    /*margin-bottom: %!important*/
+}
+
+.marginTopClear {
+    text-transform: uppercase;
+    font-family: gotham_book, Calibri!important
+}
+
+label {
+    padding-left: 15.4%!important
+}
+
+.text-center {
+    text-align: center
+}
+
+.img_padding {
+    margin-top: 6.25%
+}
+
+.labelBelowOTP {
+    margin-top: 6.56%
+}
+
+.text-danger {
+    display: block;
+    color: #d0021b!important
+}
+
+.btn-ser-pratz {
+    background-color: #fb637e!important;
+    color: #fff!important
+}
+
+.btn-clr-pratz {
+    top: 25px
+}
+
+.list-view-row:nth-child(odd) {
+    background-color: #e5e5e5
+}
+
+.list-view-row:nth-child(even) {
+    background-color: #f3f3f3
+}
+
+.pratz-arrow {
+    margin-left: 8%!important
+}
+
+.transaction-div .tabbable ul {
+    border: 0
+}
+
+@media (max-width:775px) {
+    .lp-transactions {
+        width: auto!important;
+        margin: 0 auto
+    }
+}
+
+.balance-style {
+    width: 114px
+}
+
+.desc-style {
+    font-size: 13px!important
+}
+
+.date-class {
+    margin-top: 1%
+}
+
+.wrap-style {
+    text-overflow: inherit!important;
+    overflow: visible!important;
+    word-break: break-word!important;
+    word-wrap: break-word!important;
+    white-space: pre-line!important
+}
+
+.colon-adjust-transaction {
+    margin-left: 7px!important
+}
+
+.colon-account-adjust {
+    margin-left: 12px!important
+}
+
+.top-margin {
+    margin-top: 0!important;
+    min-width: 84px;
+    float: right;
+    text-align: right;
+    line-height: 10px;
+    vertical-align: top;
+    top: -10px
+}
+
+.trans-heading-width {
+    font-weight: 700;
+    text-align: center;
+    background-color: #000!important;
+    font-size: 12px!important;
+    font-family: gotham_book!important
+}
+
+.table-heading {
+    border-spacing: 10px;
+    text-align: left;
+    width: 100%;
+    background-color: #000;
+    color: #fff
+}
+
+.lp-transactions-loading {
+    padding-left: 22px;
+    width: 220px;
+    text-align: center;
+    margin: 150px auto;
+    color: #aaa7a2;
+    line-height: 16px;
+    background: url(images/loader.gif) no-repeat left center
+}
+
+.lp-transactions {
+    background: url(images/loader.gif) no-repeat -999px -999px
+}
+
+.lp-transactions .slide-down .alert {
+    margin-left: -47px
+}
+
+.lp-transactions .search-input input {
+    border-right: 0
+}
+
+.lp-transactions .lp-transactions-date {
+    color: #777;
+    line-height: 1.2em!important
+}
+
+.lp-amount-negative,
+.lp-amount-positive {
+    white-space: nowrap
+}
+
+.lp-transactions .lp-small-size .show-charts .tab-content,
+.lp-transactions .lp-small-size .show-charts .tabbable .nav,
+.lp-transactions .lp-small-size .show-categories .tab-content,
+.lp-transactions .lp-small-size .show-categories .tabbable .nav {
+    float: none;
+    width: 100%;
+    display: block
+}
+
+.lp-transactions .lp-small-size .show-charts .tab-content {
+    margin-left: 0;
+    padding-left: 0
+}
+
+.lp-transactions .lp-small-size .show-charts .tabbable .nav li,
+.lp-transactions .lp-small-size .show-categories .tabbable .nav li {
+    float: left;
+    text-align: center;
+    width: 50%
+}
+
+.lp-transactions .lp-small-size .tabbable .nav {
+    display: none
+}
+
+.lp-transactions .show-charts .tabbable .nav.nav-tabs {
+    margin-top: 0
+}
+
+.lp-transactions .show-charts .tabbable .nav.nav-tabs a {
+    padding: 12px;
+    width: 100%
+}
+
+.lp-transactions .tabbable .nav {
+    width: 45px
+}
+
+.lp-transactions .tab-content {
+    width: 100%;
+    padding-left: 17px
+}
+
+.lp-transactions .tab-pane {
+    width: 100%
+}
+
+.lp-transactions .tabbable {
+    letter-spacing: -.31em;
+    text-rendering: optimizespeed;
+    display: -webkit-flex;
+    -webkit-flex-flow: row wrap;
+    display: -ms-flexbox;
+    -ms-flex-flow: row wrap
+}
+
+.lp-transactions .tabbable .nav,
+.lp-transactions .tabbable .tab-content {
+    float: left;
+    display: inline-block;
+    zoom: 1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    text-rendering: auto
+}
+
+.lp-transactions .show-charts .lp-transactions-combined .slide-down.selected {
+    padding: 10px
+}
+
+.lp-transactions .show-charts .lp-transactions-combined .slide-down.selected [class*="col-xs"] {
+    float: left;
+    width: 100%;
+    padding: 0
+}
+
+.chart-horizontal:last-child {
+    border-left: 1px #eee solid
+}
+
+.lp-transactions .transaction-details .tabbable .nav.nav-tabs {
+    width: 100%;
+    margin: 10px 0
+}
+
+.lp-transactions .transaction-details .tabbable .nav li {
+    width: auto!important
+}
+
+.lp-transactions .transaction-details .tabbable .nav li.active {
+    background-color: transparent;
+    border-bottom: 1px solid #f2f2f2
+}
+
+.lp-transactions .transaction-details .tabbable .nav.nav-tabs a {
+    margin: 0!important;
+    padding: 5px 10px;
+    font-size: 16px
+}
+
+.lp-transactions .transaction-details .tabbable .nav li.active a {
+    color: #424242!important;
+    border: 1px solid #ddd;
+    border-bottom: none
+}
+
+.lp-transactions .transaction-details .tabbable .nav li.active a:focus {
+    background-color: transparent;
+    border: none
+}
+
+.lp-transactions .transaction-details .tab-content {
+    margin: 0;
+    padding: 10px
+}
+
+.lp-transactions .category-toggle {
+    padding: 10px;
+    position: absolute
+}
+
+.lp-transactions .category-toggle .lp-icon {
+    vertical-align: middle
+}
+
+.lp-transactions .has-category-toggle {
+    padding-left: 64px
+}
+
+.lp-transactions .controls {
+    background: #f5f5f5
+}
+
+.lp-transactions .controls .btn {
+    border-radius: 0
+}
+
+.lp-transactions .sort-select {
+    width: 90px;
+    float: left
+}
+
+.lp-transactions .sort-select button.dropdown-toggle .caret {
+    display: none
+}
+
+.li-to-inbox input,
+.li-from-inbox input {
+    margin-left: 11.875%!important;
+    width: 76.25%;
+    border: 1px solid #c6cfd9!important
+}
+
+.btn-search {
+    border: none;
+    height: 35px!important;
+    border-bottom-right-radius: 100!important;
+    border-top-right-radius: 100!important;
+    width: 76.25%!important
+}
+
+.btn-radius {
+    border-bottom-right-radius: 4px!important;
+    border-top-right-radius: 4px!important;
+    border-top-left-radius: 4px!important;
+    border-bottom-left-radius: 4px!important;
+    height: 35px!important
+}
+
+.btn-filter {
+    margin-left: 11.875%;
+    color: #000;
+    font-size: 14px;
+    width: 76.25%;
+    margin-top: 10px!important;
+    border: none
+}
+
+.pull-left-custom {
+    margin-right: 12px;
+    margin-left: 15px
+}
+
+.form-control-transaction[disabled],
+.form-control-transaction[readonly],
+fieldset[disabled] .form-control-transaction {
+    cursor: pointer!important;
+    background-color: #fff!important
+}
+
+.dt-cal-icon {
+    position: relative;
+    top: 8px;
+    margin-left: -18px;
+    z-index: 10;
+    cursor: pointer
+}
+
+.form-panel {
+    margin-bottom: 9%
+}
+
+.pull-null {
+    margin-right: 8px!important;
+    min-width: 31%;
+    margin-top: 25px
+}
+
+.list-view-row.expandable .list-view-container:after {
+    content: ""!important
+}
+
+.lp-small-size .lp-datepicker {
+    left: 0!important
+}
+
+.div-clear {
+    clear: both
+}
+
+.error-alignment {
+    clear: both;
+    padding-top: 8px;
+    margin-left: 12%
+}
+
+.dropdown-alignment {
+    z-index: 1!important;
+    width: 100%
+}
+
+.trans-margin-curr {
+    word-wrap: break-word;
+    word-break: break-word;
+    min-height: 10px;
+    line-height: 16px;
+    overflow: visible!important;
+    text-overflow: inherit!important;
+    white-space: normal!important;
+    color: #777
+}
+
+.pull-trans-right {
+    float: right!important;
+    margin-right: 10px
+}
+
+.h4.active {
+    font-weight: 400!important
+}
+
+.list-view-row .list-view-container {
+    display: table!important;
+    width: 100%!important;
+    position: relative!important
+}
+
+.drop-filter {
+    padding: 0;
+    padding-top: 12px!important;
+    padding-bottom: 6px;
+    padding-right: 5px
+}
+
+.text-filter {
+    padding: 0;
+    padding-bottom: 6px;
+    padding-top: 0!important;
+    padding-left: 20%
+}
+
+.main-content-trans {
+    width: 37%
+}
+
+.date-trans-width {
+    padding-right: 10px;
+    font-size: 14px!important;
+    text-align: left
+}
+
+.deposit-details {
+    width: 34px;
+    height: 32px;
+    margin-right: 10px
+}
+
+.new-footer {
+    float: right!important;
+    cursor: pointer;
+    margin-bottom: 7px;
+    background-color: #fff!important;
+    border-top: none!important
+}
+
+.transaction-fil {
+    background-color: #fff
+}
+
+.transaction-from {
+    font-family: gotham_bold, Calibri!important;
+    font-size: 14px!important;
+    color: #333!important
+}
+
+.span-left {
+    float: left
+}
+
+.inr-font {
+    font-size: 14px!important;
+    margin-top: 2%!important
+}
+
+.message {
+    margin-left: 578px
+}
+
+.display-input {
+    display: block!important
+}
+
+.btn-color-style {
+    background-color: #eaeaea!important;
+    color: #000
+}
+
+.btn-color-style .btn-arrow-style {
+    color: #fb637e!important
+}
+
+.success-emailPdfExcel {
+    margin-left: 12px;
+    clear: both;
+    float: left;
+    color: #333
+}
+
+.trans-row-curr {
+    min-height: 50px
+}
+
+.trans-drcr-curr {
+    margin-top: 41%;
+    font-weight: 400
+}
+
+.trans-rupee-curr {
+    float: right
+}
+
+.float-right {
+    float: right
+}
+
+.float-left {
+    float: left
+}
+
+.currency-style {
+    font-size: 14px!important
+}
+
+.currency-style-amt {
+    font-size: 14px!important;
+    margin-right: 4%!important
+}
+
+.amount-style {
+    font-family: inherit;
+    font-size: 14px!important;
+    float: right
+}
+
+.top-style {
+    margin-top: 1%!important;
+    width: 14%;
+    text-align: right;
+    margin-left: 4%;
+    line-height: 10px;
+    -ms-word-break: break-all!important;
+    word-break: break-all!important;
+    word-break: break-word!important;
+    hyphens: auto!important;
+    word-wrap: break-word!important;
+    overflow: visible!important;
+    text-overflow: inherit!important;
+    white-space: normal!important
+}
+
+.button-primary {
+    color: #fff;
+    background-color: #eaeaea
+}
+
+.button-primary:focus {
+    color: #fff
+}
+
+.button-primary:hover {
+    color: #fff
+}
+
+.date_select {
+    margin-top: 4px
+}
+
+.trans-width-css {
+    width: 91%
+}
+
+.trans-date-response {
+    width: 19%;
+    margin-top: 2.56%;
+    margin-left: 4.22%;
+    font-family: 'gotham_book';
+    color: #4a4a4a
+}
+
+.transactions-list {
+    color: #4a4a4a;
+    font-family: 'gotham_book'
+}
+
+.li-from-dt,
+.li-to-dt {
+    margin-left: 11.875%!important
+}
+
+.trans-desc-width {
+    text-align: left!important
+}
+
+.category-spendings-chart {
+    margin: 40px
+}
+
+.update {
+    fill: #333
+}
+
+.arc:hover,
+.arrow-group:hover {
+    cursor: pointer
+}
+
+.inner-circle {
+    fill: #F6F2F1;
+    fill-opacity: .9
+}
+
+.historical-change-group.up {
+    fill: #C3252C;
+    stroke: #C3252C
+}
+
+.historical-change-group.down {
+    fill: #009180;
+    stroke: #009180
+}
+
+.historical-change-group #arrow-head {
+    stroke: none
+}
+
+.historical-change-group #arrow-line {
+    fill: none;
+    stroke-width: 3
+}
+
+.historical-change-group .historical-change-factor {
+    font-size: 18px;
+    text-anchor: middle
+}
+
+text {
+    fill: #646158
+}
+
+text.name {
+    font-size: 20px;
+    text-anchor: middle
+}
+
+text.amount {
+    font-size: 28px;
+    font-weight: 700;
+    text-anchor: middle
+}
+
+text.total-fraction {
+    font-size: 18px;
+    text-anchor: middle
+}
+
+.txn-lp-icon {
+    font-family: 'lp-icons';
+    font-size: 14px!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    position: relative;
+    line-height: 1.2;
+    top: .03em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.lp-icon-calendar:before {
+    content: "\e636"!important
+}
+
+.marginTopNext {
+    margin-top: 19px!important;
+    text-transform: uppercase;
+    margin-bottom: 0!important;
+    font-family: gotham_book, Calibri!important
+}
+
+.marginTopClear {
+    text-transform: uppercase;
+    font-family: gotham_book, Calibri!important
+}
+
+.btn-group > .btn + .dropdown-toggle {
+    padding-left: 0!important;
+    padding-right: 0!important
+}
+
+#widget-root {
+    overflow-x: hidden
+}
+
+.dropdown-toggle:focus {
+    border: 1px solid #eaeaea!important;
+    box-shadow: 0 0 0 #eaeaea!important
+}
+
+.btn-group > .btn,
+.btn-group-vertical > .btn {
+    float: none!important
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    color: #000!important
+}
+
+.marginTop30 {
+    margin-top: 17px!important
+}
+
+.lp-account-select button.dropdown-toggle {
+    background: rgba(234, 234, 234, 0.498039);
+    padding-top: 0!important;
+    padding-bottom: 20px!important
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    color: #000!important
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    color: #000
+}
+
+.OnlyHeight {
+    height: 35px
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    color: #000!important;
+    text-decoration: none!important;
+    outline: 0!important;
+    background-color: #eaeaea!important
+}
+
+.list-view-row .column .counterparty-name {
+    white-space: normal
+}
+
+.acNo {
+    color: #4a4a4a!important;
+    font-family: gotham_book;
+    font-size: 11px
+}
+
+.acBal {
+    font-family: gotham_book!important;
+    font-size: 11px;
+    color: #aeaeae!important
+}
+
+input[type="text"] {
+    -webkit-appearance: none!important
+}
+
+.dropdown .dropdown-toggle,
+.dropdown .dropdown-toggle:active {
+    background-color: #eaeaea!important
+}
+
+.lp-transactions-date,
+.counterparty-name,
+.mob-desc-crdr-show {
+    font-family: gotham_book!important;
+    font-size: 10px;
+    color: #4a4a4a!important
+}
+
+.btn .caret {
+    background-color: transparent!important
+}
+
+table>thead>tr>th:nth-child(1)>button {
+    padding-top: 0!important
+}
+
+.lp-accounts-header .dropdown-menu {
+    display: none
+}
+
+.lp-account-select button.dropdown-toggle .caret {
+    display: none
+}
+
+.dt-cal-icon {
+    position: relative;
+    top: -25px;
+    margin-left: 80%;
+    cursor: pointer;
+    height: 16px;
+    content: url('../../../../features/[BBHOST]/theme-idfc/images/calendar.png');
+    width: 16px
+}
+
+.date-style {
+    display: inline-block;
+    font-size: 10px!important;
+    font-family: gotham_book!important
+}
+
+.dr-style {
+    display: inline-block;
+    font-size: 10px!important;
+    font-family: gotham_book!important;
+    width: 10%;
+    text-align: center
+}
+
+.date-pad {
+    padding-left: 0!important;
+    padding-right: 0!important;
+    margin-left: 4%
+}
+
+.desc-pad {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 9px!important;
+    margin-left: 0;
+    width: 41%;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.dr-pad {
+    padding-top: 15px!important
+}
+
+.amt-pad {
+    padding-top: 2px!important
+}
+
+.amt-margin {
+    margin-left: 19%
+}
+
+.list-view-row .column .centered {
+    width: 100.9%!important
+}
+
+.frmDate-ht {
+    height: 44px
+}
+
+.toDate-ht {
+    height: 28px
+}
+
+.btn-radius {
+    border-radius: 2px!important
+}
+
+.div_width {
+    width: 100%
+}
+
+.date-inline {
+    width: 25%;
+    display: inline-block;
+    font-size: 10px;
+    vertical-align: middle;
+    font-family: gotham_book
+}
+
+.amt-style {
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle
+}
+
+.th-1 {
+    width: 25%
+}
+
+.th-2 {
+    width: 41%
+}
+
+.th-3 {
+    width: 4%
+}
+
+.th-4 {
+    width: 20%
+}
+
+.cr-inline {
+    display: inline
+}
+
+.date-right {
+    float: right
+}
+
+.cr-color {
+    color: #39ca74
+}
+
+.dr-color {
+    color: red!important
+}
+
+.rupee-margin {
+    margin-left: 3%;
+    margin-right: 2%!important
+}
+
+.drop-width {
+    width: 12px;
+    height: 6px
+}
+
+.btn-drop {
+    float: right
+}
+
+.filter-drop {
+    width: 100%;
+    background-color: #eaeaea!important;
+    padding-left: 14%;
+    padding-top: 2.5%;
+    padding-bottom: 3%;
+    margin-top: 0!important
+}
+
+.RupeeSymbol {
+    color: #000;
+    font-size: 27px;
+    font-family: gotham_book;
+    font-weight: 500;
+    position: relative;
+    top: -1px
+}
+
+.rupee-symbol {
+    font-weight: 500!important;
+    font-family: gotham_book!important;
+    margin-right: 5px!important;
+    font-style: normal!important
+}
+
+/* Xebia Refactoring */
+.lp-account-select {
+    top: 0 !important;
+}
+
+.btn-primary {
+    background-color: #fb637e!important;
+}
+
+#transactions-list .list-group-item {
+    border: 0!important;
+    margin-left: 0!important;
+    margin-right: 20px!important;
+    width: 100%!important;
+}
+
+.lp-account-select button.dropdown-toggle {
+    height: 100% !important;
+}
+
+.form-control {
+    font-size: 12px!important;
+}
+
+.lp-account-select {
+    position: relative !important;
+    height: 0px !important;
+}

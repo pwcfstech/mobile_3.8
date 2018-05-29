@@ -1,0 +1,50 @@
+<div style="overflow-x: hidden;overflow-y: auto;">
+	<div class="lp-alerts" ng-show="errorDisplay">
+		<div class="alert_msg" alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><span class="img_icon"><img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+<img ng-src="{{invalid_icon}}"/></span>{{error.msg}}</div>
+	</div>
+	<div ng-show="viewBillForm">
+		<div data-ng-include="template.confirm"></div>
+	</div>
+	<div ng-show="paySuccess">
+		<div data-ng-include="template.success"></div>
+	</div>
+	<div ng-hide="viewBillForm"class="billTableForm" style="margin-bottom:20px">
+		<table class="tableHeader table-heading" ng-hide="errorDisplay">
+			<tr>
+				<th class="view-bill-th headerLeft borderColor borderStyle topBottom" style="width:33.81%">Nickname</th>
+				<th class="view-bill-th headerLeft view-bill-th-lg borderColor borderStyle topBottom" style="width:33.18%">Amount
+				</th>
+				<th class="view-bill-th view-bill-th-lg dueDtHeader borderColor borderStyle topBottom" style="width:33%">Due On
+				</th>
+			</tr>
+		</table>
+		<div>
+			<div class="" style="" ng-hide="errorDisplay">
+				<div class="" ng-repeat="billdetail in billdetailsList" style="padding-top:20pt;padding-bottom:20pt;border-bottom-width:2pt;border-bottom-style:solid;border-bottom-color:#eaeaea" ng-show="billsFound" ng-click="goToBillDetails(billdetail, billdetail.bllAmt)">
+					<table style="width:100%;font-weight:normal" class="table-heading fontSize">
+						<tr>
+							<th class="view-bill-td headerLeft fontFamily headerLeft" style="word-wrap:break-word;font-weight:normal;width:33.81%">{{billdetail.bllrShrtNm}}
+							</th>
+							<th class="view-bill-td headerLeft view-bill-td-lg headerLeft" style="word-wrap:break-word;width:33.18%;font-weight:bold;font-family:RupeeForadian"><span class="rupee-symbol-span"></span>{{billdetail.bllAmt | currency:' '}}
+							</th>
+							<th class="view-bill-td view-bill-td-lg fontFamily dtLabel" style="word-wrap:break-word;width:25%;position:relative;font-weight:normal">{{billdetail.billDueDt|date:'dd-MM-yyyy'}}
+							</th>
+							<th ng-class="billdetail.bllSts" class="view-bill-td view-bill-td-lg disp-none" style="position:relative;right:8px;font-weight:normal;padding-left:2%;display:none!important">{{billdetail.bllSts}}
+							</th>
+							<th class="rightArrow">
+								<span class="glyphicon glyphicon-menu-right"></span></th>
+						</tr>
+					</table>
+				</div>
+				<div class="list-group-item clearfix" ng-hide="billsFound">
+					<table style="width:100%;font-weight:normal" class="table-heading">
+						<tr>
+							<th class="view-heading-width" style="text-align:center;font-weight:normal">{{noBillsMsg}}</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

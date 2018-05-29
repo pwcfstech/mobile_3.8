@@ -1,0 +1,99 @@
+<div class="ng-cloak" ng-controller="LimitManagementController as limitMgmtCtrl">
+    <!-- Lxoading indicator -->
+    <div ng-if="limitMgmtCtrl.errorSpin">
+        <!-- <error-spin ></error-spin> -->
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <!--  Alerts -->
+    <div class="lp-alerts">
+        <div alert="alert" ng-repeat="alert in limitMgmtCtrl.alerts" type="alert.type" close="closeAlert($index)">
+            {{alert.msg}}
+        </div>
+    </div>
+    <div ng-hide="limitMgmtCtrl.serviceError">
+        <div class="lp-widget-content">
+            <h4>
+                <div ng-show="limitMgmtCtrl.viewLimit" style="text-align:center">
+                    <div>
+                        <span lp-i18n="Your daily limit has been updated successfully."></span>
+                    </div>
+                    <br></br>
+                    <div>
+                        <button type="submit" class="btn btn-primary limitManagement-btn-align limitManagement-primary-btn-limit primary-btn-btn idfc-next-lm" name="submitForm" ng-click="limitMgmtCtrl.backToLimitForm()" lp-i18n="View Limit"></button>
+                    </div>
+                </div>
+            </h4>
+        </div>
+        <!--  Body Content -->
+        <div ng-show="limitMgmtCtrl.limitFormFlag" id="limitForm">
+            <form novalidate="" class="form-horizontal" role="form" name="limitmanagementForm" id="limitmanagementForm">
+                <div lp-field="lp-field" class="idfcVerticalAlignLM limit-label-width limit-label-font col-xs-12" label="Daily Limit" tip="24 hour limit for all Fund Transfers and Payments" ng-class="limitMgmtCtrl.OTPFlag ? 'no-devider':'otp-devider-class'">
+                    <div>
+                        <input class="form-control limitManagement-input-width col-xs-12" type="tel" name="limit" ng-model="limitMgmtCtrl.limitmanagement.limit" ng-pattern="/^[0-9]*$/" loading="isLoading" required="true" ng-disabled="limitMgmtCtrl.lockFields" />
+                        <small class="text-danger" ng-show="limitMgmtCtrl.limitRequiredError" lp-i18n="Daily Limit is required"></small>
+                        <small class="text-danger" ng-show="limitMgmtCtrl.checkLimit" lp-i18n="That's more than you have allowed yourself to do in a single day. Please change the limit."></small>
+                        <small class="text-danger" ng-show="limitmanagementForm.limit.$error.pattern" lp-i18n="Please enter a valid amount"></small>
+                    </div>
+                </div>
+                <div ng-show="limitMgmtCtrl.buttonFlag" name="submitForm" id="submitForm" class="modal-footer limitManagement-div-td-dep-ab">
+
+                    <button class="btn btn-primary limitManagement-btn-align limitManagement-primary-btn-limit primary-btn-btn idfc-next-lm" type="submit" name="submitLimit" ng-click="limitmanagementForm.submitted=true;limitMgmtCtrl.check(limitmanagementForm)" lp-i18n="Submit"></button>
+                    <button type="submit" class="btn btn-primary limitManagement-btn-align  limitManagement-secondary-btn-limit secondary-btn-btn idfc-clear-lm" ng-click="limitmanagementForm.submitted=false;limitMgmtCtrl.clear();" lp-i18n="Clear"></button>
+
+                </div>
+            </form>
+        </div>
+        <div ng-hide="limitMgmtCtrl.OTPFlag" class="limitManagement-otp-div">
+            <div class="limitmanagement-otp-div">
+                <h4>
+                    <div class="text-success" ng-show="limitMgmtCtrl.success.happened" style="text-align:center;width: 90%;margin-bottom: 5%;margin-left: 5%;" ng-bind="limitMgmtCtrl.success.msg">
+                    </div>
+                    <div class="text-danger" ng-show="limitMgmtCtrl.error.happened" style="text-align:center" ng-bind="limitMgmtCtrl.error.msg">
+                    </div>
+                </h4>
+                <form name="OTPform" class="form-horizontal">
+                    <div lp-field="lp-field" label="Mobile Number" class="limitManagement-otp-label col-xs-12">
+                        <div>
+                            <input class="form-control limit-Mgmt-OTPMobile col-xs-12" type="text" name="OTPMobile" ng-model="limitMgmtCtrl.customerMobMasked" ng-disabled="true" style="float:left;width: 78%;margin-left: 12%;height: 35px;" />
+                        </div>
+                    </div>
+                    <input style="display:none" type="text" name="fakeusernameremembered" />
+                    <input style="display:none" type="password" name="fakepasswordremembered" />
+                    <div lp-field="lp-field" label="OTP" class="limitManagement-otp-label col-xs-12" tip="Please enter the 6 digit OTP we sent to your registered mobile number">
+                        <div>
+                            <input class="form-control col-xs-12" name="otp" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="limitMgmtCtrl.otpValue" required="true" ng-disabled="limitMgmtCtrl.lockFieldsOTP" type="tel" style="-webkit-text-security:disc; float:left;width: 78%;margin-left: 12%;height: 35px;" />
+                            <small class="text-danger" style="width:38%;" ng-show="limitMgmtCtrl.otpRequiredError" lp-i18n="OTP is required"></small>
+                            <small class="text-danger" style="width:38%;" ng-show="limitMgmtCtrl.otpMinLengthError" lp-i18n="Please enter 6 digit valid value"></small>
+                            <small class="text-danger" style="width:38%;" ng-show="limitMgmtCtrl.otpMaxLengthError" lp-i18n="Please enter 6 digit valid value"></small>
+                            <small class="text-danger" style="width:38%;" ng-show="OTPform.otp.$error.pattern" lp-i18n="Please enter a valid OTP"></small>
+                        </div>
+                    </div>
+                    <div class="limitManagement-div-td-dep-ab">
+                        <div class="limit-otp-buttons-child">
+                            <button class="btn btn-primary limitManagement-btn-align limitManagement-primary-btn-limit primary-btn-btn idfc-next-lm submit-limit-button" ng-disabled="limitMgmtCtrl.lockFieldsOTP" type="submit" name="verifyOTP" ng-click="OTPform.submitted=true;limitMgmtCtrl.submitForm(OTPform)" lp-i18n="Submit"></button>
+                            <button class="btn btn-primary limitManagement-btn-align  limitManagement-secondary-btn-limit secondary-btn-btn idfc-clear-lm ng-isolate-scope resend-limit-button" ng-disabled="limitMgmtCtrl.lockFieldsOTP" type="button" name="resendOTP" ng-click="limitMgmtCtrl.readSMS('resend')" lp-i18n="Resend OTP"></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div id="noteId" class="modal-footer limitManagement-div-td-dep-ab ft-NoteDiv" style="text-align: left;font-size: 12px !important;    font-family: gotham_book,Calibri !important;color: #aeaeae !important">
+        <h5 align="left">Note:</h5>
+
+        <ul>
+            <li style="float:left;list-style-type:disc"> <span lp-i18n="This is the 24 hour limit allowed for all Funds Transfers and Payments done using Internet Banking or Mobile App."></span></li>
+
+            <li style="float:left;list-style-type:disc" ng-bind="limitMgmtCtrl.dailyLimitMessage"></li>
+
+            <li style="float:left;list-style-type:disc"> <span lp-i18n="All the limits will be applicable for 24 hours from the time the 1st transaction has been initiated."></span></li>
+        </ul>
+
+
+    </div>
+
+</div>

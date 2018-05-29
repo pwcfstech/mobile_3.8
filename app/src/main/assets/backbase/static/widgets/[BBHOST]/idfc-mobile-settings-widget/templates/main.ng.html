@@ -1,0 +1,109 @@
+<div class="ng-cloak" lp-responsive="lp-responsive">
+	<div class="lp-widget-content panel-body">
+		<div class="lp-payment-mode-tabs">
+			<ul tabset="tabset" class="payment-mode-tab-area">
+				<li tab="tab" active="toggleTabs.newone1" ng-click="oldPwdForm.submitted=false;forms.changeAPINForm.submitted=false ;ForgotPasswordForm.submitted=false; changeTab();">
+					<span tab-heading="tab-heading" class="tab-heading maxWidth" lp-i18n="{{'Tab_ChangeAPIN'|translate}}"></span>
+					<div class="lp-alerts">
+						<div class="alert_msg" alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><span class="img_icon"><img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+<img ng-src="{{invalid_icon}}"/></span>{{alert.msg}}</div>
+					</div>
+					<div ng-show="openChangeAPIN &amp;&amp; !serviceErrorAPIN ">
+						<div data-ng-include="templates.change" class="maxWidth"></div>
+					</div>
+					<div id="debitForm" ng-if="!openChangeAPIN && !serviceErrorAPIN" class="maxWidth">
+						<div data-ng-include="templates.cardDetails" class="maxWidth"></div>
+					</div>
+				</li>
+
+
+				<li tab="tab" ng-if="isMpinLoginFlag" active="toggleTabs.newone2" ng-click="oldPwdForm.submitted=false ;forms.changeAPINForm.submitted=false ;ForgotPasswordForm.submitted=false;OTPform.submitted=false; changeTab();">
+                   <span  tab-heading="tab-heading" class="tab-heading maxWidth">Change Password/MPIN</span>
+                    <div class="lp-alerts maxWidth">
+						<div class="alert_msg_changePassword" alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><span class="img_icon_changePassword"><img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+                            <img ng-src="{{invalid_icon}}"/></span>{{alert.msg}}
+						</div>
+					</div>
+					<div ng-if="!showPassSuccess && !serviceError" class="maxWidth alignPass">
+						<div id="changePasswordForm" class="maxWidth">
+							<div data-ng-include="templates.changePass"></div>
+						</div>
+					</div>
+					<div class="maxWidth alignPass">
+						<div data-ng-include="templates.forgotPassword"></div>
+					</div>
+				</li>
+
+                <li tab="tab" ng-if="!isMpinLoginFlag" active="toggleTabs.newone3" ng-click="oldPwdForm.submitted=false ;forms.changeAPINForm.submitted=false ;ForgotPasswordForm.submitted=false;OTPform.submitted=false; changeTab();">
+                    <span tab-heading="tab-heading" class="tab-heading maxWidth">Change Password</span>
+                    <div class="lp-alerts maxWidth">
+                        <div class="alert_msg_changePassword" alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><span class="img_icon_changePassword"><img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+                            <img ng-src="{{invalid_icon}}"/></span>{{alert.msg}}
+                        </div>
+                    </div>
+                    <div ng-if="!showPassSuccess && !serviceError" class="maxWidth alignPass">
+                        <div id="changePasswordForm1" class="maxWidth">
+                            <div data-ng-include="templates.changePass"></div>
+                        </div>
+                    </div>
+                    <div ng-if="ShowForgotPasswordForm" class="maxWidth alignPass">
+                        <div data-ng-include="templates.forgotPassword"></div>
+                    </div>
+                </li>
+				<!--<button type=button class="btn btn-sm btn-primary settings-btn-clear secondary-btn-setting secondary-btn-btn settingBtn btnGrey" ng-click=changeMpin()>Change mpin</button>
+				<img ng-src="{{changempinImagePath}}" alt="" data-ng-click="changeMpin()"/>-->
+
+				<li tab="tab" active="toggleTabs.newone3" ng-if="emudraEnabled" ng-click="oldPwdForm.submitted=false;forms.changeAPINForm.submitted=false ;ForgotPasswordForm.submitted=false;OTPform.submitted=false;OTPform.submitted=false; changeTab();">
+					<center> <span tab-heading="tab-heading" class="tab-heading" lp-i18n="Emudra"></span></center>
+					<div class="lp-alerts">
+						<div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}
+						</div>
+					</div>
+					<div class="col-xs-10 col-sm-5 col-md-6 col-lg-7" id="accordion" style="width:546px">
+						<div ng-if="!emudhraFlag && !serviceError">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6">{{'Emudra_Register'|translate}}</a>
+									</h4>
+								</div>
+								<div id="collapse6" class="panel-collapse collapse">
+									<div class="panel-body" style="color:#f3a036">
+										<div style="border:solid">
+											<div class="panel-body">
+												<h5 align="center"><b>{{'Emudra_Heading'|translate}}</b></h5>
+												<br/><br/>
+												<div class="settings-class1">{{'Emudra_Name'|translate}}</div>
+												<div class="settings-class2">{{name}}</div>
+												<div class="settings-class3"></div>
+												<br/>
+												<div class="settings-class1">{{'Emudra_Email'|translate}}</div>
+												<div class="settings-class2">{{emailId}}</div>
+												<div class="settings-class3"></div>
+												<br/>
+												<div class="settings-class1">{{'Emudra_PhoneNumber'|translate}}</div>
+												<div class="settings-class2">{{phoneNumber}}</div>
+												<div class="settings-class3"></div>
+												<br/>
+												<div class="settings-class1">{{'Emudra_Pan'|translate}}</div>
+												<div class="settings-class2">{{pan}}</div>
+												<div class="settings-class3"></div>
+												<br/><br/>
+												<h5 align="center">{{'Emudra_Note'|translate}}</h5>
+												<br/><br/>
+												<div class="settings-centered"><button type="submit" style="margin-left:42%" aria-label="Confirm" class="btn btn-primary primary-btn-setting primary-btn-btn" name="" ng-click="websignerPopUp();" lp-i18n="Emudra_Button"></button></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ng-if="emudhraFlag">
+							<div data-ng-include="templates.emudhra"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div id="{{widgetInstanceId}}" data-pid="{{widgetInstanceId}}" class="bp-widget {{#enableDND}}bp-ui-dragRoot{{/enableDND}} lp-chrome-launcher-slide lp-launcher-close ">
+  <div class="bp-widget-pref"></div>
+  <div class="bp-widget-head lp-launcher-tab bp-ui-dragGrip">
+      <a class="clearfix" href="#{{widgetInstanceId}}-body">
+          <span class="lp-launcher-tab-icon pull-left">{{#pref.icon}}<i class="lp-icon lp-icon-{{pref.icon.value}}"></i>{{/pref.icon}}</span>
+          <span class="lp-launcher-tab-text pull-left">{{widgetTitle}}</span>
+          <span class="lp-launcher-tab-arrow pull-right"><i class="lp-icon"></i></span>
+      </a>
+  </div>
+  <div class="widget widget-slide lp-launcher-slide-body">
+      <div class="bp-widget-body" id="{{widgetInstanceId}}-body">{{{widgetContent}}}</div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+.lp-accounts-tree {
+
+    background: @widget-bg;
+
+    .account-tree,
+    .account-tree ul {
+        color: @text-color;
+    }
+
+    .account-tree {
+
+        &:before,
+        ul:before {
+            border-left-color: @text-color;
+        }
+
+        li:before {
+            border-top-color: @text-color;
+        }
+
+        li {
+            font-weight: bold;
+
+            &:last-child:before {
+                background: @widget-bg;
+            }
+        }
+
+        .leaf {
+            .balance {
+                font-weight: normal;
+                color: @text-muted;
+            }
+        }
+
+        .account-id {
+            color: @text-muted;
+            font-size: 12px;
+        }
+
+        .total {
+            background: darken(@widget-bg, 5%);
+            border-bottom-color: darken(@widget-bg, 7%);
+        }
+
+        .account-branch {
+            &:hover {
+                background: darken(@widget-bg, 5%);
+            }
+            &.main {
+                &:hover {
+                    background: inherit;
+                }
+            }
+
+            .lp-icon-angle-right {
+                font-size: 20px;
+            }
+        }
+    }
+}

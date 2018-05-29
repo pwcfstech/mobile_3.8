@@ -1,0 +1,131 @@
+.lp-navbar-advanced {
+
+  .profile-info {
+
+    height: @navbar-height;
+
+    > li {
+      background: @navbar-inverse-link-active-bg;
+    }
+
+    .card {
+      line-height: @navbar-height;
+
+      .info {
+        .title a {
+          color: darken(@navbar-inverse-link-active-color, 10%);
+        }
+        .name {
+          color: @navbar-inverse-link-color;
+        }
+      }
+
+      .logout {
+        background: @navbar-profile-logout-button-bg;
+        color: @navbar-profile-logout-button-color;
+      }
+
+    }
+  }
+
+  .sign-in {
+
+    height: @navbar-height;
+
+    > li {
+      height: 100%;
+      line-height: @navbar-height;
+    }
+
+    .link {
+      display: inline-block;
+      white-space: nowrap;
+      background: @navbar-profile-sign-up-button-bg;
+      color: @navbar-profile-sign-up-button-color;
+      font-weight: bold;
+
+      &:hover {
+        background: lighten(@navbar-profile-sign-up-button-bg, 5%);
+        color: @navbar-profile-sign-up-button-color;
+      }
+    }
+  }
+
+  .navbar-static-top {
+    left: 0;
+    right: 0;
+    border-bottom: 0;
+  }
+
+  .icon-container {
+    text-align: center;
+    float: left;
+    height: @navbar-height;
+
+    &:before {
+      content: '';
+      position: relative;
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+
+  .nav-icon {
+    color:  @navbar-inverse-toggle-icon-bar-bg;
+    vertical-align: middle;
+  }
+  .lp-navbar-advanced-root > li > ul {
+
+    background:@navbar-default-bg;
+    border-bottom: 1px solid @navbar-default-border;
+
+    .border-top-radius(@launcher-tab-border-radius);
+    .border-bottom-radius(@launcher-tab-border-radius);
+
+    & > li a {
+
+      .border-top-radius(@launcher-tab-border-radius);
+      .border-bottom-radius(@launcher-tab-border-radius);
+      .background-transition;
+      .color-transition;
+
+      min-height: @launcher-tab-min-height;
+      color: @navbar-default-link-color;
+      display: block;
+
+      &:hover {
+        background: darken(@navbar-default-bg, 5%);
+        & a {
+          color: @navbar-default-link-hover-color;
+        }
+      }
+      &:active {
+        background: darken(@navbar-default-bg, 15%);
+        & a {
+          color: @navbar-default-link-active-color;
+        }
+      }
+      &.active {
+        background: @navbar-default-link-active-bg;
+        & a {
+          color: @navbar-default-link-active-color;
+
+        }
+        &:hover {
+          background: darken(@navbar-default-link-active-bg, 5%);
+          & a {
+            color: @navbar-default-link-active-color;
+          }
+        }
+        &:active {
+          background: darken(@navbar-default-link-active-bg, 10%);
+          & a {
+            color: @navbar-default-link-active-color;
+          }
+        }
+      }
+    }
+  }
+
+}

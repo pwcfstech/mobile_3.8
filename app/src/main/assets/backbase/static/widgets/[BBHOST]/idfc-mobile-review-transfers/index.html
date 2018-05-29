@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+	<link rel="stylesheet" href="styles/base.css" type="text/css" />
+</head>
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main')" ng-controller="MainCtrl as mainCtrl" ng-cloak="true" class="lp-review-transfers-widget">
+	<div ng-if="mainCtrl.loading">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+			<span class="sr-only" lp-i18n="Busy"></span>
+		</div>
+	</div>
+	<div lp-template="'templates/review-transfers.ng.html'"></div>
+</body>
+<script src="scripts/rsa.js"></script>
+</html>

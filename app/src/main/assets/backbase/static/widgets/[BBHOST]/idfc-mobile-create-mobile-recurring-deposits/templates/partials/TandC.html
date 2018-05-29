@@ -1,0 +1,109 @@
+<div ng-controller="RDTermsController">
+    <div ng-show="errorSpinTC">
+        <div class="panel-message loading-panel" role="alert" id="TNC">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <div class="panel panel-default" ng-if="fiModel.selected">
+        <div class="panel-heading selected-fi">
+            <div class="col-xs-2 col-lg-1">
+                <span ng-show="fiModel.selected.isConnecting"><i class="lp-icon {{fiModel.selected.icon}}"></i></span>
+                <span ng-show="!fiModel.selected.isConnecting"><i class="glyphicon glyphicon-ok"></i></span>
+            </div>
+            <div class="col-xs-10 col-xs-11">
+                <div ng-show="fiModel.selected.isConnecting">
+                    <span class="h4">{{fiModel.selected.name}}</span><br />
+                    <span>{{'Lbl_Terms_Wait_Around'|translate}}</span>
+                </div>
+                <div ng-show="!fiModel.selected.isConnecting">
+                    <span>{{'Title_Terms_Conditions'|translate}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="opendeposit-panel-body panel-body panelwidth">
+        <div class="text-danger" >{{error.msg}}</div>
+        <div id="Details" class="rec-dep-details">
+            <div class="rec-dep-details-tables">
+                <div class="recur-deposit-sum-table" summary="This table displays recurring deposit summary details">
+                    <div class ="recur-deposit-sum-cap">
+                        {{'Lbl_Recurring_Deposit_Details'|translate}}
+                    </div>
+                    <div class="row rowcolor">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="col-md-6 col-xs-6 col-sm-6 inHead1">{{'Debit_Account_Number'|translate}}</div>
+                            <div class="col-md-6 col-xs-6 col-sm-6 inHead1">{{'Lbl_Installment_Amount'|translate}}</div>
+                        </div>
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="col-md-6 col-xs-6 col-sm-6 inContent1">{{details.accountNumber}}</div>
+                            <div class="col-md-6 col-xs-6 col-sm-6 inContent1"><span class="rupee-symbol-span"></span><span class="balance-amount">{{details.amount | currency:' ' }}</span></div>
+                        </div>
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="col-md-6 col-xs-6 col-sm-6 inHead1">{{'Lbl_Tenure_of_Deposit'|translate}}</div>
+                        </div>
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <div class="col-md-6 col-xs-6 col-sm-6 inContent1">
+                                <span ng-if = "details.tenureYears === '1' && details.tenureMonths === '0'">{{details.tenureYears}} {{'Lbl_year'|translate}}</span>
+                                <span ng-if = "details.tenureYears === '1' && details.tenureMonths > '1'">{{details.tenureYears}} {{'Lbl_year'|translate}} {{details.tenureMonths}} {{'Lbl_months'|translate}}</span>
+                                <span ng-if = "details.tenureYears === '0'">{{details.tenureMonths}} {{'months'|translate}}</span>
+                                <span ng-if = "details.tenureMonths === '0' && details.tenureYears != '1'">{{details.tenureYears}} {{'Lbl_years'|translate}}</span>
+                                <span ng-if = "details.tenureYears > '1' && details.tenureMonths != '0'">{{details.tenureYears}} {{'Lbl_years'|translate}} {{details.tenureMonths}} {{'Lbl_months'|translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gen-det-table">
+                <div class ="gen-det-table-cap">
+                    {{'Lbl_Maturity_Details'|translate}}
+                </div>
+                <div class="row rowcolor">
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <div class="col-md-6 col-xs-6 col-sm-6 inHead1">{{'Lbl_Rate_of_Interest'|translate}}</div>
+                        <div class="col-md-6 col-xs-6 col-sm-6 inHead1">{{'Lbl_Maturity_Date'|translate}}</div>
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <div class="col-md-6 col-xs-6 col-sm-6 inContent1">{{maturityDetails.rateOfInterest | number:2}}%</div>
+                        <div class="col-md-6 col-xs-6 col-sm-6 inContent1">&shy;{{maturityDetails.maturityDate| date:'dd-MMM-yyyy'}}&shy;</div>
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <div class="col-md-6 col-xs-6 col-sm-6 inHead1">{{'Lbl_Maturity_Amount'|translate}}</div>
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <div class="col-md-6 col-xs-6 col-sm-6 inContent1"><span class="rupee-symbol-span"></span><span class="balance-amount">{{maturityDetails.maturityAmount | currency:' ' }}</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="gen-det-table">
+                <div class ="gen-det-table-cap">{{'Lbl_Nominee_Details_Heading'|translate}}</div>
+                <div class="row rowcolor">
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <div class="col-md-6 col-xs-6 col-sm-6 inHead1">{{'Lbl_Nominee_Name'|translate}}</div>
+                        <div class="col-md-6 col-xs-6 col-sm-6 inHead1">{{'Lbl_Nominee_Relationship'|translate}}</div>
+                    </div>
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <div class="col-md-6 col-xs-6 col-sm-6 inContent1 wordbreak">{{nomineedisp.nomineeName}}</div>
+                        <div class="col-md-6 col-xs-6 col-sm-6 inContent1">{{nomineedisp.relationship}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="connection-feedback declarationmargin">
+                <p class="h4 text-left fontdeclaration" ng-show="!fiModel.selected.isConnecting"><B>{{'Lbl_Terms_Conditions'|translate}} </B></p>
+                <p ng-show="fiModel.selected.isConnecting">{{'Title_Terms_msg1'|translate}}<br /> {{'Title_Terms_msg2'|translate}}<br /><a>{{'Title_Terms_msg3'|translate}}  {{fiModel.selected.name}}</a></p>
+            </div>
+            <div class="opendeposit-font">
+                <ol class="tc-pad">
+                    <li>{{'TC_Content1'|translate}} </li>
+                    <li>{{'TC_Content2'|translate}} </li>
+                    <li>{{'TC_Content3'|translate}} </li>
+                </ol>
+            </div>
+            <div class="div-td-dep-ab-opendeposit div-td-button-pad-od">
+                <div class="borderTop"></div>
+                <button ng-click="acceptTermDetails()" class="btn btn-primary primary-btn-open-od primary-btn-btn ng-binding accept-margin" ng-disabled="diableAccept">{{'btn_Accept'|translate}}</button>
+                <button type="button" ng-click="restartWizard()" class="btn btn-primary secondary-btn-open-od primary-btn-btn ng-binding accept-margin dec-bottom">{{'btn_Decline'|translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

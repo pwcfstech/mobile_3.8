@@ -1,0 +1,358 @@
+/**
+* Build with bb-lp-cli
+* @version v1.0.0
+* @link http://github.com/backbase/bb-lp-cli
+* @date Mon May 02 2016 17:53:38 GMT+0530 (India Standard Time)
+*/
+
+.limt-popup-buttons {
+    float: right;
+    text-align: right;
+    position: relative;
+    width: 100%;
+    padding-top: 5px;
+    padding-right: 4 px;
+    min-height: 55px;
+    background-color: #ffffff;
+    border-bottom: 1 px solid
+}
+
+.limitManagement-div-td-dep-ab {
+    float: right;
+    padding-right: 2%;
+    text-align: right;
+    position: relative;
+    min-width: 60%;
+    margin-right: 5px;
+    margin-top: -1% !important
+}
+
+.limitManagement-primary-btn-limit {
+    font-family: gotham_book, Calibri !important;
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    padding: 16px !important;
+    border: none !important;
+    margin-right: 4px
+}
+
+.limitManagement-secondary-btn-limit {
+    font-family: gotham_book, Calibri !important;
+    background-color: #EAEAEA !important;
+    font-size: 15px !important;
+    color: #000000 !important;
+    border: none !important;
+    padding: 16px !important;
+    margin-right: 7px !important
+}
+
+#limitForm .limit-button-style {
+    width: 112%
+}
+
+@media (max-width:768px) {
+    #limitForm .control-label {
+        float: left
+    }
+    #limitForm .field-area {
+        width: 50%;
+        float: left
+    }
+}
+
+@media (min-width:630px) and (max-width:767px) {
+    #limitForm .limit-button-style {
+        width: 80%
+    }
+}
+
+@media (min-width:600px) and (max-width:630px) {
+    #limitForm .limit-button-style {
+        width: 85%
+    }
+}
+
+@media (min-width:530px) and (max-width:600px) {
+    #limitForm .limit-button-style {
+        width: 95%
+    }
+}
+
+.limitManagement-otp-div {
+    border: 1px solid;
+    padding-bottom: 5%;
+    min-height: 190px;
+    min-top: 6%
+}
+
+.limitManagement-btn-align {
+    margin-right: 6%
+}
+
+.primary-btn-limit {
+    font-family: gotham_book, Calibri !important;
+    font-size: 14px !important;
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    padding: 16px !important;
+    border: none !important
+}
+
+.secondary-btn-limit {
+    font-family: gotham_book, Calibri !important;
+    background-color: #666666 !important;
+    font-size: 12px !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 16px !important
+}
+
+#limitForm .col-sm-3 {
+    width: 35% !important
+}
+
+#limitForm .col-sm-6 {
+    width: 25% !important
+}
+
+#OTPform .col-sm-3 {
+    width: 35% !important
+}
+
+
+#OTPform .col-sm-6 {
+    width: 70% !important;
+    padding-left: 0px;
+}
+#limitmanagementForm .col-sm-3 {
+    width: 35% !important
+}
+
+#limitmanagementForm .col-sm-6 {
+    width: 25% !important
+}
+
+.idfc-clear-lm {
+    height: 40px !important;
+    margin-left: 6px;
+    display: inline-block;
+    margin-bottom: 0 !important;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding-top: 11px !important
+}
+
+.idfc-next-lm {
+    height: 40px !important;
+    margin-left: 6px;
+    background-color: #FB637E !important;
+    color: #FFF;
+    display: inline-block;
+    margin-bottom: 0 !important;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding-top: 11px !important
+}
+
+.idfcVerticalAlignLM label {
+    margin-top: 0
+}
+
+.limit-label-font label {
+    font-family: gotham_book, Calibri !important;
+    font-size: 16px !important;
+    color: #4a4a4a !important
+}
+
+.limitManagement-input-width {
+    min-width: 153px;
+    max-width: 250px;
+    font-size: 14px !important;
+    font-family: gotham_book, Calibri !important;
+    color: #4A4A4A !important
+}
+
+@media (max-width:325px) {
+    .idfcVerticalAlignLM label {
+        width: 41% !important
+    }
+}
+
+.limit-label-width {
+    margin-bottom: 2%;
+    margin-left: 0 !important;
+    margin-top: 2% !important
+}
+
+@media (min-width:325px) {
+    .idfcVerticalAlignLM label {
+        width: 32% !important
+    }
+}
+
+@media (min-width:401px) and (max-width:422px) {
+    .limitManagement-otp-div {
+        height: 402px
+    }
+    .limit-otp-buttons-child {
+        float: right;
+        margin-left: -10%
+    }
+}
+
+@media (min-width:423px) and (max-width:468px) {
+    .limitManagement-otp-div {
+        min-height: 402px
+    }
+    .limit-otp-buttons-child {
+        float: right;
+        margin-left: -10%
+    }
+}
+
+@media (min-width:469px) and (max-width:575px) {
+    .limitManagement-otp-div {
+        min-height: 402px
+    }
+    .limit-otp-buttons-child {
+        float: right;
+        margin-left: -10%
+    }
+}
+
+@media (min-width:576px) and (max-width:601px) {
+    .limitManagement-otp-div {
+        min-height: 383px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:602px) and (max-width:622px) {
+    .limitManagement-otp-div {
+        min-height: 383px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:623px) and (max-width:691px) {
+    .limitManagement-otp-div {
+        min-height: 365px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:692px) and (max-width:769px) {
+    .limitManagement-otp-div {
+        min-height: 425px
+    }
+    .limit-otp-buttons-child {
+        float: left
+    }
+}
+
+@media (min-width:770px) and (max-width:1033px) {
+    .limitManagement-otp-div {
+        min-height: 363px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:1034px) and (max-width:1074px) {
+    .limitManagement-otp-div {
+        min-height: 326px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:1075px) {
+    .limitManagement-otp-div {
+        min-height: 270px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+.limitManagement-otp-label label {
+    float: left;
+    width: 45%;
+    font-size: 13px !important
+}
+
+@media (max-width:325px) {
+    .limitManagement-otp-label label {
+        float: left;
+        width: 50%
+    }
+    .limitManagement-otp-div {
+        border: 1px solid;
+        padding-bottom: 5%;
+        min-height: 335px
+    }
+}
+
+.idfcVerticalAlignLM .col-sm-3 {
+    width: 31% !important
+}
+
+.limitManagment-json-div {
+    font-size: 20px !important
+}
+
+.limit-success {
+    font-size: 20px !important;
+    font-family: gotham_book, Calibri !important;
+    color: #4A4A4A !important
+}
+.restrictHorizontal{
+width:100%;
+overflow-x:hidden;
+}
+
+
+/* For Scrolling css start*/
+#atm-withdrawal .col-sm-6,#atm-withdrawal .col-xs-6{
+    width:50%;
+}
+#atm-withdrawal .col-sm-6,#atm-withdrawal .col-xs-6{
+    width:50% !important;
+}
+#purchase .col-sm-6,#purchase .col-xs-6{
+     width:50% !important;
+}
+
+#OTPform .control-label {
+    margin-left: 0px !important;
+}
+
+/*# sourceMappingURL=base.css.map */

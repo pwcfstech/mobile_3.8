@@ -1,0 +1,161 @@
+<div id="payForm">
+    <div class="payFormStartBorder"></div>
+        <form
+              ng-submit="scanAndPayCtrl.proceedToLogin(scanAndPayCtrl.payeeKeyForm.$valid)"
+              class="form-horizontal"
+              name="scanAndPayCtrl.payeeKeyForm"
+              novalidate
+            >
+
+            <div  lp-field="lp-field"
+                  label="Merchant Id"
+                  class="payeeForm-alignInput payeeForm-alInput">
+                <div>
+                    <input class="form-control payeeForm-Inputbox"
+                            type="text"
+                            name= "merchantId"
+                            placeholder="Enter Merchant Code"
+                            ng-model="scanAndPayCtrl.payeeKeyObj.merchantId"
+                            ng-minlength="6"
+                            maxlength="16"
+                            autofill="off"
+                            autocomplete="off"
+                            ng-pattern="/^[a-zA-Z0-9]*$/"
+                            ng-required="true"/>
+                    <small class="text-danger text-left-float"
+                           ng-if="scanAndPayCtrl.payeeKeyFormSubmitted
+                           && scanAndPayCtrl.payeeKeyForm.merchantId.$error.required"
+                           lp-i18n="Merchant ID is required">
+                    </small>
+                    <small class="text-danger text-left-float"
+                           ng-if="scanAndPayCtrl.payeeKeyForm.merchantId.$error.pattern"
+                           lp-i18n="Please remove special characters and spaces">
+                    </small>
+                    <small class="text-danger text-left-float"
+                           ng-if="scanAndPayCtrl.payeeKeyForm.merchantId.$error.minlength"
+                           lp-i18n="Merchant ID should be atleast of 6 characters.">
+                    </small>
+                    <small class="text-danger text-left-float"
+                           ng-if="scanAndPayCtrl.payeeKeyForm.merchantId.$error.maxlength"
+                           lp-i18n="Merchant ID can be of maximum 16 characters.">
+                    </small>
+
+                    <small class="text-danger text-left-float"
+                          ng-show="scanAndPayCtrl.mod10Check(scanAndPayCtrl.generateMerchantPAN(scanAndPayCtrl.payeeKeyObj.merchantId))
+                          && !scanAndPayCtrl.checkInValidUser(true)
+                          && !scanAndPayCtrl.payeeKeyForm.merchantId.$error.required
+                          && !scanAndPayCtrl.payeeKeyForm.merchantId.$error.minlength
+                          && !scanAndPayCtrl.payeeKeyForm.merchantId.$error.maxlength
+                          && !scanAndPayCtrl.payeeKeyForm.merchantId.$error.pattern"
+                          lp-i18n="Please provide valid Merchant Id">
+                    </small>
+                    <small class="text-danger text-left-float"
+                            ng-show="scanAndPayCtrl.checkInValidUser(true)
+                            && !scanAndPayCtrl.payeeKeyForm.merchantId.$error.required
+                            && !scanAndPayCtrl.payeeKeyForm.merchantId.$error.minlength
+                            && !scanAndPayCtrl.payeeKeyForm.merchantId.$error.maxlength
+                            && !scanAndPayCtrl.payeeKeyForm.merchantId.$error.pattern"
+                            lp-i18n="Facility is not available for this merchant">
+                    </small>
+                </div>
+            </div>
+
+            <div lp-field="lp-field"
+                 label="Amount"
+                 class="payeeForm-alignInput payeeForm-alInput">
+                <div>
+                    <input class="form-control payeeForm-Inputbox"
+                            type="tel"
+                            name="amount"
+                            placeholder="Enter Amount"
+                            ng-model="scanAndPayCtrl.payeeKeyObj.amount"
+                            ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                            min="1"
+                            max="999999.99"
+                            maxlength="9"
+                            ng-required="true"
+                            autocomplete="off"/>
+                    <!--commented bcz its coming for not number i.e special chars. so double errs-->
+                    <small class="text-danger text-left-float"
+                           ng-if="scanAndPayCtrl.payeeKeyFormSubmitted
+                           && scanAndPayCtrl.payeeKeyForm.amount.$error.required
+                           && !scanAndPayCtrl.payeeKeyForm.amount.$error.number"
+                           lp-i18n="Please enter amount">
+                    </small>
+                    <small class="text-danger text-left-float"
+                           ng-if="scanAndPayCtrl.checkAmtMax(scanAndPayCtrl.payeeKeyObj.amount)
+                           && !scanAndPayCtrl.payeeKeyForm.amount.$error.number
+                           && !scanAndPayCtrl.payeeKeyForm.amount.$error.pattern"
+                           lp-i18n="Amount has to be less than 10 lacs">
+                    </small>
+                    <small class="text-danger text-left-float"
+                           ng-if="scanAndPayCtrl.checkAmtMin(scanAndPayCtrl.payeeKeyObj.amount)
+                           && !scanAndPayCtrl.payeeKeyForm.amount.$error.number
+                           && !scanAndPayCtrl.payeeKeyForm.amount.$error.pattern"
+                           lp-i18n="Amount has to be greater than 1">
+                    </small>
+                    <!--testing only two decimals shud be allowed-->
+                    <small class="text-danger text-left-float"
+                           ng-if="scanAndPayCtrl.payeeKeyForm.amount.$error.pattern"
+                           lp-i18n="Please enter valid amount">
+                    </small>
+                    <small class="text-danger text-left-float"
+                           ng-if="scanAndPayCtrl.payeeKeyForm.amount.$error.number"
+                           lp-i18n="Please enter valid amount">
+                    </small>
+                </div>
+            </div>
+
+            <div lp-field="lp-field"
+                 label="Tip"
+                 class="payeeForm-alignInput payeeForm-alInput">
+                <div>
+                    <input class="form-control payeeForm-Inputbox"
+                            type="tel"
+                            name="tip"
+                            placeholder="Enter Tip Amount"
+                            ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                            ng-model="scanAndPayCtrl.payeeKeyObj.tip"
+                            ng-max="9999.99"
+                            maxlength="7"
+                            autocomplete="off"/>
+                    <small  class="text-danger text-left-float"
+                            ng-if="scanAndPayCtrl.checkTipMax(scanAndPayCtrl.payeeKeyObj.tip) && !scanAndPayCtrl.payeeKeyForm.tip.$error.number && !scanAndPayCtrl.payeeKeyForm.tip.$error.pattern"
+                            lp-i18n="Tip amount has to be less than 10,000">
+                    </small>
+                    <small  class="text-danger text-left-float"
+                            ng-if="scanAndPayCtrl.payeeKeyForm.tip.$error.pattern"
+                            lp-i18n="Please enter valid tip amount">
+                    </small>
+                    <small  class="text-danger text-left-float"
+                            ng-if="scanAndPayCtrl.payeeKeyForm.tip.$error.number"
+                            lp-i18n="Please enter valid tip amount">
+                    </small>
+                </div>
+            </div>
+
+            <div lp-field="lp-field"
+                 label="Remarks"
+                 class="payeeForm-alignInput payeeForm-alInput">
+                <div>
+                    <input class="form-control payeeForm-Inputbox"
+                            type="text"
+                            name="remarks"
+                            placeholder="Enter Remarks"
+                            ng-model="scanAndPayCtrl.payeeKeyObj.remarks"
+                            ng-maxlength="999"
+                            autocomplete="off"/>
+                    <small  class="text-danger text-left-float"
+                            ng-if="scanAndPayCtrl.payeeKeyForm.remarks.$error.maxlength"
+                            lp-i18n="Remarks cannot be of more than 999 characters">
+                    </small>
+                </div>
+            </div>
+
+            <div class="payFormEndBorder"></div>
+
+            <div>
+                <button class="btnNext" ng-click="scanAndPayCtrl.payeeKeyFormSubmitted=true" type="submit" lp-i18n="Proceed" ></button>
+            </div>
+    </form>
+</div>

@@ -1,0 +1,89 @@
+<div class="lp-widget-body" ng-class="{logohidden: hideLogo}" ng-controller="billPayTransactionController">
+    <div class="category-toggle" ng-if="showCategories">
+        <button class="btn btn-default" tabindex="0" aria-pressed="{{ previewAll }}" ng-click="toggleCategoryView()" ng-class="{ 'active': previewAll }">
+            <i title="{{'Category view'|translate}}" class="lp-icon lp-icon-tag"></i>
+            <span class="sr-only" lp-i18n="Show Categories"></span>
+        </button>
+    </div>
+    <div ng-show="errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <div class="lp-alerts">
+        <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+    </div>
+    <form class="panel-heading form-panel" ng-submit="doSearch" ng-class="{ 'has-category-toggle': showCategories }" name="txn">
+        <div class="search-input input-group display-input">
+            <div class="row biller">
+                <div class="col-md-6">
+                    <span for="Category" class="trans-bill-label">{{'Biller_label'|translate}}</span>
+                </div>
+                <div class="col-md-6">
+                    <select id="accountname" name="accountname" class="transficiary-control trans-acc-type-add trans-bill-select-left" ng-model="transactionDet" ng-change="clear()" ng-options="item.bllrId as item.blrNckNm for item in billerList.bllrDtls">
+                        <option value="">{{'All_Label'|translate}}</option></select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <span for="fromDate" class="trans-bill-label">{{'DateFrom_Label'|translate}}</span>
+                </div>
+                <div class="col-md-6">
+                    <input ng-change="clear()" ng-click="openFromCalendar($event)" required="required" type="text" name="fromDate" ng-model="transactionHistory.fromDate" datepicker-popup="dd-MMM-yyyy" readonly="readonly" ng-model="search" is-open="isOpenDate1" class="transficiary-control trans-bill-input-drop trans-bill-select-left" lp-future-time="" id="fromDate" max-date="todaysDate" datepicker-options="dateOptionsFrom" show-button-bar="false" tabindex="0" placeholder="Select Date" aria-label="{{'Select_Date'|translate}}" />
+                    <span ng-click="openFromCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon dt-cal-icon" readonly="readonly"></span></div>
+                <div role="alert" class="add-start">
+                    <span class="error" ng-show="submitted && addBillerForm.fromDate.$error.required">Required!</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <span for="toDate" class="trans-bill-label">{{'DateTo_Label'|translate}}</span>
+                </div>
+                <div class="col-md-6">
+                    <input ng-change="clear()" ng-click="openToCalendar($event)" required="required" type="text" name="toDate" ng-model="transactionHistory.toDate" datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="minDate" max-date="todaysDate" is-open="isOpenDate2" class="transficiary-control trans-bill-input-drop trans-bill-select-left" lp-future-time="" id="toDate" datepicker-options="dateOptionsTo" show-button-bar="false" tabindex="0" placeholder="Select Date" aria-label="{{'Select_Date'|translate}}" />
+                    <span ng-click="openToCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon dt-cal-icon" readonly="readonly"></span>
+                </div>
+            </div>
+            <div class="text-danger1">
+                <span class="errMsgSpan text-danger" ng-hide="serviceError1">{{errMessage}}</span>
+            </div>
+            <hr class="div-clear"/>
+            <div class="trans-div-td-dep-ab row">
+                <button class="btn btn-primary primary-btn-btn ng-binding" placeholder="select One" ng-click="search()">Submit</button>
+            </div>
+            <small class="error-alignment" ng-show="serviceError1">{{errMessage}}</small>
+        </div>
+    </form>
+    <ul id="transactions-list" role="presentation" class="list-group list-view transactions-list">
+        <div class="col-md-12 col-xs-12 col-sm-12 table-heading trans-heading-width-his table-pad">
+            <div class="col-md-3 col-xs-3 col-sm-3 tableHead">{{'Biller'|translate}}</div>
+            <div class="col-md-3 col-xs-3 col-sm-3 tableHead">{{'Nickname'|translate}}</div>
+            <div class="col-md-3 col-xs-3 col-sm-3 tableHead">{{'PaidOn'|translate}}</div>
+            <div class="col-md-3 col-xs-3 col-sm-3 tableHead">{{'Amount'|translate}}</div>
+        </div>
+        <div class="col-md-12 col-xs-12 col-sm-12 table-heading TFtable table-pad" ng-hide="noTransactionDetails" ng-repeat="billerDetail in transactionDetails|limitTo:paginationLimit()">
+            <div class="col-md-3 col-xs-3 col-sm-3 childDiv">{{billerDetail.bllrId}}</div>
+            <div class="col-md-3 col-xs-3 col-sm-3 childDiv">{{billerDetail.bllrNckNm}}</div>
+            <div class="col-md-3 col-xs-3 col-sm-3 childDiv">{{billerDetail.bllPmtDt}}</div>
+            <div class="col-md-3 col-xs-3 col-sm-3 childDiv">{{billerDetail.pmtAmt | currency:' ' }}</div>
+        </div>
+    </ul>
+    <div ng-show="allowMoreResults">
+        <p class="text-center">
+            <a class="cursor-pointer" tabindex="0" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()" lp-i18n="Show more"></a>
+        </p>
+    </div>
+    <div ng-if="transactionsModel.loading" role="alert">
+        <p class="panel-message text-center" lp-i18n="Loading transactions..."></p>
+    </div>
+    <div ng-show="noTransactions" style="margin-top:14px;text-align:center">{{errorMessage}}</div>
+    <div class="disclaimer col-md-6">
+        <div class="disclaimerDiv">Disclaimer:</div>
+        <div class="disclaimerNote"><div>1. We show your last 5 transactions on the screen by default, to view previous transactions please use our date filters. Only the transactions within the last 6 months can be fetched.<div>
+            <div>2. In case of any queries, please call our contact center on 1800-419-4332.</div>
+        </div>
+        </div>
+        </div>
+    </div>
+</div>

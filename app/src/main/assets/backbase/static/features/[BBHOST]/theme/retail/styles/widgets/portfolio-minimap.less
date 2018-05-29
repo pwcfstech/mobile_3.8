@@ -1,0 +1,96 @@
+@color: @brand-primary;
+@bg: @panel-background;
+@border: @widget-inner-border;
+@panel: @widget-default-heading-bg;
+@chartColor: lighten(@color, 10%);
+
+.portfolio-minimap {
+  .header {
+    background: @panel;
+  }
+
+  .gr {
+    background: @bg;
+  }
+
+  .area path {
+    fill: @chartColor;
+  }
+
+  .axis {
+    @c: darken(@color, 5%);
+
+    line {
+      stroke: @c;
+    }
+
+    text {
+      fill: @c;
+    }
+  }
+
+  .domain {
+    display: none;
+  }
+
+  .brush {
+    @bColor: darken(@color, 12%);
+
+    .extent {
+      stroke: @bColor;
+      fill: @bColor;
+    }
+
+    .resize {
+      .drag {
+        fill: @bColor;
+      }
+
+      path {
+        stroke: @bg;
+      }
+    }
+  }
+
+  .dropdown-toggle {
+    color: @color;
+    border: 1px solid @color;
+  }
+
+  .dropdown-menu {
+    @radius: 5px;
+    @_innerRadius: @radius - 2;
+
+    border-radius: @radius;
+    background: @panel;
+    border: 1px solid @border;
+
+    &:before,
+    &:after {
+      border-bottom-color: @panel;
+    }
+
+    &:before {
+      border-bottom-color: @border;
+    }
+
+    li {
+      &:first-child a {
+        border-radius: @_innerRadius @_innerRadius 0 0;
+      }
+
+      &:last-child a {
+        border-radius: 0 0 @_innerRadius @_innerRadius;
+      }
+    }
+
+    a:hover {
+      color: @color;
+      background: mix(@color, @bg, 40%);
+    }
+
+    .active {
+      color: @color;
+    }
+  }
+}

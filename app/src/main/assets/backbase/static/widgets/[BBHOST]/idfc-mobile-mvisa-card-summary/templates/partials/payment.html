@@ -1,0 +1,255 @@
+<div ng-if="paymentError.happened">
+<!--div class="bg-gray">
+<img src="static/features/[BBHOST]/theme-idfc/images/sry-icon.png"><br>
+<span class="cont-txt-bold">{{paymentError.msg}}</span><br>
+<span class="cont-txt-normal" ng-if="mVisaPaymentCtrl.transactionID">Please note your transaction ID</span><br>
+<span class="cont-txt-orange" ng-if="mVisaPaymentCtrl.transactionID">{{mVisaPaymentCtrl.transactionID}}</span>
+
+</div>
+<div class="f-left-width-100 horizontal-vertical-center-rf">&nbsp;
+</div>
+
+<div class="f-left-width-100 horizontal-vertical-end">
+	<button type="submit" class="btn btn-default grey-light-btn" ng-click="mVisaPaymentCtrl.gotoDashboard();">Back To Home</button>
+</div-->
+			
+		
+<div class="bg-gray">
+<img src="static/features/[BBHOST]/theme-idfc/images/sry-icon.png"><br>
+<span class="cont-txt-bold">{{paymentError.msg}}</span><br>
+<span class="cont-txt-normal" ng-if="mVisaPaymentCtrl.transactionID">Please note your transaction ID</span><br>
+<span class="cont-txt-orange" ng-if="mVisaPaymentCtrl.transactionID">{{mVisaPaymentCtrl.transactionID}}</span>
+</ul>
+</div>
+
+<div class="row row-mobile">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="row top-padng otp-top-row-block" ng-if="mVisaPaymentCtrl.merchantInfo.entryType == 'Q'">
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 cont-txt-normal">To:</div>
+	<div class="col-lg-11 col-md-11 col-sm-11 col-xs-8 cont-txt-bold store-space">{{mVisaPaymentCtrl.merchantInfo.merchantName}}</div>
+	</div>
+	<div class="row brd top-padng otp-top-row-block" ng-if="mVisaPaymentCtrl.merchantInfo.entryType == 'M'">
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 cont-txt-normal">To:</div>
+	<div class="col-lg-11 col-md-11 col-sm-11 col-xs-8 store-space cont-txt-orange">{{mVisaPaymentCtrl.merchantInfo.mrchntId}}</div>	
+	</div>	
+	<div class="row brd otp-top-row-block" ng-if="mVisaPaymentCtrl.merchantInfo.entryType == 'Q'">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-8 cont-txt-orange ">{{mVisaPaymentCtrl.merchantInfo.mrchntId}}</div>
+	</div>
+	<div class="row top-padng otp-top-row-block">
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 cont-txt-normal">From:</div>
+	<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 cont-txt-bold left0">{{mVisaPaymentCtrl.accSummary.alias}}</div>
+	</div>
+	<div class="row otp-top-row-block">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-normal">Debit Card No<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-orange left0">{{mVisaPaymentCtrl.customerCardSummary.crdNb}}</div>
+	</div>
+		<div class="row brd otp-top-row-block">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Account No<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0 cont-txt-light">{{mVisaPaymentCtrl.customerCardSummary.acctDtls[0].acctNb}}</div>
+	</div>
+		<!--div class="row top-padng otp-block-height ">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Amount<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">&#8377; {{mVisaPaymentCtrl.merchantInfo.transactionAmount }}</div>
+	</div-->
+		<div class="row top-padng otp-block-height ">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Amount<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">&#8377; {{mVisaPaymentCtrl.merchantInfo.transactionAmount - (mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount?mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount:'0') | currency:' '}}</div>
+	</div>	
+
+		<div class="row otp-block-height" ng-if="mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Tip<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">&#8377; {{mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount?mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount:'0' | currency:' '}}</div>
+	</div>	
+
+	
+		<div class="row otp-block-height ">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Remarks<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.remarks?mVisaPaymentCtrl.merchantInfo.remarks:'NA'}}</div>
+	</div>
+	
+    <div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.billId" >
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Bill Number<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.billId?mVisaPaymentCtrl.merchantInfo.billId:'NA'}}</div>
+	</div>	
+	
+    <div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.mobileNumber" >
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Mobile Number<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.mobileNumber}}</div>
+	</div>	
+	
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.storeId">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Store Number<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.storeId}}</div>
+	</div>
+	
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.loyaltyNumber">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Loyalty Number<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.loyaltyNumber}}</div>
+	</div>	
+	
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.referenceId">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Reference id<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.referenceId}}</div>
+	</div>	
+
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.consumerId">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Consumer id<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.consumerId}}</div>
+	</div>	
+
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.terminalId">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Terminal iD<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.terminalId}}</div>
+	</div>	
+	
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.purpose">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Purpose<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.purpose}}</div>
+	</div>			
+	
+	<div class="row brd otp-block-height ">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Date<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.trnDate}}</div>
+	</div>
+    </div>
+</div>
+<div class="row form-center">
+    <form class="transactio-otp-form">
+         <div class="t-approval-btn-box">
+            <button type="submit" class="btn btn-default pink-btn" ng-click="mVisaPaymentCtrl.gotoDashboard();">Done</button>
+        </div>
+        <!--div class="t-approval-btn-box top-padng">
+		   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cont-txt-green" ng-if="mVisaPaymentCtrl.dataRes.statusCode == 3">Mail ID not registered</div>
+		   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cont-txt-green" ng-if="mVisaPaymentCtrl.dataRes.statusCode == 1">Mail sent successfully</div>
+		   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cont-txt-green" ng-if="mVisaPaymentCtrl.dataRes.statusCode == 2">Something went wrong. Mail send error</div>
+		   <div ng-if="mVisaPaymentCtrl.download">Download completed successfully</div>
+		   <div ng-if="mailError.happened">{{mailError.msg}}</div>
+		   
+           <div ng-click="mVisaPaymentCtrl.sendMail();"><span class="fa fa-envelope-o icon-cl"></span></div>
+        </div-->
+    </form>
+
+</div>			
+</div>
+
+
+
+
+<div ng-if="mVisaPaymentCtrl.payment">
+<div class="bg-gray">
+<img src="static/features/[BBHOST]/theme-idfc/images/right.png"><br>
+<span class="cont-txt-bold">Great, your payment was successful.</span><br>
+<span class="cont-txt-normal" >Please note your transaction ID</span><br>
+<span class="cont-txt-orange" >{{mVisaPaymentCtrl.paymentInfo.rtrvalRfrnceNmbr}}</span>
+</ul>
+</div>
+
+<div class="row row-mobile">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="row top-padng otp-top-row-block" ng-if="mVisaPaymentCtrl.merchantInfo.entryType == 'Q'">
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 cont-txt-normal">To:</div>
+	<div class="col-lg-11 col-md-11 col-sm-11 col-xs-8 cont-txt-bold store-space">{{mVisaPaymentCtrl.merchantInfo.merchantName}}</div>
+	</div>
+	<div class="row brd top-padng otp-top-row-block" ng-if="mVisaPaymentCtrl.merchantInfo.entryType == 'M'">
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 cont-txt-normal">To:</div>
+	<div class="col-lg-11 col-md-11 col-sm-11 col-xs-8 store-space cont-txt-orange">{{mVisaPaymentCtrl.merchantInfo.mrchntId}}</div>	
+	</div>	
+	<div class="row brd otp-top-row-block" ng-if="mVisaPaymentCtrl.merchantInfo.entryType == 'Q'">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-8 cont-txt-orange ">{{mVisaPaymentCtrl.merchantInfo.mrchntId}}</div>
+	</div>
+	<div class="row top-padng otp-top-row-block">
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 cont-txt-normal">From:</div>
+	<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 cont-txt-bold left0">{{mVisaPaymentCtrl.accSummary.alias}}</div>
+	</div>
+	<div class="row otp-top-row-block">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-normal">Debit Card No<span class="cont-float">:</span>:</div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-orange left0">{{mVisaPaymentCtrl.customerCardSummary.crdNb}}</div>
+	</div>
+		<div class="row brd otp-top-row-block">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Account No<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0 cont-txt-light">{{mVisaPaymentCtrl.customerCardSummary.acctDtls[0].acctNb}}</div>
+	</div>
+		<!--div class="row top-padng otp-block-height ">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Amount<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">&#8377; {{mVisaPaymentCtrl.merchantInfo.transactionAmount }}</div>
+	</div-->
+	
+		<div class="row top-padng otp-block-height ">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Amount<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">&#8377; {{mVisaPaymentCtrl.merchantInfo.transactionAmount - (mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount?mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount:'0') | currency:' '}}</div>
+	</div>	
+
+		<div class="row otp-block-height" ng-if="mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Tip<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">&#8377; {{mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount?mVisaPaymentCtrl.merchantInfo.convenienceFeeAmount:'0' | currency:' '}}</div>
+	</div>		
+	
+		<div class="row otp-block-height ">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Remarks<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.remarks?mVisaPaymentCtrl.merchantInfo.remarks:'NA'}}</div>
+	</div>
+	
+    <div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.billId" >
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Bill Number<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.billId?mVisaPaymentCtrl.merchantInfo.billId:'NA'}}</div>
+	</div>	
+	
+    <div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.mobileNumber" >
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Mobile Number<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.mobileNumber}}</div>
+	</div>	
+	
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.storeId">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Store Number<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.storeId}}</div>
+	</div>
+	
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.loyaltyNumber">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Loyalty Number<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.loyaltyNumber}}</div>
+	</div>	
+	
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.referenceId">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Reference id<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.referenceId}}</div>
+	</div>	
+
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.consumerId">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Consumer id<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.consumerId}}</div>
+	</div>	
+
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.terminalId">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Terminal iD<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.terminalId}}</div>
+	</div>	
+	
+		<div class="row otp-block-height " ng-if="mVisaPaymentCtrl.merchantInfo.purpose">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Purpose<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.purpose}}</div>
+	</div>		
+	
+	<div class="row brd otp-block-height ">
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 cont-txt-light">Date<span class="cont-float">:</span></div>
+	<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 cont-txt-normal left0">{{mVisaPaymentCtrl.merchantInfo.trnDate}}</div>
+	</div>
+    </div>
+</div>
+<div class="row form-center">
+    <form class="transactio-otp-form">
+         <div class="t-approval-btn-box">
+            <button type="submit" class="btn btn-default pink-btn" ng-click="mVisaPaymentCtrl.gotoDashboard();">Done</button>
+        </div>
+        <div class="t-approval-btn-box top-padng">
+		   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cont-txt-green" ng-if="mVisaPaymentCtrl.dataRes.statusCode == 3">Mail ID not registered</div>
+		   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cont-txt-green" ng-if="mVisaPaymentCtrl.dataRes.statusCode == 1">Mail sent successfully</div>
+		   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 cont-txt-green" ng-if="mVisaPaymentCtrl.dataRes.statusCode == 2">Something went wrong. Mail send error</div>
+		   <div ng-if="mVisaPaymentCtrl.download">Download completed successfully</div>
+		   <div ng-if="mailError.happened">{{mailError.msg}}</div>
+		   
+           <div ng-click="mVisaPaymentCtrl.sendMail();"><span class="fa fa-envelope-o fa-2x icon-cl"></span></div><!--div ng-click="mVisaPaymentCtrl.downloadPDF();"><span class="fa fa-download icon-cl"></span></div-->
+        </div>
+    </form>
+
+</div>
+</div>

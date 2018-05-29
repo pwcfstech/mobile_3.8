@@ -1,0 +1,176 @@
+//
+// Widgets
+// --------------------------------------------------
+
+
+// Base class
+.widget {
+    margin-bottom: @line-height-computed;
+    background-color: @widget-bg;
+    border: 1px solid transparent;
+    border-radius: @widget-border-radius;
+    .box-shadow(0 1px 1px rgba(0,0,0,.05));
+    &:extend(.clearfix all);
+
+    .widget {
+        margin-bottom: 0;
+        border-width: 0;
+    }
+}
+
+// Widget contents
+.widget-body {
+    min-height: 400px;
+    &:extend(.clearfix all);
+}
+
+// Optional heading
+.widget-heading {
+    padding: 10px 35px 10px 15px;
+    border-bottom: 1px solid transparent;
+    .border-top-radius((@widget-border-radius - 1));
+    &:extend(.clearfix all);
+
+    .close {
+        position: relative;
+        top: -2px;
+        right: -21px;
+        color: inherit;
+    }
+    > .dropdown .dropdown-toggle {
+        color: inherit;
+    }
+}
+
+
+
+// Optional controls
+.widget-controls {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px 15px;
+    font-size: ceil((@font-size-base * 1.25));
+    color: inherit;
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.widget-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: floor((@font-size-base * 1.45));
+    color: inherit;
+
+    > a {
+        color: inherit;
+    }
+    > i {
+        padding-right: 5px;
+    }
+}
+
+// Optional footer (stays gray in every modifier class)
+.widget-footer {
+    padding: 10px 15px;
+    background-color: @widget-footer-bg;
+    border-top: 1px solid @widget-inner-border;
+    .border-bottom-radius((@widget-border-radius - 1));
+    &:extend(.clearfix all);
+}
+
+
+// List groups in widgets
+//
+// By default, space out list group content from panel headings to account for
+// any kind of custom content between the two.
+
+.widget {
+    > .list-group {
+        margin-bottom: 0;
+
+        .list-group-item {
+            border-width: 1px 0;
+            border-radius: 0;
+        }
+
+        // Add border top radius for first one
+        &:first-child {
+            .list-group-item:first-child {
+                border-top: 0;
+                .border-top-radius((@widget-border-radius - 1));
+            }
+        }
+        // Add border bottom radius for last one
+        &:last-child {
+            .list-group-item:last-child {
+                border-bottom: 0;
+                .border-bottom-radius((@widget-border-radius - 1));
+            }
+        }
+    }
+}
+
+// Collapse space between when there's no additional content.
+.widget-heading + .list-group {
+    .list-group-item:first-child {
+        border-top-width: 0;
+    }
+}
+
+// Widget Variation mixin
+.widget-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
+    border-color: @border;
+
+    & > .widget-heading {
+        color: @heading-text-color;
+        background-color: @heading-bg-color;
+        border-color: @heading-border;
+    }
+}
+
+// Contextual variations
+.widget-default {
+    .widget-variant(@widget-default-border; @widget-default-text; @widget-default-heading-bg; @widget-default-border);
+}
+.widget-primary {
+    .widget-variant(@widget-primary-border; @widget-primary-text; @widget-primary-heading-bg; @widget-primary-border);
+}
+.widget-success {
+    .widget-variant(@widget-success-border; @widget-success-text; @widget-success-heading-bg; @widget-success-border);
+}
+.widget-info {
+    .widget-variant(@widget-info-border; @widget-info-text; @widget-info-heading-bg; @widget-info-border);
+}
+.widget-warning {
+    .widget-variant(@widget-warning-border; @widget-warning-text; @widget-warning-heading-bg; @widget-warning-border);
+}
+.widget-danger {
+    .widget-variant(@widget-danger-border; @widget-danger-text; @widget-danger-heading-bg; @widget-danger-border);
+}
+.widget-slide {
+  .widget-variant(@widget-default-border; @widget-default-text; @widget-default-heading-bg; @widget-default-border);
+  border-width: 0;
+  margin: 0;
+
+  .h4, h4 {
+    font-size: 15px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+
+  .panel-group {
+    margin-bottom: 0;
+  }
+}
+
+// RTL
+
+[dir="rtl"]{
+    .widget-heading {
+        padding: 10px 15px 10px 35px;
+        .close {
+            right: auto;
+            left: -21px;
+        }
+    }
+}

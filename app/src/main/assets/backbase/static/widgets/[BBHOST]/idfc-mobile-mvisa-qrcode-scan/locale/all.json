@@ -1,0 +1,14 @@
+{
+    "en-US": {
+        "Enter Merchant Code":"Enter Merchant Code",
+        "Merchant Id":"Merchant Id",
+        "Amount":"Amount",
+        "Tip":"Tip",
+        "Remarks":"Remarks",
+        "Proceed":"Proceed",
+        "Bill Number":"Bill Number",
+        "Store Number":"Store Number"
+    },
+    "nl-NL": {
+    }
+}

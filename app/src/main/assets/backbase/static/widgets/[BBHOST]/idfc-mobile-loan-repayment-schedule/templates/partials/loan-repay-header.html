@@ -1,0 +1,74 @@
+<div class="row">
+	<!-- select an account number fromt the dropdown -->
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+		<label class="font-14 font-book color-dark-gray line-height-40" lp-i18n="Select Loan Account"></label>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+		<div class="row">
+			<div class="col-xs-12">
+				<select id="accountNumberId" name="accountNumberId" class="input-box-width color-dark-gray font-14 font-book form-control cursor-pointer line-height-40"
+						ng-model="loanRepaymentController.selectedAccountNumber"
+						ng-options="account.accountNumber group by account.loanType for account in loanRepaymentController.loanAccountNumbers"
+						ng-change="loanRepaymentController.getLoanDetailsByAccNo()"
+						ng-selected="loanRepaymentController.selectedAccountNumber">
+					<!--<option selected="selected" disabled="disabled" lp-i18n="Select one"></option>-->
+				</select>
+			</div>
+			<div ng-if="loanRepaymentController.selectAccErr" class="col-xs-12">
+				<div class="color-pink font-12 font-medium"  lp-i18n="Please select an account."></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row padding-top-10px">
+
+	<!-- To and from date -->
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+		<label class="font-14 font-book color-dark-gray line-height-40" lp-i18n="From Date"></label>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+		<div class="row">
+			<div class="col-xs-12">
+				<input ng-click="loanRepaymentController.openFromDateCalendar($event)" type="text"
+					   required="true" name="scheduleFromLoanDate" ng-model="loanRepaymentController.fromDate"
+					   datepicker-popup="dd-MM-yyyy" readonly="readonly"
+					   is-open="loanRepaymentController.isOpenDate1" datepicker-options="dateOptions" tabindex="0"
+					   placeholder="Select date" aria-label="select date" show-button-bar="false"
+					   class="color-white-bg input-box-width color-dark-gray font-14 font-book form-control cursor-pointer line-height-40 rep-acc-date-inputfeild" min-date="loanRepaymentController.serverDate">
+				<span ng-click="loanRepaymentController.openFromDateCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon cal-icon-position-homesoa"></span>
+			</div>
+			<div ng-if="loanRepaymentController.blankFromDateError || loanRepaymentController.blankBothDateError" class="col-xs-12">
+				<div class="color-pink font-12 font-medium"  lp-i18n="Please select a from date."></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 text-right text-left-xs">
+		<label class="font-14 font-book color-dark-gray line-height-40" lp-i18n="To Date"></label>
+	</div>
+	<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+		<div class="row">
+			<div class="col-xs-12">
+				<input ng-click="loanRepaymentController.openToDateCalendar($event)" type="text" required="true"
+					   name="scheduleToLoanDate" ng-model="loanRepaymentController.toDate"
+					   datepicker-popup="dd-MM-yyyy" readonly="readonly"
+					   is-open="loanRepaymentController.isOpenDate2" datepicker-options="dateOptions" tabindex="0"
+					   placeholder="Select date" aria-label="select date" show-button-bar="false"
+					   class="color-white-bg input-box-width color-dark-gray font-14 font-book form-control cursor-pointer line-height-40 rep-acc-date-inputfeild" min-date="loanRepaymentController.serverDate">
+				<span ng-click="loanRepaymentController.openToDateCalendar($event)" class=" lp-icon lp-icon-calendar calendar-icon cal-icon-position-homesoa"></span>
+			</div>
+			<div ng-if="loanRepaymentController.dateError" class="col-xs-12">
+				<div class="color-pink font-12 font-medium"  lp-i18n="To date should be greater than from date."></div>
+			</div>
+			<div ng-if="loanRepaymentController.blankToDateError || loanRepaymentController.blankBothDateError" class="col-xs-12">
+				<div class="color-pink font-12 font-medium"  lp-i18n="Please select a to date."></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Submit button for To and From date -->
+	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 mobileFixTopPadding2em">
+		<button type="button" lp-i18n="Submit"  ng-click="loanRepaymentController.loanFilter()"  class="btn btn-primary input-box-width"></button>
+	</div>
+</div>

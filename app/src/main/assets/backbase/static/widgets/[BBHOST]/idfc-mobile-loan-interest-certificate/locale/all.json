@@ -1,0 +1,47 @@
+{
+    "en-US": {
+    	"Select":"Select",
+    	"Busy":"Busy",
+		"Select Loan Account": "Select Loan Account",
+        "Actual Paid": "Actual Paid",
+        "Select Financial Year": "Select Financial Year",
+        "Submit": "Submit",
+        "Principal": "Principal",
+        "Interest": "Interest",
+        "Component": "Component",
+        "Start Date": "Start Date",
+        "End Date": "End Date",
+        "Amount": "Amount",
+        "Provisional Amount": "Provisional Amount",
+        "Already Paid": "Already Paid",
+        "DOWNLOAD": "Download PDF",
+        "EMAIL": "Email Statement",
+		"Note":"Note:",
+		"Consider the Start date as 1":"Consider the Start date as 1",
+		"st":"st",
+		"April or your Loan Disbursement date, whichever is later.":"April or your Loan Disbursement date, whichever is later."
+
+    },
+   "en-IN": {
+		"Select":"Select",
+    	"Busy":"Busy",
+		"Select_Loan_Account": "Select Loan Account",
+        "Actual_Paid": "Actual Paid",
+        "Select_Financial_Year": "Select Financial Year",
+        "Submit": "Submit",
+        "Principal": "Principal",
+        "Interest": "Interest",
+        "Component": "Component",
+        "Start_Date": "Start Date",
+        "End_Date": "End Date",
+        "Amount": "Amount",
+        "Provisional_Amount": "Provisional Amount",
+        "Already_Paid": "Already Paid",
+        "DOWNLOAD": "Download PDF",
+        "EMAIL": "Email Statement",
+		"Note":"Note:",
+		"Consider the Start date as 1":"Consider the Start date as 1",
+		"st":"st",
+		"April or your Loan Disbursement date, whichever is later.":"April or your Loan Disbursement date, whichever is later."
+    }
+}

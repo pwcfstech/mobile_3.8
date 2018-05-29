@@ -1,0 +1,30 @@
+[
+  {
+	"code": "currentAccount",
+	"defaultTitle": "Current Account"
+  },
+  {
+	"code": "card",
+	"defaultTitle": "Debit Cards"
+  },
+  {
+	"code": "investment",
+	"defaultTitle": "Investment"
+  },
+  {
+	"code": "mortgage",
+	"defaultTitle": "Mortgage"
+  },
+  {
+	"code": "loan",
+	"defaultTitle": "Loans"
+  },
+  {
+	"code": "savingAccount",
+	"defaultTitle": "Savings Account"
+  },
+  {
+    "code": "homesaver",
+    "defaultTitle": "Short&Sweet"
+  }
+]

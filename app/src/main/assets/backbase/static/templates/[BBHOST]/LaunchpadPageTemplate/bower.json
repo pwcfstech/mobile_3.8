@@ -1,0 +1,27 @@
+{
+  "name": "template-launchpad-page",
+  "version": "1.1.4",
+  "main": "./scripts/main.js",
+  "authors": [
+    "Dmitry Smirnov <dmitry@backbase.com>",
+    "dragos <dragos@backbase.com>"
+  ],
+  "description": "Launchpad page template",
+  "keywords": [
+    "template"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "requirejs": "2.1.20",
+    "config": "^3.2.1",
+    "theme-retail": "^1.0.0",
+    "base": "^2.0.0",
+    "module-behaviors": "^1.0.1",
+    "module-polyfills": "^1.0.1"
+  }
+}

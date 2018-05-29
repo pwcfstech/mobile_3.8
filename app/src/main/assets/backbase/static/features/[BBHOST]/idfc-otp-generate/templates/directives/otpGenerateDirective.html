@@ -1,0 +1,32 @@
+<div>
+<h4>
+	<div class="text-success" ng-show="success.happened" style="text-align:center" ng-bind="success.msg"></div>
+	<div class="text-danger" ng-show="error.happened" style="text-align:center" ng-bind="error.msg"></div>
+</h4>
+<form name="OTPform" class="form-horizontal">
+    <div lp-field="lp-field" label="Mobile Number" class="limitManagement-otp-label">
+        <div>
+            <input class="form-control limit-Mgmt-OTPMobile"	type="text"	name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" style="float:left; width:50%;"/>
+        </div>
+    </div>
+    <input style="display:none" type="text" name="fakeusernameremembered"/>
+    <input style="display:none" type="password" name="fakepasswordremembered"/>
+    <div lp-field="lp-field" label="OTP" class="limitManagement-otp-label" tip="Please enter the 6 digit OTP we sent to your registered mobile number">
+		<div>
+			<input class="form-control" type="password" name="otp" autofill="off" autocorrect="off" autocapitalize="off"
+				   autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+				   ng-model="otpValue" required="true" style="width: 50%;" ng-disabled="lockFieldsOTP"/>
+			<small class="text-danger" style="width:38%;" ng-show="otpRequiredError" lp-i18n="OTP is required"></small>
+			<small class="text-danger" style="width:38%;" ng-show="otpMinLengthError" lp-i18n="Please enter 6 digit valid value"></small>
+			<small class="text-danger" style="width:38%;" ng-show="otpMaxLengthError" lp-i18n="Please enter 6 digit valid value"></small>
+			<small class="text-danger" style="width:38%;" ng-show="OTPform.otp.$error.pattern" lp-i18n="Please enter a valid OTP"></small>
+		</div>
+    </div>
+    <div class="limitManagement-div-td-dep-ab">
+		<div class="limit-otp-buttons-child">
+			<button class="btn btn-primary limitManagement-btn-align limitManagement-primary-btn-limit primary-btn-btn idfc-next-lm" ng-disabled="lockFieldsOTP" type="submit" name="verifyOTP" ng-click="OTPform.submitted=true;submitOTP(OTPform)" lp-i18n="Submit"></button>
+			<button class="btn btn-primary limitManagement-btn-align  limitManagement-secondary-btn-limit secondary-btn-btn idfc-clear-lm ng-isolate-scope" ng-disabled="lockFieldsOTP" type="button" name="resendOTP" ng-click="generateOTP('resend')" lp-i18n="Resend OTP"></button>
+		</div>
+	</div>
+</form>
+ </div>

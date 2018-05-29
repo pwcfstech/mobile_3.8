@@ -1,0 +1,58 @@
+<div ng-controller="RDLandingPageController" class="panel panel-default">  
+    <div class="panel-heading context clearfix"><span class="pull-left">Select an option :-</span></div>
+    <div progress-indicator="progress-indicator" is-loading="fiModel.isConnecting" class="panel-body fi-list">
+        <ul lazy-loader="lazy-loader" class="list-group list-view">
+            <li  class="list-group-item list-view-row cursor-pointer transition-fi" tabindex="0" ng-click="openRecurringDeposits()"  ng-keypress="openRecurringDeposits()">
+                <div class="list-view-container">
+                    <div class="info">
+                        <div class="column col-xs-1">
+                            <div class="centered">
+                                 <span class="fi-icon">
+                                    <i class="lp-icon lp-icon-expense-planning"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="column col-xs-10">
+                            <span class="h4 centered">Open Recurring Deposits</span>
+                        </div>											
+                    </div>
+                </div>
+            </li>
+			
+			<li  class="list-group-item list-view-row cursor-pointer transition-fi" tabindex="0" ng-click="recurringDepositDetails()"  ng-keypress="recurringDepositDetails()">
+                <div class="list-view-container">
+                    <div class="info">
+                        <div class="column col-xs-1">
+                            <div class="centered">
+                                 <span class="fi-icon">
+                                    <i class="lp-icon lp-icon-expense-planning"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="column col-xs-10">
+                            <span class="h4 centered">Recurring Deposit Details</span>
+                        </div>											
+                    </div>
+                </div>
+            </li>
+			
+			<li  class="list-group-item list-view-row cursor-pointer transition-fi" tabindex="0" ng-click="closure()"  ng-keypress="closure()">
+                <div class="list-view-container">
+                    <div class="info">
+                        <div class="column col-xs-1">
+                            <div class="centered">
+                                 <span class="fi-icon">
+                                    <i class="lp-icon lp-icon-expense-planning"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="column col-xs-10">
+                            <span class="h4 centered">Recurring Deposit Closure</span>
+                        </div>											
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+    </div>
+</div>

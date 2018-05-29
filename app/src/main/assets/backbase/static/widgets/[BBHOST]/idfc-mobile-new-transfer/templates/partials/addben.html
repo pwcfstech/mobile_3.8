@@ -1,0 +1,200 @@
+<div class="col-contact-form panel-body ft-color-addben">
+    <div class="ft-checkbox-addben">
+        <div class="ft-floatLeft form-div">
+            <label lp-i18n="Radio_Top_Label"></label>
+        </div>
+        <div class="floating-radio-label pull-left">
+            <input type="radio" name="beneficiaryType" id="intraBank" ng-model="paymentOrder.newBeneficiary.beneficiaryType" value="OWN" ng-change='changeBeneficiaryType("OWN")' class="idfcRadioButton" checked="checked"/>
+            <label for = "intraBank" class="accounttypelabel">{{'Beneficiary_WithIn_IDFC'|translate}}</label>
+        </div>
+        <div class="floating-radio-label pull-left">
+            <input type="radio" name="beneficiaryType" id="thirdParty" ng-model="paymentOrder.newBeneficiary.beneficiaryType" value="OTH" ng-change='changeBeneficiaryType("OTH")' class="idfcRadioButton"/>
+            <label for = "thirdParty" class="accounttypelabel">{{'Beneficiary_OutSide_IDFC'|translate}}</label>
+        </div>
+    </div>
+    <div class="error-message-align-idfc">
+        <small class="text-danger" ng-show="submitFlag &amp;&amp; errorsNewBen['BeneficiaryType']">
+            <span lp-i18n="messages.beneTypeRequired"></span>
+        </small>
+    </div>
+    <div id="benBank" class="form-group-fundtransfer ft-bankNamePadding" ng-hide="paymentOrder.newBeneficiary.beneficiaryType == 'OWN'">
+        <div class="ft-floatLeft form-div">
+            <label  for = "benBank" id="benBankLabel">{{'Beneficiary_Bank_Name'|translate}}</label>
+        </div>
+        <div class="ft-floatLeft">
+            <div class="ft-floatLeft ">
+                <select  class="beneficiary-control-newtransfer IDFC-dropdown ft-bene-account-name"
+                    ng-model="paymentOrder.newBeneficiary.bank"
+                    ng-options="banks for banks in bankNames"
+                    ng-change="changeBeneficiaryBank(paymentOrder.newBeneficiary.bank)"
+                    loading="isLoading"
+                    itemprop="default_account_field"
+                    placeholder="Select One">
+                    <option value="Select One">Select One</option>
+                </select>
+            </div>
+            <div id="benBankError" class="error-message-align">
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; errorsNewBen['BankName']">
+                    <span class="general-ifsc-code" lp-i18n="messages.beneBankNameRequired"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+    <div id="benAcName" class="form-group-fundtransfer">
+        <div class="ft-floatLeft form-div">
+            <label>{{'Beneficiary_Account_Name'|translate}}</label>
+        </div>
+        <div class="ft-floatLeft">
+            <div>
+                <input id="accname" type="text" name="accname" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" class="form-control ft-add-bin beneficiary-control-newtransfer " ng-maxlength="50" ng-pattern="/^[a-zA-Z0-9\_\- ]*$/" ng-class="{lpinputerror: formsubmitted && paymentOrderForm.name.$error.required && paymentOrder.newBeneficiary.name.$error.maxlength}" ng-model="paymentOrder.newBeneficiary.accName" placeholder="Account Name" ng-required="activeTransferTab.newBeneficiary"/>
+            </div>
+            <div class="error-message-align">
+                <small class="text-danger general-ifsc-code" ng-show="submitFlag &amp;&amp; paymentOrderForm.accname.$error.required"><span lp-i18n="messages.beneAccountNameRequired"></span></small>
+                <small class="text-danger general-ifsc-code" ng-show="paymentOrderForm.accname.$error.maxlength"><span lp-i18n="messages.beneMaxAccNameLengthInvalid"></span></small>
+                <small class="text-danger general-ifsc-code" ng-show="paymentOrderForm.accname.$error.pattern"><span lp-i18n="messages.beneAccNameSpecialCharValidion"></span></small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group-fundtransfer">
+        <div class="ft-floatLeft form-div">
+            <label for="nickname">{{'Beneficiary_Nickname'|translate}}</label></div>
+        <div class="ft-floatLeft">
+            <div>
+                <input id="nickname" type="text" name="nickname" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" class="form-control ft-add-bin beneficiary-control-newtransfer" ng-maxlength="15" ng-pattern="/^[a-zA-Z]*$/" ng-class="{lpinputerror: formsubmitted && paymentOrderForm.nickname.$error.required && paymentOrderForm.nickname.$error.maxlength}" ng-model="paymentOrder.newBeneficiary.nickname" placeholder="Beneficiary Nick Name" ng-required="activeTransferTab.newBeneficiary">
+                    </div>
+            <div class="error-message-align">
+                <small class="text-danger" ng-show="paymentOrderForm.nickname.$error.maxlength"><span class="general-ifsc-code" lp-i18n="messages.beneNickNameLengthValidion"></span></small>
+                <small class="text-danger" ng-show="paymentOrderForm.nickname.$error.pattern"><span class="general-ifsc-code" lp-i18n="messages.beneNickNameSpecialCharValidion"></span></small>
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; paymentOrderForm.nickname.$error.required"><span class="general-ifsc-code" lp-i18n="messages.beneNickNameRequired"></span></small>
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; errorsNewBen['nickName']" class="lp-icon lp-icon-alert-warning"><span class="general-ifsc-code" lp-i18n="messages.beneNickNameAlreadyExist"></span></small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group-fundtransfer">
+        <div class="ft-floatLeft form-div">
+            <label>{{'Beneficiary_Account_Number'|translate}}</label>
+        </div>
+        <div class="ft-floatLeft">
+            <div>
+                <input style="display:none" type="text" name="fakeusernameremembered" />
+                <input style="display:none" type="password" name="fakepasswordremembered" />
+                <input id="account" type="text" name="account" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+                onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control-newtransfer form-control ft-add-bin " ng-minlength="5" ng-maxlength="30" ng-pattern="/^[a-zA-Z0-9]*$/" ng-class="{lpinputerror: formsubmitted && paymentOrderForm.account.$error.required && paymentOrderForm.account.$error.maxlength}" ng-model="paymentOrder.newBeneficiary.account" placeholder="Account Number" ng-required="activeTransferTab.newBeneficiary" style="-webkit-text-security:disc;"/>
+            </div>
+            <div class="error-message-align">
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; paymentOrderForm.account.$error.required"><span class="general-ifsc-code" lp-i18n="messages.beneAccountNoRequired"></span></small>
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; paymentOrderForm.account.$error.minlength"><span class="general-ifsc-code" lp-i18n="messages.beneAccNoMinLenValidion"></span></small>
+                <small class="text-danger" ng-show="paymentOrderForm.account.$error.maxlength"><span class="general-ifsc-code" lp-i18n="messages.beneAccNoMaxLenValidion"></span></small>
+                <small class="text-danger" ng-show="paymentOrderForm.account.$error.pattern"><span class="general-ifsc-code" lp-i18n="messages.beneAccNoPatternValidion"></span></small>
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; errorsNewBen['acntNumber']" ><span class="general-ifsc-code" lp-i18n="messages.beneAccConfirmAccMatchInvalid"></span></small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group-fundtransfer">
+        <div class="ft-floatLeft form-div">
+            <label>{{'Beneficiary_Confirm_Accoun_Number'|translate}}</label>
+        </div>
+        <div class="ft-floatLeft">
+            <div><input id = "confirmAccount" type="text" name="confirmAccount" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+                onpaste="return false;" onCopy="return false" onCut="return false" ng-minlength="5" ng-maxlength="30" ng-pattern="/^[a-zA-Z0-9]*$/"    pw-check="account" class="form-control ft-add-bin beneficiary-control-newtransfer" ng-class="{lpinputerror: formsubmitted && paymentOrderForm.confirmAccount.$error.required && paymentOrderForm.confirmAccount.$error.maxlength && paymentOrderForm.limit.$error.number && paymentOrderForm.confirmAccount.$error.pwmatch}" ng-model="paymentOrder.newBeneficiary.confirmAccount" placeholder="Confirm Account Number" ng-required="activeTransferTab.newBeneficiary" />
+            </div>
+            <div class="error-message-align">
+                <small class="text-danger" ng-show="submitFlag && paymentOrderForm.confirmAccount.$error.minlength"><span class="general-ifsc-code" lp-i18n="messages.beneConfirmAccNoMinLenValidion"></span></small>
+                <small class="text-danger" ng-show="paymentOrderForm.confirmAccount.$error.maxlength"><span class="general-ifsc-code" lp-i18n="messages.beneConfirmAccNoMaxLenValidion"></span></small>
+                <small class="text-danger" ng-show="paymentOrderForm.confirmAccount.$error.number"><span class="general-ifsc-code" lp-i18n="messages.beneConfirmAccValidNoValidion"></span></small>
+                <small class="text-danger" ng-show="paymentOrderForm.confirmAccount.$error.pattern"><span class="general-ifsc-code" lp-i18n="messages.beneConfirmAccPatternValidion"></span></small>
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; paymentOrderForm.confirmAccount.$error.required"><span class="general-ifsc-code" lp-i18n="messages.beneConfirmAccountNoRequired"></span></small>
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; errorsNewBen['acntNumber']" ><span class="general-ifsc-code" lp-i18n="messages.beneAccConfirmAccMatchInvalid"></span></small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group-fundtransfer form-group-limit">
+        <div class="ft-floatLeft form-div ">
+            <label>{{'Beneficiary_Account_Type'|translate}}</label>
+        </div>
+        <div class="ft-floatLeft ft-bene-account-type">
+            <select  id="accountType"
+                class="beneficiary-control-newtransfer IDFC-dropdown ft-benbank-class ft-add-bin"
+                ng-model="paymentOrder.newBeneficiary.accType"
+                ng-options="accType.name for accType in beneficiaryAccountTypes track by accType.id"
+                ng-click="global.openOptions=true"
+                ng-class="{'ddopen':global.openOptions}"
+                ng-change="changeBeneficiaryActype(paymentOrder.newBeneficiary.accType)"
+                loading="isLoading"
+                empty-placeholder-text="Select"
+                itemprop="default_account_field">
+                <option ng-option value="">Select</option>
+            </select>
+            <div class="error-message-align">
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; errorsNewBen['AcctTypeError']">
+                    <span class="general-ifsc-code" lp-i18n="messages.beneAcctTypeRequired"></span>
+                </small>
+            </div>
+        </div>
+    </div>
+    <div ng-show="paymentOrder.newBeneficiary.beneficiaryType == 'OTH'" class="ifsc-input form-group">
+        <div class="form-group-fundtransfer form-group-limit">
+            <div class="ft-floatLeft form-div ifsc-label-light" ng-if="paymentOrder.newBeneficiary.bank == null || paymentOrder.newBeneficiary.bank == '' || paymentOrder.newBeneficiary.bank == 'Select'">
+                <label>{{'IFSC_Code'|translate}} <i class="lp-icon" tooltip="{{'Tip_IFSC'|translate}}" tooltip-placement="bottom" > <img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"> </i></label>
+            </div>
+			<div class="ft-floatLeft form-div " ng-if="paymentOrder.newBeneficiary.bank != 'Select' && paymentOrder.newBeneficiary.bank.length > '0' && paymentOrder.newBeneficiary.bank != null">
+                <label>{{'IFSC_Code'|translate}} <i class="lp-icon" tooltip="{{'Tip_IFSC'|translate}}" tooltip-placement="bottom" > <img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"> </i></label>
+            </div>
+            <div class="ft-floatLeft">
+                <div>
+                    <input ifsc-char ng-trim="false" maxlength="11" id="ifsc" type="text" name="ifsc" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" 
+					onpaste="return false;" onCopy="return false" onCut="return false" class="form-control beneficiary-control-newtransfer ifsc-drop" 
+                            ng-show="paymentOrder.newBeneficiary.beneficiaryType == 'OTH'" ng-maxlength="11" ng-pattern="/^[a-zA-Z0-9]*$/" 
+                             ng-class="{lpinputerror: formsubmitted && paymentOrderForm.ifsc.$error.required && paymentOrderForm.ifsc.$error.maxlength}" 
+                   ng-model="paymentOrder.newBeneficiary.ifsc" placeholder="IFSC" ng-required="paymentOrder.newBeneficiary.beneficiaryType == 'OTH'" class="align:right;" required/>
+                </div>
+				<!-- added -->
+                <div ng-show="!mainCtrl.bankDetails.count" id="ifsc_help_info_link" class="new-transfer-error">
+                    <small class="find-title not-sure-block">Not Sure? Find </small>
+                    <a ng-if="paymentOrder.newBeneficiary.bank.length > '0' && paymentOrder.newBeneficiary.bank != 'Select'"
+                       style="cursor:pointer;" ui-sref="/" ng-click="mainCtrl.goToSearchIFSCpage();" class="ifsc-code-link">
+                        <strong>IFSC</strong></a>
+                    <span ng-if="paymentOrder.newBeneficiary.bank == null || paymentOrder.newBeneficiary.bank == 'Select'" class="ifsc-code-not-link"><strong>IFSC</strong></span>
+                    <strong>here</strong>
+                </div>
+				
+				<!-- -->
+				
+                <div class="error-message-align">
+                    <small class="text-danger" ng-show="paymentOrderForm.ifsc.$error.maxlength"><span class="general-ifsc-code" lp-i18n="messages.beneIFSCLengthValidion"></span></small>
+                    <!--small class="text-danger" ng-show="paymentOrderForm.ifsc.$error.pattern"><span lp-i18n="messages.beneIFSCPatternValidtion"></span></small-->
+                    <small class="text-danger" ng-show="submitFlag &amp;&amp; paymentOrderForm.ifsc.$error.required"><span class="general-ifsc-code" lp-i18n="messages.beneIFSCRequired"></span></small>
+                    <small class="text-danger" ng-show="submitFlag &amp;&amp; errorsNewBen['ifscError']" ng-if="!mainCtrl.bankDetails.count"><span class="general-ifsc-code" lp-i18n="messages.beneInvalidIFSC"></span></small>
+                </div>
+				
+				<!-- added -->
+								<div class="msg-width find-title-ifsc-code" ng-show="mainCtrl.ifscValidateErrors['invalidIFSC'] || contactsCtrl.savedIfscValidateErrors" lp-i18n="Invalid IFSC. Please provide valid IFSC">&nbsp;</div>
+								<!-- <div class="msg-width find-title-ifsc-code" lp-i18n="Invalid IFSC Code. Please provide valid IFSC Code">&nbsp;</div> -->
+				
+				<div class="bnf-bank-name-error-block" ng-if="mainCtrl.bankDetails.count" ><p class="bnf-bank-name-error-bank"><strong>{{mainCtrl.bankDetails.bankName}}</strong></p>
+				<p class="bnf-bank-name-error-bank"><strong>{{mainCtrl.bankDetails.branchName}}</strong></p>
+				<span class="bnf-bank-name-error-bank"><strong>{{mainCtrl.bankDetails.branchAdd}}</strong></span>
+				</div>
+				<!-- <div class="bnf-bank-name-error-block" ><p class="bnf-bank-name-error-bank"><strong>ICICI Bank Limited</strong></p> -->
+				<!-- <p class="bnf-bank-name-error-bank"><strong>Netaji Road</strong></p> -->
+				<!-- <span class="bnf-bank-name-error-location"><strong>Tirupati, Andhrapradesh</strong></span> -->
+				<!-- </div> -->
+				
+				
+            </div>
+        </div>
+    </div>
+    <div class="form-group-fundtransfer">
+        <div class="ft-floatLeft form-div font-blk">
+            <label for="account">{{'Beneficiary_Limit'|translate}} <i class="lp-icon" tooltip="{{'Tip_Beneficiary_Limit'|translate}}" tooltip-placement="bottom" ><img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i> </label></div>
+        <div class="ft-floatLeft">
+            <div> <input id = "account" type="text" name="limit" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+                onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control-newtransfer form-control ft-adds-bin  " ng-pattern="/^[0-9]{1,8}(\.[0-9]{1,2})?$/" ng-class="{lpinputerror: formsubmitted &&  (paymentOrderForm.limit.$error.required) && paymentOrderForm.limit.$error.maxlength && paymentOrderForm.limit.$error.number}" ng-model="paymentOrder.newBeneficiary.limit" placeholder="Transfer Limit" ng-required="activeTransferTab.newBeneficiary"/></div>
+            <div class="error-message-align">
+                <small class="text-danger" ng-show="submitFlag &amp;&amp; paymentOrderForm.limit.$error.required"><span class="general-ifsc-code" lp-i18n="messages.beneTransferLimitRequired"></span></small>
+                <small class="text-danger" ng-show="paymentOrderForm.limit.$error.maxlength"><span class="general-ifsc-code" lp-i18n="messages.beneLimitLengthValidion"></span></small>
+                <small class="text-danger" ng-show="paymentOrderForm.limit.$error.pattern"><span class="general-ifsc-code" lp-i18n="messages.beneLimitPatternValidion"></span></small>
+            </div>
+        </div>
+    </div>
+</div>

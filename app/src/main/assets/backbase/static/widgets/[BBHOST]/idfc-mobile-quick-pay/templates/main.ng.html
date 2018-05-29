@@ -1,0 +1,785 @@
+<div class="ng-cloak" ng-controller="QuickPaybillCtrl">
+<div ng-show="errorSpin">
+    <div class="panel-message loading-panel" role="alert" style="height:106%!important">
+        <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+        <span class="sr-only">Busy</span>
+    </div>
+</div>
+
+<div ng-show="tncflag">
+    <div data-ng-include="template.tnc"></div>
+</div>
+<div ng-show="error.happened" class="quickpay-message-position">{{error.msg}}</div>
+<div class="lp-alerts">
+    <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}
+    </div>
+</div>
+<div ng-hide="globalerror" style="overflow-x:hidden">
+    <form name="quickPayForm">
+        <div ng-hide="mainPage || tncflag">
+            <div class="quick-error-msg">{{errorMessage}}</div>
+            <div class="form-group">
+                <div class="quick-floatLeft marginTop6">
+                    <span for="" class="labelText1">{{'Category_Label'|translate}}</span>
+                </div>
+                <div class="quick-floatLeft">
+                    <div>
+                        <select name="" class="quick-control quick-acc-type-quick addressbook-select IDFC-dropdown quick-bill-select-left" ng-model="billerCategory"
+                            ng-options="item.category as item.category for item in billerCategoryList.list" ng-click="loadMasterData()">
+                                <option value="">{{'Select_Category'|translate}}</option></select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="quick-floatLeft">
+                    <span for="" class="labelText1">{{'Provider_Label'|translate}}</span>
+                </div>
+                <div class="quick-floatLeft">
+                    <div>
+                        <select name="" class="quick-control quick-acc-type-quick quickressbook-select IDFC-dropdown quick-bill-select-left providerselect"
+                            ng-model="billerProvider" ng-options="item as item.billerName for item in billerProviderMaster">
+                                <option value="">{{'Select_Provider'|translate}}</option></select>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="billerProvider.authenticatorCount>=1">
+                <div class="form-group">
+                    <div class="quick-floatLeft">
+                        <span for="" class="labelText1">{{billerProvider.authenticatorLable1}}</span>
+                    </div>
+                    <div class="quick-floatLeft">
+                        <div><input type="text" name="auth1" id="auth1" class="quick-control quick-bill-select-left" ng-model="authenticator1"
+                                placeholder="{{billerProvider.authenticatorLable}}" />
+                        </div>
+                        <div class="quick-bill-message"><small ng-show="checkp1" role="alert">
+                                {{billerProvider.authenticatorMessage1}}
+                            </small></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="billerProvider.authenticatorCount>=2">
+                <div class="form-group">
+                    <div class="quick-floatLeft">
+                        <span for="" class="labelText1">{{billerProvider.authenticatorLable2}}</span>
+                    </div>
+                    <div class="quick-floatLeft">
+                        <div><input type="text" name="auth2" id="auth2" class="quick-control quick-bill-select-left" ng-model="authenticator2"
+                                placeholder="Authenticator 2" />
+                        </div>
+                        <div class="quick-bill-message"><small ng-show="checkp2" role="alert">
+                                {{billerProvider.authenticatorMessage2}}
+                            </small></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="billerProvider.authenticatorCount>=3">
+                <div class="form-group">
+                    <div class="quick-floatLeft">
+                        <span for="" class="labelText1">{{billerProvider.authenticatorLable3}}</span>
+                    </div>
+                    <div class="quick-floatLeft">
+                        <div><input type="text" name="auth3" id="auth3" class="quick-control quick-bill-select-left" ng-model="authenticator3"
+                                placeholder="Authenticator 3" />
+                        </div>
+                        <div class="quick-bill-message"><small ng-show="checkp3" role="alert">
+                                {{billerProvider.authenticatorMessage3}}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="billerProvider.authenticatorCount>=4">
+                <div class="form-group">
+                    <div class="quick-floatLeft">
+                        <span for="" class="labelText1">{{billerProvider.authenticatorLable4}}</span>
+                    </div>
+                    <div class="quick-floatLeft">
+                        <div><input type="text" name="auth4" id="auth4" class="quick-control quick-bill-select-left" ng-model="authenticator4"
+                                placeholder="Authenticator 4" />
+                        </div>
+                        <div class="quick-bill-message"><small ng-show="checkp4" role="alert">
+                                {{billerProvider.authenticatorMessage4}}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="billerProvider.authenticatorCount>=5">
+                <div class="form-group">
+                    <div class="quick-floatLeft">
+                        <span for="" class="labelText1">{{billerProvider.authenticatorLable5}}</span>
+                    </div>
+                    <div class="quick-floatLeft">
+                        <div><input type="text" name="auth5" id="auth5" class="quick-control quick-bill-select-left" ng-model="authenticator5"
+                                placeholder="Authenticator 5" />
+                        </div>
+                        <div class="quick-bill-message"><small ng-show="checkp5" role="alert">
+                                {{billerProvider.authenticatorMessage5}}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="quick-floatLeft">
+                    <span for="" class="labelText1">{{'Amount_label'|translate}}</span>
+                </div>
+                <div class="quick-floatLeft">
+                    <div><input type="tel" name="amount" id="amount" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+                            onpaste="return false" onCopy="return false" onCut="return false" class="inputAmt quick-control quick-bill-select-left"
+                            ng-pattern="/^[0-9]*[1-9][0-9]*[\.]?[(0-9)]*$/" ng-model="amountEntered" placeholder="Amount" ng-readonly="disableAmount"
+                        />
+                    </div>
+                    <div class="quick-bill-message quick-floatLeft spacer-right-10"><small ng-show="quickPayForm.amount.$error.pattern" role="alert">
+                            Not a valid amount!
+                        </small>
+                    </div>
+                </div>
+                <div ng-show="showFetchButton" class="fetchbtn">
+                    <a id="fetchButton" ng-click="getBiller()" disabled="">Fetch Amount</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="quick-floatLeft">
+                    <span for="" class="labelText1">{{'Account_Label'|translate}}</span>
+                </div>
+                <div class="quick-floatLeft">
+                    <div>
+                        <select id="" name="AccountNumber" class="quick-control quick-acc-type-add addressbook-select IDFC-dropdown quick-bill-select-left"
+                            ng-model="selectedAccountNumber" ng-options=" item as item.id for item in acccountNumbers">
+                                <option value="">{{'Select_Account'|translate}}</option></select>
+                        <label class="RsBalance" style="" ng-show="accountCheck"><span class="rupee-symbol-span"></span>{{selectedAccountNumber.availableBalance | currency:' '}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="borderLine"></div>
+            <div class="quick-div-td-dep-ab text-center">
+                <!-- <button id="nextButton" name="nextButton" class="btn btn-primary primary-btn-btn ng-binding" ng-click="goNext(quickPayForm.$valid,selectedAccountNumber)" type="submit" name="proceed">{{'Next_Label'|translate}}</button> -->
+                <!-- Xebia Refactoring -->
+                <button id="nextButton" name="nextButton" class="btn btn-primary primary-btn-btn ng-binding" ng-click="goNext(quickPayForm.$valid,selectedAccountNumber)"
+                    type="submit">{{'Next_Label'|translate}}</button>
+            </div>
+        </div>
+    </form>
+    <div ng-hide="tncflag">
+        <div ng-show="billDetailPage">
+            <div class="row lightbgGray padTop6">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                    <div class="quick-floatLeft quick-form-div col-md-12 col-sm-12 col-xs-12">
+                        <span for="" class="quick-bill-label">{{'Category_Label'|translate}}</span>
+                    </div>
+                    <div class="quick-floatLeft quick-confirm-bill col-md-12 col-sm-12 col-xs-12">
+                        <span name="" class="quick-bill-select-left">{{billerCategory}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row lightbgGray">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                    <div class="quick-floatLeft quick-form-div col-md-12 col-sm-12 col-xs-12">
+                        <span for="" class="quick-bill-label">{{'Provider_Label'|translate}}</span>
+                    </div>
+                    <div class="quick-floatLeft quick-confirm-bill col-md-12 col-sm-12 col-xs-12">
+                        <span name="" class="quick-bill-select-left">{{billerProvider.billerName}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row padTop6">
+                <div ng-show="billerProvider.authenticatorCount>=1">
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="quick-floatLeft quick-form-div col-md-12 col-sm-12 col-xs-12">
+                            <span for="" class="quick-bill-label">{{billerProvider.authenticatorLable1}}</span>
+                        </div>
+                        <div class="quick-floatLeft quick-confirm-bill col-md-12 col-sm-12 col-xs-12">
+                            <span name="" class="quick-bill-select-left">{{authenticator1}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-show="billerProvider.authenticatorCount>=2">
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="quick-floatLeft quick-form-div col-md-12 col-sm-12 col-xs-12">
+                            <span for="" class="quick-bill-label">{{billerProvider.authenticatorLable2}}</span>
+                        </div>
+                        <div class="quick-floatLeft quick-confirm-bill col-md-12 col-sm-12 col-xs-12">
+                            <span name="" class="quick-bill-select-left">{{authenticator2}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-show="billerProvider.authenticatorCount>=3">
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <div class="quick-floatLeft quick-form-div col-md-12 col-sm-12 col-xs-12">
+                            <span for="" class="quick-bill-label">{{billerProvider.authenticatorLable3}}</span>
+                        </div>
+                        <div class="quick-floatLeft quick-confirm-bill col-md-12 col-sm-12 col-xs-12">
+                            <span name="" class="quick-bill-select-left">{{authenticator3}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-show="billerProvider.authenticatorCount>=4">
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <div class="quick-floatLeft quick-form-div col-md-12 col-sm-12 col-xs-12">
+                            <span for="" class="quick-bill-label">{{billerProvider.authenticatorLable4}}</span>
+                        </div>
+                        <div class="quick-floatLeft quick-confirm-bill col-md-12 col-sm-12 col-xs-12">
+                            <span name="" class="quick-bill-select-left">{{authenticator4}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                    <div class="quick-floatLeft quick-form-div col-md-12 col-sm-12 col-xs-12">
+                        <span for="" class="quick-bill-label">{{'Amount_label'|translate}}</span>
+                    </div>
+                    <div class="quick-floatLeft quick-confirm-bill col-md-12 col-sm-12 col-xs-12">
+                        <span name="" class="quick-bill-select-left">{{amountEntered | currency:' '}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                    <div class="quick-floatLeft quick-form-div col-md-12 col-sm-12 col-xs-12">
+                        <span for="" class="quick-bill-label">{{'Account_Label'|translate}}</span>
+                    </div>
+                    <div class="quick-floatLeft quick-confirm-bill col-md-12 col-sm-12 col-xs-12">
+                        <span name="accountType" class="quick-bill-select-left">{{selectedAccountNumber.id}}</span>
+                        <span name="accountType" class="quick-bill-select-left"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                    <div class="quick-floatLeft">
+                        <div class="quick-check-outer-div tncInput">
+                            <input type="checkbox" class="quick-set-check quick-bill-input" ng-model="termcondition" value="true" ng-disabled="!hideOTPFlag || !hideCombineFlag || !hideQuesFlag"
+                            />
+                            <span for="" class="quick-bill-check">{{'TNC_Label1'|translate}}</span>&nbsp;
+                            <a ng-click="tnc();">
+                                    <span for="" class="quick-bill-check term-and-condition-label">{{'TNC_Label2'|translate}}</span></a>
+                        </div>
+                        <div class="quick-floatLeft">
+                            <div class="quick-auto"><span class="quick-bill-span"></span></div>
+                        </div>
+                    </div>
+                    <div class="borderLine2"></div>
+                    <div class="clearfix"></div>
+                    <div ng-hide="hideSubmit1" class="marginTop6 text-center quick-div-td-dep-ab vert-spacer-top-20 vert-spacer-bot-10">
+                        <button ng-disabled="!termcondition || errorSpin" class="btn btn-primary primary-btn-btn ng-binding" ng-click="callOtp()"
+                            type="submit" name="proceed">Submit</button>
+                        <button ng-show="hideOTPFlag" type="button" class="btn btn-primary secondary-btn-btn ng-binding" ng-click="cancelForm()">Back</button>
+                    </div>
+                </div>
+            </div>
+            <div ng-hide="hideOTPFlag" class="quick-otv-div">
+                <h4>
+                    <div class="text-success sucessOTP text-center" ng-show="success.happened">
+                        <div class="img_padding">
+                            <img src="static/features/[BBHOST]/theme-idfc/images/tick_hdpi.png" />
+                            <img ng-src="{{tick}}" />
+                        </div>
+                        OTP has been sucessfully sent to your registered mobile number
+                    </div>
+                    <div class="text-danger" ng-show="otpError.happened" style="text-align:center">{{ otpError.msg }}
+                    </div>
+                </h4>
+                <form name="OTPform" class="form-horizontal">
+                    <div lp-field="lp-field" label="Mobile_Label" tip="">
+                        <div>
+                            <input class="quick-otp-input-width" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+                        </div>
+                    </div>
+                    <input style="display:none" type="text" name="fakeusernameremembered" />
+                    <input style="display:none" type="password" name="fakepasswordremembered" />
+                    <div lp-field="lp-field" label="OTP_Label" tip="{{'Tip_OTP'|translate}}">
+                        <div class="inputOtp">
+                            <input class="quick-otp-input-width" type="tel" name="otp" autocomplete="off" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+                                ng-model="otpValue" ng-required="true" style="-webkit-text-security:disc" />
+                            <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">
+                                    {{'Error_Required_OTP'|translate}}
+                                </small>
+                            <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">
+                                    {{'Error_Invalid_Length_OTP'|translate}}
+                                </small>
+                            <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">
+                                    {{'Error_Invalid_Length_OTP'|translate}}
+                                </small>
+                            <small class="text-danger" ng-show="OTPform.otp.$error.pattern">
+                                    {{'Error_Invalid_OTP'|translate}}
+                                </small>
+                        </div>
+                    </div>
+                    <div class="quick-div-td-dep-ab text-center">
+                        <!--commenting resendDisabled to address issue 5533. submit button should not get disabled.-->
+                        <!--<button ng-disabled="errorSpin || resendDisabled" class="btn btn-primary primary-btn-btn ng-binding" ng-click="initiateTransaction(OTPform.$valid, credentialType)" type="submit" name="proceed">{{'Submit'|translate}}</button>-->
+                        <!--<button ng-disabled="errorSpin" class="btn btn-primary primary-btn-btn ng-binding" ng-click="initiateTransaction(OTPform.$valid, credentialType)" type="submit" name="proceed">{{'Submit'|translate}}</button>
+                            <button ng-disabled="errorSpin || resendDisabled" type="button" class="btn btn-primary secondary-btn-btn ng-binding" ng-click="generateOTP('resend')">{{'Resend_OTP'|translate}}</button>-->
+                        <!--otp changes for quickpay-->
+                        <button ng-disabled="lockFieldsOTP" class="btn btn-primary primary-btn-btn ng-binding" ng-click="initiateTransaction(OTPform.$valid, 'OTP'); submitfunction()"
+                            type="submit" name="proceed">{{'Submit'|translate}}</button>
+                        <button ng-disabled="resendDisabled || stop" type="button" class="btn btn-primary secondary-btn-btn ng-binding" ng-click="generateOTP('resend'); resendfunction()">{{'Resend_OTP'|translate}}</button>
+                    </div>
+                </form>
+            </div>
+            <div ng-hide="hideCombineFlag" class="otpques-div">
+                <h4>
+                    <div class="text-success sucessOTP text-center" ng-show="success.happened">
+                        <div class="img_padding">
+                            <img src="static/features/[BBHOST]/theme-idfc/images/tick_hdpi.png" />
+                            <img ng-src="{{tick}}" />
+                        </div>
+                        OTP has been sucessfully sent to your registered mobile number
+                    </div>
+                    <div class="text-danger" ng-show="otpError.happened" style="text-align:center">{{ otpError.msg }}
+                    </div>
+                </h4>
+                <form name="mainform" class="form-horizontal">
+                    <div>
+                        <div lp-field="lp-field" label="Mobile_Label" tip="">
+                            <div>
+                                <input class="quick-otp-input-width" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+                            </div>
+                        </div>
+                        <input style="display:none" type="text" name="fakeusernameremembered" />
+                        <input style="display:none" type="password" name="fakepasswordremembered" />
+                        <div lp-field="lp-field" label="OTP_Label" class="otp-top" tip="{{'Tip_OTP'|translate}}">
+                            <div class="inputOtp">
+                                <input class="quick-otp-input-width" type="tel" name="otp" autocomplete="off" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+                                    ng-model="controlPass.otpValue" required="true" style="-webkit-text-security:disc" />
+                                <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+                                <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                <small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+                            </div>
+                        </div>
+                        <div class="otp-lp-field otp-lp-field-last">
+                            <div ng-if="showQuestionDiv">
+                                <div ng-repeat="question in challengeQuestions" style="margin-top:20px">
+                                    <label class="ques-label">{{question.questionText}} </label>
+                                    <input class="ans" type="text" name="answer" autocomplete="off" placeholder="Enter answer" ng-model="challengeQuesAnswers[$index].answer"
+                                        required="true" ng-disabled="isChallengeDisabled" />
+                                    <input type="hidden" ng-value="question.questionId" ng-model="challengeQuesAnswers[$index].question" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quick-div-td-dep-ab text-center">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft sub-top" ng-disabled="lockFieldsOTP" type="submit" name="verifyAnswers_otp"
+                                ng-click="mainform.submitted=true; initiateTransaction(mainform.$valid, credentialType); submitfunction()"> Submit </button>
+                            <button class="btn secondary-btn-btn secondary-btn-ft" ng-disabled="stop" type="button" name="resendOTP" ng-click="generateOTP('resend'); resendfunction()">{{'btn_ResendOTP'|translate}}</button>
+                            <!--<button class="btn btn-primary primary-btn-btn primary-btn-ft sub-top" type="submit" name="verifyAnswers_otp" ng-click="mainform.submitted=true; initiateTransaction(mainform.$valid, credentialType)"> Submit </button>
+                                <button class="btn secondary-btn-btn secondary-btn-ft" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- RSA changes by Xebia starts -->
+
+                <div ng-show="showDenyMessage">
+                    <div class="rsa-deny-message">
+                        {{cqObject.RSA_DENY_MESSAGE}} 
+                    </div>
+                </div>
+
+                <div ng-show="showCancelTransactionMessage">
+                    <div class="rsa-cancel-transaction-message">
+                            {{cqObject.CANCEL_TRANSACTION}} 
+                    </div>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                class="rsa-margin-top" type="submit" name="No"
+                                ng-click="cancelRSATransaction()">Okay</button>
+                    </div>
+                </div>
+
+                <div ng-show="showSetupCQMessage">
+                    <p>
+                        <center class="rsa-setupCQMessage">{{cqObject.SETUP_CQ_MESSAGE}}
+                        </center>
+                    </p>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="Yes"
+                                ng-click="showSetupCQ()">Update Now</button>
+
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="No"
+                                ng-click="showSetupCQMessage = false; showCancelTransactionMessage = true;">Cancel</button>
+                    </div>
+                </div>
+
+                <div ng-hide="hideQuesFlag" class="rsa-border-div">
+                    
+                    <div ng-bind="showCQError" class="rsa-cancel-transaction-message">
+                    </div>
+
+                    <!-- <form name="Questionform" class="form-horizontal"> -->
+                        <div ng-if="showQuestionDiv">
+                            
+                                <div class="rsa-margin-top">
+                                    <label ng-bind="challengeQuestions" class="rsa-bold-font"></label>
+                                    <input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer"
+                                    ng-model="challengeQuestion.answer"
+                                    required="true"/>
+                                </div>
+                            
+                             
+                            <div class="rsa-text-center rsa-margin-bottom">
+                                <button class="rsa-button btn btn-primary primary-btn-btn primary-btn-ft"
+                                    type="submit" name="verifyAnswers"
+                                    ng-click="verifyCQAnswer()"
+                                    ng-disabled="!(challengeQuestion.answer)"
+                                    lp-i18n="Submit Answer">  
+                                </button>
+                            </div>
+                        </div>
+
+                        <div ng-show="showWrongAnswerMessage" class="rsa-button" >
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="tryAgain"
+                                ng-click="fetchCQ()">Try Again</button>
+                        </div>
+
+                    <!-- </form> -->
+                </div>
+
+        <!-- RSA changes by Xebia ends -->
+
+        </div>
+    </div>
+    <div class="failureDiv quick-biller-confirm-div" style="padding-top:35%;" ng-show="failurePage">
+        <div>
+            <span class="failMsg confirm-span confirm-new" ng-show="payBillError.happened">
+<center><span class="failureTitle">Failure</span></center>
+            <div class="failureMessagesDiv">
+                <span class="OnlyFont">{{payBillError.msg}}</span>
+                <span style="color:#FF8F1B">{{payBillError.msg1}}</span>
+                <span class="OnlyFont">{{payBillError.msg3}}</span>
+                <span style="color:#FF8F1B">{{payBillError.msg2}}</span>
+                <span class="OnlyFont" style="color:#000000">{{payBillError.msg4}}</span>
+            </div>
+            </span>
+        </div>
+        <div class="borderLineFailurePg"></div>
+        <div class="text-center quick-div-td-dep-ab quick-button-left">
+            <button class="pay-btn btn btn-primary secondary-btn-btn ng-binding" ng-click="goBack()" type="submit" name="proceed">Pay Another Bill</button>
+        </div>
+    </div>
+    <div id="main" ng-show="SuccessPage">
+        <div class="row" style="padding-bottom:10%; background-color:#f7f7f7;text-align:center !important;">
+            <div class="col-xs-12" style="margin-bottom:3%; margin-top:5%">
+                <img style="margin-right: 11px;" height="17" width="25" alt="quick-pay Widget" title="quick-pay Widget" src="static/features/[BBHOST]/theme-idfc/images/tick_hdpi.png" translate="Success," class="ng-scope">
+            </div>
+            <span class="" ng-show="SuccessPage">
+                    <span ng-bind="payBill.msg" class="ng-binding"></span>
+                <!-- ngIf: !payBill.happened --><span ng-if="!payBill.happened" style="font-size: 14px;" ng-bind="successItems.successMessage" class="ng-binding ng-scope">Congratulations! Your Payment is successful</span><!-- end ngIf: !payBill.happened -->
+                    </span>
+        </div>
+        <div class="quick-biller-confirm-div" style="padding-left:5% !important; padding-right:5% !important; margin-top:2%;">
+            <div class="row" style="border-bottom:1px solid; border-color:#f7f7f7; padding-bottom:3%;">
+                        <div class="col-xs-6" style="margin-bottom:5%;font-size:13px !important;" ng-repeat="field in items" ng-if="field.display">
+                            <div class="row" style="margin-bottom:5%; margin-left:2%;">
+                                <b>{{field.item}}</b>
+                            </div>
+                            <div class="row" ng-if = "!(field.currency)" style="margin-left:2%;">
+                                {{field.value}}
+                            </div>
+                            <div class="row" ng-if = "field.currency" style="margin-left:2%;">
+                                <small class="rupee-symbol-span"></small>
+                                <small lp-amount="field.value" itemprop="amount"></small>
+                            </div>
+                        </div>
+            </div>
+            <div class="row col-lg-12" style="margin-top: 1%; padding-top: 1%;">
+                <div class="col-xs-12" style="text-align:right;">
+                    <button ng-repeat="item in buttons" name={{item.name}} class={{item.className}} style={{item.style}} ng-click="successAction(item.param)" type="button" lp-i18n={{item.name}}></button>
+                </div>
+                <div class="row col-xs-12" style="text-align:center;padding-left:12%;" ng-repeat="item in actions">
+                    <a ng-click=transReceipt(item.receiptType,item.transType)><span class={{item.className}} ></span></a>
+                    <span ng-if="showMailSuccess" style="color: #007900;font-size: 14px">{{mailSuccessMsg}}</span>
+                </div>
+            </div>
+        </div>
+        <div ng-hide="addbillerFlag">
+            <div class="" ng-hide="payBill.hideAddBiller">
+                <form novalidate="" class="form-horizontal" role="form" name="addBillerPage" id="addBillerPage">
+                    <div class="form-group marginTop50">
+                        <div id="addToBills" class="quick-floatLeft quick-form-div">
+                            <div class="outer quick-check-outer-div">
+                                <div class="billsInput">
+                                    <input type="checkbox" class="quick-set-check quick-bill-input" name="setAddBillFlag" id="setAddBillFlag" ng-model="setAddBillFlag"
+                                        ng-value="setAddBillFlag" />
+                                </div>
+                                <div class="billsText">
+                                    <span for="setAddBillFlag" class="bills">Add to my bills</span><br/>
+                                    <span class="successlabel">Saves bills and pay them easily</span>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="borderLine1"></div>
+                            <div class="quick-div-td-dep-ab text-center marginTop6" ng-show="payBill.hideAddBiller">
+                                <button type="button" class="btn btn-primary primary-btn-btn ng-binding" ng-click="openManageBiller()">{{'Manage_Biller'|translate}}</button>
+                                <button class="btn btn-primary secondary-btn-btn ng-binding" ng-click="openAddBiller()" type="submit" name="proceed">{{'Add_Another'|translate}}</button>
+                            </div>
+                            <div class="quick-div-td-dep-new text-center marginTop6" ng-hide="payBill.hideAddBiller || setAddBillFlag">
+                                <button class="btn btn-primary primary-btn-btn ng-binding" ng-click="goBack()" type="submit" name="proceed">Pay Another Bill</button>
+                            </div>
+                        </div>
+                        <div ng-show="setAddBillFlag">
+                            <div ng-show="billerCategory=='POSTPAID' || billerCategory =='Postpaid' || billerCategory =='postpaid' " class="form-group quickpay-form-align">
+                                <div class="quick-floatLeft1">
+                                    <span for="" class="quick-bill-label quick-pay-addBiller-margin">{{'Provider_Label'|translate}}</span>
+                                </div>
+                                <div class="quick-floatLeft quickPad">
+                                    <div>
+                                        <select name="" class="quick-control quick-acc-type-quick addressbook-select IDFC-dropdown quick-bill-select-left" ng-model="billerSelected"
+                                            ng-options="item as item.billerName for item in billerSelectionList" required>
+                                                <option value="">{{'Select_Provider'|translate}}</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group quickpay-form-align">
+                                <div class="quick-floatLeft1">
+                                    <span class="quick-bill-label quick-pay-addBiller-margin">{{'Nickname_Label'|translate}}</span>
+                                </div>
+                                <div class="quick-floatLeft1">
+                                    <div><input maxlength="15" type="text" name="billerNickname" class="quick-control quick-bill-select-left"
+                                            ng-model="billerNickName" placeholder="Nickname" ng-required="setAddBillFlag" /></div>
+                                    <div class="quick-bill-message errMsg">
+                                        <small class="errMsg text-danger" ng-show="addBillerPage.submitted  &amp;&amp; addBillerPage.billerNickname.$error.required">{{'Nickname_Required'|translate}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="billerSelected.authenticatorCount>=1">
+                                <div class="margin-left-zero form-group quickpay-form-align">
+                                    <div class="quick-floatLeft quick-form-div">
+                                        <span class="quick-bill-label quick-pay-addBiller-margin">{{billerSelected.authenticatorLable1}}</span>
+                                    </div>
+                                    <div class="quick-floatLeft">
+                                        <div><input type="text" name="auth1" ng-class="{lpinputerror: submitted && addContact.name.$error.required}"
+                                                class="quick-control quick-bill-select-left" ng-model="authenticator1" disabled
+                                                placeholder={{billerSelected.authenticatorLable1}} ng-required="billerSelected.authenticatorCount>=1"
+                                            /></div>
+                                        <div class="quick-bill-message"><small ng-show="check1" role="alert">
+                                                {{billerSelected.authenticatorMessage1}}
+                                            </small>
+                                        </div>
+                                        <div role="alert" class="add-alert">
+                                            <span class="error" ng-show="submitted && addBillerForm.auth1.$error.required">Required!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="billerSelected.authenticatorCount>=2">
+                                <div class="margin-left-zero form-group quickpay-form-align">
+                                    <div class="quick-floatLeft quick-form-div">
+                                        <span class="quick-bill-label quick-pay-addBiller-margin">{{billerSelected.authenticatorLable2}}</span>
+                                    </div>
+                                    <div class="quick-floatLeft">
+                                        <div><input type="text" name="auth2" ng-class="{lpinputerror: submitted && addContact.name.$error.required}"
+                                                class="quick-control quick-bill-select-left" ng-model="authenticator2" placeholder={{billerSelected.authenticatorLable2}}
+                                                ng-required="billerSelected.authenticatorCount>=2" /></div>
+                                        <div class="quick-bill-message"><small ng-show="check2" role="alert">
+                                                {{billerSelected.authenticatorMessage2}}
+                                            </small>
+                                        </div>
+                                        <div role="alert" class="add-alert">
+                                            <span class="error" ng-show="submitted && addBillerForm.auth1.$error.required">Required!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="billerSelected.authenticatorCount>=3">
+                                <div class="margin-left-zero form-group quickpay-form-align">
+                                    <div class="quick-floatLeft quick-form-div">
+                                        <span class="quick-bill-label quick-pay-addBiller-margin">{{billerSelected.authenticatorLable3}}</span>
+                                    </div>
+                                    <div class="quick-floatLeft">
+                                        <div><input type="text" name="auth3" ng-class="{lpinputerror: submitted && addContact.name.$error.required}"
+                                                class="quick-control quick-bill-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern"
+                                                ng-model="authenticator3" placeholder={{billerSelected.authenticatorLable3}}
+                                                ng-required="billerSelected.authenticatorCount>=3" /></div>
+                                        <div class="quick-bill-message"><small ng-show="check3" role="alert">
+                                                {{billerSelected.authenticatorMessage3}}
+                                            </small>
+                                        </div>
+                                        <div role="alert" class="add-alert">
+                                            <span class="error" ng-show="submitted && addBillerForm.auth2.$error.required">Required!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="billerSelected.authenticatorCount>=4">
+                                <div class="margin-left-zero form-group quickpay-form-align">
+                                    <div class="quick-floatLeft quick-form-div">
+                                        <span class="quick-bill-label quick-pay-addBiller-margin">{{billerSelected.authenticatorLable4}}</span>
+                                    </div>
+                                    <div class="quick-floatLeft">
+                                        <div><input type="text" name="auth4" ng-class="{lpinputerror: submitted && addContact.name.$error.required}"
+                                                class="quick-control quick-bill-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern"
+                                                ng-model="authenticator4" placeholder={{billerSelected.authenticatorLable4}}
+                                                ng-required="billerSelected.authenticatorCount>=4" /></div>
+                                        <div class="quick-bill-message"><small ng-show="check4" role="alert">
+                                                {{billerSelected.authenticatorMessage4}}
+                                            </small>
+                                        </div>
+                                        <div role="alert" class="add-alert">
+                                            <span class="error" ng-show="submitted && addBillerForm.auth3.$error.required">Required!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="billerSelected.authenticatorCount>=5">
+                                <div class="margin-left-zero form-group quickpay-form-align">
+                                    <div class="quick-floatLeft quick-form-div">
+                                        <span class="quick-bill-label quick-pay-addBiller-margin">{{billerSelected.authenticatorLable5}}</span>
+                                    </div>
+                                    <div class="quick-floatLeft">
+                                        <div><input type="text" name="auth5" ng-class="{lpinputerror: submitted && addContact.name.$error.required}"
+                                                class="quick-control quick-bill-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern"
+                                                ng-model="authenticator5" placeholder={{billerSelected.authenticatorLable5}}
+                                                ng-required="billerSelected.authenticatorCount>=5" /></div>
+                                        <div class="quick-bill-message"><small ng-show="check5" role="alert">
+                                                {{billerSelected.authenticatorMessage5}}
+                                            </small>
+                                        </div>
+                                        <div role="alert" class="add-alert">
+                                            <span class="error" ng-show="submitted && addBillerForm.auth4.$error.required">Required!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" ng-hide="true">
+                                <div class="quick-floatLeft">
+                                    <div class="quick-check-outer-div">
+                                        <input type="checkbox" class="quick-set-check" name="setAutoPayFlag" id="setAutoPayFlag" ng-click="checkFrequencyFromDb()"
+                                            for="name" class="quick-bill-input" ng-model="setAutoPayFlag" ng-value="setAutoPayFlag"
+                                        />
+                                        <span for="setAutoPayFlag" class="quick-bill-label quick-bill-checkk quick-pay-addBiller-margin">{{'AutoPay_Label'|translate}}</span></div>
+                                </div>
+                                <div class="quick-floatLeft quick-confirm-bill">
+                                    <div><span class="quick-bill-span">Bill will be paid automatically after it is generated</span></div>
+                                </div>
+                            </div>
+                            <div ng-show="setAutoPayFlag">
+                                <div class="form-group">
+                                    <div class="quick-floatLeft quick-form-div">
+                                        <span for="" class="quick-bill-label quick-pay-addBiller-margin">{{'Account_Label'|translate}}</span>
+                                    </div>
+                                    <div class="quick-floatLeft">
+                                        <div>
+                                            <select name="selectedAccount" class="quick-control quick-acc-type-quick quickressbook-select IDFC-dropdown quick-bill-select-left"
+                                                ng-model="billerpPaymentAccount" ng-options="a.id as a.id for a in acccountNumbers"
+                                                ng-required="setAutoPayFlag">
+                                                    <option value="">{{'Select_Account'|translate}}</option></select>
+                                        </div>
+                                        <div class="quick-bill-message">
+                                            <small class="text-danger" ng-show="addBillerPage.submitted  &amp;&amp; addBillerPage.selectedAccount.$error.required">{{'Account_Required'|translate}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="billerProvider.billerType=='PAYEE' ||billerProvider.billerType=='Payee' ">
+                                    <div class="form-group" ng-show="billerProvider.billerType=='PAYEE' ||billerProvider.billerType=='Payee' ">
+                                        <div class="quick-floatLeft quick-form-div">
+                                            <span for="Frequency" class="quick-bill-label quick-pay-addBiller-margin">{{'Frequency_Label'|translate}}</span>
+                                        </div>
+                                        <div class="quick-floatLeft">
+                                            <div>
+                                                <select id="Frequency" name="Frequency" class="quick-control quick-acc-type-quick quickressbook-select IDFC-dropdown quick-bill-select-left"
+                                                    ng-model="frequency" ng-options="item.frequency as item.frequency for item in frequencyMaster.list"
+                                                    ng-required="payeeBillType">
+                                                        <option value="">{{'Select_Frequency'|translate}}</option></select>
+                                            </div>
+                                            <div role="alert" class="quick-bill-message">
+                                                <small class="text-danger" ng-show="addBillerPage.submitted  &amp;&amp; addBillerPage.Frequency.$error.required">{{'Frequency_Required'|translate}}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="quick-floatLeft quick-form-div">
+                                        <span for="fromDate" class="quick-bill-label quick-pay-addBiller-margin" style="clear:left">{{'Start_date'|translate}}</span>
+                                    </div>
+                                    <div class="quick-floatLeft">
+                                        <div style="float:left">
+                                            <input ng-click="openFromCalendar($event)" required type="text" name="fromDate" ng-model="fromDate" ng-change="changeFromDate()"
+                                                datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="todaysDate" is-open="isOpenDate1"
+                                                class="quick-control quick-bill-select-left" lp-future-time="" id="fromDate"
+                                                datepicker-options="dateOptionsFrom" show-button-bar="false" tabindex="0" placeholder="Select Date"
+                                                ng-required="setAutoPayFlag" placeholder="Select Date" aria-label="{{'Select_Date'|translate}}"
+                                            />
+                                            <span ng-click="openFromCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon quick-bill-calendar quick-bill-select-left"
+                                                readonly="readonly"></span>
+                                            <div role="alert" class="quick-bill-message">
+                                                <small class="text-danger" ng-show="addBillerPage.submitted  &amp;&amp; addBillerPage.fromDate.$error.required">{{'StartDate_Required'|translate}}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="billerProvider.billerType=='PAYEE' ||billerProvider.billerType=='Payee' ">
+                                    <div class="form-group">
+                                        <div class="quick-floatLeft quick-form-div">
+                                            <span for="toDate" class="quick-bill-label quick-pay-addBiller-margin" style="clear:left">{{'End_Date'|translate}}</span>
+                                        </div>
+                                        <div class="quick-floatLeft">
+                                            <div style="float:left">
+                                                <input ng-click="openToCalendar($event)" type="text" name="toDate" ng-model="toDate" ng-change="changeFromTo()" datepicker-popup="dd-MMM-yyyy"
+                                                    readonly="readonly" min-date="datecheck" max-date="mind" is-open="isOpenDate2"
+                                                    class="quick-control quick-bill-select-left" lp-future-time="" id="toDate"
+                                                    ng-required="payeeBillType" datepicker-options="dateOptionsTo" show-button-bar="false"
+                                                    tabindex="0" placeholder="Select Date" aria-label="{{'Select_Date'|translate}}"
+                                                />
+                                                <span ng-click="openToCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon quick-bill-calendar quick-bill-select-left"
+                                                    readonly="readonly"></span>
+                                                <div role="alert" class="quick-bill-message">
+                                                    <small class="text-danger" ng-show="addBillerPage.submitted  &amp;&amp; addBillerPage.toDate.$error.required">{{'EndDate_Required'|translate}}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="quick-floatLeft quick-form-div">
+                                        <input ng-disabled="billerProvider.billerType=='PAYEE'" type="checkbox" name="setLimitAmtFlag" ng-model="setLimitAmtFlag"
+                                            class="label-font quick-bill-input" />
+                                        <span class="label-font quick-bill-label quick-pay-addBiller-margin">{{'Set_Limit'|translate}}</span>
+                                    </div>
+                                    <div ng-show="setLimitAmtFlag">
+                                        <div class="quick-floatLeft">
+                                            <div><input type="text" name="limitAmt" class="quick-control quick-bill-select-left"
+                                                    ng-pattern="/^[(0-9)]*[\.]?[(0-9)]*$/" ng-maxlength="15" ng-required="payeeBillType"
+                                                    ng-model="limitAmount" placeholder="Set Amount" />
+                                                <span class="quick-inr">INR</span>
+                                            </div>
+                                            <div role="alert" class="quick-bill-message">
+                                                <small class="text-danger" ng-show="addBillerPage.submitted  &amp;&amp; addBillerPage.limitAmt.$error.required">{{'LimitAmount_Required'|translate}}</small>
+                                                <small class="text-danger" ng-show="addBillerPage.limitAmt.$error.pattern">{{'LimitAmount_Pattern'|translate}}</small>
+                                                <small class="text-danger" ng-show="addBillerPage.limitAmt.$error.maxlength">{{'LimitAmount_MaxLength'|translate}}</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-show="addBillerError.happened">
+                                <div class="quick-biller-confirm-div" style="padding-left:0% !important;">
+                                    <div style="width:81%"><span class="confirm-span" style="left:18% !important;">{{addBillerError.msg}}</span></div>
+                                </div>
+                            </div>
+                            <div class="text-center quick-div-td-dep-ab quick-button-left">
+                                <button type="button" class="btn btn-primary primary-btn-btn11 ng-binding" ng-click="addBillerPage.submitted=true;addBiller(addBillerPage.$valid)">Add Biller</button>
+                                <button type="button" class="btn btn-primary primary-btn-btn11 ng-binding" ng-click="goBack()">Pay Another Bill</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

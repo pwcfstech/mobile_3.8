@@ -1,0 +1,215 @@
+<div ng-controller="DepositDetailsController" class="start">
+	<div ng-show="errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon loadSpinner"></i>
+			<span class="sr-only">Busy</span>
+		</div>
+	</div>
+	<div class="panel panel-default" ng-if="fiModel.selected">
+		<div class="panel-heading selected-fi">
+			<div class="col-xs-2 col-lg-1">
+				<span><i class="lp-icon  lp-icon-expense-planning"></i></span>
+			</div>
+			<div class="col-xs-10 col-xs-11">
+				<span class="h4">{{'TITLE_Deposit'|translate}}</span><br />
+			</div>
+		</div>
+	</div>
+	<div class="lp-alerts">
+		<div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+		<!--<div class="text-danger" ng-bind="error.msg"></div> <!--3.1 change-->
+		<div class="alert_msg" ng-if= "error.msg != null && error.msg.length > '0'"> <!-- 3.5 change -->
+			  <span class="img_icon"><img src="static/features/[BBHOST]/theme-idfc/images/invalid_mdpi.png"/>
+              <img ng-src="{{invalid_mdpi}}"/></span>{{error.msg}}
+		</div>
+		<div>
+			<p ng-show="errors['panTaxSaver']" class="lp-icon lp-icon-alert-warning"><span lp-i18n="You cannot open Tax Saver FD since your PAN is not added."></span></p>
+		</div>
+	</div>
+	<div progress-indicator="progress-indicator" is-loading="fiModel.isConnecting" class="opendeposit-panel-body panel-body"  ng-hide="serviceError">
+		<form class="form-horizontal" name="depositDetailsForm" ng-submit="submitted=true;submitDetails(depositDetailsForm.$valid)" tabindex="0" novalidate>
+			<div id="termsDepositDiv">
+				<div class="dep-parent-div-od dep-margin-opendeposit">
+					<!--<div class="center-align radioBtn div-tr-dep-opendeposit od-panel-body-standard" style="text-align:center">
+						<span class="font-label-dep-od ng-binding"> Standard Fixed Deposit</span>
+					</div>--> <!--commented 3.1 tax saver fd-->
+					<!--added 3.1 below code tax saver-->
+					<div style="width:100%;float:left;margin-bottom: 5%;">
+						<div style="float: left;margin-left: 24%;">
+							<input type="radio" style="width: 27px!important;"  ng-model="deposit.subProductType" value="StandardTermDeposit" ng-click="enableTenureMaturity()"/>
+							<span class="font-label-dep-od ng-scope" translate="Standard">Standard</span>
+						</div>
+						<div  ng-show="showTaxSaver" style="float: left;margin-left: 7%;">
+							<input id="taxsaverRadio" type="radio" style="width: 27px!important;" ng-model="deposit.subProductType" value="TaxSaverTermDeposit" ng-click="disableTenureMaturity()"/>
+							<span class="font-label-dep-od ng-scope" translate="Tax Saver">Tax Saver</span>
+
+						</div>
+					</div>
+
+					<!--end 3.1 change-->
+					<div class="div-tr-dep-opendeposit">
+						<div class="labelText div-td-dep-opendeposit font-label-dep-od">
+							{{'Lbl_Debit_Account_Number'|translate}}
+						</div>
+						<div class="div-td-dep-opendeposit">
+							<select id="accountNumberId" class="inputWidth inputHeight form-control IDFC-dropdown td-fixed-width" ng-model="deposit.accountNumber" name="accountNumberId" ng-change="validateBalance(); fetchHomeBranchDetails()"   ng-options="a.id as a.id for a in acccountNumbers" required >
+								<option value="" disabled>{{'Lbl_Select_Account_Number'|translate}}</option>
+							</select>
+							<div class="dep-messages-opendeposit">
+								<span class="text-danger" ng-show="submitted && depositDetailsForm.accountNumberId.$error.required" id="Error_Required_Account_Number">{{'Error_Required_Account_Number' |translate}}  </span>
+							</div>
+						</div>
+					</div>
+					<div class="div-tr-dep-opendeposit">
+						<div class="labelText div-td-dep-opendeposit font-label-dep-od">
+							{{'Lbl_Amount_of_Deposit'|translate}}
+						</div>
+						<div class="div-td-dep-opendeposit">
+							<input type="tel" min="0" id="amount" class="inputWidth inputHeight form-control select-width-nom-od" name="amount" ng-model="deposit.amount"  ng-change="fetchRateOfInterest()"  ng-pattern="/^[0-9]*$/" ng-blur="validateAmount()" ng-required="!deposit.amount" autocomplete="off"/>
+							<div class="dep-messages-opendeposit">
+								<span class="text-danger" ng-show="bookAsPerMOP" id="Error_Amount_Minimum" style="color: black;">Please note: Deposit will be booked in the same holding pattern as the debit account.</span>
+								</span>
+							
+								<span class="text-danger" ng-show="depositDetailsForm.deposit.amount.$error.min" id="Error_Amount_Minimum">{{'Error_Amount_Minimum'|translate}}</span>
+								</span>
+								<span class="text-danger"  ng-show="submitted &&  depositDetailsForm.amount.$error.required" id="Error_Amount_is_mandatory">{{'Error_Amount_is_mandatory'|translate}}  </span>
+								<span class="text-danger" ng-show="submitted && depositDetailsForm.amount.$error.number" id="Error_Not_valid_number">{{'Error_Not_valid_number'|translate}}</span>
+								<span class="text-danger" ng-show="flagdepositamount" id="Error_Amount_Available_Balance">{{'Error_Amount_Available_Balance'|translate}} {{availableBalance | currency:' '}}</span>
+								<span class="text-danger" ng-show="flagMaxDepositAmt" id="Error_Amount_Maximum">{{'Error_Amount_Maximum'|translate}}</span>
+								<span class="text-danger" ng-show="flagMinDepositAmt" id="Error_Amount_Min_Req">Minimum Fixed Deposit Value is &#8377; 10,000.</span>
+								<span class="text-danger"  ng-show="submitted && depositDetailsForm.amount.$error.pattern" id="Error_Amount_Decimal">{{'Error_Amount_Decimal'|translate}}</span>
+								<span class="text-danger" ng-show="flagamount" id="Error_PAN_Consolidated_Amount">{{'Error_PAN_Consolidated_Amount'|translate}}</span>
+								<span class="text-danger" ng-show="flagTaxSaverMaxAmt" id="Error_AmtMax_Taxsaver">{{'Error_AmtMax_Taxsaver'|translate}}</span>
+							</div>
+						</div>
+						<div class="div-td-dep-opendeposit link-div">
+							<a class="link-deposit-opendeposit deposit-link" style="color: #fb637e !important;font-family: gotham_medium !important;" href="" onclick="window.open('http://www.idfcbank.com/content/dam/idfc/image/other-pdfs/Interest Rate.pdf', '_blank');">{{'Lbl_Deposit_Interest_Rates'|translate}}</a>
+						</div>
+					</div>
+					<div class="div-tr-dep-opendeposit">
+						<div class="labelText div-td-dep-opendeposit font-label-dep-od">
+							{{'Lbl_Deposit_Type'|translate}}
+						</div>
+						<div class="div-td-dep-opendeposit" >
+							<select  id="depositTypeId" class="inputWidth inputHeight form-control IDFC-dropdown td-fixed-width" ng-model="deposit.interestPayout" name="depositTypeId" ng-options="item as item for item in  depositTypeList" required>
+								<option value="" disabled>{{'Lbl_Select_Deposit_Type'|translate}}</option>
+							</select>
+							<div class="dep-messages-opendeposit">
+								<span class="text-danger" ng-show="submitted && depositDetailsForm.depositTypeId.$error.required" id="Deposit_Type_Mandatory">{{'Lbl_Deposit_Type_Mandatory'|translate}}</span>
+							</div>
+						</div>
+					</div>
+					<div class="div-tr-dep-opendeposit">
+						<div class="labelText div-td-dep-opendeposit font-label-dep-od">
+							{{'Lbl_Tenure_of_Deposit'|translate}}
+						</div>
+						<div class="div-td-dep-opendeposit od-td-div-yeardays div-tenure">
+							<!--3.1 commented below-->
+							<!--<input type="number" min="0" id="tenureYears" class="inputHeight tenure-year form-control opendeposit-yeardays yeardays1" ng-model="deposit.tenureYears"  ng-pattern="/^[0-9]*$/" value="0" name="tenureYears"  ng-maxlength="2" placeholder="Years" ng-disabled="deposit.subProductType=='TaxSaverTermDeposit'" ng-change="fetchRateOfInterest(); tenureValidation()" ng-required="!deposit.tenureDays"/>
+							<input type="number" min="0"  id="tenureDays" class="inputHeight tenure-days form-control opendeposit-yeardays yeardays2" ng-model="deposit.tenureDays" name="tenureDays" placeholder="Days" ng-disabled="deposit.subProductType=='TaxSaverTermDeposit'" ng-pattern="/^[0-9]*$/"  ng-change="changeDaysYears(); tenureValidation()" ng-required="!deposit.tenureYears" style="margin-left: 2%"/> -->
+							<!--3.1 tax saver fd Added-->
+
+							<!--<input ng-if="taxSaverOption" type="number" min="0" id="tenureYears1" class="inputHeight tenure-year form-control opendeposit-yeardays yeardays1"  ng-model="deposit.tenureYears" ng-disabled="deposit.subProductType=='TaxSaverTermDeposit'">
+							</input> -->
+
+							<input type="number" min="0" id="tenureYears" class="inputHeight tenure-year form-control opendeposit-yeardays yeardays1"  ng-model="deposit.tenureYears"   value="0"  name="tenureYears"  ng-maxlength="2"   placeholder="Years" ng-disabled="deposit.subProductType=='TaxSaverTermDeposit'" ng-change="fetchRateOfInterest(); tenureValidation(); vaildatePattern();" ng-blur="vaildatePattern()" ng-required="!deposit.tenureDays"  />
+
+							<!--<input ng-if="taxSaverOption" type="number" min="0" id="tenureDays3" class="inputHeight tenure-year form-control opendeposit-yeardays yeardays1"  ng-model="deposit.tenureDays" ng-disabled="deposit.subProductType=='TaxSaverTermDeposit'">
+							</input>-->
+
+							<input  type="number" min="0"  id="tenureDays" class="inputHeight tenure-year form-control opendeposit-yeardays yeardays1"  ng-model="deposit.tenureDays"   name="tenureDays" placeholder="Days" ng-disabled="deposit.subProductType=='TaxSaverTermDeposit'" ng-pattern="/^[0-9]*$/"  ng-change="changeDaysYears();tenureValidation();vaildateDaysPattern();" ng-blur="vaildateDaysPattern()"  ng-required="!deposit.tenureYears"  />
+
+                            <!--end 3.1 tax saver change-->
+							<div class="dep-messages-opendeposit">
+								<span class="text-danger" ng-show="submitted && depositDetailsForm.tenureYears.$error.pattern" id="Error_Years_Decimal">{{'Error_Years_Decimal'|translate}}</span>
+								<span class="text-danger" ng-show="submitted && depositDetailsForm.tenureYears.$error.maxlength" id="Error_Years_Maxlength">{{'Error_Years_Maxlength'|translate}}</span>
+								<span class="text-danger" ng-show="submitted && depositDetailsForm.tenureYears.$error.required" id="Error_Years_Mandatory">{{'Error_Years_Mandatory'|translate}} </span>
+								<span class="text-danger" ng-show="submitted && depositDetailsForm.tenureYears.$error.number" id="Error_Not_valid_Years">{{'Error_Not_valid_Years'|translate}}</span>
+								<span class="text-danger" ng-show="flagMaxDuration" id="Error_Days_Max1"> {{'Error_Days_Max1'|translate}} {{maxDuration1}} {{'Error_Days_Max2'|translate}} </span>
+								<span class="text-danger" ng-show="flagMaxDurationTmp" id="Error_Days_Max2"> {{'Error_Days_Max1'|translate}} {{maxDuration1}} {{'Error_Days_Max2'|translate}} {{dayRemainder}}  {{'Error_Days_Max3'|translate}}    </span>
+							</div>
+							<span class="text-danger" ng-show="submitted && depositDetailsForm.tenureDays.$error.pattern" id="Error_Days_Decimal">{{'Error_Days_Decimal'|translate}}</span>
+							<span class="text-danger" ng-show="submitted && depositDetailsForm.tenureDays.$error.required" id="Error_Tenure_Days_Mandatory">{{'Error_Tenure_Days_Mandatory'|translate}}</span>
+							<span class="text-danger" ng-show="submitted && depositDetailsForm.tenureDays.$error.number" id="Error_Not_valid_Days">{{'Error_Not_valid_Days'|translate}}</span>
+							<span class="text-danger" ng-show="flagMinDuration" id="flagMinDuration">{{'Error_Days_Min_1'|translate}} {{minDuration1}}  {{'Error_Days_Min_2'|translate}} </span>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="labelText div-td-dep-opendeposit font-label-dep-od">
+								<span class="rate-of-interest-label opendeposit-label-float">{{'Lbl_Rate_of_Interest'|translate}}</span>
+								<i class="lp-icon infoIcon" tooltip="{{'tip_Rate_of_Interest'|translate}}" tooltip-trigger="click"><img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="16" height="16"></i>
+							</div>
+							<div class="div-td-dep-opendeposit">
+								<input type="text" name="roi" class="inputWidth inputHeight form-control td-fixed-width" id="roi" ng-model="deposit.rateOfInterest"  ng-disabled="true"/>
+								<span class="text-danger" ng-show="rateOfInterestRequired" id="Error_Rate_of_Interest">{{'Error_Rate_of_Interest'|translate}}</span>
+							</div>
+							<div class="div-tr-dep-opendeposit">
+								<div class="labelText div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+									{{'Lbl_Maturity_Amount'|translate}}
+								</div>
+								<div  class="div-td-dep-opendeposit">
+									<div class="div-td-dep-opendeposit maturityDateCSS" >
+										<input type="text" class="inputWidth inputHeight form-control select-width-nom-od" ng-readonly="true"  ng-model="maturityAmt" id="maturityAmt"/>
+									</div>
+								</div>
+							</div>
+							<div class="div-tr-dep-opendeposit ">
+								<div class="labelText div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+									{{'Lbl_Maturity_Date'|translate}}
+								</div>
+								<div  class="div-td-dep-opendeposit">
+									<div class="div-td-dep-opendeposit maturityDateCSS">
+										<input  type="text" ng-readonly="true"   ng-model="maturityDate"   class="inputWidth inputHeight form-control select-width-nom-od" id="maturityDate"/>
+									</div>
+								</div>
+							</div>
+							<div>
+								<div class="div-tr-dep-opendeposit divAdjust">
+									<div class="labelText div-td-dep-opendeposit font-label-dep-od">
+										{{'Lbl_PAN'|translate}}
+									</div>
+									<div class="div-td-dep-opendeposit">
+										<input type="text" ng-model="pan" class="inputWidth inputHeight form-control td-fixed-width"  disabled="disabled"/>
+										<div class="dep-messages-opendeposit">
+											<span class="text-danger" ng-show="flagpanrequired" id="Error_PAN_Not_Updated">{{'Error_PAN_Not_Updated'|translate}}</span>
+										</div>
+									</div>
+									<div class="div-td-dep-opendeposit font-label-dep-od" ng-show="flagpanshow">
+										<a class="link-deposit-opendeposit" href="#"  data-ng-click="updatedPAN()" >{{'Lbl_Update_PAN'|translate}}</a>
+									</div>
+								</div>
+								<div class="div-tr-dep-opendeposit">
+									<div class="labelText div-td-dep-opendeposit font-label-dep-od div-auto">
+										{{'Lbl_Auto_Renewal'|translate}}
+									</div>
+									<div class="padLeft div-td-dep-opendeposit radioBtn1 marginBottom">
+										<input type="radio" name="autoRenwl" class="autorenewal opendeposit-dep-radio radio-yes"  ng-model="deposit.autoRenewal" value="Yes" ng-checked="true"/><span class="span-radio-space span-margin-opendeposit font-label-dep-od">{{'Auto_Renewal_Yes'|translate}}</span>
+										<input type="radio" name="autoRenwl" class="autorenewal opendeposit-dep-radio" ng-model="deposit.autoRenewal" value="No" /><span class="span-margin-opendeposit font-label-dep-od">{{'Auto_Renewal_No'|translate}}</span>
+									</div>
+								</div>
+								<div class="opendeposit-NoteDiv padLeft note-margin">
+									<h5>Note:</h5>
+									<ul class="ul-text">
+										<li>{{'Tenure_Deposit_Note1'|translate}}</li>
+										<li>{{'Tenure_Deposit_Note4'|translate}}</li>
+										<li>{{'Tenure_Deposit_Note_New1'|translate}}</li> <!--3.8 change-->
+										<li>{{'Tenure_Deposit_Note_New2'|translate}}</li>  <!--3.8 change-->
+										<li>{{'Tenure_Deposit_Note_New3'|translate}}</li>   <!--3.8 change-->
+									</ul>
+								</div>
+								<div class="borderLine"></div>
+								<div class="text-center div-td-dep-ab-opendeposit div-td-button-pad-od">
+									<button type="submit" ng-click="defaultValues(depositDetailsForm.$valid)" class="inputHeight btnWidth marginTopNext btn btn-primary primary-btn-open-od primary-btn-btn">{{'btn_Next'|translate}}</button>
+									<button name="resetForm"
+											class="inputHeight btnWidth marginTopClear btn btn-primary secondary-btn-open-od secondary-btn-btn"
+											ng-click="resetForm()"
+											type="button">{{'btn_Clear'|translate}}
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

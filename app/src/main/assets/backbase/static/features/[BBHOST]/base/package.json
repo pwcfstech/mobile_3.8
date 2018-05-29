@@ -1,0 +1,9 @@
+{
+  "name": "example-test",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "filesystem-bower-resolver": "^1.2.0",
+    "bb-bower-resolver": "^1.1.0"
+  }
+}

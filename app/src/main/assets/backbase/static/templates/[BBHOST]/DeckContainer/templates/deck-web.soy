@@ -1,0 +1,20 @@
+{namespace templates_DeckContainer}
+/**
+ * Deck Container
+ * @param item Item in context
+ */
+{template .DeckContainer}
+    {let $active: $item.preferences.state.value /}
+	<div class="bp-container bp-ui-dragRoot" data-pid="{$item.name}">
+        {for $i in range(0, length($item.children))}
+            <div class="--area bp-area">
+            {foreach $child in $item.children}
+                {if parseInt($child.preferences.area.value) == $i and $child.name == $active}
+                    <!-- SSR {$child.name} -->
+                    {include($child) |noAutoescape}
+                {/if}
+            {/foreach}
+    		</div>
+        {/for}
+	</div>
+{/template}

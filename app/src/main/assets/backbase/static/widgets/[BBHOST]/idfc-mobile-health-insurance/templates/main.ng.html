@@ -1,0 +1,255 @@
+<!-- Add NG Template here-->
+
+
+    <div class="health-insurance-panel">
+		<label lp-i18n="Get access to the best medical care and treatment while being financially protected!"></label>
+	</div>
+  
+	
+	<div align="center" class="margin-auto">
+		<label class="allFontStyle" lp-i18n="Health Insurance Solutions"></label>
+	</div>
+	
+	
+	
+	<!--<div class="health-insurance-calculate-panel desktop-view">
+	<div class="health-calculate-image-main-div">
+		<div class="health-calculate-image-div">
+			<img ng-src="{{mainCtrl.calculate}}" class="health-calculate-image">
+		</div>
+		<div class="health-calculate-text" align="center">
+			<div class=""  align="center">
+				<label  lp-i18n="Need help?" class="health-calculate-label"></label>
+				<label  class="health-calculate-label">
+					<p>Our expert will be happy to engage with you. <a href='' ng-click="mainCtrl.healthSwitchFuction('healthCalculate');">Click here</a>.</p>
+				</label>			
+							
+			</div>
+	</div>
+	</div>
+	</div> -->
+
+
+
+<div class="health-insurance-panel-second">
+    <div class="scroll-mobile"> 
+        <div class="health-panel-main health-panel-second-main">
+            <div class="health-second-panel-div">
+                <div class="health-panel-images-hospital">
+                    <img ng-src="{{mainCtrl.hospital}}" class="health-mobile-images" >
+                </div>
+                <div>
+                    <label  lp-i18n="Hospitalization expenses" class="health-second-panel-text "></label>
+                </div>
+            </div>
+            <div class="health-second-panel-div">
+                <div class="health-panel-images-taxBenefits">
+                    <img ng-src="{{mainCtrl.taxBenefits}}"  class="health-mobile-images">
+                </div>
+                <div>
+                    <label  lp-i18n="Tax Benefits" class="health-second-panel-text "></label>
+                </div>
+            </div>
+            <div class="health-second-panel-div">
+                <div class="health-panel-images-list">
+                    <img ng-src="{{mainCtrl.list}}" class="health-panel-image-list" >
+                </div>
+                <div>
+                    <label  lp-i18n="Cashless Network Hospitals" class="health-second-panel-text "></label>
+                </div>
+            </div>
+            <div class="health-second-panel-div">
+                <div class="health-panel-images-maternityCover">
+                    <img ng-src="{{mainCtrl.maternityCover}}"  class="health-mobile-images">
+                </div>
+                <div>
+                    <label  lp-i18n="Optional maternity Cover" class="health-second-panel-text"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="health-insurance-third-div">
+    <div class="health-insurance-third-panel-A" >
+
+        <div align="center" >
+            <div><label  class="health-text mobile-view" lp-i18n="Buy health Insurance" ></label></div>
+			<div>
+                <img ng-src="{{mainCtrl.healthInsurance}}" class="health-panel-third-images"></div>
+            <div><label  class="health-text desktop-view" lp-i18n="Health Insurance" ></label></div>
+        </div>
+
+        <div class="health-panel-third-buttons">
+            <div align="center" class="desktop-view">
+                <div>
+                    <button class="btn btn-secondary secondary-btn-btn insurance-btn health-insurance-panel-button-first" ng-click="mainCtrl.healthSwitchFuction('healthBuyKnowmore');" lp-i18n="Know More">
+                    </button>
+                <button class="btn btn-primary  primary-btn-btn insurance-btn health-insurance-panel-button" ng-click="mainCtrl.getConfirmation('HEALTH_BUY_PRODUCT_CODE')" lp-i18n="Buy Now">
+                </button></div>
+            </div>
+			
+			<div align="center" class="mobile-view">
+                
+                <div><button class="btn btn-primary  primary-btn-btn insurance-btn health-insurance-panel-button-first " ng-click="mainCtrl.getConfirmation('HEALTH_BUY_PRODUCT_CODE')" lp-i18n="Buy Now">
+                </button></div>
+				<div>
+                    <button class="btn btn-secondary secondary-btn-btn insurance-btn health-insurance-panel-button " ng-click="mainCtrl.healthSwitchFuction('healthBuyKnowmore');" lp-i18n="Know More">
+                    </button></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="health-insurance-third-panel-B" >
+
+        <div align="center"  >
+            <div><label class="health-text mobile-view"  lp-i18n="Increase your existing health cover" ></label></div>
+			<div>
+                <img ng-src="{{mainCtrl.topUpHealthInsurance}}" class="health-panel-third-images" ></div>
+            <div><label class="health-text desktop-view"  lp-i18n="Increase your existing health cover" ></label></div>
+        </div>
+
+        <div class="health-panel-third-buttons">
+            <div align="center" class="desktop-view">
+                <div>
+                    <button class="btn btn-secondary secondary-btn-btn  insurance-btn health-insurance-panel-button-first" ng-click="mainCtrl.healthSwitchFuction('healthIncreaseKnowmore');" lp-i18n="Know More">
+                    </button></div>
+                <div><button class="btn btn-primary  primary-btn-btn insurance-btn health-insurance-panel-button" ng-click="mainCtrl.getConfirmation('HEALTH_BOOSTER_PRODUCT_CODE');" lp-i18n="Buy Now">
+                </button></div>
+            </div>
+			
+			<div align="center" class="mobile-view">
+                <div>
+					<button class="btn btn-primary  primary-btn-btn insurance-btn health-insurance-panel-button-first" ng-click="mainCtrl.getConfirmation('HEALTH_BOOSTER_PRODUCT_CODE');" lp-i18n="Buy Now">
+					</button>
+				</div>
+				<div>
+                    <button class="btn btn-secondary secondary-btn-btn  insurance-btn health-insurance-panel-button " ng-click="mainCtrl.healthSwitchFuction('healthIncreaseKnowmore');" lp-i18n="Know More">
+                    </button>
+				</div>
+            </div>
+			
+			
+        </div>
+    </div>
+
+</div>
+
+
+<!--<div class="health-insurance-calculate-panel mobile-view">
+		<div class="health-calculate-image-div">
+			<img ng-src="{{mainCtrl.calculate}}" class="health-calculate-image">
+		</div>
+		<div class="health-calculate-text" align="center">
+				<div class=""  align="center">
+					<label  lp-i18n="Need help?" class="health-calculate-label"></label>
+					<label  class="health-calculate-label">
+						<p>Our expert will be happy to engage with you. <a href='' ng-click="mainCtrl.healthSwitchFuction('healthCalculate');">Click here</a>.</p>
+					</label>
+			</div>
+		</div>	
+	</div>  -->
+
+
+<div class="health-insurance-panel-footer">
+
+        <div class="health-footer">
+            <div class="health-panel-footer">
+                <div align="center">
+                    <img ng-src="{{mainCtrl.fAQ}}" style="cursor: pointer;" ng-click="mainCtrl.healthSwitchFuction('healthFaq');" class="health-panel-footer-image">
+                </div>
+                <div align="center">
+				<label  ng-click="mainCtrl.healthSwitchFuction('healthFaq');" lp-i18n="FAQ's" class="health-panel-footer-text"></label>
+                    
+                </div>
+            </div>
+            <div class="health-panel-footer">
+                <div align="center">
+                    <img ng-src="{{mainCtrl.policy}}" style="cursor: pointer;" ng-click="mainCtrl.healthSwitchFuction('healthPolicyWording');" class="health-panel-footer-image">
+                </div>
+                <div align="center">
+                    <label  lp-i18n="BROCHURE" ng-click="mainCtrl.healthSwitchFuction('healthPolicyWording');" class="health-panel-footer-text"></label>
+                </div>
+            </div>
+            <div class="health-panel-footer">
+                <div align="center">
+                    <img ng-src="{{mainCtrl.claim}}" style="cursor: pointer;" ng-click="mainCtrl.healthSwitchFuction('healthClaim');" class="health-panel-footer-image">
+                </div>
+                <div align="center">
+                    <label  lp-i18n="CLAIM PROCESS" ng-click="mainCtrl.healthSwitchFuction('healthClaim');" class="health-panel-footer-text"></label>
+                </div>
+            </div>
+            
+            <div class="health-panel-footer marginLeft">
+                <div align="center">
+                    <img ng-src="{{mainCtrl.list}}" style="cursor: pointer;" ng-click="mainCtrl.healthSwitchFuction('healthHospitalList');" class="health-panel-footer-image">
+                </div>
+                <div align="center">
+                    <label  lp-i18n="LIST OF NETWORK HOSPITALS" ng-click="mainCtrl.healthSwitchFuction('healthHospitalList');" class="health-panel-footer-text"></label>
+                </div>
+            </div>
+            <div class="health-panel-footer health-panel-footer-width" style="vertical-align:top;">
+                <div align="center" class="health-panel-footer-image-connect">
+                    <img ng-src="{{mainCtrl.connect}}"  class="health-panel-footer-image" ng-click="mainCtrl.call('18004194332')">
+                </div>
+                <div align="center">
+                    <label ng-click="mainCtrl.call('18004194332')" lp-i18n="CONNECT TO OUR EXPERT " class="health-panel-footer-text cursor-none"></label>
+                </div>
+
+                <!--div class="expertNumberDiv" align="center">
+                    <label class="life-expert-text" lp-i18n="1800 419 4332"></label>
+                </div-->
+            </div>
+        </div>
+    
+
+</div>
+
+	<div class="row col-xs-12" style="text-align:center;">
+		<label  ng-click="mainCtrl.healthSwitchFuction('helthDisclaimer');" class="disclaimer-link handSymbol" lp-i18n="Disclaimers & Key Disclosures"></label>
+	</div>
+
+<div id="helthModal" class="helthmodal"> 
+
+ <!-- Modal content -->
+  <div class="helthmodal-content">
+
+  <div class="helthmodal-header">      
+	 <div class="helthpopupHeader">
+		<label>DISCLAIMER</label>
+        <span class="helthmodal-close" id="helthpop_span" ng-click="mainCtrl.closehelthPopup()">x</span>
+	 </div>
+	  
+  </div>
+
+    <div class="helthmodal-body">
+	<div class="lp-alerts">			
+                <div alert="alert" ng-repeat="alert in alerts" type="alert.type"  ng-bind="alert.msg" style="color:red;"></div>
+            </div>
+	<div ng-if="mainCtrl.errorSpin">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+    </div>
+
+	<div align="center" id="helthId">	
+		By clicking on Proceed you will be directed to the website of ICICI Lombard. The information provided on their website is owned and managed by ICICI Lombard and IDFC bank does not bear any responsibility for the same.
+	</div>
+     
+    </div>
+
+      <div class="btn-pop-center" style="display:flex;justify-content:center;">
+          <button id="btn_mot" class="btn btn-primary  primary-btn-btn motorButton"  ng-click="mainCtrl.iLHealthInsurance()" lp-i18n="Proceed">
+          </button>
+          <!--button id="btn_mot" class="btn btn-primary  primary-btn-btn motorButton"  ng-click="mainCtrl.gotoNewTab();" lp-i18n="Proceed">
+         </button-->
+      </div>
+      <div class="btn-pop-center" style="display:flex;justify-content:center;">
+          <button class="btn btn-primary secondary-btn-btn"  ng-click="mainCtrl.closehelthPopup();" lp-i18n="Cancel"></button>
+      </div>
+
+ </div>
+
+</div>
+</div>

@@ -1,0 +1,81 @@
+<div class="loan-yellow-bg">
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <label class="font-14 font-book color-dark-gray line-height-40" lp-i18n="Select Loan Account"></label>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 ">
+          <div class="row">
+            <div class="col-xs-12">
+              <select id="accountNumberId" name="accountNumberId" class="input-box-width color-dark-gray font-12 font-book form-control cursor-pointer line-height-40" ng-model="soaCtrl.selectAccountNumber" ng-options="account.acctNb group by account.loanType for account in soaCtrl.loanAccountNumbers" ng-change="soaCtrl.getSoaByAccNo()">
+                <!--<option selected="selected" disabled="disabled" lp-i18n="Select one"></option>-->
+              </select>
+            </div>
+              <div ng-if="soaCtrl.selectAccErr" class="col-xs-12">
+                <div class="color-pink font-12 font-medium"  lp-i18n="Please select an account."></div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row padding-top-10px">
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <label class="font-14 font-book color-dark-gray line-height-40" lp-i18n="From Date"></label>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <div class="row">
+            <div class="col-xs-12">
+              <input ng-click="soaCtrl.openFromCalendar($event)" type="text"
+                required="true" name="scheduleFromLoanDate" ng-model="soaCtrl.fromDate"
+                datepicker-popup="dd-MM-yyyy" readonly="readonly"
+                is-open="soaCtrl.isOpenDate1" datepicker-options="dateOptions" tabindex="0"
+                placeholder="Select date" aria-label="select date" show-button-bar="false"
+                class="color-white-bg input-box-width color-dark-gray font-12 font-book cursor-pointer line-height-40 rep-acc-date-inputfeild" max-date="soaCtrl.todaysDate"> <!---  min-date="soaCtrl.disbDate" -->
+                  <span ng-click="soaCtrl.openFromCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon cal-icon-position-homesoa"></span>
+            </div>
+            <div ng-if="soaCtrl.blankFromDateError || soaCtrl.blankBothDateError" class="col-xs-12">
+              <div class="color-pink font-12 font-medium"  lp-i18n="Please select a from date."></div>
+            </div>
+            <div ng-if="soaCtrl.disbDateError" class="col-xs-12">
+              <div class="color-pink font-12 font-medium"  lp-i18n="From date should not be less than Disbursement Date."></div>
+            </div>
+            <div ng-if="soaCtrl.currentDateError" class="col-xs-12">
+              <div class="color-pink font-12 font-medium"  lp-i18n="From date should be less than Current date"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2  text-left-xs">
+          <label class="font-14 font-book color-dark-gray line-height-40" lp-i18n="To Date"></label>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <div class="row">
+            <div class="col-xs-12">
+              <input ng-click="soaCtrl.openToCalendar($event)" type="text" required="true"
+                    name="scheduleToLoanDate" ng-model="soaCtrl.toDate"
+                    datepicker-popup="dd-MM-yyyy" readonly="readonly"
+                    is-open="soaCtrl.isOpenDate2" datepicker-options="dateOptions" tabindex="0"
+                    placeholder="Select date" aria-label="select date" show-button-bar="false"
+                    class="color-white-bg input-box-width color-dark-gray font-12 font-book cursor-pointer line-height-40 rep-acc-date-inputfeild" min-date="soaCtrl.fromDate" max-date="soaCtrl.todaysDate">
+                    <span ng-click="soaCtrl.openToCalendar($event)" class=" lp-icon lp-icon-calendar calendar-icon cal-icon-position-homesoa"></span>
+            </div>
+            <div ng-if="soaCtrl.dateError" class="col-xs-12">
+              <div class="color-pink font-12 font-medium"  lp-i18n="To date should be greater than from date."></div>
+            </div>
+            <div ng-if="soaCtrl.dateRangeError" class="col-xs-12">
+              <div class="color-pink font-12 font-medium"  lp-i18n="Date range should be less than a year."></div>
+            </div>
+            <div ng-if="soaCtrl.blankToDateError || soaCtrl.blankBothDateError" class="col-xs-12">
+              <div class="color-pink font-12 font-medium"  lp-i18n="Please select a to date."></div>
+            </div>
+            <div ng-if="soaCtrl.bizbDateError" class="col-xs-12">
+              <div class="color-pink font-12 font-medium"  lp-i18n="To date should not be greater than Business Date."></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1 mobileFixTopPadding1em">
+           <button type="button" lp-i18n="Submit" ng-click="soaCtrl.getSoaByAccNoOnSubmit()"  class="btn btn-primary primary-btn-deposit-det add-bt soa-submit-height mobileFixFloatRight"></button>
+          </div>
+    </div>
+
+</div>

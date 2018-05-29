@@ -1,0 +1,227 @@
+<div ng-controller="NomineeDetailsController">
+	<div ng-controller="NomineeDetailsController">
+		<div class="panel panel-default" ng-if="fiModel.selected">
+			<div class="panel-heading selected-fi">
+				<div class="col-xs-2 col-lg-1">
+					<span><i class="lp-icon lp-icon-expense-planning"></i></span>
+				</div>
+				<div class="col-xs-10 col-xs-11">
+					<span class="h4">Enter Nominee Details</span><br />
+				</div>
+			</div>
+		</div>
+		<div progress-indicator="progress-indicator" is-loading="fiModel.isConnecting" class="panel-body">
+			<form class="form-horizontal" name="nomineeDetailsForm" ng-submit="submitNomineeDetails()" tabindex="0">
+				<div id="termsDepositDiv">
+					<div id="nomineeDetails">
+						<table>
+							<tr>
+								<td colspan="2">
+									Nominee Name
+								</td>
+								<td colspan="2">
+									<input type="text" name="nomineeName" ng-model="nomineeName" ng-minlength="1" ng-maxlength="50" required/>
+<span style="color:red" ng-show="nomineeDetailsForm.nomineeName.$dirty && nomineeDetailsForm.nomineeName.$invalid">
+<span ng-show="nomineeDetailsForm.nomineeName.$error.required">Nominee Name is mandatory.</span>
+<span ng-show="nomineeDetailsForm.nomineeName.$error.maxlength">Name can have a maximum length of 50.</span>
+</span>
+								</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									DOB
+								</td>
+								<td colspan="2">
+									<div class="col-md-4">
+										<p class="input-group">
+											<input type="text" id="nomineeDOB" name="nomineeDOB" class="form-control" datepicker-popup="dd-MMM-yyyy" ng-model="dt" is-open="opened1" datepicker-options="dateOptions" ng-required="true" show-button-bar="false" tabindex="0" placeholder="select date" aria-label="select date"/>
+<span class="input-group-btn">
+<button type="button" class="btn btn-default" ng-click="open($event,'opened1')"><i class="lp-icon lp-icon-calendar calendar-icon"></i></button>
+</span>
+										</p>
+									</div>
+								</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									Relationship
+								</td>
+								<td colspan="2">
+									<select id="relationId" ng-model="relationId" name="relationId" ng-options="r.relID as r.relType for r in relationTypes" required>
+										<option value="">Select Relation</option>
+									</select>
+<span style="color:red" ng-show="depositDetailsForm.relationId.$dirty && depositDetailsForm.relationId.$invalid">
+<span ng-show="depositDetailsForm.relationId.$error.required">Relationship is mandatory.</span>
+</span>
+								</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									Address 1
+								</td>
+								<td colspan="2">
+									<input type="text" name="address1" ng-model="address1" ng-maxlength="50"/>
+<span style="color:red" ng-show="nomineeDetailsForm.address1.$invalid">
+<span ng-show="nomineeDetailsForm.address1.$error.maxlength">Address can have a maximum length of 50.</span>
+</span>
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									Address 2
+								</td>
+								<td colspan="2">
+									<input type="text" name="address2" ng-model="address2" ng-maxlength="50"/>
+<span style="color:red" ng-show="nomineeDetailsForm.address2.$invalid">
+<span ng-show="nomineeDetailsForm.address2.$error.maxlength">Address can have a maximum length of 50.</span>
+</span>
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									State
+								</td>
+								<td colspan="2">
+									<select id="stateId" ng-model="stateId" name="stateId" ng-options="s.stateID as s.stateName for s in states">
+										<option value="">Select State</option>
+									</select>
+								</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									City
+								</td>
+								<td colspan="2">
+									<input type="text" name="city" ng-model="city" ng-maxlength="50"/>
+<span style="color:red" ng-show="nomineeDetailsForm.city.$invalid">
+<span ng-show="nomineeDetailsForm.city.$error.maxlength">City can have a maximum length of 50.</span>
+</span>
+								</td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+					<div id="nomineeGuardianDetails">
+						<table>
+							<tr>
+								<th colspan="3" style="color:red">
+									Enter the Guardian Details
+								</th>
+							</tr>
+							<tr>
+								<td colspan="2">
+									Guardian Name
+								</td>
+								<td colspan="2">
+									<input type="text" name="guardianName" id="guardianName" ng-model="guardianName" ng-maxlength="50"/>
+<span style="color:red" ng-show="nomineeDetailsForm.guardianName.$dirty && nomineeDetailsForm.guardianName.$invalid">
+<span ng-show="nomineeDetailsForm.guardianName.$error.required">Name is mandatory.</span>
+<span ng-show="nomineeDetailsForm.guardianName.$error.maxlength">Name can have a maximum length of 50.</span>
+</span>
+								</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									Guardian DOB
+								</td>
+								<td colspan="2">
+									<div class="col-md-4">
+										<p class="input-group">
+											<input type="text" id="guardianDOB" name="guardianDOB" class="form-control" datepicker-popup="dd-MMM-yyyy" ng-model="guardiandt" is-open="opened2" datepicker-options="dateOptions" show-button-bar="false" tabindex="0" placeholder="select date" aria-label="select date"/>
+<span class="input-group-btn">
+<button type="button" class="btn btn-default" ng-click="open($event,'opened2')"><i class="lp-icon lp-icon-calendar calendar-icon"></i></button>
+</span>
+										</p>
+									</div>
+								</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									Guardian Relationship
+								</td>
+								<td colspan="2">
+									<select id="guardianRelationId" ng-model="guardianRelationId" name="guardianRelationId" ng-options="r.relID as r.relType for r in relationTypes">
+										<option value="">Select Relation</option>
+									</select>
+<span style="color:red" ng-show="depositDetailsForm.guardianRelationId.$dirty && depositDetailsForm.guardianRelationId.$invalid">
+<span ng-show="depositDetailsForm.guardianRelationId.$error.required">Relationship is mandatory.</span>
+</span>
+								</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									Address 1
+								</td>
+								<td colspan="2">
+									<input type="text" name="guardianAddress1" ng-model="guardianAddress1" ng-maxlength="50"/>
+<span style="color:red" ng-show="nomineeDetailsForm.guardianAddress1.$invalid">
+<span ng-show="nomineeDetailsForm.guardianAddress1.$error.maxlength">Address can have a maximum length of 50.</span>
+</span>
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									Address 2
+								</td>
+								<td colspan="2">
+									<input type="text" name="guardianAddress2" ng-model="guardianAddress2" ng-maxlength="50"/>
+<span style="color:red" ng-show="nomineeDetailsForm.guardianAddress2.$invalid">
+<span ng-show="nomineeDetailsForm.guardianAddress2.$error.maxlength">Address can have a maximum length of 50.</span>
+</span>
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									State
+								</td>
+								<td colspan="2">
+									<select id="guardianStateId" ng-model="guardianStateId" name="guardianStateId" ng-options="s.stateID as s.stateName for s in states">
+										<option value="">Select State</option>
+									</select>
+								</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									City
+								</td>
+								<td colspan="2">
+									<input type="text" name="guardianCity" ng-model="guardianCity" ng-maxlength="50"/>
+<span style="color:red" ng-show="nomineeDetailsForm.guardianCity.$invalid">
+<span ng-show="nomineeDetailsForm.guardianCity.$error.maxlength">City can have a maximum length of 50.</span>
+</span>
+								</td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+					<table width="100%" style="border-spacing:10px">
+						<tr>
+							<td colspan="2"> <button type="submit" class="btn btn-primary primary-btn-deposit">Submit</button></td>
+							<td colspan="2"><button type="submit" class="btn btn-primary secondary-btn-deposit" ng-click="wizardNextStep()">Skip</button></td>
+							<td colspan="2"><button type="submit" class="btn btn-primary secondary-btn-deposit" ng-click="wizardPreviousStep()">Back</button></td>
+						</tr>
+					</table>
+				</div>
+			</form>
+		</div>
+	</div>

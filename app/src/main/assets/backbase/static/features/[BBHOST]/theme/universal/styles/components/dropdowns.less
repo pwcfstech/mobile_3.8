@@ -1,0 +1,141 @@
+// Large Dropdown (e.g., Transactions header)
+// -------------------------
+.lp-acct-info {
+	margin-top: @padding-base-vertical;
+}
+.lp-dd-balance {
+}
+.lp-dd-available-bal {
+}
+.btn-block.dropdown-toggle > .lp-icon-caret-down {
+	position: absolute;
+	right: 14px;
+	margin-top: -6px;
+	top: 50%;
+	position: relative;
+	.pull-right;
+}
+.header-dropdown {
+	.dropdown-large {
+		.button-variant(@dropdown-large-color; @panel-widget-heading-bg; @dropdown-large-border);
+		.text-left;
+		width:100%;
+	}
+}
+.dropdown-small {
+	.button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+	.text-left;
+}
+
+@media (min-width: @screen-md) and (max-width: @screen-lg) {
+	.header-dropdown .dropdown-large .lp-acct-bal {
+		display:none;
+	}
+}
+
+.dropdown {
+	width:100%;
+
+	.dropdown-toggle,
+	.dropdown-toggle:active {
+		padding-right: 25px;
+		.clearfix;
+		.background-transition;
+		.color-transition;
+	}
+	.filter-option {
+		width:100%;
+	}
+	.dropdown-large {
+		&:hover,
+		&:focus {
+			background: transparent;
+		}
+
+		.lp-acct-num {
+			.text-left;
+		}
+		.lp-acct-bal {
+			top: 50%;
+		}
+	}
+	.dropdown-small {
+		width: 100%;
+		.lp-acct-num {
+			display: none;
+		}
+		.lp-acct-bal {
+			right: 25px;
+		}
+	}
+	&:hover .dropdown-large{
+	}
+	.dropdown-menu {
+		padding:0;
+		border:0 none;
+
+		margin-top: 0;
+		width:100%;
+		> li {
+			border-top: 1px solid #ddd;
+			position: relative;
+		}
+		> li > a {
+			padding-top: @padding-base-vertical;
+			padding-bottom: @padding-base-vertical;
+			> i {
+				position: relative;
+				top: 5px;
+			}
+		}
+
+		.lp-acct-num {
+			color:inherit;
+		}
+		.lp-acct-bal {
+			top: 50%;
+			margin-top: -12px;
+		}
+
+	}
+	.lp-acct-bal {
+		position: absolute;
+		right: 20px;
+	}
+	&.open .dropdown-toggle.dropdown-large {
+		background:@dropdown-bg;
+	}
+	.btn:active {
+		background: @dropdown-bg;
+		color: @brand-primary;
+	}
+}
+
+
+.input-group-btn ul.dropdown-menu {
+	width: auto;
+}
+
+
+// DROPDOWN
+// -------------------------
+
+.dropdown-title {
+	.pull-left;
+}
+.dropdown-caret {
+	.pull-right;
+}
+.btn-block {
+	.btn-block;
+	padding: @padding-base-vertical @padding-base-horizontal;
+
+	dropdown-toggle {
+		text-align: left;
+	}
+	.current-label {
+		.pull-left;
+		.text-right;
+		padding-left: 0;
+	}
+}

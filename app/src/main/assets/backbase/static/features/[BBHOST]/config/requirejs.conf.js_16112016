@@ -1,0 +1,272 @@
+/**
+ * Main requirejs config file
+ * @param  {object} root    window / global
+ * @param  {function} factory function definition
+ * @return {object}         requirejs configuration
+ * @todo use flat folder structure
+ */
+(function(root, factory) {
+    'use strict';
+
+    // flag to use distribution folder for features / modules
+    root.launchpad = root.launchpad || {};
+    root.launchpad.config = root.launchpad.config || {
+        usemin: true
+    };
+
+    var USEMIN = Boolean(root.launchpad.config.usemin);
+    var DIST = USEMIN ? 'dist/' : '';
+    var host;
+
+    if (typeof exports === 'object') {
+        host = require('os').hostname();
+        module.exports = factory(root, '');
+    } else if (typeof requirejs === 'function') {
+        require.config(factory(root, DIST));
+        host = root.location.host;
+    }
+    if(!USEMIN && host.indexOf('local') > -1) {
+        console.warn('You are using unminified version of modules/features !!! @', host);
+    }
+
+}(this, function(root, dist) {
+
+    'use strict';
+
+    var path = root.launchpad.config.path || 'features/[BBHOST]';
+
+    var config = {
+
+        baseUrl: (function(launchpad) {
+            return launchpad.staticRoot || './';
+        })(root.launchpad || {}),
+
+        paths: {
+            /**
+             * Common libs
+             */
+            // utility belt
+            'lodash'                  : [ path + '/lodash/lodash.min', path + '/lodash/lodash' ],
+            // fetch
+            'fetch'                   : [ path + '/fetch/fetch'],
+            // Mobile and gestures
+            'hammerjs'                : [ path + '/hammerjs/hammer.min', path + '/hammerjs/hammer' ],
+            // date
+            'moment'                  : [ path + '/moment/min/moment.min', path + '/moment/moment' ],
+            // graphics and animation
+            'd3'                      : [ path + '/d3/d3.min', path + '/d3/d3' ],
+            // IE8 dependensies for charts including SVG polyfills
+			'uislider'                : [ path + '/uislider/nouislider'],
+			'roundslider'             : [ path + '/roundslider/roundslider.min'],
+            'r2d3'                    : [ path + '/module-polyfills/scripts/r2d3', path + '/module-polyfills/scripts/r2d3'],
+            'aight'                    : [ path + '/module-polyfills/scripts/aight', path + '/module-polyfills/scripts/aight'],
+            // Template-ing systems
+            'handlebars'              : [ path + '/handlebars/handlebars.min', path + '/handlebars/handlebars' ],
+
+            // angular & 3rd party ng libs
+            'angular'                 : [ path + '/angular/angular.min', path + '/angular/angular' ],
+            'angular-resource'        : [ path + '/angular-resource/angular-resource.min' ],
+            'angular-translate'       : [ path + '/angular-translate/angular-translate.min' ],
+            'angular-dynamic-locale'  : [ path + '/angular-dynamic-locale/tmhDynamicLocale.min' ],
+
+            // LP foundation
+            //'base'                    : path + '/base/' + dist + 'scripts',
+			'base'                    : path + '/base/' + 'scripts',
+            'core'                    : path + '/core/' + dist + 'scripts',
+            'ui'                      : path + '/ui/' + dist + 'scripts',
+            'mock'                    : path + '/mock/dist/scripts',
+
+            // LP modules
+            'module-currencies'       : path + '/module-currencies/'+ dist +'scripts',
+            'module-accounts'         : path + '/module-accounts/'+ dist +'scripts',
+            'module-automation'       : path + '/module-automation/'+ dist +'scripts',
+            'module-estatements'      : path + '/module-estatements/'+ dist +'scripts',
+            'module-payments'         : path + '/module-payments/'+ dist +'scripts',
+			'idfc-bb-module-payments' : path + '/idfc-bb-module-payments/'+'scripts',
+            'module-users'            : path + '/module-users/'+ dist +'scripts',
+            'module-wealth'           : path + '/module-wealth/'+ dist +'scripts',
+            'module-freshness'        : path + '/module-freshness/'+ dist +'scripts',
+            'module-tags'             : path + '/module-tags/'+ dist +'scripts',
+            'module-charts'           : path + '/module-charts/'+ dist +'scripts',
+            'module-badges'           : path + '/module-badges/'+ dist +'scripts',
+            'module-expenses'         : path + '/module-expenses/'+ dist +'scripts',
+            'module-places'           : path + '/module-places/'+ dist +'scripts',
+            'module-ebilling'         : path + '/module-ebilling/'+ dist +'scripts',
+            'module-transactions'     : path + '/module-transactions/'+ dist +'scripts',
+            'module-contacts'         : path + '/module-contacts/'+ dist +'scripts',
+            'module-spring-transition': path + '/module-spring-transition/'+ dist +'scripts',
+            'module-devices'          : path + '/module-devices/'+ dist +'scripts',
+            'module-enrollment'       : path + '/module-enrollment/'+ dist +'scripts',
+            'module-behaviors'        : path + '/module-behaviors/'+ dist +'scripts',
+            'module-addressbook'      : path + '/module-addressbook/'+ dist +'scripts',
+			//idfc lp modules
+			'idfc-contacts-module'    : path + '/idfc-contacts-module/'+ dist +'scripts',
+			//'idfc-payments-module'    : path + '/idfc-payments-module/'+ dist +'scripts',
+			'idfc-payments-module'    : path + '/idfc-payments-module/'+'scripts',
+			'idfc-accounts-module'    : path + '/idfc-accounts-module/'+ dist +'scripts',
+			'idfc-transactions-module'    : path + '/idfc-transactions-module/'+ dist +'scripts',
+            
+            // idfc common
+            'idfccommon'			  : path + '/idfc-common/idfc-constants',
+            'idfcerror'			      : path + '/idfc-common/idfcerror',
+			'fileSaver'				  : path + '/idfc-common/FileSaver',
+			'idfc-otp-generate'	      : path + '/idfc-otp-generate/scripts',
+			'idfc-error-spin'	      : path + '/idfc-error-spin/scripts',
+			'idfc-rsa'	              : path + '/idfc-rsa/scripts',
+			'module-otp': path + '/module-bb-otp/scripts',
+			//idfc access control retrofit
+			'module-access-control'	  : path + '/idfc-bb-module-access-control/scripts',
+			
+			//idfc utils
+			'module-idfc-utils'		  : path + '/module-idfc-utils/scripts',
+			
+			// idfc entitlements
+			'module-roles'            : path + '/idfc-bbe-module-roles/scripts',
+			'module-rules'            : path + '/idfc-bbe-module-rules/scripts',
+			'module-bb-transactions'  : path + '/idfc-bbe-module-transactions/scripts',
+			'module-workflow-templates': path + '/idfc-bbe-module-workflow-templates/scripts',
+			'module-entry-limits'     : path + '/idfc-bbe-module-entry-limits/scripts',
+			'module-threshold-limits' : path + '/idfc-bbe-module-threshold-limits/scripts',
+			'module-widget-templates' : path + '/idfc-bbe-module-widget-templates/scripts',
+			'module-ucic-details'     : path + '/idfc-bbe-module-ucic-details/scripts',
+
+            // requirejs-plugins
+            'async'                   : [ path + '/requirejs-plugins/src/async'],
+            'goog'                    : [ path + '/requirejs-plugins/src/goog'],
+			//'idfc-utils-module'       : [ path + '/idfc-utils-module/scripts'],
+			'idfc-utils-module'       : [ path + '/idfc-utils-module/scripts'],
+			'idfc-refresh-module'	  : [ path + '/idfc-refresh-module/scripts'],
+			'idfc-otp-module'         : [ path + '/idfc-otp-module/scripts']
+
+        },
+        // Register packages
+        packages: [
+            'base',
+            'core',
+            'ui',
+            'mock',
+
+            'module-currencies',
+            'module-accounts',
+            'module-automation',
+            'module-estatements',
+            'module-payments',
+			'idfc-bb-module-payments',
+            'module-users',
+            'module-wealth',
+            'module-freshness',
+            'module-tags',
+            'module-charts',
+            'module-badges',
+            'module-expenses',
+            'module-places',
+            'module-ebilling',
+            'module-transactions',
+            'module-contacts',
+            'module-spring-transition',
+            'module-devices',
+            'module-enrollment',
+            'module-behaviors',
+            'module-addressbook',
+			'idfc-contacts-module',
+			'idfc-payments-module',
+			'idfc-utils-module',
+			'idfc-refresh-module',
+			'module-idfc-utils',
+			'module-access-control',
+			'module-otp',
+			'module-roles',
+			'module-rules',
+			'module-bb-transactions',
+			'module-workflow-templates',
+			'module-entry-limits',
+			'module-threshold-limits',
+			'module-widget-templates',
+			'module-ucic-details', 
+			'idfc-otp-module',
+			'idfc-otp-generate',
+			 'idfc-error-spin',
+			 'idfc-accounts-module',
+			 'idfc-transactions-module',
+			 'idfc-rsa'
+        ],
+        shim: {
+            'angular': {
+                exports: 'angular'
+            },
+            'angular-resource': {
+                deps: ['angular']
+            },
+            'angular-translate': {
+                deps: ['angular']
+            },
+            'd3': {
+                exports: 'd3'
+            },
+			'uislider': {
+                exports: 'uislider'
+            },
+            'roundslider': {
+                exports: 'roundslider'
+            },
+            "r2d3" : { deps: ["aight"], exports : "d3" },
+            'angular-dynamic-locale': {
+                deps: ['angular']
+            }
+        },
+        map: {
+            '*': {
+                'd3': (function resolveD3Dependency() {
+                    return isOldIE() ? 'r2d3' : 'd3';
+                })()
+            }
+        }
+    };
+
+    // helpers
+
+    // Returns version of IE as a number works for IE version [7, 11)
+    function getInternetExplorerVersion() {
+        var rv = -1;
+        if (navigator && navigator.appName == 'Microsoft Internet Explorer') {
+            var re = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
+            if (re.exec(navigator.userAgent || "") != null) {
+                rv = parseFloat(RegExp.$1);
+            }
+        }
+        return rv;
+    }
+
+    // returns true on IE versions up to 8
+    function isOldIE() {
+        var ieVersion = getInternetExplorerVersion();
+        return ieVersion > 0 && ieVersion <= 8;
+    }
+
+    // shim libraries loaded as <script> tag
+    if(root.jQuery) {
+        requirejs.undef('jquery');
+        define('jquery', function() { return root.jQuery });
+    }
+    if(root.angular) {
+        requirejs.undef('angular');
+        define('angular', function() { return root.angular });
+    }
+
+    if(root.d3) {
+        requirejs.undef('d3');
+        requirejs.undef('r2d3');
+        define('r2d3', function() { return root.d3 });
+        define('d3', function() { return root.d3 });
+    }
+	if(root.uislider) {
+        requirejs.undef('43');
+        define('uislider', function() { return root.uislider });
+    }
+    if(root.roundslider) {
+        requirejs.undef('roundslider');
+        define('roundslider', function() { return root.roundslider });
+    }
+
+    return config;
+}));

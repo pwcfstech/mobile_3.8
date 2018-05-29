@@ -1,0 +1,32 @@
+{namespace templates_SimplePageLayoutContainer}
+
+/**
+ * Div Layout
+ * @param item Item in context
+ */
+{template .SimplePageLayoutContainer}
+
+{let $layoutType}
+    {if $item.preferences.layoutType.value == 'fixed'}
+        container
+    {elseif $item.preferences.layoutType.value == 'fluid'}
+        container-fluid
+    {elseif $item.preferences.layoutType.value == 'custom'}
+        container-custom
+    {/if}
+{/let}
+{let $middle: $item.preferences.verticalPosition.value == 'middle' and $item.preferences.layoutType.value == 'custom' /}
+
+<div class="bp-container bp-ui-dragRoot clearfix simple-page-layout" data-pid="{$item.name}">
+    <div class="{$layoutType} bp-area --area">
+        {if $middle}<div class="container-wrapper">{/if}
+            {foreach $child in $item.children}
+                {if parseInt($child.preferences.area.value) == 0}
+                    {include($child) |noAutoescape}
+                {/if}
+            {/foreach}
+        {if $middle}</div>{/if}
+    </div>
+</div>
+
+{/template}

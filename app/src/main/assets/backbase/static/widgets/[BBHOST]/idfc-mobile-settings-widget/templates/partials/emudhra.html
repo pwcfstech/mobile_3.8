@@ -1,0 +1,58 @@
+<div class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">{{'Emudra_ReRegister'|translate}}</a>
+            </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse" ng-show="myyyy">
+            <div class="panel-body" style="color:#f3a036">
+                <div style="border:solid">
+                    <div class="panel-body">
+                        <h5 align="center"><b>{{'Emudra_Reregister_Heading'|translate}}</b></h5>
+                        <br/><br/>
+                        <div class="settings-class1">{{'Emudra_Name'|translate}}</div>
+                        <div class="settings-class2">{{name}}</div>
+                        <div class="settings-class3"></div>
+                        <br/>
+                        <div class="settings-class1">{{'Emudra_Email'|translate}}</div>
+                        <div class="settings-class2">{{emailId}}</div>
+                        <div class="settings-class3"></div>
+                        <br/>
+                        <div class="settings-class1">{{'Emudra_PhoneNumber'|translate}}</div>
+                        <div class="settings-class2">{{phoneNumber}}</div>
+                        <div class="settings-class3"></div>
+                        <br/>
+                        <div class="settings-class1">{{'Emudra_Pan'|translate}}</div>
+                        <div class="settings-class2">{{pan}}</div>
+                        <div class="settings-class3"></div>
+                        <br/><br/>
+                        <h5 align="center">{{'Emudra_Note_Reregister'|translate}}</h5>
+                        <br/><br/>
+                        <div id="test" class="settings-centered"><button type="submit" style="margin-left:42%" aria-label="Confirm" class="btn btn-primary primary-btn-setting primary-btn-btn" name="" ng-click="websignerPopUp();" lp-i18n="Emudra_Button"></button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">{{'Emudra_DeRegister'|translate}}</a>
+            </h4>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+            <div class="panel-body" style="color:#f3a036">
+                <div style="border:solid">
+                    <div class="panel-body">
+                        <h5 align="center"><b>{{'Emudra_Deregister_Heading'|translate}}</b></h5>
+                        <br/><br/>
+                        <h5 align="center">{{'Emudra_Note_Deregister'|translate}}</h5>
+                        <br/><br/>
+                        <button type="submit" style="margin-left:42%" text-align="center" aria-label="Confirm" class="btn btn-primary primary-btn-setting primary-btn-btn" name="" ng-click="deRegister();" lp-i18n="Emudra_Button"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

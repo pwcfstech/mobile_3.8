@@ -1,0 +1,484 @@
+/* Build with bb-lp-cli @ v1.1.0 */
+
+.restrictHorizontal {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.forgotLogin-onload {
+    width: auto !important;
+    margin: 0 auto
+}
+
+.forgotLoginId-btn-submit {
+    margin-right: 6%
+}
+
+.otp-input-width {
+    width: 87%;
+    margin-left: 3%;
+    height: 35px;
+}
+
+.forgotLoginId-button-align {
+    text-align: center;
+    margin-top: 5%
+}
+
+#tabForm {
+    margin-bottom: 1%
+}
+
+.forgotLoginId-btn-clear {
+    margin-right: 1%;
+    margin-bottom: 3%;
+}
+
+.forgotLoginId-button-alignForm {
+    text-align: center;
+    position: relative;
+    min-width: 60%;
+    margin-right: -4%;
+    margin-top: 17px;
+    padding-top: 1%;
+    padding-bottom: 10px
+}
+
+.forgotLoginId-div-td-dep-ab {
+    float: right;
+    padding-right: 2%;
+    text-align: right;
+    position: relative;
+    min-width: 32%;
+    padding-top: 5px;
+    margin-right: 5px
+}
+
+.forgotLoginId-otp-div {
+    border: 1px solid;
+    padding-bottom: 13%
+}
+
+.forgotLoginId-btn-align {
+    margin-right: 6%
+}
+
+.forgotLoginId-debitform-width label {
+    float: left;
+    padding-top: 10px;
+    width: 35%;
+    margin-left: 4%
+}
+
+.forgotLoginId-loanform-width label {
+    float: left;
+    padding-top: 10px;
+    width: 35%;
+    margin-left: 3%
+}
+
+.primary-btn-forgotId {
+    font-family: gotham_book, Calibri !important;
+    font-size: 15px !important;
+    color: #ffffff !important;
+    background-color: #FB637E !important;
+    height: 35px !important;
+    border: none !important;
+    margin-right: 4% !important;
+    width: 84% !important;
+    border-radius: 2% !important;
+}
+
+.secondary-btn-forgotId {
+    font-family: gotham_book, Calibri !important;
+    background-color: #EAEAEA !important;
+    font-size: 15px !important;
+    color: #000000 !important;
+    border: none !important;
+    height: 35px !important;
+    margin-right: 4% !important;
+    width: 84% !important;
+    border-radius: 2% !important;
+}
+
+.forogtloginId-paddingInput {
+    padding-left: 1%;
+    padding-right: 1%
+}
+
+.forgotLoginId-alignInput {
+    padding-top: 0;
+    /*margin-left:-10%!important;*/
+}
+
+.forgotLoginId-account-width label {
+    padding-top: 10px;
+    float: left;
+    margin-left: 5%;
+}
+
+.forgotLoginId-alignInput label {
+    width: 31%;
+    float: left
+}
+
+
+/*padding-top: 11px !important;*/
+
+.forgotLoginId-customerlabel-margintop {
+    margin-top: 4%!important;
+}
+
+.otp-label-forgotId label {
+    float: left;
+    width: 38%;
+    margin-left: -9%;
+}
+
+@media (max-width:416px) {
+    .forgotLoginId-alignInput label {
+        width: 100% !important;
+    }
+}
+
+@media (min-width:417px) and (max-width:550px) {
+    .forgotLoginId-alignInput label {
+        width: 38%
+    }
+}
+
+@media (max-width:427px) {
+    .otp-label-forgotId label {
+        width: 60%
+    }
+    .forgotLoginId-loanform-width label,
+    .forgotLoginId-debitform-width label {
+        width: 60%
+    }
+}
+
+
+/*.forgotLoginId-alignlabel {
+    padding-top: 11px !important
+}
+*/
+
+.forgotLoginId-account-width {
+    width: 108%;
+    margin-left: -12%!important
+}
+
+
+/*padding-top: 2%;
+*/
+
+.forgotLoginId-input-width {
+    width: 197px
+}
+
+.forgotLoginId-loanform-width {
+    width: 139%;
+    margin-left: -15%!important;
+}
+
+
+/*padding-top: 2%;
+ margin-top: 5%!important;
+ */
+
+.forgotLoginId-debitform-width {
+    width: 136%;
+    margin-left: -15%!important;
+}
+
+
+/*padding-top: 2%;
+margin-top: 3%!important;
+*/
+
+.forgotLoginId-alInput {
+    margin-right: -24.5% !important
+}
+
+.forgotLoginId-alInput label i {
+    top: 1px
+}
+
+.forgotLoginId-Inputbox {
+    width: 78%;
+    height: 35px !important;
+    -webkit-appearance: none !important;
+}
+
+.forgotLoginId-form-margin {
+    width: 197px
+}
+
+.forgotLoginId-loanform-margin {
+    width: 197px
+}
+
+@media (min-width:768px) and (max-width:847px) {
+    #accountForm .col-sm-3 {
+        width: 60%
+    }
+}
+
+@media (min-width:848px) and (max-width:991px) {
+    #accountForm .col-sm-3 {
+        width: 50%
+    }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    #newRegistrationForm1 .col-sm-3 {
+        width: 38%
+    }
+    #registrationForm .col-sm-3 {
+        width: 51%
+    }
+    #registrationForm .col-sm-6 {
+        width: 100%
+    }
+}
+
+@media (min-width:992px) {
+    #accountForm .col-sm-3 {
+        width: 41%
+    }
+    #registrationForm .col-sm-3 {
+        width: 30%
+    }
+    #registrationForm .pull-right {
+        width: 18%
+    }
+}
+
+@media (min-width:768px) and (max-width:815px) {
+    #debitCardForm .col-sm-3 {
+        width: 60%
+    }
+    #loanAccountForm .col-sm-3 {
+        width: 60%
+    }
+}
+
+@media (min-width:873px) {
+    #loanAccountForm .col-sm-3 {
+        width: 33%
+    }
+}
+
+.forgotLoginId-account-margin {
+    margin-left: 17%!important
+}
+
+.forgotLoginId-debit-margin {
+    margin-left: 17%!important
+}
+
+.forgotLoginId-loan-margin {
+    margin-left: 17%!important
+}
+
+@media (max-width:767px) {
+    #registrationForm .pull-right {
+        margin-right: 2%
+    }
+    .forgotLoginId-debitform-margin-left {
+        margin-left: -1%
+    }
+    .forgotLoginId-input-width {
+        width: 100%
+    }
+    .forgotLoginId-form-margin {
+        width: 76%;
+        height: 35px;
+    }
+}
+
+@media (max-width:767px) {
+    #registrationForm .pull-right {
+        margin-right: 2%
+    }
+    .forgotLoginId-debitform-margin-left {
+        margin-left: -1%
+    }
+    .forgotLoginId-input-width {
+        width: 97%
+    }
+    .forgotLoginId-loanform-margin {
+        width: 75%;
+        height: 35px;
+        margin-left: -2%;
+    }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    #registrationForm .pull-right {
+        width: 20%
+    }
+}
+
+.tab-forgotId a {
+    padding: 8px ! important
+}
+
+@media (max-width:404px) {
+    .forgotLoginId-otp-div {
+        min-height: 370px
+    }
+}
+
+@media (min-width:404px) and (max-width:485px) {
+    .forgotLoginId-otp-div {
+        min-height: 300px
+    }
+}
+
+@media (min-width:486px) {
+    .forgotLoginId-otp-div {
+        min-height: 251px
+    }
+}
+
+.otp-forgot-btn {
+    margin-top: 2%
+}
+
+@media (max-width: 600px) {
+    .tooltip-inner {
+        padding: 3px 30px !important;
+        margin-left: 20px;
+    }
+}
+
+.tooltip-inner {
+    position: absolute!important;
+    width: 160px!important;
+    max-width: 160px!important;
+    height: auto;
+    margin-left: -79px!important;
+    top: 33px!important;
+    background-color: #c6cfd9!important;
+    color: #4a4a4a!important;
+    font-size: 10px;
+    font-family: gotham_book!important
+}
+
+.tooltip.top .tooltip-arrow {
+    margin-left: -5px!important;
+    top: 28px!important;
+    bottom: -38px;
+    border-top-color: #c6cfd9!important;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg)
+}
+
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #c6cfd9!important
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #c6cfd9!important
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #c6cfd9!important
+}
+
+.borderTop {
+    background-color: #eaeaea !important;
+    height: 1px !important;
+}
+
+.borderTopLineMargin {
+    margin: 0 -5% 0 -5% !important;
+}
+
+.text-left-float {
+    float: left;
+    margin-top: 1%;
+}
+
+.text-left-float-debitCard {
+    float: left;
+    margin-top: 1%;
+    margin-left: -1%;
+}
+
+.text-left-float-loanAccount {
+    float: left;
+    margin-top: 1%;
+    margin-left: -2%;
+}
+
+.next-page-margin {
+    margin-bottom: 3%;
+}
+
+.tab-content-forgetUsername {
+
+}
+
+.tab-content {
+    border: solid 1px #dddddd;
+}
+
+
+/*Xebia Refactoring */
+
+label {
+    font-family: gotham_bold, Calibri !important;
+    font-size: 16px !important;
+    line-height: 27px !important;
+    font-weight: Normal !important;
+    color: #4A4A4A;
+}
+
+.labelText {
+    margin-left: 4.5%!important;
+    font-weight: bold !important;
+}
+
+.btn-primary {
+    width: 76.23% !important;
+    padding-top: 2.5% !important;
+    padding-bottom: 2.5% !important;
+}
+
+.marginTopClear {
+    margin-top: 3.1% !important;
+    text-transform: uppercase !important;
+    font-family: gotham_book, Calibri !important;
+}
+
+.marginTopNext {
+    margin-top: 19px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0% !important;
+}
+
+.forogtloginId-paddingInput {
+    padding-left: 5%!important;
+    padding-right: 7%!important;
+}
+/*# sourceMappingURL=base.css.map */
+.forgotLoginId-account-width .control-label {
+    margin-left: 15.5% !important;
+}
+
+.forgotLoginId-debitform-width .control-label {
+    margin-left: 15% !important;    
+}

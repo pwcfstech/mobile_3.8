@@ -1,0 +1,105 @@
+<div  class="ng-cloak" ng-controller="challengeQuestionController as challengeCntrl">
+	
+	 <!-- Loading indicator -->
+	<div ng-if="challengeCntrl.errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only" lp-i18n="Busy"></span>
+        </div>
+    </div>
+	
+	<div class="lp-alerts">
+        <div class="userChallenge-cQAlert" ng-show="challengeCntrl.showCQ">
+            <p><span ng-bind="challengeCntrl.message"></span></p>
+        </div>
+ 		<div class="userChallenge-cQAlert" ng-show="challengeCntrl.reSetCQ" style="min-height:100px"> 
+            <p> <span ng-bind="challengeCntrl.customerName"></span> <span ng-bind="challengeCntrl.messageResetCQ"></span></p>
+			
+			<div style="float:left" lp-i18n="Would you like to reset your challenge questions?"></div>
+			<br/>
+			<span style="float:right; margin-right: 15px"><button class="btn btn-primary primary-btn-btn"  ng-click="challengeCntrl.showWidget()" lp-i18n="Yes"></button>
+			<button class="btn btn-primary secondary-btn-btn" ng-click="challengeCntrl.closeWidget()" lp-i18n="No"></button></span>
+        </div>
+    </div>
+
+			<div class="userChallenge-lp-widget-content panel-body" ng-show="challengeCntrl.userWantsToEnrollAgain">
+			<div class="lp-alerts">
+					<div style="text-align:center" alert="alert" ng-repeat="alert in challengeCntrl.alerts" type="alert.type"
+						 close="challengeCntrl.closeAlert($index)">
+					<span >{{alert.msg}}</span>
+					</div>
+				</div>
+		
+	<div ng-show="challengeCntrl.showSuccessPage">					
+			<div data-ng-include="challengeCntrl.templates.successful"></div>
+	</div>
+						
+		<div ng-hide="challengeCntrl.globalerror">
+		<div>
+		<form name="QuestionForm" class="form-horizontal" role="form" id="QuestionForm" novalidate="">
+						<div style="font-size: 15px">
+							<h3 class="panel-title" ng-show="challengeCntrl.panelTitle"><i lp-i18n="Please enrol for Challenge Questions : Your unique answers further safeguard your account security."></i>
+							<br></br><br></br>
+						<i lp-i18n="From time to time, we may ask you to input answers to the questions that you select to further confirm your identity."></i>
+							<br></br><br></br>
+							<i lp-i18n="Please memorise these answers and do not share them with anyone."></i>
+							</h3>
+						</div>
+						<div  class="cqLabel" ng-show="challengeCntrl.panelTitle">
+						<label lp-i18n="Select Your Challenge Questions"> </label>
+						</div>
+			<ul >
+			
+				<li ng-repeat="challengeQuestions in challengeCntrl.data track by $index" class="list-cq-chall-floatleft">
+					   <select class="userChallenge-question-list userChallenge-ques" ng-model="challengeCntrl.challengeQuesAns[$index]['question']" ng-options="challengeQues.questionId as challengeQues.questionText for challengeQues in challengeCntrl.challengeAll.question[$index]"
+												 ng-disabled="challengeCntrl.isChallengeDisabled"  required="true">
+									<option value= "">Select Question {{$index+1}}</option>
+					  </select>
+					   <input class="userChallenge-input-answer userChallenge-inp" type="text" name="answer{{$index}}"  required="true"  maxlength="50" autocomplete="false" ng-model="challengeCntrl.challengeQuesAns[$index].answer" ng-disabled="challengeCntrl.isChallengeDisabled"/>
+				</li>
+			</ul>
+					<small class="text-danger chall-floatleft" style="width:38%;margin-left:28px" ng-show="challengeCntrl.evalOrExp(challengeCntrl.showAnsPaternErr0, challengeCntrl.showAnsPaternErr1, challengeCntrl.showAnsPaternErr2, challengeCntrl.showAnsPaternErr3, challengeCntrl.showAnsPaternErr4)" lp-i18n="Answer should not contain any special character"></small><br></br>
+					<small class="text-danger chall-floatleft" style="width:38%;margin-left:28px" ng-show="challengeCntrl.evalExp(QuestionForm.submitted, challengeCntrl.showAnsReqErr)" lp-i18n="Please select question and enter the Answer"></small>
+			<br/>
+				
+          <div ng-show="challengeCntrl.btnFlag">
+                  <button class="btn btn-primary primary-btn-btn CQbutton" type="submit" style="float:right"  ng-click="QuestionForm.submitted=true; challengeCntrl.QuesAns(QuestionForm.$valid)" lp-i18n="Submit Answers"></button>
+				  <button class="btn btn-primary secondary-btn-btn CQbutton" type="submit" style="float:right"  ng-click="challengeCntrl.clear()" lp-i18n="Clear"></button>
+		  </div>
+		  </form>  
+	</div>			  
+<div ng-hide="challengeCntrl.OTPFlag" class="challengeQuest-otp-div">
+	<form name="OTPform" class="form-horizontal form-horizontal-otp"> 
+		<div lp-field="lp-field" label="Mobile Number" tip="">
+			<div>
+				<input class="form-control challengeQuest-otp-input-width input-width-cq"	type="text"	name="OTPMobile" ng-model="challengeCntrl.customerMobMasked" ng-disabled="true" />
+			</div>
+		</div>
+		<input style="display:none" type="text" name="fakeusernameremembered"/>
+		<input style="display:none" type="password" name="fakepasswordremembered"/>
+		<div lp-field="lp-field" label="OTP" class="label-font"
+			 tip="Please enter the 6 digit OTP we sent to your registered mobile number">
+			<div>
+				<input class="form-control challengeQuest-otp-input-width input-width-cq" type="password" name="otp" autocomplete="false"
+				ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+				ng-model="challengeCntrl.otpValue" required="true"/>
+			<small class="text-danger" style="width:38%;" ng-show="challengeCntrl.evalExp(OTPform.submitted, OTPform.otp.$error.required)" lp-i18n="OTP is required"> </small>
+			<small class="text-danger" style="width:38%;" ng-show="challengeCntrl.evalExp(OTPform.submitted, OTPform.otp.$error.minlength)" lp-i18n="Please enter 6 digit valid value"></small>
+			<small class="text-danger" style="width:38%;" ng-show="challengeCntrl.evalExp(OTPform.submitted, OTPform.otp.$error.maxlength) " lp-i18n="Please enter 6 digit valid value"></small>
+			<small class="text-danger" style="width:38%;" ng-show="OTPform.otp.$error.pattern" lp-i18n="Please enter a valid OTP"></small>
+			</div>
+		</div>
+		<div class="challengeQuest-div-td-dep-ab">
+			<div  class="challengeQuest-otp-child">
+				<button class="btn btn-primary primary-btn-btn" type="submit" name="verifyOTP" ng-click="OTPform.submitted=true; challengeCntrl.verifyOTP(OTPform.$valid)"lp-i18n="Submit"></button>
+				<button class="btn btn-primary secondary-btn-btn" type="button" name="resendOTP" ng-click="challengeCntrl.generateOTP('resend')"lp-i18n="Resend OTP"></button>
+			</div>
+		</div>
+</form> 
+</div>
+
+	</div>
+    </div>
+	
+ </div>
+

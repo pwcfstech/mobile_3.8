@@ -1,0 +1,77 @@
+//
+// Launchpad widget forms
+// --------------------------------------------------
+
+// Form fields
+// -------------------------
+// TODO: Are these relevant?
+//
+.lp-field {
+    &.form-group {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .control-label {
+        text-align: left;
+    }
+    .lp-icon-info-sign {
+        color: #808080;
+        position: relative;
+        left: 5px;
+    }
+    .lp-editable {
+        background-color: white;
+        color: black;
+    }
+    .dropdown {
+        width: 100%;
+    }
+    .dropdown-toggle {
+		text-align: left;
+    }
+    .dropdown-toggle .caret {
+		position: absolute;
+        right: 10px;
+		top: 40%;
+    }
+    label {
+        cursor: pointer;
+    }
+}
+
+// Editable fields
+// -------------------------
+
+
+.lp-editable {    
+
+  input[readonly] {
+    color: @btn-default-color;
+    background-color: @btn-default-bg;
+    cursor: default;
+  }
+}
+.lp-editable-edit {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: @btn-default-color;
+}
+.lp-editable-text {
+    padding: 7px;
+    border: 1px solid @input-color;
+    border-radius: 4px;
+    min-height: 34px;
+}
+.lp-editable-readonly.lp-editable-readonly {
+    border: 0;
+}
+.lp-field-help {
+    width: 350px;
+    line-height: 1em;
+    margin-top: 5px;
+}
+
+.form-horizontal .has-feedback .form-control-feedback {
+	right: 0;
+}

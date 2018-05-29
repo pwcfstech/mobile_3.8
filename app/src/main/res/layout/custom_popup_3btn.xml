@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You already have MPIN"
+        android:id="@+id/popup_msg"
+        android:layout_marginTop="27dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="14sp"
+        android:textColor="@color/idfc_popup_text"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        android:id="@+id/popup_divider"
+        android:layout_below="@+id/popup_msg"
+        android:background="@color/group_bg"
+        android:gravity="center_horizontal"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginRight="19dp"
+        android:text="upgrade now"
+        android:id="@+id/preferredActionBtn"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/popup_divider"
+        android:layout_marginBottom="14sp"
+        android:background="@color/popupBtn_pink"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        style="?android:borderlessButtonStyle" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginLeft="19dp"
+        android:text="details"
+        android:id="@+id/unpreferredBtn1"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/preferredActionBtn"
+        android:layout_marginBottom="13sp"
+        android:background="@color/popupBtn_gray"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="true"
+        android:textColor="@color/idfc_popup_text"
+        style="?android:borderlessButtonStyle" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginLeft="19dp"
+        android:text="LATER"
+        android:id="@+id/unpreferredBtn2"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/unpreferredBtn1"
+        android:layout_marginBottom="13sp"
+        android:background="@color/popupBtn_gray"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="true"
+        android:textColor="@color/idfc_popup_text"
+        style="?android:borderlessButtonStyle" />
+
+</RelativeLayout>

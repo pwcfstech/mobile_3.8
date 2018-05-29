@@ -1,0 +1,23 @@
+// Reference core so any needed mixin or variable is available,
+// without actually importing the whole core CSS.
+//
+// It has been necessary to split the core CSS from the rest
+// as the high amount of CSS classes was causing a bug in IE9,
+// see LF-902 for more information
+@import (reference) "core/styles/core.less";
+
+//
+// Note: edition must be set by "global-var".
+//
+// To set edition edition from gulp run with "gulp --edition universal|retail"
+//
+@import "@{edition}/styles/@{edition}.less";
+
+//
+// @base-path should point to "launchpad-theme", and should be relative to where the CSS
+// file ends up.
+//
+// Running the default gulp task, the CSS will end up in launchpad-theme/themes/<theme-name>/css.
+// so the gulp task will override this with "modify-var".
+//
+@base-path: "../../../";

@@ -1,0 +1,46 @@
+<div class="lp-contacts ng-cloak" lp-responsive="lp-responsive" size-rules="responsiveRules" lp-size="widgetSize">
+	<div class="lp-widget-content">
+		<!-- <div class="lp-alerts"> -->
+			<!-- <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div> -->
+		<!-- </div> -->
+		<div class="server-error-cross">
+			<div class="error-msg-mob error-message-v-middle" alert="alert" ng-repeat="alert in alerts"
+			  type="alert.type" close="closeAlert($index)">
+			  <span class="crs-icon server-error-cross-icon" ng-hide = "alert.hideCrossIcon">x</span>
+			  <div class="server-error-message">{{alert.msg}}</div>
+			</div>
+		</div>
+		<div class="lp-widget-body widget-body clearfix" ng-hide="serviceError">
+			<div class="col-wrapper">
+				<div ng-show="contactsCtrl.showAddViewBen">
+					<div class="col-list" ng-hide="contactsModel.currentContact &amp;&amp; ContDetails">
+						<div class="panel-body addressBody clearfix">
+							<div class="search-input input-group" id="search">
+								<span class="glyphicon glyphicon-search"></span>
+								<input ng-model="search" type="search"
+									   class="form-control"
+									   placeholder="Search" />
+                        <span class="input-group-btn addHt">
+                        <button type="button" class="btn primary-btn-btn bene-btn-default " ng-click="checkDailyAddLimit()" ng-disabled="addButton" name="addContact"> + Add
+						</button>
+                        </span>
+							</div>
+						</div>
+						<lp-template src="'templates/contactsList.html'"></lp-template>
+					</div>
+				</div>
+				<div class="col-view" ng-show="ContDetails">
+					<div class="col-view-inner">
+                  <span ng-show="contactsModel.currentContact &amp;&amp; contactsModel.moduleState !== 'contactsNone'">
+                     <button type="button" class="btn btn-sm btn-link back-button" ng-click="contactsModel.currentContact = null" ng-show="contactsModel.moduleState === 'contactsView' &amp;&amp; widgetSize === 'small'">&lt; Back</button>
+                     <lp-template src="contactsModel.template"></lp-template>
+                  </span>
+                  <span ng-show="widgetSize ==='large' &amp;&amp; contactsModel.contacts.length === 0 &amp;&amp; contactsModel.moduleState !== 'contactsAdd' &amp;&amp; contactsModel.moduleState !== 'contactsAddConfirm'">
+                     <lp-template src="'templates/contactsNone.html'"></lp-template>
+                  </span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

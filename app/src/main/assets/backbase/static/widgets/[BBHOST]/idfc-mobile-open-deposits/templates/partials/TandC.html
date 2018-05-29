@@ -1,0 +1,39 @@
+<div ng-controller="TermsController">
+    <div class="panel panel-default" ng-if="fiModel.selected">
+        <div class="panel-heading selected-fi">
+            <div class="col-xs-2 col-lg-1">
+                <span ng-show="fiModel.selected.isConnecting"><i class="lp-icon {{fiModel.selected.icon}}"></i></span>
+                <span ng-show="!fiModel.selected.isConnecting"><i class="glyphicon glyphicon-ok"></i></span>
+            </div>
+            <div class="col-xs-10 col-xs-11">
+                <div ng-show="fiModel.selected.isConnecting">
+                    <span class="h4">{{fiModel.selected.name}}</span><br />
+                    <span>{{'Lbl_Terms_Wait_Around'|translate}}</span>
+                </div>
+                <div ng-show="!fiModel.selected.isConnecting">
+                    <span>{{'Title_Terms_Conditions'|translate}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="opendeposit-panel-body panel-body">
+        <div class="connection-feedback">
+            <p class="h4 text-center" ng-show="!fiModel.selected.isConnecting">
+            <p class="text-center"><B>{{'Lbl_Terms_Conditions'|translate}} </B></p>
+            </p>
+            <p ng-show="fiModel.selected.isConnecting">{{'Title_Terms_msg1'|translate}}<br /> {{'Title_Terms_msg2'|translate}}<br /><a>{{'Title_Terms_msg3'|translate}}  {{fiModel.selected.name}}</a></p>
+        </div>
+        <div class="opendeposit-font">
+            <ol>
+                <li>{{'TC_Content1'|translate}} </li>
+                <li>{{'TC_Content2'|translate}} </li>
+                <li>{{'TC_Content3'|translate}} </li>
+                <li>{{'TC_Content4'|translate}}  </li>
+            </ol>
+        </div>
+        <div class="text-center div-td-dep-ab-opendeposit div-td-button-pad-od">
+            <button ng-click="acceptTermDetails()" class="inputHeight btnWidth floatNone marginTopNext btn btn-primary col-xs-12 col-md-6 col-md-offset-3 primary-btn-open-od btn-width-opendeposit">{{'btn_Accept'|translate}}</button>
+            <button type="button" ng-click="restartWizard()" class="inputHeight btnWidth floatNone marginBtm20 marginTopClear btn btn-link col-xs-12 col-md-6 col-md-offset-3 secondary-btn-open-od btn-width-opendeposit">{{'btn_Decline'|translate}}</button>
+        </div>
+    </div>
+</div>

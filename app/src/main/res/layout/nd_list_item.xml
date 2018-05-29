@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/child_height"
+    android:background="@color/child_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/expandedListItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/layout_padding_default"
+        android:paddingLeft="60dp"
+        android:paddingRight="?android:attr/expandableListPreferredChildPaddingLeft"
+        android:paddingTop="@dimen/layout_padding_default"
+        android:textColor="@drawable/menu_child_selector_text"
+        android:textSize="@dimen/child_text_size"
+        android:textScaleX="1"/>
+</LinearLayout>

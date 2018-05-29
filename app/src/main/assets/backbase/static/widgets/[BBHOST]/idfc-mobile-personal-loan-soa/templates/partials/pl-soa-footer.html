@@ -1,0 +1,24 @@
+<div class="padding-bottom-20">
+    <div class="row">
+        <div class="col-sm-10 col-lg-10 width-Soa leftFloat-Soa showMoreBtn-lf"><input name="Show_More" ng-click="plSoaCtrl.showMoreItems()" type="button" value="+ Load more" ng-show="plSoaCtrl.limit<plSoaCtrl.namesGrid.length && !plSoaCtrl.showMore" class="btn-whitePop-Soa pull-left" /></div>
+        
+        <div class="col-sm-2 col-lg-2 padding0 pull-right" ng-if="plSoaCtrl.namesGrid.length>1 && plSoaCtrl.showBtnGroup">
+            
+            <div class="col-sm-4 col-lg-4 footerButton">
+                <input name="Mail" type="button" tooltips value=""  class="mailButton" ng-click="plSoaCtrl.emailAdvice()" />
+                
+            </div>
+            
+        </div>
+    </div>
+    
+    <div class="row" id="emailSuccessMsg">
+        <div class="col-sm-12 col-lg-12 textAlign-center successEmailMsg succCenter successMessageSOA">
+            
+            <div ng-show="plSoaCtrl.success.happened" ng-bind="plSoaCtrl.success.msg" class="text-success"></div>
+        </div>
+    </div>
+    
+    
+    
+</div>

@@ -1,0 +1,245 @@
+<!-- Add NG Template here-->
+
+<div>
+	<div ng-if="mainCtrl.errorSpinShow">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+    </div>
+	<!--div class="life-insurance-panel-header">
+		<label lp-i18n="Your family is dependent on you. 
+		Give them the financial freedom they deserve."></label>
+	</div-->
+
+	<div align="center" class="margin-auto">
+		<!--label class="allFontStyle" lp-i18n="HDFC Life Click2Protect Plus"></label-->
+		<label class="allFontStyle" lp-i18n="HDFC Life Click2Protect 3D Plus"></label>
+	</div>
+	
+	
+	
+	
+	
+	
+	<!--<div class="life-insurance-calculate-panel desktop-view">
+	<div class="life-calculate-image-main-div">
+		<div class="life-calculate-image-div">
+			<img ng-src="{{mainCtrl.calculate}}" >
+		</div>
+		<div class="life-calculate-text" align="center">
+			<div class=""  align="center">
+				<label  lp-i18n="Need help?" class="life-calculate-label"></label>
+				<label  class="life-calculate-label" >
+					<p>Our expert will be happy to engage with you. <a href='' ng-click="mainCtrl.lifeSwitchFuction('lifeCalculate');">Click here</a>.</p>
+				</label>			
+							
+			</div>
+		</div>
+		</div>
+	</div>-->
+	
+	<div class="life-insurance-panel">
+		<div class="horizontalScroll">
+			<div class="life-panel-main">
+				<div class="life-panle-div">
+					<div class="life-panel-images-umb">
+						<img ng-src="{{mainCtrl.umb}}" class="mobile-umb-image" >
+					</div>
+					<div class="life-panel-images-text-div">
+						<label  lp-i18n="High cover at low premium" class=" col-sm-12 life-panel-text"></label>
+						<label  lp-i18n="Rs1 Cr cover as low as Rs18 a day" class=" col-sm-12 life-panel-secondary-text"></label>
+					</div>
+				</div>
+				<div class=" life-panle-div-benefit">
+					<div class="life-panel-images-benefit">
+						<img ng-src="{{mainCtrl.benefit}}"  class="mobile-benefit-image">
+					</div>
+					<div class="life-panel-images-text-div">
+						<label  lp-i18n="Income benefit option" class=" col-sm-12 life-panel-text "></label>
+						<label  lp-i18n="Lump-sum or Income option" class=" col-sm-12 life-panel-secondary-text"></label>
+					</div>
+				</div>
+				<div class="  life-panle-div " >
+					<div class="life-panel-images-critical">
+						<img ng-src="{{mainCtrl.critical}}"  class="mobile-critical-image">
+					</div>
+					<div class="life-panel-images-text-div">
+						<label  lp-i18n="Critical illness optional add on" class=" col-sm-12 life-panel-text"></label>
+						<label  lp-i18n="Claim Payment basis diagnosis" class=" col-sm-12 life-panel-secondary-text"></label>
+					</div>
+				</div>
+			
+				<div class="  life-panle-div">
+					<div class="life-panel-images-accidental">
+						<img ng-src="{{mainCtrl.accidental}}"  class="mobile-accidental-image">
+					</div>
+					<div class="life-panel-images-text-div">
+						<label  lp-i18n="Accidental optional add-on" class=" col-sm-12 life-panel-text "></label>
+						<label  lp-i18n="2x Sum Assured up-to 2 CR" class=" col-sm-12 life-panel-secondary-text"></label>
+					</div>
+				</div>
+				<div class="  life-panle-div">
+					<div class="life-panel-images-tax">
+						<img ng-src="{{mainCtrl.tax}}" class="mobile-tax-image">
+					</div>
+					<div class="life-panel-images-text-div">
+						<label  lp-i18n="Tax savings" class=" col-sm-12 life-panel-text "></label>
+						<label  lp-i18n="Under sec. 80(C) and 10 (10D)" class=" col-sm-12 life-panel-secondary-text"></label>
+					</div>
+				</div>
+				<div class="  life-panle-div">
+					<div class="life-panel-images-cover">
+						<img ng-src="{{mainCtrl.cover}}" class="mobile-cover-image">
+					</div>
+					<div class="life-panel-images-text-div">
+						<label  lp-i18n="Cover upto 75 years of age" class=" col-sm-12 life-panel-text "></label>
+						<label  lp-i18n="Or a maximum term of 40 years" class=" col-sm-12 life-panel-secondary-text"></label>
+					</div>
+				</div>
+			
+			</div>
+			
+			</div>
+			
+			
+			<div class="life-button-background">
+				<div  class="life-button-margin" >
+					<button class="btn btn-primary  primary-btn-btn life-buttons mobile-view-button button-get-quote " ng-click="mainCtrl.getConfirmation()" lp-i18n="Buy Now">
+					</button>
+					<button class="btn btn-secondary secondary-btn-btn life-buttons " ng-click="mainCtrl.lifeSwitchFuction('lifeKnowMore');" lp-i18n="Know More">
+					</button>
+					<button class="btn btn-primary  primary-btn-btn life-buttons desktop-view-button" ng-click="mainCtrl.getConfirmation()" lp-i18n="Buy Now">
+					</button>
+					<form id="lifeInsurance"  name="lifeInsurance" method="post" target="TheWindow">
+					
+					<textarea name="txtRequestData" ng-model="data" id="txtRequestData" cols="100" rows="50" style="display:none;"></textarea>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+			
+			
+			
+		<!--<div class="life-insurance-calculate-panel mobile-view">
+			<div class="life-calculate-image-div">
+				<img ng-src="{{mainCtrl.calculate}}" class="life-calculate-image">
+			</div>
+			<div class="life-calculate-text" align="center">
+				<div class=""  align="center">
+					<label  lp-i18n="Need help?" class="life-calculate-label"></label>
+					<label  class="life-calculate-label">
+						<p>Our expert will be happy to engage with you. <a href='' ng-click="mainCtrl.lifeSwitchFuction('lifeCalculate');">Click here</a>.</p>
+					</label>
+		
+				</div>
+			</div>
+		</div> -->
+			
+		
+	
+	
+	
+	
+	<div class="life-insurance-panel-footer">
+        <div class="life-footer" >
+            <div class="life-panel-footer life-panel-footer-faq-mobile ">
+                <div align="center" class="life-panel-footer-image-faq">
+                    <img ng-src="{{mainCtrl.fAQ}}" style="cursor: pointer;" ng-click="mainCtrl.lifeSwitchFuction('lifeFaq');" class="mobile-images" >
+                </div>
+                <div align="center">
+				<label  ng-click="mainCtrl.lifeSwitchFuction('lifeFaq');" lp-i18n="FAQ's" class="life-panel-footer-text"></label>
+                    
+                </div>
+            </div>
+            <div class="life-panel-footer">
+                <div align="center" class="life-panel-footer-image-policy">
+                    <img ng-src="{{mainCtrl.policy}}" style="cursor: pointer;" ng-click="mainCtrl.lifeSwitchFuction('lifePolicyWording');" class="mobile-images" >
+                </div>
+                <div align="center">
+                    <label  ng-click="mainCtrl.lifeSwitchFuction('lifePolicyWording');" lp-i18n="BROCHURE" class="life-panel-footer-text"></label>
+                </div>
+            </div>
+            <div class="life-panel-footer">
+                <div align="center" class="life-panel-footer-image-claim">
+                    <img ng-src="{{mainCtrl.claim}}" style="cursor: pointer;" ng-click="mainCtrl.lifeSwitchFuction('lifeClaim');" class="mobile-images">
+                </div>
+                <div align="center">
+                    <label  ng-click="mainCtrl.lifeSwitchFuction('lifeClaim');" lp-i18n="CLAIM PROCESS" class="life-panel-footer-text"></label>
+                </div>
+            </div>
+
+            <div class="life-panel-footer" style="vertical-align:top;">
+                <div align="center" class="life-panel-footer-image-connect">
+                    <img ng-src="{{mainCtrl.connect}}"  class="mobile-images" ng-click="mainCtrl.call('18004194332');">
+                </div>
+				<div align="center">
+					<label ng-click="mainCtrl.call('18004194332');" lp-i18n="CONNECT TO OUR EXPERT " class="life-panel-footer-text cursor-none"></label>
+					
+				</div>
+				
+				<!--div class="expertNumberDiv" align="center">
+                    <label class="life-expert-text" lp-i18n="1800 419 4332"></label>
+                </div-->
+            </div>
+			
+			
+			
+        </div>
+    
+
+</div>
+
+	<div style="text-align: center;">
+		<label style="color:#fb637e;"  ng-click="mainCtrl.lifeSwitchFuction('lifeDisclaimer');" class="disclaimer-link handSymbol" lp-i18n="Disclaimers & Key Disclosures"></label>
+	</div>
+	
+	<div id="lifeModal" class="lifemodal"> 
+
+ <!-- Modal content -->
+  <div class="lifemodal-content">
+	<div ng-if="mainCtrl.errorSpin">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+    </div>
+  <div class="lifemodal-header">      
+	 <div class="lifepopupHeader">
+		<label>DISCLAIMER</label>
+        <span class="lifemodal-close" id="lifepop_span" ng-click="mainCtrl.closelifePopup()">x</span>
+	 </div>
+	  
+  </div>
+
+    <div class="lifemodal-body">
+	
+
+
+	<div align="center">
+		By clicking on Proceed you will be directed to the website of HDFC Life. The information provided on their website is owned and managed by HDFC life and IDFC bank does not bear any responsibility for the same.
+	</div>
+     
+    </div>
+
+   <div class="lifemodal-footer-typeone">
+   <div class="modal-button-center">
+     <button class="btn btn-primary  primary-btn-btn lifeButton"  ng-click="mainCtrl.getLifeInsuranceQuote()" lp-i18n="Proceed">
+	</button>
+	</div>
+   
+	
+	<div class="modal-button-center">
+		<button class="btn btn-primary secondary-btn-btn lifeButton"  ng-click="mainCtrl.closelifePopup();" lp-i18n="Cancel"></button>		
+	</div>	
+	 </div>
+ </div>
+
+</div>
+	
+	
+</div>
+

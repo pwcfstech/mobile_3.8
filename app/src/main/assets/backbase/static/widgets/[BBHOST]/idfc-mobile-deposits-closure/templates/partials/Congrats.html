@@ -1,0 +1,31 @@
+<div class="panel panel-default" ng-if="fiModel.selected">
+    <div class="panel-heading selected-fi">
+        <div class="col-xs-2 col-lg-1">
+            <span ng-show="fiModel.selected.isConnecting"><i class="lp-icon {{fiModel.selected.icon}}"></i></span>
+            <span ng-show="!fiModel.selected.isConnecting"><i class="glyphicon glyphicon-ok"></i></span>
+        </div>
+        <div class="col-xs-10 col-xs-11">
+            <div ng-show="fiModel.selected.isConnecting">
+                <span class="h4">{{fiModel.selected.name}}</span><br />
+                <span>Set up may take a few minutes... No need for you to wait around!</span>
+            </div>
+            <div ng-show="!fiModel.selected.isConnecting">
+                <span class="text-center">{{'Success_Message'|translate}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="connection-feedback">
+        <div class="img_padding"><img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+            <img ng-src="{{tick}}"/>
+        </div>
+        <div class="congratslabel">Congratulations!</div>
+        <p class="h4 text-center closure-text succmsg" ng-show="!fiModel.selected.isConnecting">{{'Success_Message'|translate}}</p>
+        <p ng-show="fiModel.selected.isConnecting">This may take a while,<br /> no need for you to wait around!<br /><a>Cancel adding {{fiModel.selected.name}}</a></p>
+    </div>
+    <hr class="borderLine">
+    <div class=" idfc-accept-closure text-center lastbtn" >
+        <button data-action="widget-refresh" class="btn btn-primary  primary-btn-closure marginTopNext" ng-click="restartWizard();">{{'Request_closure'|translate}}</button>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "name": "module-transaction-receipt",
+  "version": "1.0",
+  "description": "Transaction Receipt module",
+  "main": "./scripts/main.js",
+  "homepage": "http://stash.backbase.com:7990/projects/lp/repos/module-transaction-receipt/browse",
+  "authors": [],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "web_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "2.x",
+    "core": "2.x",
+    "ui": "2.x",
+    "module-users": "2.x"
+  },
+  "devDependencies": {
+    "config": "2.x",
+    "angular-mocks": "~1.2.28"
+  }
+}

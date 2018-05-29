@@ -1,0 +1,275 @@
+<div class="ng-cloak apply-now-panelwidth">
+    <div class="lp-widget-content">
+        <div class="lp-widget-content" ng-hide="serviceError">
+            <!--first screen-->
+            <div ng-hide="applyNowHomePageHide">
+                <label class="apply-home-header">A few details and we’ll do the rest</label>
+                <!--  <div class="apply-home-square-box" ng-click="openApplyNowForm('../static/features/[BBHOST]/theme-idfc/images/saving_accounts.png','Savings Account');">
+                      <div class="home-left-col">
+                          <img class="saving-account-img"
+                               src="../static/features/[BBHOST]/theme-idfc/images/saving_accounts.png"/>
+                      </div>
+                      <div class="home-middle-col">
+                      </div>
+                      <div class="home-right-col">
+                          <label class="home-right-label">Savings Account</label>
+                      </div>
+                  </div>-->
+
+                <div class="apply-home-square-box" ng-click="navigateToSavingAccount();">
+                    <div class="home-left-col">
+                        <img class="saving-account-img"
+                             src="static/features/[BBHOST]/theme-idfc/images/saving_accounts.png"/>
+                    </div>
+                    <div class="home-middle-col">
+                    </div>
+                    <div class="home-right-col">
+                        <label class="home-right-label">Savings Account</label>
+                    </div>
+                </div>
+                <div class="apply-home-square-box" ng-click="openApplyNowForm('static/features/[BBHOST]/theme-idfc/images/fixed_deposit.png','Fixed Deposit');">
+                    <div class="home-left-col">
+                        <img class="saving-account-img"
+                             src="static/features/[BBHOST]/theme-idfc/images/fixed_deposit.png"/>
+                    </div>
+                    <div class="home-middle-col">
+                    </div>
+                    <div class="home-right-col">
+                        <label class="home-right-label" >Fixed Deposit</label>
+                    </div>
+                </div>
+                <div class="apply-home-square-box" ng-click="openApplyNowForm('static/features/[BBHOST]/theme-idfc/images/home_loan.png','Home Loan');">
+                    <div class="home-left-col">
+                        <img class="saving-account-img"
+                             src="static/features/[BBHOST]/theme-idfc/images/home_loan.png"/>
+                    </div>
+                    <div class="home-middle-col">
+                    </div>
+                    <div class="home-right-col">
+                        <label  class="home-right-label">Home Loan</label>
+                    </div>
+                </div>
+                <div class="apply-home-square-box" ng-click="openApplyNowForm('static/features/[BBHOST]/theme-idfc/images/personal_loan.png','Personal Loan');">
+                    <div class="home-left-col">
+                        <img class="saving-account-img"
+                             src="static/features/[BBHOST]/theme-idfc/images/personal_loan.png"/>
+                    </div>
+                    <div class="home-middle-col">
+                    </div>
+                    <div class="home-right-col">
+                        <label class="home-right-label">Personal Loan</label>
+                    </div>
+                </div>
+                <div class="apply-home-square-box" ng-click="openApplyNowForm('static/features/[BBHOST]/theme-idfc/images/current_account.png','Current Account');">
+                    <div class="home-left-col">
+                        <img class="saving-account-img"
+                             src="static/features/[BBHOST]/theme-idfc/images/current_account.png"/>
+                    </div>
+                    <div class="home-middle-col">
+                    </div>
+                    <div class="home-right-col">
+                        <label class="home-right-label">Current Account</label>
+                    </div>
+
+                </div>
+            </div>
+            <!--second form screen-->
+            <div ng-show="applyNowSelectedAccountPageShow" >
+                <div class="apply-home-square-box account">
+                    <div class="home-left-col">
+                        <img class="saving-account-img"
+                             ng-src="{{selectedProductImage}}"/>
+                    </div>
+                    <div class="home-middle-col">
+                    </div>
+                    <div class="home-right-col col-account-label">
+                        <label class="home-right-label">{{selectedProductName}}</label>
+                    </div>
+                    <div class="cross-icon" ng-click="closeOpenForm();">
+                        <img class="saving-account-img" src="static/features/[BBHOST]/theme-idfc/images/close.png">
+                    </div>
+                </div>
+                <form novalidate=""  name="forms.ApplyNowForm" class="applyNowForm" role="form"   >
+                    <!--  <fieldset ng-disabled="cancelTransaction">-->
+                    <div class="inner-applyNowForm"  >
+
+                        <label class="apply-now-form-label">Name</label>
+                        <div class="apply-home-square-box-form-salutation">
+                            <div class="sal-box">
+                                <input type="radio" name="salutationType" id="btnMR"  ng-model="userFormData.salutation" ng-value="'MR'" ng-checked="MR">
+                                <label class="label-name left-radius  btn btn_Salutations"   for="btnMR"> Mr.
+                                </label>
+                            </div>
+                            <div class="separator-white-line" ></div>
+                            <div  class="sal-box">
+                                <input type="radio" name="salutationType" id="btnMRS" ng-model="userFormData.salutation" ng-value="'MRS'" >
+                                <label class="label-name btn btn_Salutations"  for="btnMRS" > Mrs.
+                                </label>
+                            </div>
+                            <div class="separator-white-line" ></div>
+                            <div  class="sal-box">
+                                <input type="radio" name="salutationType" id="btnMS" ng-model="userFormData.salutation" ng-value="'MS'"  >
+                                <label class="label-name btn btn_Salutations"   for="btnMS" > Ms.
+                                </label>
+                            </div>
+                            <div class="separator-white-line" ></div>
+                            <div  class="sal-box">
+                                <input type="radio" name="salutationType" id="btnDr" ng-model="userFormData.salutation" ng-value="'DR'" >
+                                <label class="label-name right-radius btn btn_Salutations"  for="btnDr"> Dr.</label>
+                            </div>
+                        </div>
+                        <input type="text" class="apply-now-form-label-text" placeholder="First name" name="firstname"  maxlength="35" ng-model="userFormData.firstname" ng-pattern="/^[a-zA-Z]*$/" required="true" autofill="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false">
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.submitted &amp;&amp; forms.ApplyNowForm.firstname.$error.required ">
+                            First Name is required.
+                        </small>
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.firstname.$error.pattern">
+                            Please Enter Valid Name.
+                        </small>
+
+                        <input type="text" class="apply-now-form-label-text" placeholder="Last name" name="lastname" maxlength="35" ng-model="userFormData.lastname" ng-pattern="/^[a-zA-Z]*$/" required="true" autofill="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false">
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.submitted &amp;&amp; forms.ApplyNowForm.lastname.$error.required">
+                            Last Name is required.
+                        </small>
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.lastname.$error.pattern">
+                            Please Enter Valid Name.
+                        </small>
+
+                        <label class="apply-now-form-label">Occupation</label>
+                        <div class="apply-home-square-box-form">
+                            <div >
+                                <input type="radio" name="jobType" id="btnsalaried" ng-model="userFormData.jobType" ng-value="'salaried'" checked>
+                                <label class="label-occupation left-radius btn btn_Occupation"  for="btnsalaried">Salaried
+                                </label>
+                            </div>
+                            <div >
+                                <input type="radio" name="jobType" id="selfEmp" ng-model="userFormData.jobType" ng-value="'self employed'">
+                                <label class="label-occupation right-radius btn btn_Occupation" for="selfEmp" >Self Employed
+                                </label>
+                            </div>
+
+                        </div>
+                        <label class="apply-now-form-label">City</label>
+                        <select ng-if="selectedProductName != 'Personal Loan'" name="cities"
+                                ng-model="userFormData.city"
+                                ng-options="city as city.cityName for city in cityArray"
+                                required>
+                            <option value="">Select your city</option>
+                        </select>
+                        <select ng-if="selectedProductName == 'Personal Loan'" name="cities"
+                                ng-model="userFormData.city"
+                                ng-options="city as city.cityName for city in cityPlArray"
+                                required>
+                            <option value="">Select your city</option>
+                        </select>
+
+                        <div class="glyph-icon">  <img class="saving-account-img" src="static/features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png"></div>
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.submitted &amp;&amp; forms.ApplyNowForm.cities.$error.required">
+                            Please Select City.
+                        </small>
+
+                        <label class="apply-now-form-label">Contact Details</label>
+                        <input type="email" class="apply-now-form-label-text" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"  maxlength="50" placeholder="example@idfc.com" name="email" ng-model="userFormData.email" style="margin-top:1%" required="true" autofill="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false">
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.submitted &amp;&amp; forms.ApplyNowForm.email.$error.required">
+                            Email Id is Required.
+                        </small>
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.email.$error.pattern">
+                            Please Enter Valid Email Id.
+                        </small>
+                        <input  class="apply-now-form-label-text" type="tel"
+                                ng-minlength="10"
+                                maxlength="10" name="mobile" placeholder="9980883006" ng-disabled="cancelTransaction" ng-model="userFormData.mobileNum" ng-pattern="/^[0-9]*$/" required="true" autofill="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false">
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.submitted &amp;&amp; forms.ApplyNowForm.mobile.$error.required ">
+                            Mobile Number is required.
+                        </small>
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.mobile.$error.pattern">
+                            Please Enter Correct Mobile Number !
+                        </small>
+                        <small class="text-danger" ng-show="forms.ApplyNowForm.mobile.$error.minlength">
+                            Mobile Number should be 10 digits.
+                        </small>
+                        <label  id="complience-label"><input type="checkbox" ng-change="complienceCheckBoxStateChanged(userFormData.complience)"  ng-model="userFormData.complience" id="complince-checkbox" ng-checked="userFormData.complience"> I authorize IDFC Bank to contact me regarding my inquiry. This call will override registry on DND / NDNC.</label>
+                        <small class="text-danger" ng-show="checkboxUnSelectedError">
+                            Please tick the check box to proceed
+                        </small>
+                        <label class="apply-now-form-label otp">An OTP will be sent to this number</label>
+                        <!--   <label class="apply-now-form-label otp-text">By giving us your mobile number, you agree that <br>
+                               IDFC Bank can call you.</label>
+                           <label class="apply-now-form-label call-text">To check the status of your request,<br>
+                               please call us at 1800 1800 1800.</label>-->
+                        <br>
+                    </div>
+
+                    <div  class="grey-divider-line" ng-show="sendOtpBtn">
+                    </div>
+                    <small class="otp-failed-msg" ng-show="sendOtpError">
+                        Send OTP Transaction has failed , Please try again with Resend OTP .
+                    </small>
+                    <!-- </fieldset>-->
+                    <button type="submit" class="btn-send-otp btn btn-sm btn-primary btn-submit-login btn-send" ng-disable="disableOTP" ng-show="sendOtpBtn" ng-click="forms.ApplyNowForm.submitted=true;sendOTP(forms.ApplyNowForm.$valid,forms.ApplyNowForm); ">SEND OTP</button>
+                    <button type="submit" class="btn-send-otp btn btn-sm btn-primary btn-submit-login btn-send"   ng-hide="resendOtpBtn" ng-click="forms.ApplyNowForm.submitted=true;sendOTP(forms.ApplyNowForm.$valid,forms.ApplyNowForm)">RESEND OTP</button>
+
+                </form>
+                <!--3rd screen with otp-->
+
+                <div ng-show="showOTPForm">
+                    <form name="forms.OTPform">
+                        <div class="inner-applyNowForm">
+                            <h4>
+                                <div class="text-success sucessOTP text-center" ng-show="success.happened">
+                                    <div class="img_padding"><img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+                                        <img ng-src="{{tick}}"/></div>
+                                    {{success.msg }}
+                                </div>
+                                <div class="text-danger text-center" ng-show="error.happened">
+                                    <div class="text-center">{{ error.msg }}</div>
+                                </div>
+                            </h4>
+                            <label class="apply-now-form-label">OTP</label>
+                            <input type="tel" class="apply-now-form-label-text"  required="true"  style="-webkit-text-security:disc" autocomplete="off"    ng-pattern="/^[0-9]*$/" minlength="6" maxlength="6" name="otpValue" ng-model="userFormData.OtpValue" >
+                            <small class="text-danger"
+                                   ng-show="forms..submitted &amp;&amp; forms.OTPform.otpValue.$error.required">
+                                {{'Error_Required_OTP'|translate}}
+                            </small>
+                            <small class="text-danger"
+                                   ng-show="forms.OTPform.submitted &amp;&amp; forms.OTPform.otpValue.$error.minlength">
+                                {{'Error_Invalid_Length_OTP'|translate}}
+                            </small>
+                            <small class="text-danger"
+                                   ng-show="forms.OTPform.submitted &amp;&amp; forms.OTPform.otpValue.$error.maxlength">
+                                {{'Error_Invalid_Length_OTP'|translate}}
+                            </small>
+                            <small class="text-danger" ng-show="forms.OTPform.otpValue.$error.pattern">
+                                {{'Error_Invalid_OTP'|translate}}
+                            </small>
+                        </div>
+
+                        <div  class="grey-divider-line"></div>
+
+
+                        <button type="submit" class="btn-send-otp btn btn-sm btn-primary btn-submit-login btn-submit-otp" ng-click="forms.OTPform.submitted=true;submitOTP(forms.OTPform.$valid);" >SUBMIT</button>
+                        <button type="submit" class="btn-send-otp btn btn-sm btn-primary btn-resend-otp"  ng-click="generateOTP(); ">RESEND OTP</button>
+                    </form>
+                </div>
+
+            </div>
+            <!--fourth screen-->
+            <div ng-show="applyNowSuccessForm">
+                <div class="success-page-margin-top">
+                    <div  ng-show="successFormMessage" style="margin-left: 5%;margin-right: 5%">
+                        <img class="success-img"
+                             src="static/features/[BBHOST]/theme-idfc/images/tick_hdpi.png"/>
+                        <label class="apply-now-form-label thanks-text">Thanks !</br>
+                            We’ve set the ball rolling to get you what you need.</label>
+                        <label class="success-msg-text ng-binding">The next step is, our Banker on Call will call you to complete the formalities. </br>Reference No. for your <b >{{selectedProductName}}</b> request is  <b class="lbl-reference-num">{{futureReferenceNumber}}.</b><br><br>To check the status of your lead, please call our contact centre on 1800 419 4332.<br>
+                            Visit  www.idfcbank.com  to know more about us.</label>
+
+                    </div>
+                    <div  ng-show="failureFormMessage">
+                        <label class="failure-msg-text">{{errorText}}</label>
+                    </div>
+                    <button type="submit" class="btn-send-otp btn btn-sm btn-primary btn-submit-login btn-submit-otp btn-success-margin-top" ng-click="okSuccess()">OKAY, GOT IT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

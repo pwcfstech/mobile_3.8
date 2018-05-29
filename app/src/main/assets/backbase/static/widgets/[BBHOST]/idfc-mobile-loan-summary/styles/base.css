@@ -1,0 +1,434 @@
+/*----------------------------------------------------------------*/
+/* Import Custom component widget
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Basic widget styles
+/*----------------------------------------------------------------*/
+
+.para-style{
+	text-align:left
+}
+.intro
+{
+	color:green;
+}
+.danger-status
+{
+	/*color:red;*/
+}
+.success-div
+{
+	border: 1px solid black;
+}
+.label-style
+{
+	margin:1%;
+	font-size:22px;
+	font-weight: bold!important;
+	color:#000000!important;
+}
+.cnfirm
+{
+	margin-right: 3%;
+	margin-bottom: 5%;
+	
+}
+.back
+{
+	margin-bottom: 5%;
+}
+.run {
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+.secondary-btn-closure{
+font-family: gotham_book,Calibri !important;
+  background-color: #666666 !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding:9px !important;
+  margin-top:12px !important;
+
+}
+.depositsClosure-dep-parent-div{
+  border-spacing: 10px;
+  width: 100%;
+  height: 100%;
+}
+ .depositsClosure-div-tr-dep {
+    clear: both;
+  padding-top: 20px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 10px;
+
+}
+th.th-dp-det 
+{
+    font: 14px gotham_book!important;
+    font-weight: bold !important;
+	padding: 20px;
+	text-align:center;
+}
+td.td-dp-det 
+{
+
+
+     font: 14px gotham_book !important;
+	     padding: 10px;
+		  text-align:center;
+		    color: #4a4a4a;
+}
+.td-alignment
+ {
+ text-align:left!important;
+ }
+
+.bgcolor
+{
+	background-color:#efefef;
+}
+.button-class
+{
+	padding : 10px;
+}
+.ng-cloak {
+    display: none !important;
+}
+.caretdown {
+    border-bottom: 12px solid #996699;
+    border-left: 12px solid rgba(0, 0, 0, 0);
+    border-right: 12px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+	margin-top: 8px;
+}
+.caretup {
+    border-top: 12px solid #996699;
+    border-left: 12px solid rgba(0, 0, 0, 0);
+    border-right: 12px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+	margin-top: 8px;
+}
+.gen-dep-det {
+
+  padding: 0 !important;
+  padding-top: 8px !important;
+  font-size: 12px;
+}
+ .table-border-dp-det{
+border: 4px solid #996699;
+}
+.title-color-dp-det{
+background-color: rgb(221, 184, 221) ! important;
+}
+.instruction-table-dp-dt{
+width: 100%;
+}
+.nominee-detail-table{
+width: 15%
+}
+.radio-button-dp-det{
+  margin-right: 1%;
+}
+.depositDetails-addNomineeRow{
+  width:50%;
+}
+.cnfirm .cnfirm{
+background-color: #FB637E!important;
+}
+.proceed .proceed{
+background-color: #FB637E!important;
+}
+
+@media (max-width:560px){
+.principal-amt-padding-dp-det {
+  
+  text-align: right;
+}
+.maturity-amt-padding-dp-det {
+  
+  text-align: right;
+}
+}
+
+
+@media(max-width:767px){
+.th-dt-deposit-type{
+display:none;
+}
+.td-main-deposit-type{
+display:none;
+}
+
+.heading-width-dp-det {
+  width: 37%;
+  padding-left: 0px;
+  text-indent:0px;
+}
+.principal-amt-padding-dp-det {
+  
+  text-align: right;
+}
+.table-maintd-width-dp-det {
+  width: 302px;
+}
+}
+@media (min-width:561px) and (max-width:767px){
+.principal-amt-padding-dp-det {
+  
+  text-align: right;
+}
+}
+.th-align-right{
+text-align:right;
+}
+.innerClass-dd {
+  position: relative;
+  min-width: 100%;
+  
+}
+.child-table-position{
+position:absolute;
+}
+@media(max-width:767px){
+.th-branch-display{
+display:none;
+}
+}
+
+.invisible-border{
+	border: 1px solid white;
+}
+
+.button{
+	padding: 5px 10px;
+	border-radius: 4px;
+	background-color: #FB637E!important;
+	color: #ffffff !important;
+	border: none !important;
+	margin-bottom: 0px;
+	height : 40px;
+	font-family: 'gotham_book';
+}
+
+.common-tr-height {
+	height: 50px;
+}
+
+.tr-spacer {
+	height: 10px;
+}
+
+th {
+	font-family: 'Gotham_Book', 'Gotham Book', 'Gotham';
+    font-weight: 500 !important;
+    font-style: normal;
+    font-size: 13px;
+}
+/* 
+td {
+	width: 25%;
+}
+ */
+.container-loan {
+	margin: 15px;
+	margin-bottom: 15px;
+	overflow-x: auto;
+}
+
+.home-loan-header {
+	font-family: 'Gotham_Bold';
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+    color: #868686;
+    margin-bottom: 15px;
+}
+
+.tr-cursor {
+	cursor: pointer;
+}
+
+.menu {
+	position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    color: #FB637E;
+    float: right;
+}
+
+.menu-down:before {
+	content: "\e259";
+}
+
+.menu-up:before {
+	content: "\e260";
+}
+
+.table-idfc-gen {
+	width: 100%;
+	max-width: 100%;
+	font-family: Gotham_Book;
+}
+
+.table-idfc-gen-th{
+	text-align: center;
+	border-right:1px solid #aeaeae;
+	padding:10px;
+	font-size:16px;
+	  color: #4a4a4a;
+}
+
+.tr-bg-grey {
+	background:#eaeaea;
+}
+
+.table-main-td {
+	padding:20px;
+	color:#4a4a4a;
+	font-size:16px;
+	text-align: center;
+	font-weight: 500;
+}
+
+.tr-detail-main {
+	background-color: RGBA(201,139,219,0.2);
+}
+
+.tr-detail-main td {
+	padding: 1% 3%;
+}
+
+.tr-detail {
+	background-color: #EAEAEA;
+}
+
+.col-twenty {
+	width: 20%;
+}
+
+.col-twentyFive {
+	width: 25%;
+}
+
+.col-thirtyFive {
+	width: 35%;
+}
+
+@media (max-width:768px) {
+	.mob-scroll {
+		overflow-x: scroll;
+	}
+}
+/*sheldon*/
+
+.bg-yellow{
+   background-color: rgba(255,239,192,1);
+}
+
+.bg-paltinum{
+    background-color: rgba(234,234,234,0.5);
+}
+
+.bg-purple-light{
+    background-color: rgba(201,139,219,0.5);
+}
+
+.bg-light-gray{
+    background-color: rgba(221,227,233,1);
+}
+
+.color-pink{
+    color: rgba(251,99,126,1);
+}
+
+.color-dark-gray{
+    color: rgba(74,74,74,1);
+}
+
+.font-18{
+    font-size: 18px;
+}
+.font-16{
+    font-size: 16px;
+}
+
+.font-15{
+    font-size: 15px;
+}
+
+.font-14{
+    font-size: 14px !important;
+}
+
+.font-13{
+    font-size: 13px;
+}
+
+.font-12{
+    font-size: 12px;
+}
+
+.font-10{
+    font-size: 10px;
+}
+
+.font-8{
+    font-size: 8px;
+}
+
+
+.font-light{
+    font-family: Gotham_Light !important;
+    font-weight: normal !important;
+}
+
+.font-medium{
+    font-family: Gotham_Medium !important;
+    font-weight: normal !important;
+}
+
+.font-book{
+    font-family: Gotham_Book !important;
+    font-weight: normal !important;
+}
+
+.valign-center{
+    vertical-align: middle !important;
+}
+
+.text-align-right-imp{
+	text-align: right !important;
+}
+
+.text-align-left-imp{
+	text-align: left!important;
+}
+
+
+.no-margin{
+    margin: 0px 0px 0px 0px !important;
+}
+
+.padding-left-3{
+    padding-left: 3% !important;
+}
+
+.padding-right-3{
+    padding-right: 3% !important;
+}

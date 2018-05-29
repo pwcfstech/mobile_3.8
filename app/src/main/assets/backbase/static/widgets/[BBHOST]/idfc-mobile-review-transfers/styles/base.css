@@ -1,0 +1,235 @@
+.transfers-totals-row {
+    padding-right: 20px
+}
+
+.transfers-totals-row .lp-icon-info-sign {
+    cursor: pointer
+}
+
+.lp-review-transfers .open-popup {
+    top: 2px;
+    padding-left: 5px
+}
+
+.lp-review-transfers-widget .verification-error {
+    color: #900
+}
+
+.lp-review-transfers-widget .raise {
+    position: relative;
+    top: -10px
+}
+
+.lp-review-transfers-widget .list-group-item-success {
+    -webkit-transition: all .3 ease-in-out;
+    -moz-transition: all .3 ease-in-out;
+    -o-transition: all .3 ease-in-out;
+    transition: all .3 ease-in-out
+}
+
+.lp-review-transfers-widget .transfers-totals-row {
+    padding-bottom: 20px
+}
+
+.lp-review-transfers-widget .list-group-item-pic {
+    padding-left: 0
+}
+
+.review-transfer-li-alignment {
+    background-color: #fff!important;
+    padding: 3% 4%!important;
+    border: none
+}
+
+.review-transfer-small-label_From {
+    font-family: gotham_book!important;
+    font-size: 12px!important
+}
+
+.review-transfer-small-label_AcNo {
+    font-family: gotham_book!important;
+    font-size: 12px!important;
+    color: #ff8f1b
+}
+
+.li-transfer-summary {
+    padding: 3% 1%!important;
+    border: #ddd!important;
+    border-radius: 0!important
+}
+
+.div-ToAccount {
+    width: 100%
+}
+
+.font-label_TO {
+    font-family: gotham_book!important;
+    font-size: 12px!important;
+    color: #4a4a4a!important
+}
+
+.font-To-accountName {
+    font-family: gotham_book!important;
+    font-size: 12px!important
+}
+
+.div-amount {
+    font-family: gotham_book!important;
+    font-size: 12px bold!important
+}
+
+.col-xs-7 {
+    width: 100%
+}
+
+.row-padding-account-summary {
+    padding-top: 1%;
+    padding-bottom: 2%;
+    width: 100%
+}
+
+.labels-in_Summary {
+    font-family: Gotham_Book!important;
+    font-size: 9px!important;
+    color: #9b9b9b!important
+}
+
+.values-in-summary {
+    font-family: Gotham_Book!important;
+    font-size: 9px;
+    color: #4a4a4a
+}
+
+.align-date-in-summary {
+    width: 100% !important;
+    text-align: left!important
+}
+
+.text-center {
+    text-align: center
+}
+
+.footer-modification {
+    border: none;
+    background-color: #fff
+}
+
+.submit-button-border {
+    border-color: #fff!important
+}
+
+.sucessOTP {
+    padding-right: 6.8%!important;
+    padding-left: 6.8%!important;
+    font-size: 14px!important;
+    font-family: "gotham_book"!important
+}
+
+.img_padding {
+    padding-bottom: 4%
+}
+
+.text-success {
+    color: #39ca74
+}
+
+.customCircle {
+    box-shadow: 0 0 2px #FB637E;
+    color: #FB637E!important;
+    box-sizing: border-box;
+    border: 1px solid #FB637E;
+    margin-left: 2px
+}
+
+.div-mobile-number {
+    padding: 0 11.5%
+}
+
+.input-mobile-number {
+    width: 98%!important
+}
+
+.div-otp-value {
+    padding: 0 11.5%
+}
+
+.input-otp-value {
+    width: 98%!important;
+    border-color: #c98bdb!important
+}
+
+.otp-buttons-alognment {
+    text-align: center
+}
+
+.errorMsg {
+    width: 100%;
+    padding: 0!important
+}
+
+.successAlerts {
+    text-align: center
+}
+
+.successMsgDiv {
+    font-family: gotham_medium!important;
+    font-size: 14px!important;
+    padding-top: 0!important
+}
+
+.success-close-btn {
+    width: 83%;
+    margin-right: 0!important;
+    color: #fff
+}
+
+.summarylabel-modification {
+    width: 42%;
+    display: inline-block
+}
+
+.summarycolon-modification {
+    display: inline-block;
+    width: 4%
+}
+
+.errorMsg-reviewTransfer {
+    text-align: center;
+    padding: 0!important
+}
+
+@media (max-device-width: 640px) and (min-device-width: 481px) {
+    .btn-primary {
+        height: 47px!important;
+        line-height: 18px!important
+    }
+}
+
+button[name="submitPayments"] {
+    width: 76.23% !important;
+}
+
+.btn-primary {
+    width: 76.23% !important;
+    padding-top: 2.5% !important;
+    padding-bottom: 2.5% !important;
+}
+
+.div-otp-value, .div-mobile-number {
+    padding: 0 8.5% !important;
+}
+
+     .mailButton{
+         background:url(../../../../features/[BBHOST]/theme-idfc/images/mailN.png) no-repeat top center;
+             height: 29px;
+             border: none;
+     		width:29px;
+     		margin:0 auto;
+     		cursor: pointer;
+     		display: block;
+     }
+
+.emailModLink{
+font-size:100%!important;
+text-decoration:underline;
+color:#FB637E;}

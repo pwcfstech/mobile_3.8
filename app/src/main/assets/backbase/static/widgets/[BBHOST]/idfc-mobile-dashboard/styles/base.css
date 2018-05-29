@@ -1,0 +1,852 @@
+
+#alert-overlay-aadhar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 113.5%;
+    text-align: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, .5)
+}
+.a-width
+{
+width:150px;
+}
+#alert-message-aadhar {
+    margin-top: 15px;
+    font-family: gotham_light!important;
+
+}
+.messageContent {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    width: 22em;
+  /*  height: 11em;*/
+    margin-top: -9em;
+    margin-left: -11em;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+    padding: 15px;
+
+    text-align: center;
+    border-radius: 4px;
+}
+
+.restrictVertical{
+height:100%;
+overflow-y:hidden;
+}
+.marginTop30 {
+    padding-right: 0!important
+}
+.rupee-symbol-span {
+    color: #fff
+}
+.account-balance {
+    margin-right: 10px;
+    font-size: 12px
+}
+.wrapper {
+    width: 1280px;
+    margin: 0 auto
+}
+header {
+    position: relative;
+    z-index: 1
+}
+.left-header {
+    float: left;
+    width: 45%
+}
+.right-header {
+    width: 54.3%;
+    float: right
+}
+.banner-blk .header-overlay {
+    background: rgba(0, 0, 0, .4)
+}
+.bg-image {
+    width: 100%;
+    background-image: url(./static/features/[BBHOST]/theme-idfc/images/banner-bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1
+}
+.message-footer {
+    border-top: 2px solid #ffcb06
+}
+.bg-image-mask {
+    width: 1280px;
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/banner-bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0
+}
+.menu-log-bar {
+    height: 80px;
+    background: rgba(255, 255, 255, .9)
+}
+.menu-log-bar .wrapper {
+    padding: 0 100px;
+    width: 1080px
+}
+nav {
+    float: left;
+    padding: 30px 0
+}
+.logo {
+    float: left;
+    margin: 20px 0 0
+}
+.logo a {
+    display: block;
+    height: 40px;
+    width: 95px
+}
+nav p,
+.login a {
+    font-family: "gotham-black";
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #333;
+    margin: 19px 0 0;
+    cursor: pointer
+}
+nav p {
+    float: left;
+    margin: 2px 0 0 8px
+}
+nav p:hover {
+    color: #fb637e
+}
+.login {
+    float: right;
+    padding: 27px 0
+}
+.login a {
+    text-decoration: none;
+    display: block;
+    float: left;
+    margin: 6px 0 0 8px
+}
+.login a:hover {
+    color: #fb637e
+}
+.login .login-lock {
+    margin: 0;
+    float: left;
+    cursor: pointer
+}
+nav .hamburger {
+    margin: 0;
+    float: left;
+    cursor: pointer
+}
+.header-gradient {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+    box-shadow: 0 45px 95px #000
+}
+.product-header-overlay .header-gradient {
+    box-shadow: 0 45px 95px #ccc
+}
+footer {
+    margin: 2% 0 0;
+    padding: 0 100px 90px
+}
+footer div,
+.menu-blk-one div {
+    float: left;
+    margin: 0 0 0 25px;
+    line-height: 22px;
+    width: 24%;
+    padding: 23px 0 0;
+    box-sizing: border-box
+}
+.menu-blk-one div {
+    padding: 0;
+    width: 251px
+}
+.menu-blk-two div {
+    float: left;
+    margin: 0 0 0 25px;
+    line-height: 22px;
+    width: 251px;
+    padding: 23px 0 0
+}
+footer div:first-child,
+.menu-blk-one div:first-child {
+    margin: 0
+}
+footer .copy-rights {
+    border-top: 2px solid #c98bdb
+}
+footer .company,
+.menu-blk-two .copy-rights {
+    border-top: 2px solid #ffc72c
+}
+footer div.explore {
+    border-top: 2px solid #fb637e
+}
+.menu-blk-two div.explore {
+    border-top: 2px solid #fb637e
+}
+footer .explore ul,
+.menu-blk-two .explore ul {
+    width: 37%;
+    float: left;
+    margin: 0 0 0 70px
+}
+.menu-blk-one .explore ul {
+    width: 100%;
+    float: left;
+    margin: 0
+}
+.menu-blk-two .explore ul {
+    width: 37%;
+    float: left;
+    margin: 0 0 0 70px
+}
+div.explore ul:nth-of-type(1) {
+    margin: 0
+}
+div.connect {
+    width: 220px;
+    border-top: 2px solid #E67E22
+}
+.menu-blk-one div.connect,
+.menu-blk-one div.explore {
+    width: 251px
+}
+.menu-blk-one div.connect {
+    border: none
+}
+.menu-blk-two div.connect {
+    border-top: 2px solid #E67E22
+}
+footer ul li,
+.menu-blk-one ul li {
+    list-style-type: none
+}
+footer ul li a,
+.menu-blk-one ul li a {
+    text-decoration: none;
+    color: #666;
+    font-family: "gotham_medium";
+    font-size: 11px;
+    text-transform: capitalize
+}
+footer ul li a:hover,
+.menu-blk-one ul li a:hover,
+.menu-blk-two a:hover {
+    color: #333
+}
+footer>div span,
+.menu-blk-one>div span,
+.menu-blk-two>div span {
+    font-size: 13px;
+    display: block;
+    text-transform: uppercase;
+    color: #666;
+    font-family: "gotham-black";
+    font-weight: 700
+}
+.menu-blk-one section p {
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-sizing: border-box
+}
+.menu-blk-one section p a {
+    text-decoration: none
+}
+.menu-blk-one section p span {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #fff;
+    height: 100px;
+    padding: 10px 0 0 10px;
+    font-family: "gotham-black";
+    box-sizing: border-box;
+    display: block
+}
+.menu-blk-one p.menu-tile-one {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/vision.png)
+}
+.menu-blk-one p.menu-tile-one span {
+    background: rgba(201, 139, 219, 0.5)
+}
+.menu-blk-one p.menu-tile-two {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/vision.png)
+}
+.menu-blk-one p.menu-tile-two span {
+    background: rgba(255, 199, 44, 0.5)
+}
+.menu-blk-one p.menu-tile-three {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/vision.png)
+}
+.menu-blk-one p.menu-tile-three span {
+    background: rgba(251, 99, 126, 0.5)
+}
+.menu-blk-one p.menu-tile-four {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/vision.png)
+}
+.menu-blk-one p.menu-tile-four span {
+    background: rgba(230, 126, 34, 0.5)
+}
+.menu-blk-two span {
+    background-image: none;
+    padding: 0;
+    height: auto;
+    color: #999
+}
+.menu-blk-one section {
+    float: left;
+    width: 50%
+}
+.menu-blk-one section div.connect {
+    margin: 0 0 0 13px
+}
+.connect ul.social-network {
+    margin: 15px 0 0
+}
+.connect ul.social-network li {
+    display: block;
+    float: left;
+    margin: 0 0 0 10px;
+    height: 30px;
+    width: 30px
+}
+.connect ul.social-network li:first-child {
+    margin: 0
+}
+.connect ul.social-network li a {
+    height: 30px;
+    width: 30px;
+    display: block;
+    text-indent: -9999px
+}
+.connect ul.social-network li.twitter,
+.connect ul.social-network li.facebook,
+.connect ul.social-network li.google,
+.connect ul.social-network li.linkedin {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/twitter.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%
+}
+.connect ul.social-network li.twitter:hover {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/twitter-hover.png)
+}
+.connect ul.social-network li.facebook {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/facebook.png)
+}
+.connect ul.social-network li.facebook:hover {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/facebook-hover.png)
+}
+.connect ul.social-network li.google {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/google.png)
+}
+.connect ul.social-network li.google:hover {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/google-hover.png)
+}
+.connect ul.social-network li.linkedin {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/linkedin.png)
+}
+.connect ul.social-network li.linkedin:hover {
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/linkedin-hover.png)
+}
+.secondary-nav ul li.full {
+    width: 50%
+}
+p.copy-right-text {
+    text-transform: capitalize;
+    font-size: 11px;
+    font-family: "gotham_medium";
+    color: #666
+}
+p.stock-rate {
+    font-size: 11px;
+    font-family: "gotham_light";
+    margin: 50px 0 0;
+    color: #666
+}
+p.stock-rate strong {
+    font-family: "gotham-black"
+}
+.ham-nav {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0 0 50px;
+    position: absolute;
+    z-index: 100;
+    top: -900px;
+    left: 0
+}
+.ham-nav .wrapper {
+    width: 85.5%;
+    margin: 0 auto;
+    padding: 0 4% 15px;
+    background: #fff
+}
+.menu-blk-two {
+    margin: 50px auto 0
+}
+.menu-blk-two div.explore {
+    width: 527px
+}
+.menu-blk-two div.company {
+    height: 150px;
+    background: #f39c12
+}
+.menu-close {
+    width: 100%;
+    padding: 30px 0
+}
+.menu-close .menu {
+    font-family: "gotham-black";
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #333;
+    float: left;
+    margin: 5px 0 0 10px
+}
+.menu-close .close {
+    font-size: 25px;
+    font-family: "gotham_light";
+    content: 'X';
+    color: #fb6373;
+    float: left;
+    cursor: pointer
+}
+.banner-text p a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "gotham_bold";
+    font-size: 20px
+}
+.menu-log-bar .dropdown-select {
+    width: 181px;
+    height: 80px;
+    border: 0
+}
+.dropdown-select ul {
+    width: 181px;
+    border: 0;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    opacity: 1;
+    z-index: 10;
+    font-family: "gotham_book";
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+    background: #fff;
+    display: none
+}
+.banner-text .dropdown-select {
+    height: 40px;
+    border: 1px solid #aaa
+}
+.menu-log-bar .dropdown-select,
+.banner-text .dropdown-select {
+    position: relative;
+    top: 0;
+    left: 25px;
+    float: left;
+    background: #fff;
+    cursor: pointer
+}
+.banner-text .dropdown-select {
+    margin: 25px auto;
+    top: none;
+    left: none
+}
+.banner-text select {
+    height: 40px;
+    width: 100%
+}
+.dropdown-select ul li {
+    list-style-type: none
+}
+.dropdown-select ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 15px 20px;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    display: block;
+    font-size: 12px;
+    font-family: "gotham_medium"
+}
+.menu-log-bar .dropdown-select span.text,
+.banner-text .dropdown-select span.text {
+    display: block;
+    float: left;
+    width: 78%;
+    height: 30px;
+    padding: 35px 0 0 20px;
+    box-sizing: border-box;
+    font-family: "gotham_book";
+    font-size: 12px;
+    text-transform: capitalize
+}
+.banner-text .dropdown-select span.text {
+    width: 81%;
+    height: 40px
+}
+.menu-log-bar .dropdown-select span.arrow,
+.banner-text .dropdown-select span.arrow {
+    font-size: 25px;
+    display: block;
+    float: right;
+    width: 20%;
+    color: #fb637e;
+    height: 80px;
+    background-image: url(../static/features/[BBHOST]/theme-idfc/images/down-arrow.png);
+    background-repeat: no-repeat;
+    background-size: 48% 15%;
+    background-position: 1px 37px
+}
+.banner-text .dropdown-select span.arrow {
+    width: 19%;
+    height: 40px
+}
+.dashbody {
+    overflow-x: hidden!important
+}
+.blueBg {
+    background-color: #434163
+}
+select {
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    width: 76.53%;
+    background-color: transparent;
+    color: #FB637E!important;
+    padding-left: 3%;
+    margin-left: 8.75%!important;
+    margin-right: 9.21%!important;
+    border-color: #fff;
+    border-radius: 2px;
+    font-family: gotham_medium!important;
+    opacity: .8
+    /*-webkit-appearance: none!important;
+        background-repeat: no-repeat;
+        background-position: 97% 50%;
+        width: 82%;
+        background-color: transparent;
+        color: #FB637E!important;
+        padding-left: 1%;
+        margin-left: 9%!important;
+        margin-right: 9%!important;
+        border-color: #fff;
+        border-radius: 2px;
+        font-family: gotham_medium!important;
+        opacity: .8*/
+
+}
+.transfer {
+    background-image: url("../../../../features/[BBHOST]/theme-idfc/images/Transfer Funds_mdpi.png");
+    height: 41px;
+    background-repeat: no-repeat;
+    background-position: center
+}
+.payBills {
+    background-image: url("../../../../features/[BBHOST]/theme-idfc/images/Pay Bills_mdpi.png");
+    height: 41px;
+    background-repeat: no-repeat;
+    background-position: center
+}
+.addPayee {
+    background-image: url("../../../../features/[BBHOST]/theme-idfc/images/Create New Deposit_mdpi.png");
+    height: 41px;
+    background-repeat: no-repeat;
+    background-position: center
+}
+.newDeposit {
+    background-image: url("../../../../features/[BBHOST]/theme-idfc/images/Add Payee_mdpi.png");
+    height: 41px;
+    background-repeat: no-repeat;
+    background-position: center
+}
+.availBal {
+    color: #aeaeae;
+    text-align: center;
+    margin-top: 8%;
+    font-family: gotham_book!important
+}
+.amount {
+    color: #fff;
+    text-align: center;
+    font-family: gotham_light
+}
+.transaction {
+    margin-top: 5%;
+    color: #FB637E!important;
+    font-family: gotham_book
+}
+.transaction a {
+    color: #FB637E!important;
+    font-family: gotham_book
+}
+.dash-block {
+    background: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+.dash-block img {
+    height: 40px
+}
+.dash-block:hover {
+    background-color: #EFEFEF;
+    font-weight: 700
+}
+.glyphicon-list-alt,
+.glyphicon-bookmark,
+.glyphicon-copy,
+.glyphicon-calendar {
+    color: #FB637E;
+    font-size: 33px
+}
+.innerText {
+    color: #5D5353;
+    padding-top: 10%;
+    font-family: gotham_light
+}
+.glyph-icon {
+    position: relative;
+    top: -30px;
+    left: 80%;
+    width: 0
+}
+.glyph-icon .glyphicon {
+    color: #FB637E!important
+}
+@media only screen and (max-device-width: 240px) {
+    .blueBg {
+        height: 50%
+    }
+    select {
+        height: 33px;
+        padding-top: 10px;
+        padding-bottom: 11px
+    }
+    .marginTop30 {
+        margin-top: 23px
+    }
+    .availBal {
+        font-size: 9px;
+        margin-top: 27px;
+        margin-bottom: 14px
+    }
+    .amount {
+        font-size: 21px
+    }
+    .rupee-symbol-span {
+        font-size: 18px
+    }
+    .transaction a {
+        font-size: 9px
+    }
+    .innerText {
+        font-size: 9px
+    }
+    .transfer {
+        background-image: url("../../../../features/[BBHOST]/theme-idfc/images/TransferFunds_mdpi.png");
+        height: 31px
+    }
+    .payBills {
+        background-image: url("../../../../features/[BBHOST]/theme-idfc/images/PayBills_mdpi.png");
+        height: 31px
+    }
+    .addPayee {
+        background-image: url("../../../../features/[BBHOST]/theme-idfc/images/CreateNew Deposit_mdpi.png");
+        height: 31px
+    }
+    .newDeposit {
+        background-image: url("../../../../features/[BBHOST]/theme-idfc/images/AddPayee_mdpi.png");
+        height: 31px
+    }
+}
+@media(min-device-width:320px) and (max-device-width:358px) {
+    .dash-block{
+                padding:17% 5% 17%;
+            }
+}
+
+@media(min-device-width:359px) and (max-device-width:480px) {
+    .dash-block{
+                padding:11% 5% 10%;
+            }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+   /* .blueBg {
+        height: 310px
+    }*/
+     .blueBg {
+            height: 50%;
+        }
+    select {
+        height: 44px;
+        padding-top: 13px;
+        padding-bottom: 15px
+    }
+    .marginTop30 {
+        margin-top: 30px;
+        height: 46px;
+        padding-right: 0!important
+    }
+    .availBal {
+        font-size: 14px;
+        margin-top: 36px;
+        margin-bottom: 12px
+    }
+    .amount {
+        font-size: 30px
+    }
+    .rupee-symbol-span {
+        font-size: 26px
+    }
+    .transaction a {
+        font-size: 12px
+    }
+    .innerText {
+        font-size: 12px
+    }
+    .transfer {
+        background-image: url("../../../../features/[BBHOST]/theme-idfc/images/Transfer Funds_mdpi.png");
+        height: 41px
+    }
+    .payBills {
+        background-image: url("../../../../features/[BBHOST]/theme-idfc/images/Pay Bills_mdpi.png");
+        height: 41px
+    }
+    .addPayee {
+        background-image: url("../../../../features/[BBHOST]/theme-idfc/images/Create New Deposit_mdpi.png");
+        height: 41px
+    }
+    .newDeposit {
+        background-image: url("../../../../features/[BBHOST]/theme-idfc/images/Add Payee_mdpi.png");
+        height: 41px
+    }
+}
+@media(min-device-width:481px) and (max-device-width:640px) {
+    .blueBg {
+        height: 50%
+    }
+
+    select {
+        height: 66px;
+        padding-top: 20px;
+        padding-bottom: 23px
+    }
+    .marginTop30 {
+        margin-top: 45px
+    }
+    .availBal {
+        font-size: 18px;
+        margin-top: 54px;
+        margin-bottom: 24px
+    }
+    .amount {
+        font-size: 42px
+    }
+    .rupee-symbol-span {
+        font-size: 38px
+    }
+    .transaction a {
+        font-size: 18px
+    }
+    .innerText {
+        font-size: 18px
+    }
+    .transfer {
+        background-image: url("../../../../static/features/[BBHOST]/theme-idfc/images/Transfer Funds_hdpi.png");
+        height: 62px
+    }
+    .payBills {
+        background-image: url("../../../../static/features/[BBHOST]/theme-idfc/images/Pay Bills_hdpi.png");
+        height: 62px
+    }
+    .addPayee {
+        background-image: url("../../../../static/features/[BBHOST]/theme-idfc/images/Create New Deposit_hdpi.png");
+        height: 62px
+    }
+    .newDeposit {
+        background-image: url("../../../../static/features/[BBHOST]/theme-idfc/images/Add Payee_hdpi.png");
+        height: 62px
+    }
+}
+.border {
+    border-right: 1px solid #eaeaea!important;
+    border-bottom: 1px solid #eaeaea!important
+}
+.borderwithoutright {
+    border-bottom: 1px solid #eaeaea!important
+}
+.borderwithoutbottom {
+    border-right: 1px solid #eaeaea!important
+}
+.RupeeSymbol {
+    color: #fff;
+    font-size: 29px;
+    font-family: gotham_book;
+    font-weight: 500;
+    position: relative;
+    top: -1px
+}
+@media screen and (device-aspect-ratio: 40/71)
+
+{
+
+    .glyph-icon
+
+    {
+
+        position: relative;
+
+        top: -33px;
+
+        left: 80%;
+
+        width: 0
+
+    }
+
+    .marginTop30
+
+    {
+
+    margin-top: 30px;
+
+    height: 46px;
+
+    padding-right: 0 !important;
+
+    font-size: 12.4px;
+
+    }
+
+
+
+}
+
+
+
+/*
+.marginTop30{padding-left:15%!important;padding-right:0!important}.rupee-symbol-span{color:#fff}.account-balance{margin-right:10px;font-size:12px}.wrapper{width:1280px;margin:0 auto}header{position:relative;z-index:1}.left-header{float:left;width:45%}.right-header{width:54.3%;float:right}.banner-blk .header-overlay{background:rgba(0,0,0,.4)}.bg-image{width:100%;background-image:url(./static/features/[BBHOST]/theme-idfc/images/banner-bg.png);background-repeat:no-repeat;background-size:100% 100%;position:absolute;top:0;left:0;z-index:-1}.message-footer{border-top:2px solid #ffcb06}.bg-image-mask{width:1280px;background-image:url(./static/features/[BBHOST]/theme-idfc/images/banner-bg.png);background-repeat:no-repeat;background-size:100% 100%;position:absolute;z-index:-1;top:0}.menu-log-bar{height:80px;background:rgba(255,255,255,.9)}.menu-log-bar .wrapper{padding:0 100px;width:1080px}nav{float:left;padding:30px 0}.logo{float:left;margin:20px 0 0}.logo a{display:block;height:40px;width:95px}nav p,.login a{font-family:"gotham-black";font-size:12px;text-transform:uppercase;color:#333;margin:19px 0 0;cursor:pointer}nav p{float:left;margin:2px 0 0 8px}nav p:hover{color:#fb637e}.login{float:right;padding:27px 0}.login a{text-decoration:none;display:block;float:left;margin:6px 0 0 8px}.login a:hover{color:#fb637e}.login .login-lock{margin:0;float:left;cursor:pointer}nav .hamburger{margin:0;float:left;cursor:pointer}.header-gradient{width:100%;height:80px;position:absolute;top:0;z-index:0;box-shadow:0 45px 95px #000}.product-header-overlay .header-gradient{box-shadow:0 45px 95px #ccc}footer{margin:2% 0 0;padding:0 100px 90px}footer div,.menu-blk-one div{float:left;margin:0 0 0 25px;line-height:22px;width:24%;padding:23px 0 0;box-sizing:border-box}.menu-blk-one div{padding:0;width:251px}.menu-blk-two div{float:left;margin:0 0 0 25px;line-height:22px;width:251px;padding:23px 0 0}footer div:first-child,.menu-blk-one div:first-child{margin:0}footer .copy-rights{border-top:2px solid #c98bdb}footer .company,.menu-blk-two .copy-rights{border-top:2px solid #ffc72c}footer div.explore{border-top:2px solid #fb637e}.menu-blk-two div.explore{border-top:2px solid #fb637e}footer .explore ul,.menu-blk-two .explore ul{width:37%;float:left;margin:0 0 0 70px}.menu-blk-one .explore ul{width:100%;float:left;margin:0}.menu-blk-two .explore ul{width:37%;float:left;margin:0 0 0 70px}div.explore ul:nth-of-type(1){margin:0}div.connect{width:220px;border-top:2px solid #E67E22}.menu-blk-one div.connect,.menu-blk-one div.explore{width:251px}.menu-blk-one div.connect{border:none}.menu-blk-two div.connect{border-top:2px solid #E67E22}footer ul li,.menu-blk-one ul li{list-style-type:none}footer ul li a,.menu-blk-one ul li a{text-decoration:none;color:#666;font-family:"gotham_medium";font-size:11px;text-transform:capitalize}footer ul li a:hover,.menu-blk-one ul li a:hover,.menu-blk-two a:hover{color:#333}footer>div span,.menu-blk-one>div span,.menu-blk-two>div span{font-size:13px;display:block;text-transform:uppercase;color:#666;font-family:"gotham-black";font-weight:700}.menu-blk-one section p{height:100px;background-repeat:no-repeat;background-size:100% 100%;box-sizing:border-box}.menu-blk-one section p a{text-decoration:none}.menu-blk-one section p span{font-size:11px;text-transform:uppercase;color:#fff;height:100px;padding:10px 0 0 10px;font-family:"gotham-black";box-sizing:border-box;display:block}.menu-blk-one p.menu-tile-one{background-image:url(./static/features/[BBHOST]/theme-idfc/images/vision.png)}.menu-blk-one p.menu-tile-one span{background:rgba(201,139,219,0.5)}.menu-blk-one p.menu-tile-two{background-image:url(./static/features/[BBHOST]/theme-idfc/images/vision.png)}.menu-blk-one p.menu-tile-two span{background:rgba(255,199,44,0.5)}.menu-blk-one p.menu-tile-three{background-image:url(./static/features/[BBHOST]/theme-idfc/images/vision.png)}.menu-blk-one p.menu-tile-three span{background:rgba(251,99,126,0.5)}.menu-blk-one p.menu-tile-four{background-image:url(./static/features/[BBHOST]/theme-idfc/images/vision.png)}.menu-blk-one p.menu-tile-four span{background:rgba(230,126,34,0.5)}.menu-blk-two span{background-image:none;padding:0;height:auto;color:#999}.menu-blk-one section{float:left;width:50%}.menu-blk-one section div.connect{margin:0 0 0 13px}.connect ul.social-network{margin:15px 0 0}.connect ul.social-network li{display:block;float:left;margin:0 0 0 10px;height:30px;width:30px}.connect ul.social-network li:first-child{margin:0}.connect ul.social-network li a{height:30px;width:30px;display:block;text-indent:-9999px}.connect ul.social-network li.twitter,.connect ul.social-network li.facebook,.connect ul.social-network li.google,.connect ul.social-network li.linkedin{background-image:url(./static/features/[BBHOST]/theme-idfc/images/twitter.png);background-repeat:no-repeat;background-size:100% 100%}.connect ul.social-network li.twitter:hover{background-image:url(./static/features/[BBHOST]/theme-idfc/images/twitter-hover.png)}.connect ul.social-network li.facebook{background-image:url(./static/features/[BBHOST]/theme-idfc/images/facebook.png)}.connect ul.social-network li.facebook:hover{background-image:url(./static/features/[BBHOST]/theme-idfc/images/facebook-hover.png)}.connect ul.social-network li.google{background-image:url(./static/features/[BBHOST]/theme-idfc/images/google.png)}.connect ul.social-network li.google:hover{background-image:url(./static/features/[BBHOST]/theme-idfc/images/google-hover.png)}.connect ul.social-network li.linkedin{background-image:url(./static/features/[BBHOST]/theme-idfc/images/linkedin.png)}.connect ul.social-network li.linkedin:hover{background-image:url(./static/features/[BBHOST]/theme-idfc/images/linkedin-hover.png)}.secondary-nav ul li.full{width:50%}p.copy-right-text{text-transform:capitalize;font-size:11px;font-family:"gotham_medium";color:#666}p.stock-rate{font-size:11px;font-family:"gotham_light";margin:50px 0 0;color:#666}p.stock-rate strong{font-family:"gotham-black"}.ham-nav{width:100%;background:rgba(0,0,0,0.7);padding:0 0 50px;position:absolute;z-index:100;top:-900px;left:0}.ham-nav .wrapper{width:85.5%;margin:0 auto;padding:0 4% 15px;background:#fff}.menu-blk-two{margin:50px auto 0}.menu-blk-two div.explore{width:527px}.menu-blk-two div.company{height:150px;background:#f39c12}.menu-close{width:100%;padding:30px 0}.menu-close .menu{font-family:"gotham-black";text-transform:uppercase;font-size:14px;color:#333;float:left;margin:5px 0 0 10px}.menu-close .close{font-size:25px;font-family:"gotham_light";content:'X';color:#fb6373;float:left;cursor:pointer}.banner-text p a{text-decoration:none;color:#fff;font-family:"gotham_bold";font-size:20px}.menu-log-bar .dropdown-select{width:181px;height:80px;border:0}.dropdown-select ul{width:181px;border:0;position:absolute;top:80px;left:0;opacity:1;z-index:10;font-family:"gotham_book";font-size:12px;color:#333;cursor:pointer;background:#fff;display:none}.banner-text .dropdown-select{height:40px;border:1px solid #aaa}.menu-log-bar .dropdown-select,.banner-text .dropdown-select{position:relative;top:0;left:25px;float:left;background:#fff;cursor:pointer}.banner-text .dropdown-select{margin:25px auto;top:none;left:none}.banner-text select{height:40px;width:100%}.dropdown-select ul li{list-style-type:none}.dropdown-select ul li a{text-decoration:none;color:#333;padding:15px 20px;text-transform:capitalize;box-sizing:border-box;display:block;font-size:12px;font-family:"gotham_medium"}.menu-log-bar .dropdown-select span.text,.banner-text .dropdown-select span.text{display:block;float:left;width:78%;height:30px;padding:35px 0 0 20px;box-sizing:border-box;font-family:"gotham_book";font-size:12px;text-transform:capitalize}.banner-text .dropdown-select span.text{width:81%;height:40px}.menu-log-bar .dropdown-select span.arrow,.banner-text .dropdown-select span.arrow{font-size:25px;display:block;float:right;width:20%;color:#fb637e;height:80px;background-image:url(./static/features/[BBHOST]/theme-idfc/images/down-arrow.png);background-repeat:no-repeat;background-size:48% 15%;background-position:1px 37px}.banner-text .dropdown-select span.arrow{width:19%;height:40px}.dashbody{overflow-x:hidden!important}.blueBg{background-color:#434163}select{-webkit-appearance:none!important;background-repeat:no-repeat;background-position:97% 50%;width:76.53%;background-color:transparent;color:#FB637E!important;padding-left:3%;margin-left:8.75%!important;margin-right:9.21%!important;border-color:#fff;border-radius:2px;font-family:gotham_medium!important;opacity:.8}.transfer{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Transfer Funds_mdpi.png");height:41px;background-repeat:no-repeat;background-position:center}.payBills{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Pay Bills_mdpi.png");height:41px;background-repeat:no-repeat;background-position:center}.addPayee{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Create New Deposit_mdpi.png");height:41px;background-repeat:no-repeat;background-position:center}.newDeposit{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Add Payee_mdpi.png");height:41px;background-repeat:no-repeat;background-position:center}.availBal{color:#aeaeae;text-align:center;margin-top:8%;font-family:gotham_book!important}.amount{color:#fff;text-align:center;font-family:gotham_light}.transaction{margin-top:5%;color:#FB637E!important;font-family:gotham_book}.transaction a{color:#FB637E!important;font-family:gotham_book}.dash-block{background:#fff;text-align:center;font-size:14px;padding:20% 5% 18%}.dash-block img{height:40px}.dash-block:hover{background-color:#EFEFEF;font-weight:700}.glyphicon-list-alt,.glyphicon-bookmark,.glyphicon-copy,.glyphicon-calendar{color:#FB637E;font-size:33px}.innerText{color:#5D5353;padding-top:10%;font-family:gotham_light}.glyph-icon{position:relative;top:-30px;left:80%;width:0}.glyph-icon .glyphicon{color:#FB637E!important}@media only screen and (max-device-width:240px){.blueBg{height:232px}select{height:33px;padding-top:10px;padding-bottom:11px}.marginTop30{margin-top:23px}.availBal{font-size:9px;margin-top:27px;margin-bottom:14px}.amount{font-size:21px}.rupee-symbol-span{font-size:18px}.transaction a{font-size:9px}.innerText{font-size:9px}.transfer{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Transfer Funds_mdpi.png");height:31px}.payBills{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Pay Bills_mdpi.png");height:31px}.addPayee{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Create New Deposit_mdpi.png");height:31px}.newDeposit{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Add Payee_mdpi.png");height:31px}}@media(min-device-width:320px) and (max-device-width:480px){.blueBg{height:310px}select{height:44px;padding-top:13px;padding-bottom:15px}.marginTop30{margin-top:30px;height:46px;padding-left:15%!important;padding-right:0!important}.availBal{font-size:14px;margin-top:36px;margin-bottom:12px}.amount{font-size:30px}.rupee-symbol-span{font-size:26px}.transaction a{font-size:12px}.innerText{font-size:12px}.transfer{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Transfer Funds_mdpi.png");height:41px}.payBills{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Pay Bills_mdpi.png");height:41px}.addPayee{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Create New Deposit_mdpi.png");height:41px}.newDeposit{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Add Payee_mdpi.png");height:41px}}@media(min-device-width:481px) and (max-device-width:640px){.blueBg{height:464px}select{height:66px;padding-top:20px;padding-bottom:23px}.marginTop30{margin-top:45px}.availBal{font-size:18px;margin-top:54px;margin-bottom:24px}.amount{font-size:42px}.rupee-symbol-span{font-size:38px}.transaction a{font-size:18px}.innerText{font-size:18px}.transfer{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Transfer Funds_hdpi.png");height:62px}.payBills{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Pay Bills_hdpi.png");height:62px}.addPayee{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Create New Deposit_hdpi.png");height:62px}.newDeposit{background-image:url("../../../../static/features/[BBHOST]/theme-idfc/images/Add Payee_hdpi.png");height:62px}}.border{border-right:1px solid #eaeaea!important;border-bottom:1px solid #eaeaea!important}.borderwithoutright{border-bottom:1px solid #eaeaea!important}.borderwithoutbottom{border-right:1px solid #eaeaea!important}.RupeeSymbol{color:#fff;font-size:29px;font-family:gotham_book;font-weight:500;position:relative;top:-1px}*/
+
+

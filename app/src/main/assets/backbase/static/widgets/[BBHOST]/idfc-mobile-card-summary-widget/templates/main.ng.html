@@ -1,0 +1,400 @@
+<div class="lp-open-deposits" >
+    <!-- error Spin -->
+    <div ng-if="errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+
+<br>
+    <!--<div class="error text-danger idfc-margin-bottom-15 idfc-margin-top-15" ng-if="error.happened"-->
+         <!--style="text-align:center" ng-bind="error.msg">-->
+    <!--</div>-->
+
+    <div class="text-danger" ng-if="error.happened"
+         style="text-align: center">{{ error.msg }}</div>
+
+    <!-- error Spin -->
+    <div ng-hide="rdView">
+        <div style="padding: 2px;">
+            <table class="table-idfc-gen" style="width:100%">
+                <!--<thead>
+                        <tr class="tr-bg-grey">
+                            <th  class="table-idfc-gen-th"></th>
+                            <th  class="table-idfc-gen-th mob-display-none">Linked Account(s)</th>
+                            <th  class="table-idfc-gen-th">Status</th>
+                            <th  class="table-idfc-gen-th mob-display-none">Expiry Date</th>
+                           <th  class="table-idfc-gen-th">Offers</th>
+                        </tr>
+                     </thead>-->
+                <tbody ng-repeat="cardSummaryObj in detail | orderBy: 'crdSts'">
+                <tr ng-click="openCardSummary(cardSummaryObj)">
+
+                    <td class="panel-title table-main-td mob-width">
+                        <table class="table" style="margin:0 auto; width:90%!important;">
+                            <!--<tr>
+                            <td style="border-top: none;width:10%;text-align:right; padding-top: 45px;
+padding-left: 23px;" class="mob-display-none">
+                            <span>
+                                <span ng-show="!cardSummaryObj.showfull" style="margin-left:10px;"><img src="static/idfc/banking/widgets/idfc-card-summary-widget/images/DebitCardIconOrange.png" height="17" width="25"></span>
+                                <span ng-show="cardSummaryObj.showfull" style="margin-left:10px;"><img src="static/idfc/banking/widgets/idfc-card-summary-widget/images/DebitCardIconPurple.png" height="17" width="25"></span>
+                            </span>
+                            </td>
+                            </tr>-->
+                            <tr>
+                                <td colspan="4" style="border-top: none;    width: 90%!important;
+                                    
+    text-align: left;
+    padding-left:0;
+	padding-bottom:20px;
+	" >
+
+
+
+                                <div ng-class="{'activeGreen':cardSummaryObj.crdSts == 'Active', 'activeOrange':cardSummaryObj.crdSts == 'Temporarily Blocked', 'activeRed':cardSummaryObj.crdSts == 'Permanently Blocked', 'activeGray':cardSummaryObj.crdSts == 'Inactive'}">
+                                        <!-- span class="card-mob" ng-class="{'intro':cardSummaryObj.crdSts == 'Active' , 'danger-status':(cardSummaryObj.crdSts == 'Blocked Temporarily' || cardSummaryObj.crdSts == 'Blocked Permanently')}">{{cardSummaryObj.crdSts}}</span></div -->
+                                        <span class="card-status">{{cardSummaryObj.crdSts | uppercase}}</span></div>
+                                    <!--<div class="idfcLOGo"></div>-->
+                                 <!--   <table width="100%">
+
+                                        <tr>
+                                            <td>
+
+                                                <span ng-model="card" class="card-mob" style="font-size:8px !important; color:#888c93; text-shadow:none;">{{cardSummaryObj.cardName}}</span>
+
+
+
+
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="word-spacing: 2em; width:90%; font-size:20px!important;line-height: 24px;"><span ng-model="card" class="card-mob cardNFonts">{{cardSummaryObj.crdNb}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span ng-model="card" class="card-mob" style="font-size:8px !important;  color:#888c93; text-shadow:none;">ACTIVATION DATE</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span ng-model="card" class="card-mob cardNFonts">{{cardSummaryObj.actvtnDt | date:'dd-MMM-yyyy'}}</span></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><span ng-model="card" class="card-mob cardNFonts">{{cardSummaryObj.cstmrNm}}</span></td>
+                                        </tr>
+                                    </table>
+
+-->
+
+                                    <table width="100%">
+
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+
+                                                    <div class="customPadding">
+                                                        <span ng-model="card" class="card-mob" style="font-size:8px !important; color:#888c93; text-shadow:none;">{{cardSummaryObj.cardName}}</span>
+                                                    </div>
+                                                    <div class="customPadding" style="word-spacing: 0.6em; width:100%; font-size:21px!important;line-height: 24px;">
+                                                        <span ng-model="card" class="card-mob cardNFonts">{{cardSummaryObj.crdNb}}</span>
+                                                    </div>
+
+                                                    <div class="customPadding">
+                                                        <span ng-model="card" class="card-mob" style="font-size:8px !important;  color:#888c93; text-shadow:none;">VALID THRU</span>
+                                                    </div>
+
+                                                    <div class="customPadding">
+                                                        <span ng-model="card" class="card-mob cardNFonts">&shy;{{cardSummaryObj.expryDt | date:'MM/yy'}}&shy;</span>
+                                                    </div>
+
+                                                    <div class="customPadding">
+                                                        <span ng-model="card" class="card-mob cardNFonts">{{cardSummaryObj.cstmrNm}}</span>
+                                                    </div>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
+                                             <td style="word-spacing: 2em; width:90%; font-size:20px!important;line-height: 24px;"><span ng-model="card" class="card-mob cardNFonts">{{cardSummaryObj.crdNb}}</span></td>
+                                         </tr>
+                                         <tr>
+                                             <td><span ng-model="card" class="card-mob" style="font-size:8px !important;  color:#888c93; text-shadow:none;">ACTIVATION DATE</span></td>
+                                         </tr>
+                                         <tr>
+                                             <td><span ng-model="card" class="card-mob cardNFonts">{{cardSummaryObj.actvtnDt | date:'dd-MMM-yyyy'}}</span></td>
+                                         </tr>
+
+                                         <tr>
+                                             <td><span ng-model="card" class="card-mob cardNFonts">{{cardSummaryObj.cstmrNm}}</span></td>
+                                         </tr>-->
+                                    </table>
+
+
+                                    <!--<span ng-model="card" class="card-mob">{{cardSummaryObj.crdNb}}</span>-->
+                                </td>
+
+
+                            </tr>
+
+                            <tr>
+                                <td style="border-top: none;width:10%;" class="pull-left">
+												<span style="display: none;">
+													<span ng-show="!cardSummaryObj.showfull" class="menu menu-down"></span>
+													<span ng-show="cardSummaryObj.showfull" class="menu menu-up"></span>
+												</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td class="table-main-td mob-display-none" style="padding-top: 5px;
+    padding-left: 23px;">
+                                    <div ng-repeat="linkedAccObj in cardSummaryObj.acctDtls">
+                                        <span class="card-mob">{{linkedAccObj.acctNb}}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!--<tr>
+                                <td class="table-main-td" style="position: absolute;top:163px;right: 6%;"><label><span style="color:#FFFFFF!important;" ng-class="{'intro':cardSummaryObj.crdSts == 'Active' , 'danger-status':cardSummaryObj.crdSts === 'Blocked Temporarily'}">{{cardSummaryObj.crdSts}}</span></label></td>
+                            </tr>-->
+                            <!--<tr>
+                                <td class="table-main-td mob-display-none"><span ng-model="exp"><label>{{cardSummaryObj.expryDt | date:'dd-MMM-yyyy'}}</label></span></td>-->
+                            <!--<td ng-click="openCardSummary(cardSummaryObj)" class="table-main-td"><button class="pull-right btn secondary-btn-btn">View Offers</button></td> -->
+                            <!--</tr>-->
+
+
+                        </table>
+
+                        <table class="table-daily-limits-detail-crd-summ" width="100%">
+
+                            <!--	<tr class="tr-detail mob-display">
+                                    <td clatr-detail-main-td">
+
+                                        <!--<table class="table-daily-limits-detail-crd-summ" width="100%">
+                                            <tr><th>Linked Account(s)</th></tr>
+                                            <tr ng-repeat="linkedAccObj in detail1.acctDtls">
+                                                <td style="width:30%">{{linkedAccObj.acctNb}}</td>
+                                            </tr>
+                                        </table>
+                                </td>
+                            </tr>-->
+
+
+
+
+                        </table>
+                        <!--	<table class="table-daily-limits-detail-crd-summ" width="100%">
+                                <tr><th>Expiry Date</th></tr>
+                                <tr><td style="width:30%">{{detail1.expryDt | date:'dd-MMM-yyyy'}}</td></tr>
+                            </table>-->
+
+                    </td>
+                </tr>
+
+                <tr ng-show="cardSummaryObj.showfull" class="card-sumBlock">
+                    <td style="padding-top:0!important;">
+                        <div>
+
+                            <table   style="border-bottom: #eaeaea 1px solid;" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td style="background-color:#f8f8f8;" align="center" valign="middle">
+                                        <table  width="95%" border=0; align="center" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="center" valign="middle">
+                                                    <div class="row">
+                                                        <div class="col-sm-12 linkedAccount">
+
+                                                            <ul style="width:90%; margin:0 auto">
+                                                                <li class="linkWidth alignTxt2">Linked Account</li>
+                                                                <li class="dot">:</li>
+                                                                <li class="linkWidth alignTxt bold"><div ng-repeat="linkedAccObj in detail1.acctDtls">{{linkedAccObj.acctNb}}</div></li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-sm-12 linkedAccount">
+
+                                                            <ul style="width:90%; margin:0 auto">
+                                                                <li class="linkWidth alignTxt2">Activation Date</li>
+                                                                <li class="dot">:</li>
+                                                                <li class="linkWidth alignTxt bold">&shy;{{detail1.actvtnDt | date:'dd-MMM-yyyy'}}&shy;</li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table style="width:95%; margin:0 auto;">
+
+
+
+                                <tr class="tr-detail-main" style="background-color:#FFFFFF;">
+
+                                        <!--<th class="label-padding-left-crdsm" style="color:#4a4a4a;font-family: Gotham_Book;">Daily limits</th>-->
+                                     <td>   <b class="label-padding-left-crdsm" style="color:#4a4a4a;font-family: Gotham_Book;!important">Daily limits</b>
+                                    </td>
+                                </tr>
+                                <tr><td style="background-color:#FFFFFF"><div class="border-Btm"></div></td></tr>
+                                <tr class="tr-detail">
+                                    <td style="width:100%; background-color:#FFFFFF" class="tr-detail-main-td">
+                                        <table class="table-daily-limits-detail-crd-summ" width="100%">
+                                            <tr><th>Cash Withdrawal at ATM</th></tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 linkedAccount">
+                                                            <ul>
+                                                                <li class="linkWidth">Domestic</li>
+                                                                <li class="dot">:</li>
+                                                                <li class="linkWidth ralignTxt"><span class="rupee-symbol-span"></span><span lp-amount="detail1.aodLmt"></span></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                </td>
+
+                                            </tr>
+                                            <tr><td>
+
+                                                <div class="row">
+
+                                                    <div class="col-sm-12 linkedAccount">
+
+                                                        <ul>
+                                                            <li class="linkWidth">International</li>
+                                                            <li class="dot">:</li>
+                                                            <li ng-show="isInternatinalFlagOn" class="linkWidth ralignTxt"> <span class="rupee-symbol-span"></span><span lp-amount="detail1.aoiLmt"></span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tr-detail-main-td" style="background-color:#FFFFFF">
+                                        <div class="border-Btm"></div>
+                                        <table class="table-daily-limits-detail-crd-summ" width="100%">
+                                            <tr><th class="purchase-mob">Purchase</th></tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 linkedAccount">
+
+                                                            <ul>
+                                                                <li class="linkWidth">Domestic</li>
+                                                                <li class="dot">:</li>
+                                                                <li class="linkWidth ralignTxt"><span class="rupee-symbol-span"></span><span lp-amount="detail1.podLmt"></span></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 linkedAccount">
+
+                                                            <ul>
+                                                                <li class="linkWidth">International</li>
+                                                                <li class="dot">:</li>
+                                                                <li ng-show="isInternatinalFlagOn" class="linkWidth ralignTxt"> <span class="rupee-symbol-span"></span><span lp-amount="detail1.poiLmt"></span></li>
+                                                            </ul>
+
+                                                            <!--<table width="100%">
+                                                                <tr>
+                                                                    <td width="90%">International</td>
+                                                                    <td width="10%">:</td>
+                                                                </tr>
+                                                            </table>-->
+                                                        </div>
+                                                        <!--	<div class="col-sm-8"> <span class="rupee-symbol-span"></span><span lp-amount="detail1.poiLmt"></span></div>-->
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr class="tr-detail">
+                                    <td class="tr-detail-main-td" style="background-color:#FFFFFF">
+                                        <table class="table-daily-limits-detail-crd-summ" width="100%">
+                                            <tr>
+                                                <td>
+                                                    <div class="border-Btm"></div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 linkedAccount">
+
+                                                            <ul>
+                                                                <li class="linkWidth" style="font-family:gotham-medium; color:#4a4a4a; font-size:13px;">Activation Date</li>
+                                                                <li class="dot">:</li>
+                                                                <li class="linkWidth ralignTxt">&shy;{{detail1.actvtnDt | date:'dd-MMM-yyyy'}}&shy;</li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                </td></tr></table>
+
+                                        <!--<table class="table-daily-limits-detail-crd-summ" width="100%">
+                                            <tr><th>Activation Date</th></tr>
+                                            <tr><td style="width:30%">{{detail1.actvtnDt | date:'dd-MMM-yyyy'}}</td></tr>
+                                        </table>-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="tr-detail-main-td" style="background-color:#FFFFFF">
+                                        <table class="table-daily-limits-detail-crd-summ" width="100%">
+                                            <tr>
+                                                <td>
+
+                                                    <div class="border-Btm"></div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 linkedAccount">
+
+                                                            <ul>
+                                                                <li class="linkWidth" style="font-family:gotham-medium; color:#4a4a4a; font-size:13px;">Card Type</li>
+                                                                <li class="dot">:</li>
+                                                                <li class="linkWidth ralignTxt">{{detail1.cardName}}</li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+
+                                                </td></tr></table>
+                                        <!--<table class="table-daily-limits-detail-crd-summ" width="100%">
+                                            <tr><th>Card Type</th></tr>
+                                            <tr><td style="width:30%">{{detail1.cardName}}</td></tr>
+                                        </table>-->
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+                    </td>
+                </tr>
+
+            </table>
+            <!-- <table  class="col-md-2" style="margin-top:5%;">
+            <tr ng-repeat="x in detail" >
+                <td class="view-button" style="height:50px">
+                    <button class="pull-right btn btn-primary secondary-btn-closure secondary-btn-btn view-button" style="margin-right:20%;" ng-click="cardSummary(x)">{{'Lbl_Recurring_View'|translate }}</button>
+                </td>
+            </tr>
+            </table> -->
+        </div>
+    </div>
+
+</div>

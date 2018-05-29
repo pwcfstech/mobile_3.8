@@ -1,0 +1,370 @@
+
+
+/* ---------------30-01-17--------------------- */
+.bg-color {
+	background-color:#f4f4f4;
+	padding-bottom:25px;
+	padding-left:15px;
+	padding-top:26px;
+}
+.bg-color-mob {
+	background-color:#f4f4f4;
+	padding-left:7px;
+	padding-top:26px;
+	padding-right:14px;
+}
+.secondary-btn-btn {
+	width:90px!important;
+}
+.find-btn {
+	background-color:#fb637e;
+	color:#fff;
+	font-weight:500;
+	width:80%;
+	height:36px;
+	border:1px solid #fb637e;
+	margin-top:12px;
+	margin-bottom: 12px;
+	border-radius:3px;
+}
+.find-btn-mob{
+    border: none;
+    background: transparent;
+}
+.form-style {
+	width:100%;
+	border:1px solid #dfdfdf;
+	color:#b0b0b0;
+	padding-left:6px;
+	height:36px;
+	margin:12px 0px;
+}
+.form-style-mob {
+	width:100%;
+	border:1px solid rgba(197,207,217,1);
+	/* color:#b0b0b0; */
+	color:rgba(74,74,74,1); /*changed*/
+	padding-left:6px;
+	height:36px;
+	margin:5px 0px 12px 0px;
+	font-size: 11px; /*changed*/
+}
+.optn-color {
+	/* color:#a6a6a6; */
+	color:rgba(74,74,74,1); /*changed*/
+}
+.label-color {
+	color:#4e4e4e;
+	font-weight:bold;
+	font-size:1.000em;
+}
+.label-color-mob {
+	color: rgba(74, 74, 74, 1);
+	font-weight:500;
+	font-size:11px;
+    font-family: 'gotham_book';
+}
+.form-top {
+	padding-top:12px;
+}
+.txt-style {
+	color: #b2b2b2;
+	font-size:1.125em;
+	font-weight: 500;
+}
+.bg-white {
+	background-color:#fff;
+	color:#fb647f;
+	height:43px;
+	padding-left:45px;
+	padding-top:10px;
+	font-size:14px!important;
+}
+.bg-white-mob {
+	background-color:#fff;
+	color: rgba(251,99,126,1);
+	height:43px;
+	padding-left:20px;
+	padding-top:10px;
+	font-size:14px!important;
+	font-family: 'gotham_medium';
+}
+
+.td-text {
+	color:#7d7c7c;
+}
+.lp-contacts .col-view .col-view-inner {
+	padding:0px;
+}
+@media screen and (max-width: 480px) {
+.form-style {
+
+	display:block;
+}
+}
+
+
+
+@media screen and (max-width: 480px) {
+  #my-content { display: none; }   
+  
+
+}
+/* ----table------ */
+table {
+  border:1px solid #eee;
+  width:100%;
+  background-color:#eaeaea;
+  overflow:scroll;
+}
+ th{
+	background-color:#000;
+	color:#FFF;
+	height:40px;
+  }
+  
+tr:nth-child(odd){
+  background-color:#FFF;
+  height:26px;
+}
+ td{
+	height:26px;
+  }
+/* @media screen and (max-width:480px) { */
+  /* table, thead, tbody, tr, th, td{ */
+    /* display:block; */
+  /* } */
+  
+  /* thead tr{ */
+    /* position: absolute; */
+    /* top: -10000px; */
+    /* left: -10000px; */
+	/* background-color:#000; */
+  /* } */
+  
+  /* td{ */
+    /* position: relative; */
+    /* padding-left: 50%; */
+  /* } */
+  
+  /* td:before{ */
+    /* position: absolute; */
+    /* left: 6px; */
+    /* content:attr(data-th); */
+  /* } */
+  
+/* } */
+ .heading-txt { 
+	color:#000; 
+	font-size:1.375em; 
+	padding-left:15px; 
+	padding-bottom:15px; 
+ } 
+ .heading-txt-mob{ 
+	color: rgba(74, 74, 74, 1); 
+	font-size:14px; 
+	font-weight:500!important;
+	padding-left:15px; 
+	padding-bottom:15px; 
+	font-family: 'gotham_medium';
+ }
+.icon-color {
+	color: rgba(251, 99, 126, 1);
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 26px;
+	text-align:left!important;
+}
+
+.btn-loadmore {
+    color: rgba(251, 99, 126, 1)!important;
+    font-size: 13px!important;
+    /* font-weight: 600; */
+    text-align: center!important;
+    padding-bottom: 10px;
+    text-decoration: none!important;
+    font-family: gotham_medium!important;
+}
+.right-arrw {
+	float:right;
+	padding-right:25px; 
+	/* padding-top:14px; */
+	color: #fb647f;
+    font-size:15px;
+    font-weight: 400;
+}
+.bottom-brd {
+	background-color:#fff;
+	border-top:1px solid #eee;
+	padding-top:10px;
+	margin-top:5%;
+	text-align: right!important;
+}
+.bottom-brd1 {
+	background-color:#fff;
+	border-top:1px solid #fff;
+	padding-top:10px;
+}
+.secondary-btn-btn {
+	padding:0px!important;
+}
+.primary-btn-btn {
+	padding:0px!important;
+	width:90px;
+}
+/* .close { */
+	/* text-align:center!important; */
+    /* color: #fb627d!important; */
+    /* text-align: center; */
+    /* font-size: 91px!important; */
+    /* font-weight: bold; */
+    /* padding: 0px 11px; */
+    /* border: 5px solid #b0bec5; */
+    /* height: 82px; */
+    /* border-radius: 61px; */
+    /* opacity: 1.2!important; */
+/* } */
+
+.sorry-txt {
+	font-size:1.875em;
+	color: rgba(251,99,126,1)!important;
+	/* font-weight:600; */
+	font-family:gotham_medium;
+}
+.sorry-msg {
+	font-size:1.375em;
+	color: #fb627d!important;
+	font-weight:400;
+}
+.sorry-msg-mob {
+	font-size: 13px;
+	color: rgba(251,99,126,1)!important;
+	font-weight:300;
+}
+/* added by sayan */
+.btn-whitePop{
+	color: #fe4575!important;
+    background-color: #c8c8c8;
+    /* line-height: 38px; */
+    font-size: 12px;
+    float: left;
+    margin-left: 49px!important;
+	margin-bottom:10px;
+    /* margin: 4% 0 0; */
+    /* margin-left: -103.2em; */
+     padding: 5px 26px;
+    border: 1px solid #c8c8c8;
+}
+
+/* IFSC code search start */
+.disable-link  a{
+   pointer-events: none;
+   cursor: default;
+   color:#e4e4e4!important;
+ }
+
+.enable-link  a{
+   color:#fb637e!important;
+   font-weight: bold;
+}
+.bg-white1 {
+	background: url(../images/sry-icon.png) no-repeat top center;
+	background-color:#FFF;
+	padding-top:50px;
+}
+.error-msg {
+	background-color:#ffefc0;
+	color:#994533;
+	font-weight:bold;
+	text-align:center;
+	font-size:1.375em;
+	padding: 10px;
+	position:absolute;
+	z-index:1;
+	width:100%;
+}
+.error-msg-mob {
+	background-color:#ffefc0;
+	color:#994533;
+	font-weight:bold;
+	text-align:center;
+	font-size:1.000em;
+	padding: 10px;
+	position:absolute;
+	z-index:1;
+	width:100%;
+}
+.charctr-msg {
+	color:#fb637e;
+	margin-bottom:0px!important;
+}
+.crs-icon {
+	color:#d0031b!important;
+	font-size:1.375em;
+	padding-right:8px;
+}
+.select-txt {
+	padding-left:45px;
+	font-size:1.375em;
+	font-weight:500;
+}
+.select-txt-mob {
+	padding-left:20px;
+	font-size:12px;
+	font-weight:500;
+}
+.td-align-left {
+	 padding-left: 45px; 
+	 padding-top:10px; 
+	 padding-bottom:10px;
+}
+.td-align-right {
+	 padding-right: 30px; 
+	 padding-top:10px; 
+	 padding-bottom:10px;
+}
+.td-align-left-mob {
+	 padding-left: 20px; 
+	 padding-top:10px; 
+	 padding-bottom:10px;
+}
+.td-align-left-normal-mob {
+	 color: rgba(74, 74, 74, 1);
+	 text-indent:uppercase!important;
+	 font-size:11px!important;
+	 padding-top:4px; 
+	 padding-bottom:4px;
+}
+.td-align-left-bold-mob {
+	 font-weight:600!important;
+	 color: rgba(74, 74, 74, 1);
+	 text-indent:uppercase!important;
+	 font-size:11px!important;
+	 font-family: 'gotham_medium';
+}
+.td-align-right-mob {
+	 padding-right: 5px; 
+	 padding-top:10px; 
+	 padding-bottom:10px;
+}
+.pad-left7-5 {
+	padding-left:7.5px!important;
+}
+.pad-right7-5 {
+	padding-right:7.5px!important;
+}
+/* IFSC code search end */  
+
+/* Generic Class Css Start */
+.left0 {
+    padding-left: 0px;
+}
+/* Generic Class Css End */
+
+/* Glypson Extra Added Icon Css Start */
+
+.glyphicon-menu-right:before {
+    content: "\e258";
+}
+
+/* Glypson Extra Added Icon Css End */

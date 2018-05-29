@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fp_image"
+        android:layout_marginTop="22dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ic_fp_40px"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No fingerprint registered"
+        android:id="@+id/title_warning"
+        android:layout_below="@+id/fp_image"
+        android:layout_marginTop="27dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="9dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/timerText"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Fingerprints available. Please go to device settings register your fingerprints on the device"
+        android:id="@+id/popup_msg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/title_warning"
+        android:textSize="14sp"
+        android:textColor="@color/idfc_popup_text"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        android:id="@+id/popup_divider"
+        android:layout_below="@+id/popup_msg"
+        android:background="@color/group_bg"
+        android:gravity="center_horizontal"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="10dp"
+        android:text="GO TO SETTINGS"
+        android:id="@+id/settings_btn"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/popup_divider"
+        android:background="@color/popupBtn_pink"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="true"
+        android:textSize="13sp"
+        android:textColor="@color/white"
+        style="?android:borderlessButtonStyle" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="22dp"
+        android:text="LATER"
+        android:id="@+id/later_btn"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/settings_btn"
+        android:layout_marginTop="5sp"
+        android:background="@color/popupBtn_gray"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="true"
+        android:textSize="13sp"
+        android:textColor="@color/idfc_popup_text"
+        style="?android:borderlessButtonStyle" />
+
+</RelativeLayout>

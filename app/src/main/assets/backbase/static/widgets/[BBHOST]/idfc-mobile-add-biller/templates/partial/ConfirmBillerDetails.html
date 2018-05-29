@@ -1,0 +1,413 @@
+<div ng-cloak>
+
+    <div ng-show="successForm && data.vld=='Y'">
+        <div data-ng-include="template.SuccessAddBiller"></div>
+    </div>
+
+    <div ng-show="addCtrl.dataErrorCheck">
+        <div data-ng-include="template.SuccessAddBillerSetAutoPayFailure"></div>
+    </div>
+
+
+    <div ng-hide="successForm">
+    <div ng-hide="addCtrl.dataErrorCheck">
+
+       <!-- <div style="font-size: 20px;text-align: center; bottom: 20px;" class="addBiller-billdetails">Bill Details</div>-->
+    <!--<div class="col-md-11">-->
+        <div class="form-group">
+            <div class="add-form-div backgroundcolor">
+                <span   class="add-bill-label confirmheadingchanges"  >Category</span>
+            </div>
+           <div class="add-confirm-bill backgroundcolor">
+		   <div>
+                <span class="add-bill-select-left confirminsidechanges" ng-bind="billerCategorySelected">{{billerCategorySelected}}</span>
+            </div>
+        </div>
+		</div>
+
+         <div class="form-group">
+            <div class="add-form-div backgroundcolor">
+                <span   class="add-bill-label confirmheadingchanges"  >Provider</span>
+            </div>
+            <div class="add-confirm-bill backgroundcolor bottompadding">
+			<div>
+                <span class="add-bill-select-left confirminsidechanges" ng-bind="billerProviderSelected.billerName">{{billerProviderSelected.billerName}}</span>
+				</div>
+            </div>
+        </div>
+
+         <div class="form-group">
+            <div class="add-form-div">
+                <span   class="add-bill-label confirmheadingchanges">Nickname</span>
+            </div>
+            <div class="add-confirm-bill">
+			<div>
+                <span class="add-bill-select-left confirminsidechanges" ng-bind="billerNickName">{{billerNickName}}</span>
+				</div>
+            </div>
+        </div>
+
+
+        <!-- Authenticator Count 1 Will be Show as default ,other Authenticator will be show in count is greater then 2  -->
+      
+
+            <div ng-show="billerProviderSelected.authenticatorCount>=1">
+			  <div class="form-group">
+			<div class="add-form-div">
+                
+                    <span  class="add-bill-label confirmheadingchanges">{{billerProviderSelected.authenticatorLable1}}</span>
+                </div>
+               <div class="add-confirm-bill">
+			   <div>
+                    <span class="add-bill-select-left confirminsidechanges"   >{{authenticator1}}</span>
+					</div>
+            </div>
+                </div>
+				</div>
+
+            <div ng-show="billerProviderSelected.authenticatorCount>=2">
+  <div class="form-group">
+			<div class="add-form-div">
+               
+                    <span  class=" add-bill-label confirmheadingchanges">{{billerProviderSelected.authenticatorLable2}}</span>
+                </div>
+                <div class="add-confirm-bill">
+				<div>
+                    <span class="add-bill-select-left confirminsidechanges" >{{authenticator2}}</span>
+					</div>
+
+            </div>
+                </div>
+				</div>
+            <div ng-show="billerProviderSelected.authenticatorCount>=3">
+			<div class="form-group">
+			<div class="add-form-div">
+               
+                    <span  class="add-bill-label confirmheadingchanges">{{billerProviderSelected.authenticatorLable3}}</span>
+                </div>
+                <div class="add-confirm-bill">
+				<div>
+                    <span class="add-bill-select-left confirminsidechanges"  >{{authenticator3}}</span></div>
+            </div>
+                </div>
+</div>
+            <div ng-show="billerProviderSelected.authenticatorCount>=4">
+			<div class="form-group">
+			<div class="add-form-div">
+                
+                    <span class="add-bill-label confirmheadingchanges">{{billerProviderSelected.authenticatorLable4}}</span>
+                </div>
+                <div class="add-confirm-bill">
+				<div>
+                    <span class="add-bill-select-left confirminsidechanges">{{authenticator4}}</span></div>
+
+            </div>
+                </div>
+				</div>
+            <div ng-show="billerProviderSelected.authenticatorCount>=5">
+			<div class="form-group">
+			<div class="add-form-div">
+               
+                    <span class="add-bill-label confirmheadingchanges">{{billerProviderSelected.authenticatorLable5}}</span>
+                </div>
+                <div class="add-confirm-bill">
+				<div>
+                    <span class="add-bill-select-left confirminsidechanges" >{{authenticator5}}</span>
+</div>
+                </div>
+            </div>
+            </div>
+			<!--</div>-->
+
+
+        <!-- Authenticator Count 1 Will be Show as default ,other Authenticator will be show in count is greater then 2  -->
+
+
+        <div ng-show="setAutoPayFlag" class="panel-body no-padding-top">
+            <div class="addBiller-billdetails-bill" style="margin-top: 10%;margin-left: 6%;">Auto pay Details</div>
+
+                <div class="form-group top-padding">
+                    <div class="add-floatLeft-addBiller addBiller-form-div div-margin">
+                        <span class="confirmheadingchanges add-bill-label" >Account for Payment</span>
+                    </div>
+                    <div class="add-floatLeft-addBiller add-confirm-bill">
+					<div>
+                        <span class="add-bill-select-left confirminsidechanges" ng-bind="accountSelected">{{accountSelected}}</span>
+						</div>
+                    </div>
+                </div>
+
+                <div class="form-group top-padding">
+                    <div class="add-floatLeft-addBiller addBiller-form-div div-margin">
+                        <span class="confirmheadingchanges add-bill-label"  >Start date</span>
+                    </div>
+                    <div class="add-floatLeft-addBiller add-confirm-bill ">
+                        <div>
+                            <span class="add-bill-select-left confirminsidechanges" >{{fromDate | date:"dd-MMM-yyyy"}}</span>
+                        </div>
+                    </div>
+				</div>
+
+
+            <div ng-show="billerProviderSelected.billerType>='PAYEE'">
+
+                     <div class="form-group top-padding">
+                         <div class="add-floatLeft-addBiller addBiller-form-div div-margin">
+                            <span class="confirmheadingchanges add-bill-label"  >End Date</span>
+                        </div>
+                        <div class="add-floatLeft-addBiller add-confirm-bill">
+                            <div>
+                                <span class="add-bill-select-left confirminsidechanges" >{{toDate | date:"dd-MMM-yyyy"}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="form-group top-padding">
+                        <div class="add-floatLeft-addBiller addBiller-form-div div-margin">
+                            <span class="confirmheadingchanges add-bill-label"  >Frequency</span>
+                        </div>
+                        <div class="add-floatLeft-addBiller add-confirm-bill">
+                            <div>
+                                <span class="add-bill-select-left confirminsidechanges" ng-bind="frequency">{{frequency}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+           </div>
+
+            <div ng-show="setLimitAmtFlag" >
+
+                <div class="form-group top-padding">
+                    <div class="add-floatLeft-addBiller addBiller-form-div div-margin">
+                        <span  class="confirmheadingchanges label-font add-bill-label"  >Amount</span>
+                    </div>
+                    <div class="add-floatLeft-addBiller add-confirm-bill">
+					<div><span class="confirm-rupee rupee-symbol-span"></span>		<!--Rupee symbol added-->
+                        <span class="add-bill-select-left confirminsidechanges" ng-bind="amount">{{amount}}</span></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- OTP Added  -->
+            <!--  <div ng-hide="hideOTPFlag" class="addbill-otv-div">-->
+            <div class="borderTop"></div>
+        <div>
+
+
+            <!-- RSA changes by Xebia starts -->
+
+                <div ng-show="showDenyMessage">
+                    <div class="rsa-deny-message">
+                        {{cqObject.RSA_DENY_MESSAGE}} 
+                    </div>
+                </div>
+
+                <div ng-show="showCancelTransactionMessage">
+                    <div class="rsa-cancel-transaction-message">
+                            {{cqObject.CANCEL_TRANSACTION}} 
+                    </div>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                class="rsa-margin-top" type="submit" name="No"
+                                ng-click="cancelRSATransaction()">Okay</button>
+                    </div>
+                </div>
+
+                <div ng-show="showSetupCQMessage">
+                    <p>
+                        <center class="rsa-setupCQMessage">{{cqObject.SETUP_CQ_MESSAGE}}
+                        </center>
+                    </p>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="Yes"
+                                ng-click="showSetupCQ()">Update Now</button>
+
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="No"
+                                ng-click="showSetupCQMessage = false; showCancelTransactionMessage = true;">Cancel
+                            </button>
+                    </div>
+                </div>
+
+                <div ng-hide="hideQuesFlag" class="rsa-border-div">
+                    
+                    <div ng-bind="showCQError" class="rsa-cancel-transaction-message">
+                    </div>
+
+                    <!-- <form name="Questionform" class="form-horizontal"> -->
+                        <div ng-if="showQuestionDiv">
+                            
+                                <div class="rsa-margin-top">
+                                    <label ng-bind="challengeQuestions" class="rsa-bold-font"></label>
+                                    <input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer"
+                                    ng-model="challengeQuestion.answer"
+                                    required="true"/>
+                                </div>
+                            
+                             
+                            <div class="rsa-text-center rsa-margin-bottom">
+                                <button class="rsa-button btn btn-primary primary-btn-btn primary-btn-ft"
+                                    type="submit" name="verifyAnswers"
+                                    ng-click="verifyCQAnswer()"
+                                    ng-disabled="!(challengeQuestion.answer)"
+                                    lp-i18n="Submit Answer">  
+                                </button>
+                            </div>
+                        </div>
+
+                        <div ng-show="showWrongAnswerMessage" class="rsa-button" >
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="tryAgain"
+                                ng-click="fetchCQ()">Try Again</button>
+                        </div>
+
+                    <!-- </form> -->
+                </div>
+
+        <!-- RSA changes by Xebia ends -->
+
+            <div ng-hide="hideCombineFlag" class="otpques-div">
+                <h4>
+                    <div class="text-success sucessOTP text-center" ng-show="success.happened">
+                        <div class="img_padding"><img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+                            <img ng-src="{{tick}}"/></div>
+                        {{success.msg }}
+                    </div>
+                    <div class="text-danger text-center" ng-show="error.happened">
+                        <!--style="text-align: center"--><div class="text-center">{{ error.msg }}</div></div>
+                </h4>
+
+                <form name="mainform" class="form-horizontal">
+
+                    <div>
+                        <div lp-field="lp-field" label="Mobile_Label" tip="" class="otp-lp-field rsaOtpAlignment">
+                            <div>
+                                <input class="form-control"	type="text"	name="OTPMobile"
+                                       ng-model="customerMobMasked" ng-disabled="true"/>
+                            </div>
+                        </div>
+                        <input style="display:none" type="text" name="fakeusernameremembered"/>
+                        <input style="display:none" type="password" name="fakepasswordremembered"/>
+
+                        <div lp-field="lp-field" label="OTP_Label" class="otp-lp-field otp-lp-field-last rsaOtpAlignment"
+                             tip="{{'Tip_OTP'|translate}}" class="rsaOtpAlignment">
+                            <div>
+                                <input class="newuserregistration-form-control newuserregistration-otp-input otpinput inputfontstyle otpcolor" type="tel" style=" -webkit-text-security:disc" name="otp" autocomplete="off"
+                                       ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="controlPass.otpValue" required="true"/>
+                                <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+                                <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                <small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+                            </div>
+                        </div>
+
+                        <div class="otp-lp-field otp-lp-field-last">
+                            <div ng-if="showQuestionDiv" >
+                                <div ng-repeat="question in challengeQuestions" style="margin-top:20px">
+                                    <label class="labelquestion">{{question.questionText}} </label>
+                                    <input class="form-control placeholderclass" type="text" name="answer" autocomplete="off"
+                                           placeholder="Enter answer" ng-model="challengeQuesAnswers[$index].answer" required="true" ng-disabled="isChallengeDisabled"/>
+                                    <input type="hidden" ng-value="question.questionId" ng-model="challengeQuesAnswers[$index].question" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="otp-buttons">
+                            <div class="borderTop"></div>
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"  type="submit"
+                                    name="verifyAnswers_otp"
+                                    ng-click="mainform.submitted=true; addBiller(mainform.$valid, credentialType) ; submitfunction()">
+                                SUBMIT </button>
+                            <button class="btn secondary-btn-btn secondary-btn-ft" type="button" name="resendOTP" ng-click="generateOTP('resend') ; resendfunction()">{{'btn_ResendOTP'|translate}}</button>
+                           <!-- <button class="btn btn-primary primary-btn-btn primary-btn-ft"  type="submit"
+                                    name="verifyAnswers_otp"
+                                    ng-click="mainform.submitted=true; addBiller(mainform.$valid, credentialType)">
+                                SUBMIT </button>
+                            <button class="btn secondary-btn-btn secondary-btn-ft" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>-->
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div ng-hide="hideOTPFlag" class="otv-div">
+                <h4>
+                    <div class="text-success sucessOTP text-center" ng-show="success.happened">
+                        <div class="img_padding"><img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+                            <img ng-src="{{tick}}"/></div>
+                        {{success.msg }}
+                    </div>
+                    <div class="text-danger text-center" ng-show="error.happened">
+                        <!--style="text-align: center"--><div class="text-center">{{ error.msg }}</div></div>
+                </h4>
+	     <form name="OTPform" class="newuserregistration-form-horizontal form-horizontal newuserregistration-otp-align">
+                    <div lp-field="lp-field" label="Mobile_Label" class="rsaOtpAlignment">
+                    <div>
+                        <input class="newuserregistration-form-control newuserregistration-otp-input otpinput inputfontstyle mobilecolor" type="text" name="OTPMobile"
+                               ng-model="customerMobMasked" ng-disabled="true"
+                               />
+                    </div>
+                </div>
+                <input style="display:none" type="text" name="fakeusernameremembered"/>
+                <input style="display:none" type="password" name="fakepasswordremembered"/>
+                    <div lp-field="lp-field" label="OTP_Label" tip="{{'Tip_OTP'|translate}}" class="rsaOtpAlignment">
+                    <div>
+                        <input
+                                class="newuserregistration-form-control newuserregistration-otp-input otpinput inputfontstyle otpcolor" type="tel" name="otp" autocomplete="off"
+                               ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+                               ng-model="controlPass.otpValue" required="true" style=" -webkit-text-security:disc" />
+                        <small class="text-danger"
+                               ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">
+                            {{'Error_Required_OTP'|translate}}
+                        </small>
+                        <small class="text-danger"
+                               ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">
+                            {{'Error_Invalid_Length_OTP'|translate}}
+                        </small>
+                        <small class="text-danger"
+                               ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">
+                            {{'Error_Invalid_Length_OTP'|translate}}
+                        </small>
+                        <small class="text-danger" ng-show="OTPform.otp.$error.pattern">
+                            {{'Error_Invalid_OTP'|translate}}
+                        </small>
+                    </div>
+					
+					
+                </div>
+                    <div class="ft-div-td-dep-ab rsaOtpbtnAlignment">
+                        <div class="borderTop"></div>
+                        <button
+                                class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="verifyOTP" ng-disabled="lockFieldsOTP" id="verifyOTP-btn-addBiller"
+                                ng-click="OTPform.submitted=true; addBiller(OTPform.$valid,'OTP'); submitfunction()">
+                            {{'btn_Verify'|translate}}
+                        </button>
+                        <!-- handling for addbiller otp changes minor release 2.0-->
+                        <button class="btn btn-primary secondary-btn-btn ng-binding" type="button" name="resendOTP"
+                                ng-disabled="stop" ng-click="generateOTP('resend'); resendfunction()">RESEND OTP</button>
+                        <!--<button
+                                class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="verifyOTP" id="verifyOTP-btn-addBiller" ng-disabled="lockFieldsOTP"
+                                ng-click="OTPform.submitted=true; addBiller(OTPform.$valid,credentialType)">
+                            {{'btn_Verify'|translate}}
+                        </button>
+						<button class="btn btn-primary secondary-btn-btn ng-binding" type="button" name="resendOTP"
+                                ng-disabled="cancelTransaction" ng-click="generateOTP('resend')">RESEND OTP</button>-->
+						<!--<button name="resetForm" class="btn btn-primary secondary-btn-btn ng-binding" ng-click="backToFirstScreen()" type="button">Back</button>-->
+
+					</div>
+                </form>
+				</div>
+				</div>
+				
+
+        
+        <!-- OTP Added  -->
+
+    </div>
+	
+</div>

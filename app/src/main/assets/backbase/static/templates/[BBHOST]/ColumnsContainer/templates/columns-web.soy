@@ -1,0 +1,33 @@
+{namespace templates_ColumnsContainer}
+/**
+ * Columns Container
+ * @param item Item in context
+ */
+{template .ColumnsContainer}
+    <div data-pid="{$item.name}" class="bp-container bp-ui-dragRoot lp-columns row">
+
+        {let $columns: split($item.preferences.columns.value, ',') /}
+        {let $columnsClasses: split($item.preferences.columnsCSSClasses.value, ',') /}
+
+        //if there is a value in the columns preference
+        {if length($columns) > 1}
+            {for $i in range(0,length($columns))}
+                <div class="bp-area {$columnsClasses[$i]} --area">
+                  {foreach $child in $item.children}
+                        {if parseInt($child.preferences.area.value) == $i}
+                            {include($child) |noAutoescape}
+                        {/if}
+                  {/foreach}
+                </div>
+            {/for}
+
+        // if only one column take whole space and render all children
+        {else}
+            <div class="bp-area col-sm-12 --area">
+                {foreach $child in $item.children}
+                    {include($child) |noAutoescape}
+                {/foreach}
+            </div>
+        {/if}
+    </div>
+{/template}

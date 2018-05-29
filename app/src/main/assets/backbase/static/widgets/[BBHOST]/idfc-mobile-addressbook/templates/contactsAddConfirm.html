@@ -1,0 +1,249 @@
+<form ng-model="contactsModel.currentContact" name="addContactConfirm" novalidate="" class="contact-form contactsConfirm">
+	<div class="panel-body no-padding-top bene-panel-body">
+		<center class="withinOutside">
+			<label ng-show="contactsModel.currentContact.beneficiaryType=='OWN'"> {{'Lbl_Adding'|translate}} {{'Lbl_Beneficiary_IDFC_C'|translate}}</label>
+			<label ng-show="contactsModel.currentContact.beneficiaryType=='OTH'"> {{'Lbl_Adding'|translate}} {{'Lbl_Beneficiary_NON_IDFC'|translate}}</label>
+		</center>
+	</div>
+	<div ng-show="contactsModel.currentContact.beneficiaryType" id="addContConfirm" class="panel-body no-padding-top bene-panel-body">
+		<div class="form-group">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="name" lp-i18n="{{'Lbl_Beneficiary_Name'|translate}}"></label>
+			</div>
+			<div class="bene-floatLeft">
+				<input type="text" name="name" id="name" class="beneficiary-control" readonly="readonly"ng-model="contactsModel.currentContact.name" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="nickName" lp-i18n="{{'Lbl_Beneficiary_Nick_Name'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<input type="text" name="nickName" id="nickName" class="beneficiary-control" readonly="readonly" ng-model="contactsModel.currentContact.nickName"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="account" lp-i18n="{{'Lbl_Account_Number'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<input type="text" id="account" name="account" class="beneficiary-control" readonly="readonly" ng-model="contactsModel.currentContact.account"/>
+			</div>
+		</div>
+		<div class="form-group" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="bankName" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" lp-i18n="{{'Lbl_Bank_Name'|translate}}"></label>
+			</div>
+			<div class="bene-floatLeft">
+				<select id="bankName" name="bankName" class="beneficiary-control" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" ng-model="contactsModel.currentContact.bankName" ng-options="item as item for item in contactsModel.banksList" disabled="disabled"/>
+			</div>
+		</div>
+		<div class="form-group" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="ifscCode" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" lp-i18n="{{'Lbl_IFSC_Code'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<input type="text" id="ifscCode" name="ifscCode" class="beneficiary-control" readonly="readonly" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" ng-model="contactsModel.currentContact.ifscCode"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="accountType" lp-i18n="{{'Lbl_Account_Type'|translate}}"></label>
+			</div>
+			<div class="bene-floatLeft">
+				<select id="accountType" name="accountType" class="beneficiary-control bene-acc-type-add" ng-model="contactsModel.currentContact.accountType" ng-options="item.value as item.text for item in contactsModel.accountTypeOptions" disabled="disabled"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="transferLimit" lp-i18n="{{'Lbl_Payee_Limit'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<input type="text" id="transferLimit" name="transferLimit" class="beneficiary-control" readonly="readonly" ng-model="contactsModel.currentContact.transferLimit"/>
+			</div>
+		</div>
+		<!--email and mobile number commented-->
+		<!--<div class="form-group">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="email" lp-i18n="{{'Lbl_Email'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<input type="text" name="email" id="email" class="beneficiary-control" readonly="readonly" ng-model="contactsModel.currentDetails['email']"/>
+			</div>
+		</div>
+		<div class="form-group inputSelect">
+			<div class="form-group-New bene-floatLeft bene-form-div bene-clear-phn">
+				<label for="phone" lp-i18n="{{'Lbl_Phone'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<select id="countryCodes" name="countryCodes" class="beneficiary-control bene-phn-cont-codes" readonly="readonly" ng-model="contactsModel.currentContact.countryCode" ng-options="item as item for item in contactsModel.countryCodesList" disabled="disabled"/>
+				<input class="beneficiary-control bene-phn-field bene-phn-input-no" readonly="readonly" type="text" name="phone" id="phone" readonly="readonly" ng-model="contactsModel.currentDetails['phone']"/>
+			</div>
+		</div>-->
+		<div ng-show="btnFlag" class="bene-div-td-dep-ab">
+			<button class="btn btn-primary primary-btn-btn ng-binding" type="button" ng-click="authenticate(addContactConfirm.$valid,'AddBeneficiary')" name="createContact">{{'btn_Confirm'|translate}}</button>
+			<button type="button" class="btn btn-primary secondary-btn-btn ng-binding" ng-click="backtoAdd()">{{'btn_Back'|translate}}</button>
+		</div>
+	</div>
+</form>
+<div ng-hide="hideOTPFlag" class="bene-otp-div">
+	<h4>
+		<div class="text-success sucessOTP" ng-show="success.happened" style="text-align:center">
+			<div class="img_padding">
+				<img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+				<img ng-src="{{tick}}"/>
+			</div>
+			{{ success.msg }}
+		</div>
+		<div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+	</h4>
+	<form name="OTPform" class="form-horizontal otpNew">
+		<div lp-field="lp-field" label="Mobile_Label" tip="" class="bene-otp-lp-field">
+			<div>
+				<input class=""	type="text"	name="OTPMobile"
+					   ng-model="customerMobMasked" ng-disabled="true" style=""/>
+			</div>
+		</div>
+		<div>
+			<input style="display:none" type="text" name="fakeusernameremembered"/>
+			<input style="display:none" type="password" name="fakepasswordremembered"/>
+		</div>
+		<div  lp-field="lp-field" label="OTP_Label" class="bene-otp-lp-field bene-otp-lp-field-last"
+			  tip="{{'OTP_tip'|translate}}">
+			<div class="OtpInput">
+				<input class="" type="tel" name="otp" autocomplete="off"
+					   ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+					   ng-model="contactsModel.currentContact.otpValue" ng-disabled="cancelTransaction" required="true" style="-webkit-text-security:disc"/><br>
+				<small class="text-danger alignOtpErrorMsg" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+				<small class="text-danger alignOtpErrorMsg" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+				<small class="text-danger alignOtpErrorMsg" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+				<small class="text-danger alignOtpErrorMsg" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+			</div>
+		</div>
+		<div class="bene-otp-buttons">
+			<div class="bene-otp-buttons-child text-center">
+				<button class="btn btn-primary primary-btn-btn ng-binding" type="submit" ng-disabled="cancelTransaction" id="verifyOTP-btn-add-beneficiary" name="verifyOTP" ng-click="OTPform.submitted=true; submitContact(OTPform.$valid, 'AddBeneficiary', 'OTP')">{{'btn_Submit'|translate}}</button>
+				<button class="btn btn-primary secondary-btn-btn ng-binding" type="button" ng-disabled="cancelTransaction" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+		<!-- RSA changes by Xebia starts -->
+
+				<div ng-show="showDenyMessage">
+					<div class="rsa-deny-message">
+						{{cqObject.RSA_DENY_MESSAGE}} 
+					</div>
+				</div>
+
+				<div ng-show="showCancelTransactionMessage">
+					<div class="rsa-cancel-transaction-message">
+							{{cqObject.CANCEL_TRANSACTION}} 
+					</div>
+					<div class="rsa-button">
+							<button class="btn btn-primary primary-btn-btn primary-btn-ft"
+								class="rsa-margin-top" type="submit" name="No"
+								ng-click="cancelRSATransaction()">Okay</button>
+					</div>
+				</div>
+
+				<div ng-show="showSetupCQMessage">
+					<p>
+						<center class="rsa-setupCQMessage">{{cqObject.SETUP_CQ_MESSAGE}}
+						</center>
+					</p>
+					<div class="rsa-button">
+							<button class="btn btn-primary primary-btn-btn primary-btn-ft"
+								type="submit" name="Yes"
+								ng-click="showSetupCQ()">Update Now</button>
+
+							<button class="btn btn-primary primary-btn-btn primary-btn-ft"
+								type="submit" name="No"
+								ng-click="showSetupCQMessage = false; showCancelTransactionMessage = true;">Cancel
+							</button>
+					</div>
+				</div>
+
+				<div ng-hide="hideQuesFlag" class="rsa-border-div">
+					
+					<div ng-bind="showCQError" class="rsa-cancel-transaction-message">
+					</div>
+
+					<!-- <form name="Questionform" class="form-horizontal"> -->
+						<div ng-if="showQuestionDiv">
+							
+								<div class="rsa-margin-top">
+									<label ng-bind="challengeQuestions" class="rsa-bold-font"></label>
+									<input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer"
+									ng-model="challengeQuestion.answer"
+									required="true"/>
+								</div>
+							
+							 
+							<div class="rsa-text-center rsa-margin-bottom">
+								<button class="rsa-button btn btn-primary primary-btn-btn primary-btn-ft"
+									type="submit" name="verifyAnswers"
+									ng-click="verifyCQAnswer()"
+									ng-disabled="!(challengeQuestion.answer)"
+									lp-i18n="Submit Answer">  
+								</button>
+							</div>
+						</div>
+
+						<div ng-show="showWrongAnswerMessage" class="rsa-button" >
+							<button class="btn btn-primary primary-btn-btn primary-btn-ft"
+								type="submit" name="tryAgain"
+								ng-click="fetchCQ()">Try Again</button>
+						</div>
+
+					<!-- </form> -->
+				</div>
+
+		<!-- RSA changes by Xebia ends -->
+
+<div ng-hide="hideCombineFlag" class="bene-otpques-div">
+	<h4>
+		<div class="text-success" ng-show="success.happened" style="text-align:center">{{ success.msg }}</div>
+		<div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+	</h4>
+	<form name="mainform" class="form-horizontal">
+		<div>
+			<div lp-field="lp-field" label="Mobile_Label" tip="" class="bene-otp-lp-field">
+				<div>
+					<input class=""	type="text"	name="OTPMobile"
+						   ng-model="customerMobMasked" ng-disabled="true"/>
+				</div>
+			</div>
+			<input style="display:none" type="text" name="fakeusernameremembered"/>
+			<input style="display:none" type="password" name="fakepasswordremembered"/>
+			<div lp-field="lp-field" label="OTP_Label" class="bene-otp-lp-field bene-otp-lp-field-last"
+				 tip="{{'OTP_tip'|translate}}">
+				<div>
+					<input class="form-control" type="password" name="otp" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+						   ng-model="contactsModel.currentContact.otpValue" ng-disabled="cancelTransaction" required="true" style="width: 38%;"/>
+					<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+					<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+					<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+					<small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+				</div>
+			</div>
+			<div class="bene-otp-lp-field bene-otp-lp-field-last">
+				<div ng-if="showQuestionDiv">
+					<div ng-repeat="question in challengeQuestions" style="margin-top:20px">
+						<label>{{question.questionText}} </label>
+						<input class="form-control" type="text" name="answer" placeholder="Enter answer" ng-model="challengeQuesAnswers[$index].answer" required="true" ng-disabled="isChallengeDisabled" style="width: 70%;"/>
+						<input type="hidden" ng-value="question.questionId" ng-model="challengeQuesAnswers[$index].question" />
+					</div>
+				</div>
+			</div>
+			<div class="bene-otp-buttons">
+				<div class="bene-otp-buttons-child">
+					<button class="btn btn-primary primary-btn-btn ng-binding"  type="submit" ng-disabled="cancelTransaction" name="verifyAnswers_otp" ng-click="mainform.submitted=true; submitContact(mainform.$valid, 'AddBeneficiary', 'OTP')"> Submit </button>
+					<button class="btn btn-primary secondary-btn-btn ng-binding" type="button" ng-disabled="cancelTransaction" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

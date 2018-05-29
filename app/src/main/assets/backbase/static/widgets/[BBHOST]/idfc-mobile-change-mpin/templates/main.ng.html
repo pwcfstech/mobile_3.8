@@ -1,0 +1,63 @@
+
+	<div id="wrapper">
+		<section id="main">
+
+			<!--<ul class="alert marginBttm">
+				<li><span class="arrw"><a href="#"><</a></span>CHANGE MPIN</li>   &lt;!&ndash; {{'change_mpin'|translate}}&ndash;&gt;
+
+			</ul>-->
+
+			<header>
+
+				<div style="text-align:center; font-weight:600; padding-top:24px;" class="enter-box">
+					<div class="col-lg-12">
+						<h3 style="margin-top:5px">Old MPIN</h3>
+
+
+						<ul class="all-field-form">
+							<li >
+								<span><input ng-repeat="num in oldPinNumbers" type="tel" maxlength="1" id="old_{{num}}"
+											  style=" -webkit-text-security:disc;"  move-next-on-maxlength ng-keyup="keydownevt()" is-focused = "true"></span>
+							</li>
+						</ul>
+
+					</div>
+
+					<div class="col-lg-12">
+						<h3 style="margin-top:5px">New MPIN</h3>
+
+						<ul class="all-field-form">
+							<li >
+								<span><input type="tel" ng-repeat="num in NewPinNumbers" id="old_{{num}}" maxlength="1" class="mpinbox"
+											 style=" -webkit-text-security:disc;" move-next-on-maxlength ng-keyup="keydownevt()"></span>
+
+							</li>
+						</ul>
+
+					</div>
+
+					<div class="col-lg-12">
+						<h3 style="margin-top:5px">Re-enter MPIN</h3>
+
+						<ul class="all-field-form">
+							<li >
+								<span ><input ng-repeat="num in reEnterPinNumbers" type="tel" id="old_{{num}}" maxlength="1"
+											  style=" -webkit-text-security:disc;" move-next-on-maxlength ng-keyup="keydownevt()"></span>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
+
+			</header>
+			<footer>
+
+			</footer>
+
+		</section>
+
+
+	</div>
+
+

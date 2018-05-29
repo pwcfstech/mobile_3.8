@@ -1,0 +1,37 @@
+<div class="row" style="background-color:#f7f7f7; border-bottom:1px solid; border-color:#f7f7f7; padding-bottom:3%;padding-top:5%;">
+    <div align="center">
+        <img style="margin-right: 0px; margin-top: -5px" height="17" width="25" alt="recharge Widget" title="recharge Widget" src="static/features/[BBHOST]/theme-idfc/images/tick_hdpi.png">
+    </div>
+    <div class="col-xs-12" style="padding: 3%; text-align: center; padding-top: 2%;">
+        {{successItems.successMessage}}
+    </div>
+</div>
+<div class="recharge-confirm-div">
+    <div class="recharge-confirm-div">
+        <div class="form-group">
+            <div class="row" style="border-bottom:2px solid; border-color:#f7f7f7; padding-bottom:3%;padding-top:3%; padding-left:2%;">
+                <div class="col-xs-6" style="margin-bottom:5%;" ng-repeat="field in items" ng-if="field.display">
+                    <div class="row" style="margin-bottom:5%; margin-left:2%;">
+                        <b>{{field.item}}</b>
+                    </div>
+                    <div class="row" ng-if = "!(field.currency)" style="margin-left:2%;">
+                        {{field.value}}
+                    </div>
+                    <div class="row" ng-if = "field.currency" style="margin-left:2%;">
+                        <small class="rupee-symbol-span"></small>
+                        <small lp-amount="field.value" itemprop="amount"></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row col-lg-12" style="margin-top: 1%; padding-top: 1%; margin-left: 5%;margin-right:5%;">
+    <div class="col-xs-12" style="text-align:right;">
+        <button ng-repeat="item in buttons" name={{item.name}} class={{item.className}} style={{item.style}} ng-click="successAction(item.param)" type="button" lp-i18n={{item.name}}></button>
+    </div>
+    <div class="row col-xs-12" style="text-align:center;padding-left:5%" ng-repeat="item in actions">
+        <a ng-click=transReceipt(item.receiptType,item.transType)><span class={{item.className}} ></span></a>
+        <span ng-if="showMailSuccess" style="color: #007900;font-size: 14px;">{{mailSuccessMsg}}</span>
+    </div>
+</div>

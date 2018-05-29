@@ -1,0 +1,12 @@
+<div ng-controller="IfscSearchController as ifscSearchCtrl">
+	<!-- Loading indicator -->
+	<div ng-if="ifscSearchCtrl.contactsModel.errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span
+				class="sr-only" lp-i18n="Busy"></span>
+		</div>
+	</div>
+    <!--h3 ng-bind="ifscSearchCtrl.state.title"></h3-->
+    <!--img ng-src="{{ifscSearchCtrl.state.icon}}" alt="{{ifscSearchCtrl.state.title}}" /-->
+	<div lp-template="'templates/partial/ifscSearch.html'"></div>
+</div>

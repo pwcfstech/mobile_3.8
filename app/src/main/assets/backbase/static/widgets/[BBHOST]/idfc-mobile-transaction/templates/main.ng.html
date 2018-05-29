@@ -1,0 +1,28 @@
+<div class="lp-widget-body widget-body ng-cloak lp-widget-content" ng-class="responsiveClass">
+    <div>
+        <div class="lp-alerts" ng-show="lpTransactions.errorCode || accountsModel.error">
+            <div class="alert alert-error">
+                <p ng-show="lpTransactions.errorCode">
+                    <span lp-i18n="{{lpTransactions.errorCode}}"></span>
+                    <a ng-click="lpTransactions.loadTransactions()" class="alert-link" lp-i18n="Try again"></a>
+                </p>
+            </div>
+        </div>
+        <div class="clearfix" ng-show="showAccountSelect">
+            <div ng-show="accountsModel.accounts.length == 0">
+                <div class="panel-message" lp-i18n="Loading accounts..."></div>
+            </div>
+            <div lp-accounts-select="lp-accounts-select" ng-model="accountsModel.selected" lp-accounts="accountsModel.accounts" name="accountId" class="lp-accounts-header" ng-change="accountChanged()"></div>
+        </div>
+        <div class="transaction-div clearfix" ng-class="{ 'show-charts': showCharts, 'show-categories': showCategories}">
+            <ul tabset="tabset" vertical="true" class="tabbable" id="transactions-tabs">
+                <li tab="tab" select="selectTab('list')" active="tabs.list" style="display:none;">
+                    <div ng-include="templates.list" ng-class="{ 'preview-all': previewAll }"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="$transactions/sortDropdownOption.html">
+    <span><i class="{{option.icon}} pull-right"></i><span class="sr-only">Sort by</span>{{option.label}} <span class="sr-only">{{option.aria}}</span></span>
+</script>

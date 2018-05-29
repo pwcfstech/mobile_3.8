@@ -1,0 +1,14 @@
+{
+  "name": "content-templates",
+  "version": "2.2.0",
+  "main": "./templates/text.html",
+  "authors": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {}
+}

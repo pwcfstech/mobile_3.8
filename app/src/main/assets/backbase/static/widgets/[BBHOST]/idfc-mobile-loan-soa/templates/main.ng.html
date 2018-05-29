@@ -1,0 +1,28 @@
+<div ng-controller="StatementOfAccountController as soaCtrl">
+
+
+	<div ng-if="soaCtrl.errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+			<span class="sr-only" lp-i18n="Busy"></span>
+		</div>
+	</div>
+
+	<div class="lp-widget-body soa-widget-body soa-panel-body">
+		<div ng-include="soaCtrl.templates.header" class="bg-yellow"></div>
+
+		<div ng-if="soaCtrl.showTable">
+			<div ng-include="soaCtrl.templates.homeloan"></div>
+		</div>
+
+		<div ng-if="soaCtrl.dontShowTable">
+			<div class="text-center padding-20px" ng-if="soaCtrl.noTransactionError">
+				<!-- <img ng-src="/static/idfc/loans/widgets/idfc-loan-soa/media/error.png" class="text-center"> -->
+				<img ng-src="{{soaCtrl.errorImage}}" alt="" class="text-center" />
+			</div>
+			<div ng-if="soaCtrl.noTransactionError" class="font-14 color-pink font-medium text-center padding-bottom-20px" lp-i18n="There are no transactions for the given period"></div>
+			<div ng-include="soaCtrl.templates.error" ng-if="soaCtrl.error.happened"></div>
+		</div>
+
+	</div>
+</div>

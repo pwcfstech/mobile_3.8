@@ -1,0 +1,27 @@
+{namespace templates_LightboxContainer}
+/**
+ * Lightbox
+ * @param item Item in context
+ */
+{template .LightboxContainer}
+    <div data-pid="{$item.name}" data-width="{$item.preferences.width.value}" data-height="{$item.preferences.height.value}" class="bp-container bp-ui-dragRoot lp-lightbox-container panel-chrome-default">
+        <div class="lp-lightbox-inner panel panel-chrome-default">
+            <div class="panel-heading clearfix">
+                <div class="lp-widget-title panel-title pull-left"></div>
+                <div class="lp-widget-controls pull-right">
+                    <button class="lp-widget-control lp-lightbox-close" title="Close">
+                        <i class="lp-icon lp-icon-remove"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="bp-area lp-lightbox-area --area">
+                {foreach $child in $item.children}
+                    {include($child) |noAutoescape}
+                {/foreach}
+            </div>
+            <div class="lp-lightbox-close"></div>
+       </div>
+       <div class="clear"></div>
+    </div>
+{/template}
+

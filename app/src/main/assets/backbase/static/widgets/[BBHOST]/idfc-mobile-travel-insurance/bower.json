@@ -1,0 +1,30 @@
+{
+  "name": "idfc-travel-insurance",
+  "version": "1.0.0",
+  "description": "idfc-travel-insurance",
+  "main": "./scripts/main.js",
+  "authors": [
+    "Infosys"
+  ],
+  "moduleType": [
+    "umd"
+  ],
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {
+    "base": "^2.x",
+    "core": "^2.x",
+    "ui": "^2.x"
+  },
+  "devDependencies": {
+    "mock": "^1.x",
+    "config": "^2.x",
+    "theme": "^2.x",
+    "angular-mocks": "~1.2.28",
+    "requirejs": "~2.1.20"
+  }
+}

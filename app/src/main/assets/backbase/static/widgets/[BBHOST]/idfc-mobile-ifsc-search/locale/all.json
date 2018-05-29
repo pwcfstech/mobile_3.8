@@ -1,0 +1,51 @@
+{
+    "en-US": {
+		"BANK_NAME_LBL" : "Bank Name",
+		"BR_NAME_LBL" : "Branch Name",
+		"OPT_LBL" : "(City or State)",
+		"FIND_LBL" : "Find",
+		"BRANCHES_LBL" : "Branches",
+		"BRANCH_NAME" : "Branch",
+		"BRANCH_ADDRESS" : "Address",
+		"IFSC_CODE" : "IFSC Code",
+		"BACK_LBL" : "Back",
+		"SELECT_IFSC_LBL" : "Select IFSC"
+    },
+	"en-IN": {
+		"BANK_NAME_LBL" : "Bank Name",
+		"BR_NAME_LBL" : "Branch Name",
+		"OPT_LBL" : "(City or State)",
+		"FIND_LBL" : "Find",
+		"BRANCHES_LBL" : "Branches",
+		"BRANCH_NAME" : "Branch",
+		"BRANCH_ADDRESS" : "Address",
+		"IFSC_CODE" : "IFSC Code",
+		"BACK_LBL" : "Back",
+		"SELECT_IFSC_LBL" : "Select IFSC"
+	},
+	"en-GB": {
+		"BANK_NAME_LBL" : "Bank Name",
+		"BR_NAME_LBL" : "Branch Name",
+		"OPT_LBL" : "(City or State)",
+		"FIND_LBL" : "Find",
+		"BRANCHES_LBL" : "Branches",
+		"BRANCH_NAME" : "Branch",
+		"BRANCH_ADDRESS" : "Address",
+		"IFSC_CODE" : "IFSC Code",
+		"BACK_LBL" : "Back",
+		"SELECT_IFSC_LBL" : "Select IFSC"
+	},
+	"en-CA": {
+		"BANK_NAME_LBL" : "Bank Name",
+		"BR_NAME_LBL" : "Branch Name",
+		"OPT_LBL" : "(City or State)",
+		"FIND_LBL" : "Find",
+		"BRANCHES_LBL" : "Branches",
+		"BRANCH_NAME" : "Branch",
+		"BRANCH_ADDRESS" : "Address",
+		"IFSC_CODE" : "IFSC Code",
+		"BACK_LBL" : "Back",
+		"SELECT_IFSC_LBL" : "Select IFSC"
+	}
+    
+}

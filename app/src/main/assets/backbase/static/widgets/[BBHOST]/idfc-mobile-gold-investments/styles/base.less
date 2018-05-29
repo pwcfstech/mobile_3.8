@@ -1,0 +1,1463 @@
+/*----------------------------------------------------------------*/
+/* Import Custom component widget
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Basic widget styles
+/*----------------------------------------------------------------*/
+
+.lp-idfc-gold-investments {
+	/* Build with bb-lp-cli @ v1.2.1 */
+.goldInvst-check-control {
+       display: block;
+       width: 252px;
+       height: 40px;
+       font-size: 14px;
+       line-height: 1.42857143;
+       color: #555;
+       background-color: #fff;
+       background-image: none;
+       border: 1px solid #ccc;
+       -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+       -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+       box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+       -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+       -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+       transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+       padding: 6px 12px;
+	   -webkit-appearance: none;
+	   background: url(../images/MenuDown.png) no-repeat;
+       background-position: 95% 50%;	
+}
+
+
+.goldmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 50; /* Sit on top */
+    padding-top: 105px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-contentg {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.goldmodal-close {
+    color: white;
+    float: right;
+    font-size: 27px;
+    font-weight: bold;
+    left: -14px;
+    position: relative;
+}
+
+.goldmodal-close:hover,
+.goldmodal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.goldmodal-header {
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    border-color: #996699 !important;
+}
+
+.goldmodal-body {
+    height: 500px !important;
+    overflow-y: auto !important;
+    font-family: Helvetica !important;
+	font-weight: normal;
+}
+
+.goldmodal-footer {
+    height: 65px;
+    padding: 22px 70px;
+}
+
+@media ( min-width :320px) and (max-width:480px) {
+.goldmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 50; /* Sit on top */
+    padding-top: 105px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.goldmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 103.5%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.goldmodal-close {
+     color: white;
+    float: right;
+    font-size: 27px;
+    font-weight: bold;
+    left: -6px;
+    position: relative;
+}
+
+.goldmodal-close:hover,
+.goldmodal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.goldmodal-header {
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    border-color: #996699 !important;
+}
+
+.goldmodal-body {
+    height: 400px !important;
+    overflow-y: auto !important;
+    font-family: Helvetica !important;
+	font-weight: normal;
+}
+
+.goldmodal-footer {
+    height: 60px;
+    padding: 0px 180px;
+    margin-right: -146px;
+}
+}
+@media ( max-width :767px) and (min-width:481px) {
+.goldmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 50; /* Sit on top */
+    padding-top: 105px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.goldmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.goldmodal-close {
+     color: white;
+    float: right;
+    font-size: 27px;
+    font-weight: bold;
+    left: -14px;
+    position: relative;
+}
+
+.goldmodal-close:hover,
+.goldmodal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.goldmodal-header {
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    border-color: #996699 !important;
+}
+
+.goldmodal-body {
+    height: 500px !important;
+    overflow-y: auto !important;
+    font-family: Helvetica !important;
+	font-weight: normal;
+}
+
+.goldmodal-footer {
+        height: 90px;
+    margin-left: 306px;
+}
+}
+
+@media ( min-width :250px) and (max-width:319px) {
+.goldmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 50; /* Sit on top */
+    padding-top: 105px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.goldmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 96%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.goldmodal-close {
+        color: white;
+    float: right;
+    font-size: 27px;
+    font-weight: bold;
+    left: -14px;
+    position: relative;
+    margin-top: -49px;
+}
+
+.goldmodal-close:hover,
+.goldmodal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.goldmodal-header {
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    border-color: #996699 !important;
+}
+
+.goldmodal-body {
+    height: 400px !important;
+    overflow-y: auto !important;
+    font-family: Helvetica !important;
+	font-weight: normal;
+}
+
+.goldmodal-footer {
+    height: 60px;
+    padding: 0px 180px;
+    margin-right: -146px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+.gold-bonds-anchor{
+text-decoration:none !important;
+}
+.errorDivEmail{
+	font-size: 13px !important;
+}
+.tickMarkDiv{
+	text-align: center;
+}
+
+.congratsMsg label{
+	padding-top: 0px !important;
+}
+
+.wizard-wrapper .wizard-step-number-active {
+    background-color: rgb(255,199,44);
+    border: 1px solid rgb(255,199,44);
+    color: #fff;
+}
+
+.wizard-wrapper .wizard-step-done {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #ffffff;
+}
+
+.wizard-step-container{
+	margin-left:36%;
+}
+.wizard-step-heading{
+	display: table-caption !important;
+}
+.wizard-step {
+	display: table !important;
+	width: auto;
+}
+.wizard-step-number{
+	margin-top: 3%;
+    margin-bottom: 5%;
+	background-color: rgb(234,234,234);
+	color:black;
+	border: 1px solid rgb(234,234,234) !important;
+}
+.wizard-step-container .glyphicon{
+	display: block;
+    border: 2px solid rgb(234,234,234);
+    width: 21%;
+    margin-top: 1%;
+    margin-left: -1.6%;
+    margin-right: -1%;
+}
+.glyphicon-arrow-right:before {
+    content: no-close-quote;
+}
+.progressBarDiv {
+    width: 50%;
+    float: left;
+}
+.progressBarLabelLeft{
+	font-size: 12px !important;
+    margin-left: 50%;
+}
+.progressBarLabelRight{
+	font-size: 12px !important;
+    margin-right: 94%;
+}
+.wizard-steps{
+	margin-top: -2%;
+}
+/* Important part */
+
+.popup_close {
+    color: #FB637E!important;
+    float: right;
+    font-size: 28px;
+}
+
+.popup_close:hover,
+.popup_close:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ol_de{
+	margin-left: 4em !important;
+  }
+.li_de{
+	list-style-type: upper-roman !important;
+	padding-left: 3em !important;
+	padding-bottom: 1em !important;
+	font-size:16px !important;
+	
+	}
+.li_div{
+	margin-left:-45px !important;
+	}
+.ft_div{
+  margin-left: 25px;
+  font-size:16px;
+  margin-bottom: 12px
+  }
+
+
+
+.gold_h_font{
+  font-size: 14px !important;
+}
+.gold_l_width{
+  width: 37% !important;
+}
+.gold_le{
+  font-size: 13px !important;
+}
+.gold_r_width{
+  width: 50% !important;
+}
+.gold_re{
+  font-size: 12px !important; 
+}
+.rupee-symbol-span {
+  font-family: webrupee !important;
+  display: inline;
+  margin-right: 3px !important;
+  font-weight: 100 !important;
+  font-style: normal !important;
+  font-size: 13px !important;
+}
+.page-content-label{
+    padding-left : 13% !important;
+    width        : 37% !important;
+}
+
+.page-content-input {
+    margin : 10px 0 10px 0 !important;
+}
+
+label{
+    font-weight : bold !important;
+    padding-top : 20px !important;
+}
+
+.form-control{
+    border-radius : 0px !important;
+    width         : 260px !important;
+}
+
+.bib-wrapper .page-content-input select{
+    width : 260px !important;
+}
+
+.info-panel{
+    font-weight :   Normal !important;
+    opacity     :   0.5;
+    margin      :   2% 0 0 66%;
+    width       :   100%;
+}
+
+.bib-wrapper .primary-btn-btn{
+    margin-left :   87% !important;
+}
+
+.bib-wrapper .goldInvst-err-msg{
+    clear   :   both;
+}
+
+.info-panel-label{
+    font-weight :   Normal !important;
+    opacity     :   0.7;
+    margin      :   0 0 0 15%;
+    width       :   100%;
+    padding-top :   5% !important;
+}
+
+.info-panel-content{
+    padding-top :   3% !important;
+}
+
+.info-panel-div{
+    float   :   left;
+    width   :   50%;
+    border  :   1px solid lightgrey;
+    height  :   195px;
+}
+
+.terms-div{
+    padding-top :   2%;
+    clear       :   both;
+}
+
+.terms-label{
+    opacity     :   0.5;
+    font-weight :   Normal !important;
+    font-size   :   13px !important;
+}
+
+.terms-link{
+    color           :   rgb(251,99,126) !important;
+    padding-left    :   5px;
+    font-weight     :   Normal;
+    font-size       :   13px !important;
+}
+
+.content-label{
+    margin-top  :   5px;
+    width       :   40%;
+}
+
+.content-separator-left{
+    padding-top :   3%;
+    width       :   10%;
+}
+
+.successMsg{
+    text-align  :   center;
+}
+
+.goldBond-pdf-img{
+    padding :   5px 5px 5px 5px;
+    cursor  :   pointer;
+	margin-top: 1%;
+}
+
+.successMsg-label{
+    font-weight :   500;
+	margin-top: -25px;
+}
+
+.successMsg-serviceNo{
+    color : Orange;
+}
+
+.sm-div {
+    display : none;
+}
+.button-mob{
+	display :   none;
+}
+.receipt-mob{
+	display :   none;
+}
+.btn-tick{
+    color       :   green;
+    font-size   :   25px;
+    margin-left :   49%;
+}
+.break-email{
+    word-wrap   :   break-word;
+}
+.grams-span{
+    font-weight :   normal;
+}
+.mail-msg-div{
+    font-weight :   normal !important;
+    font-size   :   13px !important;
+    opacity     :   0.5;
+}
+.successMsg-div{
+    margin-bottom   :   3%;
+}
+
+@media (min-width: 240px) and (max-width: 320px) {
+	.gbScrollPopup{
+		height: 360px !important;
+		overflow-y: auto !important;
+	}
+    .bib-wrapper .page-content-label{
+        width   :   100% !important;
+        padding :   0 !important;
+    }
+    .bib-wrapper .page-content-input{
+        padding :   0;
+        margin  :   0 0 -8px 0 !important;
+        width   :   280px;
+    }
+    .bib-wrapper .page-content-input input{
+        height  :   45px !important;
+        width   :   212px !important;
+    }
+    .bib-wrapper .page-content-input select{
+        width   :   212px !important;
+        height  :   45px !important;
+    }
+
+    .bib-wrapper .primary-btn-btn{
+        width       :   96% !important;
+        margin-top  :   8% !important;
+        margin-left :   0% !important;
+        min-width   :   0% !important;
+        height      :   45px !important;
+		margin-right:   5% !important;
+    }
+
+    .bib-wrapper .secondary-btn-btn{
+        width       :   120% !important;
+        margin-top  :   8% !important;
+        margin-left :   0% !important;
+        max-width   :   97% !important;
+        height      :   45px !important;
+    }
+    .bib-wrapper .button-row button:last-child {
+        margin-right    :   34% !important;
+    }
+    .bib-wrapper .button-row {
+        margin :   70px 0 0 -19px !important;
+        width   :   114%;
+    }
+    .bib-wrapper .text-danger{
+        font-size   :   11px !important;
+    }
+    .panel-body .row{
+        padding :   0px 3% !important;
+    }
+    .info-panel{
+        font-weight :   Normal !important;
+        opacity     :   0.5;
+        margin      :   10px 0 0 0 !important;
+        width       :   110%;
+        display     :   inline-block;
+        font-size   :   12px;
+    }
+
+    .info-panel-content{
+        padding-top :   5% !important;
+        font-weight :   normal !important;
+        font-size   :   9pt !important;
+        padding     :   0 !important;
+		line-height	:	normal !important;
+    }
+
+    .info-panel-div{
+        float   :   left;
+        width   :   50%;
+        border  :   none;
+        height  :   126px;
+    }
+
+    .info-panel-div-sec{
+        float       :   left;
+        width       :   50%;
+        height      :   75px;
+        padding-top :   20px;
+    }
+
+    .terms-label {
+        opacity     :   0.5;
+        font-weight :   Normal !important;
+        font-size   :   9px;
+        display     :   inline;
+        font-size   :   12px !important;
+    }
+
+    .terms-div{
+        width   :   106%;
+    }
+
+    .terms-link {
+        color       :   rgb(251,99,126) !important;
+        padding-left:   5px;
+        font-weight :   Normal;
+        font-size   :   12px !important;
+    }
+
+    .bib-wrapper .info-panel-label{
+        margin      :   0 !important;
+        width       :   100% !important;
+        font-size   :   9pt !important;
+        font-weight :   bold !important;
+        opacity     :   5 !important;
+    }
+
+    .bib-wrapper .content-separator-left{
+        display     :   none;
+    }
+
+    .bib-wrapper .content-label{
+        width   :   115% !important;
+        margin  :   0 !important;
+    }
+    .separator-div{
+        float   :   left;
+        width   :   100%;
+    }
+    .bib-wrapper .sm-div{
+        display :   block;
+    }
+
+    .bib-wrapper .lg-div{
+        display :   none;
+    }
+
+    .bib-wrapper .optional-div{
+        display :   none;
+    }
+
+    .button-desk{
+        display :   none;
+    }
+	.receipt-desk{
+        display :   none;
+    }
+    .button-mob{
+        display :   block;
+    }
+	.receipt-mob{
+        display :   block;
+		text-align: center;
+    }
+
+    .bib-wrapper .optional{
+        display     :   block !important;
+        width       :   27%;
+        margin      :   25px 0 0 6px;
+        padding     :   0px;
+        float       :   left;
+        font-size   :   12px;
+        font-family :   gotham_medium,Calibri !important;
+    }
+	
+	.goldBond-pdf-img{
+		padding :   5px 5px 5px 5px;
+		cursor  :   pointer;
+		margin-top: 0%;
+	}
+	
+	.progressBarLabelLeft {
+		font-size: 12px !important;
+		margin-left: 0%;
+	}
+	.wizard-wrapper .wizard-step-container {
+		display: block;
+	}
+	.wizard-step-container {
+		margin-left: 21%;
+	}
+	.wizard-step-container .glyphicon {
+		display: block;
+		border: 2px solid rgb(234,234,234);
+		width: 37%;
+		margin-top: 3%;
+		margin-left: -5%;
+		margin-right: -3%;
+	}
+	
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+	.gbScrollPopup{
+		height: 360px !important;
+		overflow-y: auto !important;
+	}
+
+	.bib-wrapper .page-content-label{
+        width   :   100% !important;
+        padding :   0 !important;
+    }
+    .bib-wrapper .page-content-input{
+        padding :   0;
+        margin  :   0 0 -8px 0 !important;
+        width   :   280px;
+    }
+    .bib-wrapper .page-content-input input{
+        height  :   45px !important;
+        width   :   279px !important;
+    }
+    .bib-wrapper .page-content-input select{
+        width   :   279px !important;
+        height  :   45px !important;
+    }
+
+    .bib-wrapper .primary-btn-btn{
+        width       :   96% !important;
+        margin-top  :   8% !important;
+        margin-left :   0% !important;
+        min-width   :   0% !important;
+        height      :   45px !important;
+		margin-right:   5% !important;
+    }
+
+    .bib-wrapper .secondary-btn-btn{
+        width       :   96% !important;
+        margin-top  :   8% !important;
+        margin-left :   1% !important;
+        margin-right:   3% !important;
+        min-width   :   0% !important;
+        height      :   45px !important;
+    }
+
+    .bib-wrapper .button-row {
+        margin :   30px 0 0 -19px !important;
+        width   :   110%;
+    }
+
+    .panel-body .row{
+        padding :   0px 3% !important;
+    }
+    .info-panel{
+        font-weight :   Normal !important;
+        opacity     :   0.5;
+        margin      :   10px 0 0 0 !important;
+        width       :   110%;
+        display     :   inline-block;
+        font-size   :   12px;
+    }
+
+    .info-panel-content{
+        padding-top :   5% !important;
+        font-weight :   normal !important;
+        font-size   :   9pt !important;
+        padding     :   0 !important;
+		line-height	:	normal !important;
+    }
+
+    .info-panel-div{
+        float   :   left;
+        width   :   50%;
+        border  :   none;
+        height  :   126px;
+    }
+
+    .info-panel-div-sec{
+        float       :   left;
+        width       :   50%;
+        height      :   75px;
+        padding-top :   20px;
+    }
+
+    .terms-label {
+        opacity     :   0.5;
+        font-weight :   Normal !important;
+        font-size   :   9px;
+        display     :   inline;
+        font-size   :   12px !important;
+    }
+
+    .terms-div{
+        width   :   106%;
+    }
+
+    .terms-link {
+        color       :   rgb(251,99,126) !important;
+        padding-left:   5px;
+        font-weight :   Normal;
+        font-size   :   12px !important;
+    }
+
+    .bib-wrapper .info-panel-label{
+        margin      :   0 !important;
+        width       :   100% !important;
+        font-size   :   9pt !important;
+        font-weight :   bold !important;
+        opacity     :   5 !important;
+    }
+
+    .bib-wrapper .content-separator-left{
+        display     :   none;
+    }
+
+    .bib-wrapper .content-label{
+        width   :   115% !important;
+        margin  :   0 !important;
+    }
+    .separator-div{
+        float   :   left;
+        width   :   100%;
+    }
+    .bib-wrapper .sm-div{
+        display :   block;
+    }
+
+    .bib-wrapper .lg-div{
+        display :   none;
+    }
+
+    .bib-wrapper .optional-div{
+        display :   none;
+    }
+
+    .button-desk{
+        display :   none;
+    }
+
+    .button-mob{
+        display :   block;
+    }
+	.receipt-desk{
+        display :   none;
+    }
+
+    .receipt-mob{
+        display :   block;
+		text-align: center;
+    }
+
+
+    .bib-wrapper .optional{
+        display     :   block !important;
+        width       :   27%;
+        margin      :   25px 0 0 6px;
+        padding     :   0px;
+        float       :   left;
+        font-size   :   12px;
+        font-family :   gotham_medium,Calibri !important;
+    }
+	.goldBond-pdf-img{
+		padding :   5px 5px 5px 5px;
+		cursor  :   pointer;
+		margin-top: 0%;
+	}
+	
+	.progressBarLabelLeft {
+		font-size: 12px !important;
+		margin-left: 0%;
+	}
+	.wizard-wrapper .wizard-step-container {
+		display: block;
+	}
+	.wizard-step-container {
+		margin-left: 21%;
+	}
+	.wizard-step-container .glyphicon {
+		display: block;
+		border: 2px solid rgb(234,234,234);
+		width: 37%;
+		margin-top: 3%;
+		margin-left: -4%;
+		margin-right: -3%;
+	}
+}
+
+@-moz-document url-prefix() {
+    .wizard-step-container .glyphicon {
+	    display: block;
+		border: 2px solid rgb(234,234,234);
+		width: 21%;
+		margin-top: -2.5%;
+		margin-left: 18%;
+		margin-right: -1%;
+	}
+	.secondDiv{
+		margin-top: -4%;
+		margin-left: 25.5%;
+	}
+	.secondDiv .wizard-step{
+		margin-top: -3.5%;
+		margin-left: 38.5%;
+	}
+}
+
+@media (max-width: 767px) and (min-width: 481px){
+	.bib-wrapper .page-content-label{
+        width   :   100% !important;
+        padding :   0 !important;
+    }
+    .bib-wrapper .page-content-input{
+        padding :   0;
+        margin  :   0 0 -8px 0 !important;
+        width   :   280px;
+    }
+    .bib-wrapper .page-content-input input{
+        height  :   45px !important;
+        width   :   279px !important;
+    }
+    .bib-wrapper .page-content-input select{
+        width   :   279px !important;
+        height  :   45px !important;
+    }
+
+    .bib-wrapper .primary-btn-btn{
+        width       :   96% !important;
+        margin-top  :   8% !important;
+        margin-left :   0% !important;
+        min-width   :   0% !important;
+        height      :   45px !important;
+		margin-right:   5% !important;
+    }
+
+    .bib-wrapper .secondary-btn-btn{
+        width       :   96% !important;
+        margin-top  :   8% !important;
+        margin-left :   1% !important;
+        margin-right:   3% !important;
+        min-width   :   0% !important;
+        height      :   45px !important;
+		max-width   :   96% !important;
+    }
+
+    .bib-wrapper .button-row {
+        margin :   30px 0 0 -19px !important;
+        width   :   110%;
+    }
+
+    .panel-body .row{
+        padding :   0px 3% !important;
+    }
+    .info-panel{
+        font-weight :   Normal !important;
+        opacity     :   0.5;
+        margin      :   10px 0 0 0 !important;
+        width       :   110%;
+        display     :   inline-block;
+        font-size   :   12px;
+    }
+
+    .info-panel-content{
+        padding-top :   5% !important;
+        font-weight :   normal !important;
+        font-size   :   9pt !important;
+        padding     :   0 !important;
+		line-height	:	normal !important;
+    }
+
+    .info-panel-div{
+        float   :   left;
+        width   :   50%;
+        border  :   none;
+        height  :   126px;
+    }
+
+    .info-panel-div-sec{
+        float       :   left;
+        width       :   50%;
+        height      :   75px;
+        padding-top :   20px;
+    }
+
+    .terms-label {
+        opacity     :   0.5;
+        font-weight :   Normal !important;
+        font-size   :   9px;
+        display     :   inline;
+        font-size   :   12px !important;
+    }
+
+    .terms-div{
+        width   :   106%;
+    }
+
+    .terms-link {
+        color       :   rgb(251,99,126) !important;
+        padding-left:   5px;
+        font-weight :   Normal;
+        font-size   :   12px !important;
+    }
+
+    .bib-wrapper .info-panel-label{
+        margin      :   0 !important;
+        width       :   100% !important;
+        font-size   :   9pt !important;
+        font-weight :   bold !important;
+        opacity     :   5 !important;
+    }
+
+    .bib-wrapper .content-separator-left{
+        display     :   none;
+    }
+
+    .bib-wrapper .content-label{
+        width   :   115% !important;
+        margin  :   0 !important;
+    }
+    .separator-div{
+        float   :   left;
+        width   :   100%;
+    }
+    .bib-wrapper .sm-div{
+        display :   block;
+    }
+
+    .bib-wrapper .lg-div{
+        display :   none;
+    }
+
+    .bib-wrapper .optional-div{
+        display :   none;
+    }
+
+    .button-desk{
+        display :   none;
+    }
+
+    .button-mob{
+        display :   block;
+    }
+	.receipt-desk{
+        display :   none;
+    }
+
+    .receipt-mob{
+        display :   block;
+		text-align: center;
+    }
+
+
+    .bib-wrapper .optional{
+        display     :   block !important;
+        width       :   27%;
+        margin      :   25px 0 0 6px;
+        padding     :   0px;
+        float       :   left;
+        font-size   :   12px;
+        font-family :   gotham_medium,Calibri !important;
+    }
+	.goldBond-pdf-img{
+		padding :   5px 5px 5px 5px;
+		cursor  :   pointer;
+		margin-top: 0%;
+	}
+	
+	.progressBarLabelLeft {
+		font-size: 12px !important;
+		margin-left: 0%;
+	}
+	.wizard-wrapper .wizard-step-container {
+		display: block;
+	}
+	.wizard-step-container {
+		margin-left: 21%;
+	}
+	.wizard-step-container .glyphicon {
+		display: block;
+		border: 2px solid rgb(234,234,234);
+		width: 37%;
+		margin-top: 3%;
+		margin-left: -4%;
+		margin-right: -3%;
+	}
+}
+/*# sourceMappingURL=base.css.map */
+
+}
+.goldBondpopup{
+	.popup_close {
+		color: #FB637E!important;
+		float: right;
+		font-size: 28px;
+	}
+
+	.popup_close:hover,
+	.popup_close:focus {
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	.ol_de{
+		margin-left: 4em !important;
+	  }
+	.li_de{
+		list-style-type: upper-roman !important;
+		padding-left: 3em !important;
+		padding-bottom: 1em !important;
+		font-size:16px !important;
+		
+		}
+	.li_div{
+		margin-left:-45px !important;
+		}
+	.ft_div{
+	  margin-left: 25px;
+	  font-size:16px;
+	  margin-bottom: 12px
+	  }
+
+	.gbScrollPopup{
+		height: 500px !important;
+		overflow-y: auto !important;
+	}
+
+	.gold_h_font{
+	  font-size: 14px !important;
+	}
+	.gold_l_width{
+	  width: 37% !important;
+	}
+	.gold_le{
+	  font-size: 13px !important;
+	}
+	.gold_r_width{
+	  width: 50% !important;
+	}
+	.gold_re{
+	  font-size: 12px !important; 
+	}
+	.rupee-symbol-span {
+	  font-family: webrupee !important;
+	  display: inline;
+	  margin-right: 3px !important;
+	  font-weight: 100 !important;
+	  font-style: normal !important;
+	  font-size: 13px !important;
+	}
+	.page-content-label{
+		padding-left : 15% !important;
+		width        : 40% !important;
+	}
+
+	.page-content-input {
+		margin : 10px 0 10px 0 !important;
+	}
+
+	label{
+		font-weight: bold !important;
+		padding-top: 20px !important;
+		color: white;
+		padding-left: 25px;
+		padding-top: 10px !important;
+		padding-bottom: 5px !important;
+	}
+
+	.form-control{
+		border-radius : 0px !important;
+		width         : 260px !important;
+	}
+
+	.bib-wrapper .page-content-input select{
+		width : 260px !important;
+	}
+
+	.info-panel{
+		font-weight :   Normal !important;
+		opacity     :   0.5;
+		margin      :   2% 0 0 62%;
+		width       :   100%;
+	}
+
+	.bib-wrapper .primary-btn-btn{
+		margin-left :   87% !important;
+	}
+
+	.bib-wrapper .goldInvst-err-msg{
+		clear   :   both;
+	}
+
+	.info-panel-label{
+		font-weight :   Normal !important;
+		opacity     :   0.7;
+		margin      :   0 0 0 15%;
+		width       :   100%;
+		padding-top :   5% !important;
+	}
+
+	.info-panel-content{
+		padding-top :   3% !important;
+	}
+
+	.info-panel-div{
+		float   :   left;
+		width   :   50%;
+		border  :   1px solid lightgrey;
+		height  :   195px;
+	}
+
+	.terms-div{
+		padding-top :   2%;
+		clear       :   both;
+	}
+
+	.terms-label{
+		opacity     :   0.5;
+		font-weight :   Normal !important;
+		font-size   :   13px !important;
+	}
+
+	.terms-link{
+		color           :   rgb(251,99,126) !important;
+		padding-left    :   5px;
+		font-weight     :   Normal;
+		font-size       :   13px !important;
+	}
+
+	.content-label{
+		margin-top  :   5px;
+		width       :   40%;
+	}
+
+	.content-separator-left{
+		padding-top :   3%;
+		width       :   10%;
+	}
+
+	.successMsg{
+		text-align  :   center;
+	}
+
+	.goldBond-pdf-img{
+		padding :   5px 5px 5px 5px;
+		cursor  :   pointer;
+		margin-top: 1%;
+	}
+
+	.successMsg-label{
+		font-weight :   500;
+		margin-top: -25px;
+	}
+
+	.successMsg-serviceNo{
+		color : Orange;
+	}
+
+	.sm-div {
+		display : none;
+	}
+	.button-mob{
+		display :   none;
+	}
+	.receipt-mob{
+		display :   none;
+	}
+	.btn-tick{
+		color       :   green;
+		font-size   :   25px;
+		margin-left :   49%;
+	}
+	.break-email{
+		word-wrap   :   break-word;
+	}
+	.grams-span{
+		font-weight :   normal;
+	}
+	.mail-msg-div{
+		font-weight :   normal !important;
+		font-size   :   13px !important;
+		opacity     :   0.5;
+	}
+	.successMsg-div{
+		margin-bottom   :   3%;
+	}
+	
+
+	.popupHeader {
+		color: #ffffff !important;
+		background-color: #996699 !important;
+		border-color: #996699 !important;
+	}
+
+	.popupHeader .close {
+		position: relative;
+		top: 9px;
+		left: -17px;
+		color: white;
+		padding: 0;
+		cursor: pointer;
+		background: transparent;
+		border: 0;
+		-webkit-appearance: none;
+		float: right;
+		opacity: 1;
+		font-style: normal;
+	}
+	.gbPopupMarginContent{
+		margin-left: 3%;
+	}
+	#style-2::-webkit-scrollbar-track{
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+		border-radius: 10px;
+		background-color: #F5F5F5;
+	}
+
+	#style-2::-webkit-scrollbar{
+		width: 12px;
+		background-color: #F5F5F5;
+	}
+
+	#style-2::-webkit-scrollbar-thumb{
+		border-radius: 10px;
+		-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+		background-color: #777777;
+	}
+	.gbDdeclarationDashedLine {
+		margin-left: 15.5%;
+		border-bottom: 1px dashed #ff5c33;
+		position: relative;
+		height: 16px;
+		padding-top: 2.4%;
+	}
+	.gbSideHeading{
+		width: 20%;
+		float: left;
+	}
+	.gbDdeclarationDashedLine2 {
+		margin-left: 26%;
+		color: orange;
+		border-bottom: 1px dashed orange;
+		position: relative;
+		height: 16px;
+		padding-top: 2.4%;
+	}
+	.gbSideHeading2, .gbSideHeading3, .gbSideHeading4{
+		width: 23%;
+		float: left;
+	}
+	.gbSideHeading4{
+		width: 57%;
+		float: left;
+	}
+	.gbDdeclarationDashedLine3 {
+		margin-left: 26.5%;
+		border-bottom: 1px dashed #ff5c33;
+		position: relative;
+		height: 16px;
+		padding-top: 2.4%;
+	}
+	.gbDdeclarationDashedLine4 {
+		margin-left: 60%;
+		border-bottom: 1px dashed orange;
+		position: relative;
+		height: 16px;
+		padding-top: 2.2%;
+	}
+}
+

@@ -1,0 +1,37 @@
+{
+  "debug": true,
+  "portal": "idfc_mobile_3v",
+  "serverURL": "http://10.5.8.135:7113/",
+  "localModelPath": "$(contextRoot)/static/conf/model.json",
+  "serverModelPath": "http://10.5.8.135:7113/portals/idfc_mobile_3v/mobile/model.json",
+  "remoteContextRoot": "http://10.5.8.135:7113/",
+  "template": {
+    "styles": [
+      "static/features/[BBHOST]/theme-default/dist/styles/base.min.css",
+      "static/features/[BBHOST]/theme-mobile-demo/css/launchpad-theme.css",
+      "static/features/[BBHOST]/theme-mobile-demo/css/base.css",
+      "static/features/[BBHOST]/theme-mobile-demo/css/IDFCbase.css"
+    ],
+    "scripts": [],
+    "extra-libraries": [
+      "static/features/[BBHOST]/fastclick/fastclick.js",
+      "static/features/[BBHOST]/launchpad/launchpad-setup.js",
+      "static/features/[BBHOST]/jquery/dist/jquery.js",
+      "static/features/[BBHOST]/requirejs/require.js",
+      "static/features/[BBHOST]/angular/angular.js",
+      "static/features/[BBHOST]/config/requirejs.conf.js",
+      "static/features/[BBHOST]/base/scripts/require-widget.js",
+      "static/features/[BBHOST]/config/require-conf.js"
+    ]
+  },
+  "behaviourMap": [],
+  "syncedPreferences": {
+    "versionClicked": ""
+  },
+  "domainAccess": [
+    "*"
+  ],
+  "pinnedCertificates": [
+    "selfsigned.der"
+  ]
+}

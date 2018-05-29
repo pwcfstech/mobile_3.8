@@ -1,0 +1,25 @@
+<div class="panel panel-default" ng-if="fiModel.selected">
+    <div class="panel-heading selected-fi">
+        <div class="col-xs-2 col-lg-1">
+            <span ng-show="fiModel.selected.isConnecting"><i class="lp-icon {{fiModel.selected.icon}}"></i></span>
+            <span ng-show="!fiModel.selected.isConnecting"><i class="glyphicon glyphicon-ok"></i></span>
+        </div>
+        <div class="col-xs-10 col-xs-11">
+            <div ng-show="fiModel.selected.isConnecting">
+                <span class="h4">{{fiModel.selected.name}}</span><br />
+                <span>Set up may take a few minutes... No need for you to wait around!</span>
+            </div>
+            <div ng-show="!fiModel.selected.isConnecting">
+                <span>Your account has been modified successfully!</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+    <div class="connection-feedback">
+        <p class="h4 text-center" ng-show="!fiModel.selected.isConnecting">Your account is modified!</p>
+        <p ng-show="fiModel.selected.isConnecting">This may take a while,<br /> no need for you to wait around!<br /><a>Cancel adding {{fiModel.selected.name}}</a></p>
+    </div>
+    <button ng-click="close()" class="btn btn-primary col-xs-12 col-md-6 col-md-offset-3 primary-btn-deposit">I am done</button>
+    <button type="button" ng-click="restartWizard()" class="btn btn-link col-xs-12 col-md-6 col-md-offset-3 secondary-btn-deposit">View/Modify another account</button>
+</div>

@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".mainactivity_backup">
+<!--    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="always"/>-->
+
+    <!--IDFC 2.5 logout Option to be given on the top right corner-->
+    <item
+        android:id="@+id/action_versionName"
+        android:title=""
+        android:icon="@drawable/notifications"
+        app:showAsAction="always"/>
+</menu>

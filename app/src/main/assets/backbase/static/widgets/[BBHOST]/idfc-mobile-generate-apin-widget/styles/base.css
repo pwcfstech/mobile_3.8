@@ -1,0 +1,1016 @@
+.lp-loyalty .row {
+  margin-bottom: 10px
+}
+
+.lp-desc-list {
+  margin: 0 0 0 10px
+}
+
+.lp-desc-list>dt {
+  min-width: 60%;
+  text-align: left
+}
+
+.lp-desc-list>dd {
+  margin-left: 0
+}
+
+.generateApin-btn-submitForm {
+  margin-right: 6%
+}
+
+.generateApin-button-alignForm {
+  text-align: center;
+  margin-top: 5%
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #pinGenerateForm .col-sm-3 {
+      width: 39%
+  }
+  #confirmPinForm .col-sm-3 {
+      width: 38%
+  }
+}
+
+.generateApin-div-td-dep-ab {
+  position: relative;
+  padding-top: 5px
+}
+
+.generateApin-otv-div {
+  padding-bottom: 5%;
+  min-height: 190px
+}
+
+.generateApin-btn-align {
+  margin-right: 6%
+}
+
+.generateApin-change-cvv {
+  width: 44%
+}
+
+.generateApin-form-control {
+  width: 197px;
+  height: 31px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  /* background-color: #66c6cfd9;  Xebia Refactoring */
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.generateApin-form-div {
+  text-align: left;
+  padding-top: 6px;
+  min-width: 40%
+}
+
+.generateApin-error-message-align {
+  clear: both;
+  width: 223px
+}
+
+.generateApin-label-span {
+  font-weight: 700;
+  padding-top: 12px;
+  margin-right: -5%;
+  font-family: gotham_bold, Calibri!important;
+  font-weight: bold!important;
+  font-size: 14px!important
+}
+
+.generateApin-tip-span {
+  float: left;
+  width: 10%;
+  position: relative
+}
+
+.generateApin-dropdown-year {
+  width: 46%
+}
+
+.generateApin-dropdown-month {
+  width: 42%;
+  float: left
+}
+
+.primary-btn-apingen {
+  font-family: Gotham_Book, Calibri!important;
+  font-size: 14px!important;
+  color: #fff!important;
+  background-color: #969!important;
+  padding: 16px!important;
+  border: none!important
+}
+
+.secondary-btn-apingen {
+  font-family: Gotham_Book, Calibri!important;
+  background-color: #666!important;
+  font-size: 14px!important;
+  color: #fff!important;
+  border: none!important;
+  padding: 16px!important
+}
+
+.btn-link-apin {
+  color: #969!important;
+  font-family: Gotham_Book, Calibri!important;
+  font-size: 14px!important;
+  margin-left: 45%
+}
+
+.generateApin-panelwidth {
+  max-width: 620px
+}
+
+.generateApin-button-margin {
+  margin-right: 6%;
+  margin-bottom: 0
+}
+
+.generateApin-button-marginBottom {
+  margin-bottom: 23px
+}
+
+.generateApin-button-marginBottom label {
+  width: 100%;
+  float: left
+}
+
+@media (max-width: 416px) {
+  .generateApin-margin {
+      margin-bottom: -20px
+  }
+  .generateApin-form-div {
+      min-width: 60%
+  }
+}
+
+@media (min-width: 417px) and (max-width: 431px) {
+  .generateApin-form-div {
+      min-width: 44%
+  }
+}
+
+@media (max-width: 404px) {
+  .generateApin-otv-div {
+      min-height: 394px
+  }
+}
+
+@media (min-width: 404px) and (max-width: 485px) {
+  .generateApin-otv-div {
+      min-height: 300px
+  }
+}
+
+@media (min-width: 486px) {
+  .generateApin-otv-div {
+      min-height: 251px
+  }
+}
+
+.otp-generateApin-btn {
+  margin-top: 2%
+}
+
+.otp-label-generateApin label {
+  float: left;
+  width: 38%
+}
+
+@media (max-width: 427px) {
+  .otp-label-generateApin label {
+      width: 60%
+  }
+}
+
+@media (min-width: 488px) and (max-width: 767px) {
+  .apin-label-align label {
+      width: 50%
+  }
+}
+
+@media (min-width: 852px) and (max-width: 991px) {
+  .apin-label-align label {
+      width: 50%!important
+  }
+  #debitForm .col-sm-3 {
+      width: 0
+  }
+}
+
+@media (min-width: 768px) and (max-width: 851px) {
+  .apin-label-align label {
+      width: 60%!important
+  }
+  #debitForm .col-sm-3 {
+      width: 24%
+  }
+}
+
+.generateApin-checkbox {
+  margin-left: 11px!important;
+  margin-top: 0!important
+}
+
+.generateApin-user-terms {
+  margin-left: 2.81%!important
+}
+
+.panel-body {
+  padding: 0!important;
+  overflow-x: hidden!important
+}
+
+.generateApin-marginalign i {
+  padding-left: 3%!important
+}
+
+.mylabel {
+  padding-left: 0!important;
+  padding-right: 0!important;
+  float: none!important
+}
+
+.lastbtn {
+  width: 87.5%!important;
+  height: 48px!important;
+  margin-top: 9%!important
+}
+
+.labelText {
+  padding-left: 0!important;
+}
+
+.ucicclass {
+  margin-left: 6.25%!important
+}
+
+.ipwidth {
+  letter-spacing: 2px;
+  width: 92.5%!important;
+  margin-left: 0!important;
+  margin-right: 8%!important;
+}
+
+.btnClear {
+  text-transform: uppercase;
+  border-radius: 2px!important;
+  background-color: #eaeaea!important;
+  margin-left: 6.25%!important;
+  color: #000!important
+}
+
+.btnNext {
+  text-transform: uppercase;
+  border-radius: 2px!important;
+  background-color: #fb637e!important;
+  margin-left: 6.25%!important;
+  color: #fff!important
+}
+
+textDanger {
+  margin-left: 7%!important
+}
+
+.btnNext1 {
+  margin-left: 1%!important
+}
+
+.btnClear1 {
+  margin-left: 1%!important
+}
+
+.generateApin-error-message-align {
+  margin-left: 7%!important
+}
+
+.borderLine {
+  margin-bottom: 20px;
+  background-color: #eaeaea!important;
+  height: 1px!important
+}
+
+.debitformgroup {
+  margin-left: 0!important;
+  margin-bottom: 0!important
+}
+
+select {
+  background-image: url(../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png)!important;
+  -webkit-appearance: none!important;
+  background-repeat: no-repeat;
+  background-position: 97% 50%;
+  border-radius: 2px!important
+}
+
+.generateApin-user-terms {
+  margin-left: 6.25%!important;
+  margin-top: -22px!important;
+  color: #fb637e
+}
+
+#agreeLabel {
+  float: left;
+  width: 80%
+}
+
+.borderLine1 {
+  margin-top: 7%!important;
+  margin-bottom: 0!important;
+  background-color: #eaeaea!important;
+  height: 1px!important
+}
+
+.labelStyle {
+  color: #4a4a4a!important;
+  font-family: gotham_medium!important
+}
+
+.text-success {
+  color: #39ca74!important
+}
+
+.sucessOTP {
+  padding-right: 6.8%!important;
+  padding-left: 6.8%!important;
+  font-size: 14px!important;
+  font-family: "Gotham_Book"!important
+}
+
+.img_padding {
+  margin-bottom: 10px!important
+}
+
+.otpLabelDiv {
+  margin-top: -8%!important
+}
+
+#OtpInput input:focus {
+  border: solid 1px #c98bdb!important
+}
+
+.confApin {
+  margin-top: -8%!important
+}
+
+.otpform1 {
+  margin-left: 6.25%!important
+}
+
+input {
+  width: 86%!important;
+  margin-left: 2%!important;
+  margin-right: 2%;
+  height: 48px!important
+}
+
+.inputConf {
+  margin-left: 6.25%!important;
+  width: 87%!important
+}
+
+.apin-label-align label {
+  padding-left: 6.25%!important
+}
+
+#confirmPinForm {
+  overflow-x: hidden!important
+}
+
+#debitForm {
+  overflow-x: hidden
+}
+
+.generateApin-form-horizontal .form-horizontal .otpform1 i {
+  padding-left: 3%!important
+}
+
+.manualIcon1 {
+  left: 5%
+}
+
+.manualIcon2 {
+  left: 22%
+}
+
+#yearSelect {
+  margin-top: 6%!important
+}
+
+.manualIcon3 {
+  left: 21%;
+  top: -21px;
+  display: none!important
+}
+
+.manualIcon4 {
+  left: 6%
+}
+
+.debitInput input,
+.debitInput select {
+  margin-left: 7%!important;
+  margin-right: 8%!important;
+  width: 82%!important;
+  background-color: #fff!important;
+  height: 48px!important;
+  font-family: Gotham_Book
+}
+
+.debitInput select {
+  color: #aeaeae!important
+}
+
+.generateApin-label-span {
+  padding-left: 7%!important;
+  font-family: gotham_medium!important
+}
+
+.checkBoxInput input {
+  width: 6.56%!important;
+  height: 21px!important;
+  margin-left: 7%!important;
+  float: left;
+  box-shadow: 0 0 0 #fff!important;
+  margin-bottom: -1%!important;
+  vertical-align: bottom;
+  border-radius: 2px!important;
+  background-color: #fff!important
+}
+
+.otpform1 input {
+  border-radius: 2px!important
+}
+
+.checkBoxInput a {
+  color: #fb637e!important;
+  font-size: 12px!important;
+  font-family: gotham_medium!important
+}
+
+#btnConfirmApin button {
+  width: 86.5%!important;
+  margin-left: 23px!important
+}
+
+#btnConfirmApin1 button {
+  width: 86.5%!important;
+  margin-left: 0!important;
+  margin-right: 0!important
+}
+
+#btnConfirmApin2 button {
+  width: 91.5%!important;
+  margin-left: -22px!important;
+  margin-right: 0!important
+}
+
+.marginTop {
+  margin-top: 14%
+}
+
+.cvvClass {
+  margin-top: 2%!important
+}
+
+#btnConfirmApin {
+  margin-top: 7%
+}
+
+#lasttick {
+  text-align: center!important
+}
+
+#debitForm {
+  margin-top: 2%;
+  margin-top: 2%
+}
+
+.monthYearform {
+  margin-bottom: 0
+}
+
+.tooltip-inner {
+  position: absolute!important;
+  width: 160px!important;
+  max-width: 160px!important;
+  height: auto;
+  margin-left: -79px!important;
+  top: 33px!important;
+  background-color: #c6cfd9!important;
+  color: #4a4a4a!important;
+  font-size: 10px;
+  font-family: Gotham_Book!important
+}
+
+.tooltip.top .tooltip-arrow {
+  margin-left: -5px!important;
+  top: 28px!important;
+  bottom: -38px;
+  border-top-color: #c6cfd9!important;
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg)
+}
+
+.tooltip.top-left .tooltip-arrow {
+  border-top-color: #c6cfd9!important
+}
+
+.tooltip.top-right .tooltip-arrow {
+  border-top-color: #c6cfd9!important
+}
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: #c6cfd9!important
+}
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: #c6cfd9!important
+}
+
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #c6cfd9!important
+}
+
+.tooltip.top .tooltip-arrow {
+  bottom: -19px
+}
+
+.congrts,
+.congrts1 {
+  font-family: gotham_medium!important;
+  font-size: 14px
+}
+
+.congrts {
+  font-weight: 700
+}
+
+.congratsMsgDiv {
+  margin-left: 4%!important;
+  margin-right: 4%!important
+}
+
+.text-danger {
+  display: block;
+  text-align: left
+}
+
+input:focus {
+  box-shadow: 0 0 0 0!important
+}
+
+.alert_msg {
+  margin-left: 4.68%;
+  margin-top: 15px;
+  margin-right: 5%;
+  font-size: 12px;
+  font-weight: 400!important;
+  color: #4a4a4a;
+  background-color: #fff4d6;
+  border: solid 1px #FFC62C;
+  width: 91%;
+  height: 100%;
+  text-align: left;
+  font-family: gotham_light;
+  padding: 8px 36px 8px 35px
+}
+
+.borderLineSuc {
+  margin-top: 47%!important;
+  background-color: #eaeaea!important;
+  height: 1px!important
+}
+
+.text-danger {
+  font-size: 12px!important;
+  font-family: "Gotham_Book"!important;
+  color: #d0021b!important;
+  font-weight: 400!important
+}
+
+.textDanger {
+  margin-left: 7%!important;
+  margin-right: 6.25%!important
+}
+
+#pinGenerateForm {
+  overflow-x: hidden!important
+}
+
+.inputClass {
+  -webkit-appearance: none!important;
+  -webkit-box-shadow: 0 0 0!important;
+  box-shadow: 0 0 0!important;
+  -moz-box-shadow: 0 0 0!important
+}
+
+.cardInput {
+  margin-top: 7%!important;
+  margin-bottom: 0!important
+}
+
+@media only screen and (max-device-width: 240px) {
+  .ipwidth {
+      height: 36px!important
+  }
+  #lasttick {
+      margin-top: 137px!important
+  }
+  .otpbuttonForm {
+      margin-top: 15px!important
+  }
+  .generateApin-user-terms {
+      font-size: 9px!important
+  }
+  .manualIcon2 {
+      top: -16px
+  }
+  .borderLine {
+      margin-top: 193px
+  }
+  .debitInput input,
+  .debitInput select {
+      font-size: 10px!important
+  }
+  .tooltip-inner {
+      padding: 9px 10px 10px 11px !important
+  }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+  .ipwidth {
+      height: 48px!important;
+  }
+  #lasttick {
+      margin-top: 182px!important
+  }
+  .otpbuttonForm {
+      margin-top: 20px!important
+  }
+  .generateApin-user-terms {
+      font-size: 12px!important
+  }
+  .manualIcon2 {
+      top: -21px
+  }
+  .borderLine {
+     /* margin-top: 257px*/
+            margin-top: 140px;
+  }
+  .debitInput input,
+  .debitInput select {
+      font-size: 12px!important
+  }
+  .tooltip-inner {
+      padding: 12px 13px 13px 14px !important
+  }
+}
+
+@media(min-device-width:481px) and (max-device-width:640px) {
+  .ipwidth {
+      height: 72px!important
+  }
+  #lasttick {
+      margin-top: 272px!important
+  }
+  .otpbuttonForm {
+      margin-top: 30px!important
+  }
+  .generateApin-user-terms {
+      font-size: 18px!important
+  }
+  .manualIcon2 {
+      top: -32px
+  }
+  .borderLine {
+     /* margin-top: 386px*/
+             margin-top: 270px
+  }
+  .debitInput input,
+  .debitInput select {
+      font-size: 20px!important
+  }
+  .tooltip-inner {
+      padding: 18px 20px 20px 21px !important
+  }
+}
+
+.img_icon {
+  color: #d0021b!important;
+  margin-left: -9%!important;
+  margin-right: .85%
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"] {
+  -webkit-appearance: none!important
+}
+
+select {
+  -webkit-appearance: none!important
+}
+
+.mth-margin {
+  margin-top: 4px
+}
+
+.mth-input {
+  margin-top: 23px
+}
+
+.mainHeading {
+  font-family: gotham_medium;
+  color: #4a4a4a;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%
+}
+
+.subHeading {
+  font-family: gotham_medium;
+  color: #4a4a4a;
+  font-size: 16px;
+  text-align: center;
+  padding-top: 5%
+}
+
+.subHeading1 {
+  font-family: Gotham_Book;
+  color: #4a4a4a;
+  font-size: 14px;
+  padding-bottom: 5%;
+  text-align: center
+}
+
+.bgYellow {
+  background-color: rgba(255, 195, 44, 0.2)
+}
+
+.fontGothamBook {
+  font-family: Gotham_Book!important
+}
+
+.fontGothamMedium {
+  font-family: gotham_medium
+}
+
+.purpleText {
+  color: #c68ae1
+}
+
+.marginTop4 {
+  margin-top: 4%;
+  margin-bottom: 2%
+}
+
+.bodyClass {
+  background: #F6F9FC;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden
+}
+
+.row {
+  overflow-x: hidden
+}
+
+.textData {
+  font-family: Gotham_Book;
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 4.8%;
+  text-align: -webkit-auto
+}
+
+.blck {
+  background-color: #000;
+  color: #fff;
+  font-family: gotham_medium;
+  font-size: 10px;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  text-align: center
+}
+
+.amb-pad-left {
+  padding-left: 0!important
+}
+
+.innerHead {
+  font-family: Gotham_Book;
+  color: #4a4a4a;
+  font-size: 12px;
+  line-height: 20px;
+  padding-top: 2%;
+  padding-bottom: 3%;
+  padding-right: 4%!important;
+  font-weight: 400;
+  vertical-align: middle;
+  margin: auto;
+  text-align: center;
+  position: relative
+}
+
+.innerHead1 {
+  font-family: gotham_medium;
+  color: #4a4a4a;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: left;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-right: 4%!important;
+  font-weight: 400
+}
+
+.yellowText {
+  color: #ff8f1b;
+  font-family: gotham_medium;
+  font-size: 12px
+}
+
+#confirmBlock {
+  position: fixed;
+  bottom: 0;
+  width: 104%;
+  background-color: #fff;
+  margin-top: 4%;
+  height: 28vh;
+  box-shadow: 0 -5px 5px -5px #ccc!important
+}
+
+.grayData {
+  font-family: Gotham_Book;
+  color: #9b9b9b;
+  font-size: 12px;
+  line-height: 19px
+}
+
+.accBtn {
+  font-family: Gotham_Book;
+  width: 42%!important;
+  background-color: #fb637e!important;
+  border-radius: 2px!important;
+  text-transform: uppercase;
+  border-color: #fff!important;
+  color: #fff;
+  margin-left: 5.25%;
+  border: solid 0;
+  margin-top: 3%;
+  height: 48px
+}
+
+.decBtn {
+  font-family: Gotham_Book;
+  width: 42%!important;
+  background-color: #eaeaea!important;
+  border-radius: 2px!important;
+  text-transform: uppercase;
+  border-color: #fff!important;
+  color: #000;
+  margin-left: 6.81%;
+  border: solid 0;
+  margin-top: 3%;
+  height: 48px
+}
+
+.marginBtm {
+  margin-bottom: 30%
+}
+
+.onlyNumber {
+  height: 53px;
+  float: left
+}
+
+.over{
+overflow-y:scroll;
+height:70vh;
+}
+
+.onlyHeading {
+  float: left;
+  text-align: -webkit-auto;
+  min-height: 78px;
+  width: 92%
+}
+
+input[type="checkbox"] {
+  width: 5%!important
+}
+
+.marginBtm input {
+  float: left;
+  margin-right: 3%;
+  margin-left: 0!important
+}
+
+.marginBtm div {
+  float: left;
+  width: 92%;
+  text-align: -webkit-auto
+}
+
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  -moz-opacity: .65;
+  opacity: .65;
+  color: #fb637e;
+  background-color: rgba(251, 96, 123, 0.5)!important
+}
+
+.cell-height {
+  height: 165px!important
+}
+
+.cash-top {
+  top: 22%
+}
+
+.cash-pad {
+  padding-left: 0!important
+}
+
+.cash-break {
+  word-break: break-word
+}
+
+.cheque-top {
+  top: 30%
+}
+
+.pad-rt {
+  padding-right: 0!important
+}
+
+.paddingclass {
+  padding-bottom: 55%
+}
+
+#widget-root {
+  overflow-x: hidden
+}
+
+#confirmBlock .agreeText {
+  float: left;
+  width: 85%;
+  margin-left: 4%
+}
+
+#confirmBlock input {
+  float: left;
+  height: 17px!important;
+  margin-left: 3%!important
+}
+
+/*Xebia Refactoring*/
+.col-sm-6 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.labelText {
+  margin-left: 0 !important;
+}
+
+form[name="confirmAPINForm"] .ipwidth {
+  letter-spacing: 2px;
+  width: 81.5%!important;
+  margin-left: 8%!important;
+  margin-right: 8%!important;
+}
+
+form[name="OTPform"] .ipwidth {
+  margin-left: 1%!important;
+}
+
+form[name="confirmAPINForm"] .labelText {
+    margin-left: 8% !important;
+}
+
+.form-control[disabled] {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.cust-id {
+  font-size: 12px !important;
+}

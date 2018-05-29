@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang=en>
+    <meta charset=UTF-8>
+    <title></title>
+</head>
+<body>
+<div class=panel-body>
+    <div class=connection-feedback>
+        <div id=lasttick class=img_padding>
+            <center>
+                <img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+                <img ng-src="{{tick}}"/>
+            </center>
+        </div>
+        <center><span class=congrts>{{'Success_Msg'|translate}}</span><br>
+            <div class=congratsMsgDiv>
+                <span class=congrts1>{{'Success_Msg1'|translate}}</span>
+            </div>
+        </center>
+        <div class=borderLineSuc></div>
+        <button class="btn-link btn-link-apin lastbtn btnNext" data-ng-click=openNewUserRegistration()>{{'Success_Link'|translate}}</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "template-deck",
+  "version": "1.0.2",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,0 +1,24 @@
+<div ng-controller="CreateRecurringDepositWidgetController" class="lp-open-deposits scroll">
+    <div class="lp-alerts" tabindex="-1">
+        <div class="alert alert-danger open-deposit-ng-cloak  ng-cloak" ng-show="fiModel.errors.length > 0">
+            <p ng-repeat="error in fiModel.errors"><i class="lp-icon lp-icon-alert-error"></i> <span lp-message="error.captionCode" lp-bundle="messages"></span></p>
+        </div>
+        <div class="alert alert-warning open-deposit-ng-cloak  ng-cloak" ng-show="fiModel.warnings.length > 0">
+            <p ng-repeat="warning in fiModel.warnings"><i class="lp-icon lp-icon-alert-error"></i> <span lp-message="warning.captionCode" lp-bundle="messages"></span></p>
+        </div>
+    </div>
+    <div lp-wizard="wizard" next-step="wizardNextStep" previous-step="wizardPreviousStep" go-to-step="goToWizardStep" get-active-step="getActiveWizardStep">
+        <div lp-wizard-step="wizard-step" heading="Registration">
+            <div ng-include="partialsDir + 'DepositDetails.html'"></div>
+        </div>
+        <div lp-wizard-step="wizard-step" heading="Nomination">
+            <div ng-include="partialsDir + 'NomineeDetails.html'"></div>
+        </div>
+        <div lp-wizard-step="wizard-step" heading="Submission">
+            <div ng-include="partialsDir + 'TandC.html'"></div>
+        </div>
+        <div lp-wizard-step="wizard-step" heading="Congrats">
+            <div ng-include="partialsDir + 'Congrats.html'"></div>
+        </div>
+    </div>
+</div>

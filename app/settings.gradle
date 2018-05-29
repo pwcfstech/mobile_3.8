@@ -1,0 +1,2 @@
+include ':app', ':backbasecxp-1.7.1'
+//project (':backbase.sdk').projectDir = new File('../android-sdk/backbase.sdk')

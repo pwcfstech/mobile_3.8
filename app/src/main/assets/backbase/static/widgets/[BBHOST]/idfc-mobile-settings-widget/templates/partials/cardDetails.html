@@ -1,0 +1,95 @@
+<form novalidate="" class="settings-form-horizontal form-horizontal maxWidth" role="form" name="forms.changeAPINForm" id="thirdform">
+    <div class="form-group maxWidth">
+        <div class="settings-floatLeft settings-form-div maxWidth">
+            <span lp-i18n="{{'Enter_Card_Number'|translate}}" class="settings-label-span"></span>
+            <i class="lp-icon infoIcon ng-scope manualIcon1" tooltip="{{'Tip_CardNo'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+                <img class="toolTipImg" src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+        </div>
+        <div class="settings-floatLeft maxWidth">
+            <select name="cardNo" class="settings-form-control form-control IDFC-dropdown" ng-model="controlAPIN.cardNumber.value" ng-options="item.value as item.text for item in debitCardList" ng-disabled="lockFields || cancelTransaction">
+            </select>
+            <div class="settings-error-message-align">
+                <small class="text-danger" ng-show="forms.changeAPINForm.submitted &amp;&amp; errors['debitCheck']">
+                    {{'Error_CardNumber_Required'|translate}}
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group maxWidth">
+        <div class="settings-floatLeft settings-form-div maxWidth">
+            <span lp-i18n="Expiry" class="settings-label-span"></span>
+            <i class="lp-icon infoIcon ng-scope manualIcon1" tooltip="{{'Tip_Expiry'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+                <img class="toolTipImg" src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+        </div>
+        <div class="settings-floatLeft maxWidth">
+            <div>
+                <div>
+                    <select class="settings-form-control form-control IDFC-dropdown settings-dropdown-month afterYear" ng-model="controlAPIN.expiryMonth.value" ng-options="item as item for item in expiryMonthList" ng-change="save('expiryMonth', controlAPIN.expiryMonth.value)" ng-disabled="lockFields || cancelTransaction" />
+                </div>
+                <div>
+                    <select class="settings-form-control form-control settings-dropdown-year IDFC-dropdown" ng-model="controlAPIN.expiryYear.value" ng-options="item as item for item in expiryYearList" ng-change="save('expiryYear', controlAPIN.expiryYear.value)" ng-disabled="lockFields || cancelTransaction" />
+                </div>
+            </div>
+            <div class="settings-error-message-align">
+                <small class="text-danger" ng-show="forms.changeAPINForm.submitted &amp;&amp; forms.changeAPINForm.month.$error.required">
+                    Expiry Month is required.
+                </small>
+                <small class="text-danger" ng-show="forms.changeAPINForm.month.$error.pattern">Expiry Month should be 2 digit.
+                </small>
+                <small class="text-danger" ng-show="checkMonth">
+                    Please enter a valid Expiry Month.
+                </small>
+                <small class="text-danger" ng-show="forms.changeAPINForm.month.$error.maxlength">Month should not be more than
+                    be 2 digit.
+                </small>
+                <small class="text-danger" ng-show="forms.changeAPINForm.submitted &amp;&amp; forms.changeAPINForm.year.$error.required">
+                    Expiry Year is required.
+                </small>
+                <small class="text-danger" ng-show="forms.changeAPINForm.year.$error.pattern">Expiry Year should be 2 digit.
+                </small>
+                <small class="text-danger" ng-show="checkYear">
+                    Please enter a valid Expiry Year.
+                </small>
+                <small class="text-danger" ng-show="forms.changeAPINForm.year.$error.maxlength">Year should not be more be 2
+                    digit.
+                </small>
+                <small class="text-danger" ng-show="forms.changeAPINForm.submitted &amp;&amp;errors['expirycheck'] ">
+                    {{'Error_ExpiryFields'|translate}}
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="form-group maxWidth">
+        <div class="settings-floatLeft settings-form-div maxWidth">
+            <span lp-i18n="{{'CVV_label'|translate}}" class="settings-label-span"></span>
+            <i class="lp-icon infoIcon ng-scope manualIcon1"tooltip="{{'Tip_CVV'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+                <img class="toolTipImg" src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+        </div>
+        <div class="settings-floatLeft settings-floatLeft maxWidth">
+            <div>
+                <input class="settings-form-control form-control cvvno" type="tel" name="CVV" ng-pattern="/^[0-9]*$/" ng-model="controlAPIN.cvv.value" loading="isLoading" ng-disabled="lockFields || cancelTransaction" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" required="true" placeholder="CVV" />
+            </div>
+            <div class="settings-error-message-align">
+                <small class="text-danger" ng-show="forms.changeAPINForm.submitted &amp;&amp; forms.changeAPINForm.CVV.$error.required">
+                    {{'Error_CVV_Required'|translate}}
+                </small>
+                <small class="text-danger" ng-show="forms.changeAPINForm.CVV.$error.pattern &amp;&amp; !(forms.changeAPINForm.CVV.$error.required)&amp;&amp; !(forms.changeAPINForm.CVV.$error.maxlength)">
+                    {{'Error_CVV_Pattern'|translate}}
+                </small>
+                <small class="text-danger" ng-show="forms.changeAPINForm.submitted &amp;&amp;errors['cvvCheck'] &amp;&amp; !(forms.changeAPINForm.CVV.$error.required) &amp;&amp; !(forms.changeAPINForm.CVV.$error.pattern) &amp;&amp; !(forms.changeAPINForm.CVV.$error.maxlength)">
+                    {{'Error_CVV_Length'|translate}}
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="borderLast"></div>
+    <div class="settings-div-td-dep-ab maxWidth" ng-show="OTPFlag">
+        <button class="btn btn-primary settings-btn-align primary-btn-setting primary-btn-btn settingBtn btnRed" ng-click="forms.changeAPINForm.submitted=true ; openChangeAPINForm(forms.changeAPINForm.$valid)" type="submit" name="changeAPIN">{{'btn_Next'|translate}}
+        </button>
+        <button type="button" class="btn btn-primary settings-btn-align secondary-btn-setting secondary-btn-btn settingBtn btnGrey" ng-click="resetDebitForm(); forms.changeAPINForm.submitted=false;">{{'btn_Clear'|translate}}
+        </button>
+    </div>
+</form>
+<div ng-if="!OTPFlag" class="settings-otv-div maxWidth">
+    <div data-ng-include="templates.OTPForm"></div>
+</div>

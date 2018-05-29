@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body  g:onload="requireWidget(__WIDGET__, 'js/deposits-closure');">
+<div  ng-controller="ListOfDepositDetailsController">
+	<div ng-if="errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+			<span class="sr-only">Busy</span>
+		</div>
+	</div>
+	<div class="lp-alerts">
+		<div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+	</div>
+	<div ng-hide="serviceError">
+		<div class="panel panel-default" ng-if="fiModel.selected">
+			<div class="panel-heading selected-fi">
+				<div class="col-xs-2 col-lg-1">
+					<span><i class="lp-icon  lp-icon-expense-planning"></i></span>
+				</div>
+				<div class="col-xs-10 col-xs-11">
+					<span class="h4">{{'Select_Deposit'|translate}}</span><br />
+				</div>
+			</div>
+		</div>
+		<div progress-indicator="progress-indicator" is-loading="fiModel.isConnecting" class="panel-body">
+			<form novalidate=""  class="form-horizontal" role="form" name="depositDetailsForm" id="depositDetailsForm" ng-submit="depositDetailsForm.submitted=true;submitDetails(depositDetailsForm.$valid)" >
+				<div class="depositsClosure-dep-parent-div depositClosure-style-top">
+					<div class="depositsClosure-div-tr-dep">
+						<div class="depositsClosure-div-td-dep font-label-dep">
+							<label  lp-i18n="Account_Number"></label>
+						</div>
+						<div class="depositsClosure-div-td-dep">
+							<select id="tdAccountNumber"  required="true" name="tdAccountNumber" class="form-control depositsClosure-val-min-width IDFC-dropdown" style="width:25%;" ng-model="tdAcountNumberId" ng-change="fetchAccountDetails()" ng-options="a.id as a.id for a in tdAccountNumbers" >
+								<option value= "">{{'Select_Account_Number'|translate}}</option>
+							</select>
+							<div class="depositsClosure-dep-messages">
+								<small class="text-danger" ng-show="depositDetailsForm.submitted  &amp;&amp; depositDetailsForm.tdAccountNumber.$error.required">{{'AccountNo_Mandatory'|translate}}</small>
+							</div>
+						</div>
+					</div>
+					<div class="depositsClosure-div-tr-dep">
+						<div class="depositsClosure-div-td-dep depositsClosure-font-label-dep">
+							{{'Closure_Option'|translate}}
+						</div>
+						<div class="depositClosure-parent-radio-btn">
+							<div class="depositClosure-radio-margin">
+								<input type="radio" class="depositsClosure-dep-radio" ng-model="tdClosureType" value="ForeClosure" ng-checked="true" ng-click="hideTDAmount()"/><span class="depositsClosure-span-margin depositClosure-radio-space">{{'Fore_Closure'|translate}}</span>
+							</div>
+							<div class="depositClosure-radio-margin">
+								<input type="radio" class="depositsClosure-dep-radio" id="tdClosureId" ng-model="tdClosureType" value="PartialClosure" ng-click="showTDAmount()"/><span class="depositsClosure-span-margin depositClosure-radio-space">{{'Partial_Closure'|translate}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div ng-show="showAmount">
+					<div id="withdrawalAmtDiv">
+						<div class="depositsClosure-dep-parent-div">
+							<div class="depositsClosure-div-tr-dep">
+								<div class="depositsClosure-div-td-dep depositsClosure-font-label-dep depositClosure-amount-top">
+									{{'Withdrawal_Amount'|translate}}
+								</div>
+								<div class="depositsClosure-div-td-dep depositsClosure-max-align-width depositClosure-radio-margin">
+									<input type="tel" id="tdAmount" ng-show="showAmount" style="width:25%;" class="form-control depositsClosure-val-min-width" name="tdAmount"  ng-model="tdAmount" min="0" max="{{totalAmount}}" ng-required="showAmount" />
+									<div class="depositsClosure-dep-messages">
+										<small class="text-danger" ng-show="showAmount &amp;&amp; depositDetailsForm.submitted  &amp;&amp; depositDetailsForm.tdAmount.$error.min">{{'Amount_min'|translate}}</small>
+										<small class="text-danger" ng-show="showAmount &amp;&amp; depositDetailsForm.submitted  &amp;&amp; maxLimit">{{'Amount_max'|translate}}</small>
+										<small class="text-danger" ng-show="showAmount &amp;&amp; depositDetailsForm.submitted  &amp;&amp; depositDetailsForm.tdAmount.$error.required">{{'Amount_Mandatory'|translate}}</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="depositsClosure-div-td-dep-ab depositsClosure-clear-both">
+					<span><button type="button" class="btn btn-primary secondary-btn-closure secondary-btn-btn" ng-click="resetForm()">{{'Clear'|translate}}</button></span>
+					<span> <button type="submit" class="btn btn-primary primary-btn-closure primary-btn-btn" >{{'Submit'|translate}}</button></span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

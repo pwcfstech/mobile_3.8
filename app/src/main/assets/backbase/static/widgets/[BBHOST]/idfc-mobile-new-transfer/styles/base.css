@@ -1,0 +1,1216 @@
+.resMOP {
+    position: fixed;
+    top: 30%;
+    text-align: justify;
+    padding: 0px 10%;
+}
+
+.resMOPIcon {
+    left: 45%;
+    font-size: xx-large;
+}
+
+.loading-icon {
+    top: 40%
+}
+
+.ft-beneficiary-non {
+    margin-left: 10px !important
+}
+
+.lp-new-transfer .lp-small-size .visible-md {
+    display: none !important
+}
+
+.lp-new-transfer .lp-small-size .filter-option .lp-accountselect-option-accountname,
+.lp-new-transfer .lp-small-size .lp-accountselect-accountbalance {
+    font-size: 14px
+}
+
+.lp-new-transfer .date-options button {
+    text-align: left
+}
+
+.lp-new-transfer input[readonly] {
+    background-color: white;
+    cursor: default
+}
+
+.lp-iban .dropdown-toggle .country-name {
+    display: none
+}
+
+.lp-iban .dropdown .dropdown-menu>li {
+    border-top: none
+}
+
+.lp-iban .dropdown .dropdown-menu .dropdown-search {
+    padding: 5px
+}
+
+.lp-new-transfer .dropdown-toggle .caret {
+    position: absolute;
+    right: 10px;
+    top: 40%
+}
+
+.lp-new-transfer .lp-input-dividers {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    padding: 0 8px;
+    white-space: nowrap;
+    overflow: hidden
+}
+
+.for-clear,
+.ft-for-submit,
+.ft-for-confirm,
+.ft-for-later {
+    padding: 2% 0
+}
+
+.lp-new-transfer .lp-input-dividers .separator {
+    border-right: 0 solid #cccccc;
+    height: 5px;
+    width: 50px;
+    display: inline-block;
+    vertical-align: top
+}
+
+.lp-new-transfer .nt-input-area {
+    min-height: 60px !important
+}
+
+.lp-new-transfer .enrollment-area {
+    border-top: 1px solid #999999;
+    margin-top: 10px;
+    padding-top: 10px
+}
+
+.colonAdjust {
+    position: relative;
+    float: left;
+    margin-left: 67px;
+    font-family: gotham_book !important
+}
+
+.lp-email-transfer {
+    position: relative
+}
+
+.lp-email-transfer .email-input {
+    margin-bottom: 5px
+}
+
+.lp-email-transfer .auto-correct-suggestion {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer
+}
+
+.lp-address-transfer {
+    min-height: 150px
+}
+
+.date-picker ul {
+    min-width: 267px !important
+}
+
+.lp-address-transfer .glyphicon {
+    right: 15px !important
+}
+
+.lp-address-transfer input {
+    margin-bottom: 10px
+}
+
+.ft-has-error {
+    display: inline-block;
+    color: red
+}
+
+.primary-btn-newtransfer {
+    font-family: gotham_book, Calibri !important;
+    font-size: 14px;
+    color: #ffffff !important;
+    background-color: #996699 !important
+}
+
+.colon-account-adjust {
+    margin-left: 12px ! important
+}
+
+.secondary-btn-newtransfer {
+    font-family: gotham_book, Calibri !important;
+    font-size: 12px !important;
+    color: #000000 !important;
+    border: none !important;
+    background-color: #996699 !important
+}
+
+.widget-new-footer {
+    padding: 2% inherit !important;
+    background-color: #ffffff !important;
+    border-top: 1px solid #dddddd !important;
+    border-bottom-right-radius: 3px !important;
+    border-bottom-left-radius: 3px !important
+}
+
+.ft-save-beneficiary {
+    color: #333333 !important;
+    position: relative;
+    left: 15%;
+    top: 1px;
+}
+
+.saved-abc {
+    margin-top: 3px;
+    padding-top: 9px !important
+}
+
+.saved-abc .lp-icon-info-sign {
+    color: #ffffff !important
+}
+
+.new-transfer-icon {
+    height: 40px !important
+}
+
+.transfer-text {
+    margin-top: 3px !important
+}
+
+.my-calendar {
+    left: 73% !important
+}
+
+.align-left-newtransfer {
+    float: right !important
+}
+
+.ft-color-addben {
+    background-color: #ffffff ! important
+}
+
+.benificiary-bank-name {
+    margin-top: 12px !important
+}
+
+.upcoming-obligation a {
+    background-color: #ffffff !important;
+    color: #333333
+}
+
+.upcoming-obligation a:hover,
+.upcoming-obligation a.hover,
+.upcoming-obligation a:focus,
+.upcoming-obligation a.focus,
+.upcoming-obligation a:active,
+.upcoming-obligation a.active,
+.open>.dropdown-toggle.upcoming-obligation {
+    color: #996699;
+    background-color: #ffffff !important
+}
+
+.agenda span {
+    font-size: 14px;
+    font-family: gotham_book, Calibri !important
+}
+
+.dropdown-height button {
+    height: 40px !important
+}
+
+.ft-benbank-class button {
+    height: 40px
+}
+
+.form-group-fundtransfer {
+    position: relative !important;
+    clear: both !important;
+    padding: 10px 0 !important
+}
+
+.error-message-align {
+    clear: both;
+    width: 100%
+}
+
+.ft-bene-account-type {
+    width: 100% !important
+}
+
+.form-div {
+    text-align: left;
+    padding-top: 6px;
+    min-width: 91%
+}
+
+.dropdown-left {
+    width: 103%;
+    margin-left: 0;
+    margin-bottom: 3%
+}
+
+.idfcSpacingAlign {
+    margin-top: -3%;
+    margin-bottom: -2%
+}
+
+.new-transfer-height {
+    height: 81px !important;
+    padding: 7px;
+    font-size: 12px;
+    position: relative;
+    width: 100% !important;
+    border: 1.5px solid lightgray
+}
+
+.dropdown-toggle {
+    height: 40px;
+    text-align: left
+}
+
+.idfcHeaderDropDown .dropdown-toggle {
+    height: auto !important
+}
+
+.idfcRadioButton {
+    width: 10% !important;
+    border-radius: 30px !important;
+    height: inherit;
+    float: left;
+    margin-right: 2% !important;
+    margin-top: 3%!important;
+    box-shadow: 0 -1px 4px transparent!important;
+}
+
+.idfcActionSearchButton {
+    height: 40px;
+    background-color: #fb637e !important;
+    color: #FFF;
+    display: inline-block;
+    width: 100% !important;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding-right: 12px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 2px;
+    -moz-user-select: none
+}
+
+.idfcActionClearButton {
+    height: 40px;
+    background-color: #eaeaea !important;
+    color: #FFF;
+    display: inline-block;
+    margin-bottom: 0 !important;
+    font-weight: normal;
+    text-align: center;
+    width: 100% !important;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 2px;
+    -moz-user-select: none
+}
+
+.idfcAddBenTabContent .dropdown-toggle,
+.idfcAddBenTabContent input[type="text"],
+.idfcAddBenTabContent .form-group input[type="password"],
+#nickname {
+    width: 100% !important
+}
+
+.idfcLabelVerticalAlign {
+    margin-bottom: 0
+}
+
+.ft-idfcAccountNumber {
+    margin-top: 8%
+}
+
+.infoNew {
+    height: 30px
+}
+
+.beneficiary-control-newtransfer {
+    width: 100% !important;
+    height: 40px;
+    padding-right: 12% !important;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    color: #555555 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #cccccc !important;
+    border-radius: 0px !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s !important;
+    -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s !important;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s !important;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s !important
+}
+
+.ft-NoteDiv {
+    padding: 0 25px;
+    font-size: 11px;
+    color: #9b9b9b
+}
+
+.ft-idfcDateAlign {
+    width: 20%
+}
+
+.one-time {
+    padding: 6px 0;
+    width: 100%
+}
+
+.one-time fieldset {
+    width: 100%
+}
+
+.scheduled-transfer {
+    border: solid 1px #ffffff
+}
+
+.newTransfer-showContacts {
+    padding-bottom: 12px
+}
+
+.newTranfer-contactIcon {
+    height: 100%
+}
+
+.btn_newTransfer {
+    color: #000000;
+    background-color: #eaeaea;
+    border-color: #eaeaea;
+    font-size: 12px;
+    left: 0 !important;
+    width: 30%;
+    border-radius: 2px !important
+}
+
+.btn_newTransfer.active {
+    color: #ffffff;
+    background-color: #fb637e;
+    border-color: #fb637e
+}
+
+.btn_newTransfer:active {
+    color: #ffffff;
+    background-color: #a61c3f;
+    border-color: #a61c3f;
+    font-size: 15px !important
+}
+
+.btn_newTransfer:hover,
+.btn_newTransfer:focus {
+    color: #ffffff
+}
+
+.fundtrans-li-width a {
+    padding: 7px !important
+}
+
+.fundtrans-li-width {
+    float: left;
+    width: 41.5%;
+    margin-bottom: -1px;
+    text-align: center
+}
+
+.floating-radio-label {
+    width: 50%;
+    display: table;
+}
+
+.ft-alert-warning {
+    background-color: #fff !important;
+    border-color: #fff !important
+}
+
+.infoIcon img {
+    vertical-align: middle !important
+}
+
+.lp-datepicker {
+    left: 0;
+    border: 5px solid gray
+}
+
+.lp-datepicker .btn {
+    font-size: 10px
+}
+
+.decimal-amount-input {
+    padding: 0
+}
+
+.lp-counter-party-filter .name-field {
+    padding-left: 7px
+}
+
+.ft-NoteDiv > ol {
+    -webkit-padding-start: 4.5%
+}
+
+.lp-new-transfer input[type=checkbox],
+.lp-new-transfer .urgent-transfer input[type=checkbox],
+.lp-new-transfer .urgent-transfer .lp-icon,
+.lp-new-transfer .lp-iban-info .lp-icon,
+.lp-new-transfer .lp-currency-amount-input .info .lp-icon,
+.lp-new-transfer .save-to-contacts .lp-icon {
+    width: 10%;
+    height: 20px !important;
+    margin: 0;
+    z-index: 1
+}
+
+.enteredAmount,
+.transferDescription {
+    padding: 0 10px
+}
+
+.benAcNo {
+    font-size: 12px
+}
+
+.tabBottomHorizontalRow {
+    margin-bottom: -1%;
+    border: 0;
+    border-bottom: 1px solid gainsboro
+}
+
+.lp-amount-positive {
+    font-family: gotham_book !important
+}
+
+.nav-tabs > li {
+    width: 50%
+}
+
+.nav-tabs > li > a {
+    text-align: center;
+    font-size: 9px !important;
+    height: 50px
+}
+
+.nav-tabs > li > a > span {
+    line-height: 2.7
+}
+
+.lp-payment-mode-tabs .payment-mode-tab-area .tab-content .tab-pane {
+    padding: 0 5%
+}
+
+.tab-content .tab-pane .date-picker,
+.tab-content .tab-pane .date-picker input {
+    width: 100% !important
+}
+
+.tab-content .tab-pane .date-picker .calendar-icon {
+    right: 5% !important
+}
+
+.input-group {
+    width: 100%
+}
+
+.input-group-btn:last-child > .btn {
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+    border: 0;
+    width: 100%
+}
+
+#accountNumberTab {
+    padding: 0 15px 15px 15px
+}
+
+#accountNumberTab .nav-tabs >li:nth-child(odd) > a {
+    border-radius: 10px 0 0
+}
+
+#accountNumberTab .nav-tabs >li:nth-child(even) > a {
+    border-radius: 0 10px 0 0
+}
+
+.lp-payment-ref-description .lp-payment-reference {
+    margin-bottom: 8%;
+    padding: 0 3%;
+    width: 97% !important
+}
+
+.lp-payment-ref-description .lp-payment-description {
+    width: 100% !important;
+    padding: 1px
+}
+
+.lp-currency-amount-input .select-area {
+    width: 25% !important
+}
+
+.lp-currency-amount-input .amount-area {
+    width: 100% !important
+}
+
+.info {
+    height: 2em !important
+}
+
+#transferMode {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 100%;
+    padding: 0 25px
+}
+
+.new-transfer-tip {
+    left: 5% !important;
+    font-size: 210%
+}
+
+.lp-scheduled-transfer .lp-st-control {
+    width: 100% !important
+}
+
+.lp-scheduled-transfer .lp-st-start-date .lp-st-control.calendar,
+.lp-scheduled-transfer .lp-st-end-date .lp-st-control.calendar {
+    left: 0 !important
+}
+
+.lp-scheduled-transfer .lp-st-caption {
+    padding-left: 0px !important
+}
+
+.btn-group > .btn,
+.btn-group-vertical > .btn {
+    position: relative;
+    left: 0% !important;
+    border-radius: 0
+}
+
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    width: 30% !important
+}
+
+.panel-body {
+    padding: 0% 0
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    background-color: RGB(251, 99, 126) !important
+}
+
+.nav-tabs > li > a,
+.payment-mode-tab-area .nav-tabs > li > a:hover,
+.payment-mode-tab-area .nav-tabs > li > a:focus {
+    background-color: RGB(234, 234, 234) !important
+}
+
+.nav-tabs > li.active > a {
+    color: white !important
+}
+
+input {
+    border-radius: 2px !important
+}
+
+.floating-radio-label > label {
+    font-size: 80%
+}
+
+label,
+.lp-st-caption {
+    font-size: 12px
+}
+
+.sendingDateLabel {
+    font-size: 12px;
+    padding-bottom: 1%
+}
+
+.noMarginBottom {
+    margin-bottom: 0 !important
+}
+
+.lp-counter-party-filter .counterparty-to {
+    font-size: 12px ! important;
+    top: 5% !important
+}
+
+.lp-icon-info-sign > label > i {
+    font-size: 200%
+}
+
+.ifsc-input {
+    margin: 0 !important
+}
+
+.currencyRuppes {
+    position: absolute;
+    top: 44px;
+    left: 5%;
+    font-size: 12px;
+    font-family: webrupee;
+    color: darkgray
+}
+
+.currencyRuppes:before {
+    content: "\f156"
+}
+
+.glyphicon {
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    position: relative;
+    line-height: 1.2;
+    top: .03em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #C98BDB ! important;
+    font-family: gotham_book, Calibri, lp-icons !important;
+    z-index: 10 ! important;
+    cursor: pointer ! important
+}
+
+.acclab {
+    padding-top: 1% !important
+}
+
+.labelAcc {
+    color: #4a4a4a !important;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: top
+}
+
+.acctTab1 {
+    margin-top: 31.25%;
+    width: 100%;
+    height: 127px;
+    color: #eaeaea
+}
+
+.pull-accbal {
+    color: #aeaeae;
+    font-family: Gotham_Book
+}
+
+.pratz-pull-accbal {
+    color: #000000;
+    font-family: gotham_book !important;
+    font-size: 24px;
+    margin-top: 3% !important;
+    margin-bottom: 3% !important
+}
+
+.pratz-main-content-trans {
+    text-overflow: wrap !important
+}
+
+.label_status {
+    color: white;
+    margin-left: 20% !important;
+    font-family: Gotham_Book !important;
+    border-radius: 3px;
+    padding: 1% 2.5%;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 70%;
+    vertical-align: middle
+}
+
+.label_status-green {
+    background-color: #39ca74
+}
+
+.label_status-red {
+    background-color: red
+}
+
+.pull-right-account {
+    width: 95.31%;
+    height: 30px;
+    margin-left: 4.68%;
+    font-family: Gotham_Light
+}
+
+.idfcHeaderDropDown {
+    margin-bottom: 5%
+}
+
+.lp-account-select button.dropdown-toggle {
+    background-color: rgb(234, 234, 234) !important
+}
+
+#ftBeneficiaryList {
+    overflow: auto;
+    z-index: 100
+}
+
+.lp-counter-party-filter .filter-contact .photo-container > img {
+    border-radius: 50%
+}
+
+.contact-info {
+    padding-top: 2% !important
+}
+
+.account-info {
+    margin-top: 0 !important
+}
+
+.account-info,
+.singleAccountNumber {
+    color: rgb(174, 174, 174) !important;
+    font-family: gotham_book !important;
+    margin-bottom: 0
+}
+
+.contact-single-account {
+    font-family: gotham_book !important
+}
+
+#bulletSubMenu {
+    margin: 3% 4% 0 7%;
+    border: 1px solid #eaeaea;
+    border-radius: 50%;
+    width: 3%;
+    height: 4px;
+    padding: 2% 2%;
+    background-color: #eeeeee
+}
+
+.lp-counter-party-filter .contact-single-account:active > #bulletSubMenu {
+    background-color: #c98bdb !important
+}
+
+.lp-counter-party-filter .contact-single-account:active {
+    background-color: #FFF4E8
+}
+
+.beneficiary-control-newtransfer.IDFC-dropdown,
+.btn.dropdown-toggle.btn-default:not(.newTransfer-showContacts),
+.name-field {
+    background-image: url("../../../../features/[BBHOST]/theme-idfc/images/Dropdown_xxxhdpi.png");
+    background-position: 95% 50%;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    -webkit-appearance: none
+}
+
+.caret {
+    display: none
+}
+
+.lp-scheduled-transfer .lp-st-start-date .calendar-icon,
+.lp-scheduled-transfer .lp-st-end-date .calendar-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    right: 5%;
+    color: rgb(251, 99, 126) !important
+}
+
+.ft-NoteDiv h5 {
+    color: #ffc72c !important
+}
+
+.label_status {
+    font-family: gotham_book
+}
+
+.ddopen,
+.btn-group.open .dropdown-toggle {
+    background-image: url("../../../../features/[BBHOST]/theme-idfc/images/dropdownup_xxxhdpi.png") !important;
+    background-position: 95% 50%;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    -webkit-appearance: none
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 359px) and (-webkit-device-pixel-ratio: 3) {
+    .nav-tabs > li > a {
+        font-size: 12px !important
+    }
+    .btn {
+        font-size: 16px !important
+    }
+    .labelAcc {
+        font-size: 18px !important
+    }
+    .lp-acct-detail .account-balance {
+        font-size: 30px
+    }
+    #bulletSubMenu {
+        margin-top: 5%
+    }
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 413px) and (-webkit-device-pixel-ratio: 3) {
+    .nav-tabs > li > a {
+        font-size: 14px !important
+    }
+    .btn,
+    .btn_newTransfer.active {
+        font-size: 18px
+    }
+    .labelAcc {
+        font-size: 20px !important
+    }
+    .lp-acct-detail .account-balance {
+        font-size: 32px
+    }
+    #bulletSubMenu {
+        margin-top: 5%
+    }
+    .lp-datepicker .btn {
+        font-size: 12px
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 374px) and (-webkit-min-device-pixel-ratio: 2) {
+    .nav-tabs > li > a {
+        font-size: 11px !important
+    }
+    .nav-tabs > li > a > span {
+        line-height: 3.5
+    }
+    .btn,
+    .btn_newTransfer.active {
+        font-size: 14px
+    }
+    .labelAcc {
+        font-size: 14px !important
+    }
+    .lp-acct-detail .account-balance {
+        font-size: 30px
+    }
+    #bulletSubMenu {
+        margin-top: 5%
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 413px) and (-webkit-min-device-pixel-ratio: 2) {
+    .nav-tabs > li > a {
+        font-size: 12px !important
+    }
+    .btn
+    {
+        font-size: 16px !important
+    }
+    .labelAcc {
+        font-size: 16px !important
+    }
+    .lp-acct-detail .account-balance {
+        font-size: 32px
+    }
+    #bulletSubMenu {
+        margin-top: 5%
+    }
+    .lp-datepicker .btn {
+        font-size: 12px
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (-webkit-min-device-pixel-ratio: 2) {
+    .nav-tabs > li > a {
+        font-size: 14px !important;
+        height: 60px
+    }
+    .nav-tabs > li > a > span {
+        line-height: 2.9
+    }
+    input[type="text"],
+    input[type="tel"],
+    .dropdown-toggle,
+    .idfcActionClearButton,
+    .idfcActionSearchButton,
+    .beneficiary-control-newtransfer {
+        height: 55px
+    }
+    .contact-info {
+        padding-top: 2% !important
+    }
+    .checkbox label {
+        padding-left: 25px
+    }
+    .lp-new-transfer input[type=checkbox] {
+        width: 10%;
+        height: 25px
+    }
+    .btn,
+    .btn_newTransfer.active,
+    .labelAcc {
+        font-size: 16px !important
+    }
+    .lp-acct-detail .account-balance {
+        font-size: 36px
+    }
+    .lp-datepicker .btn {
+        font-size: 14px
+    }
+}
+
+.tooltip-inner {
+    background-color: #c6cfd9 !important;
+    color: #4a4a4a !important;
+    font-size: 10px;
+    font-family: gotham_book !important
+}
+
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #c6cfd9 !important
+}
+
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #c6cfd9 !important
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #c6cfd9 !important
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #c6cfd9 !important
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #c6cfd9 !important
+}
+
+.tooltip-inner {
+    padding-top: 12px !important;
+    padding-bottom: 13px !important;
+    padding-left: 14px !important;
+    padding-right: 13px !important;
+    text-align: left !important
+}
+
+.accounttypelabel {
+    font-family: gotham_book !important;
+    font-weight: normal !important;
+    display: table;
+}
+
+.btn:active,
+.btn.active {
+    outline: 0;
+    background-image: none;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0) !important;
+    -moz-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0) !important;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0) !important
+}
+
+.contact-details {
+    padding-bottom: 2%;
+    height: inherit !important
+}
+
+.RupeeSymbol {
+    color: #000;
+    font-size: 35px;
+    font-family: gotham_book;
+    font-weight: 500;
+    position: relative;
+    top: -1px
+}
+
+textarea::-webkit-input-placeholder {
+    padding: 0 !important;
+    text-indent: 0
+}
+
+.rupee-symbol {
+    font-weight: 500 !important;
+    font-family: gotham_book !important;
+    margin-right: 5px !important;
+    font-style: normal !important
+}
+.find-title {
+    color: rgba(251, 99, 126, 1)!important;
+    font-weight: 400!important;
+    font-size: 13px!important;
+}
+.find-title, .find-title a {
+    color: rgba(251, 99, 126, 1)!important;
+    font-weight: 400!important;
+    font-size: 13px!important;
+}
+.msg-width {
+    padding-top: 3px!important;
+    width: 285px!important;
+    font-size: 13px!important;
+    color: rgba(251, 99, 126, 1)!important;
+    text-transform: capitalize!important;
+	font-weight: 600;
+}
+.find-title-ifsc-code {
+    /* padding-right: 38px; */
+    float: left;
+    width: 90%;
+    font-weight: 600;
+}
+.ifsc-label-light label {
+	color: rgba(200, 200, 200, 1);
+}
+.bnf-bank-name-error-location {
+	color: rgba(74, 74, 74, 1);
+}
+.bnf-bank-name-error-bank {
+	margin-bottom: 3px;	
+}
+.bnf-bank-name-error-block {
+	line-height:14px;
+	padding-top:10px;
+	color: rgba(251, 99, 126, 1);
+}
+.error-msg-mob {
+	background-color:#ffefc0;
+	color:rgba(74,74,74,1);
+	font-weight:bold;
+	text-align:left;
+	font-size:12px;
+	padding: 10px;
+	position:absolute;
+	z-index:1;
+	width:100%;
+}
+.error-message-v-middle.error-msg-mob > div {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;  
+  align-content: center;
+  align-items: center; 
+}	
+.crs-icon {
+	color:#d0031b!important;
+	font-size:1.375em;
+	padding-right:8px;
+}
+.server-error-cross .error-msg{
+	    z-index: 99;
+		padding: 8px 5px 9px 5px;
+		font-size: 17px;
+}
+.server-error-cross .crs-icon {
+    cursor: pointer;
+}
+.server-error-cross-icon {
+	width: 15%;
+	display: inline-block;
+	text-align: center;
+	font-size: 24px;
+}
+.font-blk{
+	color: black;
+}
+.not-sure-block{
+	padding-top:6px;
+}
+.general-ifsc-code {
+    float: left;
+    width: 90%;
+    font-weight: 600;
+    color: rgba(251, 99, 126, 1)!important;
+    font-size: 13px!important;
+	padding-top: 5px;
+
+}
+.ifsc-code-link{
+	cursor:pointer;
+	text-decoration:underline!important;
+	color: rgba(251, 99, 126, 1);
+}
+.ifsc-code-not-link{
+	text-decoration:underline;
+}
+.new-transfer-error{
+    color: rgba(251, 99, 126, 1)!important;
+}
+
+
+/* Xebia Refactoring begins */
+.idfcHeaderDropDown {
+    margin-bottom: 30% !important;
+}
+
+label {
+    font-family: gotham_bold,Calibri!important;
+    font-size: 12px!important;
+    margin-bottom: 0px !important;
+}
+
+.lp-currency-amount-input .amount-area .decimal-amount-input {
+    width: 15%;
+    text-align: center;
+}
+
+.lp-currency-amount-input .amount-area .whole-amount-input {
+    width: 80%;
+    text-align: right;
+}
+
+.form-control {
+    font-size: 12px !important;
+}
+
+.upcoming-obligation a {
+    color: #333333!important;
+}
+
+.nav-tabs>li>a {
+    margin-right: 0px !important;
+}
+
+.nav-tabs>li.active>a {
+    border-color: transparent!important;
+}
+
+.idfcDropdownWidth button {
+    font-size: 12px !important;
+    border: 1px solid #ccc;
+}
+
+.lp-scheduled-transfer .lp-st-control {
+    width: 95% !important;
+    margin-left: 2% !important;
+}
+
+.lp-scheduled-transfer .lp-st-caption {
+    margin-left: 2% !important;
+    font-family: gotham_bold !important;
+}
+
+.lp-icon-calendar, .lp-icon-calendar:before {
+    content: "\e636" !important;
+}

@@ -1,0 +1,37 @@
+<h4>
+    <div class="text-success sucessOTP text-center maxWidth" ng-show="success.happened" style="text-align:center">
+        <div class="img_padding">
+            <img src="static/features/[BBHOST]/theme-idfc/images/tick_mdpi.png"/>
+            <img ng-src="{{tick}}"/>
+        </div>
+        <br/>
+        {{ success.msg }}
+    </div>
+    <div class="text-danger text-center" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+</h4>
+<form name="forms.OTPform" class="settings-form-horizontal form-horizontal maxWidth">
+    <div label="Mobile_Label" tip="">
+        <span lp-i18n="{{'Mobile_Label'|translate}}" class="settings-label-span otpPadding"></span>
+        <div>
+            <input class="settings-form-control form-control setting-margin-left" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+        </div>
+    </div>
+    <input style="display:none" type="text" name="fakeusernameremembered"/>
+    <input style="display:none" type="password" name="fakepasswordremembered"/>
+    <div label="OTP_Label" class="maxWidth">
+        <span lp-i18n="{{'OTP_Label'|translate}}" class="settings-label-span setting-margin-left"> </span>
+        <i class="lp-icon infoIcon ng-scope manualIconOTP"tooltip="{{'Tip_OTP'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+            <img class="toolTipImg" src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+        <div class="maxWidth">
+            <input class="settings-form-control form-control setting-margin-left OtpInput inputWidth" type="tel" name="otp" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="controlAPIN.otpValue" required="true" ng-disabled="cancelTransaction" style="-webkit-text-security:disc" />
+            <small class="text-danger" ng-show="forms.OTPform.submitted &amp;&amp; forms.OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+            <small class="text-danger" ng-show="forms.OTPform.submitted &amp;&amp; forms.OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+            <small class="text-danger" ng-show="forms.OTPform.submitted &amp;&amp; forms.OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+            <small class="text-danger" ng-show="forms.OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+        </div>
+    </div>
+    <div class="settings-div-td-dep-ab maxWidth">
+        <button class="btn btn-primary settings-btn-align primary-btn-setting primary-btn-btn settingBtn btnRed" type="submit" name="verifyOTP" ng-disabled="cancelTransaction" ng-click="forms.OTPform.submitted=true; verifyOTP(forms.OTPform.$valid)">{{'btn_Submit'|translate}}</button>
+        <button class="btn btn-primary settings-btn-align secondary-btn-setting secondary-btn-btn settingBtn btnGrey" type="button" name="resendOTP" ng-disabled="cancelTransaction" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+    </div>
+</form>

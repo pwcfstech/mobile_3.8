@@ -1,0 +1,1754 @@
+/* Build with bb-lp-cli @ v1.2.1 */
+.lp-idfc-gold-investments .goldInvst-check-control {
+	display: block;
+	width: 252px;
+	height: 40px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out .15s, box-shadow
+		ease-in-out .15s;
+	-moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	padding: 6px 12px;
+	-webkit-appearance: none;
+	background: url(../images/MenuDown.png) no-repeat;
+	background-position: 95% 50%
+}
+
+.panel {
+    margin-bottom:0px !important;
+}
+
+.panel-body {
+    padding:0px 15px 15px 15px !important;
+}
+
+.wizard-wrapper .wizard-step-number {
+        margin-right: 5px;
+        border: 1px solid #777777;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        padding: 4px 6px;
+        width: 30px;
+}
+.goldmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    padding-top: 10%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.goldmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.goldmodal-close {
+    color: white;
+    float: right;
+    font-size: 27px;
+    font-weight: bold;
+    left: -5%;
+    position: relative;
+}
+
+.goldmodal-close:hover,
+.goldmodal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.goldmodal-header {
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    border-color: #996699 !important;
+}
+
+.goldmodal-body {
+    /*height: 500px !important;*/
+    overflow-y: auto !important;
+    font-family: Helvetica !important;
+	font-weight: normal;
+}
+
+.goldmodal-footer {
+    height: 65px;
+}
+
+@media ( min-width :320px) and (max-width:480px) {
+.goldmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 50; /* Sit on top */
+    bottom:0;
+    right:0;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.goldmodal-content {
+    position: absolute;
+    background-color: #fefefe;
+    margin: auto;
+    top:25px;
+    right:0;
+    left:0;
+    bottom:50px;;
+    padding: 0;
+    border: 1px solid #888;
+    width: 85%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.goldmodal-close {
+     color: white;
+     float: right;
+     font-size: 20px;
+     font-weight: bold;
+     right: 0px;
+     left: 0px;
+     position: relative;
+     top: 4px;
+}
+
+.goldmodal-close:hover,
+.goldmodal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.goldmodal-header {
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    border-color: #996699 !important;
+    padding:3px 8px;
+}
+
+.goldmodal-body {
+    /*height: 400px !important;*/
+    overflow-y: auto !important;
+    font-family: Helvetica !important;
+	font-weight: normal;
+	width:100%;
+	background:#fff;
+}
+
+.goldmodal-footer {
+    height: 70px;
+    background:#fff;
+    margin:0px 0;
+    text-align:center;
+}
+}
+@media ( max-width :767px) and (min-width:481px) {
+.goldmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    padding-top: 10%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.goldmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 90%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.goldmodal-close {
+     color: white;
+    float: right;
+    font-size: 27px;
+    font-weight: bold;
+    left: -5%;
+    position: relative;
+}
+
+.goldmodal-close:hover,
+.goldmodal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.goldmodal-header {
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    border-color: #996699 !important;
+}
+
+.goldmodal-body {
+    /*height: 500px !important;*/
+    overflow-y: auto !important;
+    font-family: Helvetica !important;
+	font-weight: normal;
+	width:100%;
+    	background:#fff;
+}
+
+.goldmodal-footer {
+        height: 90px;
+    margin-left: 306px;
+}
+}
+
+@media ( min-width :250px) and (max-width:319px) {
+.goldmodal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    padding-top: 10%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.goldmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 96%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.goldmodal-close {
+        color: white;
+    float: right;
+    font-size: 27px;
+    font-weight: bold;
+    left: -5%;
+    position: relative;
+    margin-top: -49px;
+}
+
+.goldmodal-close:hover,
+.goldmodal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.goldmodal-header {
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    border-color: #996699 !important;
+}
+
+.goldmodal-body {
+    /*height: 400px !important;*/
+    overflow-y: auto !important;
+    font-family: Helvetica !important;
+	font-weight: normal;
+	width:100%;
+    	background:#fff;
+}
+
+.goldmodal-footer {
+    height: 60px;
+}
+}
+
+
+
+
+.goldBondpopup .gbScrollPopup {
+	height: 500px !important;
+	overflow-y: auto !important;
+	font-family: Helvetica !important;
+}
+
+.gold-bonds-anchor {
+	text-decoration: none !important
+}
+
+.lp-idfc-gold-investments .errorDivEmail {
+	font-size: 13px !important
+}
+
+.lp-idfc-gold-investments .tickMarkDiv {
+	text-align: center
+}
+
+.lp-idfc-gold-investments .congratsMsg label {
+	padding-top: 0 !important
+}
+
+.lp-idfc-gold-investments .wizard-wrapper .wizard-step-number-active {
+	background-color: #ffc72c;
+	border: 1px solid #ffc72c;
+	color: #fff
+}
+
+.lp-idfc-gold-investments .wizard-wrapper .wizard-step-done {
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+	color: #ffffff
+}
+
+.lp-idfc-gold-investments .wizard-step-container {
+	margin-left: 36%
+}
+
+.lp-idfc-gold-investments .wizard-step-heading {
+	display: table-caption !important
+}
+
+.lp-idfc-gold-investments .wizard-step {
+	display: table !important;
+	width: auto
+}
+
+.lp-idfc-gold-investments input[type="checkbox"] {
+	margin-right: 2px;
+    margin-top: 0px;
+    vertical-align: middle;
+}
+.lp-idfc-gold-investments .gold-bonds-anchor{
+	text-decoration:none !important
+}
+.lp-idfc-gold-investments .wizard-step-number {
+	margin-top: 3%;
+	margin-bottom: 5%;
+	background-color: #eaeaea;
+	color: black;
+	border: 1px solid #eaeaea !important
+}
+
+.lp-idfc-gold-investments .wizard-step-container .glyphicon {
+	display: block;
+	border: 2px solid #eaeaea;
+	width: 21%;
+	margin-top: 1%;
+	margin-left: -1.6%;
+	margin-right: -1%
+}
+
+.lp-idfc-gold-investments .glyphicon-arrow-right:before {
+	content: no-close-quote
+}
+
+.lp-idfc-gold-investments .progressBarDiv {
+	width: 50%;
+	float: left
+}
+
+.lp-idfc-gold-investments .progressBarLabelLeft {
+	font-size: 12px !important;
+	margin-left: 50%
+}
+
+.lp-idfc-gold-investments .progressBarLabelRight {
+	font-size: 12px !important;
+	/*margin-right: 94%*/
+}
+
+.lp-idfc-gold-investments .wizard-steps {
+	margin-top: -2%
+}
+
+.lp-idfc-gold-investments .popup_close {
+	color: #FB637E !important;
+	float: right;
+	font-size: 28px
+}
+
+.lp-idfc-gold-investments .popup_close:hover, .lp-idfc-gold-investments .popup_close:focus
+	{
+	text-decoration: none;
+	cursor: pointer
+}
+
+.lp-idfc-gold-investments .ol_de {
+	margin-left: 4em !important
+}
+
+.lp-idfc-gold-investments .li_de {
+	list-style-type: upper-roman !important;
+	padding-left: 3em !important;
+	padding-bottom: 1em !important;
+	font-size: 16px !important
+}
+
+.lp-idfc-gold-investments .li_div {
+	margin-left: -45px !important
+}
+
+.lp-idfc-gold-investments .ft_div {
+	margin-left: 25px;
+	font-size: 16px;
+	margin-bottom: 12px
+}
+
+.lp-idfc-gold-investments .gold_h_font {
+	font-size: 14px !important
+}
+
+.lp-idfc-gold-investments .gold_l_width {
+	width: 37% !important
+}
+
+.lp-idfc-gold-investments .gold_le {
+	font-size: 13px !important
+}
+
+.lp-idfc-gold-investments .gold_r_width {
+	width: 50% !important
+}
+
+.lp-idfc-gold-investments .gold_re {
+	font-size: 12px !important
+}
+
+.lp-idfc-gold-investments .rupee-symbol-span {
+	font-family: webrupee !important;
+	display: inline;
+	margin-right: 3px !important;
+	font-weight: 100 !important;
+	font-style: normal !important;
+	font-size: 13px !important
+}
+
+.lp-idfc-gold-investments .page-content-label {
+	padding-left: 11% !important;
+	width: 33% !important
+}
+
+.lp-idfc-gold-investments .page-content-input {
+	margin: 10px 0 10px 0 !important
+}
+
+.lp-idfc-gold-investments label {
+	font-weight: bold !important;
+	padding-top: 20px !important
+}
+
+.lp-idfc-gold-investments .form-control {
+	border-radius: 0 !important;
+	width: 245px !important
+}
+
+.lp-idfc-gold-investments .bib-wrapper .page-content-input select {
+	width: 245px !important;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+}
+
+.lp-idfc-gold-investments select::-ms-expand{
+  display:none;
+}
+
+.lp-idfc-gold-investments .info-panel {
+	font-weight: Normal !important;
+	opacity: .5;
+	margin: 2% 0 0 66%;
+	width: 100%
+}
+
+.lp-idfc-gold-investments .bib-wrapper .goldInvst-err-msg {
+	clear: both
+}
+
+.lp-idfc-gold-investments .info-panel-label {
+	font-weight: Normal !important;
+	opacity: .7;
+	margin: 0 0 0 15%;
+	width: 100%;
+	padding-top: 5% !important
+}
+
+.lp-idfc-gold-investments .info-panel-content {
+	padding-top: 3% !important
+}
+
+.lp-idfc-gold-investments .info-panel-div {
+	float: left;
+	width: 50%;
+	border: 1px solid lightgrey;
+	height: 220px;
+	padding-left: 8%;
+}
+
+.lp-idfc-gold-investments .terms-div {
+	padding-top: 4%;
+	clear: both
+}
+
+.lp-idfc-gold-investments .terms-label {
+	opacity: .5;
+	font-weight: Normal !important;
+	font-size: 13px !important
+}
+
+.lp-idfc-gold-investments .terms-link {
+	color: #FB637E !important;
+	padding-left: 5px;
+	font-weight: normal;
+	font-size: 13px !important;
+}
+
+.lp-idfc-gold-investments .content-label {
+	margin-top: 5px;
+	width: 40%
+}
+
+.lp-idfc-gold-investments .content-separator-left {
+	padding-top: 3%;
+	width: 10%
+}
+
+.lp-idfc-gold-investments .successMsg {
+	text-align: center
+}
+
+.lp-idfc-gold-investments .goldBond-pdf-img {
+	padding: 5px 5px 5px 5px;
+	cursor: pointer;
+	margin-top: 1%
+}
+
+.lp-idfc-gold-investments .successMsg-label {
+	font-weight: 500;
+	margin-top: -25px
+}
+
+.lp-idfc-gold-investments .successMsg-serviceNo {
+	color: Orange
+}
+
+.lp-idfc-gold-investments .sm-div {
+	display: none
+}
+
+.lp-idfc-gold-investments .button-mob {
+	display: none
+}
+
+.lp-idfc-gold-investments .receipt-mob {
+	display: none
+}
+
+.lp-idfc-gold-investments .btn-tick {
+	color: green;
+	font-size: 25px;
+	margin-left: 49%
+}
+
+.lp-idfc-gold-investments .break-email {
+	word-wrap: break-word
+}
+
+.lp-idfc-gold-investments .grams-span {
+	font-weight: normal
+}
+
+.lp-idfc-gold-investments .mail-msg-div {
+	font-weight: normal !important;
+	font-size: 13px !important;
+	opacity: .5
+}
+
+.lp-idfc-gold-investments .successMsg-div {
+	margin-bottom: 3%
+}
+
+
+
+@media ( min-width :240px) and (max-width:320px) {
+
+	.goldBondpopup .gbScrollPopup {
+		height: 360px !important;
+		overflow-y: auto !important;
+		font-family: Helvetica !important;
+	}
+	
+	.lp-idfc-gold-investments .bib-wrapper .page-content-label {
+		width: 100% !important;
+		padding: 0 !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .page-content-input {
+		padding: 0;
+		margin: 0 0 -8px 0 !important;
+		width: 90%
+	}
+	.lp-idfc-gold-investments .bib-wrapper .page-content-input input {
+		height: 45px !important;
+		width: 110% !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .page-content-input select {
+		width: 110% !important;
+		height: 45px !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .primary-btn-btn {
+		width: 100% !important;
+		/*margin-top: 4% !important;*/
+		/*margin-left: 1% !important;*/
+		min-width: 0 !important;
+		height: 40px !important;
+		/*margin-right: 0% !important*/
+	}
+	.lp-idfc-gold-investments .bib-wrapper .secondary-btn-btn {
+		width: 100% !important;
+		margin-top: 0% !important;
+		margin-left: 0 !important;
+		/*max-width: 97% !important;*/
+		height: 40px !important;
+		background-color:#eaeaea !important;
+		color:black;
+	}
+	.lp-idfc-gold-investments .bib-wrapper .button-row button:last-child {
+		margin-right: 34% !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .button-row {
+		margin: 70px 0 0 -19px !important;
+		width: 114%
+	}
+	.lp-idfc-gold-investments .bib-wrapper .text-danger {
+		font-size: 11px !important
+	}
+	.lp-idfc-gold-investments .panel-body .row {
+		padding: 0 3% !important
+	}
+	.lp-idfc-gold-investments .info-panel {
+		font-weight: Normal !important;
+		opacity: .5;
+		margin: 10px 0 0 0 !important;
+		width: 110%;
+		display: inline-block;
+		font-size: 12px
+	}
+	.lp-idfc-gold-investments .info-panel-content {
+		padding-top: 5% !important;
+		font-weight: normal !important;
+		font-size: 9pt !important;
+		padding: 0 !important;
+		line-height	:	normal !important;
+		font-family: gotham_book,Calibri !important;
+	}
+	.lp-idfc-gold-investments .info-panel-div {
+		float: left;
+		width: 50%;
+		border: none;
+		height: 100px;
+		padding-left: 8%;
+	}
+	.lp-idfc-gold-investments .info-panel-div-sec {
+		float: left;
+		width: 50%;
+		height: 100px;
+		/*padding-top: 20px;*/
+		padding-left: 8%;
+	}
+	.lp-idfc-gold-investments .terms-label {
+		opacity: .5;
+		font-weight: Normal !important;
+		font-size: 9px;
+		display: inline;
+		font-size: 12px !important
+	}
+	.lp-idfc-gold-investments .terms-div {
+		width: 100%;
+		padding-left: 4%;
+		padding-right: 4%;
+		text-align:justify;
+	}
+	.lp-idfc-gold-investments .terms-link {
+		color: #FB637E !important;
+		padding-left: 5px;
+		font-weight: normal;
+		font-size: 12px !important;
+	}
+	.lp-idfc-gold-investments .bib-wrapper .info-panel-label {
+		margin: 0 !important;
+		width: 100% !important;
+		font-size: 9pt !important;
+		font-weight: bold !important;
+		opacity: 5 !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .content-separator-left {
+		display: none
+	}
+	.lp-idfc-gold-investments .bib-wrapper .content-label {
+		width: 115% !important;
+		margin: 0 !important
+	}
+	.lp-idfc-gold-investments .separator-div {
+		float: left;
+		width: 100%;
+		border-bottom: 1px solid #eaeaea;
+		margin-top: 3%;
+		margin-bottom: 2%;		
+	}
+	.lp-idfc-gold-investments .bib-wrapper .sm-div {
+		display: block
+	}
+	.lp-idfc-gold-investments .bib-wrapper .lg-div {
+		display: none
+	}
+	.lp-idfc-gold-investments .bib-wrapper .optional-div {
+		display: none
+	}
+	.lp-idfc-gold-investments .button-desk {
+		display: none
+	}
+	.lp-idfc-gold-investments .receipt-desk {
+		display: none
+	}
+	.lp-idfc-gold-investments .button-mob {
+		display: block
+	}
+	.lp-idfc-gold-investments .receipt-mob {
+		display: block;
+		text-align: center
+	}
+	.lp-idfc-gold-investments .bib-wrapper .optional {
+		display: block !important;
+		width: 27%;
+		margin: 6% 0 0 1%;
+		padding: 0;
+		float: left;
+		font-size: 12px;
+		font-family: gotham_medium, Calibri !important
+	}
+	.lp-idfc-gold-investments .goldBond-pdf-img {
+		padding: 5px 5px 5px 5px;
+		cursor: pointer;
+		margin-top: 0
+	}
+	.lp-idfc-gold-investments .progressBarLabelLeft {
+		font-size: 12px !important;
+		margin-left: 0
+	}
+	.lp-idfc-gold-investments .wizard-wrapper .wizard-step-container {
+		display: block
+	}
+	.lp-idfc-gold-investments .wizard-step-container {
+		margin-left: 21%
+	}
+	.lp-idfc-gold-investments .wizard-step-container .glyphicon {
+		    display: block;
+            border: 2px solid #eaeaea;
+            width: 55%;
+            margin-top: 3.7%;
+            margin-left: -3.8%;
+            margin-right: -2%;
+	}
+}
+
+@media ( min-width :320px) and (max-width:480px) {
+
+.goldBondpopup .gbScrollPopup {
+		/*height: 320px !important;*/
+		overflow-y: auto !important;
+		font-family: Helvetica !important;
+	}
+
+	.lp-idfc-gold-investments .bib-wrapper .page-content-label {
+		width: 100% !important;
+		padding: 0 !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .page-content-input {
+		padding: 0;
+		margin: 0 0 -8px 0 !important;
+		width: 100%
+	}
+
+
+	.lp-idfc-gold-investments .bib-wrapper .page-content-input input {
+		height: 45px !important;
+		width: 100% !important;
+		outline:none;
+		box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075) !important;
+		-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075) !important;
+		-webkit-appearance:none;
+	}
+	.lp-idfc-gold-investments .bib-wrapper .page-content-input select {
+		width: 100% !important;
+		height: 45px !important
+	}
+	.page-content-input input.input-val-gold {
+           float: left;
+           width: 80% !important;
+           display: inline-block;
+           border-right:0px;
+
+        }
+        .page-content-input input.static-val {
+           width: 20% !important;
+           display: inline-block;
+           float: left;
+           border-left: 0px;
+           border: 1px solid #ccc;
+           padding: 0px 10px;
+           text-align: center;
+           border-left:0px;
+           background:#fff;
+        }
+
+	.lp-idfc-gold-investments .bib-wrapper .primary-btn-btn {
+		width: 100% !important;
+		/*margin-top: 4% !important;*/
+		/*margin-left: 1% !important;*/
+		min-width: 0 !important;
+		height: 40px !important;
+		margin-right: 0% !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .secondary-btn-btn {
+		width: 100% !important;
+		margin-top: 0% !important;
+		margin-left: 0% !important;
+		margin-right: 0% !important;
+		min-width: 0 !important;
+		height: 40px !important;
+		background-color:#eaeaea !important;
+		color:black;
+	}
+	.lp-idfc-gold-investments .bib-wrapper .button-row {
+		margin: 20px 0 0 0px !important;
+		width: 100%
+	}
+	.lp-idfc-gold-investments .panel-body .row {
+		padding: 0 3% !important
+	}
+	.lp-idfc-gold-investments .info-panel {
+		font-weight: Normal !important;
+		opacity: .5;
+		margin: 10px 0 0 0 !important;
+		width: 100%;
+		display: inline-block;
+		font-size: 12px
+	}
+	.lp-idfc-gold-investments .info-panel-content {
+		padding-top: 5% !important;
+		font-weight: normal !important;
+		font-size: 9pt !important;
+		padding: 0 !important;
+		word-wrap: break-word;
+		line-height	:	normal !important;
+		font-family: gotham_book,Calibri !important;
+	}
+	.lp-idfc-gold-investments .info-panel-div {
+		float: left;
+		width: 50%;
+		border: none;
+		height: 100px;
+		padding-left: 8%;
+	}
+	.lp-idfc-gold-investments .info-panel-div-sec {
+		float: left;
+		width: 50%;
+		/*height: 100px;*/
+		/*padding-top: 20px;*/
+		padding-left: 8%;
+	}
+	.lp-idfc-gold-investments .terms-label {
+		opacity: .5;
+		font-weight: Normal !important;
+		font-size: 9px;
+		display: inline;
+		font-size: 12px !important
+	}
+	.lp-idfc-gold-investments .terms-div {
+		width: 100%;
+		padding-left: 4%;
+		padding-right: 4%;
+		text-align: justify;
+	}
+	.lp-idfc-gold-investments .terms-link {
+		color: #FB637E !important;
+		padding-left: 5px;
+		font-weight: normal;
+		font-size: 12px !important;
+	}
+	.lp-idfc-gold-investments .bib-wrapper .info-panel-label {
+		margin: 0 !important;
+		width: 100% !important;
+		font-size: 9pt !important;
+		font-weight: bold !important;
+		opacity: 5 !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .content-separator-left {
+		display: none
+	}
+	.lp-idfc-gold-investments .bib-wrapper .content-label {
+		width: 95% !important;
+		margin: 0 !important
+	}
+	.lp-idfc-gold-investments .separator-div {
+		float: left;
+		width: 100%;
+		border-bottom: 1px solid #eaeaea;
+		margin-top: 3%;
+		margin-bottom: 2%;		
+	}
+	.lp-idfc-gold-investments .bib-wrapper .sm-div {
+		display: block
+	}
+	.lp-idfc-gold-investments .bib-wrapper .lg-div {
+		display: none
+	}
+	.lp-idfc-gold-investments .bib-wrapper .optional-div {
+		display: none
+	}
+	.lp-idfc-gold-investments .button-desk {
+		display: none
+	}
+	.lp-idfc-gold-investments .button-mob {
+		display: block
+	}
+	.lp-idfc-gold-investments .receipt-desk {
+	    text-align:center;
+		/*display: none*/
+	}
+	.lp-idfc-gold-investments .receipt-mob {
+		display: block;
+		text-align: center
+	}
+	.lp-idfc-gold-investments .bib-wrapper .optional {
+		display: block !important;
+		width: 27%;
+		margin: 6% 0 0 1%;
+		padding: 0;
+		float: left;
+		font-size: 12px;
+		font-family: gotham_medium, Calibri !important
+	}
+	.lp-idfc-gold-investments .goldBond-pdf-img {
+		padding: 5px 5px 5px 5px;
+		cursor: pointer;
+		margin-top: 0
+	}
+	.lp-idfc-gold-investments .progressBarLabelLeft {
+		font-size: 12px !important;
+		margin-left: 0
+	}
+	.lp-idfc-gold-investments .wizard-wrapper .wizard-step-container {
+		display: block
+	}
+	.lp-idfc-gold-investments .wizard-step-container {
+		margin-left: 21%
+	}
+	.lp-idfc-gold-investments .wizard-step-container .glyphicon {
+		display: block;
+		border: 2px solid #eaeaea;
+		width: 55%;
+		margin-top: 3.7%;
+		margin-left: -3.9%;
+		margin-right: -2%
+	}
+}
+
+@-moz-document url-prefix(){ 
+	.lp-idfc-gold-investments .wizard-step-container .glyphicon {
+		display:block;
+		border: 2px solid #eaeaea;
+		width: 21%;
+		margin-top: -2.5%;
+		margin-left: 18%;
+		margin-right: -1%
+	}
+
+	.lp-idfc-gold-investments .secondDiv {
+		margin-top: -4%;
+		margin-left: 25.5%
+	}
+
+	.lp-idfc-gold-investments .secondDiv .wizard-step {
+		margin-top: -3.5%;
+		margin-left: 38.5%
+	}
+}
+@media ( max-width :767px) and (min-width:481px) {
+	.lp-idfc-gold-investments .bib-wrapper .page-content-label {
+		width: 100% !important;
+		padding: 0 !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .page-content-input {
+		padding: 0;
+		margin: 0 0 -8px 0 !important;
+		width: 100%;
+	}
+	.lp-idfc-gold-investments .bib-wrapper .page-content-input input {
+		height: 45px !important;
+		width: 100% !important
+	}
+
+
+	.lp-idfc-gold-investments .bib-wrapper .page-content-input select {
+		width: 100% !important;
+		height: 45px !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .primary-btn-btn {
+		width: 100% !important;
+		/*margin-top: 4% !important;*/
+		/*margin-left: 1% !important;*/
+		min-width: 0 !important;
+		height: 40px !important;
+		margin-right: 0% !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .secondary-btn-btn {
+		width: 100% !important;
+		margin-top: 0% !important;
+		margin-left: 0% !important;
+		margin-right: 0% !important;
+		min-width: 0 !important;
+		height: 40px !important;
+		background-color:#eaeaea !important;
+		color:black;
+		/*max-width: 96% !important*/
+	}
+	.lp-idfc-gold-investments .bib-wrapper .button-row {
+		margin: 20px 0 0 -19px !important;
+		width: 110%
+	}
+	.lp-idfc-gold-investments .panel-body .row {
+		padding: 0 3% !important
+	}
+	.lp-idfc-gold-investments .info-panel {
+		font-weight: Normal !important;
+		opacity: .5;
+		margin: 10px 0 0 0 !important;
+		width: 110%;
+		display: inline-block;
+		font-size: 12px
+	}
+	.lp-idfc-gold-investments .info-panel-content {
+		padding-top: 5% !important;
+		font-weight: normal !important;
+		font-size: 9pt !important;
+		padding: 0 !important;
+		word-wrap: break-word;
+		line-height	:	normal !important;
+		font-family: gotham_book,Calibri !important;
+	}
+	.lp-idfc-gold-investments .info-panel-div {
+		float: left;
+		width: 50%;
+		border: none;
+		height: 100px;
+		padding-left: 8%;
+	}
+	.lp-idfc-gold-investments .info-panel-div-sec {
+		float: left;
+		width: 50%;
+		height: 100px;
+		/*padding-top: 20px;*/
+		padding-left: 8%;
+	}
+	.lp-idfc-gold-investments .terms-label {
+		opacity: .5;
+		font-weight: Normal !important;
+		font-size: 9px;
+		display: inline;
+		font-size: 12px !important
+	}
+	.lp-idfc-gold-investments .terms-div {
+		width: 100%;
+		padding-left: 4%;
+		padding-right: 4%;
+		text-align: justify;
+	}
+	.lp-idfc-gold-investments .terms-link {
+		color: #FB637E !important;
+		padding-left: 5px;
+		font-weight: normal;
+		font-size: 12px !important;
+	}
+	.lp-idfc-gold-investments .bib-wrapper .info-panel-label {
+		margin: 0 !important;
+		width: 100% !important;
+		font-size: 9pt !important;
+		font-weight: bold !important;
+		opacity: 5 !important
+	}
+	.lp-idfc-gold-investments .bib-wrapper .content-separator-left {
+		display: none
+	}
+	.lp-idfc-gold-investments .bib-wrapper .content-label {
+		width: 95% !important;
+		margin: 0 !important
+	}
+	.lp-idfc-gold-investments .separator-div {
+		float: left;
+		width: 100%;
+		border-bottom: 1px solid #eaeaea;
+		margin-top: 3%;
+		margin-bottom: 2%;
+	}
+	.lp-idfc-gold-investments .bib-wrapper .sm-div {
+		display: block
+	}
+	.lp-idfc-gold-investments .bib-wrapper .lg-div {
+		display: none
+	}
+	.lp-idfc-gold-investments .bib-wrapper .optional-div {
+		display: none
+	}
+	.lp-idfc-gold-investments .button-desk {
+		display: none
+	}
+	.lp-idfc-gold-investments .button-mob {
+		display: block
+	}
+	.lp-idfc-gold-investments .receipt-desk {
+		display: none
+	}
+	.lp-idfc-gold-investments .receipt-mob {
+		display: block;
+		text-align: center
+	}
+	.lp-idfc-gold-investments .bib-wrapper .optional {
+		display: block !important;
+		width: 27%;
+		margin: 6% 0 0 1%;
+		padding: 0;
+		float: left;
+		font-size: 12px;
+		font-family: gotham_medium, Calibri !important
+	}
+	.lp-idfc-gold-investments .goldBond-pdf-img {
+		padding: 5px 5px 5px 5px;
+		cursor: pointer;
+		margin-top: 0
+	}
+	.lp-idfc-gold-investments .progressBarLabelLeft {
+		font-size: 12px !important;
+		margin-left: 0
+	}
+	.lp-idfc-gold-investments .wizard-wrapper .wizard-step-container {
+		display: block
+	}
+	.lp-idfc-gold-investments .wizard-step-container {
+		margin-left: 21%
+	}
+	.lp-idfc-gold-investments .wizard-step-container .glyphicon {
+		display: block;
+		border: 2px solid #eaeaea;
+		width: 55%;
+		margin-top: 3%;
+		margin-left: -4%;
+		margin-right: -2%
+	}
+	
+}
+
+.goldBondpopup .popup_close {
+	color: #FB637E !important;
+	float: right;
+	font-size: 28px
+}
+
+.goldBondpopup .popup_close:hover, .goldBondpopup .popup_close:focus {
+	text-decoration: none;
+	cursor: pointer
+}
+
+.goldBondpopup .ol_de {
+	margin-left: 4em !important
+}
+
+.goldBondpopup .li_de {
+	list-style-type: upper-roman !important;
+	padding-left: 3em !important;
+	padding-bottom: 1em !important;
+	font-size: 16px !important
+}
+
+.goldBondpopup .li_div {
+	margin-left: -45px !important
+}
+
+.goldBondpopup .ft_div {
+	margin-left: 25px;
+	font-size: 16px;
+	margin-bottom: 12px
+}
+
+
+
+.goldBondpopup .gold_h_font {
+	font-size: 14px !important
+}
+
+.goldBondpopup .gold_l_width {
+	width: 37% !important
+}
+
+.goldBondpopup .gold_le {
+	font-size: 13px !important
+}
+
+.goldBondpopup .gold_r_width {
+	width: 50% !important
+}
+
+.goldBondpopup .gold_re {
+	font-size: 12px !important
+}
+
+.goldBondpopup .rupee-symbol-span {
+	font-family: webrupee !important;
+	display: inline;
+	margin-right: 3px !important;
+	font-weight: 100 !important;
+	font-style: normal !important;
+	font-size: 13px !important
+}
+
+.goldBondpopup .page-content-label {
+	padding-left: 15% !important;
+	width: 40% !important
+}
+
+.goldBondpopup .page-content-input {
+	margin: 10px 0 10px 0 !important
+}
+
+.goldBondpopup label {
+	font-weight: bold !important;
+	padding-top: 20px !important;
+	color: white;
+	padding-left: 25px;
+	padding-top: 10px !important;
+	padding-bottom: 5px !important
+}
+
+.goldBondpopup .form-control {
+	border-radius: 0 !important;
+	width: 260px !important
+}
+
+.goldBondpopup .bib-wrapper .page-content-input select {
+	width: 260px !important;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+}
+
+.lp-idfc-gold-investments select::-ms-expand {
+	display: none;
+}
+
+.goldBondpopup .info-panel {
+	font-weight: Normal !important;
+	opacity: .5;
+	margin: 2% 0 0 62%;
+	width: 100%
+}
+
+.goldBondpopup .bib-wrapper .primary-btn-btn {
+	margin-left: 87% !important
+}
+
+.goldBondpopup .bib-wrapper .goldInvst-err-msg {
+	clear: both
+}
+
+.goldBondpopup .info-panel-label {
+	font-weight: Normal !important;
+	opacity: .7;
+	margin: 0 0 0 15%;
+	width: 100%;
+	padding-top: 5% !important
+}
+
+.goldBondpopup .info-panel-content {
+	padding-top: 3% !important
+}
+
+.goldBondpopup .info-panel-div {
+	float: left;
+	width: 50%;
+	border: 1px solid lightgrey;
+	height: 195px
+}
+
+.goldBondpopup .terms-div {
+	padding-top: 2%;
+	clear: both
+}
+
+.goldBondpopup .terms-label {
+	opacity: .5;
+	font-weight: Normal !important;
+	font-size: 13px !important
+}
+
+.goldBondpopup .terms-link {
+	color: #FB637E !important;
+	padding-left: 5px;
+	font-weight: normal;
+	font-size: 13px !important;
+}
+
+.goldBondpopup .content-label {
+	margin-top: 5px;
+	width: 40%
+}
+
+.goldBondpopup .content-separator-left {
+	padding-top: 3%;
+	width: 10%
+}
+
+.goldBondpopup .successMsg {
+	text-align: center
+}
+
+.goldBondpopup .goldBond-pdf-img {
+	padding: 5px 5px 5px 5px;
+	cursor: pointer;
+	margin-top: 1%
+}
+
+.goldBondpopup .successMsg-label {
+	font-weight: 500;
+	margin-top: -25px
+}
+
+.goldBondpopup .successMsg-serviceNo {
+	color: Orange
+}
+
+.goldBondpopup .sm-div {
+	display: none
+}
+
+.goldBondpopup .button-mob {
+	display: none
+}
+
+.goldBondpopup .receipt-mob {
+	display: none
+}
+
+.goldBondpopup .btn-tick {
+	color: green;
+	font-size: 25px;
+	margin-left: 49%
+}
+
+.goldBondpopup .break-email {
+	word-wrap: break-word
+}
+
+.goldBondpopup .grams-span {
+	font-weight: normal
+}
+
+.goldBondpopup .mail-msg-div {
+	font-weight: normal !important;
+	font-size: 13px !important;
+	opacity: .5
+}
+
+.goldBondpopup .successMsg-div {
+	margin-bottom: 3%
+}
+
+
+
+.goldBondpopup .popupHeader {
+	color: #ffffff !important;
+	background-color: #996699 !important;
+	border-color: #996699 !important
+}
+
+.goldBondpopup .popupHeader .close {
+	position: relative;
+	top: 9px;
+	left: -17px;
+	color: white;
+	padding: 0;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	-webkit-appearance: none;
+	float: right;
+	opacity: 1;
+	font-style: normal
+}
+
+.goldBondpopup .gbPopupMarginContent {
+    margin-left: 25px;
+	font-size: 16px;
+}
+
+.goldBondpopup #style-2::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5
+}
+
+.goldBondpopup #style-2::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5
+}
+
+.goldBondpopup #style-2::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color: #777777
+}
+
+.goldBondpopup .gbDdeclarationDashedLine {
+    margin-left: 141px;
+    border-bottom: 1px dashed #ff5c33;
+    position: relative;
+    height: 16px;
+    padding-top: 24px;
+}
+
+.goldBondpopup .gbSideHeading {
+    width: 150px;
+    float: left;
+	font-size: 20px;
+}
+
+.goldBondpopup .gbDdeclarationDashedLine2 {
+    margin-left: 243px;
+    color: orange;
+    border-bottom: 1px dashed orange;
+    position: relative;
+    height: 16px;
+    padding-top: 24px;
+}
+
+.goldBondpopup .gbSideHeading2, .goldBondpopup .gbSideHeading3 {
+    width: 230px;
+    float: left;
+	font-size: 20px;
+}
+
+.goldBondpopup .gbSideHeading4 {
+    width: 560px;
+    float: left;
+	font-size: 20px;
+}
+
+.goldBondpopup .gbButton {
+    margin-left: 88% !important;
+}
+	
+.goldBondpopup .gbDdeclarationDashedLine3 {
+    margin-left: 250px;
+    border-bottom: 1px dashed #ff5c33;
+    position: relative;
+    height: 16px;
+    padding-top: 24px;
+}
+
+.goldBondpopup .gbDdeclarationDashedLine4 {
+    margin-left: 564px;
+    border-bottom: 1px dashed orange;
+    position: relative;
+    height: 16px;
+    padding-top: 24px;
+}
+
+.goldBondpopup .gbMarginList{
+	margin-left: 12px;
+}
+
+
+@media ( max-width :767px) and (min-width:481px) {
+	.goldBondpopup .gbDdeclarationDashedLine {
+		margin-left: 142px;
+		border-bottom: 1px dashed #ff5c33;
+		position: relative;
+		height: 16px;
+		padding-top: 24px;
+	}
+	.goldBondpopup .gbSideHeading2, .goldBondpopup .gbSideHeading3 {
+		width: 217px;
+		float: left;
+	}
+	.goldBondpopup .gbDdeclarationDashedLine2 {
+		margin-left: 243px;
+		color: orange;
+		border-bottom: 1px dashed orange;
+		position: relative;
+		height: 16px;
+		padding-top: 24px;
+	}
+	.goldBondpopup .gbDdeclarationDashedLine3 {
+		margin-left: 249px;
+		border-bottom: 1px dashed #ff5c33;
+		position: relative;
+		height: 16px;
+		padding-top: 24px;
+	}
+	.goldBondpopup .gbSideHeading4 {
+		width: 94%;
+		float: left;
+		margin-bottom: 5%;
+	}
+	.goldBondpopup .gbDdeclarationDashedLine4 {
+		margin-left: 143px;
+		border-bottom: 1px dashed orange;
+		position: relative;
+		height: 16px;
+		padding-top: 44px;
+	}
+	.goldBondpopup .gbButton {
+		margin-left: 82% !important;
+	}
+}
+@media ( min-width :320px) and (max-width:480px) {
+	.goldBondpopup .gbDdeclarationDashedLine {
+		margin-left: 91px;
+		border-bottom: 1px dashed #ff5c33;
+		position: relative;
+		height: 16px;
+		padding-top: 20px;
+	}
+	.goldBondpopup .gbPopupMarginContent {
+		margin-left: 3%;
+		font-size: 12px !important;
+	}
+	.goldBondpopup .gbSideHeading {
+		width: 20%;
+		float: left;
+		font-size: 14px !important;
+	}
+	.goldBondpopup .gbSideHeading2, .goldBondpopup .gbSideHeading3 {
+		width: 56%;
+		float: left;
+		font-size: 14px !important;
+	}
+	.goldBondpopup .gbDdeclarationDashedLine2 {
+		margin-left: 166px;
+		color: orange;
+		border-bottom: 1px dashed orange;
+		position: relative;
+		height: 16px;
+		padding-top: 20px;
+	}
+	.goldBondpopup .gbDdeclarationDashedLine3 {
+		margin-left: 171px;
+		border-bottom: 1px dashed #ff5c33;
+		position: relative;
+		height: 16px;
+		padding-top: 20px;
+	}
+	.goldBondpopup .gbSideHeading4 {
+		width: 97%;
+		float: left;
+		font-size: 14px !important;
+	}
+	.goldBondpopup .gbDdeclarationDashedLine4 {
+		margin-left: 93px;
+		border-bottom: 1px dashed orange;
+		position: relative;
+		height: 16px;
+		padding-top: 33px;
+	}
+	.goldBondpopup .gbButton {
+		margin-left: 69% !important;
+	}
+	.goldBondpopup label {
+		font-weight: bold !important;
+		padding-top: 20px !important;
+		color: white;
+		padding-left: 0px;
+		padding-top: 10px !important;
+		padding-bottom: 5px !important;
+		font-size: 12px !important;
+	}
+	.goldBondpopup .popupHeader .close {
+		position: relative;
+		top: 15px;
+		left: -10px;
+		color: white;
+		padding: 0;
+		cursor: pointer;
+		background: transparent;
+		border: 0;
+		-webkit-appearance: none;
+		float: right;
+		opacity: 1;
+		font-style: normal;
+		font-size: 12px;
+	}
+	.goldBondpopup a{
+		font-size: 12px !important;
+	}
+}
+.check-tearms{
+	width: 10%;
+}
+.tooltip-inner {
+    position: absolute!important;
+    width: 160px!important;
+    max-width: 160px!important;
+    height: auto;
+    margin-left: -79px!important;
+    top: 33px!important;
+    background-color: #c6cfd9!important;
+    color: #4a4a4a!important;
+    font-size: 10px;
+    font-family: gotham_book!important
+}
+.tooltip.top .tooltip-arrow {
+    margin-left: -5px!important;
+    top: 28px!important;
+    bottom: -38px;
+    border-top-color: #c6cfd9!important;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg)
+}
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+.tooltip.right .tooltip-arrow {
+    border-right-color: #c6cfd9!important
+}
+.tooltip.left .tooltip-arrow {
+    border-left-color: #c6cfd9!important
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #c6cfd9!important
+}
+.customCircle {
+    box-shadow: 0 0 2px #FB637E;
+    color: #FB637E!important;
+    box-sizing: border-box;
+    border: 1px solid #FB637E;
+    margin-left: 2px
+}
+.lp-icon {
+    font-family: lp-icons, gotham_book, Calibri!important;
+        z-index: 10!important;
+        cursor: pointer!important;
+        speak: none;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal
+}
+/*.loading-icon{
+line-height: 60px !important;
+height: 60px !important;
+width: 60px !important;
+}*/
+/*# sourceMappingURL=base.css.map */

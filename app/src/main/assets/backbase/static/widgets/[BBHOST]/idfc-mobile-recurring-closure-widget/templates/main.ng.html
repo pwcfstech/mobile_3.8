@@ -1,0 +1,24 @@
+<div class="lp-open-deposits">
+    <div class="panel-message" ng-if="tdError" role="alert">
+        <p>
+         <span
+                 lp-i18n="Error occured.Please Try after some Time"></span>
+        </p>
+    </div>
+    <div class="lp-alerts" tabindex="-1">
+        <div class="alert alert-danger ng-cloak" ng-show="fiModel.errors.length > 0">
+            <p ng-repeat="error in fiModel.errors"><i class="lp-icon lp-icon-alert-error"></i> <span
+                    lp-message="error.captionCode" lp-bundle="messages"></span></p>
+        </div>
+        <div class="alert alert-warning ng-cloak" ng-show="fiModel.warnings.length > 0">
+            <p ng-repeat="warning in fiModel.warnings"><i class="lp-icon lp-icon-alert-error"></i> <span
+                    lp-message="warning.captionCode" lp-bundle="messages"></span></p>
+        </div>
+    </div>
+    <div wizard="wizard" next-step="wizardNextStep" previous-step="wizardPreviousStep" go-to-step="goToWizardStep"
+         get-active-step="getActiveWizardStep">
+        <div>
+            <div ng-include="partialsDir + 'ExistingDeposits.html'"></div>
+        </div>
+    </div>
+</div>

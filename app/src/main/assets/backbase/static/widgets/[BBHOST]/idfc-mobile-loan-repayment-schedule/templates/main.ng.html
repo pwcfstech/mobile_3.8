@@ -1,0 +1,22 @@
+<div class="ng-cloak" ng-controller="RepaymentController as loanRepaymentController">
+
+	<!-- Loading indicator -->
+	<div ng-if="loanRepaymentController.errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span class="sr-only" lp-i18n="Busy"></span>
+		</div>
+	</div>
+
+
+	<!--  Body Content -->
+	<div class="lp-widget-content">
+		<div class="lp-widget-body rs-widget-body">
+			<div class="loan-yellow-bg">
+				<div ng-include="loanRepaymentController.templates.header"></div>
+			</div>
+			<div ng-include="loanRepaymentController.templates.body"></div>
+			<div ng-include="loanRepaymentController.templates.error"></div>
+		</div>
+	</div>
+
+</div>

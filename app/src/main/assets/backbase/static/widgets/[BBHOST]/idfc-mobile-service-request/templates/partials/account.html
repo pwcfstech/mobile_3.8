@@ -1,0 +1,151 @@
+<div class="ng-cloak" ng-controller="AccountsController">
+	<div class="lp-widget-content">
+		<div ng-if="errorSpin">
+			<div class="panel-message loading-panel" role="alert">
+				<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+				<span class="sr-only">Busy</span>
+			</div>
+		</div>
+		<div class="lp-widget-body widget-body panel-body bodyForLastScreen">
+			<div class="lp-alerts">
+				<div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+			</div>
+			<div ng-hide="serviceError">
+				<div ng-show="showServiceRequestNo" style="text-align:center" id="lastsuccess">
+					<div class="showMsg showMsgForAcc" >
+						{{'SRNumber'|translate}} <span class="SRcolor">{{serviceRequestNo}}</span>
+					</div>
+					<div class="borderLast borderLastAcc"></div>
+					<br>
+					<div id="sr-req-btn">
+						<button id="lastbutton" type="submit" aria-label="Submit"
+								class="btn btn-primary primary-btn-btn buttonstyle" name="submitForm"
+								ng-click="openNewReq()"
+								lp-i18n="Open new Service Request"></button>
+					</div>
+				</div>
+				<div ng-show="!showServiceRequestNo" >
+					<form novalidate=""  class="form-horizontal" role="form" name="accountStatementForm" id="accountStatementForm"  >
+						<div class="serviceRequest-chk-parent-div">
+							<div class="serviceRequest-chk-tr-dep rowdiv">
+								<div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk labelText outerlabel" id="account name">
+									<label for="account name"  lp-i18n="Account_Number" class="label-font" ></label>
+								</div>
+								<div class="serviceRequest-chk-td-dep">
+									<select id="accountname" name="accountname" required="true" class="serviceRequest-check-control IDFC-dropdown" ng-model="accountDetails.accountNumber" ng-options="a.id as a.id for a in accountNumbers" ng-disabled="lockFields">
+										<option value= "">{{'Select_Account'|translate}}</option>
+									</select>
+									<div class="serviceRequest-dep-messages">
+										<small class="text-danger" ng-show="accountStatementForm.submitted  &amp;&amp; accountStatementForm.accountname.$error.required">{{'Account_Number_Required'|translate}}</small>
+									</div>
+								</div>
+							</div>
+							<div class="serviceRequest-chk-tr-dep rowdiv">
+								<div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk labelText outerlabel">
+									<label class="pull-left text label-font" lp-i18n="Period" >{{'Period'|translate}}</label>
+								</div>
+								<br/>
+								<div class="serviceRequest-chk-td-dep">
+									<div>
+										<div class="pull-left date-picker serviceRequest-date-margin marginTOP">
+											<input ng-click="openFromCalendar($event)" required="required" required="true" type="text" name="scheduleDate" ng-model="servicerequest.scheduleFromDate" datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="minimDate" max-date="maxFromDate" is-open="isOpenDate1" class="serviceRequest-check-control serviceRequest-date-from inputheights" lp-future-time=""
+												   datepicker-options="dateOptionsFrom" show-button-bar="false" tabindex="0" placeholder="From Date" aria-label="select date" ng-disabled="lockFields" />
+											<span ng-click="openFromCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon serviceRequest-cal-span mycalendar"></span>
+										</div>
+										<div class="pull-left date-picker marginTOP" >
+											<input ng-click="openToCalendar($event)" required="required" required="true" type="text" name="scheduleDate1" ng-model="servicerequest.scheduleToDate" datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="minimDate" max-date="todaysDate" is-open="isOpenDate2" class="serviceRequest-check-control serviceRequest-date-to inputheights" lp-future-time=""
+												   datepicker-options="dateOptionsTo" show-button-bar="false" tabindex="0" placeholder="To Date" aria-label="select date" ng-disabled="lockFields" />
+											<span ng-click="openToCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon serviceRequest-cal-span mycalendar"></span>
+										</div>
+									</div>
+									<div class="serviceRequest-dep-messages" id="periodmesaages">
+										<small class="text-danger" ng-show="accountStatementForm.submitted  &amp;&amp; accountStatementForm.scheduleDate1.$error.required">{{'To_Date_Required'|translate}}</small>
+										<small class="text-danger" ng-show="accountStatementForm.submitted  &amp;&amp; dateDiff">{{'Date_Range'|translate}}</small>
+										<small id="fromdatemsg" class="text-danger" ng-show="accountStatementForm.submitted  &amp;&amp; accountStatementForm.scheduleDate.$error.required">{{'From_Date_Required'|translate}}</small>
+									</div>
+								</div>
+							</div>
+							<div class="serviceRequest-chk-tr-dep rowdiv deladdtop">
+								<div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk outerlabel labelText">
+									<label for="deliveryaddress"  lp-i18n="Delivery_Address" class="label-font" ></label>
+								</div>
+								<div class="serviceRequest-chk-td-dep">
+									<select id="deliveryaddress" name="deliveryaddress"  required="true" class="serviceRequest-check-control IDFC-dropdown" ng-model="accountDetails.deliveryaddress.value" ng-options="val.value as val.text for val in accountDetails.deliveryaddress.options" ng-disabled="lockFields">
+										<option value= "">{{'Select_Address'|translate}}</option>
+									</select>
+									<div class="serviceRequest-dep-messages">
+										<small class="text-danger" ng-show="accountStatementForm.submitted  &amp;&amp; accountStatementForm.deliveryaddress.$error.required">{{'Address_Required'|translate}}</small>
+									</div>
+								</div>
+							</div>
+							<div class="borderLine"></div>
+						</div>
+						<div ng-show="OTPFlag" class="modal-footer serviceRequest-chk-btn" >
+							<div>
+								<button type="submit" aria-label="Submit Transfer"
+										class="btn btn-primary primary-btn-create-track primary-btn-btn buttonstyle" name="submitForm"
+										ng-click="accountStatementForm.submitted=true;submitAccountStatement(accountStatementForm.$valid);"
+										lp-i18n="Submit"></button>
+								<button name="resetForm"
+										aria-label="Clear form"
+										class="btn btn-primary secondary-btn-create-track secondary-btn-btn buttonstyle"
+										ng-click="accountStatementForm.submitted=false;clearAccountStatementForm()"
+										type="button"
+										lp-i18n="Clear">
+								</button>
+								<button type="submit" aria-label="Submit"
+										class="btn btn-primary secondary-btn-create-track secondary-btn-btn margin0 buttonstyle" name="submitForm"
+										ng-click="openNewReq()"
+										lp-i18n="Create Another Service Request"></button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div ng-hide="OTPFlag" class="serviceRequest-otp-div" id="otpborder">
+					<h4>
+						<div class="text-success sucessOTP text-center" ng-show="success.happened" style="text-align:center">
+							<div class="img_padding">
+								<img src="static/features/[BBHOST]/theme-idfc/images/tick_mdpi.png"/>
+								<img ng-src="{{tick}}"/>
+							</div>
+							<br/>
+							{{ success.msg }}
+						</div>
+						<div class="text-danger text-center" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+					</h4>
+					<form name="OTPform" class="form-horizontal">
+						<div lp-field="lp-field" label="Mobile_Label" tip="">
+							<div>
+								<input class="form-control serviceRequest-otp-input-width otptextboxes"	type="text"	name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+							</div>
+						</div>
+						<input style="display:none" type="text" name="fakeusernameremembered"/>
+						<input style="display:none" type="password" name="fakepasswordremembered"/>
+						<div id="OtpInput" lp-field="lp-field" label="OTP_Label"
+							 tip="{{'OTP_tip'|translate}}">
+							<div>
+								<input class="form-control serviceRequest-otp-input-width otptextboxes" type="tel" name="otp" autofill="off" autocorrect="off" autocapitalize="off"
+									   autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false"
+									   ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-disabled="lockFieldsOTP"
+									   ng-model="control.otpValue" required="true" style="-webkit-text-security:disc"/>
+								<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+								<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+								<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+								<small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+							</div>
+						</div>
+						<div class="serviceRequest-div-td-dep-ab" id="otpbuttonform">
+							<div  class="serviceRequest-otp-child" id="otpbuttonform1">
+								<button id="otpsubmit" class="btn btn-primary btn-align primary-btn-btn buttonstyle" ng-disabled="lockFieldsOTP"  type="submit" name="verifyOTP" ng-click="OTPform.submitted=true; submitAccountStatementOTP(OTPform.$valid)">{{'btn_Submit'|translate}}</button>
+								<button id="resend" class="btn btn-primary btn-align secondary-btn-btn buttonstyle" ng-disabled="lockFieldsOTP"  type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div ng-show="globalError">
+				<button class="btn btn-primary btn-align secondary-btn-btn serviceRequest-right-align"  type="button" name="cancelOTP" ng-click="cancelForm()">{{'btn_AnotherSR'|translate}}</button>
+			</div>
+		</div>
+	</div>
+</div>

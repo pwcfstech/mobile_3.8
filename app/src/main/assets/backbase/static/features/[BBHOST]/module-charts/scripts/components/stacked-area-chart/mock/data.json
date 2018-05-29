@@ -1,0 +1,812 @@
+[
+  {
+    "date": "200704",
+    "assets": {
+      "equities": 50.9,
+      "other": 4.56,
+      "bonds": 28.09,
+      "cash": 16.45
+    }
+  },
+  {
+    "date": "200705",
+    "assets": {
+      "equities": 54.72,
+      "other": 5.43,
+      "bonds": 24.43,
+      "cash": 15.41
+    }
+  },
+  {
+    "date": "200706",
+    "assets": {
+      "equities": 50.51,
+      "other": 2.13,
+      "bonds": 22.99,
+      "cash": 24.36
+    }
+  },
+  {
+    "date": "200707",
+    "assets": {
+      "equities": 59.5,
+      "other": 2.92,
+      "bonds": 23.16,
+      "cash": 14.42
+    }
+  },
+  {
+    "date": "200708",
+    "assets": {
+      "equities": 57.34,
+      "other": 4.08,
+      "bonds": 23.73,
+      "cash": 14.85
+    }
+  },
+  {
+    "date": "200709",
+    "assets": {
+      "equities": 58.36,
+      "other": 2.59,
+      "bonds": 24.42,
+      "cash": 14.64
+    }
+  },
+  {
+    "date": "200710",
+    "assets": {
+      "equities": 53.14,
+      "other": 3.12,
+      "bonds": 24.69,
+      "cash": 19.05
+    }
+  },
+  {
+    "date": "200711",
+    "assets": {
+      "equities": 57.87,
+      "other": 3.37,
+      "bonds": 21.06,
+      "cash": 17.7
+    }
+  },
+  {
+    "date": "200712",
+    "assets": {
+      "equities": 59.01,
+      "other": 2.17,
+      "bonds": 15.76,
+      "cash": 23.06
+    }
+  },
+  {
+    "date": "200801",
+    "assets": {
+      "equities": 55.93,
+      "other": 3.48,
+      "bonds": 24.49,
+      "cash": 16.1
+    }
+  },
+  {
+    "date": "200802",
+    "assets": {
+      "equities": 55.61,
+      "other": 3.91,
+      "bonds": 23.75,
+      "cash": 16.73
+    }
+  },
+  {
+    "date": "200803",
+    "assets": {
+      "equities": 54.46,
+      "other": 4.44,
+      "bonds": 25.08,
+      "cash": 16.03
+    }
+  },
+  {
+    "date": "200804",
+    "assets": {
+      "equities": 50.9,
+      "other": 4.56,
+      "bonds": 28.09,
+      "cash": 16.45
+    }
+  },
+  {
+    "date": "200805",
+    "assets": {
+      "equities": 54.72,
+      "other": 5.43,
+      "bonds": 24.43,
+      "cash": 15.41
+    }
+  },
+  {
+    "date": "200806",
+    "assets": {
+      "equities": 50.51,
+      "other": 2.13,
+      "bonds": 22.99,
+      "cash": 24.36
+    }
+  },
+  {
+    "date": "200807",
+    "assets": {
+      "equities": 59.5,
+      "other": 2.92,
+      "bonds": 23.16,
+      "cash": 14.42
+    }
+  },
+  {
+    "date": "200808",
+    "assets": {
+      "equities": 57.34,
+      "other": 4.08,
+      "bonds": 23.73,
+      "cash": 14.85
+    }
+  },
+  {
+    "date": "200809",
+    "assets": {
+      "equities": 39.76,
+      "other": 10.66,
+      "bonds": 27.38,
+      "cash": 22.2
+    }
+  },
+  {
+    "date": "200810",
+    "assets": {
+      "equities": 41.37,
+      "other": 10.77,
+      "bonds": 26.03,
+      "cash": 21.83
+    }
+  },
+  {
+    "date": "200811",
+    "assets": {
+      "equities": 40.88,
+      "other": 11.31,
+      "bonds": 25.57,
+      "cash": 22.23
+    }
+  },
+  {
+    "date": "200812",
+    "assets": {
+      "equities": 42.59,
+      "other": 11.23,
+      "bonds": 25.83,
+      "cash": 20.36
+    }
+  },
+  {
+    "date": "200901",
+    "assets": {
+      "equities": 52.61,
+      "other": 3.0,
+      "bonds": 30.58,
+      "cash": 13.81
+    }
+  },
+  {
+    "date": "200902",
+    "assets": {
+      "equities": 49.99,
+      "other": 3.41,
+      "bonds": 23.76,
+      "cash": 22.85
+    }
+  },
+  {
+    "date": "200903",
+    "assets": {
+      "equities": 54.93,
+      "other": 3.34,
+      "bonds": 26.68,
+      "cash": 15.04
+    }
+  },
+  {
+    "date": "200904",
+    "assets": {
+      "equities": 55.22,
+      "other": 3.38,
+      "bonds": 33.6,
+      "cash": 7.8
+    }
+  },
+  {
+    "date": "200905",
+    "assets": {
+      "equities": 54.72,
+      "other": 5.43,
+      "bonds": 24.43,
+      "cash": 15.41
+    }
+  },
+  {
+    "date": "200906",
+    "assets": {
+      "equities": 50.51,
+      "other": 2.13,
+      "bonds": 22.99,
+      "cash": 24.36
+    }
+  },
+  {
+    "date": "200907",
+    "assets": {
+      "equities": 59.5,
+      "other": 2.92,
+      "bonds": 23.16,
+      "cash": 14.42
+    }
+  },
+  {
+    "date": "200908",
+    "assets": {
+      "equities": 57.34,
+      "other": 4.08,
+      "bonds": 23.73,
+      "cash": 14.85
+    }
+  },
+  {
+    "date": "200909",
+    "assets": {
+      "equities": 39.76,
+      "other": 10.66,
+      "bonds": 27.38,
+      "cash": 22.2
+    }
+  },
+  {
+    "date": "200910",
+    "assets": {
+      "equities": 53.14,
+      "other": 3.12,
+      "bonds": 24.69,
+      "cash": 19.05
+    }
+  },
+  {
+    "date": "200911",
+    "assets": {
+      "equities": 57.87,
+      "other": 3.37,
+      "bonds": 21.06,
+      "cash": 17.7
+    }
+  },
+  {
+    "date": "200912",
+    "assets": {
+      "equities": 59.01,
+      "other": 2.17,
+      "bonds": 15.76,
+      "cash": 23.06
+    }
+  },
+  {
+    "date": "201001",
+    "assets": {
+      "equities": 45.39,
+      "other": 11.43,
+      "bonds": 24.84,
+      "cash": 18.33
+    }
+  },
+  {
+    "date": "201002",
+    "assets": {
+      "equities": 47.06,
+      "other": 9.99,
+      "bonds": 18.83,
+      "cash": 24.12
+    }
+  },
+  {
+    "date": "201003",
+    "assets": {
+      "equities": 46.83,
+      "other": 10.14,
+      "bonds": 18.54,
+      "cash": 24.49
+    }
+  },
+  {
+    "date": "201004",
+    "assets": {
+      "equities": 46.31,
+      "other": 9.88,
+      "bonds": 24.34,
+      "cash": 19.48
+    }
+  },
+  {
+    "date": "201005",
+    "assets": {
+      "equities": 38.6,
+      "other": 5.87,
+      "bonds": 26.19,
+      "cash": 29.33
+    }
+  },
+  {
+    "date": "201006",
+    "assets": {
+      "equities": 39.26,
+      "other": 5.3,
+      "bonds": 27.25,
+      "cash": 28.19
+    }
+  },
+  {
+    "date": "201007",
+    "assets": {
+      "equities": 41.68,
+      "other": 8.14,
+      "bonds": 26.4,
+      "cash": 23.78
+    }
+  },
+  {
+    "date": "201008",
+    "assets": {
+      "equities": 47.4,
+      "other": 8.65,
+      "bonds": 24.91,
+      "cash": 19.04
+    }
+  },
+  {
+    "date": "201009",
+    "assets": {
+      "equities": 52.08,
+      "other": 6.57,
+      "bonds": 22.54,
+      "cash": 18.82
+    }
+  },
+  {
+    "date": "201010",
+    "assets": {
+      "equities": 51.55,
+      "other": 5.14,
+      "bonds": 25.78,
+      "cash": 17.53
+    }
+  },
+  {
+    "date": "201011",
+    "assets": {
+      "equities": 53.6,
+      "other": 5.01,
+      "bonds": 26.99,
+      "cash": 14.4
+    }
+  },
+  {
+    "date": "201012",
+    "assets": {
+      "equities": 54.81,
+      "other": 4.25,
+      "bonds": 26.21,
+      "cash": 14.73
+    }
+  },
+  {
+    "date": "201101",
+    "assets": {
+      "equities": 55.93,
+      "other": 3.48,
+      "bonds": 24.49,
+      "cash": 16.1
+    }
+  },
+  {
+    "date": "201102",
+    "assets": {
+      "equities": 55.61,
+      "other": 3.91,
+      "bonds": 23.75,
+      "cash": 16.73
+    }
+  },
+  {
+    "date": "201103",
+    "assets": {
+      "equities": 54.46,
+      "other": 4.44,
+      "bonds": 25.08,
+      "cash": 16.03
+    }
+  },
+  {
+    "date": "201104",
+    "assets": {
+      "equities": 50.9,
+      "other": 4.56,
+      "bonds": 28.09,
+      "cash": 16.45
+    }
+  },
+  {
+    "date": "201105",
+    "assets": {
+      "equities": 54.72,
+      "other": 5.43,
+      "bonds": 24.43,
+      "cash": 15.41
+    }
+  },
+  {
+    "date": "201106",
+    "assets": {
+      "equities": 50.51,
+      "other": 2.13,
+      "bonds": 22.99,
+      "cash": 24.36
+    }
+  },
+  {
+    "date": "201107",
+    "assets": {
+      "equities": 59.5,
+      "other": 2.92,
+      "bonds": 23.16,
+      "cash": 14.42
+    }
+  },
+  {
+    "date": "201108",
+    "assets": {
+      "equities": 57.34,
+      "other": 4.08,
+      "bonds": 23.73,
+      "cash": 14.85
+    }
+  },
+  {
+    "date": "201109",
+    "assets": {
+      "equities": 39.76,
+      "other": 10.66,
+      "bonds": 27.38,
+      "cash": 22.2
+    }
+  },
+  {
+    "date": "201110",
+    "assets": {
+      "equities": 41.37,
+      "other": 10.77,
+      "bonds": 26.03,
+      "cash": 21.83
+    }
+  },
+  {
+    "date": "201111",
+    "assets": {
+      "equities": 40.88,
+      "other": 11.31,
+      "bonds": 25.57,
+      "cash": 22.23
+    }
+  },
+  {
+    "date": "201112",
+    "assets": {
+      "equities": 42.59,
+      "other": 11.23,
+      "bonds": 25.83,
+      "cash": 20.36
+    }
+  },
+  {
+    "date": "201201",
+    "assets": {
+      "equities": 45.39,
+      "other": 11.43,
+      "bonds": 24.84,
+      "cash": 18.33
+    }
+  },
+  {
+    "date": "201202",
+    "assets": {
+      "equities": 47.06,
+      "other": 9.99,
+      "bonds": 18.83,
+      "cash": 24.12
+    }
+  },
+  {
+    "date": "201203",
+    "assets": {
+      "equities": 46.83,
+      "other": 10.14,
+      "bonds": 18.54,
+      "cash": 24.49
+    }
+  },
+  {
+    "date": "201204",
+    "assets": {
+      "equities": 46.31,
+      "other": 9.88,
+      "bonds": 24.34,
+      "cash": 19.48
+    }
+  },
+  {
+    "date": "201205",
+    "assets": {
+      "equities": 38.6,
+      "other": 5.87,
+      "bonds": 26.19,
+      "cash": 29.33
+    }
+  },
+  {
+    "date": "201206",
+    "assets": {
+      "equities": 39.26,
+      "other": 5.3,
+      "bonds": 27.25,
+      "cash": 28.19
+    }
+  },
+  {
+    "date": "201207",
+    "assets": {
+      "equities": 41.68,
+      "other": 8.14,
+      "bonds": 26.4,
+      "cash": 23.78
+    }
+  },
+  {
+    "date": "201208",
+    "assets": {
+      "equities": 47.4,
+      "other": 8.65,
+      "bonds": 24.91,
+      "cash": 19.04
+    }
+  },
+  {
+    "date": "201209",
+    "assets": {
+      "equities": 52.08,
+      "other": 6.57,
+      "bonds": 22.54,
+      "cash": 18.82
+    }
+  },
+  {
+    "date": "201210",
+    "assets": {
+      "equities": 51.55,
+      "other": 5.14,
+      "bonds": 25.78,
+      "cash": 17.53
+    }
+  },
+  {
+    "date": "201211",
+    "assets": {
+      "equities": 53.6,
+      "other": 5.01,
+      "bonds": 26.99,
+      "cash": 14.4
+    }
+  },
+  {
+    "date": "201212",
+    "assets": {
+      "equities": 54.81,
+      "other": 4.25,
+      "bonds": 26.21,
+      "cash": 14.73
+    }
+  },
+  {
+    "date": "201301",
+    "assets": {
+      "equities": 55.93,
+      "other": 3.48,
+      "bonds": 24.49,
+      "cash": 16.1
+    }
+  },
+  {
+    "date": "201302",
+    "assets": {
+      "equities": 55.61,
+      "other": 3.91,
+      "bonds": 23.75,
+      "cash": 16.73
+    }
+  },
+  {
+    "date": "201303",
+    "assets": {
+      "equities": 54.46,
+      "other": 4.44,
+      "bonds": 25.08,
+      "cash": 16.03
+    }
+  },
+  {
+    "date": "201304",
+    "assets": {
+      "equities": 50.9,
+      "other": 4.56,
+      "bonds": 28.09,
+      "cash": 16.45
+    }
+  },
+  {
+    "date": "201305",
+    "assets": {
+      "equities": 54.72,
+      "other": 5.43,
+      "bonds": 24.43,
+      "cash": 15.41
+    }
+  },
+  {
+    "date": "201306",
+    "assets": {
+      "equities": 50.51,
+      "other": 2.13,
+      "bonds": 22.99,
+      "cash": 24.36
+    }
+  },
+  {
+    "date": "201307",
+    "assets": {
+      "equities": 59.5,
+      "other": 2.92,
+      "bonds": 23.16,
+      "cash": 14.42
+    }
+  },
+  {
+    "date": "201308",
+    "assets": {
+      "equities": 57.34,
+      "other": 4.08,
+      "bonds": 23.73,
+      "cash": 14.85
+    }
+  },
+  {
+    "date": "201309",
+    "assets": {
+      "equities": 58.36,
+      "other": 2.59,
+      "bonds": 24.42,
+      "cash": 14.64
+    }
+  },
+  {
+    "date": "201310",
+    "assets": {
+      "equities": 53.14,
+      "other": 3.12,
+      "bonds": 24.69,
+      "cash": 19.05
+    }
+  },
+  {
+    "date": "201311",
+    "assets": {
+      "equities": 57.87,
+      "other": 3.37,
+      "bonds": 21.06,
+      "cash": 17.7
+    }
+  },
+  {
+    "date": "201312",
+    "assets": {
+      "equities": 59.01,
+      "other": 2.17,
+      "bonds": 15.76,
+      "cash": 23.06
+    }
+  },
+  {
+    "date": "201401",
+    "assets": {
+      "equities": 52.61,
+      "other": 3.0,
+      "bonds": 30.58,
+      "cash": 13.81
+    }
+  },
+  {
+    "date": "201402",
+    "assets": {
+      "equities": 49.99,
+      "other": 3.41,
+      "bonds": 23.76,
+      "cash": 22.85
+    }
+  },
+  {
+    "date": "201403",
+    "assets": {
+      "equities": 54.93,
+      "other": 3.34,
+      "bonds": 26.68,
+      "cash": 15.04
+    }
+  },
+  {
+    "date": "201404",
+    "assets": {
+      "equities": 55.22,
+      "other": 3.38,
+      "bonds": 33.6,
+      "cash": 7.8
+    }
+  },
+  {
+    "date": "201405",
+    "assets": {
+      "equities": 55.58,
+      "other": 2.89,
+      "bonds": 34.68,
+      "cash": 6.85
+    }
+  },
+  {
+    "date": "201406",
+    "assets": {
+      "equities": 54.33,
+      "other": 2.89,
+      "bonds": 33.76,
+      "cash": 9.03
+    }
+  },
+  {
+    "date": "201407",
+    "assets": {
+      "equities": 55.5,
+      "other": 1.5,
+      "bonds": 34.85,
+      "cash": 8.15
+    }
+  },
+  {
+    "date": "201408",
+    "assets": {
+      "equities": 56.6,
+      "other": 1.42,
+      "bonds": 31.14,
+      "cash": 10.85
+    }
+  },
+  {
+    "date": "201409",
+    "assets": {
+      "equities": 50.0,
+      "other": 10.0,
+      "bonds": 30.0,
+      "cash": 10.0
+    }
+  }
+]

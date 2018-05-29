@@ -1,0 +1,174 @@
+<div class="top-wrapper">
+	<div class="top-username-pin">
+		<div class="user-block" ng-mousedown="navigateToLogin()">Username</div>
+		<!--		<div class="link-pin" ng-click="navigateToLogin()" ></div>
+		<div class="mpin-block">MPIN
+			<span ng-if="!mpinFlag">new</span>
+		</div>-->
+		<!--(change is switch)Toggle needs to work as a toggle. Right now it's an image. On click it should change the position as well as user should be able to slide it -->
+		<div class="switchContainer">
+			<div class="switcH">
+				<switch id="toggleSwitch" name="enabled" ng-model="IntOnOff" class="green" ng-swipe-left="triggerClickEvent()" ng-swipe-right="triggerClickEvent()" ng-change="navigateToLogin()"></switch>
+			</div>
+		</div>
+		<div class="mpin-block">MPIN 
+			<span ng-if="!mpinFlag">new</span>
+		</div>
+		<!--(change is switch)Toggle needs to work as a toggle. Right now it's an image. On click it should change the position as well as user should be able to slide it -->
+	</div>
+   <!-- added migration aus lalita -->
+	<div id="alert-overlay" ng-show="bibAusAlertRestrict">
+		<div>
+			<p id="alert-message">Mobile banking services are currently not available to business banking accounts. Please use
+				<br>
+				<a style="color:blue" href="https://my.idfcbank.com/start">https://my.idfcbank.com/start</a>
+			</p>
+			<button  id="alert-ok-btn" ng-click="closeAlert();">OK</button>  <!-- 3.5 change -->
+		</div>
+	</div> <!-- end -->
+	<div class="white-main-login noBottomPadding" ng-show ="mpinloginScreen" >
+		<!--mpinloginScreen-->
+
+		<!-- RSA changes starts -->
+		<div class="alert alert-error login-alert" ng-show="loginerror">
+	                <div class="rsa-mpin-alert" alert="alert">
+	                    <i class="lp-icon lp-icon-alert-warning"></i>{{loginerror}}
+	                </div>
+	    </div>
+	    <!-- RSA changes ends -->
+
+		<div id="wrapper">
+			<!-- 12 Sept 2016-->
+			<!--<div class="jet-setup">
+				<img src="static/features/[BBHOST]/theme-idfc/images/jet-icon.png"/>
+			</div>-->
+			<form name="mpinLoginForm">
+				<section id="main" class="noBottomPadding">
+					<header class="">
+						<!-- 12 Sept 2016 welcome-->
+						<div style="text-align:center; font-weight:600; height:180px;" class="enter-box" ng-show="showMpin">
+							<div class="col-lg-12">
+								<h3 style="margin-top:5px; font-size: 18px;">Welcome!</h3>
+								<h3 style="margin-top:15px; font-size: 12px">Enter MPIN</h3>
+								<!-- 12 Sept 2016 welcome-->
+								<ul class="all-field-form">
+									<li>
+										<span>
+											<input ng-repeat="num in oldPinNumbers" type="tel" maxlength="1" id="mpinValu{{num}}" class="ng-cloak" style=" -webkit-text-security:disc;" move-next-on-maxlength ng-blur="keydownevt()" autocomplete="off" />
+										</span>
+									</li>
+								</ul>
+								<div style="color:#fb637e; font-size:11px; padding:8px 10px 0 0; text-align:right;">
+									<a ng-click="forgotMpin();" href="#" id="forgot-mpin-link">Forgot MPIN</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- RSA changes by Xebia start -->
+
+                        <div ng-hide="hideQuesFlag" class="rsa-login-border">
+
+                            <form name="Questionform" class="form-horizontal">
+                                <div ng-if="showQuestionDiv">
+                                    <!-- <div ng-repeat="question in loginCtrl.challengeQuestions"> -->
+                                        <!-- <label>{{question.questionText}} </label> -->
+                                        <label class="rsa-login-label">{{challengeQuestions}} </label>
+                                        <input class="form-control" type="text" name="answer"
+                                               placeholder="Enter answer" autocomplete="off"
+                                               ng-model="challengeQuestion.answer"
+                                               required="true" />
+
+                                    <!-- </div> -->
+
+                                    <div class="rsa-login-button">
+                                        <button class="btn btn-primary btn-align primary-btn-forgot primary-btn-btn"
+                                                type="submit" name="verifyAnswers"
+                                                ng-click="verifyRsaLogin()"
+                                                ng-disabled="!(challengeQuestion.answer)">
+                                            Submit Answer
+                                        </button>
+                                    </div>
+                                 </div>
+                            </form>
+
+                            <div ng-show="showWrongAnswerMessage" class="rsa-login-button">
+                                        <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                            type="submit" name="tryAgain"
+                                            ng-click="fetchCQ()">Try Again</button>
+                            </div>
+
+                        </div>
+
+                    <!-- RSA changes by Xebia ends -->
+
+						<!-- 12 sept 2016 apply now-->
+						<div ng-show="!mVisaFlag" class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="Links text-center">
+									<a ng-click="goToCreateDebitCard();" href="#">GENERATE DEBIT CARD PIN</a>
+									<div class="debitLine"></div>
+								</div>
+							</div>
+						</div>
+						<div ng-show="!mVisaFlag" class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="Links text-center">
+									<a ng-click="goToNotification()" href="#">NOTIFICATIONS</a>
+									<div class="creatLine"></div>
+								</div>
+							</div>
+						</div>
+						<div ng-show="!mVisaFlag" class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="Links text-center">
+									<a ng-click="goToApplyNow()" href="#">NOT A CUSTOMER? APPLY NOW</a>
+									<div class="forgotLine"></div>
+								</div>
+							</div>
+						</div>
+						<div ng-show="!mVisaFlag" class="row">
+							<div class="col-md-12 col-sm-12 col-xs-12">
+								<div class="Links text-center">
+									<a href="//upiApp" ng-click="setUPiFlag()">IDFC BANK UPI</a>
+									<div class="upiLinkLine"></div>
+								</div>
+							</div>
+						</div>
+						<!-- 12 sept 2016 apply now-->
+
+						<!-- Added by Kriti PwC- for mVisa -->
+						<div ng-show="!mVisaFlag" class="text-center">
+							<button type="submit" class="purpleBtn btn btn-sm btn-primary btn-submit-login" ng-click="scanAndPay()">
+
+								<div class="col-xs-12">
+									<div class="col-xs-5 scanImgMargin">
+										<img src="static/features/[BBHOST]/theme-idfc/images/scan.png">
+									</div>
+									<div class="scanAndPayTextAlign">
+										SCAN AND PAY
+									</div>
+								</div>
+							</button>
+						</div>
+
+					</header>
+				</section>
+			</form>
+		</div>
+	</div>
+	<!--<div class="white-main-login" ng-show ="false">-->
+	<div class="white-main-login" ng-show ="mpinSetupScreen">
+		<div id="wrapper">
+			<section id="main">
+				<div class="jet-setup">
+					<img src="static/features/[BBHOST]/theme-idfc/images/jet-icon.png"/>
+				</div>
+				<div class="login2-main-form">
+					<h1 class="setup-txt">Want faster Login?</h1>
+					<p class="enjoy-txt">Enjoy faster login with MPIN</p>
+					<button class="red" ng-click="navigateToMpinSetUp();" type="submit">Setup MPIN</button>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,120 @@
+<div ng-show="!filter || (filter &amp;&amp; (filteredContacts.length !== 0))" >
+    <div class="alert alert-warning bene-alert-warning" ng-show="contactReadOnly">
+        <small class="text-danger-message"><label ></label>{{'Error_Under_Cooling_Period'|translate}}&nbsp;</small>
+    </div>
+    <div class="col-contact-form panel-body no-padding-top break-word" id="conView">
+        <div class="viewText">{{contactsModel.currentContact.nickName}}
+         <span ng-hide="contactReadOnly" class="editBtn">
+         <button ng-click="editContact()" type="button" class="btn btn-sm btn-link">
+             <span class="glyphicon glyphicon-edit"></span> <span class="edit" lp-i18n="{{'btn_Edit'|translate}}"></span></button>
+         </span>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 conView">
+                <div class="col-md-6 col-sm-6 col-xs-6 bene-view-fields leftText">
+                    <small class="text-muted bene-field-bold"><span lp-i18n="{{'Lbl_Name'|translate}}"></span> </small>
+                </div>
+                <div class="bene-view-fields bene-custom-field">
+                    <small class="text-muted bene-field-bold"><span>:</span> </small>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 rightText dispInline">
+                    <small class=" text-muted">{{contactsModel.currentContact.name}}</small>&nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 conView">
+                <div class="col-md-6 col-sm-6 col-xs-6 bene-view-fields leftText">
+                    <small class="text-muted bene-field-bold"><span lp-i18n="{{'Lbl_Account'|translate}}"></span> </small>
+                </div>
+                <div class="bene-view-fields bene-custom-field">
+                    <small class="text-muted bene-field-bold"><span>:</span> </small>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 rightText dispInline">
+                    <small class="text-muted">{{contactsModel.currentContact.account}}</small>&nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 conView">
+                <div class="col-md-6 col-sm-6 col-xs-6 bene-view-fields leftText">
+                    <small class="text-muted bene-field-bold"><span lp-i18n="{{'Lbl_Bank_Name'|translate}}"></span> </small>
+                </div>
+                <div class="bene-view-fields bene-custom-field">
+                    <small class="text-muted bene-field-bold"><span>:</span> </small>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 rightText dispInline">
+                    <small class="text-muted">{{contactsModel.currentContact.bankName}}</small>&nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="contactsModel.currentContact.ifscCode">
+            <div class="col-md-12 col-sm-12 col-xs-12 conView">
+                <div class="col-md-6 col-sm-6 col-xs-6 bene-view-fields leftText">
+                    <small class="text-muted bene-field-bold" ng-show="contactsModel.currentContact.ifscCode"><span lp-i18n="{{'Lbl_IFSC_Code'|translate}}"></span> </small>
+                </div>
+                <div class="bene-view-fields bene-custom-field">
+                    <small class="text-muted bene-field-bold"><span>:</span> </small>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 rightText dispInline">
+                    <small class="text-muted" ng-show="contactsModel.currentContact.ifscCode">{{contactsModel.currentContact.ifscCode}}</small>&nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 conView">
+                <div class="col-md-6 col-sm-6 col-xs-6 bene-view-fields leftText">
+                    <small class="text-muted bene-field-bold"><span lp-i18n="{{'Lbl_Account_Type'|translate}}"></span> </small>
+                </div>
+                <div class="bene-view-fields bene-custom-field">
+                    <small class="text-muted bene-field-bold"><span>:</span> </small>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 rightText dispInline">
+                    <small class="text-muted">{{contactsModel.currentContact.accountType}}</small>&nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 conView">
+                <div class="col-md-6 col-sm-6 col-xs-6 bene-view-fields leftText">
+                    <small class="text-muted bene-field-bold"><span lp-i18n="{{'Lbl_Limit'|translate}}"></span>: </small>
+                </div>
+                <div class="bene-view-fields bene-custom-field">
+                    <small class="text-muted bene-field-bold"><span>:</span> </small>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 dispInline rightText">
+                    <small class="text-muted">
+                        <span ng-class="{'rupee-symbol-span':currency === 'INR'}" > </span>
+                        <span lp-amount="contactsModel.currentContact.transferLimit"> </span></small>&nbsp;
+                </div>
+            </div>
+        </div>
+       <!-- <div class="row" ng-show="contactsModel.currentDetails.email">
+            <div class="col-md-12 col-sm-12 col-xs-12 conView">
+                <div class="col-md-6 col-sm-6 col-xs-6 bene-view-fields leftText">
+                    <small class="text-muted text-capitalize bene-field-bold" ng-show="contactsModel.currentDetails.email"><span lp-i18n="{{'Lbl_Email'|translate}}"></span> </small>
+                </div>
+                <div class="bene-view-fields bene-custom-field">
+                    <small class="text-muted bene-field-bold"><span>:</span> </small>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 rightText dispInline">
+                    <small class="text-muted" ng-show="contactsModel.currentDetails.email">{{contactsModel.currentDetails.email}}</small>&nbsp;
+                </div>
+            </div>
+        </div>
+        <div class="row" ng-show="contactsModel.currentDetails.phone">
+            <div class="col-md-12 col-sm-12 col-xs-12 conView">
+                <div class="col-md-6 col-sm-6 col-xs-6 bene-view-fields leftText">
+                    <small class="text-muted text-capitalize bene-field-bold" ng-show="contactsModel.currentDetails.phone"><span lp-i18n="{{'Lbl_Phone'|translate}}"></span> </small>
+                </div>
+                <div class="bene-view-fields bene-custom-field">
+                    <small class="text-muted bene-field-bold"><span>:</span> </small>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-5 rightText dispInline">
+                    <small class="text-muted" ng-show="contactsModel.currentDetails.phone">{{contactsModel.currentDetails.phone}}</small>&nbsp;
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>
+<div class="panel-message-sm text-center" ng-show="!contactsModel.currentContact" lp-i18n="{{'Lbl_No_Contact_Selected'|translate}}"></div>

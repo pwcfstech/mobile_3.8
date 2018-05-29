@@ -1,0 +1,272 @@
+<div class="browse">
+    <div class="form-group">
+        <div class="add-floatLeft add-form-div">
+            <div class="row">
+                <tabset id="rechargePlanTabsUL" class="tabs-left">
+                    <div ng-if="errorSpin1">
+                        <div class="panel-message panel-message1 loading-panel" role="alert">
+                            <i class="loading-IconNew lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                            <span class="sr-only">Busy</span>
+                        </div>
+                    </div>
+                    <tab active="toggleTabs.newone3" ng-click="changeTabFull();">
+                        <tab-heading>{{'Tab_FullTalktime'|translate}}</tab-heading>
+                        <tab-content>
+                            <div ng-show="noPlanDetails">
+                                <div class="recharge-table" id="rechargeFullTalkTimeTable">
+                                    <div ng-repeat="plandtls in plans | limitTo:paginationLimit()">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'TalkTime'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Validity'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><button ng-class="{'color-button': plandtls.rchrgAmt == idSelectedVote}" class="planbutton btn button-recharge ng-binding" ng-click="amountSelect(plandtls.rchrgAmt)" ng-value="plandtls.rchrgAmt" name="proceed">Rs.{{plandtls.rchrgAmt}}</button></div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges1 planbuttonchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><span class="rupee-symbol-span">&nbsp;{{plandtls.tlkTm}}</span></div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{plandtls.vldty}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Description'|translate}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges">
+                                            <div class="col-md-12 col-xs-12 col-sm-12 inHead1 descriptionmargin" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">{{plandtls
+                                                .rchrgDsc}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-message" ng-hide="noPlanDetails" role="alert">
+                                <p class="noplans">
+                                    <span lp-i18n="There are no Plans to display"></span>
+                                </p>
+                            </div>
+                        </tab-content>
+                    </tab>
+                    <tab active="toggleTabs.newone4" ng-click="changeTabSpecial();">
+                        <tab-heading>{{'Tab_SPECIAL'|translate}}</tab-heading>
+                        <tab-content>
+                            <div ng-show="noPlanDetails">
+                                <div class="recharge-table" id="rechargeFullTalkTimeTable">
+                                    <div ng-repeat="plandtls in plans | limitTo:paginationLimit()">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'TalkTime'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Validity'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><button ng-class="{'color-button': plandtls.rchrgAmt == idSelectedVote}" class="planbutton btn button-recharge ng-binding" ng-click="amountSelect(plandtls.rchrgAmt)" ng-value="plandtls.rchrgAmt" name="proceed">Rs.{{plandtls.rchrgAmt}}</button></div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges1 planbuttonchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><span class="rupee-symbol-span">&nbsp;{{plandtls.tlkTm}}</span></div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{plandtls.vldty}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Description'|translate}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-12 col-xs-12 col-sm-12 inHead1 descriptionmargin">{{plandtls
+                                                .rchrgDsc}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-message" ng-hide="noPlanDetails" role="alert">
+                                <p class="noplans">
+                                    <span lp-i18n="There are no Plans to display"></span>
+                                </p>
+                            </div>
+                        </tab-content>
+                    </tab>
+                    <tab active="toggleTabs.newone5" ng-click="changeTab2g();">
+                        <tab-heading>{{'Tab_2G'|translate}}</tab-heading>
+                        <tab-content>
+                            <div ng-show="noPlanDetails">
+                                <div class="recharge-table" id="rechargeFullTalkTimeTable">
+                                    <div ng-repeat="plandtls in plans | limitTo:paginationLimit()">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'TalkTime'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Validity'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><button ng-class="{'color-button': plandtls.rchrgAmt == idSelectedVote}" class="planbutton btn button-recharge ng-binding" ng-click="amountSelect(plandtls.rchrgAmt)" ng-value="plandtls.rchrgAmt" name="proceed">Rs.{{plandtls.rchrgAmt}}</button></div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges1 planbuttonchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><span class="rupee-symbol-span">&nbsp;{{plandtls.tlkTm}}</span></div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{plandtls.vldty}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Description'|translate}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-12 col-xs-12 col-sm-12 inHead1 descriptionmargin">{{plandtls
+                                                .rchrgDsc}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-message" ng-hide="noPlanDetails" role="alert">
+                                <p class="noplans">
+                                    <span lp-i18n="There are no Plans to display"></span>
+                                </p>
+                            </div>
+                        </tab-content>
+                    </tab>
+                    <tab active="toggleTabs.newone6" ng-click="changeTab3g();">
+                        <tab-heading>{{'Tab_3G'|translate}}</tab-heading>
+                        <tab-content>
+                            <div ng-show="noPlanDetails">
+                                <div class="recharge-table" id="rechargeFullTalkTimeTable">
+                                    <div ng-repeat="plandtls in plans | limitTo:paginationLimit()">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'TalkTime'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Validity'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><button ng-class="{'color-button': plandtls.rchrgAmt == idSelectedVote}" class="planbutton btn button-recharge ng-binding" ng-click="amountSelect(plandtls.rchrgAmt)" ng-value="plandtls.rchrgAmt" name="proceed">Rs.{{plandtls.rchrgAmt}}</button></div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges1 planbuttonchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><span class="rupee-symbol-span">&nbsp;{{plandtls.tlkTm}}</span></div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{plandtls.vldty}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Description'|translate}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-12 col-xs-12 col-sm-12 inHead1 descriptionmargin">{{plandtls
+                                                .rchrgDsc}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-message" ng-hide="noPlanDetails" role="alert">
+                                <p class="noplans">
+                                    <span lp-i18n="There are no Plans to display"></span>
+                                </p>
+                            </div>
+                        </tab-content>
+                    </tab>
+                    <tab active="toggleTabs.newone7" ng-click="changeTabRoaming();">
+                        <tab-heading>{{'Tab_ROAMING'|translate}}</tab-heading>
+                        <tab-content>
+                            <div ng-show="noPlanDetails">
+                                <div class="recharge-table" id="rechargeFullTalkTimeTable">
+                                    <div ng-repeat="plandtls in plans | limitTo:paginationLimit()">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'TalkTime'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Validity'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><button ng-class="{'color-button': plandtls.rchrgAmt == idSelectedVote}" class="planbutton btn button-recharge ng-binding" ng-click="amountSelect(plandtls.rchrgAmt)" ng-value="plandtls.rchrgAmt" name="proceed">Rs.{{plandtls.rchrgAmt}}</button></div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges1 planbuttonchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><span class="rupee-symbol-span">&nbsp;{{plandtls.tlkTm}}</span></div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{plandtls.vldty}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Description'|translate}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-12 col-xs-12 col-sm-12 inHead1 descriptionmargin">{{plandtls
+                                                .rchrgDsc}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-message" ng-hide="noPlanDetails" role="alert">
+                                <p class="noplans">
+                                    <span lp-i18n="There are no Plans to display"></span>
+                                </p>
+                            </div>
+                        </tab-content>
+                    </tab>
+                    <tab active="toggleTabs.newone8" ng-click="changeTabTopUP();">
+                        <tab-heading>{{'Tab_TOPUP'|translate}}</tab-heading>
+                        <tab-content>
+                            <div ng-show="noPlanDetails">
+                                <div class="recharge-table" id="rechargeFullTalkTimeTable">
+                                    <div ng-repeat="plandtls in plans | limitTo:paginationLimit()">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'TalkTime'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Validity'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><button ng-class="{'color-button': plandtls.rchrgAmt == idSelectedVote}" class="planbutton btn button-recharge ng-binding" ng-click="amountSelect(plandtls.rchrgAmt)" ng-value="plandtls.rchrgAmt" name="proceed">Rs.{{plandtls.rchrgAmt}}</button></div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges1 planbuttonchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><span class="rupee-symbol-span">&nbsp;{{plandtls.tlkTm}}</span></div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{plandtls.vldty}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Description'|translate}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-12 col-xs-12 col-sm-12 inHead1 descriptionmargin">{{plandtls
+                                                .rchrgDsc}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-message" ng-hide="noPlanDetails" role="alert">
+                                <p class="noplans">
+                                    <span lp-i18n="There are no Plans to display"></span>
+                                </p>
+                            </div>
+                        </tab-content>
+                    </tab>
+                    <tab active="toggleTabs.newone9" ng-click="changeTabSMS();">
+                        <tab-heading>{{'Tab_SMS'|translate}}</tab-heading>
+                        <tab-content>
+                            <div ng-show="noPlanDetails">
+                                <div class="recharge-table" id="rechargeFullTalkTimeTable">
+                                    <div ng-repeat="plandtls in plans | limitTo:paginationLimit()">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'TalkTime'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Validity'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><button ng-class="{'color-button': plandtls.rchrgAmt == idSelectedVote}" class="planbutton btn button-recharge ng-binding" ng-click="amountSelect(plandtls.rchrgAmt)" ng-value="plandtls.rchrgAmt" name="proceed">Rs.{{plandtls.rchrgAmt}}</button></div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges1 planbuttonchanges">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><span class="rupee-symbol-span">&nbsp;{{plandtls.tlkTm}}</span></div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{plandtls.vldty}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Description'|translate}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges">
+                                            <div class="col-md-12 col-xs-12 col-sm-12 inHead1 descriptionmargin">{{plandtls
+                                                .rchrgDsc}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-message" ng-hide="noPlanDetails" role="alert">
+                                <p class="noplans">
+                                    <span lp-i18n="There are no Plans to display"></span>
+                                </p>
+                            </div>
+                        </tab-content>
+                    </tab>
+                    <tab active="toggleTabs.newone10" ng-click="changeTabISD();">
+                        <tab-heading>{{'Tab_ISD'|translate}}</tab-heading>
+                        <tab-content>
+                            <div ng-show="noPlanDetails">
+                                <div class="recharge-table" id="rechargeFullTalkTimeTable">
+                                    <div ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}" ng-repeat="plandtls in plans | limitTo:paginationLimit()">
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges" ng-class="{'color-recharge': plandtls.rchrgAmt == idSelectedVote}">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'TalkTime'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Validity'|translate}}</div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><button ng-class="{'color-button': plandtls.rchrgAmt == idSelectedVote}" class="planbutton btn button-recharge ng-binding" ng-click="amountSelect(plandtls.rchrgAmt)" ng-value="plandtls.rchrgAmt" name="proceed">Rs.{{plandtls.rchrgAmt}}</button></div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges1 planbuttonchanges">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1"><span class="rupee-symbol-span">&nbsp;{{plandtls.tlkTm}}</span></div>
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{plandtls.vldty}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 headingchanges">
+                                            <div class="col-md-4 col-xs-4 col-sm-4 inHead1">{{'Description'|translate}}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12 insidechanges">
+                                            <div class="col-md-12 col-xs-12 col-sm-12 inHead1 descriptionmargin">{{plandtls
+                                                .rchrgDsc}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-message" ng-hide="noPlanDetails" role="alert">
+                                <p class="noplans">
+                                    <span lp-i18n="There are no Plans to display"></span>
+                                </p>
+                            </div>
+                        </tab-content>
+                    </tab>
+                </tabset>
+            </div>
+        </div>
+    </div>
+</div>

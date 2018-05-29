@@ -1,0 +1,272 @@
+<div class="ng-cloak forgotLoginId-panelwidth" ng-controller="ForgotLoginIdCtrl as forgotIdCtrl">
+
+            <div ng-if="forgotIdCtrl.errorSpin">
+                <div class="panel-message loading-panel" role="alert">
+                    <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                    <span class="sr-only" lp-i18n="Busy"></span>
+                </div>
+            </div>		
+		
+			<!--  Full Content -->
+			<div class="lp-widget-content">
+				<!--  Alerts -->
+				<div class="lp-alerts">
+					 <div alert="alert" ng-repeat="alert in forgotIdCtrl.alerts" type="alert.type" close="forgotIdCtrl.closeAlert($index)" >{{alert.msg}}</div>
+				</div>
+
+				<div class="text-danger" ng-if="forgotIdCtrl.OTPError" style="text-align:center" lp-i18n="That's the wrong OTP code">
+                </div>
+
+				<!--  Body Content -->
+				<div class="lp-widget-content  panel-body" ng-if="!forgotIdCtrl.serviceError" >
+
+                    <div ng-if="forgotIdCtrl.successForm">
+                        <div data-ng-include="forgotIdCtrl.templates.successful"></div>
+                    </div>
+
+                    <div ng-if="!forgotIdCtrl.successForm">
+						<div ng-if="!forgotIdCtrl.showTabs">
+							<div id="newRegistrationForm1">
+								<form novalidate="" class="form-horizontal forgotLoginId-alignlabel" role="form" name="forgotIdCtrl.UcicForm" id="firstform" >
+									<div  lp-field="lp-field"
+										 label="Enter Customer ID"
+											class="forgotLoginId-customerlabel-margintop forgotLoginId-alignInput forgotLoginId-alInput text-center"
+										 tip="Your Customer ID is a 10 digit unique reference number found in your welcome kit">
+										<div class="forogtloginId-paddingInput">
+											<input
+												class="form-control forgotLoginId-Inputbox"
+												type="tel"
+												name= "uid"
+												ng-model="forgotIdCtrl.control.ucic.value"
+												ng-pattern="/^[0-9]*$/"
+												loading="isLoading"
+												autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" 
+												onpaste="return false;" onCopy="return false" onCut="return false"
+												required="true"/>
+											<small class="text-danger text-left-float"  ng-if="forgotIdCtrl.customerIdReqError" lp-i18n="Customer ID is required."></small>
+											<!--<small class="text-danger text-left-float" ng-if="forgotIdCtrl.UcicForm.uid.$error.pattern" lp-i18n="Please enter a valid Customer ID."></small>-->
+											<small class="text-danger text-left-float" ng-if="forgotIdCtrl.customerIdPatternError" lp-i18n="Please enter a valid Customer ID."></small>
+											<small class="text-danger text-left-float"  ng-if="forgotIdCtrl.customerIdLenError" lp-i18n="Customer ID should be 10 digits."></small>
+										</div>
+									</div>
+									
+									
+								<div lp-field="lp-field"
+                                 label="Mobile Number"
+                                 class="forgotLoginId-alignInput forgotLoginId-alInput text-center"
+                                 tip="Please provide your Mobile Number">
+                                <div class="forogtloginId-paddingInput">
+
+                                    <input
+                                            class="form-control forgotLoginId-Inputbox"
+                                            type="tel"
+                                            id="mobilenumber"
+                                            name="mobilenumber"
+                                            ng-model="forgotIdCtrl.control.mobilenumber.value"
+                                            ng-pattern="/^[0-9]*$/"
+                                            maxlength="10" 
+                                            loading="isLoading"
+                                            required="true" autocomplete="off"/>
+
+
+                                    <!--<small class="text-danger"
+                                           ng-if="forgotIdCtrl.submitted &amp;&amp; forgotIdCtrl.mobilenumber.$error.required ">
+                                            Mobile Number is required.
+                                    </small>-->
+                                    <small class="text-danger text-left-float"  ng-if="forgotIdCtrl.mobNumberReqError" lp-i18n="Mobile number is required"></small>
+                                    <small class="text-danger text-left-float" ng-if="forgotIdCtrl.mobNumberPatternError">
+                                        Please Enter Correct Mobile Number !
+                                    </small>
+									<small class="text-danger text-left-float"  ng-if="forgotIdCtrl.mobNumberLenError">Mobile Number should be 10 digits.</small>
+
+                                </div>
+
+                            </div>
+                            <div class="borderTop borderTopLineMargin" ng-if="!newUserRegCtrl.showTabs"></div>
+									<div class="forgotLoginId-button-alignForm" >
+                                        <button class="btn btn-primary primary-btn-forgotId next-page-margin" ng-click="forgotIdCtrl.UcicForm.submitted=true ;forgotIdCtrl.openTabs(forgotIdCtrl.UcicForm)"  type="submit" lp-i18n="Next" ></button>
+                                        <button type="button" class="btn btn-primary forgotLoginId-btn-clear secondary-btn-forgotId" ng-click= "forgotIdCtrl.resetUcicForm(); forgotIdCtrl.UcicForm.submitted=false;" lp-i18n="Clear"></button>
+									</div>
+								</form>
+							</div>
+						</div>
+
+						<div ng-if="forgotIdCtrl.showTabs">
+							<div id="tabForm" ng-if="forgotIdCtrl.note" lp-i18n="Please select any of the following option">
+                            </div>
+							<div class="lp-payment-mode-tabs">
+								<ul tabset="tabset" class="payment-mode-tab-area">
+
+									<li class="tab-forgotId" tab="tab" active="forgotIdCtrl.toggleTabs.newone1 " disabled="forgotIdCtrl.lockFieldsOTP" ng-click="forgotIdCtrl.changeTab();">
+										<span tab-heading="tab-heading" class="tab-heading" lp-i18n="Accounts"></span>
+										<div>Please provide your current/savings account or loan account number.</div>
+										<div id="accountForm">
+											<form  novalidate=""  class="form-horizontal" role="form" name="forgotIdCtrl.customerAccountForm" id="secondForm">
+												<div lp-field="lp-field"
+													label="Enter Account Number"
+													class="forgotLoginId-account-width"
+													tip="Please enter the 11 digit savings account number found in your cheque book">
+													<div class="forgotLoginId-account-margin">
+														<input
+																class="form-control forgotLoginId-input-width"
+															type="tel"
+															name= "accountNo"
+															ng-model="forgotIdCtrl.control.accountNumber.value"
+															ng-pattern="/^[0-9]*$/"
+															loading="isLoading"
+															ng-disabled="forgotIdCtrl.lockFields"
+															autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" 
+															onpaste="return false;" onCopy="return false" onCut="return false"
+															required="true"
+															ng-click="forgotIdCtrl.customerAccountForm.submitted=false;forgotIdCtrl.resetErrorMessage();"
+                                                            								maxlength="14"/>
+														<small class="text-danger text-left-float" ng-if="forgotIdCtrl.accNoReqError" lp-i18n="Account number is required."></small>
+														<small class="text-danger text-left-float" ng-if="forgotIdCtrl.AccountError(forgotIdCtrl.customerAccountForm.accountNo.$error.pattern)" lp-i18n="Please enter a valid account number."></small>
+														<small class="text-danger text-left-float" ng-if="forgotIdCtrl.accNolenError" lp-i18n="Account Number should 11 digits." ></small>
+														<small class="text-danger text-left-float" ng-if="forgotIdCtrl.wrongAccNo" lp-i18n="You have entered a wrong Account Number. Please check and enter the right one." ></small>
+													</div>
+												</div>
+
+												<div class="forgotLoginId-button-alignForm" ng-if="forgotIdCtrl.OTPFlag">
+                                                    <button class="btn btn-primary primary-btn-forgotId next-page-margin"  type="submit" name="createContact" ng-click="forgotIdCtrl.customerAccountForm.submitted=true;forgotIdCtrl.openRegistrationForm(forgotIdCtrl.customerAccountForm,'Account')" lp-i18n="Next" ></button>
+                                                    <button type="button" class="btn btn-primary forgotLoginId-btn-clear secondary-btn-forgotId" style="margin-right: 2%;" ng-click= "forgotIdCtrl.customerAccountForm.submitted=false; forgotIdCtrl.resetCustomerAccountForm(); " lp-i18n="Clear" ></button>
+
+												</div>
+											</form>
+										</div>
+									</li>
+									<li class="tab-forgotId" tab="tab" active="forgotIdCtrl.toggleTabs.newone2" disabled="forgotIdCtrl.lockFieldsOTP" ng-click="forgotIdCtrl.changeTab();">
+										<span tab-heading="tab-heading" class="tab-heading"  lp-i18n="Debit Cards"></span>
+										<div id="debitCardForm">
+											<form   novalidate=""   class="form-horizontal" role="form" name="forgotIdCtrl.cardForm" id="thirdform">
+												<div lp-field="lp-field"
+													label="Debit Card Number"
+												class="forgotLoginId-debitform-width"
+													tip="Please enter the 16 digit debit card number printed on your debit card">
+													<div class="forgotLoginId-debit-margin">
+														<input
+															class="form-control forgotLoginId-form-margin forgotLoginId-debitform-margin-left"
+															type="tel"
+															name="cardNo"
+															ng-model="forgotIdCtrl.control.cardNumber.value"
+															ng-pattern="/^[0-9]*$/"
+															loading="isLoading"
+															ng-keyup="forgotIdCtrl.validateCardFirstSixDigits(forgotIdCtrl.control.cardNumber.value)"
+															ng-disabled="forgotIdCtrl.lockFields"
+															autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" 
+															onpaste="return false;" onCopy="return false" onCut="return false"
+															required="true"/>
+														<small class="text-danger text-left-float-debitCard" ng-if="forgotIdCtrl.cardNoReqError" lp-i18n="Card number is required."></small>
+														<small class="text-danger text-left-float-debitCard" ng-if="forgotIdCtrl.debitCardError(forgotIdCtrl.cardForm.cardNo.$error.pattern)" lp-i18n="Please enter a valid 16 digit Card number." ></small>
+														<small class="text-danger text-left-float-debitCard" ng-if="forgotIdCtrl.cardNolenError" lp-i18n="Card Number should be 16 digit." ></small>
+														<small class="text-danger text-left-float-debitCard" ng-if="forgotIdCtrl.errors['debitCardNumberCheck']" lp-i18n="Are you sure you are looking at your IDFC debit card ? Some of the details seem wrong..." ></small>
+														<small class="text-danger text-left-float-debitCard" ng-if="forgotIdCtrl.cardForm.digits" lp-i18n="Invalid DebitCard Number." ></small>
+													</div>
+												</div>
+
+									
+												<div class="forgotLoginId-button-alignForm" ng-if="forgotIdCtrl.OTPFlag">
+													<button class="btn btn-primary primary-btn-forgotId next-page-margin" ng-click="forgotIdCtrl.cardForm.submitted=true ; forgotIdCtrl.openRegistrationForm(forgotIdCtrl.cardForm,'DebitCard')" type="submit" name="createAPIN" lp-i18n="Next" ></button>
+                                                    <button type="button" class="btn btn-primary forgotLoginId-btn-clear secondary-btn-forgotId" ng-click= "forgotIdCtrl.resetCardForm(); forgotIdCtrl.cardForm.submitted=false;" lp-i18n="Clear" ></button>
+												</div>
+											</form>
+										</div>
+									</li>
+                                    <!-- Loan PL Start - Adding loan tab-->
+<!--
+                                    <li class="tab-forgotId" tab="tab" active="forgotIdCtrl.toggleTabs.newone3" disabled="forgotIdCtrl.lockFieldsOTP" ng-click="forgotIdCtrl.changeTab();">
+										<span tab-heading="tab-heading" class="tab-heading heading-font-xs"  lp-i18n="Loan Accounts"></span>
+										<div id="loanAccountForm">
+											<form  novalidate="" class="form-horizontal" role="form" name="forgotIdCtrl.customerLoanForm" id="fourthForm" >
+												<div lp-field="lp-field"
+													label="Enter Loan Number"
+													class="forgotLoginId-loanform-width"
+													tip="{{'Your Loan Account number is printed on your Loan documents'|translate}}"
+												>
+													<!--tip="{{'Loan_Account_Tip'|translate}}"
+
+													<div class="forgotLoginId-loan-margin">
+														<input
+                                                            class= "form-control forgotLoginId-loanform-margin"
+                                                            type="tel"
+                                                            name= "loanNo"
+                                                            ng-model="forgotIdCtrl.control.loanAccount.value"
+                                                            ng-click="forgotIdCtrl.customerLoanForm.submitted=false"
+                                                            ng-pattern="/^[0-9]*$/"
+                                                            maxlength="14"
+                                                            ng-disabled="forgotIdCtrl.lockFields"
+														    loading="isLoading"
+														    autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" 
+												            onpaste="return false;" onCopy="return false" onCut="return false"
+														    required="true"/>
+                                                    
+                                                        <small class="text-danger text-left-float-loanAccount" ng-if="forgotIdCtrl.customerLoanForm.submitted &amp;&amp; forgotIdCtrl.customerLoanForm.loanNo.$error.required" lp-i18n="Loan account number is required.">></small>
+                                                        
+                                                        <small class="text-danger text-left-float-loanAccount" ng-if="forgotIdCtrl.customerLoanForm.loanNo.$error.pattern" lp-i18n="Please enter a valid loan number."></small>
+                                                        
+                                                        <small class="text-danger text-left-float-loanAccount" ng-if="forgotIdCtrl.customerLoanForm.submitted &amp;&amp; forgotIdCtrl.errors['loanAccountCheck'] &amp;&amp; !(forgotIdCtrl.customerLoanForm.loanNo.$error.required) &amp;&amp; !(forgotIdCtrl.customerLoanForm.loanNo.$error.pattern)" lp-i18n="Loan account number should be 14 digits."></small>
+                                                        
+                                                        <small class="text-danger text-left-float-loanAccount" ng-if="forgotIdCtrl.customerLoanForm.submitted &amp;&amp; forgotIdCtrl.errors['validLoanAccount'] &amp;&amp; !(forgotIdCtrl.customerLoanForm.loanNo.$error.required) &amp;&amp; !(forgotIdCtrl.customerLoanForm.loanNo.$error.pattern)" lp-i18n="You have entered a wrong Loan Number. Please check and enter the right one."></small>
+                                                        
+                                                        
+													</div>
+												</div>
+												<div class="forgotLoginId-button-alignForm" ng-if="forgotIdCtrl.OTPFlag">
+                                                    <button class="btn btn-primary primary-btn-forgotId next-page-margin" ng-click="forgotIdCtrl.customerLoanForm.submitted=true; forgotIdCtrl.openRegistrationForm(forgotIdCtrl.customerLoanForm, 'LoanAccount')" type="submit" name="createContact" lp-i18n="Next"></button>
+                                                    <button type="button" class="btn btn-primary forgotLoginId-btn-clear secondary-btn-forgotId" ng-click= "forgotIdCtrl.resetCustomerLoanForm()" lp-i18n="Clear"></button>
+
+												</div>
+											</form>
+										</div>
+									</li> 
+
+                  -->
+                                    <!-- Loan PL End -->
+
+								</ul>
+							</div>
+							<div ng-if="!forgotIdCtrl.OTPFlag" class="forgotLoginId-otp-div">
+								<h4>
+									<div class="text-success" ng-if="forgotIdCtrl.success.happened" style="text-align:center" ng-bind="forgotIdCtrl.success.msg"></div>
+									<div class="text-danger" ng-if="forgotIdCtrl.error.happened" style="text-align:center" ng-bind="forgotIdCtrl.error.msg"></div>
+								</h4> 
+								<form name="OTPform" class="form-horizontal"> 
+								<div style="margin-left: 20px;">
+									<div class="otp-label-forgotId" lp-field="lp-field" label="Mobile Number" tip="">
+										<div>
+											<input class="form-control otp-input-width"	type="text"	name="OTPMobile"
+												ng-model="forgotIdCtrl.customerMobMasked" ng-disabled="true"/>
+										</div>
+									</div>
+									
+									<div class="otp-label-forgotId"  lp-field="lp-field" label="OTP"
+										 tip="Please enter the 6 digit OTP we sent to your registered mobile number">
+										<div>
+											<input class="form-control otp-input-width" type="tel" style=" -webkit-text-security:disc;" name="otp" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false"
+												ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+												ng-model="forgotIdCtrl.otpValue" required="true" ng-disabled="forgotIdCtrl.lockFieldsOTP"/>
+											<small class="text-danger" style="width:38%; margin-left:19%;" ng-if="forgotIdCtrl.otpReqError" lp-i18n="OTP is required" ></small>
+											<small class="text-danger" style="width:38%; margin-left:19%;" ng-if="forgotIdCtrl.otpMinLengthError" lp-i18n="Please enter 6 digit valid value" ></small>
+											<small class="text-danger" style="width:38%; margin-left:19%;" ng-if="forgotIdCtrl.otpMaxLengthError" lp-i18n="Please enter 6 digit valid value" ></small>
+											<small class="text-danger" style="width:38%; margin-left:19%;" ng-if="forgotIdCtrl.inValidOTP" lp-i18n="Please enter a valid OTP" ></small>
+										</div>
+									</div>
+									</div>
+									<div class="forgotLoginId-button-alignForm">
+
+                                        <div class="otp-forgot-btn">
+                                            <button id="verifyOTP-btn-forgot-username" class="btn btn-primary forgotLoginId-btn-clear primary-btn-forgotId" type="submit" name="verifyOTP" ng-disabled="forgotIdCtrl.lockFieldsOTP" ng-click="OTPform.submitted=true; forgotIdCtrl.verifyOTP(OTPform); " lp-i18n="Submit" ></button>
+										<button class="btn btn-primary forgotLoginId-btn-clear secondary-btn-forgotId" type="button" name="resendOTP" ng-disabled="forgotIdCtrl.lockFieldsOTP" 
+                                        ng-click="forgotIdCtrl.generateOTP('resend')" lp-i18n="Resend OTP" >
+                                        </button>
+                                        </div>
+
+                                    </div>
+									
+								</form> 
+							</div>
+						</div>
+                </div>
+				</div>
+			</div>
+		</div>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+
+<head>
+    <title>Navigation Footer</title>
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="styles/bootstrap.css" type="text/css" /> -->
+    <g:preferences>
+        <g:preference name="navShow" label="Navigation Source - Link ID" type="text" />
+        <g:preference name="navLevel" label="Navigation Level" type="select-one" default="1">
+            <g:enumeration label="Self with siblings" value="0"/>
+            <g:enumeration label="Children" value="1"/>
+        </g:preference>
+        <g:preference name="navDepth" label="Navigation Depth" type="select-one" default="3">
+            <g:enumeration label="One Level" value="1"/>
+            <g:enumeration label="Two Levels" value="2"/>
+            <g:enumeration label="Three Levels" value="3"/>
+        </g:preference>
+        <g:preference name="navTemplate" label="Template" type="select-one" default="$(contextRoot)/static/backbase.com.2012.nexus/widgets/AdvancedNav/navTemplate/genericDropdownMenu/mustache_top_level.html">
+            <g:enumeration label="Footer" value="$(contextRoot)/static/launchpad/html/nav-footer/mustache_top_level.html"/>
+        </g:preference>
+    </g:preferences>
+
+</head>
+
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main')" ng-controller="dashboardController">
+
+
+<div ng-show="errorSpin">
+    <div class="panel-message loading-panel" role="alert">
+        <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+        <span class="sr-only">Busy</span>
+    </div>
+</div>
+
+<div class="alert alert-info" ng-show="assets.noAccountsAvailable">
+    <p lp-i18n="You currently do not have any active current/savings accounts."></p>
+
+</div>
+<div class="dashbody ng-cloak restrictVertical" ng-show="!assets.noAccountsAvailable">
+    <div id="alert-overlay-aadhar" ng-if="aadharNotUpdated">
+        <div class="messageContent">
+            <p id="alert-message-aadhar">As per RBI guidelines, it is mandatory to update your Aadhar details with your bank by {{aadharUpdateDate}}. Kindly update your Aadhaar number.
+            </p>
+            <div> <button class="btn btn-primary primary-btn-btn primary-btn-ft a-width"  type="button" ng-click="updateAadhar();">Update</button></div>
+            <div > <button class="btn secondary-btn-btn secondary-btn-ft a-width" type="button"  ng-click="ignoreAadhar();">Later</button></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="blueBg">
+            <div class="div-td-dep-opendeposit text-center">
+                <select id="accountNumberId" class="marginTop30" ng-model="accountNumber" ng-options="a.id as a.id for a in totalGroup" ng-change="changeInAccNo(accountNumber)" name="accountNumberId">
+                    <option value="" ng-if="false"></option>
+                </select>
+
+                <div class="glyph-icon"> <span class="glyphicon glyphicon-menu-down"></span></div>
+
+                <div ng-hide="errorSpin">
+                    <!--<div class="availBal">AVAILABLE BALANCE</div>-->
+                    <div class="availBal" ng-model="account_type" >
+                        {{
+                        account_type.match("Home") ? 'CURRENT OUTSTANDING' : 'AVAILABLE BALANCE';
+                        }}
+                    </div>
+                    <div>
+                        <span class="RupeeSymbol">&#8377;</span>
+                        <span class="balance-amount amount account-balance" ng-show="showbracket">(</span>
+                        <span class="balance-amount amount account-balance amount-span lp-amount" ng-model="bal">{{bal | currency:' '}}</span>
+                        <span class="balance-amount amount account-balance" ng-show="showbracket">)</span>
+                    </div>
+                    <div class="transaction text-center" ng-click="goToTransaction()">View Transactions</div>
+                </div>
+                <br/><br/>
+                <h4 ng-show="errorSpin" style="color:White; font-style:italic;">Fetching Balance...</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-xs-6 border">
+                <div class="dash-block" ng-click="goToTransferNow()">
+                    <div class="transfer"></div>
+                    <div class="innerText" >TRANSFER FUNDS</div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 border">
+                <div class="dash-block" ng-click="goToPayBills()">
+                    <div class="payBills"></div>
+                    <div class="innerText">PAY BILLS</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-xs-6 border">
+                <div class="dash-block"  ng-click="goToAddPayee()">
+                    <div class="addPayee"></div>
+                    <div class="innerText">ADD A PAYEE</div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 border">
+                <div class="dash-block" ng-click="goToDeposit()">
+                    <div class="newDeposit"></div>
+                    <div class="innerText">CREATE FD</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div lp-template="'templates/main.ng.html'"></div>-->
+</body>
+</html>

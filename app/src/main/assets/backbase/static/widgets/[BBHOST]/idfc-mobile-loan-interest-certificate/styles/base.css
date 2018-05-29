@@ -1,0 +1,432 @@
+/* Build with bb-lp-cli @ v1.1.0 */
+
+.lp-lic-main-page {
+    margin-left: 2%;
+    font-family: Gotham-Book;
+    font-size: 14px
+}
+
+.space {
+    margin-left: 11% !important
+}
+
+.lp-loan-table-new {
+    width: 92%;
+    border-spacing: 10px;
+    text-align: left !important;
+    color: #333333;
+    margin-left: 1.5%
+}
+.lp-loan-table-new th {
+    font-weight: bold !important;
+    border-spacing: 10px;
+    text-align: left;
+    background-color: #DDB8DD;
+    line-height: 1.42857;
+    height: 50px;
+    font-size: 16px;
+    font-family: Gotham_book;
+    padding-left: 1%;
+    padding-right: 1%;
+    min-width: 110px
+}
+.lp-loan-table-new caption {
+    font-style: normal !important;
+    font-weight: bold !important;
+    color: #333333
+}
+.lp-loan-table-new td {
+    padding: 1% 1% !important;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: Gotham_book
+}
+.lp-loan-table-new tr:nth-child(odd) {
+    background: #F3F3F3
+}
+.lp-loan-table-new tr:nth-child(even) {
+    background: #E5E5E5
+}
+.lp-loan-table tr:nth-child(odd) {
+    background: #F3F3F3
+}
+.lp-loan-table tr:nth-child(even) {
+    background: #E5E5E5
+}
+.lp-loan-table th {
+    font-weight: bold !important;
+    border-spacing: 10px;
+    text-align: left;
+    background-color: #DDB8DD;
+    line-height: 1.42857;
+    height: 50px;
+    font-size: 16px;
+    font-family: Gotham_book
+}
+.lp-loan-table td {
+    padding: 1% 0 !important;
+    font-weight: normal;
+    font-size: 14px;
+    font-family: Gotham_book
+}
+.lp-lic-submit-btn {
+    /*float: right;*/
+    width: 100% !important;
+}
+
+.lp-disableBtn {
+    background-color: #996699 !important
+}
+.lp-loan-table {
+    width: 60%;
+    border-spacing: 10px;
+    text-align: left !important;
+    color: #333333;
+    margin-left: 1.5%
+}
+.font-class {
+    font-size: 16px;
+    font-family: Gotham_book
+}
+.lp-loan-table th {
+    font-weight: bold !important
+}
+.lp-loan-table caption {
+    font-style: normal !important;
+    font-weight: bold !important;
+    color: #333333
+}
+.lp-loan-table td {
+    padding: 1% 0 !important;
+    font-weight: normal
+}
+.lp-pdf-dwnload-btn {
+    margin-right: 4%;
+    font-size: 12px !important
+}
+.lic-submit-height {
+    height: 35px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 2px !important;
+}
+.lic-button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: #FB637E !important;
+    color: #ffffff !important;
+    font-family: gotham_book, Calibri !important;
+    border: none !important;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-weight: 300;
+    margin-top: 15px;
+    font-size: 15px !important
+}
+.zeroMargin {
+    margin-top: 1%
+}
+@media (max-width: 555px) {
+    .lp-currentFinYear {
+        overflow-x: scroll
+    }
+    .lp-loan-table-new {
+        width: 120%;
+        border-spacing: 10px;
+        text-align: left !important;
+        color: #333333;
+        margin-left: 1.5%
+    }
+}
+@media (min-width: 768px) and (max-width: 940px) {
+    .lp-currentFinYear {
+        overflow-x: scroll
+    }
+    .lp-loan-table-new {
+        width: 115%;
+        border-spacing: 10px;
+        text-align: left !important;
+        color: #333333;
+        margin-left: 1.5%
+    }
+}
+.success-message {
+    text-align: right;
+    margin-right: 37%;
+    font-weight: normal
+}
+.interest-cert-note {
+    padding-right: 1px;
+    font-family: gotham_book, Calibri !important;
+    border: none !important;
+    margin-left: 2%;
+    font-weight: normal;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 13px !important;
+}
+
+/*
+   Author: Taral Soni
+   Date: 1 Dec 2016
+   Description: Changes related to new Home saver and home loan
+*/
+
+/*Helper class*/
+.bg-yellow{
+   background-color: rgba(255,239,192,1);
+}
+
+.bg-paltinum{
+    background-color: rgba(234,234,234,0.5);
+}
+
+.bg-purple-light{
+    background-color: rgba(201,139,219,0.5);
+}
+
+.bg-light-gray{
+    background-color: rgba(221,227,233,1);
+}
+
+.color-pink{
+    color: rgba(251,99,126,1);
+}
+
+.color-dark-gray{
+    color: rgba(74,74,74,1);
+}
+
+.font-18{
+    font-size: 18px;
+}
+.font-16{
+    font-size: 16px;
+}
+
+.font-15{
+    font-size: 15px;
+}
+
+.font-14{
+    font-size: 14px;
+}
+
+.font-12{
+    font-size: 12px;
+}
+
+.font-10{
+    font-size: 10px;
+}
+
+.font-light{
+    font-family: Gotham_Light !important;
+    font-weight: normal !important;
+}
+
+.font-medium{
+    font-family: Gotham_Medium !important;
+    font-weight: normal !important;
+}
+
+.font-book{
+    font-family: Gotham_Book !important;
+    font-weight: normal !important;
+}
+
+.valign-center{
+    vertical-align: middle !important;
+}
+
+.text-align-right-imp{
+	text-align: right !important;
+}
+
+.text-align-left-imp{
+	text-align: left!important;
+}
+
+
+.no-margin{
+    margin: 0px 0px 0px 0px !important;
+}
+
+.lp-drop-down-1 {
+    width: 25%;
+    min-width: 238px;
+    height: 40px !important
+}
+
+
+.lp-loan-acc-div {
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+}
+.font-18{
+    font-size: 18px;
+}
+.font-16{
+    font-size: 16px;
+}
+
+.font-15{
+    font-size: 15px;
+}
+
+.font-14{
+    font-size: 14px !important;
+}
+
+.font-12{
+    font-size: 12px !important;
+}
+
+.font-10{
+    font-size: 10px;
+}
+
+.interest-cert-table {
+    width: 100%;
+    border-spacing: 10px;
+    text-align: left !important;
+    color: #333333;
+    font-weight: normal;
+}
+.table-show {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+.table-headers {
+    height: 50px !important
+}
+
+.color-dark-gray{
+    color: rgba(74,74,74,1);
+}
+
+.color-light-gray-bg{
+    background-color: rgba(234, 234, 234, 0.5);
+}
+
+.padding-l2percent{
+    padding-left: 2% !important;
+}
+
+.padding-r2percent{
+    padding-right: 2% !important;
+}
+
+.padding-top1percent{
+  padding-top: 1%; 
+}
+
+
+.mailButton{
+    background:url(../../../../features/[BBHOST]/theme-idfc/images/mailN.png) no-repeat top center;
+        height: 20px;
+        border: none;
+		float:left;
+		width:20px;
+		margin:23px 1.2em 19px 0em;
+}
+.printButton{
+    background:url(../../../../features/[BBHOST]/theme-idfc/images/print.png) no-repeat top center;
+        height: 20px;
+        border: none;
+		float:left;
+		width:20px;
+		margin:23px 1.2em 19px 0em;
+}
+.downButton{
+    background:url(..//static/features/[BBHOST]/theme-idfc-new/images/down.png) no-repeat top center;
+        height: 20px;
+        border: none;
+		float:left;
+		width:20px;
+		margin:23px 1.2em 19px 0;
+}
+
+.footerButton {
+    /*padding-top:1em!important;*/
+    width: auto !important;
+    padding-right: 0.1em;
+    padding-left: 0.1em;
+    float: right;
+}
+
+.successEmailMsg {
+    text-align: center !important;
+    font-weight: bold;
+    font-size: medium;
+    padding:1em;
+}
+
+.color-green{
+    color: rgba(65,117,5,1);
+}
+
+.color-pink{
+    color: rgba(251,99,126,1);
+}
+
+.padding-20px{
+    padding: 20px !important;
+}
+
+.padding-bottom-20px{
+    padding-bottom: 20px !important;
+}
+
+.padding-0{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+
+.table-idfc-gen-tr {
+    border-bottom: 1px solid rgba(216,216,216,1) !important;
+    height: 57px;
+    background-color: white !important;
+    cursor: default !important;
+
+}
+
+.cursor-pointer{
+  cursor: pointer !important;
+}
+.restrictHorizontal{
+width:100%;
+overflow-x:hidden;
+}
+.lp-icon-angle-right:before {
+    color: #fb637e !important;
+    font-size: 13px;
+}
+
+.lp-icon-angle-left:before {
+    color: #fb637e ! important;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+/*    .mobileFixLabel {
+        width: 100%;
+        float: left !important
+    }
+    .mobileFixDate {
+        float: left;
+        width: 100%;
+        margin-bottom: 10px
+    }
+    .mobileFixFloatRight {
+        float: right;
+    }
+*/
+    .mobileFixTopPadding1em {
+        padding-top:1em;
+    }
+}
+/*# sourceMappingURL=base.css.map */

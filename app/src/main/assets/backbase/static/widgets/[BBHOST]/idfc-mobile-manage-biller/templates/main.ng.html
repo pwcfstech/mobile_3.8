@@ -1,0 +1,118 @@
+<div class="ng-cloak bgcolor-style">
+	<div class="text-danger error-message-position" ng-if="error.happened" style="text-align:center">{{ error.msg }}</div>
+	<div ng-hide="globalerror">
+		<div class="lp-widget-content">
+			<div class="lp-widget-body" style="background-color:#fff">
+				<div id="limitForm">
+					<form novalidate="" class="form-horizontal" role="form" name="manageBillerForm">
+						<div><input type="hidden" ng-model="serviceRequest.statusHidden" /></div>
+						<div id="firstDiv" class="lp-transfers-container" id="SrList" ng-show="billerListDiv" ng-hide="error.msg">
+							<div class="row lightbgGray" id="headerDiv" ng-hide="hideFlag">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<div class="col-md-4 col-sm-4 col-xs-4 track-main-heading">Biller</div>
+									<div class="col-md-4 col-sm-4 col-xs-4 track-main-heading leftRightBorder">Nickname</div>
+									<div class="col-md-4 col-sm-4 col-xs-4 track-main-heading">Status</div>
+								</div>
+							</div>
+							<div class="clearfix" ng-repeat="sr in billerList.bllrDtls">
+								<div class="row">
+									<div class="track-table-heading borderBtm" id="subDiv" ng-click="getDetails(sr);" ng-hide="hideFlag">
+										<div class="col-md-12 col-sm-12 col-xs-12 hoverdiv">
+											<div class="col-md-4 col-sm-4 col-xs-4 track-main-content">{{sr.biller}}</div>
+											<div class="col-md-4 col-sm-4 col-xs-4 track-main-content">{{sr.blrNckNm}}</div>
+											<div class="col-md-4 col-sm-4 col-xs-4 track-main-content text-success" ng-hide="sr.blrSts===' ' ">{{sr.blrSts}}
+<span class="floatRight">
+<span ng-hide="sucess.happened &amp;&amp; sucess.id===sr.billrAcctId[0]" class="glyphicon glyphicon-menu-right"></span>
+<span ng-show="sucess.happened &amp;&amp; sucess.id===sr.billrAcctId[0]" class="glyphicon glyphicon-menu-right"></span>
+</span>
+											</div>
+											<div class="col-md-4 col-sm-4 col-xs-4 track-main-content" ng-show="sr.blrSts===' ' ">In Progress</div>
+										</div>
+									</div>
+									<div ng-show="sucess.happened &amp;&amp; sucess.id===sr.billrAcctId[0]">
+										<div class="row bgColor">
+											<div class="col-md-12 col-sm-12 col-xs-12 head1">Biller</div>
+											<div class="col-md-12 col-sm-12 col-xs-12 subContent">{{sr.biller}}</div>
+											<div class="col-md-12 col-sm-12 col-xs-12 head1">Nickname</div>
+											<div class="col-md-12 col-sm-12 col-xs-12 subContent">{{sr.blrNckNm}}</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 col-sm-12 col-xs-12 head1">Status</div>
+											<div class="col-md-12 col-sm-12 col-xs-12 subContent text-success">{{sr.blrSts}}</div>
+											<div class="col-md-12 col-xs-12 col-sm-12 head1">{{sr.authLabel1}}</div>
+											<div class="col-md-12 col-xs-12 col-sm-12 subContent">{{sr.athntctr[0]}}</div>
+										</div>
+										<div class="row" ng-show="sr.authCount>=2">
+											<div class="col-md-12 col-sm-12 col-xs-12 head1">&shy;{{sr.authLabel2}}&shy; </div>
+											<div class="col-md-12 col-sm-12 col-xs-12 subContent">&shy;{{sr.athntctr[1]}}&shy; </div>
+										</div>
+										<div class="row" ng-show="sr.authCount>=3">
+											<div class="col-md-12 col-sm-12 col-xs-12 head1">&shy;{{sr.authLabel3}}&shy;</div>
+											<div class="col-md-12 col-sm-12 col-xs-12 subContent">&shy;{{sr.athntctr[2]}}&shy;</div>
+										</div>
+										<div>
+											<div class="borderLine"></div>
+											<div class="col-md-12 col-xs-12 col-sm-12 text-center" id="deleteBtn">
+												<button class="btn btn-primary primary-btn-track proceed" ng-click="goToDeleteScreeen(sr)">Delete</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ng-show="showDeleteDiv" class="showdel">
+							<div class="row bgColor">
+								<div class="col-md-12 col-sm-12 col-xs-12 head2">Biller</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 subContent1">{{billerData.biller}}</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 head2">Nickname</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 subContent1">{{billerData.blrNckNm}}</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12 head2">Status</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 subContent1 text-success">{{billerData.blrSts}}</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12 head2"> Category</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 subContent1">{{billerData.category}}</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12 head2"> Provider </div>
+								<div class="col-md-12 col-sm-12 col-xs-12 subContent1">{{billerData.biller}}</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12 head2"> {{billerData.authLabel1}}</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 subContent1">{{billerData.athntctr[0]}}</div>
+							</div>
+							<div class="row" ng-show="billerData.authCount>=2">
+								<div class="col-md-12 col-sm-12 col-xs-12 head2">&shy; {{billerData.authLabel2}}</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 subContent1">&shy;{{billerData.athntctr[1]}}</div>
+							</div>
+							<div class="row" ng-show="billerData.authCount>=3">
+								<div class="col-md-12 col-sm-12 col-xs-12 head2">&shy; {{billerData.authLabel3}}</div>
+								<div class="col-md-12 col-sm-12 col-xs-12 subContent1">&shy;{{billerData.athntctr[2]}}&shy;</div>
+							</div>
+							<div class="borderLine1"></div>
+							<div class="row text-center" id="confirmDelete">
+								<button class="btn btn-primary primary-btn-btn" ng-click="confirmDeleteBiller(billerData)">Confirm Delete</button>
+								<button class="btn btn-primary secondary-btn-btn" ng-click="doTheBack()">Cancel</button>
+							</div>
+						</div>
+						<div ng-show="deleteBiller.happened">
+							<div class="manage-biller-confirm-div">
+								<div class="text-center">
+									<img alt="" title="Widget" src="static/features/[BBHOST]/theme-idfc/images/tick_hdpi.png"/>
+									<img ng-src="{{tick}}"/> <br>
+									<div class="congrts">{{deleteBiller.msg}}</div>
+								</div>
+							</div>
+							<div class="borderLine2"></div>
+							<div class="text-center" id="okBtn">
+								<button class="btn btn-primary primary-btn-btn" type="submit" ng-click="refreshBillers()">OK</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

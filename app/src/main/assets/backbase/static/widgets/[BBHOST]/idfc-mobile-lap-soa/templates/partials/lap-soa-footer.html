@@ -1,0 +1,28 @@
+<div class="padding-bottom-20">
+    <div class="row">
+        <div class="col-sm-10 col-lg-10 width-Soa leftFloat-Soa showMoreBtn-lf"><input name="Show_More" ng-click="lapSoaCtrl.showMoreItems()" type="button" value="+ Load more" ng-if="lapSoaCtrl.limit<lapSoaCtrl.namesGrid.length && !lapSoaCtrl.showMore" class="btn-whitePop-Soa pull-left" /></div>
+        
+        <div class="col-sm-2 col-lg-2 padding0 pull-right" ng-if="lapSoaCtrl.namesGrid.length>1 && lapSoaCtrl.showBtnGroup"><!--ng-if="lapSoaCtrl.namesGrid.length>0 && lapSoaCtrl.showBtnGroup"-->
+            
+            <div class="col-sm-4 col-lg-4 footerButton">
+                <input name="Mail" type="button" value="" class="mailButton" ng-click="lapSoaCtrl.emailAdvice()" />
+                
+            </div>
+            <div class="col-sm-4 col-lg-4 footerButton" ng-if="!lapSoaCtrl.isMobileDevice">
+                <input name="Print" type="button" value=""  class="printButton" ng-click="lapSoaCtrl.printPdf()" tooltip="Print your statement" tooltip-placement="top"/>
+            </div>
+            <div class="col-sm-4 col-lg-4 footerButton" ng-if="!lapSoaCtrl.isMobileDevice">
+                <input name="Download" type="button" value=""  class="downButton" ng-click="lapSoaCtrl.pdfGeneration()" tooltip="Download your statement" tooltip-placement="top"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-12 col-lg-12 textAlign-center successEmailMsg succCenter successMessageSOA">
+            
+            <div  id="emailSuccessMsg" ng-show="lapSoaCtrl.success.happened" ng-bind="lapSoaCtrl.success.msg" class="text-success"></div>
+        </div>	
+        
+        
+    </div>
+</div>

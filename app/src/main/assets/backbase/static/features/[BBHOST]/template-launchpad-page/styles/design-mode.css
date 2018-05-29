@@ -1,0 +1,412 @@
+/* CSS copied from generated base.css, based on old design-mode.less */
+
+html.bd-designMode-true {
+  /* ========================= Hacks Section ========================== */
+  /* we need to override the extDesign default styles
+        extDesign puts position:relative; on bp-area and bp-widget and relies on that to position the editbar. we need to
+        put position: initial; on those, for the absolute technique with the chrome-tab to work. And since we change that, we need
+        to hard adjust the top position of the editbar to align with the tabs correctly
+    */;
+}
+
+html.bd-designMode-true div.bd-deviceWrapper {
+    overflow: hidden!important;
+}
+
+html.bd-designMode-true .bd-menu-checkboxes .bd-checkrow {
+    display: none;
+}
+
+html.bd-designMode-true .bd-menu-checkboxes .bd-checkrow:first-child {
+    display: block;
+}
+
+html.bd-designMode-true .pageContainer {
+    margin-bottom: 10px;
+}
+
+html.bd-designMode-true .lp-launcher .lp-chrome-launcher-tab-hidden .lp-launcher-tab {
+    display: block;
+    opacity: 0.7;
+}
+
+html.bd-designMode-true .lp-launcher-sidebar .bp-area,
+html.bd-designMode-true .lp-launcher-notifications .bp-area {
+    min-height: 40px;
+}
+
+html.bd-designMode-true .lp-launcher-sidebar .lp-launcher-tab-chrome .bd-widgetEditBar {
+    position: relative;
+}
+
+html.bd-designMode-true .lp-launcher-sidebar .lp-launcher-tab-chrome .bd-editbar {
+    top: -41px;
+}
+
+html.bd-designMode-true .lp-springboard-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.0980392);
+}
+
+html.bd-designMode-true.user-idle .bp-ColumnLayout-table,
+html.bd-designMode-true.user-idle .bd-contentArea,
+html.bd-designMode-true.user-idle .bp-ColumnLayout-td,
+html.bd-designMode-true.user-idle .lp-springboard-bg {
+    background-color: transparent!important;
+}
+
+html.bd-designMode-true .lp-springboard-area-holder:hover .ui-resizable-n,
+html.bd-designMode-true .lp-springboard-area-holder:hover .ui-resizable-s,
+html.bd-designMode-true .ui-resizable-resizing .ui-resizable-n,
+html.bd-designMode-true .ui-resizable-resizing .ui-resizable-s {
+    background: url("../media/resize-grippy-horizontal.png") no-repeat;
+}
+
+html.bd-designMode-true .lp-springboard-area-holder:hover .ui-resizable-w,
+html.bd-designMode-true .lp-springboard-area-holder:hover .ui-resizable-e,
+html.bd-designMode-true .ui-resizable-resizing .ui-resizable-w,
+html.bd-designMode-true .ui-resizable-resizing .ui-resizable-e {
+    background: url("../media/resize-grippy-vertical.png") no-repeat;
+}
+
+html.bd-designMode-true .lp-springboard-area-holder:hover .ui-resizable-n,
+html.bd-designMode-true .ui-resizable-resizing .ui-resizable-n {
+    background-position: center top;
+}
+
+html.bd-designMode-true .lp-springboard-area-holder:hover .ui-resizable-s,
+html.bd-designMode-true .ui-resizable-resizing .ui-resizable-s {
+    background-position: center bottom;
+}
+
+html.bd-designMode-true .lp-springboard-area-holder:hover .ui-resizable-w,
+html.bd-designMode-true .ui-resizable-resizing .ui-resizable-w {
+    background-position: left center;
+}
+
+html.bd-designMode-true .lp-springboard-area-holder:hover .ui-resizable-e,
+html.bd-designMode-true .ui-resizable-resizing .ui-resizable-e {
+    background-position: right center;
+}
+
+html.bd-designMode-true.user-idle .lp-springboard .ui-resizable-n,
+html.bd-designMode-true.user-idle .lp-springboard .ui-resizable-s,
+html.bd-designMode-true.user-idle .lp-springboard .ui-resizable-w,
+html.bd-designMode-true.user-idle .lp-springboard .ui-resizable-e {
+    background-image: none;
+}
+
+html.bd-designMode-true .lp-columns-controls {
+    background-color: #353535;
+    background-color: rgba(53, 53, 53, 0.8);
+    height: 20px;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+
+html.bd-designMode-true .lp-columns-controls > a {
+    background: url("../media/add-remove-column.png") no-repeat;
+    margin: 4px 8px;
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+}
+
+html.bd-designMode-true .lp-columns-controls .lp-columns-add {
+    background: url("../media/add-remove-column.png") 0px -20px no-repeat;
+}
+
+html.bd-designMode-true .lp-columns {
+    padding: 4px 0;
+    margin-left: 0;
+    min-height: 28px;
+    width: 100%;
+}
+
+html.bd-designMode-true .lp-columns > .bp-area {
+    min-height: 90px;
+    background-color: #ffffff;
+    outline: 1px #DDD solid;
+}
+
+html.bd-designMode-true .lp-columns > .bp-area:first-child {
+    margin-left: 0;
+}
+
+html.bd-designMode-true .lp-columns > .bp-area:hover > .ui-resizable-w,
+html.bd-designMode-true .lp-columns > .bp-area.ui-resizable-resizing > .ui-resizable-w,
+html.bd-designMode-true .lp-columns > .bp-area:hover > .ui-resizable-e,
+html.bd-designMode-true .lp-columns > .bp-area.ui-resizable-resizing > .ui-resizable-e {
+    background: url("../media/resize-grippy-vertical.png") no-repeat;
+}
+
+html.bd-designMode-true .lp-columns > .bp-area:hover > .ui-resizable-w,
+html.bd-designMode-true .lp-columns > .bp-area.ui-resizable-resizing > .ui-resizable-w {
+    background-position: left center;
+}
+
+html.bd-designMode-true .lp-columns > .bp-area:hover > .ui-resizable-e,
+html.bd-designMode-true .lp-columns > .bp-area.ui-resizable-resizing > .ui-resizable-e {
+    background-position: right center;
+}
+
+html.bd-designMode-true .lp-columns > .bp-area > .ui-resizable-w,
+html.bd-designMode-true .lp-columns > .bp-area > .ui-resizable-e {
+    background-image: none;
+}
+
+html.bd-designMode-true.user-idle .lp-columns {
+    background-color: transparent;
+}
+
+html.bd-designMode-true.user-idle .lp-columns > .bp-area {
+    background-color: transparent;
+}
+
+html.bd-designMode-true.user-idle .lp-columns .lp-columns-controls {
+    display: none !important;
+}
+
+html.bd-designMode-true .lp-columns-selected {
+    outline: 1px solid #808080;
+}
+
+
+
+/*
+ * Lightbox Container
+ * --------------------------------------------------
+ */
+
+html.bd-designMode-true .lp-lightbox-container {
+    position: relative;
+    margin: 0 10px 10px 0;
+    display: inline-block!important;
+    min-width: 150px;
+}
+
+html.bd-designMode-true .lp-lightbox-container.lp-lightbox-on {
+    position: absolute;
+}
+
+
+.lp-lightbox-preview {
+  color: #ccc;
+  padding: 10px;
+  padding-left: 40px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #333 url(../media/lightbox.png) .7em 45% no-repeat;
+}
+.lp-lightbox-preview:hover {
+  color: #fff;
+}
+.lp-lightbox-on > .lp-lightbox-preview {
+  display: none;
+}
+.lp-lightbox-area.pm-design-showArea {
+  min-height: 100%;
+}
+
+
+html.bd-designMode-true .lp-nonfunc-bar {
+    position: relative;
+    display: block;
+    border-bottom: 1px solid #fff;
+    padding: 5px;
+    color: #fff;
+    height: 30px;
+    background-color: #999;
+    opacity: 0.8;
+}
+
+html.bd-designMode-true .lp-nonfunc-bar a {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+html.bd-designMode-true .lp-wrapper .pageContainer {
+    overflow-y: auto;
+    position: relative;
+}
+
+html.bd-designMode-true .bp-ColumnLayout-td,
+html.bd-designMode-true .bp-ColumnLayout-table {
+    min-height: 100px;
+}
+
+html.bd-designMode-true td.pm-design-showArea {
+    height: 65px;
+}
+
+html.bd-designMode-true .bd-confirmationMsg h1,
+html.bd-designMode-true .bd-confirmationMsg h2,
+html.bd-designMode-true .bd-confirmationMsg h3,
+html.bd-designMode-true .bd-confirmationMsg h4 {
+    color: #fff;
+}
+
+.bd-tokens-holder {
+    display: none!important;
+}
+
+.bc-input--input.bc-input-text--input {
+    background: #fff!important;
+}
+
+div.aa-PreferenceEditor .bd-tokens-holder {
+    height: 30px!important;
+}
+
+div.aa-PreferenceEditor div.aa-tabLabel {
+    height: 30px!important;
+}
+
+div.aa-PreferenceEditor div.aa-tabLabels {
+    height: 36px!important;
+}
+
+div.aa-PreferenceEditor div.aa-tabLabels div.aa-activeTab {
+    height: 32px!important;
+}
+
+div.aa-PreferenceEditor div.aa-tabs {
+    padding: 15px!important;
+}
+
+.bd-preview-bar-inner {
+    margin-bottom: 0;
+}
+
+.bd-mobile-close-btn {
+    height: 20px!important;
+}
+
+.bd-mobile-close-wrapper {
+    height: 37px!important;
+}
+
+.bp-ColumnLayout td {
+    height: 0!important;
+}
+
+table.bp-ColumnLayout-table {
+    background: transparent;
+}
+
+.lp-widget-head.bp-ui-dragGrip,
+.lp-widget-chrome-tab.bp-ui-dragGrip,
+.lp-widget-head.bp-ui-dragGrip .widget-title,
+.lp-widget-chrome-tab.bp-ui-dragGrip .widget-title {
+    cursor: pointer;
+}
+/* Quick fix for catalog browser in design mode
+    TODO: raise a maintenance issue for this
+*/
+.pm-icon2 .pm-icon2-img {
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bd-editbarIcon {
+    width: 20px!important;
+}
+
+.bd-mobile-close-btn {
+    top: 3px;
+    position: relative;
+}
+
+.cke_reset_all *,
+.cke_reset_all *:before,
+.cke_reset_all *:after {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.bd-targetingEditRegion *,
+.bd-targetingEditRegion *:before,
+.bd-targetingEditRegion *:after {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.bd-targetingLeft {
+    left: 10px;
+}
+
+
+/*
+ * Launcher Container
+ * --------------------------------------------------
+ */
+
+.bd-designMode-true .lp-overlay {
+    position: absolute;
+    outline: 9999px solid rgba(0,0,0,.5);
+}
+.bd-designMode-true .lp-lc {
+    overflow: visible;
+}
+.bd-designMode-true .lp-lc.lp-lc-refresh:after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: rgba(100, 100, 100, 0.2);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    border-radius: 2px;
+}
+.bd-designMode-true .lp-lc.deck-controls-enabled {
+    padding-bottom: 80px;
+}
+.bd-designMode-true .deck-controls {
+    z-index: 1;
+}
+.bd-designMode-true .deck-controls .bd-dm-buttons {
+    box-shadow: 0 0 0px 1px white;
+}
+.bd-designMode-true .lp-lc--content .lp-panel-mainarea {
+    min-height: 100px;
+    padding-bottom: 10px;
+}
+
+
+/* PM overwrites */
+
+.pageDesignerWrapper, .RuntimeDesign {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tab-pane>.pm-design-showArea {
+    min-height: 50px;
+}
+
+
+.bd-designMode-true .RuntimeDesign .bp-manageableArea {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.bd-dm-nudged .bd-dm-edit-bar {
+    top: -22px;
+}
+
+

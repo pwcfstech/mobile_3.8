@@ -1,0 +1,178 @@
+<div class="modal-header text-center">
+	<label ng-show="toggleDelete" class="confDelete">{{'Lbl_Confirm_Delete'|translate}}</label>
+	<label  ng-hide="toggleDelete" class="confDelete">{{'Lbl_Please_Confirm'|translate}}</label>
+</div>
+<div id="deleteConfirm">
+	<div class="modal-body">
+		<div class="form-group has-feedback">
+			<label class="control-label label-font confLabel">{{'Lbl_Confirm_Delete_Message'|translate}}</label>
+		</div>
+		<div class="checkbox">
+			<div class="control-label label-font">
+				<p><strong>Please note:</strong> Deleting this beneficiary does not delete linked future transfer instructions. All transfers to this beneficiary will continue to be made.</p>
+				<p>To delete standing instructions to the beneficiary <button ng-click="reviewtransfer()" ng-keypress="reviewtransfer()" type="button" class="btn btn-sm clickHereButton btn-link">
+					<span>Click here</span>.</button>
+				</p>
+			</div>
+			<label class="control-label label-font">
+				<input type="checkbox" ng-model="deleteSIAware.isChecked" class="ackCheckBox" ng-disabled="!hideOTPFlag">
+				<p>I acknowledge that I have read and agree to the above instructions.</p>
+			</label>
+		</div>
+	</div>
+	<div class="borderTop"></div>
+	<div ng-show="btnFlag" class="modal-footer text-center">
+		<button name="closeModal" class="btn btn-primary primary-btn-btn ng-binding bene-no-left-margin btn-delete" ng-click="authenticate(true,'DeleteBeneficiary')" type="button" ng-disabled="!deleteSIAware.isChecked">{{'btn_Delete'|translate}}</button>
+		<button name="closeModal" class="btn btn-primary secondary-btn-btn ng-binding btn-delete" ng-click="contactsModel.modalShownDelete = false" type="button">{{'btn_Cancel'|translate}}</button>
+	</div>
+</div>
+<div ng-hide="hideOTPFlag" class="bene-popup-otp">
+	<h4>
+		<div class="text-success sucessOTP" ng-show="success.happened" style="text-align:center;color: #4a4a4a !important;">
+			{{ success.msg }}
+		</div>
+		<div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+	</h4>
+	<ng-form name="OTPform" class="form-horizontal">
+		<div lp-field="lp-field" label="Mobile_Label" class="label-font" tip="">
+			<div>
+				<input class=""	type="text"	name="OTPMobile"
+					   ng-model="customerMobMasked" ng-disabled="true"/>
+			</div>
+		</div>
+		<input style="display:none" type="text" name="fakeusernameremembered"/>
+		<input style="display:none" type="password" name="fakepasswordremembered"/>
+		<div lp-field="lp-field" label="OTP_Label" class="label-font"
+			 tip="{{'OTP_tip'|translate}}">
+			<div class="OtpInput">
+				<input class="" type="tel" name="otp" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+					   onpaste="return false;" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+					   ng-model="contactsModel.currentContact.otpValue" ng-disabled="cancelTransaction" ng-required="!hideOTPFlag" style="-webkit-text-security:disc"/><br>
+				<small class="text-danger alignOtpErrorMsg" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+				<small class="text-danger alignOtpErrorMsg" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+				<small class="text-danger alignOtpErrorMsg" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+				<small class="text-danger alignOtpErrorMsg" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+			</div>
+		</div>
+		<div class="bene-popup-buttons text-center">
+			<button class="btn btn-primary primary-btn-btn ng-binding" type="submit" id="verifyOTP-btn-delete-beneficiary" name="verifyOTP" ng-disabled="cancelTransaction" ng-click="OTPform.submitted=true; deleteContact(OTPform.$valid, 'DeleteBeneficiary', 'OTP')">{{'btn_Submit'|translate}}</button>
+			<button class="btn btn-primary secondary-btn-btn ng-binding" type="button" name="resendOTP" ng-disabled="cancelTransaction" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+		</div>
+	</ng-form>
+</div>
+
+	<!-- RSA changes by Xebia starts -->
+
+				<div ng-show="showDenyMessage">
+					<div class="rsa-deny-message">
+						{{cqObject.RSA_DENY_MESSAGE}} 
+					</div>
+				</div>
+
+				<div ng-show="showCancelTransactionMessage">
+					<div class="rsa-cancel-transaction-message">
+							{{cqObject.CANCEL_TRANSACTION}} 
+					</div>
+					<div class="rsa-button">
+							<button class="btn btn-primary primary-btn-btn primary-btn-ft"
+								class="rsa-margin-top" type="submit" name="No"
+								ng-click="cancelRSATransaction()">Okay</button>
+					</div>
+				</div>
+
+				<div ng-show="showSetupCQMessage">
+					<p>
+						<center class="rsa-setupCQMessage">{{cqObject.SETUP_CQ_MESSAGE}}
+						</center>
+					</p>
+					<div class="rsa-button">
+							<button class="btn btn-primary primary-btn-btn primary-btn-ft"
+								type="submit" name="Yes"
+								ng-click="showSetupCQ()">Update Now</button>
+
+							<button class="btn btn-primary primary-btn-btn primary-btn-ft"
+								type="submit" name="No"
+								ng-click="showSetupCQMessage = false; showCancelTransactionMessage = true;">Cancel</button>
+					</div>
+				</div>
+
+				<div ng-hide="hideQuesFlag" class="rsa-border-div">
+					
+					<div ng-bind="showCQError" class="rsa-cancel-transaction-message">
+					</div>
+
+					<!-- <form name="Questionform" class="form-horizontal"> -->
+						<div ng-if="showQuestionDiv">
+							
+								<div class="rsa-margin-top">
+									<label ng-bind="challengeQuestions" class="rsa-bold-font"></label>
+									<input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer"
+									ng-model="challengeQuestion.answer"
+									required="true"/>
+								</div>
+							
+							 
+							<div class="rsa-text-center rsa-margin-bottom">
+								<button class="rsa-button btn btn-primary primary-btn-btn primary-btn-ft"
+									type="submit" name="verifyAnswers"
+									ng-click="verifyCQAnswer()"
+									ng-disabled="!(challengeQuestion.answer)"
+									lp-i18n="Submit Answer">  
+								</button>
+							</div>
+						</div>
+
+						<div ng-show="showWrongAnswerMessage" class="rsa-button" >
+							<button class="btn btn-primary primary-btn-btn primary-btn-ft"
+								type="submit" name="tryAgain"
+								ng-click="fetchCQ()">Try Again</button>
+						</div>
+
+					<!-- </form> -->
+				</div>
+
+	<!-- RSA changes by Xebia ends -->
+
+<div ng-hide="hideCombineFlag" class="e-popup-otpques">
+	<h4>
+		<div class="text-success" ng-show="success.happened" style="text-align:center">{{ success.msg }}</div>
+		<div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+	</h4>
+	<form name="mainform" class="form-horizontal">
+		<div>
+			<div lp-field="lp-field" label="Mobile_Label" tip="" class="bene-otp-lp-field label-font">
+				<div>
+					<input class=""	type="text"	name="OTPMobile"
+						   ng-model="customerMobMasked" ng-disabled="true" style="float:left; width:38%;"/>
+				</div>
+			</div>
+			<input style="display:none" type="text" name="fakeusernameremembered"/>
+			<input style="display:none" type="password" name="fakepasswordremembered"/>
+			<div lp-field="lp-field" label="OTP_Label" class="label-font bene-otp-lp-field bene-otp-lp-field-last"
+				 tip="{{'OTP_tip'|translate}}">
+				<div class="OtpInput">
+					<input class="" type="password" name="otp" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+						   ng-disabled="cancelTransaction" ng-model="contactsModel.currentContact.otpValue" required="true" style="width: 38%;"/>
+					<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+					<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+					<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+					<small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+				</div>
+			</div>
+			<div class="bene-otp-lp-field bene-otp-lp-field-last">
+				<div ng-if="showQuestionDiv">
+					<div ng-repeat="question in challengeQuestions" style="margin-top:20px">
+						<label class="label-font">{{question.questionText}} </label>
+						<input class="" type="text" name="answer" placeholder="Enter answer" ng-model="challengeQuesAnswers[$index].answer" required="true" ng-disabled="isChallengeDisabled" style="width: 70%;"/>
+						<input type="hidden" ng-value="question.questionId" ng-model="challengeQuesAnswers[$index].question" />
+					</div>
+				</div>
+			</div>
+			<div class="bene-popup-buttons">
+				<button class="btn btn-primary primary-btn-btn ng-binding"  type="submit" name="verifyAnswers_otp" ng-disabled="cancelTransaction" ng-click="mainform.submitted=true; deleteContact(mainform.$valid, 'DeleteBeneficiary', credentialType)"> Submit </button>
+				<button class="btn btn-primary secondary-btn-btn ng-binding"  type="button" name="resendOTP" ng-disabled="cancelTransaction" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+			</div>
+		</div>
+	</form>
+</div>

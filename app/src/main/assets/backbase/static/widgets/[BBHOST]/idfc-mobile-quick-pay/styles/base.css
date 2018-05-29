@@ -1,0 +1,974 @@
+.primary-btn-btn1 {
+    background-color: #FB637E!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 15px!important;
+    height: 40px;
+    border-style: none!important;
+    margin-right: 10px!important;
+    margin-bottom: 7px!important;
+    color: #fff!important;
+    margin-right: 17%!important
+}
+
+.secondary-btn-btn1 {
+    background-color: #EAEAEA!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 15px!important;
+    height: 40px;
+    color: #000!important;
+    border-style: none!important;
+    margin-right: 0!important;
+    margin-bottom: 10px!important;
+    margin-top: -17.5%!important
+}
+
+.lp-contacts .panel-body {
+    height: auto
+}
+
+.lp-contacts .form-group {
+    position: relative;
+    clear: both;
+    padding-top: 20px
+}
+
+.new-quick-pay {
+    text-align: left;
+    padding-top: 6px
+}
+
+.quick-div-td-dep-note {
+    position: relative;
+    min-width: 60%;
+    float: left;
+    padding-right: 3%;
+    text-align: left;
+    font-size: 10px;
+    margin-left: 12px
+}
+
+.quick-control {
+    padding: 6px 12px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.col-contact-form {
+    padding-left: 100px;
+    background-color: #F5F5F5!important
+}
+
+.quick-panel-body {
+    padding-right: 0
+}
+
+.quick-pad-left {
+    padding-left: 0!important
+}
+
+.quick-bill-billdetails-bill {
+    font-size: 16px;
+    margin-left: 11px;
+    margin-bottom: 3%
+}
+
+.quick-bill-billdetails {
+    margin-top: 36px;
+    font-size: 18px;
+    position: relative;
+    font-family: gotham_book, calibri;
+    margin-bottom: -32px;
+    font-size: 20px;
+    text-align: center
+}
+
+.quick-bill-label-second {
+    position: relative;
+    left: 177pt;
+    font-size: 14px;
+    font-family: gotham_book, calibri
+}
+
+.quick-set-check {
+    position: relative;
+    top: -3px
+}
+
+.quick-button-left {
+    float: none;
+    position: relative;
+    left: 0
+}
+
+.quick-inr {
+    position: relative;
+    top: 12px
+}
+
+.quickpay-message-position {
+    position: relative;
+    margin-top: 30px;
+    color: #a94442;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word
+}
+
+@media (max-width: 720px) {
+    .quick-bill-label {
+        left: 0
+    }
+    .quick-div-td-dep-ab1 {
+        margin-top: 13px
+    }
+    .quick-bill-select-left {
+        margin-top: 0
+    }
+}
+
+.quick-bill-autopay {
+    font-size: 16px;
+    float: left;
+    text-align: left;
+    clear: left;
+    margin-top: 4%;
+    margin-bottom: 2%
+}
+
+.quick-bill-auth {
+    margin-bottom: 12px
+}
+
+.quick-bill-otp-message {
+    float: left;
+    margin-left: 21%;
+    margin-top: 3%
+}
+
+.quick-bill-aaount-for-pay {
+    clear: left
+}
+
+.quick-bill-input {
+    margin-top: -1px
+}
+
+.quick-bill-first-div {
+    padding-bottom: 40px
+}
+
+@media (min-width: 392px) and (max-width: 720px) {
+    .quick-bill-first-div {
+        margin-left: 0
+    }
+}
+
+.quick-bill-span {
+    font-family: gotham_book;
+    font-size: 14px
+}
+
+.quick-bill-new-label {
+    margin-bottom: 12px;
+    position: relative;
+    left: 58px
+}
+
+.quick-bill-input-drop {
+    margin-bottom: -5px;
+    position: relative;
+    width: 118px
+}
+
+.quick-bill-new-span {
+    float: right;
+    top: -23px!important
+}
+
+.quick-auto {
+    width: 30em;
+    word-wrap: break-word;
+    top: 12px;
+    position: relative
+}
+
+.quick-main-error {
+    width: 32em;
+    float: left;
+    position: relative;
+    left: 199px;
+    color: #a94442;
+    bottom: 42px
+}
+
+.quick-start {
+    position: relative;
+    color: #a94442;
+    bottom: 7px
+}
+
+.quickpay-errormessg {
+    position: relative;
+    color: #a94442;
+    bottom: -61px;
+    left: -193px;
+    word-wrap: break-word
+}
+
+.quick-alert {
+    position: relative;
+    left: 198px;
+    color: #a94442;
+    bottom: 42px
+}
+
+.quick-bill-inr {
+    margin-bottom: 12px;
+    width: 118px
+}
+
+.quick-bill-frequency {
+    margin-bottom: 12px
+}
+
+.quick-bill-calendar {
+    float: right;
+    top: 13px!important;
+    right: 25px
+}
+
+.quick-bill-clear {
+    clear: left
+}
+
+.biller-confirm {
+    margin-left: 22px
+}
+
+.quick-biller-message {
+    clear: both;
+    width: 132em;
+    color: #a94442
+}
+
+.quick-biller-addBiller-div {
+    border: 1px solid;
+    min-height: 460px;
+    min-width: -95px;
+    margin-left: 24px;
+    margin-right: 23px;
+    margin-bottom: 21px
+}
+
+.quick-error-msg {
+    color: #a94442;
+    text-align: center
+}
+
+@media (min-width: 379px) and (max-width: 735px) {
+    .quick-floatLeft {
+        float: none;
+        margin-left: 10px
+    }
+}
+
+.confirm-span {
+    position: relative;
+    left: 21%;
+    top: 13px;
+    font-size: 18px;
+    color: #4A4A4A;
+    font-family: gotham_book, calibri;
+    word-wrap: break-word;
+    word-break: break-word
+}
+
+.quick-bill-check {
+    font-weight: 700!important;
+    font-size: 16px!important;
+    left: 6px!important;
+    font-family: gotham_medium, calibri!important
+}
+
+.quick-otp-input-width {
+    width: 197px
+}
+
+.lp-icon-calendar:before {
+    content: "\e636"!important
+}
+
+.primary-fetch-btn {
+    background-color: #FB637E!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 13px!important;
+    height: 40px;
+    border-style: none!important;
+    color: #fff!important;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    margin: 19% 17% 10px 4% !important
+}
+
+.quick-pay-margin {
+    margin-left: 3%!important
+}
+
+.quick-pay-margin-left {
+    margin-left: 9%!important
+}
+
+.quick-pay-addBiller-margin {
+    left: 49%!important
+}
+
+.lp-field.form-group span {
+    font-family: gotham_medium;
+    font-size: 13px
+}
+
+::-ms-backdrop {
+    padding-right: 3%;
+    text-align: right;
+    position: relative;
+    min-width: 68%;
+    padding-top: 31px;
+    padding-bottom: 19px;
+    left: 26px
+}
+
+.quick-bill-message {
+    display: block;
+    font-size: 12px;
+    color: #d0021b;
+    padding-left: 8%;
+    padding-right: 8%;
+    text-align: left
+}
+
+.quick-bill-check {
+    font-size: 12px;
+    left: 6px!important;
+    font-family: gotham_medium;
+    color: #c68ae1!important
+}
+
+.quick-bill-check {
+    font-weight: 700!important;
+    font-size: 12px!important;
+    left: 3px!important;
+    top: -3px;
+    position: relative
+}
+
+.quick-floatLeft1 {
+    padding-left: 19.5%!important
+}
+
+.outer {
+    padding-left: 2%!important;
+    left: 0
+}
+
+.quick-confirm-bill {
+    padding-left: 8%!important
+}
+
+.quick-check-outer-div a {
+    text-decoration: none;
+    font-family: gotham_medium;
+    color: #c68ae1!important
+}
+
+.quick-check-outer-div {
+    position: relative;
+    padding-left: 4%!important;
+    left: 10px
+}
+
+.quick-otp-input-width {
+    width: 92%!important;
+    height: 48px!important;
+    letter-spacing: 1px;
+    background-color: #fff!important;
+    font: -webkit-control;
+    margin-left: 5% !important;
+}
+
+.primary-btn-btn11 {
+    background-color: #FB637E!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 15px!important;
+    height: 40px;
+    border-style: none!important;
+    margin-right: 10px!important;
+    margin-bottom: 7px!important;
+    color: #fff!important;
+    margin-right: 2%!important
+}
+
+.secondary-btn-btn11 {
+    background-color: #EAEAEA!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 15px!important;
+    height: 40px;
+    color: #000!important;
+    border-style: none!important;
+    margin-right: 2px!important;
+    margin-bottom: 10px!important
+}
+
+.quick-form-div {
+    padding-left: 8%!important
+}
+
+.confirm-new {
+    left: 12%!important
+}
+
+.quickpay-center-aligned {
+    margin-left: 14%
+}
+
+.quickpay-form-align {
+    margin-left: -15%!important
+}
+
+.quick-floatLeft {
+    margin-top: 1%
+}
+
+.btn {
+    text-transform: uppercase;
+    height: 48px!important
+}
+
+.scrollableRemoved {
+    overflow-y: hidden;
+    overflow-x: hidden
+}
+
+select {
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png)!important;
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    margin-left: 8%!important;
+    margin-right: 7%!important;
+    width: 86%;
+    height: 48px!important;
+    border-radius: 2px!important;
+    font-family: gotham_book;
+    font-size: 12px;
+    color: #9b9b9b!important;
+    border-color: #c6cfd9
+}
+
+input {
+    width: 86%;
+    height: 48px!important;
+    border-radius: 2px!important;
+    margin-left: 8%!important;
+    margin-right: 7%!important;
+    padding: 6px 12px;
+    border: 1px solid #c6cfd9!important
+}
+
+.quick-div-td-dep-ab button {
+    margin-right: 0!important;
+    border-radius: 2px!important;
+    width: 86%!important;
+    margin-left: 2%
+}
+
+.quick-biller-confirm-div {
+    margin-bottom: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    line-height: 22px
+}
+
+.text-danger {
+    display: block;
+    font-size: 12px!important;
+    text-align: left;
+    padding-left: 11.5%!important;
+    padding-right: 11.5%!important;
+    color: #d0021b!important;
+    font-family: gotham_book!important
+}
+
+.bills {
+    font-size: 12px;
+    font-family: gotham_medium;
+    color: #4a4a4a;
+    position: relative;
+    top: -4px
+}
+
+.marginTop50 {
+    margin-top: 35%
+}
+
+.add-bill-select-left {
+    font-size: 11px;
+    font-family: gotham_book;
+    color: #9b9b9b;
+    padding-left: 11%
+}
+
+.congrts {
+    font-family: gotham_medium;
+    font-size: 14px;
+    color: #4a4a4a
+}
+
+.yellowText {
+    font-family: gotham_book;
+    color: #ff8f1b
+}
+
+.add-floatLeft {
+    width: 100%;
+    text-align: center
+}
+
+.congochanges2 {
+    font-family: Gotham_Book!important;
+    font-size: 14px;
+    color: #4a4a4a;
+    font-weight: 400!important
+}
+
+.successchangeslabel {
+    height: 0!important;
+    text-align: center;
+    margin-left: 0
+}
+
+.form-group {
+    margin-bottom: 15px
+}
+
+.add-bill-label {
+    position: relative;
+    font-size: 14px;
+    font-family: Gotham_Book;
+    line-height: 27px!important;
+    color: #4A4A4A
+}
+
+.quick-floatLeft1 input {
+    margin-left: 0!important;
+    width: 88%!important
+}
+
+.OnlyFont {
+    font-family: gotham_book
+}
+
+.inputOtp input:focus {
+    border: solid 1px #c98bdb!important
+}
+
+.labelText1 {
+    font-family: gotham_medium;
+    font-size: 12px;
+    color: #4a4a4a;
+    padding-left: 8%!important
+}
+
+.labelText {
+    padding-left: 1%!important
+}
+
+.secondary-btn-btn {
+    background-color: #eaeaea!important;
+    color: #000!important
+}
+
+.borderLine {
+    background-color: #eaeaea!important;
+    height: 2px;
+    width: 100%;
+    margin-top: 8%;
+    margin-bottom: 8%
+}
+
+.fetchbtn {
+    text-align: right;
+    padding-right: 8%;
+    position: relative;
+    left: 7px;
+    top: 0
+}
+
+.fetchbtn a {
+    color: #fb637e!important;
+    font-size: 12px!important;
+    font-family: gotham_medium!important
+}
+
+.borderLine1 {
+    background-color: #eaeaea!important;
+    height: 2px;
+    width: 100%;
+    margin-top: 8%;
+    margin-bottom: 8%
+}
+
+.borderLine2 {
+    background-color: #eaeaea!important;
+    height: 2px;
+    width: 100%;
+    margin-top: 11%;
+    margin-bottom: 1%
+}
+
+.marginTop6 {
+    margin-top: 6%
+}
+
+.padTop6 {
+    padding-top: 6%
+}
+
+input:placeholder-shown {
+    font-family: gotham_book;
+    font-size: 12px;
+    color: #9b9b9b!important;
+    letter-spacing: 2px
+}
+
+.quick-bill-label {
+    font-family: gotham_book;
+    font-size: 12px;
+    color: #9b9b9b!important
+}
+
+.quick-bill-select-left {
+    font-family: gotham_book;
+    font-size: 12px;
+    color: #666!important
+}
+
+.sucessOTP {
+    padding-right: 8.8%!important;
+    padding-left: 6.8%!important;
+    font-size: 14px!important;
+    font-family: gotham_book!important;
+    line-height: 16px;
+    color: #39ca74!important
+}
+
+.img_padding {
+    margin-top: 6.25%;
+    margin-bottom: 5%
+}
+
+.tncText {
+    color: #c68ae1!important
+}
+
+.lightbgGray {
+    background-color: rgba(234, 234, 234, 0.5)
+}
+
+.quick-check-outer-div input {
+    width: 14px;
+    height: 20px!important;
+    margin: 0!important;
+    vertical-align: bottom;
+    box-shadow: 0 0 0 #fff!important
+}
+
+.tooltip-inner {
+    position: absolute!important;
+    width: 160px!important;
+    max-width: 160px!important;
+    height: auto;
+    margin-left: -79px!important;
+    top: 33px!important;
+    background-color: #c6cfd9!important;
+    color: #4a4a4a!important;
+    font-size: 10px;
+    font-family: gotham_book!important
+}
+
+.tooltip.top .tooltip-arrow {
+    margin-left: -5px!important;
+    top: 28px!important;
+    bottom: -38px;
+    border-top-color: #c6cfd9!important;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg)
+}
+
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #c6cfd9!important
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #c6cfd9!important
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #c6cfd9!important
+}
+
+.customCircle {
+    box-shadow: 0 0 2px #FB637E;
+    color: #FB637E!important;
+    box-sizing: border-box;
+    border: 1px solid #FB637E;
+    margin-left: 2px
+}
+
+.lp-icon {
+    font-family: lp-icons, gotham_book, Calibri!important;
+    z-index: 10!important;
+    cursor: pointer!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal
+}
+
+@media only screen and (max-device-width: 240px) {
+    .labelText {
+        font-size: 9px!important
+    }
+    .tooltip-inner {
+        padding: 9px 10px 10px 11px !important
+    }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+    .labelText {
+        font-size: 12px!important
+    }
+    .tooltip-inner {
+        padding: 12px 13px 13px 14px !important
+    }
+    .customCircle {
+        border-radius: 9px;
+        padding: 0 7px
+    }
+}
+
+@media(min-device-width:481px) and (max-device-width:640px) {
+    .labelText {
+        font-size: 14px!important
+    }
+    .tooltip-inner {
+        padding: 18px 20px 20px 21px !important
+    }
+}
+
+.inputAmt {
+    margin-bottom: 0!important
+}
+
+.margin-left-zero {
+    margin-left: 0!important;
+    margin-right: 2%!important
+}
+
+.errMsg {
+    padding-left: 0!important;
+    padding-right: 0!important
+}
+
+.quickPad {
+    margin-left: 12.5%;
+    margin-right: 4.5%
+}
+
+.failureDiv {
+    padding-left: 0!important;
+    padding-right: 0!important
+}
+
+.payAnotherBtn {
+    width: 87%!important;
+    margin-left: 0!important
+}
+
+.pay-btn {
+    background-color: #fb637e!important;
+    color: #fff!important
+}
+
+.borderLineFailurePg {
+    background-color: #eaeaea!important;
+    height: 2px;
+    width: 100%;
+    margin-top: 65%;
+    margin-bottom: 5%
+}
+
+.failureTitle {
+    font-weight: 700!important;
+    font-family: gotham_medium!important;
+    font-size: 14px!important;
+    line-height: 22px!important
+}
+
+.failMsg {
+    left: 0!important;
+    font-family: gotham_medium!important
+}
+
+.failureMessagesDiv {
+    text-align: center!important;
+    font-size: 14px!important;
+    margin-left: 14%!important;
+    margin-right: 14%!important
+}
+
+.auth-Div {
+    margin-left: 0!important
+}
+
+.paddingLeftRight {
+    padding-left: 0!important;
+    padding-right: 0!important
+}
+
+.auth-color {
+    color: #4a4a4a!important
+}
+
+.pad-auth-right {
+    padding-right: 0!important
+}
+
+.margTopValue {
+    padding-left: 0!important;
+    margin-left: 0!important
+}
+
+.padLeftColon {
+    padding-left: 0!important
+}
+
+.label2-top {
+    margin-top: 3%!important
+}
+
+.successlabel {
+    font-size: 11px;
+    font-family: gotham_book;
+    color: #9b9b9b
+}
+
+.ques-label {
+    font-family: gotham_medium!important;
+    font-size: 13px!important;
+    padding-left: 8%;
+    padding-right: 7%
+}
+
+.ans::-webkit-input-placeholder {
+    color: #9b9b9b!important;
+    font-family: gotham_book!important;
+    font-size: 13px!important;
+    line-height: 14px
+}
+
+.sub-ans-style {
+    margin-top: 5%;
+    margin-right: 0!important;
+    border-radius: 2px!important;
+    width: 86%!important;
+    margin-left: 8%
+}
+
+.sub-top {
+    margin-top: 6%
+}
+
+.lp-field>.labelText {
+    margin-top: 0!important
+}
+
+.tncInput input {
+    left: 1%
+}
+
+.billsInput {
+    float: left;
+    margin-right: 3%;
+    height: 40px;
+    padding-left: 3.5%
+}
+
+.billsText {
+    float: left
+}
+
+#addToBills {
+    padding-left: 0!important
+}
+
+.providerselect {
+    padding-right: 5%!important;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.submitanswersbutton {
+    margin-top: 5%;
+    width: 86%!important;
+    height: 48px!important;
+    border-radius: 2px!important;
+    margin-left: 8%!important;
+    margin-right: 8%!important
+}
+
+.RsBalance {
+    font-weight: bolder!important;
+    padding-left: 8.2%;
+    padding-top: 2%
+}
+
+    .mailButton{
+        background:url(../../../../features/[BBHOST]/theme-idfc/images/mailN.png) no-repeat top center;
+            height: 29px;
+            border: none;
+    		width:29px;
+    		margin:0 auto;
+    		cursor: pointer;
+    		display: block;
+    }

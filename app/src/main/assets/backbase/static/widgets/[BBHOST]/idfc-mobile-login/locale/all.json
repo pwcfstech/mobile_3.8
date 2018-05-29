@@ -1,0 +1,47 @@
+{
+  "en-US": {
+	"login_Id":"Username",
+	"password":"Password",
+	"login_btn":"Login",
+	"OTP_Label":"OTP",
+	"Mobile_Label":"Mobile Number",
+	"Error_Required_OTP":"OTP is required",
+	"Error_Invalid_Length_OTP":"Please enter 6 digit OTP",
+	"Error_Invalid_OTP":"Please enter a valid OTP",
+	"btn_Clear":"Clear",
+    "btn_Submit":"Submit",
+    "btn_Next": "Next",
+    "btn_Confirm": "Confirm",
+    "btn_ResendOTP":"Resend OTP"
+  },
+    "en-IN": {
+	"login_Id":"Username",
+	"password":"Password",
+	"login_btn":"Login",
+	"OTP_Label":"OTP",
+	"Mobile_Label":"Mobile Number",
+	"Error_Required_OTP":"OTP is required",
+	"Error_Invalid_Length_OTP":"Please enter 6 digit OTP",
+	"Error_Invalid_OTP":"Please enter a valid OTP",
+	"btn_Clear":"Clear",
+    "btn_Submit":"Submit",
+    "btn_Next": "Next",
+    "btn_Confirm": "Confirm",
+    "btn_ResendOTP":"Resend OTP"
+  },
+  "en-GB": {
+	"login_Id":"Username",
+	"password":"Password",
+	"login_btn":"Login",
+	"OTP_Label":"OTP",
+	"Mobile_Label":"Mobile Number",
+	"Error_Required_OTP":"OTP is required",
+	"Error_Invalid_Length_OTP":"Please enter 6 digit OTP",
+	"Error_Invalid_OTP":"Please enter a valid OTP",
+	"btn_Clear":"Clear",
+	"btn_Submit":"Submit",
+	"btn_Next": "Next",
+	"btn_Confirm": "Confirm",
+	"btn_ResendOTP":"Resend OTP"
+  }
+}

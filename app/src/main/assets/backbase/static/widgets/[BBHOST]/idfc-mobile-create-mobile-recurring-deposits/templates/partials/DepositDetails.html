@@ -1,0 +1,139 @@
+<div ng-controller="RecurringDetailsController">
+	<div class="panel panel-default" ng-if="fiModel.selected">
+		<div class="panel-heading selected-fi">
+			<div class="col-xs-2 col-lg-1">
+				<span><i class="lp-icon lp-icon-expense-planning"></i></span>
+			</div>
+			<div class="col-xs-10 col-xs-11">
+				<span class="h4">{{'TITLE_Deposit'|translate}}</span><br />
+			</div>
+		</div>
+	</div>
+	<div ng-show="errorSpin1 || errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon loadSpinner"></i>
+			<span class="sr-only">Busy</span>
+		</div>
+	</div>
+	<!--<div class="text-danger" ng-bind="error.msg"></div> -->
+	<div class="alert_msg" ng-if= "error.msg != null && error.msg.length > '0'"> <!-- 3.5 change -->
+<span class="img_icon"><img src="static/features/[BBHOST]/theme-idfc/images/invalid_mdpi.png"/>
+<img ng-src="{{invalid_mdpi}}"/></span>{{error.msg}}
+	</div>
+	<div progress-indicator="progress-indicator" is-loading="fiModel.isConnecting" class="opendeposit-panel-body panel-body" ng-hide="serviceError">
+		<form class="form-horizontal" name="depositDetailsForm" ng-submit="submitted=true;submitDetails(depositDetailsForm.$valid)" tabindex="0" novalidate>
+		<!-- <div class="alert_msg">
+<span class="img_icon"><img src="static/idfc/images/invalid_mdpi.png"/>
+<img ng-src="{{invalid_mdpi}}"/></span>{{error.msg}}
+			</div> --> <!-- 3.5 change-->
+			<div id="createRDDiv" class="font-label-dep-od dep-margin-opendeposit">
+				<div class="div-tr-dep-opendeposit">
+					<div class="div-td-dep-opendeposit marginleft font-label-dep-od required acc-top lbl-margin font-bold">
+						{{'Lbl_Debit_Account_Number'|translate}}
+					</div>
+
+					<div class="div-td-dep-opendeposit div-td-width">
+						<select class="form-control IDFC-dropdown td-fixed-width marginleft form-margin" ng-model="deposit.accountNumber" ng-options="a.id as a.id for a in acccountNumbers" ng-change="fetchHomeBranchDetails(deposit.accountNumber,'')" required>
+							<option value="" selected>Select Account Number</option>
+						</select>
+
+						<div class="AvailBal">
+							<span ng-show="showBal" class="blnc-avail">Available</span>
+							<span ng-show="showBal" class="rupee-symbol-span"></span>
+							<span ng-show="showBal" class="blnc-margin" hide-trailing-zeroes="true">{{deposit.availableBalance | currency:' '}}</span>
+						</div>
+						<!--<div class="dep-messages-opendeposit" style="margin-top: 1%;margin-bottom: -4%;margin-left: 0px;min-width: 560px;font-size: 13px; font-family: gotham_book,Calibri !important;" ng-show="bookAsPerMOP">
+							<span  lp-i18n="Please note: Deposit will be booked in the same holding pattern as the debit account."></span>
+						</div>-->
+					</div>
+				</div>
+				<!--<div class="div-tr-dep-opendeposit marginleft">
+					<div class="div-td-dep-opendeposit font-label-dep-od required font-bold">
+						Modify Holding Pattern
+					</div><br>
+
+						<input type="radio" id="modifyHoldingPatternRadioYes" ng-model="rdDetailsCtrl.deposit.isModifyHolding" name="modifyHolding" value="Yes" ng-change="changeRadio()" style="width:auto!important;margin-top:1% !important;"/>
+					<label>Yes</label>
+					<input type="radio" id="modifyHoldingPatternRadioNo" ng-model="rdDetailsCtrl.deposit.isModifyHolding" name="modifyHolding" value="No" ng-change="changeRadio()" style="width:auto!important;margin-top:1% !important;"/>
+					<label>No</label>
+				</div>-->
+				<div class="div-tr-dep-opendeposit">
+					<div class="div-td-dep-opendeposit font-label-dep-od required marginleft font-bold">
+						{{'Lbl_Installment_Amount'|translate}}
+					</div>
+					<div class="div-td-dep-opendeposit amountwidth marginBtm">
+						<input type="number" class="marginleft lineHeight" id="instllnAmount" ng-blur="validateInstllnAmount()" name="instllnAmount" ng-model="deposit.amount" placeholder="Range Rs.2,000 - Rs.75,000" required autocomplete="off"/>
+					</div>
+					<div class="text-danger" style="padding-left:6% !important;padding-right:7% !important;color:black !important;" ng-show="bookAsPerMOP">
+						<span  lp-i18n="Please note: Deposit will be booked in the same holding pattern as the debit account."></span>
+					</div>
+					<div class="deposit-label">
+						<a class="link-deposit-opendeposit" style="color:#fb637e!important" href="" onclick="window.open('http://www.idfcbank.com/content/dam/idfc/image/other-pdfs/Interest Rate.pdf','_blank')">{{'Lbl_Deposit_Interest_Rates'|translate}}</a></div>
+				</div>
+				<div class="div-tr-dep-opendeposit marginleft">
+					<div class="div-td-dep-opendeposit font-label-dep-od required font-bold">
+						{{'Lbl_Tenure_of_Deposit'|translate}}
+					</div><br>
+					<div class="div-td-dep-opendeposit years">
+						<select id="tenureRDYears" class="form-control IDFC-dropdown td-fixed-width" ng-model="deposit.tenureYears" name="tenureRDYears" ng-options="y for y in showTenureYears" required>
+							<option value="" disabled>Years</option>
+						</select>
+					</div>
+					<div class="div-td-dep-opendeposit months">
+						<select id="tenureRDMonths" class="form-control IDFC-dropdown td-fixed-width" ng-show="tenureMths" ng-model="deposit.tenureMonths" name="tenureRDMonths" ng-disabled="!showRDMonths" ng-options="m for m in showTenureMonths" required>
+							<option value="" disabled>Months</option>
+						</select>
+						<select id="tenureRDMonthsfornonzero" class="form-control IDFC-dropdown td-fixed-width" ng-hide="tenureMths" ng-model="deposit.tenureMonths" name="tenureRDMonths" ng-disabled="!showRDMonths" ng-options="m for m in showTenureMonthsforNonzero" required>
+							<option value="" disabled>Months</option>
+						</select>
+					</div>
+				</div>
+				<div class="div-td-dep-ab-opendeposit div-td-button-pad-od">
+					<div class="borderTop"></div>
+					<div ng-click="checkValues()" class="btn btn-primary primary-btn-open-od primary-btn-btn proceed lineBottm" ng-disabled="!enableProceed">PROCEED
+					</div>
+				</div>
+				<div id="panDetailsDiv">
+					<div class="div-tr-dep-opendeposit marginleft">
+						<div class="div-td-dep-opendeposit font-label-dep-od panheading">
+							{{'Lbl_PAN'|translate}}
+						</div>
+						<div class="div-td-dep-opendeposit">
+							<label class="panlabel" ng-show="!flagpanshowAvailable">{{isPANAvail}}</label>
+							<a class="link-deposit-opendeposit" href="#" ng-show="flagpanshow" data-ng-click="updatedPAN()">{{'Lbl_Update_PAN'|translate}}</a>
+						</div>
+					</div>
+				</div>
+				<div class="div-tr-dep-opendeposit paddingnull" id="maturityDetailsDiv">
+					<table class="maturity-detail-register-table marginleft width">
+						<Caption class="maturity-detail-register-table-caption">
+							<span>{{'Lbl_Maturity_Details'|translate}}</span>
+						</Caption>
+						<tr>
+							<th class="tableheading head-width">{{'Lbl_Rate_of_Interest'|translate}} <span class="coln-margin coln-color">:</span></th>
+							<td class="tdPadding">{{deposit.rateOfInterest | number:2}}%</td>
+						</tr>
+						<tr>
+							<th class="tableheading head-width">{{'Lbl_Maturity_Date'|translate}} <span class="coln-margin-date coln-color">:</span></th>
+							<td class="tdPadding">&shy;{{deposit.maturityDate}}&shy;</td>
+						</tr>
+						<tr>
+							<th class="tableheading head-width">{{'Lbl_Maturity_Amount'|translate}} <span class="coln-margin-amt coln-color">:</span></th>
+							<td class="tdPadding"><span class="rupee-symbol-span"></span><span class="balance-amount">{{deposit.maturityAmount | currency:' '}}</span></td>
+						</tr>
+					</table>
+				</div>
+				<div class="div-tr-dep-opendeposit opendeposit-NoteDiv note">
+					<span class="notecolor"> {{'Lbl_Notes'|translate}}</span>
+					<br/><span class="notefontclass">{{'Tenure_Deposit_Note1'|translate}}
+<br/>{{'Tenure_Deposit_Note2'|translate}}</span>
+				</div>
+				<div class="div-td-dep-ab-opendeposit div-td-button-pad-od">
+					<div class="borderTop"></div>
+					<button type="submit" ng-click="defaultValues(depositDetailsForm.$valid)" class="btn btn-primary primary-btn-open-od primary-btn-btn next" ng-disabled="!enableNext">{{'btn_Next'|translate}}</button>
+					<button name="resetForm" class="btn btn-primary secondary-btn-open-od btn-skip" ng-click="resetForm()" type="button">{{'btn_Clear'|translate}}</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

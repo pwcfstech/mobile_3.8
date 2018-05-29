@@ -1,0 +1,1514 @@
+.maturity-detail-register-table {
+    width: 0!important
+}
+
+.maturity-detail-register-table-caption {
+    font-weight: 700;
+    font-family: Gotham_Book!important;
+    font-size: 14px!important;
+    line-height: 15px
+}
+
+.panel-heading .wizard-steps .wizard-step-container .wizard-step .heading-text {
+    display: inline!important;
+    position: relative!important;
+    float: left!important;
+    text-indent: 6px
+}
+
+input {
+    width: 90%!important
+}
+
+.padLeft {
+    padding-left: 0!important
+}
+
+.div-td-dep-opendeposit {
+    bottom: 5%!important
+}
+
+.yesNoBtn {
+    float: left;
+    width: 87%;
+    margin: 2% 0
+}
+
+.paddingState {
+    padding-right: 49%!important
+}
+
+.radioBtn1 input {
+    vertical-align: middle!important;
+    height: 14px!important;
+    width: 10%!important;
+    vertical-align: middle!important;
+    box-shadow: 0 0 0 #fff!important;
+    border-color: #fff!important;
+    margin-bottom: 0!important
+}
+
+:-ms-div-td-dep-opendeposit-placeholder {
+    color: grey
+}
+
+.full button span {
+    background-color: #32cd32;
+    border-radius: 32px;
+    color: #000
+}
+
+.partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: #000
+}
+
+.recurringDepositDiv {
+    display: none
+}
+
+.required:after {
+    color: red
+}
+
+td {
+    padding: 1%
+}
+
+.interestrate {
+    font-family: gotham_book!important;
+    font-weight: 700;
+    text-align: center!important;
+    font-size: 23px!important;
+    margin-bottom: 60px
+}
+
+.interestrate-th {
+    font-family: gotham_book!important;
+    border: solid 1px
+}
+
+.interestrate-td {
+    font-family: gotham_book!important;
+    padding: 0!important;
+    border: solid 1px
+}
+
+.lp-open-deposits .panel {
+    border: 0;
+    margin: 0
+}
+
+.lp-open-deposits .panel-body.fi-list {
+    padding: 0
+}
+
+.lp-open-deposits .list-group {
+    margin: 0;
+    border-radius: 0
+}
+
+.open-heading-arrow {
+    margin-right: 3px!important;
+    margin-top: 2px!important
+}
+
+.lp-open-deposits .list-group .list-group-item {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    position: relative;
+    top: 0
+}
+
+.lp-open-deposits .transitioning {
+    z-index: 10
+}
+
+.lp-open-deposits .transitioning .h4 {
+    font-size: 18px
+}
+
+.transition-fi {
+    -moz-transition: top 0.8s, height .8s;
+    -webkit-transition: top 0.8s, height .8s;
+    -o-transition: top 0.8s, height .8s;
+    transition: top 0.8s, height .8s
+}
+
+.lp-open-deposits .fi-icon {
+    font-size: 30px
+}
+
+.lp-open-deposits .panel-heading.context {
+    padding: 0 15px;
+    border-bottom: 0
+}
+
+.lp-open-deposits .selected-fi {
+    min-height: 65px
+}
+
+.lp-open-deposits .panel-heading.selected-fi {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.lp-open-deposits .alert {
+    margin-bottom: 0
+}
+
+.lp-open-deposits .selected-fi i {
+    font-size: 30px
+}
+
+.lp-open-deposits .btn-filter {
+    margin-top: 10px;
+    min-height: 55px;
+    overflow: hidden;
+    padding: 6px 0
+}
+
+@media (max-width: 992px) {
+    .lp-open-deposits .btn-filter {
+        min-height: 90px
+    }
+}
+
+.lp-open-deposits .filter-row {
+    height: 50%
+}
+
+.lp-open-deposits .filter-row i {
+    font-size: 30px
+}
+
+.lp-open-deposits .filter-row.push {
+    margin-top: 6px
+}
+
+.lp-open-deposits .filters {
+    margin-top: 10px
+}
+
+.lp-open-deposits .connection-feedback {
+    clear: both
+}
+
+.div-tr-dep-opendeposit {
+    clear: both;
+    position: relative
+}
+
+.div-td-dep-opendeposit {
+    float: left;
+    padding-right: 0;
+    text-align: left;
+    position: relative;
+    min-width: 32%
+}
+
+.div-td-nomineePage {
+    text-align: left;
+    position: relative;
+    margin-left: 6.25%
+}
+
+.padding-top-0 {
+    padding-top: 0
+}
+
+.div-td-dep-nomineeTable {
+    padding-top: 30px
+}
+
+.div-td-dep-opennominee {
+    min-width: 32%!important
+}
+
+.nominee-checkbox {
+    padding-right: 20px;
+    min-width: 0!important
+}
+
+.div-td-dep-ab-opendeposit {
+    float: right;
+    text-align: right;
+    position: relative;
+    min-width: 100%;
+    padding-top: 5px;
+    margin-right: 5px
+}
+
+.div-td-stand-opendeposit {
+    position: relative;
+    margin-left: 17%;
+    min-width: 32%!important
+}
+
+.div-td-tax-opendeposit {
+    position: relative;
+    margin-left: -5%
+}
+
+.opendeposit-dep-radio {
+    margin: 0!important
+}
+
+.opendeposit-panel-body {
+    background-color: #fff!important
+}
+
+.od-panel-body-standard {
+    background-color: #E7E7E7!important;
+    height: 58px;
+    left: -28px;
+    padding-left: 65px
+}
+
+.dep-messages-opendeposit {
+    max-width: 205px
+}
+
+.font-label-dep-od {
+    font-family: Gotham_Medium;
+    font-size: 12px;
+    color: #4a4a4a;
+    width: 100%;
+    margin-top: 17px!important;
+    line-height: 12px;
+    margin-bottom: 8px
+}
+
+.nom-req-dep {
+    margin-right: 20px
+}
+
+.date-cal-dob-od {
+    position: absolute;
+    top: 18px;
+    margin-left: 72%
+}
+
+.div-td-button-pad-od {
+    padding-top: 22px!important;
+    text-align: right!important;
+    color: �black�!important;
+    font-size: �15px!important;
+    margin-right: 6.25%!important;
+    width: 100%!important
+}
+
+.select-width-nom-od {
+    width: 200px!important
+}
+
+.span-margin-opendeposit {
+    margin-right: 10px
+}
+
+.primary-btn-open-od {
+    float: right!important;
+    border-radius: 2px!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 15px!important;
+    color: #fff!important;
+    background-color: #FB637E!important;
+    padding: 10px!important;
+    width: 87.5%!important;
+    border: none!important;
+    height: 48px!important
+}
+
+.secondary-btn-open-od {
+    font-family: gotham_book, Calibri!important;
+    background-color: #EAEAEA!important;
+    font-size: �15px;
+    color: #000!important;
+    border: none!important;
+    padding: 10px!important;
+    float: right!important;
+    margin-right: 3%!important;
+    height: 48px!important;
+    width: 87.5%!important;
+    border-radius: 2px!important
+}
+
+.link-deposit-opendeposit {
+    width: 100%!important;
+    color: #fb637e!important;
+    font-family: Gotham_Medium!important;
+    font-size: 12px!important
+}
+
+.linkcolor {
+    color: #fb637e!important
+}
+
+.btn-width-opendeposit {
+    width: 75%;
+    margin-left: 0
+}
+
+.btn-create-width {
+    width: 140px;
+    margin-left: 0
+}
+
+.div-td-dep-opendeposit .form-control[disabled] {
+    cursor: default;
+    background-color: #fff!important
+}
+
+.open-deposit-ng-cloak {
+    display: none!important
+}
+
+.od-td-div-yeardays {
+    width: 220px!important
+}
+
+.opendeposit-yeardays {
+    width: 95px;
+    display: inline;
+    padding: 6px
+}
+
+.opendeposit-font {
+    font-family: gotham_book!important;
+    font-size: 12px!important;
+    color: #aeaeae;
+    line-height: 22px
+}
+
+.opendeposit-NoteDiv {
+    font-size: 12px;
+    padding-top: 0;
+    float: left;
+    line-height: 22px;
+    font-family: gotham_book!important
+}
+
+.opendeposit-form-control {
+    width: 94%!important
+}
+
+.tipAdjust {
+    margin-left: -3%;
+    margin-top: -25px;
+    height: 20px;
+    padding-top: 6px;
+    margin-top: -6px
+}
+
+.rec-dep-details {
+    clear: both;
+    overflow: hidden
+}
+
+.rec-dep-details-tables {
+    clear: both;
+    overflow: hidden
+}
+
+.rec-dep-summary-table {
+    width: 100%;
+    line-height: 32px;
+    float: left
+}
+
+.rec-dep-summary-table td {
+    padding: 1% 0!important;
+    font-weight: 400
+}
+
+.rec-dep-summary-table .rec-dep-summary-table-cap {
+    color: #000;
+    font-style: normal;
+    font-weight: 700!important
+}
+
+.maturity-detail-recur-table {
+    width: 100%;
+    line-height: 32px;
+    float: right
+}
+
+.maturity-detail-register-table {
+    width: 50%;
+    line-height: 32px;
+    float: left
+}
+
+.maturity-detail-register-table-caption {
+    color: #4a4a4a!important;
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+    margin-top: 20px;
+    margin-bottom: 6px
+}
+
+.maturity-detail-recur-table caption {
+    color: #000;
+    font-style: normal;
+    font-weight: 700!important
+}
+
+.maturity-detail-recur-table td {
+    padding: 1% 0!important;
+    font-weight: 400
+}
+
+.nominee-detail-recur-table {
+    width: 70%;
+    float: left
+}
+
+.nominee-detail-recur-table th {
+    width: 100%
+}
+
+.nominee-detail-recur-table caption {
+    color: #000;
+    font-style: normal;
+    font-weight: 700!important
+}
+
+.nominee-detail-recur-table td {
+    padding: 1% 0!important;
+    font-weight: 400
+}
+
+@media all and (-ms-high-contrast:none) {
+    ::-ms-backdrop,
+    .tipAdjust {
+        margin-top: -6px
+    }
+}
+
+.opendeposit-label-float {
+    float: left;
+    padding-top: 6px
+}
+
+.divAdjust {
+    margin-top: -5%
+}
+
+@media(max-width:400px) {
+    .div-td-tax-opendeposit {
+        position: relative;
+        margin-left: 0
+    }
+    .od-panel-body-standard {
+        left: -11px;
+        padding-left: 0
+    }
+}
+
+@media(min-width:401px) and (max-width:900px) {
+    .od-panel-body-standard {
+        left: -12px;
+        padding-left: 65px
+    }
+}
+
+@media(min-width:901px) and (max-width:991px) {
+    .od-panel-body-standard {
+        left: -14px;
+        padding-left: 65px
+    }
+}
+
+.td-fixed-width {
+    width: 88%!important;
+    display: inline
+}
+
+.balance-amount {
+    margin-top: 0;
+    margin-right: 12%
+}
+
+select {
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png)!important;
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%
+}
+
+input {
+    border: 1px solid #c6cfd9!important
+}
+
+#instllnAmount {
+    height: 40px;
+    width: 200px;
+    padding-left: 10px!important
+}
+
+@media(min-width:768px) and (max-width:991px) {
+    .div-td-dep-opendeposit {
+        min-width: 46%
+    }
+}
+
+@media(max-width:600px) {
+    .div-td-dep-opendeposit {
+        min-width: 46%
+    }
+}
+
+@media(max-width:766px) {
+    .tipAdjust {
+        margin-top: -19px;
+        margin-top: 0px
+    }
+}
+
+@media all and (-ms-high-contrast:none) and (max-width:766px) {
+    ::-ms-backdrop,
+    .tipAdjust {
+        margin-top: 0
+    }
+}
+
+.div-td-nomineeTable {
+    min-width: 10%!important
+}
+
+.addr-line1 {
+    text-align: center;
+    margin-right: 27%;
+    margin-left: 27%
+}
+
+.div-address-line1 {
+    margin-left: .5%;
+    min-width: 20.5%!important
+}
+
+.div-address-address {
+    float: left;
+    min-width: 11.5%!important
+}
+
+.dt-cal-icon {
+    position: relative;
+    top: -34px;
+    margin-left: 87%;
+    cursor: pointer;
+    height: 16px;
+    content: url('../../../../features/[BBHOST]/theme-idfc/images/calendar.png');
+    width: 16px
+}
+
+.lp-icon-calendar:before {
+    content: "\e636"!important
+}
+
+.marginleft {
+    margin-left: 6.25%!important
+}
+
+.marginrupee {
+    margin-left: 67%!important;
+    margin-right: 0!important
+}
+
+.width {
+    width: 100%!important
+}
+
+.IDFC-dropdown {
+    width: 42%
+}
+
+.amountwidth {
+    width: 100%!important
+}
+
+.years {
+    width: 52.5%!important
+}
+
+.months {
+    width: 52.5%!important;
+    margin-left: -5%
+}
+
+.proceed {
+    width: 88%!important;
+    background-color: #fb637e!important;
+    border-radius: 2px!important;
+    padding-top: 15px!important;
+    padding-right: 0!important;
+    margin-right: 0!important
+}
+
+.note {
+    margin-left: 6.25%;
+    width: 87.5%;
+    color: #aeaeae!important;
+    margin-top: 17px
+}
+
+.notecolor {
+    color: #ff8f1b!important;
+    font-size: 12px!important;
+    font-family: gotham_medium!important
+}
+
+.next {
+    width: 87.5%!important;
+    border-radius: 2px!important;
+    margin-right: 0!important
+}
+
+.accnumwidth {
+    width: 96.5%
+}
+
+.tableheading {
+    color: #9b9b9b!important;
+    font-family: Gotham_Book!important;
+    font-size: 12px!important;
+    line-height: 25px!important;
+    font-weight: 400!important
+}
+
+.scroll {
+    overflow-x: hidden
+}
+
+.wizard-wrapper .wizard-step-number-active {
+    background-color: #ffc62b!important;
+    color: #fff!important;
+    margin-top: 23px!important;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    vertical-align: middle;
+    padding-top: 5px;
+    position: relative;
+    z-index: 99
+}
+
+.noradio {
+    margin-left: 21%!important
+}
+
+.nomineepagetwo {
+    clear: both;
+    padding-top: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px
+}
+
+.nomineeyes {
+    margin-left: -2.5%!important
+}
+
+.radioBtn2 {
+    width: 100%;
+    margin-top: 3%!important;
+    margin-bottom: 2%
+}
+
+.nomineeno {
+    margin-left: 17%!important
+}
+
+.nomineebutton {
+    width: 100%!important;
+    margin-right: 3%!important;
+    padding-right: 0!important
+}
+
+.tncmarginright {
+    margin-right: 2%!important
+}
+
+.recur-deposit-sum-table {
+    text-align: left!important;
+    color: #333
+}
+
+.recur-deposit-sum-table th {
+    font-weight: 700!important
+}
+
+.recur-deposit-sum-table caption {
+    font-style: normal!important;
+    font-weight: 700!important;
+    color: #333
+}
+
+.recur-deposit-sum-table td {
+    font-weight: 400
+}
+
+.recur-deposit-sum-cap,
+.gen-det-table-cap {
+    font-family: gotham_medium;
+    font-size: 12px;
+    color: #4a4a4a!important;
+    background-color: rgba(201, 139, 219, 0.2);
+    padding-top: 5%;
+    padding-left: 4%;
+    padding-bottom: 5%;
+    text-transform: uppercase
+}
+
+.inHead1 {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: gotham_medium;
+    padding-top: 3%;
+    padding-bottom: 3%
+}
+
+.inContent1 {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: gotham_book;
+    padding-bottom: 5%
+}
+
+.panel-body {
+    padding: 0!important
+}
+
+.rowcolor {
+    padding: inherit!important;
+    background-color: rgba(234, 234, 234, 0.5);
+    margin-left: 0!important
+}
+
+.gen-det-table .gen-det-table-cap {
+    color: #000;
+    font-style: normal
+}
+
+.gen-det-table-cap {
+    color: #000;
+    font-style: normal
+}
+
+.gen-det-table {
+    text-align: left
+}
+
+.gen-det-table th {
+    width: 50%
+}
+
+.gen-det-table td {
+    padding: 1% 0!important;
+    font-weight: 400
+}
+
+.gen-det-table .gen-det-table-cap {
+    color: #000;
+    font-style: normal
+}
+
+.declarationmargin {
+    margin-left: 5%;
+    margin-top: 20px!important;
+    margin-bottom: 8px!important
+}
+
+.tc-pad {
+    padding-left: 9%!important;
+    padding-right: 6%
+}
+
+.fontdeclaration {
+    font-family: Gotham_Medium!important;
+    color: #ff8f1b!important;
+    font-size: 12px!important
+}
+
+.successfont {
+    color: #ff8f1b!important
+}
+
+.font-congrats {
+    font-family: Gotham_Medium!important;
+    font-size: 14px!important;
+    line-height: 15px!important;
+    color: #4a4a4a!important;
+    font-weight: 700!important
+}
+
+.font-rd {
+    font-family: Gotham_Medium!important;
+    font-size: 14px!important;
+    line-height: 21px!important;
+    color: #4a4a4a!important;
+    padding-left: 6.25%;
+    padding-right: 6.25%
+}
+
+.font-deposit {
+    font-family: gotham_book!important;
+    font-size: 14px!important;
+    line-height: 21px!important;
+    color: #4a4a4a!important;
+    padding-left: 6.25%;
+    padding-right: 6.25%
+}
+
+.successbutton {
+    margin-right: 6%!important
+}
+
+.wizard-wrapper .wizard-step-number {
+    border: solid 0 #fff!important;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    vertical-align: middle;
+    padding-top: 5px;
+    margin-top: 28px!important;
+    background-color: #eaeaea;
+    color: #4a4a4a;
+    position: relative;
+    z-index: 99
+}
+
+.wizard-wrapper .wizard-step {
+    width: 14%;
+    margin-left: 12px
+}
+
+.wizard-wrapper .wizard-step-container {
+    display: inline
+}
+
+.wizard-steps {
+    padding-left: 4%
+}
+
+.wizard-step:first-child {
+    margin-left: -2px!important;
+    margin-right: 11.8px!important
+}
+
+.wizard-step:nth-child(2) {
+    margin-right: 4px!important;
+    margin-left: 17px!important
+}
+
+.wizard-steps>.wizard-step-container:nth-child(3) {
+    margin-left: 14px!important
+}
+
+.wizard-wrapper .wizard-step-arrow {
+    -webkit-transform: scaleX(7)!important;
+    margin-top: 30px;
+    color: #eaeaea!important;
+    top: 5px!important
+}
+
+.wizard-wrapper .wizard-step-heading {
+    width: 0!important;
+    font-family: gotham_medium;
+    font-size: 10px;
+    color: #4a4a4a;
+    top: 11px;
+    left: -15%
+}
+
+.glyphicon-arrow-right:before {
+    content: "\2212"!important
+}
+
+.wizard-wrapper .wizard-step-done {
+    background-color: #39ca74!important;
+    color: #fff!important
+}
+
+.borderTop {
+    background-color: #eaeaea!important;
+    height: 1px!important;
+    margin-bottom: 5%;
+    width: 116%!important;
+    margin-left: -5%
+}
+
+.nomineepadding {
+    padding-top: 0!important;
+    height: 0!important
+}
+
+.nomineemargin {
+    margin-left: 6.25%
+}
+
+.relationcss {
+    margin-top: 0
+}
+
+.addresscss {
+    margin-top: -7%
+}
+
+.citycss {
+    margin-top: -10%
+}
+
+.statecss {
+    margin-top: -11%;
+    width: 100%!important;
+    margin-left: 12.25%
+}
+
+.statecss1 {
+    margin-top: -13%
+}
+
+.marginradio {
+    margin-left: 4.25%!important
+}
+
+.marginzero {
+    margin-left: 0!important
+}
+
+.radiomargin {
+    margin-left: 6.25%
+}
+
+.date-picker {
+    width: 100%!important
+}
+
+.nomineewidth {
+    width: 94%!important
+}
+
+.marginleft1 {
+    margin-left: 6.25%;
+    margin-top: 10%
+}
+
+.citycss {
+    width: 100%!important;
+    margin-left: 12.25%
+}
+
+.citycss1 {
+    width: 171%!important;
+    margin-left: 7.25%
+}
+
+.topmargin {
+    margin-top: -12%;
+    width: 87.5%!important
+}
+
+.marginleft2 {
+    margin-left: 12.25%;
+    margin-top: -9%!important
+}
+
+.citycssnominee {
+    margin-top: 0
+}
+
+.marginleft7 {
+    margin-left: 6.25%!important
+}
+
+.zeropadding {
+    padding-top: 0!important
+}
+
+.topmarginnominee {
+    margin-top: -12%;
+    width: 87.5%!important
+}
+
+.nomineebutton {
+    width: 84.5%!important
+}
+
+.nomineetop {
+    margin-top: 0
+}
+
+.panelwidth {
+    padding: 0!important
+}
+
+.errordob {
+    margin-top: -5%
+}
+
+.relationerror {
+    margin-top: 1%!important
+}
+
+.errorcity {
+    width: 110%;
+    margin-left: 6.25%;
+    margin-top: 5%
+}
+
+.topmargincss {
+    margin-top: 13%
+}
+
+.paddingnull {
+    padding-top: 0
+}
+
+.form-control {
+    font-family: gotham_book!important;
+    color: #4a4a4a!important;
+    border: 1px solid #c6cfd9!important;
+    border-radius: 2px!important;
+    box-shadow: 0 0 0 #fff!important
+}
+
+.text-danger {
+    display: block;
+    font-size: 12px!important;
+    text-align: left;
+    font-family: gotham_book!important;
+    color: #d0021b!important
+}
+
+.lineBottm {
+    margin-bottom: 0!important
+}
+
+.cityWidth {
+    max-width: 100%!important
+}
+
+.font-bold {
+    font-weight: 700
+}
+
+.alert_msg {
+    font-size: 12px;
+    font-weight: 400!important;
+    color: #4a4a4a;
+    background-color: #fff4d6;
+    border: solid 1px #FFC62C;
+    width: 90%;
+    height: auto;
+    text-align: left;
+    font-family: gotham_light;
+    margin: 10px 5% 0;
+    padding: 8px 36px 8px 35px
+}
+
+.img_icon {
+    color: #d0021b!important;
+    margin-left: -5%!important
+}
+
+.btn-rd {
+    height: 48px!important;
+    width: 87.5%!important;
+    margin-right: 0!important
+}
+
+.btn-skip {
+    margin-bottom: 32px!important;
+    margin-right: 0!important
+}
+
+.coln-margin {
+    margin-left: 27%
+}
+
+.head-width {
+    width: 43%
+}
+
+.coln-margin-date {
+    margin-left: 35%
+}
+
+.coln-margin-amt {
+    margin-left: 21%
+}
+
+.coln-color {
+    color: #aeaeae!important
+}
+
+.acc-top {
+    margin-top: 0!important
+}
+
+.blnc-margin {
+    margin-right: 6.25%;
+    margin-top: -14px!important;
+    color: #4a4a4a;
+    font-family: gotham_medium
+}
+
+.blnc-avail {
+    margin-left: 50%;
+    color: #4a4a4a;
+    font-family: gotham_medium;
+    margin-right: 2%
+}
+
+.div-td-width {
+    width: 100%
+}
+
+input {
+    margin-bottom: 0!important;
+    width: 87.5%!important;
+    color: #4a4a4a!important;
+    font-family: gotham_book!important;
+    box-shadow: 0 0 0 #fff!important;
+    border: 1px solid #c6cfd9!important;
+    border-radius: 2px!important
+}
+
+#addl1::-webkit-input-placeholder {
+    color: #aeaeae!important
+}
+
+#addl2::-webkit-input-placeholder {
+    color: #aeaeae!important
+}
+
+#addcity::-webkit-input-placeholder {
+    color: #aeaeae!important
+}
+
+#addcity1::-webkit-input-placeholder {
+    color: #aeaeae!important
+}
+
+.deposit-label {
+    font-family: Gotham_Medium;
+    color: #fb637e!important;
+    text-align: right;
+    display: block;
+    padding-right: 7%
+}
+
+#tenureRDYears {
+    border: 1px solid #c6cfd9!important;
+    border-radius: 2px!important;
+    box-shadow: 0 0 0 #fff!important
+}
+
+#tenureRDMonths {
+    border: 1px solid #c6cfd9!important;
+    border-radius: 2px!important;
+    box-shadow: 0 0 0 #fff!important;
+    color: #aeaeae!important
+}
+
+#tenureRDMonthsfornonzero {
+    color: #aeaeae!important
+}
+
+::-webkit-select-placeholder {
+    color: #aeaeae!important;
+    letter-spacing: 2px!important
+}
+
+.panel-default>.panel-heading {
+    background-color: rgba(234, 234, 234, 0.5)!important
+}
+
+.accept-margin {
+    margin-right: 0!important
+}
+
+@media only screen and (max-device-width:240px) {
+    .dec-bottom {
+        margin-bottom: 23px!important
+    }
+    .address-top {
+        margin-top: 8px
+    }
+    .form-margin {
+        margin-bottom: 6px
+    }
+    .img_padding {
+        margin-top: 50px!important
+    }
+    #tenureRDMonths {
+        font-size: 9px!important;
+        line-height: 10px!important
+    }
+    #tenureRDYears {
+        font-size: 9px!important;
+        line-height: 10px!important
+    }
+    .deposit-label {
+        font-size: 9px;
+        margin-top: 4px!important;
+        line-height: 12px
+    }
+    input {
+        height: 36px!important;
+        font-size: 10px!important;
+        line-height: 11px!important
+    }
+    .lbl-margin {
+        margin-bottom: 6px!important
+    }
+    .blnc-margin {
+        font-size: 9px;
+        line-height: 9px
+    }
+    .blnc-avail {
+        font-size: 9px;
+        line-height: 9px
+    }
+    .form-control {
+        height: 36px!important;
+        font-size: 10px!important;
+        line-height: 11px!important;
+        letter-spacing: 2px;
+        padding-left: 8px!important
+    }
+    .lineHeight {
+        line-height: 11px!important
+    }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+    .dec-bottom {
+        margin-bottom: 30px!important
+    }
+    .address-top {
+        margin-top: 10px
+    }
+    .form-margin {
+        margin-bottom: 8px
+    }
+    .img_padding {
+        margin-top: 66px!important
+    }
+    #tenureRDMonths {
+        font-size: 12px!important;
+        line-height: 13px!important
+    }
+    #tenureRDYears {
+        font-size: 12px!important;
+        line-height: 13px!important
+    }
+    .deposit-label {
+        font-size: 12px;
+        margin-top: 5px!important;
+        line-height: 16px
+    }
+    input {
+        height: 48px!important;
+        font-size: 12px!important;
+        line-height: 14px!important
+    }
+    .lbl-margin {
+        margin-bottom: 8px!important
+    }
+    .blnc-margin {
+        font-size: 12px;
+        line-height: 13px;
+        margin-top: 0!important
+    }
+    .blnc-avail {
+        font-size: 12px;
+        line-height: 12px;
+        margin-left: 4%
+    }
+    .form-control {
+        height: 48px!important;
+        font-size: 12px!important;
+        line-height: 15px!important;
+        letter-spacing: 2px;
+        padding-left: 10px!important
+    }
+    .lineHeight {
+        line-height: 15px!important
+    }
+}
+
+@media(min-device-width:481px) and (max-device-width:640px) {
+    .dec-bottom {
+        margin-bottom: 45px!important
+    }
+    .address-top {
+        margin-top: 15px
+    }
+    .form-margin {
+        margin-bottom: 12px
+    }
+    .img_padding {
+        margin-top: 99px!important
+    }
+    #tenureRDMonths {
+        font-size: 18px!important;
+        line-height: 20px!important
+    }
+    #tenureRDYears {
+        font-size: 18px!important;
+        line-height: 20px!important
+    }
+    .deposit-label {
+        font-size: 18px;
+        margin-top: 8px!important;
+        line-height: 24px
+    }
+    input {
+        height: 72px!important;
+        font-size: 20px!important;
+        line-height: 21px!important
+    }
+    .lbl-margin {
+        margin-bottom: 12px!important
+    }
+    .blnc-margin {
+        font-size: 12px;
+        line-height: 12px
+    }
+    .blnc-avail {
+        font-size: 18px;
+        line-height: 18px
+    }
+    .form-control {
+        height: 72px!important;
+        font-size: 20px!important;
+        line-height: 21px!important;
+        letter-spacing: 2px;
+        padding-left: 15px!important
+    }
+    .lineHeight {
+        line-height: 23px!important
+    }
+}
+
+.img_icon {
+    color: #d0021b!important;
+    margin-left: -8%!important
+}
+
+.notefontclass {
+    font-family: Gotham_Book
+}
+
+.panlabel {
+    font-family: gotham_book, Calibri;
+    font-weight: 700;
+    font-size: 12px;
+    color: #4a4a4a
+}
+
+.panheading {
+    font-family: gotham_book;
+    font-weight: 700;
+    font-size: 14px
+}
+
+.copywidth {
+    width: 92%!important;
+    line-height: 15px!important
+}
+
+#tenureRDYears {
+    color: #aeaeae!important
+}
+
+#stateId {
+    color: #aeaeae!important
+}
+
+#relationId {
+    color: #aeaeae!important
+}
+
+.AvailBal {
+    text-align: right;
+    margin-right: 0
+}
+
+.marginBtm {
+    margin-bottom: 2%
+}
+
+.tdPadding {
+    padding-left: 5%
+}
+
+.panel-heading {
+    padding-left: 5%
+}
+
+.heading-text {
+    text-indent: 4px;
+    display: inline!important;
+    position: relative!important;
+    float: left;
+    left: -25%!important
+}
+
+.wizard-active-step {
+    font-weight: 700!important
+}
+
+.addWidth {
+    width: 35%!important
+}
+
+.panel-heading {
+    padding-right: 0!important
+}
+
+.panel-heading .wizard-steps .wizard-step-container:nth-child(1) .wizard-step .heading-text {
+    text-indent: 2px!important
+}
+
+.panel-heading .wizard-steps .wizard-step-container:nth-child(4) .wizard-step .heading-text {
+    text-indent: 10px!important
+}
+
+.wordbreak {
+    word-break: break-word;
+    padding-right: 5%!important
+}
+
+.padding-20 {
+    padding: 20px !important;
+}
+
+#copyNomineeValuesDiv {
+    padding: inherit !important;
+}
+
+#copyNomineeValuesDiv .div-cp-nominee{
+    width: 50%;
+}
+
+#copyNomineeValuesDiv .div-cp-nominee-row {
+    padding: inherit !important;
+}
+
+.div-cp-nominee-row .col-xs-4 {
+    margin-left: 3.5% !important;
+}
+.wrapper-class-radio input[type="radio"]{
+    width:15px !important;
+}
+.wrapper-class-radio label{
+    display:inline !important;
+    margin-left:5px !important;
+}

@@ -1,0 +1,32 @@
+{
+  "name": "base",
+  "version": "3.0.4",
+  "authors": [
+    "dragosh <dragos@backbase.com>"
+  ],
+  "description": "Base library for creating Launchpad components/widgets/modules",
+  "main": "./scripts/main.js",
+  "moduleType": [
+    "umd"
+  ],
+  "keywords": [
+    "launchpad",
+    "base",
+    "foundation"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "node_modules"
+  ],
+  "dependencies": {
+    "angular": "~1.5.0",
+    "lodash": "^3.10.1",
+    "jquery": "^2.1.3"
+  },
+  "devDependencies": {
+    "config": "^3.0.0",
+    "angular-mocks": "~1.5.0"
+  }
+}

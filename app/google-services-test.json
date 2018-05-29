@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "779037669695",
+    "firebase_url": "https://pushnotificationidfc.firebaseio.com",
+    "project_id": "pushnotificationidfc",
+    "storage_bucket": "pushnotificationidfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779037669695:android:329cb9c9d2d136fd",
+        "android_client_info": {
+          "package_name": "com.idfcbank.mobileBanking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779037669695-7uh95fcn4gqbcm31mas69uj7v1bnofhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfZYg6RByz3ox-XXxEEe83i4QI53P8hGg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

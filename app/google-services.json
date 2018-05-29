@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "405867751239",
+    "firebase_url": "https://mobile-banking-productio-aa5ea.firebaseio.com",
+    "project_id": "mobile-banking-productio-aa5ea",
+    "storage_bucket": "mobile-banking-productio-aa5ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:405867751239:android:329cb9c9d2d136fd",
+        "android_client_info": {
+          "package_name": "com.idfcbank.mobileBanking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "405867751239-e4dotdbkko8qka890d593neacsci2t40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUUfBhjnHc4Zq20PpcFw3sJ3qnjf-8oAM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,28 @@
+<div ng-controller="ScanAndPayController as scanAndPayCtrl">
+
+    <div class="text-danger serviceErrorMargin" ng-if="scanAndPayCtrl.serviceError.happened" style="text-align:center">
+        {{ scanAndPayCtrl.serviceError.msg }}
+    </div>
+
+    <div ng-if="scanAndPayCtrl.errorSpin">
+        <div class="panel-message loading-panel" role="alert" style="vertical-align: text-top">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+
+    <div ng-hide="scanAndPayCtrl.serviceError.happened">
+        <div ng-if="scanAndPayCtrl.showToggle">
+            <div data-ng-include="scanAndPayCtrl.template.header"></div>
+        </div>
+        <!--<div ng-if="true">-->
+        <div ng-if="!scanAndPayCtrl.showQrScan">
+            <div data-ng-include="scanAndPayCtrl.template.manualPay"></div>
+        </div>
+        <!--<div ng-if="true">-->
+        <div ng-if="scanAndPayCtrl.showConfirmationTemplate">
+            <div data-ng-include="scanAndPayCtrl.template.confirmationPage"></div>
+        </div>
+    </div>
+
+</div>

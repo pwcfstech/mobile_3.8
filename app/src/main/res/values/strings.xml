@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">IDFC Bank</string>
+    <string name="action_settings"></string>
+    <string name="action_logout">logout</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="device_rooted_title">Device is rooted</string>
+    <string name="device_rooted_message">For your own safety we don\'t allow users with rooted devices to use this application.</string>
+
+    <string name="title"></string>
+    <string name="website">https://www.idfcbank.com</string>
+    <string name="date">09 September 2016</string>
+    <string name="selected_item">Selected item</string>
+    <string name="fingerprintPermission">Would you like to use Fingerprint to login to application?</string>
+    <string name="sms_permission_txt">IDFC would like to read your SMS</string>
+
+    <string name="otpSender">-IDFCBK</string>
+    <string name="otpSender2">-IDFCBK</string>
+    <string name="smsformat">is the OTP to complete your internet banking transaction</string>
+
+    <!--mVisa-->
+    <string name="invalid_QR">We are unable to process the QR code</string>
+    <string name="pay_using_mobile">Consider paying with mobile number instead</string>
+    <string name="pay_using_key">Pay using Payee Key</string>
+    <string name="try_again">Try Again</string>
+    <string name="unable_to_access_camera">Unable to access camera</string>
+    <string name="camera_permission_text">Allow IDFC Bank mobile app to access your camera to use this feature</string>
+    <string name="grant_access">Grant Access</string>
+</resources>

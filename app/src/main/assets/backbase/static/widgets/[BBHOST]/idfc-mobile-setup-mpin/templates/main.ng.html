@@ -1,0 +1,252 @@
+<div class="ng-cloak">
+	<div id="wrapper" ng-show="showUserLoginScreen">
+		<!-- Main -->
+		<section id="main">
+			<!--<ul>
+                        <li class="logoPadding"><img ng-src="{{idfcLogo}}" alt=""></li>
+                    </ul>-->
+			<header class="wdth">
+				<div ng-show="authFlag">
+					<div class="error">
+						<!--<span class="errorImg"><img src="media/error.png" alt="" width="16" height="23"/></span>-->
+						{{authMesssage}} 
+					</div>
+					<br></div>
+					<span class="avatar">
+						<input type="text" class="form-control" ng-model="control.loginId" id="inputEmail" placeholder="Username" autofill=off autocorrect=off autocapitalize=off autocomplete=off onpaste="return false" onCopy="return false" onCut="return false" required="true" ng-change="callOnchange()"/>
+					</span>
+					<span class="avatar">
+						<input type="password" class="form-control" ng-model="control.loginPassword" id="inputPassword" placeholder="Password" ng-change="callOnchange()"/>
+					</span>
+					<button ng-disabled="loginBtnDisabled" ng-click="checkAvailability();" class="red">
+						<div>CONTINUE</div>
+					</button>
+					<!-- <button ng-click="openOtpDialog()"><p class="red">CONTINUE</p></button> -->
+					<p class="marginT">
+						<!-- SOB2 UAT issue 5140-->
+						<div ng-if="showLink">
+							<a ng-click="goToDontUserName()">I DON'T HAVE A USERNAME OR PASSWORD</a>
+						</div>
+					</p>
+					<div class="creatLine"></div>
+				</header>
+			</section>
+		</div>
+	<!-- added migration aus lalita -->
+	<div id="alert-overlay" ng-show="isAusUser">
+		<div>
+			<p id="alert-message">Mobile banking services are currently not available to business banking accounts. Please use
+				<br>
+				<a style="color:blue" href="https://my.idfcbank.com/start">https://my.idfcbank.com/start</a>
+			</p>
+			<button id="alert-ok-btn" ng-click="closeAlert();">OK</button>  <!-- 3.5 change  span changed to button-->
+		</div>
+	</div> <!-- end -->
+		<!-- Wrapper -->
+		<div id="wrapper" ng-show="showOTPLoginScreen">
+			<!-- Main -->
+			<form name="dummy.OTPform">
+				<section id="main">
+					<!--	<h1>
+                                <img ng-src="{{idfcLogo}}" alt="">
+                            </h1>-->
+					<header>
+						<div ng-show="otpErrorFlag">
+							<div class="error">
+								<!--<span class="errorImg"><img src="media/error.png" alt="" width="16" height="23"/></span>-->
+								{{otpErrorMsg}} 
+							</div>
+						</div>
+						<div class="contTxt">Mobile Number</div>
+						<span class="avatar hg">
+							<input type="email" class="form-control" id="inputEmail" value="{{mobileNoModded}}" readonly="readonly"></span>
+							<div class="contTxt">OTP</div>
+							<span class="avatar hg">
+								<!--<input type="password"
+						class="form-control" name="otp" autofill="off" autocorrect="off"
+						autocapitalize="off" autocomplete="off" onpaste="return false;"
+						onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/"
+						ng-minlength="6" ng-maxlength="6" ng-model="control.otpValue" required="false"/>-->
+								<input class="form-control" type="tel" name="otp" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" id="autoReadOTPVal" ng-model="dummy.control.otpValue" required="true" ng-disabled="lockFieldsOTP" style=" -webkit-text-security:disc;"/>
+								<small class="text-danger" ng-show="dummy.OTPform.submitted &amp;&amp; dummy.OTPform.otp.$error.required">Please enter OTP</small>
+								<small class="text-danger" ng-show="dummy.OTPform.submitted &amp;&amp; dummy.OTPform.otp.$error.minlength">Please enter 6 digit number</small>
+								<small class="text-danger" ng-show="dummy.OTPform.submitted &amp;&amp; dummy.OTPform.otp.$error.maxlength">Please enter 6 digit number</small>
+								<small class="text-danger" ng-show="dummy.OTPform.otp.$error.pattern">Please enter valid OTP</small>
+							</span>
+						</header>
+						<footer class="btn_Border footerBTm ">
+							<div class="main">
+								<button class="red" id="login_pop" type="submit" ng-click="dummy.OTPform.submitted=true; openMPINRegistration(dummy.OTPform.$valid)" >VERIFY</button>
+								<button class="btn-whitePop" ng-click="resendOTP();" on-disabled="resendDisableOTP">RESEND OTP</button>
+							</div>
+							<p></p>
+						</footer>
+					</section>
+				</form>
+			</div>
+			<div id="wrapper" ng-show="mpinRegistration">
+				<section id="main">
+					<!--
+                                <h1>
+                                    <img ng-src="{{idfcLogo}}" alt="">
+                                </h1>-->
+					<header>
+						<div style="text-align:center; font-weight:600; padding-top:24px;" class="enter-box">
+							<div class="col-lg-12">
+								<div ng-show="congratulationMsg">
+									<div>
+										<!--<span class="errorImg"><img src="media/error.png" alt="" width="16" height="23"/></span>-->
+										Congratulations you have successfully setup your Username and Password. You can use the same credentials to login from your desktop as well. 
+									</div>
+								</div>
+								<h3 style="margin-top:5px">Enter MPIN</h3>
+								<ul class="all-field-form">
+									<li >
+										<span >
+											<input ng-repeat="num in NewPinNumbers" type="tel" maxlength="1" id="old_{{num}}" style=" -webkit-text-security:disc;" move-next-on-maxlength ng-keyup="keydownevt()"></span>
+										</li>
+									</ul>
+								</div>
+								<div class="col-lg-12">
+									<h3 style="margin-top:5px">Re Enter MPIN</h3>
+									<ul class="all-field-form">
+										<li >
+											<span >
+												<input ng-repeat="num in reEnterPinNumbers" type="tel" id="old_{{num}}" maxlength="1" style=" -webkit-text-security:disc;" move-next-on-maxlength ng-keyup="keydownevt()"></span>
+											</li>
+										</ul>
+									</div>
+									<!--<p class="eMpinP">Enter MPIN</p>-->
+									<!--<div class="MpinInput">
+                                <div ng-repeat="num in NewPinNumbers">
+                        <span> <input readonly="true" type="text" id="old_{{num}}"
+                                      ng-model="pinNumber.['{{num}}']" name="newmpinslot"
+                                      class="btnMPIN"></span>
+
+                                </div>
+                            </div>-->
+									<!--<p class="eMpinP">Re Enter MPIN</p>-->
+									<!--<div class="MpinInput">
+                                <div>
+                        <span> <input readonly="true" type="text" id="old_{{num}}"
+                                      ng-model="pinNumber.['{{num}}']" name="newmpinslot"
+                                      class="btnMPIN"></span>
+
+                                </div>
+                            </div>-->
+								</div>
+								<!--						<ul class="VirtualKeyboard marginTop">
+
+							<li ng-repeat="val in vals" ng-click="nextPin(val)" class="ballsM"
+								tabindex="-1">{{val}}</li>
+							<li class="txt" ng-click="reset();">Reset</li>
+							<li ng-click="nextPin('0')" class="ballsM" tabindex="-1">0</li>
+							<li class="txt" ng-click=removeLatest();>Delete</li>
+							&lt;!&ndash; </a> &ndash;&gt;
+						</ul>-->
+							</header>
+						</section>
+					</div>
+					<div id="wrapper" ng-show="mpinRegisSuccess">
+						<!-- Main -->
+						<section id="main">
+							<!--<h1>
+                        <img ng-src="{{idfcLogo}}" alt="">
+                    </h1>-->
+							<header>
+								<h1>Congratulations!</h1>
+								<p>You have successfully setup your 
+									<br>MPIN</p>
+									<p class="marginTop">Now you can use MPIN to 
+										<br>Login to mobile banking</p>
+										<span class="avatar2">
+											<img ng-src="{{lockImg}}" alt="" />
+										</span>
+									</header>
+									<footer ng-show="hideLoginBtn" class="btn_Border">
+										<button class="red continue-btn" ng-click="redirectToMPINLogin()">
+											<div >Continue to Login</div>
+										</button>
+									</footer>
+								</section>
+							</div>
+							<div id="wrapper" ng-show="mpinFingerRegis">
+								<!-- Main -->
+								<section id="main">
+									<!--<h1>
+                        <img ng-src="{{idfcLogo}}" alt="">
+                    </h1>-->
+									<header>
+										<div ng-show="authFlag">
+											<div class="error">
+												<!--<span class="errorImg"><img src="media/error.png" alt="" width="16" height="23"/></span>-->
+												{{authMesssage}} 
+											</div>
+										</div>
+										<h1>Congratulations!</h1>
+										<p>You have successfully setup your MPIN</p>
+										<!--KRITI-- IDFC 2.5 text change-->
+										<p>Enable use of fingerprint registered
+											<br>on the device for faster login</p>
+										<!--<p>Do you want to use your
+											<br>Device Touch ID to login?</p>-->
+											<span class="avatar2">
+												<img ng-src="{{touchImg}}" alt="" />
+											</span>
+										</header>
+										<footer class="btn_Border">
+											<button class="red" ng-click="setupFingerPrintForThisDevice()">
+												<div>ENABLE NOW</div>
+											</button>
+											<button class="btn-whitePop" ng-click="redirectToMPINLogin()">
+												<div>DON'T ENABLE</div>
+											</button>
+										</footer>
+									</section>
+								</div>
+								<div id="wrapper" ng-show="showFingerPrintSuccess">
+									<!-- Main -->
+									<section id="main">
+										<header>
+											<h1>Congratulations!</h1>
+											<p>You have successfully setup your 
+												<br>fingerprint ID</p>
+												<p class="marginTop">
+													<b>Now you can use MPIN or your 
+														<br>fingerprint to login to mobile 
+															<br>banking.</b>
+														</p>
+														<span class="avatar2">
+															<!--<img src="/portalserver/static/idfc/universal/widgets/idfc-mb-set-fingerprint/media/congts.png" alt="" /> -->
+															<img ng-src="{{congratsImagePath}}" alt="" />
+														</span>
+													</header>
+													<footer ng-show="hideLoginBtn">
+														<div>
+															<button class="red continue-btn" ng-click="loadLoginPage()">
+																<div>CONTINUE TO LOGIN</div>
+															</button>
+														</div>
+													</footer>
+												</section>
+											</div>
+											<!-- Newly addded code for UAT issue 5157 -->
+											<div id="wrapper" ng-show="isMpinsRegistered">
+												<section id="main">
+													<header>
+														<div style="text-align:center; font-weight:600; padding-top:24px;" class="enter-box">
+															<div class="col-lg-12">
+																<h3 style="margin-top:5px">Enter MPIN</h3>
+																<ul class="all-field-form">
+																	<li>
+																		<span>
+																			<input ng-repeat="num in oldPinNumbers" type="tel" id="ex_{{num}}" maxlength="1" style=" -webkit-text-security:disc;" move-next-on-maxlength ng-keyup="nextPinForRegMpin()"></span>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</header>
+													</section>
+												</div>
+												<!-- Newly addded code for UAT issue 5157 -->
+											</div>

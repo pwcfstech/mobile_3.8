@@ -1,0 +1,31 @@
+<div class="row" ng-if="!plSoaCtrl.transactionEmpty">
+	<div id="no-more-tables">
+   		<table class="col-xs-12 col-sm-12 col-md-12 col-lg-12 table-bordered table-striped table-condensed cf marginWTop">
+			<thead class="cf">
+				<tr>
+					<th class="transaction-date-align-pl soa-table-pl-topbtm th-date-width date-align">{{'Lbl_Transaction_Date' | translate}}</th>
+					<th class="soa-table-desc-pl soa-table-pl-topbtm th-des-width"> {{'Lbl_Description' | translate}}</th>
+					<th class="text-align-right soa-table-pl-topbtm soa-table-padding-right hidden-xs th-amt-width amt-align" style="padding-right:7%!important;">{{'Lbl_Debit_Amount' | translate}}</th>
+					<th class="text-align-right soa-table-pl-topbtm soa-table-padding-right hidden-xs th-amt-width" style="padding-right:7%!important;">{{'Lbl_Credit_Amount' | translate}}</th>
+					<th class="text-align-right soa-table-pl-topbtm soa-table-padding-right th-amt-width"  style="padding-right:7%!important;">{{'Lbl_Closing_Balance' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in plSoaCtrl.namesGrid | limitTo: plSoaCtrl.limit">
+					<td data-title="{{'Lbl_Transaction_Date' | translate}}" class="transaction-date-align-pl soa-table-pl-topbtm">{{item.txnDt | date:'dd MMM yyyy'}}</td>
+					<td data-title="{{'Lbl_Description' | translate}}" class="soa-table-desc-pl soa-table-pl-topbtm">{{item.prtclrs}}</td>
+					<td data-title="{{'Lbl_Debit_Amount' | translate}}" class="soa-table-pl-topbtm textAlign-right-plsoa soa-table-padding-right hidden-xs"><span class="rupee-symbol-span"></span><span>{{item.dbt}}</span></td>
+					<td data-title="{{'Lbl_Credit_Amount' | translate}}" class="soa-table-pl-topbtm textAlign-right-plsoa soa-table-padding-right hidden-xs"><span class="rupee-symbol-span"></span><span>{{item.crdt}}</span></td>
+					<td data-title="{{'Lbl_Closing_Balance' | translate}}" class="soa-table-pl-topbtm textAlign-right-plsoa soa-table-padding-right"
+					     ng-class="item.dbt=='0.00'?'soaAmtRed':'soaAmtGreen'">
+						<span ng-class="item.dbt=='0.00'?'cr-symbol-span':'db-symbol-span'"></span>
+						<span class="rupee-symbol-span"></span>
+						<span ng-if="item.dbt=='0.00'">{{item.crdt}}</span>
+						<span ng-if="item.dbt!='0.00'">{{item.dbt}}</span>
+					</td>   
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+</div>

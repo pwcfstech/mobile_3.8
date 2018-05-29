@@ -1,0 +1,46 @@
+{
+  "en-US": {
+	"idfc-limit-management" : "idfc-limit-management",
+	"Busy" : "Busy",
+	"Daily Limit":"Daily Limit",
+	"Daily Limit is required":"Daily Limit is required.",
+	"That's more than you have allowed yourself to do in a single day. Please change the limit.":
+		"That's more than you have allowed yourself to do in a single day. Please change the limit.",
+	"Please enter a valid amount":"Please enter a valid amount",
+	"Clear":"Clear",
+	"Submit":"Submit",
+	"You can set your daily funds transfer limit  for every beneficiary.":"You can set your daily funds transfer limit  for every beneficiary.",
+	"View Limit":"View Limit",
+    "Resend OTP":"Resend OTP",  
+	"OTP":"OTP", 
+	"Please enter the 6 digit OTP we sent to your registered mobile number":"Please enter the 6 digit OTP we sent to your registered mobile number",
+    "Mobile Number":"Mobile Number", 
+    "OTP is required":"OTP is required", 
+    "Please enter 6 digit valid value":"Please enter 6 digit valid value", 
+    "Please enter a valid OTP":"Please enter a valid OTP",
+	"Your daily limit has been updated successfully.":"Your daily limit has been updated successfully.",
+	"This is the daily limit allowed for all Funds Transfers and Payments done using Internet Banking or Mobile App.":"This is the daily limit allowed for all Funds Transfers and Payments done using Internet Banking or Mobile App."
+  },
+  "en-IN": {
+	"idfc-limit-management" : "idfc-limit-management",
+	"Busy" : "Busy",
+    "Daily Limit":"Daily Limit",
+	"Daily Limit is required":"Daily Limit is required.",
+	"That's more than you have allowed yourself to do in a single day. Please change the limit.":
+		"That's more than you have allowed yourself to do in a single day. Please change the limit.",
+	"Please enter a valid amount":"Please enter a valid amount",
+	"Clear":"Clear",
+	"Submit":"Submit",
+	"You can set your daily funds transfer limit  for every beneficiary.":"You can set your daily funds transfer limit  for every beneficiary.",
+	"View Limit":"View Limit",
+    "Resend OTP":"Resend OTP",  
+	"OTP":"OTP", 
+	"Please enter the 6 digit OTP we sent to your registered mobile number":"Please enter the 6 digit OTP we sent to your registered mobile number",
+    "Mobile Number":"Mobile Number", 
+    "OTP is required":"OTP is required", 
+    "Please enter 6 digit valid value":"Please enter 6 digit valid value", 
+    "Please enter a valid OTP":"Please enter a valid OTP",
+	"Your daily limit has been updated successfully.":"Your daily limit has been updated successfully.",
+	"This is the daily limit allowed for all Funds Transfers and Payments done using Internet Banking or Mobile App.":"This is the daily limit allowed for all Funds Transfers and Payments done using Internet Banking or Mobile App."
+  }
+}

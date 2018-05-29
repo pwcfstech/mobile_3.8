@@ -1,0 +1,128 @@
+<div ng-if="error.happened">
+    <div class="has-error">{{error.msg}}</div>
+</div>
+<div ng-hide="serviceError">
+    <div class="lp-widget-content">
+        <!--  Alerts -->
+        <div ng-if="removeTransaction.happened && !showOtp" class="text-center">
+            <div class="has-success" >{{ removeTransaction.msg }}</div>
+        </div>
+        <div class="lp-alerts">
+            <div alert="alert" class="alert_msg text-center"
+                 ng-repeat="alert in mainCtrl.alerts.list();"
+                 type="{{ alert.type }}"
+                 close="mainCtrl.alerts.close()"><span class="img_icon"><img class="img-width" src="static/features/[BBHOST]/theme-idfc/images/invalid_xxxhdpi.png"/>
+            <img  ng-src="{{invalid_xxxhdpi}}"/></span>
+                {{ alert.msg | translate }}
+            </div>
+        </div>
+        <div class="lp-transfers-container" ng-hide="showOtp">
+            <div class="panel-message" ng-show="mainCtrl.ordersModel.pendingOrdersGroups.length === 0 &amp;&amp; loadedSI" lp-i18n="messages.NO_PENDING_TRANSFERS">
+            </div>
+            <div>
+                <ul class="list-group panel panel-default" ng-repeat="group in mainCtrl.ordersModel.pendingOrdersGroups" itemscope="" itemprop="paymentOrderAccount">
+                    <li class="list-group-item panel-heading review-future-text-bold" tabindex="0" style="padding: 5% 3%;">
+                        <small class="text-muted review-future-text review-future-text from-text" lp-i18n="messages.TRANSFER_FROM"></small>
+                        <span class="review-text-bold" itemprop="fromAccount"> {{mainCtrl.accountsModel.findById(group["@id"]).id}}</span><br/>
+                    </li>
+                    <li class="list-group-item clearfix"
+                        ng-class="{'list-group-item-success': paymentOrder.submitted, 'list-group-item-danger': paymentOrder.verificationFailure}"
+                        ng-repeat="paymentOrder in group.paymentOrders"
+                        itemscope="" itemtype="http://launchpad.backbase.com/vocab/retail/payment-order"
+                        tabindex="0" style="padding:10px;">
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="width:20%">
+                                    <img id="profile-image" height="50" width="50" ng-src="{{mainCtrl.decodePhotoUrl(paymentOrder.counterpartyName)}}"/>
+                                </td>
+                                <td style="width:50%">
+                                    <div>
+                                        <small class="text-muted review-future-text" style="font-weight:bold;" translate="messages.TRANSFER_TO">To :</small>
+                                        <span class="h4" itemprop="counterpartyName"> {{paymentOrder.counterpartyName}}</span>
+                              <span ng-repeat="bene in beneList | filter:paymentOrder.accountDetails | limitTo:1">
+                              <span class="cPartyName" ng-init="paymentOrder.counterpartyName=bene.name ; paymentOrder.beneId=bene.id" style="font-weight:bold;"> {{paymentOrder.counterpartyName}}</span>
+                              </span>
+                              <span ng-repeat="account in accountsModel.accounts | filter:paymentOrder.accountDetails | limitTo:1">
+                              <span class="cPartyName" ng-init="paymentOrder.counterpartyName= 'Own Accounts'" style="font-weight:bold;">Own Accounts</span>
+                              </span>
+                                        <br>
+                                        <span class="sr-only" lp-i18n="Account IBAN"></span>
+                                        <small ng-class="{'raise': paymentOrder.type === transferTypeEnum.p2pEmail &amp;&amp; !p2pUser.emailVerified}"
+                                               itemprop="counterpartyIban"
+                                               class="text-muted review-future-text custom-alignLeft"
+                                               style="color: #777777">
+                                            {{ paymentOrder.accountDetails }}
+                                        </small>
+                                    </div>
+                                </td>
+                                <td style="width:30%">
+                                    <div class="transferredAmount">
+                                        <span  ng-class="{'rupee-symbol-span':paymentOrder.instructedCurrency === 'INR' }" ></span>
+                                        <span  itemprop="instructedAmount">{{paymentOrder.instructedAmount | currency:' '}}</span>
+                                    </div>
+                                    <div class="text-right action" title="Edit" ng-if="paymentOrder.siInd == 'N'"> <!-- 3.5 change si delete ng-if="paymentOrder.siInd == 'N'"-->
+                                        <button ng-click="removeOrder(group, paymentOrder)" type="button" class="btn btn-sm btn-default">
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+            <div class="row" ng-if="paymentOrder.verificationFailure">
+                <div ng-class="{'raise': paymentOrder.type === transferTypeEnum.p2pEmail &amp;&amp; !p2pUser.emailVerified}" class="col-xs-12 verification-error">
+                    <i class="glyphicon glyphicon-warning-sign"></i> {{"messages.UNSENT_VERIFY_CONTACTDETAILS" | translate}}
+                </div>
+            </div>
+        </div>
+        <div id="otpScreen" ng-if="showOtp">
+            <div class="modal-header">
+                <span lp-i18n="Please confirm"></span> <img src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png">
+            </div>
+            <form name="OTPform"><!--ng-submit="remove(OTPform.$valid)"-->
+                <div class="modal-body">
+                    <div ng-show="review.modalError">
+                        <div alert="alert" type="danger">{{ review.modalError | translate }}</div>
+                    </div>
+                    <p style="text-align:center">
+                        <span class="removePayment_message" lp-i18n="Are you sure you want to remove this payment?"></span>
+                    </p>
+                </div>
+                <div class="successTick align-center"  ng-show="success.happened">
+                    <img src="static/features/[BBHOST]/theme-idfc/images/tick_hdpi.png">
+                </div>
+                <h4>
+                    <div class="text-success" ng-show="success.happened" style="text-align:center">{{success.msg }}</div>
+                    <div class="text-danger" ng-show="errorOTP.happened" style="text-align:center; margin: 10% 0 6% 0;">{{errorOTP.msg}}</div>
+                </h4>
+                <p lp-i18n="Registered_Mobile" class="Registered_Mobile" style=""></p>
+                <div>
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <input id="registered.mobile_number" type="text" ng-model="customerMobMasked" ng-disabled="true" required/>
+                    </div>
+                </div>
+                <div class=col-xs-1></div>
+                <p lp-i18n="OTP_Text" class="OTP_Text"></p>
+                <div>
+                    <div class="col-xs-10 col-xs-offset-1"><input style="display:none" type="text" name="fakeusernameremembered" />
+                        <input style="display:none" type="password" name="fakepasswordremembered" />
+                        <input id="otp_number" name="otp" type="tel" style="-webkit-text-security:disc;" ng-init="otp.removeorder_otp = ''" ng-model="otp.removeorder_otp" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"  required/>
+                    </div>
+                    <div class=col-xs-1></div>
+                    <div class="errorArea" id="errorotpdiv" >
+                        <small class="text-danger" ng-show="OTPform.otp.$error.minlength" lp-i18n="Error_Invalid_Length_OTP"></small>
+                        <small class="text-danger" ng-show="OTPform.otp.$error.maxlength" lp-i18n="Error_Invalid_Length_OTP"></small>
+                        <small class="text-danger" ng-show="OTPform.otp.$error.pattern" lp-i18n="Error_Invalid_OTP"></small>
+                        <small class="text-danger" ng-show="submitFlag &amp;&amp; OTPform.otp.$error.required" lp-i18n="Error_OTP_Required"></small>
+                    </div>
+                </div>
+                <div class="modal-footer text-right" >
+                    <div ng-show="error.isError" class="bg-warning text-danger pull-left" lp-i18n="Server error!"></div>
+                    <button type="submit" id="verifyOTP-btn-review-future-transfers" class="btn btn-primary btn-align primary-btn-forgot primary-btn-btn" ng-click="remove(OTPform.$valid)" lp-i18n="Verify"></button>
+                    <button type="button" ng-disabled="resendDisabled" class="btn btn-primary btn-align secondary-btn-forgot secondary-btn-btn" lp-i18n="Resend OTP" ng-click="errorOTP.happened=false; generateOTP(resend)"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

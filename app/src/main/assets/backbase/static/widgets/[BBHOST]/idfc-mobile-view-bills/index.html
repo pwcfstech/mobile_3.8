@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+	<title>View Bills</title>
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+ <!--    <link rel="stylesheet" href="../../../../../static/features/[BBHOST]/theme/universal/styles/bootstrap.css" type="text/css" /> -->
+</head>
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main');" ng-controller="PaybillCtrl">
+<div ng-show="errorSpin">
+    <div class="panel-message loading-panel" role="alert">
+        <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span class="sr-only">Busy</span>
+    </div>
+</div>
+  <div lp-template="'templates/main.ng.html'"></div>
+</body>
+<script src="scripts/rsa.js"></script>
+</html>

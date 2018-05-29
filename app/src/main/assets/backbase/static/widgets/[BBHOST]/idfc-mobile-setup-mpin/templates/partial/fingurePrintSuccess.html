@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Welcome to IDFC</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="styles/base.css" />
+		<noscript><link rel="stylesheet" href="styles/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main">
+						<header>
+							<h1>Congratulations!</h1>
+							<p>You have successfully setup your <br>
+MPIN</p>
+
+<p class="marginTop">Now you can use MPIN to <br>
+Login to mobile banking</p>
+						
+							<span class="avatar2"><img src="images/lock.png" alt="" /></span>						
+							</header>
+						
+						<footer>
+							
+							<button class="marginTop"><p class="red">Continue to Login</p></button>
+						
+						</footer>
+					</section>
+
+			</div>
+
+			<script>
+		if ('addEventListener' in window) {
+		window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+		document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+		}
+		
+		
+		function myFunction() {
+		document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+		}
+		
+		
+		</script>
+		
+	</body>
+</html>

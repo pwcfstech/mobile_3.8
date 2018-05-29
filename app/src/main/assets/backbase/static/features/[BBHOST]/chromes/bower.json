@@ -1,0 +1,14 @@
+{
+  "name": "chrome-templates",
+  "version": "1.0.3",
+  "main": "./blank/chrome-blank.html",
+  "authors": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {}
+}

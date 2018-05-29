@@ -1,0 +1,32 @@
+<div>
+
+				<!-- Main -->
+	<section id="main">
+		<header>
+			<h1>Congratulations!</h1>
+			<p>
+				You have successfully setup your <br> fingerprint ID
+			</p>
+
+			<br>
+			<br>
+			<p class="marginTop">
+				<b>Now you can use MPIN or your<br> fingerprint to login to mobile<br>
+				banking.</b> </p>
+
+			<span class="avatar2">
+				<!--<img src="/portalserver/static/idfc/universal/widgets/idfc-mb-set-fingerprint/media/congts.png" alt="" /> -->
+				<img ng-src="{{congratsImagePath}}" alt="" />
+			</span>
+		</header>
+
+		<footer>
+			<div ng-if="showButton">
+			<button class="marginTop red" ng-click="loadLoginPage()">
+				<div>CONTINUE TO LOGIN </div>
+			</button>
+			</div>
+		</footer>
+	</section>
+
+</div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang=en>
+	<meta charset=UTF-8>
+	<title></title>
+</head>
+<body>
+<div ng-show=showSuccessPage>
+	<div data-ng-include=templates.successful></div>
+</div>
+<div ng-show=openTermsAndConditions>
+	<div data-ng-include=templates.acceptTandC></div>
+</div>
+<div id=confirmPinForm ng-hide=showSuccessForm ng-click=parent_disable(); ng-focus=parent_disable();>
+	<form novalidate class="generateApin-form-horizontal form-horizontal apinForm" role=form name=confirmAPINForm id=firstform>
+		<input style=display:none type=text name="fakeusernameremembered"/>
+		<input style=display:none type=password name="fakepasswordremembered"/>
+		<div class="generateApin-margin-align2 generateApin-customer-margin" lp-field=lp-field label=APIN_Label tip="{{'Tip_APIN'|translate}}">
+			<div>
+				<input class="generateApin-form-control form-control generateApin-margin-customerId ipwidth inputClass" type=tel style=-webkit-text-security:disc name=APIN ng-model=control.apin.value ng-pattern=/^[0-9]*$/ loading=isLoading autofill=off autocorrect=off autocapitalize=off autocomplete=off onpaste="return false" onCopy="return false" onCut="return false" required="true"/>
+				<small class="text-danger textDanger" ng-show="confirmAPINForm.submitted &amp;&amp; confirmAPINForm.APIN.$error.required">{{'Error_APIN_Required'|translate}}
+				</small>
+				<small class="text-danger textDanger" ng-show="confirmAPINForm.APIN.$error.pattern ">{{'Error_APIN_Pattern'|translate}}
+				</small>
+				<small class="text-danger textDanger" ng-show="confirmAPINForm.submitted &amp;&amp; errors['pinCheck'] &amp;&amp; !(confirmAPINForm.APIN.$error.pattern) &amp;&amp; !(confirmAPINForm.APIN.$error.required)">{{'Error_APIN_Length'|translate}}
+				</small>
+			</div>
+		</div>
+		<div class="generateApin-margin-align2 generateApin-customer-margin" lp-field=lp-field label=ConfirmAPIN_Label tip="{{'Tip_ConfirmAPIN'|translate}}">
+			<div>
+				<input class="generateApin-form-control form-control generateApin-margin-customerId ipwidth inputClass" type=tel style=-webkit-text-security:disc name=CApin ng-model=control.confirmApin.value ng-pattern=/^[0-9]*$/ loading=isLoading autofill=off autocorrect=off autocapitalize=off autocomplete=off onpaste="return false" onCopy="return false" onCut="return false" required="true"/>
+				<small class="text-danger textDanger" ng-show="confirmAPINForm.submitted &amp;&amp; confirmAPINForm.CApin.$error.required">{{'Error_ConfirmAPIN_Required'|translate}}
+				</small>
+				<small class="text-danger textDanger" ng-show=confirmAPINForm.CApin.$error.pattern>{{'Error_ConfirmAPIN_Pattern'|translate}}
+				</small>
+				<small class="text-danger textDanger" ng-show="confirmAPINForm.submitted &amp;&amp; errors['confirmAPIN'] &amp;&amp; !(confirmAPINForm.CApin.$error.pattern) &amp;&amp; !(confirmAPINForm.CApin.$error.required)">
+					{{'Error_ConfirmAPIN_NotMatch'|translate}}
+				</small>
+			</div>
+		</div>
+		<div class="borderTop"></div>
+		<div class="generateApin-button-alignForm generateApin-button-margin" id=btnConfirmApin>
+			<button class="btn btn-primary generateApin-btn-clear generateApin-next-btn primary-btn-btn" ng-click="confirmAPINForm.submitted=true ; openTnC(confirmAPINForm.$valid)" type=submit>{{'btn_Confirm'|translate|uppercase}}
+			</button>
+			<button type=button class="btn btn-primary generateApin-btn-clear generateApin-clear-btn secondary-btn-btn" ng-click="confirmAPINForm.submitted=false ;resetAPINForm()">{{'btn_Clear'|translate}}
+			</button>
+		</div>
+	</form>
+</div>
+</body>
+</html>

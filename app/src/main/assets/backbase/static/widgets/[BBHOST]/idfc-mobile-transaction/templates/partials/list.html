@@ -1,0 +1,141 @@
+<div class="lp-widget-body" ng-controller="transactionsListController" ng-class="{logohidden: hideLogo}">
+    <div class="category-toggle" ng-if="showCategories">
+        <button class="btn btn-default" tabindex="0" aria-pressed="{{ previewAll }}" ng-click="toggleCategoryView()" ng-class="{ 'active': previewAll }">
+            <i title="{{'Category view'|translate}}" class="lp-icon lp-icon-tag"></i>
+            <span class="sr-only" lp-i18n="Show Categories"></span>
+        </button>
+    </div>
+    <div ng-if="errorSpin" class="ng-scope">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <form ng-if="nowReady" class="panel-heading form-panel" ng-submit="doSearch" ng-class="{ 'has-category-toggle': showCategories }" name="txn">
+        <div class="marginTop30 search-input input-group display-input">
+            <div class="date-picker">
+                <div class="li-from-dt pratz-li-from-dt">{{'From' | translate}}</div>
+                <div class="li-from-inbox date_select frmDate-ht"><input ng-click="openFromCalendar($event)" required="required" type="text" name="fromDate" ng-model="transactionsModel.fromDate" ng-change="changeFromDate()" datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="minumDate" max-date="todaysDate" ng-model="search" is-open="transactionsModel.isOpenDate1" class="form-control form-control-transaction" lp-future-time="" id="fromDate" datepicker-options="dateOptionsFrom" show-button-bar="false" tabindex="0" placeholder="{{'Select_Date'|translate}}" aria-label="{{'Select_Date'|translate}}"/>
+                    <span ng-click="openFromCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon dt-cal-icon" readonly="readonly"></span>
+                </div>
+                </br>
+            </div>
+            <div class="date-picker margin-date-right">
+                <div class="li-to-dt pratz-li-from-dt">{{'To' | translate}}</div>
+                <div class="li-to-inbox date_select toDate-ht"><input ng-click="openToCalendar($event)" required="required" type="text" name="toDate" ng-model="transactionsModel.toDate" ng-change="changeFromTo()" datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="minDateForto" max-date="mind" is-open="transactionsModel.isOpenDate2" class="form-control form-control-transaction" lp-future-time="" id="toDate" datepicker-options="dateOptionsTo" show-button-bar="false" tabindex="0" placeholder="{{'Select_Date'|translate}}" aria-label="{{'Select_Date'|translate}}"/>
+                    <span ng-click="openToCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon dt-cal-icon" readonly="readonly"></span>
+                </div>
+                </br>
+            </div>
+            <div class="button-container">
+                <div class="input-group-btn sort-select">
+                    <button class="marginTopNext btn-primary btn btn-search btn-ser-pratz btn-radius" ng-click="doSearchForDate()" lp-i18n="Search">
+                    </button>
+                </div>
+                <div class="btn-group btn-filter btn-filter-trans" dropdown>
+                    <button class="marginTopClear btn dropdown-toggle btn-color-style btn-radius filter-drop" data-toggle="dropdown">{{'Filter' | translate}} by {{selectedCrDr == "CRDT,DBIT" ? "Cr/Dr" :selectedCrDr == "" ? "Cr/Dr" :
+                        selectedCrDr == "DBIT" ? "Dr":"Cr"}}<span class="btn-drop"><img class="drop-width" src="static/features/[BBHOST]/theme-idfc/images/Dropdown_xxxhdpi.png"/>
+<img ng-src="{{Dropdown_xxxhdpi}}"/></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-alignment" role="menu" aria-labelledby="dropdownMenu">
+                        <li>
+                        <li data-ng-repeat="company in CrDrList"><a tabindex="-1" href="#" data-ng-click="setSelectedClient()">{{company.creditDebitIndicator === "DBIT" ? "Dr" : "Cr"}}<span data-ng-class="isChecked(company.creditDebitIndicator)"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                </br>
+                <div class="input-group-btn sort-select">
+                    <button class="marginTopClear btn-primary btn-filter" ng-click="resetSearch()" lp-i18n="Clear"></button>
+                </div>
+            </div>
+        </div>
+        <small class="text-danger error-alignment">{{errMessage}}</small>
+    </form>
+    <hr class="div-clear" id="above-transactions-list"/>
+    <div class="panel-message" ng-show="!filtered.length &&  !errorSpin &&  !viewLoading &&  !transactionsModel.loading && !emailGeneration" role="alert" role="alert">
+        <p>
+            <span lp-i18n="There are no transactions to display for this account"></span>
+        </p>
+        <p>
+            <span>{{wrongSearch}}</span>.
+        </p>
+    </div>
+    <div ng-show="noTransactionsFound && !transactionsModel.loading && !errorSpin" style="text-align:center" class="">
+        <p>
+            <span translate="There are no transactions to display for this search" class="ng-scope">There are no transactions to display for this search.</span>
+        </p>
+    </div>
+    <ul id="transactions-list" role="presentation" class="list-group list-view transactions-list">
+        <table style="width:100%" class="table-heading" ng-hide="noTransactionsFound">
+            <tr class="OnlyHeight">
+                <th class="trans-heading-width th-1" style="text-align:left;text-indent:15px;-moz-padding-start:15px">{{'Lbl_Trans_Date'|translate}}
+                </th>
+                <th class="trans-heading-width trans-desc-width th-2">{{'Lbl_Trans_Desc'|translate}}
+                </th>
+                <th class="trans-heading-width amount-th th-4" style="">{{'Lbl_Trans_Amount'|translate}}
+                    (<span class="rupee-symbol-span rupee-margin"></span>)
+                </th>
+            </tr>
+        </table>
+        <li class="list-group-item list-view-row expandable clearfix" ng-class="{ open: transaction.showDetails }" ng-repeat="transaction in filtered = (txn | companyFilter:selectedCrDr | filter:dateFilter | limitTo: paginationLimit() )">
+            <div class="list-view-container clearfix" ng-keydown="transactionKeydown($event, transaction)" id="transaction-{{transaction.id}}" aria-expanded="{{ !!transaction.showDetails }}" aria-controls="transaction-details-{{transaction.id}}" style="padding-right:0px">
+                <div class="div_width" element-resize="updateItemSize(transaction, data)">
+                    <div class="date-pad date-inline" ng-mouseover="openPreview(transaction)">
+                        <span itemprop="dateTimeDate" class="span-left" ng-bind="transaction.bookingDateTime"></span>
+                        <!--<span itemprop="dateTimeDate" class="span-left">{{transaction.bookingDateTime | date:'dd'}}-{{transaction.bookingDateTime | date:'MMM'}}-{{transaction.bookingDateTime | date:'yyyy'}}</span>-->
+                    </div>
+                    <div class="desc-pad">
+                        <div class="centered">
+                            <div>
+                                <div class="float-left">
+                                    <div class="h6 text-muted trans-margin-curr desc-style" itemProp="transactionType"><span class="sr-only" lp-i18n="Transaction type"></span>{{transaction.description}}</div>
+                                </div>
+                                <div class="float-left">
+                                    <div class="sr-only">Name</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="amt-style">
+                        <div class="date-style date-right">
+<span class="cr-inline cr-color" ng-class="{'dr-color': transaction.creditDebitIndicator == 'DBIT'}">{{transaction.creditDebitIndicator === "DBIT" ? "-" :
+"+"}}</span>
+                            <div class="cr-inline cr-color" ng-class="{'dr-color': transaction.creditDebitIndicator == 'DBIT'}" lp-amount="transaction.transactionAmount"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix details transaction-details" id="transaction-details-{{transaction.id}}" aria-labelledby="transaction-details-data-{{transaction.id}}">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="alert alert-info" ng-show="transaction.errorCode">
+                        <span lp-i18n="{{transaction.errorCode}}"></span>
+                    </div>
+                    <ul tabset="tabset" class="" ng-if="showCategories && transaction.showDetails">
+                        <li tab="tab" select="selectDetailsTab(transaction)" active="transaction.detailTabs.details">
+                            <span tab-heading="tab-heading" lp-i18n="Details"></span>
+                            <div ng-include="templates.details" class="panel-body no-padding"></div>
+                        </li>
+                        <li tab="tab" active="transaction.detailTabs.categories">
+                            <span tab-heading="tab-heading" lp-i18n="Categories"></span>
+                            <div lp-category-select="lp-category-select" ng-model="categoryModel" transaction="transaction" update="updateTransactionCategory" small-layout="categorySmallLayout" offset-top-correction="offsetTopCorrection" class="panel-body no-padding"></div>
+                        </li>
+                    </ul>
+                    <div ng-include="templates.details" class="panel-body no-padding" ng-if="!showCategories && transaction.showDetails"></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div ng-show="transactionsModel.allowMoreResults()">
+        <p class="text-center">
+            <a class="cursor-pointer" tabindex="0" style="text-decoration:underline" ng-show="hasMoreItemsToShow()" ng-click="showMoreItems()" lp-i18n="Show more"></a>
+        </p>
+    </div>
+    <div ng-if="(transactionsModel.loading && !emailGeneration) || (errorSpin && !emailGeneration)" role="alert">
+        <p class="panel-message text-center" lp-i18n="Just a second. Your transactions are loading."></p>
+    </div>
+    <small class="success-emailPdfExcel">{{successMessagePFDEXCEL}}</small>
+    <small class="text-danger success-emailPdfExcel">{{errMessagePFDEXCEL}}</small>
+    <div class="widget-footer new-footer" ng-hide="noTransactionsFound || hidePdfExcelEmailButton">
+        <a class="transaction-email" ng-click="EmailGeneration()"><img class="deposit" id="followbutton3" src="static/features/[BBHOST]/theme-idfc/images/email.png" /></a>
+    </div>
+</div>

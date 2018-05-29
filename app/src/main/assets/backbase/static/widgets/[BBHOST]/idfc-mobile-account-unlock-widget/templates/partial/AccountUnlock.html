@@ -1,0 +1,86 @@
+<div id="frgtPassword">
+    <div class="row no-padding">
+        <form novalidate="" class="forgetPassword-form-horizontal form-horizontal" role="form" name="forms.AccountUnlockForm" id="fifthform">
+            <input style="display:none" type="text" name="fakeusernameremembered" />
+            <input style="display:none" type="password" name="fakepasswordremembered" />
+            <div class="alert alert-error login-alert" ng-show="loginerror">
+                <div alert="alert">
+                    <i class="lp-icon lp-icon-alert-warning"></i> Your password has been expired.
+                </div>
+            </div>
+            <!--<div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-12">-->
+                        <!--<div lp-field="lp-field" label="Enter Username" class="" tip="Please provide your Username"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-12">-->
+                        <!--<input class="form-control_Password" type="text" name="username" ng-model="newUserCtrl.control.username.value" ng-pattern="/[a-zA-Z0-9^ ]/" loading="isLoading" required="true" autocomplete="off" />-->
+                        <!--<small class="text-danger" ng-show="newUserCtrl.evalExpTwo(newUserCtrl.forms.AccountUnlockForm.submitted, forms.AccountUnlockForm.username.$error.required)" lp-i18n=" Username is required.">-->
+                        <!--</small>-->
+                        <!--<small class="text-danger" ng-show="newUserCtrl.evalExpTwo(newUserCtrl.forms.AccountUnlockForm.submitted, forms.AccountUnlockForm.username.$error.pattern)" lp-i18n="Please Enter Correct Username">-->
+                        <!--</small>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div>
+                <div class="row no-padding">
+                    <div class="col-xs-12">
+                        <div lp-field="lp-field" label="Enter Old Password" for="inputoldPassword" class="" tip="{{'Your password should be 6-15 characters, with atleast one number.'}}"></div>
+                    </div>
+                </div>
+                <div class="row no-padding">
+                    <div class="col-xs-12">
+                        <input class="form-control_Password" type="password" name="inputoldPassword" ng-model="newUserCtrl.control.passwordOld.value" ng-maxlength="15" ng-pattern={{newUserCtrl.passwordPolicy}} loading="isLoading" loading="isLoading" required="true" autofill="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" required="true" />
+                        <small class="text-danger errorLabel" ng-show="newUserCtrl.evalExpTwo(newUserCtrl.forms.AccountUnlockForm.submitted,  forms.AccountUnlockForm.inputoldPassword.$error.required)" lp-i18n="Password is required."></small>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row no-padding">
+                    <div class="col-xs-12">
+                        <div lp-field="lp-field" label="Enter New Password" for="inputPassword" class="" tip="{{'Your password should be 6-15 characters, with atleast one number.'}}"></div>
+                    </div>
+                </div>
+                <div class="row no-padding">
+                    <div class="col-xs-12">
+                        <input class="form-control_Password" type="password" name="inputPassword" ng-model="newUserCtrl.control.password.value" ng-maxlength="15" ng-pattern={{newUserCtrl.passwordPolicy}} loading="isLoading" loading="isLoading" required="true" autofill="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" required="true" />
+                        <small class="text-danger errorLabel" ng-show="newUserCtrl.evalExpTwo(newUserCtrl.forms.AccountUnlockForm.submitted,  forms.AccountUnlockForm.inputPassword.$error.required)" lp-i18n="Password is required."></small>
+                        <small class="text-danger errorLabel" ng-show="forms.AccountUnlockForm.inputPassword.$error.maxlength" lp-i18n="Password should be not be more than 15 characters."></small>
+                        <small class="text-danger errorLabel password-policy-forgetPassword" ng-show="forms.AccountUnlockForm.inputPassword.$error.pattern" lp-i18n="Your password should be minimum 6 and maximum 15 characters. <br>It should have at least 1 number."></small>
+                        <small class="text-danger errorLabel" ng-show="newUserCtrl.evalExpTwo(newUserCtrl.forms.AccountUnlockForm.submitted, newUserCtrl.errors['containsLoginId'])" lp-i18n="Password should not contain Login Id."></small>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row no-padding">
+                    <div class="col-xs-12">
+                        <div lp-field="lp-field" label="Confirm Password" class="" tip="Please re-enter your password"></div>
+                    </div>
+                </div>
+                <div class="row no-padding">
+                    <div class="col-xs-12">
+                        <input class="form-control_Password" type="password" name="confirmPass" ng-pattern={{passwordPolicy}} ng-model="newUserCtrl.control.confirmPassword.value" ng-disabled="forms.AccountUnlockForm.inputPassword.$error.pattern" loading="isLoading" required="true" autofill="off" id="confirmPass" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" />
+                        <small class="text-danger errorLabel" ng-show="newUserCtrl.evalExpThree(newUserCtrl.forms.AccountUnlockForm.submitted, forms.AccountUnlockForm.confirmPass.$error.required, !newUserCtrl.errorsConfirmPass['confirmPass'])" lp-i18n="Please confirm Password."></small>
+                        <small class="text-danger errorLabel" ng-show="newUserCtrl.evalExpTwo(newUserCtrl.forms.AccountUnlockForm.submitted, newUserCtrl.errorsConfirmPass['confirmPass'])" lp-i18n="Forgot your chosen password so soon? Try again."></small>
+                        <small class="text-danger errorLabel" ng-show="registrationForm.pass.$error.pattern" lp-i18n="Your password should be minimum 6 and maximum 15 characters. It should have at least 1 number."></small>
+                    </div>
+                </div>
+            </div>
+            <div class="borderTop"></div>
+            <div>
+                <div class="row no-padding">
+                    <div class="col-xs-12">
+                        <button type="button" class="btn btn-sm btn-primary forgetPassword-secondary-btn-forgot secondary-btn-btn" ng-click="newUserCtrl.forms.AccountUnlockForm.submitted=false; newUserCtrl.resetShowAccountUnlockForm()" lp-i18n="Clear"></button>
+                    </div>
+                </div>
+                <div class="row no-padding">
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary btn-align forgetPassword-primary-btn-forgot primary-btn-btn ng-binding" ng-click="newUserCtrl.forms.AccountUnlockForm.submitted=true; newUserCtrl.changePassword(forms.AccountUnlockForm.$valid)" type="submit" lp-i18n="Submit"></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

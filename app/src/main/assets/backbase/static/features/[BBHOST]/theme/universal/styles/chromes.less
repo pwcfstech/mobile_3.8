@@ -1,0 +1,81 @@
+//
+// Widget Chrome classes
+// --------------------------------------------------
+
+//
+// Default chrome
+// --------------------------------------------------
+
+.lp-widget-title {
+     font-family: @widget-title-font;
+     color: @chrome-title-color;
+     -ms-text-overflow: ellipsis;
+     -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+}
+.lp-widget-chrome-default,
+.lp-widget-chrome-tab .lp-widget-content {
+    .border-radius(0);
+    border: 1px solid rgba(206,206,206,0.4);
+    background: @widget-bg-color;
+    position: relative;
+}
+
+//
+// Default controls
+// --------------------------------------------------
+
+.lp-widget-control {
+    .buttonReset();
+    padding:0 10px;
+    font-size: @chrome-controls-size;
+    color: darken(@panel-chrome-default-text, 5%);
+}
+.lp-widget-controls {
+    line-height:0;
+    position: absolute;
+    right: 0;
+}
+
+//
+// Main chrome
+// --------------------------------------------------
+
+.panel.panel-chrome-default {
+    .panel-variant(@panel-chrome-default-border; @panel-chrome-default-text; @panel-chrome-default-heading-bg; @panel-chrome-default-heading-border);
+    .no-margin-bottom;
+
+    >.panel-body {
+        padding:0;
+    }
+    .lp-widget-control,
+    >.panel-heading,
+    .panel-title {
+        height:@lp-launcher-widgethead-height;
+        line-height:@lp-launcher-widgethead-height !important;
+        overflow: hidden;
+    }
+    >.panel-heading {
+        background-color: @panel-chrome-default-heading-bg;
+        padding:0;
+        border-bottom: 1px solid darken(@panel-chrome-default-heading-bg, 3%);
+        .lp-widget-controls li {
+            vertical-align:top;
+        }
+    }
+    .panel-title {
+        .lp-h2;
+        padding:0 16px;
+        color:@panel-chrome-default-text;
+        width:100%;
+
+        .lp-icon {
+            padding-right: 5px;
+        }
+    }
+}
+
+// add margin when in design mode inside deck container because of deck controls
+.deck-controls-enabled .pm-design-showArea .lp-chrome-blank {
+    margin-bottom: 30px;
+}

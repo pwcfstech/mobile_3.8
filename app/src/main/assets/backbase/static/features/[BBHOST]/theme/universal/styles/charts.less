@@ -1,0 +1,74 @@
+//
+// Charts
+// --------------------------------------------------
+
+.lp-chart {
+  font-size: 12px;
+  position: relative;
+  display: block;
+}
+
+.lp-chart .canvas {
+  display: inline-block;
+  position: relative;
+}
+
+.lp-chart .canvas path.line {
+  stroke: @brand-primary;
+  stroke-width: 2;
+  fill: none;
+}
+
+.lp-chart .canvas rect {
+  fill: @brand-primary;
+}
+
+.lp-chart .canvas .x.axis line {
+  stroke: @gray-lighter;
+}
+
+.lp-chart .canvas .x.axis .minor {
+  stroke-opacity: .5;
+}
+
+.lp-chart .canvas .x.axis .domain {
+  stroke: @gray-lighter;
+  fill: none;
+}
+
+.lp-chart .canvas .y.axis .domain {
+  display: none;
+}
+
+.lp-chart .canvas .y.axis line, .y.axis path {
+  fill: none;
+  stroke: @gray-lighter;
+}
+
+/* chart */
+.lp-chart .axis path,
+.lp-chart .axis line {
+    fill: none;
+    stroke: #555;
+    shape-rendering: crispEdges;
+}
+
+.lp-chart .axis text {
+    fill: #555;
+}
+
+.lp-chart .line {
+    fill: none;
+    stroke: #ef0d0c;
+    stroke-width: 1.5px;
+}
+.lp-chart .chart,
+.lp-chart,
+.lp-chart .canvas{
+    width: 100%;
+    min-width:100%;
+}
+
+.lp-chart svg {
+    display:block;
+}

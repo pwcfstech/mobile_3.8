@@ -1,0 +1,173 @@
+.list-view {
+	position: relative;
+	display: block;
+}
+.list-view-row {
+	display: block;
+	width: 100%;
+	// overflow: hidden;
+	padding: 0;
+
+	&.expandable {
+		.list-view-container {
+			padding-right: 30px;
+
+			&:after {
+				font-family: @icon-font;
+				content: '\e60b';
+				position: absolute;
+				right: 8px;
+				top: 50%;
+				margin-top: -7px;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				line-height: 14px;
+				z-index: 1;
+			}
+		}
+	}
+
+	&.open {
+		.list-view-container {
+			background-color: @list-group-hover-bg;
+
+			.gray-image-hover {
+				-webkit-filter: none;
+				filter: none;
+			}
+		}
+		.details {
+			max-height: 1000px;
+			border-top: 1px solid @list-group-border;
+		}
+	}
+
+	&.expandable.open {
+		.list-view-container:after {
+			content: '\e60a';
+		}
+	}
+
+	.list-view-container {
+		display: table;
+		width: 100%;
+		position: relative;
+
+		&:hover {
+			background-color: @list-group-hover-bg;
+
+			.gray-image-hover {
+				-webkit-filter: none;
+				filter: none;
+			}
+		}
+
+		&.preview {
+			.categories,
+            .categories > div {
+				width: 160px;
+			}
+		}
+
+		.categories {
+			width: @category-marker-width;
+			display: table-cell;
+
+			-webkit-transition: width 400ms ease;
+			-moz-transition: width 400ms ease;
+			transition: width 400ms ease;
+
+			&.no-animation {
+				-webkit-transition: none;
+				-moz-transition: none;
+				transition: none;
+			}
+		}
+		.info {
+			width: auto;
+			height: @transaction-list-height;
+			position: relative;
+			// border-bottom: 1px solid #fbfbfb;
+		}
+		.h4, h4 {
+			margin-top: 0;
+			margin-bottom: 0;
+			font-size: 16px;
+		}
+		.h6, h6 {
+			margin-top: 0;
+			margin-bottom: 0;
+			.text-overflow();
+		}
+	}
+	.details {
+		max-height: 1px;
+		// overflow: hidden;
+
+		-webkit-transition: max-height 400ms ease 600ms;
+		-moz-transition: max-height 400ms ease 600ms;
+		transition: max-height 400ms ease 600ms;
+
+		.nav.nav-tabs {
+			width: 100%;
+			margin-top: 10px;
+		}
+		.tab-content {
+			background-color: @nav-tabs-active-link-hover-bg;
+		}
+	}
+
+	.column {
+		position: relative;
+		height: 100%;
+		font-size: 0;
+
+		&:before {
+			content: '';
+			position: relative;
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+			margin-right: -0.25em;
+		}
+
+		&.left-align {
+			text-align: left;
+
+			&.padded {
+				padding-left: @padding-base-horizontal;
+			}
+		}
+		&.right-align {
+			text-align: right;
+
+			&.padded {
+				padding-right: @padding-base-horizontal;
+			}
+		}
+
+		.centered {
+			display: inline-block;
+			vertical-align: middle;
+			width: 99.9%; /* Android stock browser fix (should be 100%) */
+			font-size: @font-size-base;
+		}
+		.lp-transaction-icon {
+			display: inline-block;
+		}
+		.counterparty-name {
+			.text-overflow();
+		}
+	}
+}
+.preview-all {
+	.list-view {
+		.list-view-container {
+			.categories {
+				width: 160px;
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+@tooltipColor: rgba(0, 0, 0, .7);
+@tooltipRadius: 5px;
+
+/**
+ * D3 Tip
+ */
+.d3-tip {
+  @triangle: 7px;
+
+  padding: 7px;
+  background: @tooltipColor;
+  color: #fff;
+  border-radius: @tooltipRadius;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow: 0 0 1px #fff;
+  white-space: nowrap;
+
+  &.no-bl {
+    border-bottom-left-radius: 0;
+  }
+
+  &.no-br {
+    border-bottom-right-radius: 0;
+  }
+
+  .arrow {
+    border-top: @triangle solid @tooltipColor;
+    border-left: @triangle solid transparent;
+    border-right: @triangle solid transparent;
+    border-bottom: 0;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    margin-left: -@triangle;
+  }
+
+}

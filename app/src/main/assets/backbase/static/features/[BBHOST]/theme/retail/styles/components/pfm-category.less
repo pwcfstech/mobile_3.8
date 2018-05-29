@@ -1,0 +1,93 @@
+// Transactions PFM categories
+
+.lp-transaction-category {
+	position: absolute;
+	display: inline-block;
+    width: @category-marker-width;
+	height: @transaction-list-height;
+	top: 0;
+	left: 0;
+	border: 1px solid @list-group-border;
+	overflow: hidden;
+
+    -webkit-transition: width .4s ease;
+    transition: width .4s ease;
+
+	.category-marker {
+		position: absolute;
+		display: block;
+		width: 7px;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background-color: @list-group-border;
+	}
+	.category-name {
+		width: 100%;
+		height: 100%;
+		display: table;
+
+		.h4 {
+			padding: 0 10px;
+			display: table-cell; 
+			vertical-align: middle;
+			text-align: center;
+		}
+	}
+}
+
+// Transactions PFM category selection
+
+.lp-category-select {
+	.category-search {
+		margin-bottom: 10px;
+	}
+	.category-list {
+		margin: 0 0 10px 0;
+		padding: 0;
+
+		& > li {
+			padding: 0 5px 10px;
+		}
+	}
+	.new-category {
+		margin: 0 0 10px 0;
+		padding: 0;
+	}
+	.category-item {
+		position: relative;
+		padding: 10px 25px 10px 10px;
+		padding-left: 17px;
+		text-align: left;
+		.text-overflow();
+
+		& > .marker {
+			position: absolute;
+			width: @category-marker-width;
+			height: 100%;
+			top: 0;
+			left: 0;
+
+			.border-left-radius(@border-radius-base);
+		}
+		& > .name {
+			color: #333333;
+			text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4);
+
+			&.light {
+				color: #ffffff;
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+			}
+		}
+		& > .close {
+			position: absolute;
+			right: 6px;
+			color: inherit;
+		}
+	}
+	.category-apply {
+		button {
+			margin-bottom: 10px;
+		}
+	}
+}

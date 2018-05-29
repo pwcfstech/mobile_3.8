@@ -1,0 +1,291 @@
+<div class="ng-cloak" ng-controller="AccountsController" >
+    <div class="lp-widget-content">
+        <div ng-if="errorSpin">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-icon-spinner3 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+        </div>
+        <div class="lp-widget-body widget-body panel-body nominee" >
+            <div class="lp-alerts">
+                <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+            </div>
+            <div ng-hide="serviceError">
+                <div ng-show="showServiceRequestNo" style="text-align:center" >
+                    <div class="showMsg showMsgForAcc" >
+                        {{'SRNumber'|translate}} <span class="SRcolor">{{serviceRequestNo}}</span>
+                    </div>
+                    <div >
+                        <hr class="div-clear"/>
+                        <button type="submit" aria-label="Submit"
+                            class="btn btn-primary primary-btn-btn" name="submitForm"
+                            ng-click="openNewReq()"
+                            lp-i18n="Open new Service Request"></button>
+                    </div>
+                </div>
+                <div ng-show="!showServiceRequestNo" class="nomineeWidth">
+                    <form novalidate=""  class="form-horizontal nomineeWidth" role="form" name="addNomineeForm" id="addNomineeForm"  >
+                        <div class="serviceRequest-chk-parent-div">
+                            <div class="serviceRequest-chk-tr-dep">
+                                <div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk">
+                                    <label lp-i18n="{{'Account_Number'|translate}}" class="label-font"></label>
+                                </div>
+                                <div class="serviceRequest-chk-td-dep">
+                                    <div ng-if ="allAccountNumbersPassed != ''">
+                                        <select required="true" name="accountname" class="serviceRequest-check-control IDFC-dropdown"  ng-model="accountDetails.accountNumber" ng-options="a.id as a.id for a in allAccountNumbersPassed" ng-disabled="true">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                    <div ng-if ="allAccountNumbersPassed == ''">
+                                        <select required="true" name="accountname" class="serviceRequest-check-control IDFC-dropdown"  ng-model="accountDetails.accountNumber" ng-options="a.id as a.id for a in allAccountNumbers" ng-disabled="lockFields">
+                                            <option value= "">{{'Select_Account'|translate}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="serviceRequest-dep-messages" ng-hide="acountNominee">
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp; addNomineeForm.accountname.$error.required">{{'Account_Number_Required'|translate}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="serviceRequest-chk-tr-dep">
+                                <div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk">
+                                    <label for="nomineename" lp-i18n="Nominee_Name" class="label-font"></label>
+                                </div>
+                                <div class="serviceRequest-chk-td-dep">
+                                    <input type="text" name="nomineename" required="true" id="nomineename" class="serviceRequest-check-control"
+                                    ng-pattern="/^[ a-zA-Z]*$/" ng-maxlength="40" ng-disabled="lockFields"  ng-model="addNominee.nomineeName" placeholder="Nominee Name" />
+                                    <div class="serviceRequest-dep-messages">
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp; addNomineeForm.nomineename.$error.required"></label>{{'Nominee_Required'|translate}}</small>
+                                        <small class="text-danger" ng-show="addNomineeForm.nomineename.$error.maxlength"><label></label>{{'Nominee_Maxlength'|translate}}</small>
+                                        <small class="text-danger" ng-show="addNomineeForm.nomineename.$error.pattern"><label></label>{{'Nominee_Pattern'|translate}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="serviceRequest-chk-tr-dep">
+                                <div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk">
+                                    <label lp-i18n="Nominee_Relationship" class="label-font" ></label>
+                                </div>
+                                <div class="serviceRequest-chk-td-dep">
+                                    <select id="nomineeRelationshp" name="nomineeRelationshp" required="true" ng-disabled="lockFields" class="serviceRequest-check-control IDFC-dropdown"    ng-model="addNominee.nomineeRelationship" ng-options="item as item for item in relationshipList">
+                                        <option value= "">{{'Select_Relationship'|translate}}</option>
+                                    </select>
+                                    <div class="serviceRequest-dep-messages">
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp; addNomineeForm.nomineeRelationshp.$error.required"></label>{{'Nominee_Relationship_Req'|translate}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="serviceRequest-chk-tr-dep">
+                                <div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk">
+                                    <label class="pull-left text label-font" lp-i18n="DOB" ></label>
+                                </div>
+                                <div class="serviceRequest-chk-td-dep">
+                                    <div class="pull-left date-picker">
+                                        <input ng-click="openToCalendar($event)" type="text" required="true" name="scheduleDate" ng-model="addNominee.nomineeDOB" datepicker-popup="dd-MMM-yyyy" readonly="readonly" max-date="todaysDate" is-open="isOpenDate2" class="serviceRequest-check-control" lp-future-time=""
+                                        datepicker-options="dateOptions" show-button-bar="false" tabindex="0" ng-disabled="lockFields" placeholder="Select date" aria-label="select date"/>
+                                        <!--                                        <span ng-click="openToCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon serviceRequest-cal-span service-calender dt-cal-icon" ></span>-->
+                                        <img ng-click="openToCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon serviceRequest-cal-span service-calender dt-cal-icon" src="static/features/[BBHOST]/theme-idfc/images/calendar.png" >
+                                            <div class="serviceRequest-dep-messages">
+                                                <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp; addNomineeForm.scheduleDate.$error.required">{{'DOB_Required'|translate}}</small>
+                                            </div>
+                                            </div>
+                                </div>
+                            </div>
+                            <div class="serviceRequest-chk-tr-dep">
+                                <div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk">
+                                    <label for="addressLine1" lp-i18n="Address" class="label-font"></label>
+                                </div>
+                                <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                    <input type="text" name="addressLine1" id="addressLine1" class="serviceRequest-check-control" ng-disabled="lockFields"  ng-maxlength="35" ng-model="addNominee.nomineeAL1" placeholder="Address Line 1" ng-required="addNomineeForm"/>
+                                    <div class="serviceRequest-dep-messages">
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp; addNomineeForm.addressLine1.$error.required">{{ 'AddressLine1_Required' | translate}}</small>
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp;addNomineeForm.addressLine1.$error.maxlength">{{'AL1_Maxlength'|translate}}</small>
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp;addNomineeForm.addressLine1.$error.pattern">{{'AddressLine1_Pattern'|translate}}</small>
+                                    </div>
+                                </div>
+                                <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                    <input type="text" name="addressLine2" id="addressLine2" class="serviceRequest-check-control" ng-disabled="lockFields" ng-maxlength="35" ng-model="addNominee.nomineeAL2" placeholder="Address Line 2" ng-required="addNomineeForm" />
+                                    <div class="serviceRequest-dep-messages">
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp; addNomineeForm.addressLine2.$error.required">{{ 'AddressLine2_Required' | translate}}</small>
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp;addNomineeForm.addressLine2.$error.maxlength">{{'AL2_Maxlength'|translate}}</small>
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp;addNomineeForm.addressLine2.$error.pattern">{{'AddressLine1_Pattern'|translate}}</small>
+                                    </div>
+                                </div>
+                                <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                    <input type="text" name="nomineePin" id="nomineePin" class="serviceRequest-check-control"  ng-disabled="lockFields"   ng-change="validatePin(addNominee.nomineePin)" ng-pattern="/^[0-9]*$/" maxlength="6" placeholder="Pin Code" ng-required="addNomineeForm" ng-model="addNominee.nomineePin" />
+                                    <div class="serviceRequest-dep-messages">
+                                        <small class="text-danger" ng-show="addNomineeForm.submitted && addNomineeForm.nomineePin.$error.required" lp-i18n="Pincode is Required"></small>
+                                        <small class="text-danger" ng-show="addNomineeForm.nomineePin.$error.pattern" lp-i18n="Pincode should be Numeric"></small>
+                                        <small class="text-danger" ng-show="invalidPin" lp-i18n="Please enter 6 digit valid pincode"></small>
+                                    </div>
+                                </div>
+                                <!--<div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                 <input type="text" name="city" id="city" class="serviceRequest-check-control" ng-pattern="/^[ a-zA-Z]*$/"  ng-maxlength="20" ng-disabled="lockFields" ng-model="addNominee.nomineeCity" placeholder="City"/>
+                                 <div class="serviceRequest-dep-messages">
+                                 <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp;addNomineeForm.city.$error.maxlength">{{'City_Maxlength'|translate}}</small>
+                                 <small class="text-danger" ng-show="addNomineeForm.submitted  &amp;&amp;addNomineeForm.city.$error.pattern">{{'City_Pattern'|translate}}</small>
+                                 </div>
+                                 </div>3.5 change-->
+                                <!-- 3.5 added start-->
+                                <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                    <input type="text" name="city" id="city" class="serviceRequest-check-control" ng-disabled="lockFields" ng-value="addNominee.nomineeCity" ng-model="addNominee.nomineeCity" placeholder="City" ng-required="addNomineeForm" readonly="readonly"/>
+                                    
+                                </div>
+                                
+                                <div class="serviceRequest-chk-td-dep">
+                                    <input type="text" name="State" class="serviceRequest-check-control" placeholder="State" ng-disabled="lockFields" ng-value="addNominee.nomineeState"  ng-model="addNominee.nomineeState" readonly="readonly" />
+                                </div>
+                                <!-- 3.5 added end-->
+                                
+                                <!--<div class="serviceRequest-chk-td-dep">
+                                 <select name="State" class="serviceRequest-check-control IDFC-dropdown"  ng-disabled="lockFields" ng-model="addNominee.nomineeState" ng-options="item as item for item in stateList">
+                                 <option value= "">{{'Select_State'|translate}}</option>
+                                 </select>
+                                 </div>-->
+                            </div>
+                            <div ng-show="guardianForm">
+                                <div class="serviceRequest-chk-tr-dep">
+                                    <div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk">
+                                        <label for="guardianname" lp-i18n="Guardian_Name" class="label-font"></label>
+                                    </div>
+                                    <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                        <input type="text" name="guardianname" id="guardianname" class="serviceRequest-check-control" ng-disabled="lockFields"  ng-pattern="/^[ a-zA-Z]*$/" ng-maxlength="40" ng-required="guardianForm" ng-model="addNominee.guardianName" placeholder="Guardian Name"  />
+                                        <div class="serviceRequest-dep-messages">
+                                            <small class="text-danger" ng-show="guardianForm  &amp;&amp; addNomineeForm.submitted  &amp;&amp; addNomineeForm.guardianname.$error.required">{{'GuardianName_Required'|translate}}</small>
+                                            <small class="text-danger" ng-show="guardianForm  &amp;&amp; addNomineeForm.guardianname.$error.maxlength">{{'GuardianName_Maxlength'|translate}}</small>
+                                            <small class="text-danger" ng-show="guardianForm  &amp;&amp; addNomineeForm.guardianname.$error.pattern">{{'GuardianName_Pattern'|translate}}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="serviceRequest-chk-tr-dep">
+                                    <div class="serviceRequest-chk-td-dep serviceRequest-font-label-chk">
+                                        <label for="addressLine1" lp-i18n="Address" class="label-font"></label>
+                                    </div>
+                                    <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                        <input type="text" name="guardianAddressLine1" id="guardianAddressLine1" ng-disabled="lockFields" class="serviceRequest-check-control"  ng-maxlength="35"  ng-model="addNominee.guardianAL1" placeholder="Address Line 1"  />
+                                        <div class="serviceRequest-dep-messages">
+                                            <small class="text-danger" ng-show="addNomineeForm.guardianAddressLine1.$error.maxlength">{{'AL1_Maxlength'|translate}}</small>
+                                            <small class="text-danger" ng-show="addNomineeForm.guardianAddressLine1.$error.pattern">{{'AddressLine1_Pattern'|translate}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                        <input type="text" name="guardianaddressLine2" id="guardianaddressLine2" ng-disabled="lockFields"  class="serviceRequest-check-control"  ng-maxlength="35"  ng-model="addNominee.guardianAL2" placeholder="Address Line 2"  />
+                                        <div class="serviceRequest-dep-messages">
+                                            <small class="text-danger" ng-show="addNomineeForm.guardianaddressLine2.$error.maxlength">{{'AL2_Maxlength'|translate}}</small>
+                                            <small class="text-danger" ng-show="addNomineeForm.guardianaddressLine2.$error.pattern">{{'AddressLine1_Pattern'|translate}}</small>
+                                        </div>
+                                    </div>
+                                    <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                        <input type="text" name="guardianPin" id="guardianPin" ng-disabled="lockFields"  class="serviceRequest-check-control" ng-change="validatePinGuardian(addNominee.guardianPin)" ng-pattern="/^[0-9]*$/" maxlength="6" placeholder="Pin Code" ng-required="guardianForm" ng-model="addNominee.guardianPin"  />
+                                        <div class="serviceRequest-dep-messages">
+                                            <small class="text-danger" ng-show="addNomineeForm.submitted && addNomineeForm.guardianPin.$error.required" lp-i18n="Pincode is Required"></small>
+                                            <small class="text-danger" ng-show="addNomineeForm.guardianPin.$error.pattern" lp-i18n="Pincode should be Numeric"></small>
+                                            <small class="text-danger" ng-show="invalidPinG" lp-i18n="Please enter 6 digit valid pincode"></small>
+                                        </div>
+                                    </div>
+                                    <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                        <input type="text" name="guardiancity" id="guardiancity" class="serviceRequest-check-control" readonly="readonly"  ng-disabled="lockFields" ng-maxlength="20"  ng-model="addNominee.guardianCity"  ng-required="guardianForm" placeholder="city"  />
+                                        <div>
+                                            <small class="text-danger" ng-show="addNomineeForm.submitted && addNomineeForm.guardianCity.$error.required" lp-i18n="City is Required"></small>
+                                        </div>
+                                    </div>  <!--3.5 change added-->
+                                    <!--3.5 change <div class="serviceRequest-chk-td-dep addressFieldMargin">
+                                     <input type="text" name="guardiancity" id="guardiancity" class="serviceRequest-check-control" ng-pattern="/^[ a-zA-Z]*$/" ng-disabled="lockFields" ng-maxlength="20"  ng-model="addNominee.guardianCity" placeholder="City"  />
+                                     <div class="serviceRequest-dep-messages">
+                                     <small class="text-danger" ng-show="addNomineeForm.guardiancity.$error.maxlength">{{'City_Maxlength'|translate}}</small>
+                                     <small class="text-danger" ng-show="addNomineeForm.guardiancity.$error.pattern">{{'City_Pattern'|translate}}</small>
+                                     </div>
+                                     </div>
+                                     <div class="serviceRequest-chk-td-dep">
+                                     <select id="State" name="guardianState" class="serviceRequest-check-control IDFC-dropdown" ng-model="addNominee.guardianState"  ng-disabled="lockFields" ng-options="item as item for item in stateList">
+                                     <option value= "">{{'Select_State'|translate}}</option>
+                                     </select>
+                                     </div>-->
+                                    
+                                    <div class="serviceRequest-chk-td-dep">
+                                        <input type="text" id="State" name="guardianState"  readonly="readonly" class="serviceRequest-check-control" ng-model="addNominee.guardianState"  placeholder="State" ng-disabled="lockFields" >
+                                            
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="div-clear"/>
+                        <div ng-show="nomineeButton" class="modal-footer serviceRequest-chk-btn">
+                            <button type="submit" aria-label="Submit Transfer"
+                                class="btn btn-primary primary-btn-create-track primary-btn-btn" name="submitForm"
+                                ng-click="addNomineeForm.submitted=true;submitAddNomineeForm(addNomineeForm.$valid);"
+                                lp-i18n="Submit"></button>
+                            <button name="resetForm"
+                                aria-label="Clear form"
+                                class="btn btn-primary secondary-btn-create-track secondary-btn-btn"
+                                ng-click="addNomineeForm.submitted=false;clearAddNomineeForm()"
+                                type="button"
+                                lp-i18n="Clear">
+                            </button>
+                            <button type="submit" aria-label="Submit"
+                                class="btn btn-primary secondary-btn-create-track secondary-btn-btn" name="submitForm"
+                                ng-click="openNewReq()"
+                                lp-i18n="btn_AnotherSR"></button>
+                        </div>
+                        <div ng-show="confirmButton" class="modal-footer serviceRequest-chk-btn">
+                            <div>
+                                <button type="submit" aria-label="Submit Transfer"
+                                    class="btn btn-primary primary-btn-create-track primary-btn-btn" name="submitForm"
+                                    ng-click="submitAddNomineeConfirmForm();"
+                                    lp-i18n="Confirm"></button>
+                                <button type="submit" aria-label="Submit"
+                                    class="btn btn-primary secondary-btn-create-track secondary-btn-btn" name="submitForm"
+                                    ng-click="AddNomineeBack()"
+                                    lp-i18n="Back"></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div ng-hide="OTPFlag" class="OtpInputWidth serviceRequest-otp-div">
+                    <h4>
+                        <div class="text-success sucessOTP" ng-show="success.happened" style="text-align:center">
+                            <div class="img_padding"><img src="static/features/[BBHOST]/theme-idfc/images/tick_mdpi.png"/>
+                                <img ng-src="{{tick_mdpi}}"/>
+                            </div>
+                            {{ success.msg }}
+                        </div>
+                        <div style="text-align:center;margin-left:8%" class="text-danger text-error" ng-show="error.happened">{{ error.msg }}</div>
+                    </h4>
+                    <form name="OTPform" class="form-horizontal">
+                        <div label="Mobile_Label" class="otpAlign">
+                            <span lp-i18n="{{'Mobile_Label'|translate}}" class="settings-label-span otpLabelInput"></span>
+                            <div>
+                                <input class="serviceRequest-otp-input-width"    type="text"    name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+                            </div>
+                        </div>
+                        <input style="display:none" type="text" name="fakeusernameremembered"/>
+                        <input style="display:none" type="password" name="fakepasswordremembered"/>
+                        <div label="OTP_Label" class="otpAlign">
+                            <span lp-i18n="{{'OTP_Label'|translate}}" class="settings-label-span otpLabelInput"></span>
+                            <i class="lp-icon infoIcon ng-scope manualIconOTP"tooltip="{{'OTP_tip'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true" >
+                                <img class="otpImg" src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+                            <div>
+                                <input class="serviceRequest-otp-input-width OtpInput" type="tel" autofill="off" autocorrect="off" autocapitalize="off"
+                                autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" name="otp"
+                                ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-disabled="lockFieldsOTP"
+                                ng-model="control.otpValue" required="true" />
+                                <small class="text-danger"  ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+                                <small class="text-danger"  ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                <small class="text-danger"  ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                <small class="text-danger"  ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+                            </div>
+                        </div>
+                        <div class="serviceRequest-div-td-dep-ab">
+                            <div class="serviceRequest-otp-child">
+                                <button class="btn btn-primary btn-align primary-btn-btn btn-sub"  type="submit" ng-disabled="lockFieldsOTP" id="verifyOTP-btn-add-nominee" name="verifyOTP" ng-click="OTPform.submitted=true; submitAddNomineeFormOTP(OTPform.$valid)">{{'btn_Submit'|translate}}</button>
+                                <button class="btn btn-primary btn-align secondary-btn-btn btn-resend"  type="button" ng-disabled="lockFieldsOTP" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--<div ng-show="globalError">-->
+            <!--<button class="btn btn-primary btn-align secondary-btn-btn serviceRequest-right-align"  type="button" name="cancelOTP" ng-click="cancelForm()">{{'btn_AnotherSR'|translate}}</button>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+

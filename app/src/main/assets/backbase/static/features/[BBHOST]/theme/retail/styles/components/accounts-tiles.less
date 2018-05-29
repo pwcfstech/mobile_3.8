@@ -1,0 +1,59 @@
+@odd-block-color: desaturate(darken(@brand-info, 5%), 10%);
+@even-block-color: desaturate(darken(@brand-success, 5%), 10%);
+
+.lp-accounts-tiles {
+
+    .accounts {
+        .account-block {
+
+            .group-header {
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            .content {
+                border-color: @odd-block-color;
+
+                .alias {
+                    font-size: 15px;
+                }
+
+                .account-id {
+                    color: @text-muted;
+                    font-size: 12px;
+                }
+
+                .balance {
+                    background: @odd-block-color;
+                    .amount {
+                        font-size: 14px;
+                    }
+                }
+
+                &:nth-child(2n) {
+                    border-color: @even-block-color;
+                    .balance {
+                        background: @even-block-color;
+                    }
+                }
+            }
+
+            .content.card {
+                .balance {
+                    .amount {
+                        color: @text-muted;
+                    }
+                }
+            }
+        }
+    }
+
+    .lp-small-size,
+    .lp-normal-size {
+        .accounts {
+            .account-block .group-total {
+                font-weight: normal;
+            }
+        }
+    }
+}

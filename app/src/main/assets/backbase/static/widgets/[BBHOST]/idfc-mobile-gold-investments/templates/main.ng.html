@@ -1,0 +1,16 @@
+<div ng-controller="GoldInvestmentsController as goldInvestCtrl" class="lp-gold-investments">
+    <div lp-wizard="wizard" next-step="wizardNextStep" previous-step="wizardPreviousStep" go-to-step="goToWizardStep"
+         get-active-step="getActiveWizardStep">
+		 <div id="confirmatinId">
+		<div class="progressBarDiv"><label lp-i18n="Enter Details" class="progressBarLabelLeft"></label></div> 
+		<div class="progressBarDiv"><label lp-i18n="Confirmation" class="progressBarLabelRight"></label></div> 
+		</div>
+		<div class="lp-wizard-step-div" lp-wizard-step="wizard-step" >
+            <div ng-include="goldInvestCtrl.templates.home"></div>
+        </div>
+		
+        <div class="lp-wizard-step-div secondDiv" lp-wizard-step="wizard-step" >
+            <div ng-include="goldInvestCtrl.templates.details"></div>
+        </div>
+    </div>
+</div>

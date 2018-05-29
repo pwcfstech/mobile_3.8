@@ -1,0 +1,33 @@
+// Balance increase server event 
+// ----------------------------- 
+@increase-color: @brand-success;
+@decrease-color: @brand-danger;
+
+.lp-decrease-amount {
+  -webkit-animation: decreaseBalance 2s;
+  -moz-animation:    decreaseBalance 2s;
+  -o-animation:      decreaseBalance 2s;
+  animation:         decreaseBalance 2s;
+}
+
+.lp-increase-amount {
+  -webkit-animation: increaseBalance 2s;
+  -moz-animation:    increaseBalance 2s;
+  -o-animation:      increaseBalance 2s;
+  animation:         increaseBalance 2s;
+}
+  
+.mixin-balance-event-animation (@color) {
+  0% {color: @color; text-shadow: 0 0 1px @color; }
+  100% {color: @text-color; text-shadow: none;}
+}
+
+@-webkit-keyframes decreaseBalance {.mixin-balance-event-animation(@decrease-color);}
+@-moz-keyframes decreaseBalance {.mixin-balance-event-animation(@decrease-color);}
+@-o-keyframes decreaseBalance {.mixin-balance-event-animation(@decrease-color);}
+@keyframes decreaseBalance {.mixin-balance-event-animation(@decrease-color);}
+
+@-webkit-keyframes increaseBalance {.mixin-balance-event-animation(@increase-color);}
+@-moz-keyframes increaseBalance {.mixin-balance-event-animation(@increase-color);}
+@-o-keyframes increaseBalance {.mixin-balance-event-animation(@increase-color);}
+@keyframes increaseBalance {.mixin-balance-event-animation(@increase-color);} 

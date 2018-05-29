@@ -1,0 +1,137 @@
+.lp-securemessaging {
+
+    background: @body-bg;
+
+    .sender-name {
+        font-weight: bold;
+    }
+    .unread {
+        .sender-name {
+            color: @brand-primary;
+        }
+        .unread-indicator {
+            background: saturate(@label-success-bg, 20%);
+        }
+    }
+    .message {
+        &:hover {
+            background-color: inherit;
+        }
+        .message-list-controls {
+            box-shadow: 0 5px 7px 0 lighten(@gray-lighter, 1);
+        }
+        .button-container .btn {
+            font-size: 13px;
+        }
+    }
+    .selected {
+        &:after { /* This shows grey triangle on selected message */
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 5px solid lighten(@gray-light, 26%);
+        }
+    }
+    .curtain {
+        background-color: inherit;
+    }
+    .info {
+        .subject {
+            background-color: darken(@body-bg, 5%);
+            font-size: 12px;
+        }
+    }
+    .message-date {
+        color: lighten(@gray-base, 62%);
+        font-size: 10px;
+        font-weight: normal;
+    }
+    .new-message {
+        font-size: 25px;
+    }
+    .new-message-text-container {
+        border: 1px solid @list-group-border;
+        background-color: inherit;
+    }
+    .list-group-item {
+        border-color: @list-group-border;
+    }
+    .btn-default {
+        &.send-reply {}
+        &.full-conversation {}
+        &.delete-draft {}
+    }
+    .nav-tabs {
+        background: @body-bg;
+
+        > li > a {
+            font-size: 13px;
+            font-weight: 400;
+        }
+        > li.active > a {
+            border: 1px solid @list-group-border;
+            background-color: darken(@body-bg, 5%);
+        }
+    }
+    .modal-content {
+        h4 {
+            color: @state-danger-text;
+            i {
+                color: darken(@state-danger-text, 50%);
+                font-size: 21px;
+            }
+        }
+    }
+    // overrite lp-icons settings
+    .lp-icon {
+        &.lp-icon-menu_dots_vertical {
+            color: lighten(@gray-base, 80%);
+        }
+        &.lp-icon-angle-right {
+            font-size: 15px;
+        }
+    }
+    ::-webkit-input-placeholder,
+    ::-moz-placeholder,
+    :-moz-placeholder,
+    :-ms-input-placeholder {
+        color: lighten(@gray-base, 80%);
+    }
+    .reply-message-container {
+        box-shadow: inset 0 1px 4px 0px lighten(@gray-base, 80%);
+    }
+
+    .category-label {
+        font-size: 60%;
+        border: 1px solid;
+        &.offer {
+            background-color: darken(@brand-primary, 10%);
+            border-color: darken(@brand-primary, 10%);
+        }
+        &.support {
+            background-color: @state-danger-text;
+            border-color: @state-danger-text;
+            color: darken(@body-bg, 10);
+        }
+        &.consultancy {
+            color: @state-danger-text;
+            border-color: @state-danger-text;
+        }
+        &.mobile {
+            color: darken(@brand-primary, 10%);
+            background-color: lighten(@brand-primary, 30%);
+            border-color: lighten(@brand-primary, 30%);
+        }
+        &.other {
+            background-color: lighten(@gray-base, 62%);
+            border-color: lighten(@gray-base, 62%);
+        }
+    }
+    .total-box {
+        background-color: @state-danger-text;
+        color: @badge-color;
+        font-size: 11px;
+    }
+    .tab-background {
+        background-color: darken(@body-bg, 5%);
+    }
+}

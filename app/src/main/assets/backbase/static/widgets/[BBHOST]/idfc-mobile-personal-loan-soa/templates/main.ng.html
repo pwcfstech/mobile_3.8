@@ -1,0 +1,27 @@
+<div class="" ng-controller="PLAccountStmt as plSoaCtrl" >
+  	<!-- error Spin -->
+  	<div ng-if="plSoaCtrl.errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span
+				class="sr-only">Busy</span>
+		</div>
+	</div>
+	<div ng-click="plSoaCtrl.hideCalendar();">
+	
+	
+
+	  <div class="personal-loan-container" >
+	
+		<div ng-include="plSoaCtrl.templates.header"></div>		
+		
+		
+		<div ng-include="plSoaCtrl.templates.details"></div>		
+		
+		
+		<div ng-include="plSoaCtrl.templates.footer"></div>		
+		
+	  </div>
+	
+	
+	</div>
+</div>

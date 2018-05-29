@@ -1,0 +1,46 @@
+		<div class="panel-body">
+			<div class="connection-feedback">
+				<p>
+					<center lp-i18n="All done! Please remember your User Name and Password for your next login."></center>
+				</p>
+			</div>
+		</div>
+
+
+        <br>
+		<br>
+		<div class="col-xs-12">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10" style="margin-bottom: 10%">
+					<img src="static/features/[BBHOST]/theme-idfc/images/dontWorrie.png"/>
+            </div>
+            <div class="col-xs-1"></div>
+        </div>
+		<div class="newuserregistration-button-alignForm text-center">
+			<button class="btn btn-primary primary-btn-btn marginTopSetupMpin marginzero" ng-click="navigateToSetupMpin()">
+				<div>Setup MPIN</div>
+			</button>
+			<button class="btn btn-primary newuserregistration-btn-clear newuserregistration-secondary-btn-new secondary-btn-btn marginTopLoginToUsername marginzero" ng-click="navigateExistingLogin();">Later</button>
+		</div>
+
+
+		<div ng-show="newUserRegCtrl.rsaEnabled">
+		<div class="connection-feedback">
+				<p>
+					<center lp-i18n="Do you want to setup the Challenge Questions now?"></center>
+				</p>
+			</div>
+												<div class="newuserregistration-button-align">
+													<button class="btn btn-sm btn-primary newuserregistration-btn-submit newuserregistration-primary-btn-new primary-btn-btn"  ng-click="newUserRegCtrl.showChallenge();" type="submit" name="challengeQuestions" lp-i18n="Yes"></button>&nbsp;&nbsp;&nbsp;
+													<button type="button" class="btn btn-sm btn-primary newuserregistration-secondary-btn-new secondary-btn-btn" ng-click="newUserRegCtrl.showChallengeLater();" lp-i18n="Later"></button>
+												</div>
+				<div ng-show="newUserRegCtrl.challengelater">								
+				<div class="connection-feedback">
+				<br>
+				<br>
+				<p lp-i18n="You have opted not to setup challenge questions at this point. Please take some time to setup your challenge questions after login to your retail internet banking.">
+					
+				</p>
+			</div>
+			</div>
+		</div>	

@@ -1,0 +1,1325 @@
+.font-otp
+{
+font-size: 12px;
+}
+
+
+.emailReg .labelText {
+    margin-left: -6%
+}
+
+.emailReg .tooltip-inner {
+    margin-left: -49px!important
+}
+
+.scrollableRemoved {
+    overflow-x: hidden;
+    overflow-y: hidden
+}
+
+.emailReg .serviceRequest-dep-messages .text-danger-email {
+    margin-top: -15px!important;
+    margin-bottom: 20px!important
+}
+
+.emailReg .text-danger-otp,
+text-danger {
+    padding-left: 6.5%!important
+}
+
+.emailReg .primary-btn-btn,
+.secondary-btn-btn {
+    border-radius: 2px!important
+}
+
+.labelTextEmail {
+    margin-left: -6%
+}
+
+.emailReg label {
+    font-family: Gotham_Medium!important
+}
+
+.emailReg .serviceRequest-font-label-chk {
+    margin-left: 13%
+}
+
+.emailReg .form-control[disabled],
+.form-control[readonly],
+fieldset[disabled] .form-control .serviceRequest-otp-input-width {
+    margin-left: 6%
+}
+
+.emailReg .serviceRequest-otp-input-width {
+    margin-left: 6%!important;
+    width: 87%!important
+}
+
+.emailReg .primary-btn-btnEmail {
+    margin-right: 11%!important;
+    text-transform: uppercase
+}
+
+.btn .primary-btn-btn .secondary-btn-btn {
+    text-transform: uppercase
+}
+
+small.text-danger.ng-binding {
+    width: 100%!important
+}
+
+.emailReg .serviceRequest-cal-span {
+    top: -40px;
+    left: 82%
+}
+
+.emailReg .serviceRequest-font-label-chkEmail {
+    margin-left: 13%
+}
+
+.bodyForLastScreen {
+    min-height: 600px;
+    min-width: 100px
+}
+
+.borderLastAcc {
+    margin-left: -12%;
+    width: 140%
+}
+
+.SRcolor {
+    color: #ff8f1b
+}
+
+.service-request-div {
+    width: 22%;
+    text-align: left;
+    margin-left: 19%;
+    vertical-align: top
+}
+
+.serviceRequest-div-tr-dep {
+    position: relative;
+    height: 100%;
+    width: 100%
+}
+
+.label-font {
+    font-family: Gotham_Medium!important
+}
+
+.serviceRequest-div-td-dep {
+    float: left;
+    padding-right: 10px;
+    text-align: left;
+    position: relative;
+    min-width: 22%;
+    padding-top: 5px
+}
+
+.service-calender {
+    margin-left: 20px!important
+}
+
+.serviceRequest-font-label-dep label {
+    font-weight: 700;
+    padding-top: 11px;
+    margin-left: 9px;
+    float: left
+}
+
+div.label-font label span {
+    font-family: gotham_book
+}
+
+.serviceRequest-dep-parent-div {
+    border-spacing: 10px;
+    width: 100%;
+    min-height: 63px
+}
+
+.serviceRequest-div-td-dep .form-control {
+    width: 170px
+}
+
+.serviceRequest-sub-cat-show {
+    clear: both;
+    position: relative
+}
+
+.serviceRequest-clear-div-child {
+    float: left
+}
+
+.serviceRequest-check-control {
+    display: block;
+    width: 76.5%;
+    margin-left: 12%;
+    word-break: break-word;
+    word-wrap: break-word;
+    height: 48px!important;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: gotham_book;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #c6cfd9;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.serviceRequest-chk-tr-dep {
+    clear: both;
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+.serviceRequest-chk-tr-depEmail {
+    padding-top: 2px
+}
+
+.serviceRequest-chk-td-dep {
+    width: 110%
+}
+
+.serviceRequest-chk-parent-div {
+    border-spacing: 10px;
+    width: 103%;
+    height: 100%;
+    padding-left: 0;
+    margin-left: -7%
+}
+
+.serviceRequest-font-label-chk {
+    font-weight: 700
+}
+
+.serviceRequest-chk-btn {
+    clear: both
+}
+
+.emailReg .serviceRequest-chk-btn {
+    padding-top: 41px!important
+}
+
+.serviceRequest-cal-span {
+    position: relative;
+    top: -29px;
+    left: 85%
+}
+
+.serviceRequest-date-margin {
+    margin-right: 10px
+}
+
+.primary-btn-create-track {
+    font-family: gotham_book!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background-color: #fb637e!important;
+    padding: 16px!important;
+    border: none!important;
+    text-transform: uppercase
+}
+
+.secondary-btn-create-track {
+    font-family: gotham_book!important;
+    background-color: #eaeaea!important;
+    color: #000!important;
+    border: none!important;
+    padding: 0!important;
+    text-transform: uppercase!important;
+    border-radius: 2px!important
+}
+
+.serviceRequest-otp-div {
+    padding-bottom: 5%;
+    min-height: 190px
+}
+
+.serviceRequest-div-td-dep-ab {
+    padding-right: 2%;
+    text-align: right;
+    position: relative;
+    min-width: 60%;
+    padding-top: 0
+}
+
+.serviceRequest-greycolor {
+    background-color: #d3d3d3
+}
+
+.serviceRequest-wrap-text {
+    word-break: break-word;
+    word-wrap: break-word;
+    color: #4a4a4a!important
+}
+
+.category-createservicerequest {
+    background-color: none!important
+}
+
+.serviceRequest-right-align {
+    float: right
+}
+
+.serviceRequest-fieldset-align {
+    min-width: 100%!important
+}
+
+.serviceRequest-otp-child {
+    text-align: center!important
+}
+
+.serviceRequest-otp-input-width {
+    width: 73%;
+    margin-bottom: 0!important
+}
+
+.servicerequest-heading {
+    text-align: center
+}
+
+.emailReg .borderLast {
+    margin-top: 10px;
+    margin-bottom: 0;
+    background-color: #eaeaea!important;
+    height: 1px!important
+}
+
+.borderLastEmail {
+    margin-bottom: 15px
+}
+
+@media only screen and (max-device-width:240px) {
+    .nominee .dt-cal-icon {
+        height: 12px
+    }
+    .emailReg.tooltip-inner {
+        margin-left: -37px!important
+    }
+    .emailReg .serviceRequest-dep-messages .text-danger-email {
+        margin-top: -15px!important;
+        margin-bottom: 15px!important
+    }
+    .emailReg .serviceRequest-check-control {
+        height: 34px!important
+    }
+    .nominee .serviceRequest-check-control,
+    .btn-primary {
+        height: 34px!important
+    }
+    .emailReg .serviceRequest-div-td-dep-ab {
+        padding-top: 19px
+    }
+    .emailReg .serviceRequest-chk-btn {
+        padding-top: 31px!important
+    }
+    .emailReg .serviceRequest-otp-div {
+        padding-top: 26px
+    }
+    .emailReg .serviceRequest-font-label-chk {
+        padding-top: 15px!important
+    }
+    .emailReg .serviceRequest-cal-span {
+        top: -30px;
+        left: 82%
+    }
+    ul li button {
+        font-size: 11px;
+        line-height: 13px;
+        margin-bottom: 8px;
+        border-radius: 2px!important;
+        padding: 8px 21px 8px 20px
+    }
+    .borderLastEmail {
+        margin-bottom: 8px
+    }
+    .tooltip-inner {
+        padding: 9px 10px 10px 11px !important
+    }
+    .open-margin {
+        margin-top: 21px!important;
+        line-height: 12px!important
+    }
+    .showMsg {
+        height: 34px;
+        padding-top: 15px;
+        font-size: 11px;
+        line-height: 11px;
+        padding-top: 158px;
+        padding-bottom: 188px
+    }
+    .showMsgForAcc {
+        padding-bottom: 135px
+    }
+    .labelText {
+        font-size: 9px!important;
+        line-height: 9px;
+        margin-top: 15px!important;
+        margin-bottom: 3px!important
+    }
+    .comm {
+        font-size: 9px;
+        padding-top: 15px;
+        line-height: 12px
+    }
+    .nominee .serviceRequest-check-control,
+    .otpLabelInput {
+        font-size: 9px
+    }
+    .secondary-btn-btn {
+        font-size: 9px;
+        line-height: 12px
+    }
+    .btn-sub {
+        margin-top: 17px;
+        font-size: 11px!important;
+        line-height: 12px!important
+    }
+    .btn-resend {
+        font-size: 10px!important;
+        line-height: 12px!important
+    }
+    .rowdiv {
+        padding-top: 1px!important;
+        padding-bottom: 0!important
+    }
+    .serviceRequest-font-label-chk {
+        padding-top: 0!important
+    }
+    .inputheights {
+        height: 30px!important
+    }
+    .secondary-btn-create-track {
+        font-size: 10px!important
+    }
+    .primary-btn-create-track {
+        font-size: 11px!important
+    }
+    #resend {
+        font-size: 10px!important
+    }
+    #lastsuccess {
+        margin-top: 14px!important
+    }
+    .serviceRequest-chk-tr-depEmail {
+        padding-top: 1px;
+        padding-left: 15%
+    }
+    .emailReg .primary-btn-btn,
+    .secondary-btn-btn {
+        height: 36px!important
+    }
+    .nominee .divDetails {
+        height: 19px
+    }
+    .nominee .serviceRequest-check-control,
+    .otpLabelInput,
+    .categFont,
+    .label-font {
+        font-size: 9px
+    }
+    .nominee .categoryShift {
+        height: 43px
+    }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+    .emailReg.tooltip-inner {
+        margin-left: -49px!important
+    }
+    .nominee .dt-cal-icon {
+        height: 16px
+    }
+    .emailReg .serviceRequest-dep-messages .text-danger-email {
+        margin-top: -15px!important;
+        margin-bottom: 20px!important
+    }
+    .emailReg .serviceRequest-check-control {
+        height: 48px!important
+    }
+    .nominee .serviceRequest-check-control,
+    .btn-primary {
+        height: 48px!important
+    }
+    .emailReg .primary-btn-btn,
+    .secondary-btn-btn {
+        height: 48px!important
+    }
+    .emailReg .serviceRequest-otp-div {
+        padding-top: 35px
+    }
+    .emailReg .serviceRequest-div-td-dep-ab {
+        padding-top: 25px
+    }
+    .emailReg .serviceRequest-font-label-chk {
+        padding-top: 20px!important
+    }
+    .emailReg .serviceRequest-cal-span {
+        top: -40px;
+        left: 82%
+    }
+    ul li button {
+        font-size: 15px;
+        line-height: 17px;
+        margin-bottom: 10px;
+        padding: 10px 28px 10px 27px
+    }
+    .borderLastEmail {
+        margin-bottom: 10px
+    }
+    .tooltip-inner {
+        padding: 12px 13px 13px 14px !important
+    }
+    .customCircle {
+        border-radius: 9px;
+        font-size: 12px;
+        padding: 2px 6px
+    }
+    .open-margin {
+        margin-top: 28px!important;
+        line-height: 16px!important
+    }
+    .showMsg {
+        height: 46px;
+        padding-top: 20px;
+        font-size: 14px;
+        line-height: 15px;
+        padding-top: 210px;
+        padding-bottom: 250px
+    }
+    .showMsgForAcc {
+        padding-bottom: 180px
+    }
+    .labelText {
+        font-size: 12px!important;
+        line-height: 12px;
+        margin-top: 20px!important;
+        margin-bottom: 4px!important
+    }
+    .comm {
+        font-size: 12px;
+        padding-top: 20px;
+        line-height: 16px
+    }
+    .nominee .serviceRequest-check-control,
+    .otpLabelInput,
+    .categFont,
+    .label-font {
+        font-size: 12px
+    }
+    .secondary-btn-btn {
+        font-size: 12px;
+        line-height: 16px
+    }
+    .btn-sub {
+        margin-top: 23px;
+        font-size: 14px!important;
+        line-height: 16px!important
+    }
+    .btn-resend {
+        font-size: 13px!important;
+        line-height: 16px!important
+    }
+    .rowdiv {
+        padding-top: 1px!important;
+        padding-bottom: 0!important
+    }
+    .serviceRequest-font-label-chk {
+        padding-top: 0!important
+    }
+    .inputheights {
+        height: 40px!important
+    }
+    .secondary-btn-create-track {
+        font-size: 12px!important
+    }
+    .primary-btn-create-track {
+        font-size: 14px!important
+    }
+    #resend {
+        font-size: 13px!important
+    }
+    #lastsuccess {
+        margin-top: 19px!important
+    }
+    .serviceRequest-chk-tr-depEmail {
+        padding-top: 2px
+    }
+    .nominee .divDetails {
+        height: 25px
+    }
+    .nominee .categoryShift {
+        height: 57px
+    }
+}
+
+@media(min-device-width:481px) and (max-device-width:640px) {
+    .nominee .dt-cal-icon {
+        height: 24px
+    }
+    .nominee .categoryShift {
+        height: 86px
+    }
+    .nominee .serviceRequest-check-control,
+    .otpLabelInput,
+    .categFont,
+    .label-font {
+        font-size: 18px
+    }
+    .nominee .divDetails {
+        height: 38px
+    }
+    .emailReg.tooltip-inner {
+        margin-left: -74px!important
+    }
+    .emailReg .serviceRequest-check-control {
+        height: 68px!important
+    }
+    .nominee .serviceRequest-check-control,
+    .btn-primary {
+        height: 68px!important
+    }
+    .emailReg .serviceRequest-dep-messages .text-danger-email {
+        margin-top: -15px!important;
+        margin-bottom: 30px!important
+    }
+    .emailReg .serviceRequest-div-td-dep-ab {
+        padding-top: 38px
+    }
+    .emailReg .serviceRequest-otp-div {
+        padding-top: 53px
+    }
+    .emailReg .serviceRequest-chk-btn {
+        padding-top: 62px!important
+    }
+    .emailReg .serviceRequest-font-label-chk {
+        padding-top: 30px!important
+    }
+    .emailReg .serviceRequest-cal-span {
+        top: -60px;
+        left: 82%
+    }
+    .emailReg .primary-btn-btn,
+    .secondary-btn-btn {
+        height: 72px!important
+    }
+    ul li button {
+        font-size: 23px;
+        line-height: 26px;
+        margin-bottom: 15px;
+        padding: 15px 42px 15px 41px
+    }
+    .borderLastEmail {
+        margin-bottom: 13px
+    }
+    .tooltip-inner {
+        padding: 18px 20px 20px 21px !important
+    }
+    .open-margin {
+        margin-top: 41px!important;
+        line-height: 24px!important
+    }
+    .showMsg {
+        height: 68px;
+        padding-top: 30px;
+        font-size: 21px;
+        line-height: 23px;
+        padding-top: 315px;
+        padding-bottom: 375px
+    }
+    .showMsgForAcc {
+        padding-bottom: 270px
+    }
+    .labelText {
+        font-size: 18px!important;
+        line-height: 18px;
+        margin-top: 30px!important;
+        margin-bottom: 6px!important
+    }
+    .comm {
+        font-size: 18px;
+        padding-top: 30px;
+        line-height: 24px
+    }
+    .nominee .serviceRequest-check-control,
+    .otpLabelInput {
+        font-size: 18px
+    }
+    .secondary-btn-btn {
+        font-size: 18px;
+        line-height: 24px
+    }
+    .btn-sub {
+        margin-top: 35px;
+        font-size: 21px!important;
+        line-height: 24px!important
+    }
+    .btn-resend {
+        font-size: 20px!important;
+        line-height: 24px!important
+    }
+    .rowdiv {
+        padding-top: 2px!important;
+        padding-bottom: 0!important
+    }
+    .serviceRequest-font-label-chk {
+        padding-top: 0!important
+    }
+    .inputheights {
+        height: 60px!important
+    }
+    .secondary-btn-create-track {
+        font-size: 16px!important
+    }
+    .primary-btn-create-track {
+        font-size: 16px!important
+    }
+    #resend {
+        font-size: 20px!important
+    }
+    #lastsuccess {
+        margin-top: 29px!important
+    }
+    .serviceRequest-chk-tr-depEmail {
+        padding-top: 3px
+    }
+}
+
+ul li button {
+    width: 93.75%;
+    background-color: #fb637e;
+    color: #fff;
+    font-family: gotham_book;
+    text-align: center;
+    border: 0;
+    margin-left: 3%;
+    margin-right: 2%
+}
+
+ul {
+    padding: 0;
+    list-style-type: none
+}
+
+.panel-body {
+    padding: 0!important
+}
+
+.labelText {
+    font-family: gotham_medium!important;
+    color: #4a4a4a!important;
+    /* padding-left: 12%; Xebia Refactoring */
+    padding-left: 6% !important;
+    margin-left: 1%
+}
+
+.text-center {
+    text-align: center
+}
+
+.comm {
+    font-family: gotham_book;
+    padding-bottom: 10px!important;
+    width: 100%!important;
+    padding-left: 13%;
+    height: 54px!important;
+    color: #9b9b9b!important
+}
+
+.serviceRequest-address {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    width: 75.6%!important;
+    color: #4a4a4a;
+    font-size: 12px;
+    font-family: gotham_book;
+    line-height: 16px;
+    border: 1px solid #c6cfd9;
+    border-radius: 2px
+}
+
+.modal-footer {
+    text-align: center!important;
+    padding: 0
+}
+
+.secondary-btn-btn,
+.primary-btn-btn {
+    width: 87.5%!important;
+    margin-left: 6%!important;
+    font-family: gotham_book;
+    margin-right: 11%!important;
+    text-transform: uppercase!important
+}
+
+select {
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png);
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%
+}
+
+.text-success {
+    color: #39ca74!important;
+    font-size: 14px!important;
+    font-family: gotham_book!important;
+    line-height: 16px!important;
+    padding-left: 6.8%!important;
+    padding-right: 6.8%!important;
+    margin-top: -5%!important
+}
+
+.borderTop {
+    margin-top: 21px;
+    margin-bottom: 20px;
+    background-color: #eaeaea!important;
+    height: 1px!important;
+    width: 107%
+}
+
+.img_padding {
+    margin-bottom: 10px;
+    margin-top: -38px!important
+}
+
+.img_paddingchqBq {
+    margin-bottom: 10px;
+    margin-top: 4%!important
+}
+
+h4 {
+    margin-top: 0!important;
+    margin-bottom: 0!important
+}
+
+.OtpInput input:focus {
+    border: solid 1px #c98bdb!important
+}
+
+.form-group {
+    margin-bottom: 0!important
+}
+
+input {
+    background-color: #fff!important;
+    border: 1px solid #c6cfd9!important;
+    padding: 6px 12px!important
+}
+
+.btn-sub {
+    width: 77.23%!important;
+    font-family: gotham_book!important;
+    text-transform: uppercase!important;
+    height: 48px!important;
+    border-radius: 2px!important
+}
+
+.btn-resend {
+    width: 77.23%!important;
+    font-family: gotham_book!important;
+    background-color: #eaeaea!important;
+    color: #000!important;
+    text-transform: uppercase!important
+}
+
+.showMsg {
+    width: 90%;
+    color: #4a4a4a!important;
+    margin-left: 4%;
+    font-family: gotham_book
+}
+
+.showMsgForAcc {
+    width: 100%!important;
+    margin-left: 0!important;
+    padding-bottom: 180px
+}
+
+.open-margin {
+    font-family: gotham_book!important;
+    text-transform: uppercase!important
+}
+
+.customCircle {
+    box-shadow: 0 0 2px #FB637E;
+    color: #FB637E!important;
+    box-sizing: border-box;
+    border: 1px solid #FB637E;
+    margin-left: 2px
+}
+
+.lp-icon {
+    font-family: lp-icons, gotham_book, Calibri!important;
+    z-index: 10!important;
+    cursor: pointer!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal
+}
+
+.tooltip-inner {
+    position: absolute!important;
+    width: 160px!important;
+    max-width: 160px!important;
+    height: auto;
+    margin-left: -45px!important;
+    top: 33px!important;
+    background-color: #c6cfd9!important;
+    color: #4a4a4a!important;
+    font-size: 10px;
+    font-family: gotham_book!important
+}
+
+.tooltip.top .tooltip-arrow {
+    margin-left: -5px!important;
+    top: 28px!important;
+    bottom: -38px;
+    border-top-color: #c6cfd9!important;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg)
+}
+
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #c6cfd9!important
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #c6cfd9!important
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #c6cfd9!important
+}
+
+.sub-track {
+    margin-right: 11%!important;
+    margin-left: 6%!important;
+    text-transform: uppercase!important;
+    padding: 0!important;
+    height: 48px!important;
+    border-radius: 2px!important
+}
+
+.pull-left {
+    float: none!important
+}
+
+.marginTOP {
+    margin-top: -15px!important
+}
+
+.serviceRequest-date-margin {
+    margin-right: 0!important
+}
+
+.deladdtop {
+    top: -30px!important
+}
+
+.marginTopNext {
+    margin-top: 12.5%!important;
+    border-radius: 0!important
+}
+
+.marginTopClear {
+    margin-top: 3.1%!important;
+    border-radius: 0!important
+}
+
+.margin0 {
+    margin-right: 0!important
+}
+
+.buttonstyle {
+    width: 76.23%!important;
+    margin-left: 6%!important;
+    margin-right: 6%!important;
+    margin-top: 5px!important;
+    height: 40px!important;
+    padding: 0!important;
+    text-transform: uppercase!important;
+    padding-top: 20px
+}
+
+.mycalendar {
+    left: 80%!important;
+    color: #fb637e!important;
+    font-size: 20px;
+    right: 5px!important
+}
+
+.glyph-icon {
+    position: relative!important;
+    top: -29px!important;
+    left: 37%!important
+}
+
+select {
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png);
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%
+}
+
+.text-success {
+    padding-left: 10%!important;
+    padding-right: 10%!important;
+    text-align: left;
+    color: #39ca74!important;
+    font-family: gotham_book!important
+}
+
+.sucessOTP {
+    padding-right: 6.8%!important;
+    padding-left: 6.8%!important;
+    font-family: gotham_book!important
+}
+
+#otpborder {
+    border-color: #eaeaea!important
+}
+
+.otptextboxes {
+    margin-left: 12%!important;
+    margin-bottom: 0!important
+}
+
+#otpbuttonform {
+    float: none!important
+}
+
+#resend {
+    background-color: #eaeaea!important;
+    color: #000!important;
+    font-size: 13px!important;
+    width: 76.23%!important;
+    text-align: center!important;
+    margin-right: 7%!important
+}
+
+#otpbuttonform1 {
+    float: none!important;
+    margin-top: 23px
+}
+
+.text-danger {
+    display: block;
+    text-align: left;
+    padding-left: 11.5%!important;
+    padding-right: 11.5%!important;
+    color: #d0021b!important;
+    font-family: gotham_book!important
+}
+
+#lastsuccess {
+    font-family: gotham_book!important;
+    width: 90%!important;
+    padding-left: 5%!important;
+    padding-right: 5%!important;
+    margin-right: 0!important;
+    margin-left: 5%!important;
+    height: 34px!important;
+    padding-top: 20px!important;
+    font-size: 12px!important
+}
+
+#sr-req-btn {
+    padding-left: 6%!important;
+    padding-right: 6%!important
+}
+
+#lastbutton {
+    margin-left: -4%!important;
+    margin-right: 31%!important;
+    width: 109%!important
+}
+
+#fromdatemsg {
+    margin-top: 0!important;
+    position: relative!important;
+    top: -38px!important
+}
+
+#otpsubmit {
+    width: 77%!important;
+    margin-right: 7%!important
+}
+
+.borderLine {
+    margin-bottom: 20px;
+    background-color: #eaeaea!important;
+    height: 1px!important
+}
+
+#checkRequest #accountname,
+#checkRequest #chequebookleaves,
+#checkRequest #addressLine1 {
+    /* width: 80%!important Xebia Refactoring*/
+    width: 76.5%!important;
+}
+
+.OtpInputWidth label {
+    margin-left: 4%!important;
+    padding-left: 1.5%!important;
+}
+
+.OtpInputWidth input {
+    width: 94%!important;
+    height: 48px!important;
+    margin-right: 3%;
+}
+
+.OtpInputWidth button {
+    width: 89.23%!important;
+    margin-left: 5%!important
+}
+
+.OtpInputWidth .text-danger {
+    padding-left: 6%!important
+}
+
+.text-error {
+    margin-top: 2%
+}
+
+.emailReg .img_padding {
+    margin-bottom: 10px;
+    margin-top: -17px!important
+}
+
+.emailReg .form-control {
+    height: 48px!important
+}
+
+.emailReg .text-margin {
+    padding-left: 6.5%!important
+}
+
+.borderLast {
+    margin-top: 10px;
+    margin-bottom: 0;
+    background-color: #eaeaea!important;
+    height: 1px!important
+}
+
+.serviceRequest-dep-parent-div button {
+    border-radius: 2px!important;
+    height: 48px
+}
+
+.glyph-color {
+    color: #fb637e
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.glyphicon-chevron-right:before {
+    content: "\e080"
+}
+
+.imgRight {
+    float: right;
+    padding-right: 10%
+}
+
+.div.serviceRequest-clear-div-child {
+    display: none
+}
+
+.divDetails {
+    background-color: #efefef;
+    height: 25px
+}
+
+.details {
+    font-family: gotham_Book;
+    font-size: 11px;
+    color: #4a4a4a;
+    margin-left: 7%!important;
+    padding-top: 1.5%;
+    display: block;
+    font-weight: 700
+}
+
+.personalheight {
+    height: 195px
+}
+
+.otherheight {
+    height: 500px
+}
+
+.categoryShift {
+    height: 57px;
+    border: 1px solid #eaeaea
+}
+
+.categoryShift1 {
+    height: 30px;
+    padding-bottom: 5px;
+    padding-top: 25px
+}
+
+.borderLastC {
+    margin-top: 20px!important
+}
+
+.categFont {
+    font-size: 12px;
+    line-height: 12px;
+    font-family: gotham_Light;
+    margin-left: 7%;
+    padding-top: 23px
+}
+
+.nominee .serviceRequest-chk-parent-div {
+    border-spacing: 0;
+    width: 100%;
+    height: auto;
+    padding-left: 0;
+    margin-left: 6%
+}
+
+.nominee .nomineeWidth {
+    width: 100%
+}
+
+.nominee .serviceRequest-chk-parent-div {
+    width: 100%;
+    margin-left: 6%
+}
+
+.nominee .serviceRequest-check-control {
+    margin-left: 0;
+    width: 80%
+}
+
+.nominee .serviceRequest-chk-tr-dep {
+    margin-top: 5%
+}
+
+.nominee .serviceRequest-cal-span {
+    position: absolute;
+    left: 75%
+}
+
+.div-clear {
+    clear: both
+}
+
+.nominee .text-danger {
+    padding-left: 0!important
+}
+
+.nominee .serviceRequest-otp-div {
+    margin-top: 20%
+}
+
+.nominee .OtpInputWidth button {
+    margin-left: 6%!important;
+    width: 89.25%!important
+}
+
+.OtpField :focus {
+    border: solid 1px #c98bdb!important
+}
+
+.OtpInput {
+    -webkit-text-security: disc
+}
+
+.nominee .otpAlign {
+    margin-left: 6%;
+    margin-top: 5%;
+    font-family: gotham_medium;
+    width: 100%
+}
+
+.nominee .manualIconOTP {
+    left: 2%
+}
+
+.nominee .showMsg {
+    width: 85%!important;
+    text-align: center;
+    padding-bottom: 60%;
+    margin-left: 6%!important
+}
+
+.otpLabelInput {
+    font-family: gotham_medium;
+    font-weight: 700!important
+}
+
+.OtpInputWidth input:focus {
+    border: solid 1px #c98bdb!important
+}
+
+.addressFieldMargin {
+    margin-bottom: 3%
+}
+
+input[type="text"] {
+    color: #4a4a4a
+}
+
+.dt-cal-icon {
+    position: relative;
+    top: 48px;
+    margin-left: 91%;
+    cursor: pointer;
+    height: 16px;
+    width: 4.5%;
+    padding-top: 0
+}
+
+.btn-primary,
+.secondary-btn-btn,
+.primary-btn-btn {
+    font-family: gotham_book!important
+}
+
+.otpImg {
+    width: 4.5%
+}
+
+.commAddr {
+    color: #1b1b1b!important;
+    -webkit-text-fill-color: #1b1b1b!important
+}
+
+.lp-icon-spinner3 {
+    margin-top: -50% !important;
+}

@@ -1,0 +1,59 @@
+body {
+    background: rgba(0,0,0,0);
+}
+
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+.btn {
+	font-size: 16px;
+	font-weight: 500;
+	border: none;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+	border-radius: 2px;
+}
+
+.btn-success {
+	background-color: #529242;
+}
+
+.btn-success:hover {
+	background-color: #529242;
+}
+
+.btn-success:active {
+	background-color: #529242;
+}
+
+.version .name {
+    color: #1281ab;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.version .date {
+    margin-left: 150px;
+    font-weight: 300;
+    font-size: 12px;
+    position: absolute;
+    line-height: 24px;
+    color: #929292;
+}
+
+.item {
+    padding-bottom: 3px;
+}
+
+.item .icon {
+    float: left;
+    font-size: 16px;
+}
+
+.item .text {
+    margin-left: 25px;
+}

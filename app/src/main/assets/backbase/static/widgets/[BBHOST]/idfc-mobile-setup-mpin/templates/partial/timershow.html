@@ -1,0 +1,27 @@
+        <!-- popup form #1 -->
+    
+    
+        <a href="" class="overlay" id="login_form"></a>
+        <div class="font-appVersionCheck" id="timerOTPMsg" style="display:block">
+			<div class="center"><img src="images/optPic.jpg" alt=""></div>
+			
+			
+			
+		<div id="clock"></div>
+		
+			<p><label id="timerLabel">30</label> seconds remaining</p>
+			<p>Sit back while we verify your mobile number</p>
+			
+            <button class="btn-whitePop marginB" ng-click="resendOTP()" id="resendOtpBtn" disabled=false><div>RESEND OTP</div></button>
+			
+			<button class="btn-whitePop" ng-click="openOTPSendManuallyDialog()"><div>ENTER OTP MANUALLY</div></button>
+        </div>
+        <div class="font-appVersionCheck" id="delayOTPMsg" style="display:none">
+            <p>It seems you have not received OTP so far. <br>
+Please click Ok to resend your OTP </p>
+            <button class="red" ng-click="closeResendOTP()">Ok</button>
+        </div>
+        <div class="font-appVersionCheck" id="maxResendMPINMsg" style="display:none">
+            <p>You have exceeded maximum limit of re-send MPIN.</p>
+            <button class="red" ng-click="maxResendMPINMsg()">Ok</button>
+        </div>

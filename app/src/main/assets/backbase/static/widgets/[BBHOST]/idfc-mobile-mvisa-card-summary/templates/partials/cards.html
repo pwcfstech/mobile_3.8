@@ -1,0 +1,132 @@
+<!-- Add NG Template here-->
+<div ng-if="!mVisaPaymentCtrl.zeroActiveCard && !error.happened" ng-repeat="cardItem in mVisaPaymentCtrl.activeCardList track by $index">
+   <div class="account-selection-bg" ng-click="mVisaPaymentCtrl.viewPaymentSummary($index);">
+       <div class="col-lg-10 col-md-10 col-sm-11 col-xs-11 account-selection-inner-block">
+            <div class="row account-selection-row-top">
+                <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
+                    <span class="account-selection-label-dark">Debit card No :</span>
+                </div>
+                <div class="col-xs-5 hidden-sm hiddem-md hidden-lg" style="padding:0px;">
+                    <span class="account-selection-label-dark">Debit card No :</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-7 hidden-xs">
+                    <span class="account-selection-label-orange">{{cardItem.crdNb}}</span>
+                </div>
+                <div class="hidden-sm hiddem-md hidden-lg col-xs-7" style="padding:0px;">
+                    <span class="account-selection-label-orange">{{cardItem.crdNb}}</span>
+                </div>
+            </div>
+            <div class="row account-selection-row-top" ng-repeat="accItem in cardItem.acctDtls track by $index">
+               <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
+                   <span class="account-selection-label-light">Account No :</span>
+               </div>
+               <div class="col-xs-5 hidden-sm hiddem-md hidden-lg" style="padding:0px;">
+                   <span class="account-selection-label-light">Account No :</span>
+               </div>
+               <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
+                   <span class="account-selection-label-light">{{accItem.acctNb}}</span>
+               </div>
+               <div class="col-xs-7 hidden-sm hiddem-md hidden-lg" style="padding:0px;">
+                   <span class="account-selection-label-light">{{accItem.acctNb}}</span>
+               </div>
+           </div>
+
+       </div>
+       <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">
+          <div class="right-arrow-icon">
+              <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </div>
+       </div>
+   </div>
+</div>
+
+
+<div ng-if="mVisaPaymentCtrl.zeroActiveCard || error.happened">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="f-left-width-100 horizontal-vertical-center">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="text-center otp-wrong-img-box"> <img src="static/features/[BBHOST]/theme-idfc/images/otp-wrong.PNG"></div>
+
+                <div class="text-center" >
+                    <span ng-if="error.happened">{{error.msg}}</span>
+                </div>			  
+
+        </div>
+    </div></div>
+        <div class="f-left-width-100 horizontal-vertical-end">
+            <button type="submit" class="btn btn-default grey-light-btn" ng-click="mVisaPaymentCtrl.gotoDashboard();">Back To Home</button>
+        </div>
+
+</div>
+
+
+<!--div class="row" ng-if="mVisaPaymentCtrl.zeroActiveCard">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-debits-bg">
+        <div class="f-left-width-100">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2">
+            <img src="static/features/[BBHOST]/theme-idfc/images/no-debits-found.PNG">
+        </div>
+        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 text-center">
+            <span ng-if="error.happened">{{error.msg}}</span>
+        </div>
+        </div>
+    </div>
+	<div class="f-left-width-100 horizontal-vertical-end">
+	<button type="submit" class="btn btn-default grey-light-btn" ng-click="mVisaPaymentCtrl.gotoDashboard();">Back To Home</button>
+	</div>
+</div-->
+
+    <!--div class="row account-selection-bg">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 account-selection-inner-block">
+        <div class="row account-selection-row-top">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span class="account-selection-label-dark">Debit Card No :</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span class="account-selection-label-orange">034830484334 3493494343</span>
+            </div>
+        </div>
+        <div class="row account-selection-row-top">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span class="account-selection-label-light">Debit Card No :</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span class="account-selection-label-light">034830484334 3493494343</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="right-arrow-icon">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+
+    <div class="row account-selection-bg">
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 account-selection-inner-block">
+        <div class="row account-selection-row-top">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span class="account-selection-label-dark">Debit Card No :</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span class="account-selection-label-orange">034830484334 3493494343</span>
+            </div>
+        </div>
+        <div class="row account-selection-row-top">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span class="account-selection-label-light">Debit Card No :</span>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <span class="account-selection-label-light">034830484334 3493494343</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <div class="right-arrow-icon">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </div>
+    </div>
+</div-->
+
