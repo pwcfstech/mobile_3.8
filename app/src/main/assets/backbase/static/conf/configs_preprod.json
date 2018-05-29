@@ -1,37 +1,43 @@
 {
-  "debug": true,
-  "portal": "idfc_mobile_3v",
-  "serverURL": "http://10.5.8.135:7113/",
-  "localModelPath": "$(contextRoot)/static/conf/model.json",
-  "serverModelPath": "http://10.5.8.135:7113/portals/idfc_mobile_3v/mobile/model.json",
-  "remoteContextRoot": "http://10.5.8.135:7113/",
-  "template": {
-    "styles": [
-      "static/features/[BBHOST]/theme-default/dist/styles/base.min.css",
-      "static/features/[BBHOST]/theme-mobile-demo/css/launchpad-theme.css",
-      "static/features/[BBHOST]/theme-mobile-demo/css/base.css",
-      "static/features/[BBHOST]/theme-mobile-demo/css/IDFCbase.css"
+  "development": {
+    "debugEnable": true,
+    "allowUntrustedCertificates": true
+  },
+  "backbase": {
+    "localModelPath": "$(contextRoot)/static/conf/model.json",
+    "experience": "idfc-mobile-v4",
+    "serverURL": "http://10.5.8.135:7113/"
+  },
+  "security": {
+    "allowedDomains": [
+      "*"
     ],
-    "scripts": [],
-    "extra-libraries": [
-      "static/features/[BBHOST]/fastclick/fastclick.js",
-      "static/features/[BBHOST]/launchpad/launchpad-setup.js",
-      "static/features/[BBHOST]/jquery/dist/jquery.js",
-      "static/features/[BBHOST]/requirejs/require.js",
-      "static/features/[BBHOST]/angular/angular.js",
-      "static/features/[BBHOST]/config/requirejs.conf.js",
-      "static/features/[BBHOST]/base/scripts/require-widget.js",
-      "static/features/[BBHOST]/config/require-conf.js"
+    "sslPinning": {
+      "certificates": [
+        "selfsigned.der"
+      ],
+      "checkChain":false
+    }
+
+  },
+  "template": {
+    "extraLibraries": [
+      "$(contextRoot)/static/features/[BBHOST]/fastclick/fastclick.js",
+      "$(contextRoot)/static/features/[BBHOST]/launchpad/launchpad-setup.js",
+      "$(contextRoot)/static/features/[BBHOST]/jquery/dist/jquery.min.js",
+      "$(contextRoot)/static/features/[BBHOST]/requirejs/require.js",
+      "$(contextRoot)/static/features/[BBHOST]/angular/angular.min.js",
+      "$(contextRoot)/static/features/[BBHOST]/config/requirejs.conf.js",
+      "$(contextRoot)/static/features/[BBHOST]/base/scripts/require-widget.js",
+      "$(contextRoot)/static/features/[BBHOST]/template-launchpad-page/scripts/main.js"
+    ],
+    "scripts": [
+      "if (document.body) { FastClick.attach(document.body); } else { document.addEventListener('DOMContentLoaded', function() { FastClick.attach(document.body); }) }"
+    ],
+    "styles": [
+      "$(contextRoot)/static/features/[BBHOST]/theme-idfc/dist/styles/base.min.css",
+      "$(contextRoot)/static/features/[BBHOST]/theme-mobile-demo/css/global.css",
+      "$(contextRoot)/static/features/[BBHOST]/theme-mobile-demo/css/ios.css"
     ]
-  },
-  "behaviourMap": [],
-  "syncedPreferences": {
-    "versionClicked": ""
-  },
-  "domainAccess": [
-    "*"
-  ],
-  "pinnedCertificates": [
-    "selfsigned.der"
-  ]
+  }
 }

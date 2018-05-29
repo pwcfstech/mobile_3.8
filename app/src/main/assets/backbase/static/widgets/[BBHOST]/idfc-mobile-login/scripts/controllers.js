@@ -34,16 +34,11 @@ define(function(require, exports) {
         // RSA changes by Xebia start
         var getChallengeQuestionUrl = lpCoreUtils.resolvePortalPlaceholders(lpWidget.getPreference('getCQUrl'));
         var verifyRsaLoginURL = lpCoreUtils.resolvePortalPlaceholders(lpWidget.getPreference('verifyRSALoginService'));
-        var sessValidateServiceEndpoint = lpCoreUtils.resolvePortalPlaceholders(lpWidget.getPreference('sessionValidateService'));
+
         $scope.challengeQuestion = {};
         $scope.challengeQuestionCounter = 0;
         $scope.showUserNamePassword = true;
         $scope.showWrongAnswerMessage = false;
-        setXsrfTokenWithResponse(LoginService
-        		   .setup({
-        			   sessValidateServiceEndpoint: sessValidateServiceEndpoint
-        		   }).getSessionValidateService());
-
 
         // to fetch mobile specific data
         /* gadgets.pubsub.publish("getMobileSdkData");
@@ -1218,24 +1213,6 @@ define(function(require, exports) {
                 });
         };
 
-        function setXsrfTokenWithResponse(response){
-        		response.success(function(data, status, headers, config){
-        				var xsrfToken = headers('XSRF-TOKEN');
-        				console.log("setXsrfTokenWithResponse success xsrfToken : "+xsrfToken);
-        				if(typeof xsrfToken != 'undefined')
-        				{
-        					window.sessionStorage.setItem('xsrfToken', xsrfToken);
-        				}
-        			}).error(function(error, status, headers, config){
-        				var xsrfToken = headers('XSRF-TOKEN');
-        				console.log("setXsrfTokenWithResponse error xsrfToken : "+xsrfToken);
-        				if(typeof xsrfToken != 'undefined')
-        				{
-        					window.sessionStorage.setItem('xsrfToken', xsrfToken);
-        				}
-        		});
-       }
-
         $scope.doLogin = function(userId, password) //3.5 change
         {
             //password change 3.5 change
@@ -1244,16 +1221,7 @@ define(function(require, exports) {
             exp = readKey.getValues("exp");
             mod = readKey.getValues("mod");
             enciphering.setEncodeKey(pubKey, mod, exp);
-            //console.log(enciphering.setEncrpt(password));
-            /* xsrf token change*/
-            var tocanqey = sessionStorage.getItem("xsrfToken");
-            var result = "";
-            tocanqey = tocanqey || "";
-            for (var i=0; i<tocanqey.length; i++) {
-            		  result = tocanqey.charAt(i) + result;
-            }
-            $scope.user.password = $scope.user.password + result;
-            /*change end*/
+            console.log(enciphering.setEncrpt(password));
             $scope.user.password = enciphering.setEncrpt($scope.user.password);
             // close password change
 
@@ -1307,21 +1275,14 @@ define(function(require, exports) {
                     $scope.user.captcha = ''; //3.5 change
                     $scope.errorSpin = false;
 
-                    /*LoginService
+                    LoginService
                         .setup({
                             rsaLoginFailNotifyEndpoint: rsaLoginFailNotifyEndpoint
                         })
                         .notifyLoginFailRSA({
                             'loginId': userId
-                        });*/
-                        /*xsrf change*/
-                    setXsrfTokenWithResponse(LoginService
-                                            .setup({
-                                                rsaLoginFailNotifyEndpoint: rsaLoginFailNotifyEndpoint
-                                            })
-                                            .notifyLoginFailRSA({
-                                                'loginId': userId
-                    }));
+                        });
+
                     if (error.code === '102') {
                         $scope.showmobinput = false;
                         $scope.showCaptcha = false;
@@ -1329,19 +1290,13 @@ define(function(require, exports) {
                         //////////////////////////////////////////////////
                         //             SMS LOCk -Infosys -Alert         //
                         //////////////////////////////////////////////////
-                      /*  LoginService
+                        LoginService
                             .setup({
                                 lockSMSEndpoint: lockSMSEndpoint + userId
                             })
-                            .lockSMS();*/
-                       /*xsrf change*/
-                       setXsrfTokenWithResponse(LoginService
-                                                   .setup({
-                                                       lockSMSEndpoint: lockSMSEndpoint + userId
-                                                   })
-                        .lockSMS());
-                       $scope.loginerror = error.message;
-                       console.log("$scope.loginerror@" + $scope.loginerror);
+                            .lockSMS();
+                        $scope.loginerror = error.message;
+                        console.log("$scope.loginerror@" + $scope.loginerror);
                     } else if (error.code === '113' || error.code === '114') {
                         $scope.regenerateCaptcha();
                         $scope.showCaptcha = true;
