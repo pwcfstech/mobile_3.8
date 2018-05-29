@@ -1,0 +1,843 @@
+.tipAdjust {
+    top: 5px!important;
+}
+.tooltip-inner {
+    position: absolute!important;
+    width: 120px!important;
+    max-width: 120px!important;
+    height: 100px;
+    bottom: -28px;
+    margin-left: -50px!important;
+    top: 38px!important;
+    position: absolute!important;
+    background-color: #c6cfd9!important;
+    color: #4a4a4a!important;
+    font-size: 10px;
+    font-family: gotham_book!important;
+}
+.tooltip-arrow {
+    border-top-color: #c6cfd9!important;
+}
+.tooltip.top .tooltip-arrow {
+    margin-left: -1px;
+    bottom: -28px;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+.full button span {
+    background-color: #32cd32;
+    border-radius: 32px;
+    color: #000;
+}
+.partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: #000;
+}
+.recurringDepositDiv {
+    display: none;
+}
+td {
+    padding: 1%}
+.interestrate {
+    font-family: gotham_book!important;
+    font-weight: 700;
+    text-align: center!important;
+    font-size: 23px!important;
+    margin-bottom: 60px;
+}
+.interestrate-th {
+    font-family: gotham_book!important;
+    border: solid 1px;
+}
+.interestrate-td {
+    font-family: gotham_book!important;
+    padding: 0!important;
+    border: solid 1px;
+}
+.lp-open-deposits .panel {
+    border: 0;
+    margin: 0;
+}
+.lp-open-deposits .panel-body.fi-list {
+    padding: 0;
+}
+.lp-open-deposits .list-group {
+    margin: 0;
+    border-radius: 0;
+}
+.open-heading-arrow {
+    margin-right: 3px!important;
+    margin-top: 2px!important;
+}
+.lp-open-deposits .list-group .list-group-item {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    position: relative;
+    top: 0;
+}
+.lp-open-deposits .transitioning {
+    z-index: 10;
+}
+.lp-open-deposits .transitioning .h4 {
+    font-size: 18px;
+}
+.transition-fi {
+    -moz-transition: top .8s, height .8s;
+    -webkit-transition: top .8s, height .8s;
+    -o-transition: top .8s, height .8s;
+    transition: top .8s, height .8s;
+}
+.lp-open-deposits .fi-icon {
+    font-size: 30px;
+}
+.lp-open-deposits .panel-heading.context {
+    padding: 0 15px;
+    border-bottom: 0;
+}
+.lp-open-deposits .selected-fi {
+    min-height: 65px;
+}
+.lp-open-deposits .panel-heading.selected-fi {
+    padding-left: 0;
+    padding-right: 0;
+}
+.lp-open-deposits .alert {
+    margin-bottom: 0;
+}
+.lp-open-deposits .selected-fi i {
+    font-size: 30px;
+}
+.lp-open-deposits .btn-filter {
+    margin-top: 10px;
+    min-height: 55px;
+    overflow: hidden;
+    padding: 6px 0;
+}
+@media (max-width: 992px) {
+    .lp-open-deposits .btn-filter {
+    min-height: 90px;
+}
+}.lp-open-deposits .filter-row {
+    height: 50%}
+.lp-open-deposits .filter-row i {
+    font-size: 30px;
+}
+.lp-open-deposits .filter-row.push {
+    margin-top: 6px;
+}
+.lp-open-deposits .filters {
+    margin-top: 10px;
+}
+.div-tr-dep-opendeposit {
+    clear: both;
+}
+.div-td-dep-ab-opendeposit {
+    text-align: center;
+    position: relative;
+    min-width: 100%;
+    padding-top: 5px;
+    margin-right: 5px;
+}
+.div-td-stand-opendeposit {
+    position: relative;
+}
+.div-td-tax-opendeposit {
+    position: relative;
+    margin-left: -5%}
+.opendeposit-dep-radio {
+    margin: 0!important;
+}
+.dep-parent-div-od {
+    border-spacing: 10px;
+    width: 100%;
+    height: 100%}
+.dep-margin-opendeposit {
+    margin-left: 3%}
+.opendeposit-panel-body {
+    background-color: #fff!important;
+}
+.font-label-dep-od {
+    font-weight: 700;
+    font-family: gotham_book, Calibri;
+    font-size: 14px;
+    color: #333;
+}
+.nom-req-dep {
+    margin-right: 20px;
+}
+.date-cal-dob-od {
+    position: relative;
+    top: -38px;
+    margin-left: 68%}
+.div-td-button-pad-od {
+    text-align: right!important;
+}
+.span-margin-opendeposit {
+    margin-right: 21px;
+}
+.primary-btn-open-od {
+    font-family: gotham_book, Calibri!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background-color: #fc6380!important;
+    border: none!important;
+}
+.secondary-btn-open-od {
+    font-family: gotham_book, Calibri!important;
+    background-color: #ebe9eb!important;
+    font-size: 14px!important;
+    color: #000!important;
+    border: none!important;
+    padding: 9px!important;
+}
+.link-deposit-opendeposit {
+    font-family: gotham_book, Calibri!important;
+    font-size: 12px!important;
+    color: #969!important;
+}
+.btn-width-opendeposit {
+    width: 292px;
+}
+.btn-create-width {
+    width: 140px;
+    margin-left: 0;
+}
+.div-td-dep-opendeposit .form-control[disabled] {
+    cursor: default;
+    background-color: #eee!important;
+}
+.open-deposit-ng-cloak {
+    display: none!important;
+}
+.opendeposit-yeardays {
+    width: 95px;
+    display: inline;
+    padding: 6px;
+}
+.opendeposit-font {
+    font-family: gotham_book, Calibri!important;
+    font-size: 12px!important;
+    padding-left: 5%}
+.opendeposit-NoteDiv {
+    font-size: 12px;
+}
+.tipAdjust {
+    margin-top: -25px;
+    height: 20px;
+    padding-top: 6px;
+    margin-top: -6px;
+}
+@media all and (-ms-high-contrast: none) {
+    ::-ms-backdrop, .tipAdjust {
+    margin-top: -6px;
+}
+}.opendeposit-label-float {
+    float: left;
+    padding-top: 6px;
+    padding-right: 5%}
+.divAdjust {
+    margin-top: -5%}
+@media (max-width: 400px) {
+    .div-td-tax-opendeposit {
+    position: relative;
+    margin-left: 0;
+}
+.od-panel-body-standard {
+    padding-left: 0;
+}
+}@media (min-width: 401px) and (max-width: 900px) {
+    .od-panel-body-standard {
+    left: -12px;
+    padding-left: 65px;
+}
+}@media (min-width: 901px) and (max-width: 991px) {
+    .od-panel-body-standard {
+    left: -14px;
+    padding-left: 65px;
+}
+}@media (max-width: 766px) {
+    .tipAdjust {
+    margin-top: -19px;
+    margin-top: 0px\9;
+}
+}@media all and (-ms-high-contrast: none) and (max-width: 766px) {
+    ::-ms-backdrop, .tipAdjust {
+    margin-top: 0;
+}
+}.div-td-dep-opennominee {
+    min-width: 32%!important;
+}
+h5 {
+    color: #ffc62c;
+    margin-left: -14px;
+}
+.wizard-wrapper .wizard-step-number-active {
+    background-color: #ffc62b!important;
+    color: #fff!important;
+    margin-top: 23px!important;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    vertical-align: middle;
+    padding-top: 5px;
+    z-index: 9999999!important;
+    position: relative;
+}
+.secondary-btn-btn {
+    background-color: #ebe9eb!important;
+    color: #000!important;
+    text-transform: uppercase!important;
+}
+li {
+    margin-left: -8%;
+    color: #bcb9b8;
+}
+.radio-space {
+    margin-left: 9%!important;
+}
+.ul-text {
+    list-style-type: none!important;
+    margin-left: -28px;
+    line-height: 23px;
+}
+.div-auto {
+    width: 100%!important;
+}
+.yeardays1 {
+    width: 47%!important;
+}
+.yeardays2 {
+    width: 47%!important;
+}
+.glyphicon-arrow-right:before {
+    content: "\2212"}
+.lp-icon {
+    color: #fc6380!important;
+}
+.btn-link, .btn-link:hover, .btn-link:focus, .btn-link:active {
+    margin-top: 5%}
+.account-color {
+    color: #ffc630;
+}
+.lp-field .lp-icon-info-sign {
+    border-radius: 8px;
+    color: #fff!important;
+    padding: 4px 0 0;
+}
+.panel-body {
+    padding: 0!important;
+}
+.dep-margin-opendeposit {
+    margin-left: 0!important;
+}
+.OverflowBody {
+    overflow-y: hidden!important;
+}
+.marginTopNext {
+    margin-top: 19px!important;
+    text-transform: uppercase;
+    margin-bottom: 0!important;
+}
+.marginTopClear {
+    margin-top: 3.1%!important;
+    text-transform: uppercase;
+    font-family: gotham_book, Calibri!important;
+}
+.textUpper {
+    text-transform: uppercase!important;
+}
+.text-danger {
+    display: block;
+    font-size: 12px!important;
+    text-align: left;
+    padding-left: 11.9%!important;
+    font-family: gotham_book!important;
+}
+select, input {
+    width: 76.23%!important;
+}
+.padLeft {
+    padding-left: 6%!important;
+}
+.radioBtn input {
+    vertical-align: middle!important;
+    height: 14px!important;
+    width: 10%!important;
+    vertical-align: middle!important;
+    box-shadow: 0 0 0 #fff!important;
+    border-color: #fff!important;
+    margin-bottom: 0!important;
+}
+.radioBtn1 input {
+    vertical-align: middle!important;
+    height: 14px!important;
+    width: 10%!important;
+    vertical-align: middle!important;
+    box-shadow: 0 0 0 #fff!important;
+    border-color: #fff!important;
+    margin-bottom: 0!important;
+}
+.marginTop {
+    margin-top: 10px!important;
+}
+.marginRight0 {
+    margin-right: 0!important;
+}
+.text-center {
+    text-align: center!important;
+}
+.font-label-dep-od a {
+    padding-left: 12%!important;
+}
+.form-control {
+    display: inline!important;
+}
+.radioBtn span {
+    font-family: "gotham_book"!important;
+    color: #1d1d26!important;
+}
+.ul-text {
+    font-family: "gotham_book"!important;
+    color: #aeaeae!important;
+    line-height: 23px;
+}
+.opendeposit-font ol li {
+    font-family: "gotham_book"!important;
+    color: #4a4a4a!important;
+    text-align: justify!important;
+    padding-right: 7.31%!important;
+}
+.floatNone {
+    float: none!important;
+}
+#widget-root {
+    overflow-x: hidden!important;
+}
+.marginBtm20 {
+    margin-bottom: 20%}
+.congratsText {
+    font-family: "gotham_medium"!important;
+    color: #4a4a4a!important;
+}
+.smallCongratsText {
+    font-style: normal!important;
+    font-family: "gotham_medium"!important;
+}
+.account-color {
+    color: #ffc72c!important;
+}
+.CongratsDiv {
+    line-height: 21px!important;
+    padding: 0 18.43% 0 20.31% !important;
+}
+.wizard-wrapper .wizard-steps {
+    padding-bottom: 6%!important;
+}
+@media only screen and (max-device-width:240px) {
+    .date-cal-dob-od {
+    width: 13px!important;
+    height: 13px!important;
+    top: -32px!important;
+}
+.inputHeight {
+    height: 36px!important;
+    margin-bottom: 7px!important;
+}
+.btn-primary {
+    line-height: 16px!important;
+}
+labelTopBottom {
+    margin-bottom: 4px!important;
+}
+.dep-margin-opendeposit {
+    margin-top: 15px!important;
+}
+.radioBtn span {
+    font-size: 8px!important;
+}
+.od-panel-body-standard {
+    padding-bottom: 15px!important;
+}
+.ul-text {
+    font-size: 9px!important;
+}
+.connection-feedback {
+    margin-top: 11px!important;
+    margin-bottom: 14px important;
+}
+.opendeposit-font ol li {
+    font-size: 9px!important;
+    line-height: 14px!important;
+    margin-top: 11px;
+}
+.congratsText, .smallCongratsText {
+    font-size: 11px!important;
+    line-height: 16px!important;
+}
+.selectValue {
+    font-size: 10px!important;
+}
+}@media(min-device-width:320px) and (max-device-width:480px) {
+    .date-cal-dob-od {
+    width: 17px!important;
+    height: 17px!important;
+    top: -42px!important;
+}
+.inputHeight {
+    height: 48px!important;
+    margin-bottom: 10px!important;
+}
+.btn-primary {
+    line-height: 16px!important;
+}
+labelTopBottom {
+    margin-bottom: 4px!important;
+}
+.dep-margin-opendeposit {
+    margin-top: 20px!important;
+}
+.radioBtn span {
+    font-size: 12px!important;
+}
+.od-panel-body-standard {
+    padding-bottom: 15px!important;
+}
+.ul-text {
+    font-size: 12px!important;
+}
+.connection-feedback {
+    margin-top: 15px!important;
+    margin-bottom: 18px important;
+}
+.opendeposit-font ol li {
+    font-size: 12px!important;
+    line-height: 18px!important;
+    margin-top: 13px;
+}
+.congratsText, .smallCongratsText {
+    font-size: 14px!important;
+    line-height: 21px!important;
+}
+.selectValue {
+    font-size: 13px!important;
+}
+}@media(min-device-width:481px) and (max-device-width:640px) {
+    .date-cal-dob-od {
+    width: 26px!important;
+    height: 26px!important;
+    top: -62px!important;
+}
+.inputHeight {
+    height: 72px!important;
+}
+.btn-primary {
+    line-height: 16px!important;
+}
+.dep-margin-opendeposit {
+    margin-top: 30px!important;
+}
+.font-label-dep-od {
+    font-size: 17px!important;
+}
+.od-panel-body-standard {
+    padding-bottom: 30px!important;
+}
+.ul-text {
+    font-size: 18px!important;
+}
+.connection-feedback {
+    margin-top: 23px!important;
+    margin-bottom: 27px important;
+}
+.opendeposit-font ol li {
+    font-size: 18px!important;
+    line-height: 27px!important;
+    margin-top: 17px;
+}
+.congratsText, .smallCongratsText {
+    font-size: 21px!important;
+    line-height: 32px!important;
+}
+.selectValue {
+    font-size: 20px!important;
+}
+}.wizard-wrapper .wizard-step-number {
+    border: solid 0 #fff!important;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    vertical-align: middle;
+    padding-top: 6px;
+    margin-top: 28px!important;
+    background-color: #eaeaea;
+    color: #4a4a4a;
+    z-index: 9999999!important;
+    position: relative;
+}
+.wizard-wrapper .wizard-step {
+    width: 14%;
+    margin-left: 12px;
+}
+.wizard-wrapper .wizard-step-container {
+    display: inline;
+}
+.wizard-steps {
+    padding-left: 9%}
+.wizard-step:first-child {
+    margin-left: -9px!important;
+    margin-right: 2%}
+.wizard-step:nth-child(2) {
+    margin-right: 1%!important;
+    margin-left: 7.5%!important;
+}
+.wizard-steps>.wizard-step-container:nth-child(3) {
+    margin-left: 14px!important;
+}
+.wizard-wrapper .wizard-step-arrow {
+    -webkit-transform: scaleX(6)!important;
+    margin-top: 33px;
+    left: 4px;
+    color: #eaeaea!important;
+}
+.wizard-wrapper .wizard-step-heading {
+    width: 0!important;
+    font-family: gotham_medium;
+    font-size: 10px;
+    color: #4a4a4a;
+    top: 11px;
+    /*Xebia Refactoring*/
+    /* left: -11%} */
+    left: 4%}
+.date-picker>ul {
+    border: 0;
+}
+.date-picker>ul table {
+    width: 100%}
+input[type="text"], select {
+    box-shadow: none;
+}
+.heading-text {
+    display: inline!important;
+    position: relative!important;
+    float: left;
+}
+select {
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png)!important;
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%}
+small, .small {
+    font-size: 12px!important;
+}
+input[type="text"], select {
+    box-shadow: none!important;
+    border-radius: 2px!important;
+    -webkit-appearance: none!important;
+}
+input[type="radio"] {
+    border: none!important;
+    border-radius: 30px!important;
+}
+.panel-message {
+    padding-top: 50%!important;
+}
+@media only screen and (min-device-width: 414px) and (-webkit-min-device-pixel-ratio: 2) {
+    .tooltip-inner {
+    height: 140px;
+}
+}.wizard-wrapper .wizard-step-done {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+}
+.guardianAdressLabel {
+    padding-left: 12%!important;
+}
+/* .labelText {
+    padding-left: 6%!important;
+} Xebia Refactoring commented */
+.span-radio-space {
+    padding-right: 27%!important;
+}
+.inputWidth {
+    margin-left: 6%;
+    width: 87%!important;
+    border-radius: 2px!important;
+}
+.btnWidth {
+    width: 87%!important;
+    border-radius: 2px!important;
+}
+.note-margin {
+    margin-left: 6%!important;
+    margin-right: 6%!important;
+}
+.marginBottom {
+    margin-bottom: 5%!important;
+}
+.deposit-link {
+    color: #fb637e!important;
+    font-family: gotham_medium!important;
+}
+select {
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png)!important;
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    border-radius: 2px!important;
+}
+/* .tenure-year {
+    width: 42%!important;
+    border-radius: 2px!important;
+    margin-left: 6%} Xebia Refactoring Commented*/
+    .tenure-year {
+        width: 41%!important;
+        border-radius: 2px!important;
+        margin-left: 5.5%}
+.tenure-days {
+    width: 42%!important;
+    border-radius: 2px!important;
+    margin-left: 2%}
+.rate-of-interest-label {
+    padding-right: 2%!important;
+    padding-top: 1%!important;
+    padding-bottom: 4px!important;
+}
+.margTopSkip {
+    margin-top: 2%}
+.margin-border-top {
+    margin-top: 30%!important;
+}
+.tickDiv {
+    margin-top: 46%;
+    text-align: center;
+}
+.text-danger {
+    padding-left: 6%!important;
+    padding-right: 7%!important;
+}
+.btn-margin {
+    margin-left: 3%!important;
+}
+#nomineeDOB {
+    background-color: #fff;
+}
+.date-cal-dob-od {
+    position: relative!important;
+    margin-left: 86%!important;
+    cursor: pointer!important;
+    /*content: url('../../../idfc-open-deposits/media/calendar.png')!important;*/
+}
+.labelText1 {
+    margin-top: 0!important;
+}
+.link-div {
+    text-align: right!important;
+    padding-right: 7%;
+    font-weight: 700;
+}
+.margin-btn-left {
+    margin-left: 1%!important;
+}
+.text-danger1 {
+    padding-left: 3%!important;
+}
+.nominee-error-msg {
+    margin-bottom: 2%}
+.relationship-top {
+    margin-top: 0!important;
+}
+.selectValue {
+    color: #aeaeae!important;
+    font-family: gotham_book!important;
+}
+.skip-btn-top1 {
+    margin-top: 65%!important;
+}
+.padding-20{
+    padding: 20px !important;
+}
+.radioBtn {
+    font-family: gotham_book!important;
+}
+.err-Msg-bottom {
+    margin-bottom: 2%!important;
+}
+.wizard-active-step {
+    font-weight: 700;
+}
+.fonttext {
+    font-family: gotham_book!important;
+}
+.borderLine {
+    width: 100%;
+    height: 1px;
+    background-color: #eaeaea;
+}
+.date-picker ul {
+    left: 6%!important;
+    width: 87%}
+.date-picker ul li {
+    margin-left: 0!important;
+}
+.alert_msg {
+    font-size: 12px;
+    font-weight: 400!important;
+    color: #4a4a4a;
+    background-color: #fff4d6;
+    border: solid 1px #FFC62C;
+    width: 90%;
+    height: auto;
+    text-align: left;
+    font-family: gotham_light;
+    margin: 10px 5% 0;
+    padding: 8px 36px 8px 35px;
+}
+.img_icon {
+    color: #d0021b!important;
+    margin-left: -8%!important;
+}
+
+.center-align{
+   text-align:center;
+}
+/*
+select{
+    -webkit-appearance: menulist !important;
+    -moz-appearance: menulist !important;
+    appearance: menulist !important;
+}*/
+
+/* Xebia Refactoring */
+.div-tenure {
+    display: inline-block;
+    width: 100%;
+}
+
+.labelText {
+    float: none !important;
+}
+
+.lp-icon-calendar:before{content:"\e636" !important;}
+
+.register-heading-fix .wizard-step-heading {
+    left: -10%!important;
+}
+@media (max-width:600px){
+.tooltip-inner{
+padding:10px 20px!important;
+margin-left:20px}
+}
+
+button[disabled]{
+opacity: 0.65;
+}
+input[type="radio"]{
+border-radius: 30px !important;
+}

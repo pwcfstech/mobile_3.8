@@ -1,0 +1,955 @@
+/* Build with bb-lp-cli @ v1.2.1 */
+a.dropdown-toggle{cursor:pointer}.lp-contacts .details-area{padding:5px 1px 5px 15px}.lp-contact-transactions{clear:both}.lp-contact-transactions-date,.lp-cell-amount{font-weight:bold}.lp-contacts-list{background:#fff}.lp-contacts .back-button{display:none;position:absolute;left:5px}.lp-contacts .contact-form{width:100%}.lp-contacts .col-view-inner{background-color:#fff;}.lp-contacts .panel-body{height:auto;text-align:center;}.lp-contacts .col-list-curtain{background-color:#B9B9B9;height:100%;width:40%;position:absolute;top:0;left:0;z-index:1;opacity:.6;-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"}.lp-contacts .col-list{vertical-align:top;}.lp-contacts .col-view{vertical-align:top;}.lp-contacts .col-wrapper{width:100%;}.lp-contacts .form-group{position:relative;clear:both;}.lp-contacts .delete-btn{position:absolute;left:-40px}.lp-contacts.lp-large-size .lp-widget-body{min-height:450px}.lp-contacts.lp-large-size .col-list{width:100%;height:100%;position:relative}.lp-contacts.lp-large-size .selected-contact{background-color:#F5F5F5}.lp-contacts.lp-large-size .col-contact-image{width:80px;float:left}.lp-contacts.lp-large-size .col-contact-form{padding-left:100px;background-color:#F5F5F5 !important}.lp-contacts.lp-large-size .col-contact-image img{width:80px;height:80px}.lp-contacts.lp-large-size button.position-left{left:60px}.lp-contacts.lp-small-size .col-list{width:100%}.lp-contacts.lp-small-size .col-view{width:100%}.lp-contacts.lp-small-size .col-contact-image{width:60px;float:left}.lp-contacts.lp-small-size .col-contact-form{padding-left:65px}.lp-contacts.lp-small-size .col-contact-image img{width:50px;height:50px}.lp-contacts.lp-small-size button.position-left{left:30px}input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.beneficiary-control{width:76.23%;height:40px;padding:6px 12px;font-size:12px;line-height:1.42857143;color:#555555;background-color:#ffffff;border:1px solid #cccccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);box-shadow:inset 0 1px 1px rgba(0,0,0,0.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;-moz-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;padding-right: 6% !important;}.bene-floatLeft{}.bene-panel-body{padding-right:0}.bene-form-div{text-align:left;padding-top:6px;}.bene-country-width{width:24%}.bene-phone-input{width:68%}.bene-email-field{margin-left:10px}.bene-phone-div{margin-left:10px;float:left}.bene-phn-field{width:60%}.bene-phn-label{width:34%;text-align:left;top:4px;padding:0 !important;position:relative}.bene-phn-left{padding:0;padding-left:12px;padding-top:6px}.bene-select-width{}.bene-btn-phn{float:left;width:42%}.bene-btn-float-email{width:1%}.bene-btn-label-email{float:left;width:42%}.bene-email-parent{float:left}.bene-clear-phn{clear:both}.bene-div-td-dep-ab{position:relative;padding-top:23px;background:#fff;}.bene-popup-otp{padding-top:10px;min-height:211px;padding-bottom:5%}.bene-otp-div{  margin-top: 5%;min-height:265px;border-top:2px solid #eaeaea;background-color: #fff;padding-bottom:21%}.bene-otp-lp-field{}.bene-otp-lp-field-last{margin-bottom:0 !important}.bene-otp-buttons{position:relative;padding-top:2%;padding-bottom:0;margin-bottom:-1px}.bene-otp-buttons-child{}.bene-popup-buttons{position:relative;width:100%;padding-top:4%;min-height:55px;background-color:#ffffff;}.bene-field-bold{font-weight:bold}.bene-phn-child-left{float:left}.bene-error-message-align{clear:both;width:92%;}.bene-acc-type-add{}.bene-phn-cont-code{padding:0;width:66px}.bene-phn-no-input{width:125px}.bene-phn-input-no{width:125px;position:relative;}.bene-phn-cont-codes{width:66px;padding:0}.bene-btn-default{color:#fff ! important}.link{color:#996699 !important;cursor:pointer !important}.link-addressbook{color:#996699 !important}.addressbook-cursor{cursor:pointer !important}.addressbook-drop{background-color:#f0f0f0 !important}.bene-add-height-logo{height:40px}.bene-view-fields{    padding-top:3%;text-align: left; float: left;}.bene-otpques-div{max-height:480px;border:1px solid;padding-bottom:21%}.bene-otpques-div{padding-left:30px;margin-bottom:0 !important}.bene-ques-div{max-height:260px;border:1px solid;padding-bottom:21%}.bene-ques-div{padding-left:30px;margin-bottom:0 !important}.bene-popup-otpques{border-top:1px solid;padding-top:10px;min-height:211px;padding-bottom:25%}.bene-popup-ques{border-top:1px solid;padding-top:10px;max-height:250px;padding-bottom:25%}.bene-idfcClearButton{height:41px !important;margin-left:8px;background-color:#666 !important;color:#FFF;display:inline-block;margin-bottom:22px !important;font-weight:normal;text-align:center;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding:11px 14px;font-size:14px;line-height:1.42857;border-radius:4px;-moz-user-select:none;padding-top:13px !important}.bene-idfcSearchButton{height:40px !important;margin:10px;margin-top:-11px;background-color:#969 !important;color:#FFF;display:inline-block;margin-bottom:0;font-weight:normal;text-align:center;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;padding-right:12px;padding-bottom:10px;padding-left:12px;font-size:14px;line-height:1.42857;border-radius:4px;-moz-user-select:none;padding-top:11px !important}.bene-custom-field{min-width:5% !important}@media (min-width:401px) and (max-width:422px){.bene-otp-div{height:402px}.bene-otp-buttons-child{float:right;margin-left:-10%}}@media (min-width:423px) and (max-width:468px){.bene-otp-div{height:402px}.bene-otp-buttons-child{float:right;margin-left:-10%}}
+@media (min-width:469px) and (max-width:575px){
+.bene-otp-div{height:402px}
+.bene-otp-buttons-child{
+/*Mobile commenting this as it was breaking Submit and resend buttons on devices with resolutions of Nexus 5x and Xperia*/
+/*float:right;
+margin-left:-10%*/
+}
+}
+@media (min-width:576px) and (max-width:601px){.bene-otp-div{height:383px}.bene-otp-buttons-child{float:right}}@media (min-width:602px) and (max-width:622px){.bene-otp-div{height:383px}.bene-otp-buttons-child{float:right}}@media (min-width:623px) and (max-width:691px){.bene-otp-div{height:365px}.bene-otp-buttons-child{float:right}}@media (min-width:692px) and (max-width:769px){.bene-otp-div{height:425px}.bene-otp-buttons-child{float:left}}@media (min-width:770px) and (max-width:1033px){.bene-otp-div{height:363px}.bene-otp-buttons-child{float:right}}@media (min-width:1034px) and (max-width:1074px){.bene-otp-div{height:326px}.bene-otp-buttons-child{float:right}}@media (min-width:1075px){.bene-otp-div{height:290px}.bene-otp-buttons-child{float:left}.bene-no-left-margin{margin-left:0 !important}}.bene-otp-lp-field label{min-width:40%;float:left}@media (min-width:768px) and (max-width:1077px){.bene-otp-lp-field label{min-width:70%;float:left}}.bene-pad-left{padding-left:0 !important}.bene-input-disabled{background-color:lightgrey}
+
+
+.bene-alert-warning{
+width:100%
+/*top:94px;left:40%;width:54%;z-index:20*/
+}
+
+@media screen and (device-aspect-ratio: 2/3) {
+    .primary-btn-btn{
+        margin-bottom:6px !important;
+        height: 38px;
+    }
+
+}
+
+/*By Suha*/
+
+#addCont, .bene-panel-body, .contactsConfirm
+{
+    background-color:#ffffff !important;
+}
+
+.addressBody
+{
+    background-color: #eaeaea !important;
+	padding:0px !important;
+	padding-top: 20px !important;
+    padding-bottom: 16px !important;
+}
+
+#panelBody
+{
+ background-color: #eaeaea !important;
+}
+
+.panel-body
+{
+	padding:0px !important;
+}
+
+.text-danger label
+{
+padding-left:0px !important;
+}
+
+.text-danger {
+    color: rgba(251, 99, 126, 1)!important;
+	font-size: 13px;
+    font-weight: 600;
+    padding-left: 45px;
+    padding-right: 67px;
+    text-align: left;
+	padding-top:4px;
+}
+
+.text-danger-message label
+{
+padding-left:0px !important;
+}
+.text-danger-message
+{
+  color: rgba(251, 99, 126, 1)!important;
+        font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+        padding-top:4px;
+        display:block;
+}
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.glyphicon-search
+{
+    position: relative;
+        top: 14px;
+        z-index: 9999;
+        right: 90%;
+        color: #fb637e !important;
+}
+
+::-webkit-input-placeholder {
+    font-size:12px;
+    font-family:gotham_light;
+    color:#aeaeae;
+}
+:-moz-placeholder {
+ font-size:12px;
+    font-family:gotham_light;
+       color:#aeaeae;
+}
+::-moz-placeholder {
+ font-size:12px;
+     font-family:gotham_light;
+        color:#aeaeae;
+}
+:-ms-input-placeholder {
+ font-size:12px;
+   font-family:gotham_light;
+      color:#aeaeae;
+}
+
+
+#search ::-webkit-input-placeholder {
+    font-size:16px;
+    padding-left:20px;
+    font-family:gotham_light;
+    color:#aeaeae;
+}
+#search :-moz-placeholder {
+ font-size:16px;
+padding-left:20px;
+    font-family:gotham_light;
+       color:#aeaeae;
+}
+#search ::-moz-placeholder {
+ font-size:16px;
+padding-left:20px;
+     font-family:gotham_light;
+        color:#aeaeae;
+}
+#search :-ms-input-placeholder {
+ font-size:16px;
+padding-left:20px;
+   font-family:gotham_light;
+      color:#aeaeae;
+}
+
+
+.dispInline
+{
+   float:left;
+       padding-top: 10px;
+}
+
+.search-input
+{
+    padding-left: 4%;
+    padding-top: 3%;
+    padding-right: 4%;
+    padding-bottom: 1%;
+}
+
+.search-input input
+{
+    width: 94.4% !important;
+    padding-left: 12% !important;
+}
+
+.search-input input:focus
+{
+    padding-left: 12% !important;
+}
+
+.btn-primary
+{
+    border-radius: 2px !important;
+}
+
+.btn-link .edit
+{
+color:#000;
+font-family:gotham_book;
+font-size:14px;
+}
+
+.glyphicon-edit
+{
+color:#fb637e !important;
+}
+
+ .leftText
+{
+    font-family:gotham_light;
+    font-size:12px;
+    color:#9b9b9b;
+    text-align: left;
+}
+
+.rightText
+{
+    font-family:gotham_book;
+    font-size:14px;
+    color:#666666;
+    text-align: left;
+    width: 45%;
+}
+.borderTop{
+background-color:#eaeaea !important;
+height:1px !important;
+    margin-bottom: 4%;
+}
+.bene-btn-default
+{
+    color: #fff ! important;
+    border-radius: 2px !important;
+}
+.primary-btn-btn
+{
+    text-transform:uppercase;
+    margin-bottom:9px !important;
+    height: 38px !important;
+}
+
+.table > tbody + tbody {
+    border-top: 0px solid #fff;
+}
+
+.table tbody tr td
+{
+padding-left:8.15%;
+padding-top:17px;
+padding-bottom:14px;
+font-family:gotham_book;
+font-size:12px !important;
+border:0px;
+text-transform:uppercase;
+color: #1d1d1d;
+}
+
+
+.table tbody tr td:hover
+{
+color:#c98bdb;
+}
+
+.modal-body
+{
+    text-align: center;
+    padding-top:0px !important;
+}
+
+input
+{
+    background-color: #fff;
+    box-shadow: 0px 0px #fff;
+    border: 0px;
+    border: solid 1px #ccc;
+    padding: 6px 12px;
+}
+
+
+.floating input
+{
+    width: 5.23% !important;
+    height:16px !important;
+    vertical-align: middle!important;
+       margin-top: 0px;
+   }
+
+.floating label
+{
+font-family:gotham_book !important;
+font-size:12px;
+    margin-right: 7%;
+}
+
+.floating .str
+{
+font-family:gotham_medium !important;
+}
+
+.floating
+{
+    /* padding-left: 4.68%; */
+    text-align: left;
+}
+
+.col-md-12, .col-sm-12, .col-xs-12
+{
+padding:0px !important;
+}
+
+.secondary-btn-btn
+ {
+    background-color: #eaeaea !important;
+    text-transform:uppercase;
+    color:#000 !important;
+    font-family:gotham_book;
+    font-size:13px;
+ }
+
+.btn-delete {
+    margin-right: 12% !important;
+}
+
+.sucessOTP{
+color:#39ca74 !important;
+    padding-right: 6.8% !important;
+    padding-left: 6.8% !important;
+    font-size:14px !important;
+     font-family: "gotham_book" !important;
+}
+
+#addCont .form-group-New label, #addContConfirm .form-group-New label, #modifyCont label,  #modifyCont1 label
+{
+    padding-left: 11.6%;
+    font-family:gotham_medium !important;
+    font-size:12px !important;
+    font-weight:normal !important;
+
+}
+.lp-contacts.lp-small-size .col-contact-form
+{
+    padding-bottom: 20px !important;
+}
+
+#forPanel .col-contact-form
+{
+    padding-left:5% !important;
+    padding-right:3% !important;
+}
+
+.viewText
+{
+color:#666666;
+font-family:gotham_light;
+font-size:24px;
+text-align: left;
+}
+
+#conView
+{
+padding-left:5% !important;
+    padding-right:3% !important;
+        padding-top: 10% !important;
+}
+
+.viewText .editBtn
+{
+float:right;
+}
+
+input, select
+{
+    width:76.23%;
+    height:40px;
+    border-radius:0px !important;
+    font-size: 12px;
+}
+
+.img_padding
+{
+    margin-bottom: 5%;
+}
+
+.labelText
+{
+font-size:12px !important;
+font-weight: normal !important;
+}
+
+.inputSelect select
+{
+    width:23.3% !important;
+
+}
+
+.inputSelect input
+{
+    width:51.56% !important;
+}
+
+.bene-div-td-dep-ab button, .bene-otp-buttons-child button, .input-group-btn button, .bene-popup-buttons button
+{
+margin-right:0px !important;
+text-transform:uppercase !important;
+}
+
+.OtpInput input:focus
+{
+    border-color: #c98bdb !important;
+    border: solid 1px #c98bdb !important;
+}
+
+.bene-div-td-dep-ab button:first-child
+{
+    margin-top:3%;
+}
+
+.withinOutside label, .modify label
+{
+    font-family:gotham_book !important;
+    font-size:14px !important;
+    color:#4a4a4a;
+}
+
+.withinOutside, .modify
+{
+    margin-top: 7%;
+}
+
+.bene-error-message-align .text-danger
+{
+  padding-left: 12.9% !important;
+  text-align: left;
+  display:block;
+/*  float:left; 21 March*/
+}
+
+.error-msg-formatting{
+    float:left;
+}
+
+.error-msg-mob-no{
+    text-align:left;
+    
+}
+
+.glyph-icon
+{
+    position:relative;
+    top: -30px;
+    left: 37%;
+}
+
+.glyph-icon .glyphicon
+{
+    color: #FB637E !important;
+}
+
+.form-group
+{
+margin-bottom:0px !important;
+padding-top: 4% !important;
+}
+
+.confDelete
+{
+    font-family:gotham_medium !important;
+    font-size:16px;
+    color:#4a4a4a;
+    text-align:center;
+}
+
+#deleteConfirm .confLabel
+{
+    font-family:gotham_book !important;
+        font-size:12px;
+        color:#aeaeae;
+        text-align:center;
+}
+
+.modal-content
+{
+border:0px !important;
+}
+
+.lp-modal .modal-dialog
+{
+    left: 0px !important;
+    position: absolute;
+      margin: 20% 5%;
+}
+.modal-body .form-group
+{
+padding-top:0px !important;
+}
+.ackCheckBox {
+      width: 8%;
+      height: 3vh;
+      margin: 0 !important;
+      float:left;
+    position: initial !important;
+}
+.clickHereButton {
+    color:#fb637e;
+    text-decoration: underline;
+    padding-left:0;
+}
+
+.customCircle{
+
+box-shadow:0px 0px 2px #FB637E;
+color:#FB637E !important;
+box-sizing:border-box;
+border:1px solid #FB637E;
+margin-left:2px;
+
+}
+
+.lp-icon{
+font-family:lp-icons,gotham_book,Calibri !important;
+z-index:10 !important;
+cursor:pointer !important;
+
+}
+
+.lp-icon{
+speak:none;
+font-style:normal;
+font-weight:normal;
+font-variant:normal;
+
+}
+
+.tooltip-inner {
+    position:absolute !important;
+    width:160px !important;
+    max-width : 160px !important;
+    height:auto;
+    margin-left:-79px !important;
+    top: 33px !important;
+    background-color: #c6cfd9 !important;
+    color: #4a4a4a !important;
+    font-size:10px;
+    font-family:gotham_book !important
+}
+
+.tooltip.top .tooltip-arrow{
+    margin-left:-5px !important;
+    top:28px !important;
+    bottom: -38px;
+    border-top-color:#c6cfd9 !important;
+
+    transform: rotate(180deg);
+    /*transform-origin: 20% 40%;*/
+    -ms-transform:rotate(180deg); /* IE 9 */
+    -moz-transform:rotate(180deg); /* Firefox */
+    -webkit-transform:rotate(180deg); /* Safari and Chrome */
+    -o-transform:rotate(180deg); /* Opera */
+}
+
+
+
+.tooltip.top-left .tooltip-arrow{
+ border-top-color:#c6cfd9 !important;
+}
+
+.tooltip.top-right .tooltip-arrow {
+border-top-color:#c6cfd9 !important;
+}
+
+.tooltip.right .tooltip-arrow {
+border-right-color:#c6cfd9 !important;
+}
+
+.tooltip.left .tooltip-arrow {
+border-left-color:#c6cfd9 !important;
+}
+
+.tooltip.bottom .tooltip-arrow {
+border-bottom-color:#c6cfd9 !important;
+}
+
+select{
+  background-image:url("../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png");
+    -webkit-appearance: none !important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    }
+
+
+
+@media only screen and (max-device-width:240px)
+{
+    .glyphicon-search
+    {
+        top:11px;
+    }
+    .table tbody tr td
+    {
+         padding-top: 13px;
+         padding-bottom: 11px;
+         font-size: 9px !important;;
+    }
+    #forPanel #panelBody
+    {
+    	padding-top: 12px !important;
+        padding-bottom: 15px !important;
+    }
+    .floating input
+    {
+         height: 12px !important;
+    }
+    .floating label
+    {
+        font-size: 9px;
+    }
+    #addCont .form-group-New label, #addContConfirm .form-group-New label, #modifyCont label, #modifyCont1 label
+    {
+        font-size: 9px;
+    }
+    .leftText
+    {
+        font-size:9px;
+    }
+
+    .rightText, .btn-link .edit, .withinOutside label, .modify label
+    {
+        font-size:11px;
+    }
+
+    .tooltip-inner
+     {
+
+         padding-top:9px !important;
+
+        padding-bottom:10px !important;
+
+     padding-left:11px !important;
+             padding-right:10px !important;
+                                             }
+
+}
+
+
+@media(min-device-width:320px) and (max-device-width:480px)
+{
+    .addHt{
+        height: 49px !important;
+    }
+    #forPanel .col-contact-form
+    {
+        padding-left:1% !important;
+        padding-right:1% !important;
+    }
+    .floating label
+    {
+         margin-right: 0%;
+    }
+
+    .glyphicon-search
+        {
+            top:14px;
+            
+        }
+    .table tbody tr td
+        {
+             padding-top: 17px;
+             padding-bottom: 14px;
+             font-size: 12px !important;;
+        }
+    #forPanel #panelBody
+        {
+        	padding-top: 20px !important;
+            padding-bottom: 16px !important;
+        }
+    .floating input
+        {
+            height: 16px !important;
+        }
+     #addCont .form-group-New label, #addContConfirm .form-group-New label, #modifyCont label, #modifyCont1 label
+        {
+            font-size: 12px;
+        }
+     .leftText
+        {
+            font-size:12px;
+        }
+
+        .rightText, .btn-link .edit, .withinOutside label, .modify label
+        {
+            font-size:14px;
+        }
+
+        .tooltip-inner {
+                                     padding-top:12px !important;
+                                     padding-bottom:13px !important;
+                                     padding-left:14px !important;
+                                     padding-right:13px !important;
+                                     }
+
+
+
+
+
+         .customCircle{
+               /*padding:4px 7px;*/
+               padding-top:0px;
+               padding-bottom:0px;
+               padding-left:7px;
+               padding-right:7px;
+               border-radius:9px;
+        }
+
+}
+
+@media(min-device-width:481px) and (max-device-width:640px)
+{
+    .glyphicon-search
+        {
+            top:21px;
+        }
+    .table tbody tr td
+        {
+             padding-top: 26px;
+             padding-bottom: 21px;
+             font-size: 18px !important;
+        }
+    #forPanel #panelBody
+        {
+        	padding-top: 30px !important;
+            padding-bottom: 24px !important;
+        }
+    .floating input
+        {
+            height: 24px !important;
+        }
+     #addCont .form-group-New label, #addContConfirm .form-group-New label, #modifyCont label, #modifyCont1 label
+        {
+            font-size: 18px;
+        }
+     .leftText
+            {
+                font-size:16px;
+            }
+
+      .rightText, .btn-link .edit, .withinOutside label, .modify label
+            {
+                font-size:20px;
+         }
+
+         .tooltip-inner {
+                                      padding-top:18px !important;
+                                      padding-bottom:20px !important;
+                                      padding-left:21px !important;
+                                      padding-right:20px !important;
+                                                      }
+}
+
+
+.conView .col-md-6, .conView .col-sm-6, .conView .col-xs-6
+ {
+     padding-left: 15px !important;
+     padding-right: 15px !important;
+}
+
+#countryCodes
+{
+    background-position: 83% 47% !important;
+}
+
+.otpNew label
+{
+    margin-top: 0.93% !important;
+}
+
+.modal-footer .btn + .btn
+{
+margin-left:0px !important;
+}
+/*Mobile adding this for alignment of OTP error messages*/
+.alignOtpErrorMsg {
+float: left;
+padding-left: 12%;
+}
+@media only screen and (min-device-width: 414px) and (-webkit-min-device-pixel-ratio: 2) {
+    /*.search-input input {
+        padding-left: 12% !important;
+    }*/
+    .glyphicon-search {
+    top: 12px;
+    }
+}
+/*mobile adding this for 4s*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3)
+{
+    .search-input input{
+        margin-bottom: 12% !important;
+    }
+    .glyphicon-search
+    {
+        /*top:14px;*/
+        top:35px;
+        right: 42%;
+    }
+    .addHt{
+        height: 90px !important;
+    }
+}
+/*mobile adding this for 5s*/
+@media (device-height : 568px)
+and (device-width : 320px)
+and (-webkit-min-device-pixel-ratio: 2)
+ {
+     .search-input input{
+         margin-bottom: 12% !important;
+     }
+     .glyphicon-search
+     {
+         /*top:14px;*/
+         top:35px;
+         right: 42%;
+     }
+     .addHt{
+         height: 90px !important;
+     }
+}
+
+.borderbottom{
+    border: 1px solid rgba(0, 0, 0, .04);
+}
+.find-title {
+    color: rgba(251, 99, 126, 1)!important;
+    font-size: 13px!important;
+}
+.ifsc-code-find-block {
+	padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 5px;
+}
+/* .bnf-bank-name-error-block { */
+	/* padding-left: 15px; */
+	/* padding-top: 5px; */
+    /* margin-bottom: -7px; */
+/* } */
+.bnf-bank-name-error-block {
+	padding-left: 44px;
+    padding-top: 11px;
+    margin-bottom: -7px;
+    text-align: left;
+	line-height: 14px;
+}
+.bnf-bank-name-error-location {
+	color: rgba(74, 74, 74, 1);
+	text-transform: capitalize;	
+}
+.bnf-bank-name-error-bank {
+	margin-bottom: 3px;
+	text-transform: capitalize;	
+}
+.ifsc-label-light label {
+	color: rgba(200, 200, 200, 1);
+}
+.ifsc-label-dark label {
+	color: rgba(74, 74, 74, 1);
+}
+.find-title, .find-title a {
+    color: rgba(251, 99, 126, 1)!important;
+    font-weight: 400!important;
+    font-size: 13px!important;
+}
+.left-align { 
+	text-align: left;
+}
+.error-msg-mob {
+	background-color:#ffefc0;
+	color:rgba(74,74,74,1);
+	font-weight:bold;
+	text-align:left;
+	font-size:12px;
+	padding: 10px;
+	position:absolute;
+	z-index:1;
+	width:100%;
+}
+.error-message-v-middle.error-msg-mob > div {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;  
+  align-content: center;
+  align-items: center; 
+}	
+.crs-icon {
+	color:#d0031b!important;
+	font-size:1.375em;
+	padding-right:8px;
+}
+.server-error-cross .error-msg{
+	    z-index: 99;
+		padding: 8px 5px 9px 5px;
+		font-size: 17px;
+}
+.server-error-cross .crs-icon {
+    cursor: pointer;
+}
+.label-font {
+	/* color: black; */
+	color: rgba(74, 74, 74, 1);
+}
+.server-error-cross-icon {
+	width: 15%;
+	display: inline-block;
+	text-align: center;
+	font-size: 24px;
+}
+
+.beneficiary-control option:first-child {
+    color: rgba(200, 200, 200, 1);
+}
+.ifsc-code-link{
+	cursor:pointer;
+	text-decoration:underline;
+}
+.ifsc-code-not-link{
+	text-decoration:underline;
+}
+
+/* Xebia Refactoring */
+.btn-primary {
+    width: 76.23%;
+}
+
+.bene-otp-buttons-child {
+    float: none;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.otpNew label {
+    margin-left: 11%!important;
+}
+
+.floating label {
+    font-family: gotham_book !important;
+    font-size: 12px !important;
+    margin-right: 7%!important;
+}
+
+.floating {
+    text-align: center!important;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+.panel-body .row {
+    padding: 0;
+}
+}
+

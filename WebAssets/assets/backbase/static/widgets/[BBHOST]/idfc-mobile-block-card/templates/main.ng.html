@@ -1,0 +1,624 @@
+<div class="lp-open-deposits">
+	<!-- error Spin -->
+	<div ng-if="errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+			<span class="sr-only">Busy</span>
+		</div>
+	</div>
+	<!-- error Spin -->
+	<br>
+		<!--<div class="error text-danger idfc-margin-bottom-15 idfc-margin-top-15" ng-show="tdError"-->
+		<!--style="text-align:center" ng-bind="errorMessage">-->
+		<!--</div>-->
+		<div class="text-danger" ng-show="tdError" style="text-align: center">{{ errorMessage }}</div>
+		<!--<div class="lp-alerts">-->
+		<!--<div class="alert alert-error" ng-show="tdError">-->
+		<!--<p><span lp-i18n="{{model.errorMessage}}">"Oops, none of your cards are active right now."</span></p>-->
+		<!--</div>-->
+		<!--</div>-->
+		<div class="lp-alerts" tabindex="-1">
+			<div class="alert alert-danger ng-cloak" ng-show="fiModel.errors.length >0">
+				<p ng-repeat="error in fiModel.errors">
+					<i class="lp-icon lp-icon-alert-error"></i>
+					<span lp-message="error.captionCode" lp-bundle="messages"></span>
+				</p>
+			</div>
+			<div class="alert alert-warning ng-cloak" ng-show="fiModel.warnings.length >0">
+				<p ng-repeat="warning in fiModel.warnings">
+					<i class="lp-icon lp-icon-alert-error"></i>
+					<span lp-message="warning.captionCode" lp-bundle="messages"></span>
+				</p>
+			</div>
+		</div>
+		<div ng-hide="secondScreen">
+			<div class="success-block-card text-center size-20" ng-show="activeTempCardFlag">None of your cards can be blocked. Please call us to issue you a new card.</div>
+			<table style="margin-top:20px"; class="table-idfc-gen-block-card" ng-show="!activeTempCardFlag" width="100%">
+				<!--<thead>
+               <tr class="tr-bg-grey">
+                   <th class="table-idfc-gen-th">Card Number</th>
+                   <th class="table-idfc-gen-th mob-display-none">Linked Account(s)</th>
+                   <th class="table-idfc-gen-th">Status</th>
+                   <th class="table-idfc-gen-th mob-display-none">Expiry Date</th>
+               </tr>
+           </thead>-->
+				<tbody ng-repeat="cardSummaryObj in activeTempCardList | orderBy: 'crdSts'">
+					<tr ng-click="openCardsDetails(cardSummaryObj)">
+						<td class="panel-title table-main-td mob-width">
+							<table class="table" style="margin:0 auto; width:90%!important;">
+								<!--<tr>
+                        <td style="border-top: none;width:10%;text-align:right" class="mob-display-none">
+                            <span>
+                                <span ng-show="!cardSummaryObj.showfull" style="margin-left:10px;"><img src="static/idfc/banking/widgets/idfc-card-summary-widget/images/DebitCardIconOrange.png" height="17" width="25"></span>
+                                <span ng-show="cardSummaryObj.showfull" style="margin-left:10px;"><img src="static/idfc/banking/widgets/idfc-card-summary-widget/images/DebitCardIconPurple.png" height="17" width="25"></span>
+                            </span>
+                        </td>
+
+                        <td style="border-top: none;width:80%;text-align:left"><span ng-model="card" class="card-mob">{{cardSummaryObj.crdNb}}</span></td>
+
+                        </tr>-->
+								<tr>
+									<td class="table-main-td mob-width" colspan="4" style="border-top: none; width: 90%!important; text-align: left; padding-left:0; padding-bottom:20px; ">
+										<div ng-class="{'activeGreen':cardSummaryObj.crdSts == 'Active', 'activeOrange':cardSummaryObj.crdSts == 'Temporarily Blocked', 'activeRed':cardSummaryObj.crdSts == 'Permanently Blocked', 'activeGray':cardSummaryObj.crdSts == 'Inactive'}">
+											<!-- span class="card-mob" ng-class="{'intro':cardSummaryObj.crdSts == 'Active' , 'danger-status':cardSummaryObj.crdSts == 'Blocked Temporarily'}">{{cardSummaryObj.crdSts}}</span></div -->
+											<span class="card-status">{{cardSummaryObj.crdSts | uppercase}}</span>
+										</div>
+										<!--	<div class="idfcLOGo"></div>-->
+										<table width="100%">
+											<div class="customPadding">
+												<span ng-model="card" class="card-mob" style="font-size:8px !important; color:#888c93; text-shadow:none;">{{cardSummaryObj.cardName}}</span>
+											</div>
+											<div class="customPadding" style="word-spacing: 0.6em; width:90%; font-size:21px!important;line-height: 24px;">
+												<span ng-model="card" class="card-mob cardNFonts">{{cardSummaryObj.crdNb}}</span>
+											</div>
+											<div class="customPadding">
+												<span ng-model="card" class="card-mob" style="font-size:8px !important; color:#888c93; text-shadow:none;">VALID THRU</span>
+											</div>
+											<div class="customPadding">
+												<span ng-model="card" class="card-mob">&shy;{{cardSummaryObj.expryDt | date:'MM/yy'}}&shy;</span>
+											</div>
+											<!--{{cardSummaryObj.actvtnDt | date:'dd-MMM-yyyy'}}-->
+											<div class="customPadding">
+												<span ng-model="card" class="card-mob">{{cardSummaryObj.cstmrNm}}</span>
+											</div>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td style="border-top: none;width:10%;" class="pull-left">
+										<span style="display: none;">
+											<span ng-show="!cardSummaryObj.showfull" class="menu menu-down"></span>
+											<span ng-show="cardSummaryObj.showfull" class="menu menu-up"></span>
+										</span>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td class="table-main-td mob-display-none">
+							<div ng-repeat="y in cardSummaryObj.acctDtls">
+								<span class="card-mob">{{y.acctNb}}</span>
+							</div>
+						</td>
+					</tr>
+					<!--  <td class="table-main-td">
+             <span class="card-mob" ng-class="{'intro':cardSummaryObj.crdSts == 'Active' , 'danger-status':cardSummaryObj.crdSts == 'Blocked Temporarily'}">{{cardSummaryObj.crdSts}}</span>
+           </td>-->
+					<tr>
+						<td class="table-main-td mob-display-none">
+							<label>&shy;{{cardSummaryObj.expryDt | date:'dd-MMM-yyyy'}}&shy;</label>
+						</td>
+					</tr>
+					<tr ng-show="cardSummaryObj.showfull ">
+						<td colspan="4" ng-if="cardSummaryObj.crdSts === 'Blocked Temporarily' || 'Active'" style="padding-top:0; background-color:#FFFFFF;">
+							<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+								<tr>
+									<td style="background-color:#f8f8f8;" align="center" valign="middle">
+										<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td align="center" valign="middle">
+													<div class="row">
+														<div class="col-sm-12 linkedAccount">
+															<ul style="width:90%; margin:0 auto">
+																<li class="linkWidth alignTxt2">Linked Account</li>
+																<li class="dot">:</li>
+																<li class="linkWidth alignTxt bold">
+																	<div ng-repeat="linkedAccObj in detail1.acctDtls">{{linkedAccObj.acctNb}}</div>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-sm-12 linkedAccount">
+															<ul style="width:90%; margin:0 auto">
+																<li class="linkWidth alignTxt2">Activation Date</li>
+																<li class="dot">:</li>
+																<li class="linkWidth alignTxt bold">&shy;{{detail1.actvtnDt | date:'dd-MMM-yyyy'}}&shy;</li>
+															</ul>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+							<table class="table-internal-detail" width="100%">
+								<tbody>
+									<tr>
+										<td colspan="4" style=" width: 100%; background-color:#FFFFFF;" ng-if="cardSummaryObj.crdSts === 'Temporarily Blocked'">
+											<div class="div-header">
+												<b>Unblock</b>
+											</div>
+											<div class="div-detail">This option is used to unblock your temporarily blocked card.</div>
+											<div class="div-detail div-button">
+												<button class="red button-pink btn-unblock" ng-click="getCardDetailsUnblock(cardSummaryObj,'unblock'); cardUnblockAnalyze()">Submit</button>
+											</div>
+											<div class="note" style="text-align: left;">Note:</div>
+											<div class="note-detail" style="text-align: left;font-weight: normal;color: #4a4a4a;">
+												<div>To permanently block your temporary blocked card, kindly call us on toll free number 
+													<a style="color:#FF8F33;font-weight:bold" ng-click="callFeature('18004194332');" href="#">1800 419 4332</a>
+												</div>
+											</div>
+										</td>
+										<tr>
+											<td colspan="4" style="width:100%; background-color:#ffffff" ng-if="cardSummaryObj.crdSts === 'Active'">
+												<div class="div-detail div-button">
+													<button class="red button-pink" ng-click="getCardDetails(cardSummaryObj ,'block')">BLOCK TEMPORARILY</button>
+												</div>
+												<div class="div-detail">This option is used if you have misplaced your card temporarily. You can unblock the card right here.</div>
+												<!-- <div class="div-detail">Please use this option to temporarily block your debit card. You can unblock it at any time. If you want to block it permanently, please call your Banker at 18004194332.</div> -->
+											</td>
+										</tr>
+										<tr>
+											<td style="background-color:#ffffff;" ng-if="cardSummaryObj.crdSts === 'Active'">
+												<div class="or">OR</div>
+												<div class="borderMiddle"></div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="4" style=" width: 100%; background-color:#ffffff" ng-if="cardSummaryObj.crdSts === 'Active'">
+												<div class="div-detail div-button">
+													<button class="red button-pink" ng-click="permProceed('permanentBlock')">Block Permanently</button>
+												</div>
+												<div class="div-detail">This option is used if your card is damaged or lost or stolen. Once this option is selected, the card will be blocked permanently.</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div ng-hide="successClose || !secondScreen">
+					<div>
+						<table class="table-idfc-gen-block-card" width="100%">
+							<tr>
+								<td class="panel-title table-main-td mob-width">
+									<table class="table" style="margin:0 auto; width:90%!important;">
+										<tr>
+											<td class="table-main-td mob-width" colspan="4" style="border-top: none; width: 90%; text-align: left; padding-left:0; padding-bottom:20px; ">
+												<div ng-class="{'activeGreen':detail1.crdSts == 'Active', 'activeOrange':detail1.crdSts == 'Temporarily Blocked', 'activeRed':detail1.crdSts == 'Permanently Blocked'}">
+													<span class="card-status">{{detail1.crdSts | uppercase}}</span>
+												</div>
+												<table width="100%">
+													<div class="customPadding">
+														<span ng-model="card" class="card-mob" style="font-size:8px !important; color:#888c93; text-shadow:none;">{{detail1.cardName}}</span>
+													</div>
+													<div class="customPadding" style="word-spacing: 0.6em; width:100%; font-size:21px!important;line-height: 24px;">
+														<span ng-model="card" class="card-mob cardNFonts">{{detail1.crdNb}}</span>
+													</div>
+													<div class="customPadding">
+														<span ng-model="card" class="card-mob" style="font-size:8px !important; color:#888c93; text-shadow:none;">VALID THRU</span>
+													</div>
+													<div class="customPadding">
+														<span ng-model="card" class="card-mob">&shy;{{detail1.expryDt | date:'MM/yy'}}&shy;</span>
+													</div>
+													<!--{{detail1.actvtnDt | date:'dd-MMM-yyyy'}}</span></td>-->
+													<div class="customPadding">
+														<span ng-model="card" class="card-mob">{{detail1.cstmrNm}}</span>
+													</div>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td style="border-top: none;width:10%;" class="pull-left">
+												<span style="display: none;">
+													<span ng-show="!cardSummaryObj.showfull" class="menu menu-down"></span>
+													<span ng-show="cardSummaryObj.showfull" class="menu menu-up"></span>
+												</span>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="table-main-td mob-display-none">
+									<div ng-repeat="y in detail1.acctDtls">
+										<span class="card-mob">{{y.acctNb}}</span>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td style="background-color:#f8f8f8;" align="center" valign="middle">
+													<table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+														<tr>
+															<td align="center" valign="middle">
+																<div class="row">
+																	<div class="col-sm-12 linkedAccount">
+																		<ul style="width:90%; margin:0 auto">
+																			<li class="linkWidth alignTxt2">Linked Account</li>
+																			<li class="dot">:</li>
+																			<li class="linkWidth alignTxt bold">
+																				<div ng-repeat="linkedAccObj in detail1.acctDtls">{{linkedAccObj.acctNb}}</div>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-sm-12 linkedAccount">
+																		<ul style="width:90%; margin:0 auto">
+																			<li class="linkWidth alignTxt2">Activation Date</li>
+																			<li class="dot">:</li>
+																			<li class="linkWidth alignTxt bold">&shy;{{detail1.actvtnDt | date:'dd-MMM-yyyy'}}&shy;</li>
+																		</ul>
+																	</div>
+																</div>
+															</td>
+														</tr>
+														<tr ng-show="permFlag" ng-if="screen === 'permanentBlock'" class="tr-detail">
+															<td colspan="4" class="tr-detail-main-td">
+																<table class="table-daily-limits-detail" width="100%">
+																	<tr>
+																		<th colspan="2">Reason for Blocking</th>
+																	</tr>
+																	<tr>
+																		<td style="width:30%">
+																			<div class="page-content-input radio-main">
+																				<input type="radio" class="dep-radio" ng-model="reasonValue" value="Damaged" ng-click="setReasonValue('HL');" id="inlineRadio1" />
+																				<label for="inlineRadio1" style="font-family:inherit!important; color:#1d1d26; font-size:0.9em;" class="span-margin font-label-dep radio-label">Card is damaged / not working</label>
+																			</div>
+																		</td>
+																	</tr>
+																	<tr>
+																		<td style="width:30%">
+																			<div class="page-content-input radio-main">
+																				<input type="radio" class="dep-radio" ng-model="reasonValue" value="Lost" ng-click="setReasonValue('HL');" id="inlineRadio2" />
+																				<label for="inlineRadio2" style="font-family:inherit!important; color:#1d1d26; font-size:0.9em;" class="span-margin font-label-dep radio-label">Card is lost / stolen</label>
+																			</div>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+														<tr ng-show="permFlag" ng-if="screen === 'permanentBlock'" class="tr-detail">
+															<td colspan="4" class="tr-detail-main-td">
+																<table class="table-daily-limits-detail" width="100%">
+																	<tr>
+																		<th colspan="2">
+																			<div>Apply for replacement card</div>
+																		</th>
+																	</tr>
+																	<tr>
+					<td style="width:80%">
+						<div class="page-content-input radio-main">
+		<input type="radio" class="dep-radio" ng-model="replacementValue" value="True" id="inlineRadio3" ng-click="setReplacementValue('True')" />
+						<label for="inlineRadio3" class="span-margin font-label-dep radio-label" style="font-family:inherit!important;">Yes</label>
+									</div>
+											</td></tr>
+											<tr>
+												<td style="width:80%">
+												<div class="page-content-input radio-main">
+				<input type="radio" class="dep-radio" ng-model="replacementValue" value="False" id="inlineRadio4" ng-click="setReplacementValue('False')" />
+						<label for="inlineRadio4" class="span-margin font-label-dep radio-label" style="font-family:inherit!important;">No</label>
+																			</div>
+																		</td>
+																	</tr>
+															</table>
+<!-- 				        		<div ng-show="replacementValue === 'Yes'" style="padding-left:2%">This service is unavailable</div> -->
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+										<!-- -->
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<!--   <div ng-hide="OTPFlag" ng-if="screen === 'unblock'" class="UnblockCard-otp-div">
+        <h4>
+        <div class="text-success" ng-show="success.happened" style="text-align:center"><img style="margin-right: 11px;" height="17" width="25" alt="UNblock Card" title="manage-Biller Widget" src="static/Images/Tick.png">{{ success.msg }}</div>
+        <div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+    </h4>
+                <form name="OTPform" class="form-horizontal form-otp-center">
+        <div lp-field="lp-field" class="label-font" label="Mobile_Label" tip="">
+            <div>
+                <input class="form-control UnblockCard-otp-input-width"	type="text"	name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+            </div>
+        </div>
+        <input style="display:none" type="text" name="fakeusernameremembered"/>
+        <input style="display:none" type="password" name="fakepasswordremembered"/>
+        <div lp-field="lp-field" label="OTP_Label" class="label-font"
+             tip="{{'OTP_tip'|translate}}">
+
+            <div>
+            <input class="form-control UnblockCard-otp-input-width" type="password" autofill="off" autocorrect="off" autocapitalize="off"
+            autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" name="otp"
+                ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-disabled="lockFieldsOTP"
+                ng-model="otpValue" required="true" />
+        <small class="text-danger" style="width:38%;" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+<small class="text-danger" style="width:38%;" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+<small class="text-danger" style="width:38%;" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+<small class="text-danger" style="width:38%;" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+
+            </div>
+        </div>
+
+
+</form>
+ <div class="idfc-otp-bottom-border idfc-otp-container margin-otp-bottom " ></div>
+        <div class="UnblockCard-div-td-dep-ab">
+        <div class="UnblockCard-otp-child">
+            <button class="btn btn-primary btn-align primary-btn-btn"  type="submit" ng-disabled="lockFieldsOTP" name="verifyOTP" ng-click="OTPform.submitted=true; submitUnblockRequest(OTPform.$valid,credentialType)">{{'btn_Submit'|translate}}</button>
+            <button class="btn btn-primary btn-align secondary-btn-btn"  type="button" ng-disabled="lockFieldsOTP" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+
+            <button class="btn btn-primary btn-align secondary-btn-btn"  ng-click="backOnScreen(cardSummaryObj)">{{'Lbl_back'|translate}}</button>
+    </div>
+
+        <!-- <div class="serviceRequest-otp-child">
+        <button class="btn btn-primary btn-align secondary-btn-btn"  type="button" name="cancelOTP" ng-click="cancelOTP()">{{'btn_Cancel'|translate}}</button>
+            <button class="btn btn-primary btn-align secondary-btn-btn" ng-disabled="lockFieldsOTP" type="button" name="clearOTP" ng-click="clearOTP()">{{'btn_Clear'|translate}}</button>
+        </div>
+        </div>
+        <div class="clearfix"></div>
+            </div>-->
+					<div class="div-more-help">
+						<!--<div class="div-more-help-head"><b>Click here for more Help or Call our Customer care at -1800-419-4332</b></div>-->
+						<div class="div-more-help-detail" ng-show="screen == 'block'">This option is used if you have misplaced your card temporarily. You can come and unblock your card anytime once you find it.</div>
+						<div class="div-more-help-detail" ng-show="screen == 'permanentBlock'">This option is used to permanently block your damaged or lost or stolen card and reissue a new one.</div>
+						<div class="div-more-help-detail" ng-show="screen == 'unblock'">This option is used to unblock your temporarily blocked card.</div>
+					</div>
+					<div class="idfc-otp-bottom-border idfc-otp-container line-margin" ng-show="screen != 'unblock'"></div>
+					<div>
+						<div class="col-md-6">
+							<button class="btn-whitePop btn-grey" ng-show="screen != 'unblock'" ng-click="backOnScreen()" style="margin-bottom:10px;">{{'Lbl_back'|translate}}</button>
+						</div>
+						<div class="col-md-6">
+							<button class="red btn-warmPink" ng-show="screen != 'unblock'" ng-click="confirmBlockCard()">{{'Lbl_cnfirm'|translate}}</button>
+						</div>
+					</div>
+					<div style="clear:both;padding:20px;">
+
+						<!-- RSA changes by Xebia starts -->
+
+                <div ng-show="showDenyMessage">
+                    <div class="rsa-deny-message">
+                        {{cqObject.RSA_DENY_MESSAGE}} 
+                    </div>
+                </div>
+
+                <div ng-show="showCancelTransactionMessage">
+                    <div class="rsa-cancel-transaction-message">
+                            {{cqObject.CANCEL_TRANSACTION}} 
+                    </div>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                class="rsa-margin-top" type="submit" name="No"
+                                ng-click="cancelRSATransaction()">Okay</button>
+                    </div>
+                </div>
+
+                <div ng-show="showSetupCQMessage">
+                    <p>
+                        <center class="rsa-setupCQMessage">{{cqObject.SETUP_CQ_MESSAGE}}
+                        </center>
+                    </p>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="Yes"
+                                ng-click="showSetupCQ()">Update Now</button>
+
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="No"
+                                ng-click="showSetupCQMessage = false; showCancelTransactionMessage = true;">Cancel</button>
+                    </div>
+                </div>
+
+                <div ng-hide="hideQuesFlag" class="rsa-border-div">
+                    
+                    <div ng-bind="showCQError" class="rsa-cancel-transaction-message">
+                    </div>
+
+                    <!-- <form name="Questionform" class="form-horizontal"> -->
+                        <div ng-if="showQuestionDiv">
+                            
+                                <div class="rsa-margin-top">
+                                    <label ng-bind="challengeQuestions" class="rsa-bold-font"></label>
+                                    <input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer"
+                                    ng-model="challengeQuestion.answer"
+                                    required="true"/>
+                                </div>
+                            
+                             
+                            <div class="rsa-text-center rsa-margin-bottom">
+                                <button class="rsa-button btn btn-primary primary-btn-btn primary-btn-ft"
+                                    type="submit" name="verifyAnswers"
+                                    ng-click="verifyCQAnswer(transaction)"
+                                    ng-disabled="!(challengeQuestion.answer)"
+                                    lp-i18n="Submit Answer">  
+                                </button>
+                            </div>
+                        </div>
+
+                        <div ng-show="showWrongAnswerMessage" class="rsa-button" >
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="tryAgain"
+                                ng-click="fetchCQ()">Try Again</button>
+                        </div>
+
+                    <!-- </form> -->
+                </div>
+
+        <!-- RSA changes by Xebia ends -->
+
+						<div ng-hide="hideCombineFlag" class="otpques-div">
+							<div class="idfc-top-border"></div>
+							<h4>
+								<div class="text-success" ng-show="success.happened" style="text-align:center">{{ success.msg }}</div>
+								<div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+							</h4>
+							<form name="mainform" class="form-horizontal">
+								<div>
+									<div lp-field="lp-field" label="Mobile_Label" tip="" class="otp-lp-field rsaOtpAlignment">
+										<div>
+											<input class="form-control" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" style="float:left; width:38%;" />
+										</div>
+									</div>
+									<div>
+										<input style="display:none" type="text" name="fakeusernameremembered" />
+									</div>
+									<div>
+										<input style="display:none" type="password" name="fakepasswordremembered" />
+									</div>
+									<div lp-field="lp-field" label="OTP_Label" class="otp-lp-field otp-lp-field-last rsaOtpAlignment rsaOtpAlignment" tip="{{'OTP_tip'|translate}}">
+										<div>
+											<input class="form-control" type="password" name="otp" autocomplete="off" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="controlPass.otpValue" required="true" style="width: 38%;" />
+											<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+											<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+											<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+											<small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+										</div>
+									</div>
+									<div class="otp-lp-field otp-lp-field-last">
+										<div ng-if="showQuestionDiv">
+											<div ng-repeat="question in challengeQuestions" style="margin-top:20px">
+												<label>{{question.questionText}}</label>
+												<input class="form-control" type="text" name="answer" autocomplete="off" placeholder="Enter answer" ng-model="challengeQuesAnswers[$index].answer" required="true" ng-disabled="isChallengeDisabled" style="width: 70%;" />
+												<input type="hidden" ng-value="question.questionId" ng-model="challengeQuesAnswers[$index].question" />
+											</div>
+										</div>
+									</div>
+									<div class="div-btn-right " style="padding-top:10px;margin-right: -20px;">
+										<!-- <button
+                            class="btn btn-primary btn-align secondary-btn-forgot secondary-btn-btn"
+                            type="button" name="cancelOTP" ng-click="goBack()">{{'btn_Cancel'|translate}}
+                           </button>
+                            <button class="btn btn-primary secondary-btn-btn" type="button" name="clearOTPQUES" ng-click="clearOTPQUES()">{{'btn_Clear'|translate}}</button> -->
+										<button class="red btn btn-primary primary-btn-btn primary-btn-ft" type="submit" name="verifyAnswers_otp" ng-click="mainform.submitted=true; cnfirm(mainform.$valid, credentialType,transaction)">Submit</button>
+										<button class="red btn secondary-btn-btn secondary-btn-ft" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div ng-hide="hideOTPFlag" class="UnblockCard-otp-div">
+							<div class="idfc-top-border"></div>
+							<h4>
+								<div class="text-success" ng-show="success.happened" style="text-align:center">{{ success.msg }}</div>
+								<div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+							</h4>
+							<form name="OTPform" class="form-horizontal form-otp-center">
+								<div lp-field="lp-field" label="Mobile_Label" class="rsaOtpAlignment">
+									<div>
+										<input class="form-control" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" style="float:left; width:38%;" />
+									</div>
+								</div>
+								<input style="display:none" type="text" name="fakeusernameremembered" />
+								<input style="display:none" type="password" name="fakepasswordremembered" />
+								<div lp-field="lp-field" label="OTP_Label" tip="{{'OTP_tip'|translate}}" class="rsaOtpAlignment">
+									<div>
+										<!--  <input class="form-control" type="tel" name="otp" ng-disabled="lockFieldsOTP" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="controlPass.otpValue" required="true" style=" -webkit-text-security:disc;" />  -->
+										<input class="form-control" type="tel" name="otp" ng-disabled="lockOTPTextSubmit" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="controlPass.otpValue" required="true" style=" -webkit-text-security:disc;" />
+										<small class="text-danger" style="width:38%;" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+										<small class="text-danger" style="width:38%;" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+										<small class="text-danger" style="width:38%;" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+										<small class="text-danger" style="width:38%;" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+									</div>
+								</div>
+								<div class="UnblockCard-div-td-dep-ab">
+									<div style="width:100%;">
+										<!--  <button
+                                class="btn btn-primary btn-align secondary-btn-forgot secondary-btn-btn"
+                                type="button" name="cancelOTP" ng-click="goBack()">{{'btn_Cancel'|translate}}
+                            </button>
+                            <button
+                                class="btn btn-primary btn-align secondary-btn-forgot secondary-btn-btn"
+                                type="button" name="clearOTP" ng-click="clearOTP()">{{'btn_Clear'|translate}}
+                            </button> -->
+										<!--  <div class="col-md-12 col-sm-12" style="margin-bottom:4%"> <button class="red" type="submit" name="verifyOTP" id="verifyOTP-btn-block-card-temp" ng-disabled="lockFieldsOTP" ng-click="OTPform.submitted=true; cnfirm(OTPform.$valid,credentialType,transaction)">
+                                {{'btn_Submit'|translate}}
+                            </button></div> -->
+										<div class="col-md-12 col-sm-12" style="margin-bottom:4%">
+											<button class="red" type="submit" name="verifyOTP" id="verifyOTP-btn-block-card-temp" ng-disabled="lockOTPTextSubmit" ng-click="OTPform.submitted=true; cnfirm(OTPform.$valid,'OTP',transaction)">{{'btn_Submit'|translate}}</button>
+										</div>
+										<div class="col-md-12 col-sm-12" style="margin-bottom:4%">
+											<button class="btn-whitePop" ng-disabled="lockFieldsOTP" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+										</div>
+										<div class="col-md-12 col-sm-12" style="margin-bottom:4%">
+											<button class="btn-whitePop" ng-click="backOnScreen(cardSummaryObj)">{{'Lbl_back'|translate}}</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+						<!-- OTP Added  -->
+					</div>
+				</div>
+				<div ng-show="successClose">
+					<!--msg div start-->
+					<div class="success-block-card">
+						<!-- <div>Success, Your request to Temporarily-</div>
+          <div>block, Card no  <span style="color:#FF8F33">1234-XXXX-XXXX-5578</span> has been submitted</div>-->
+						<!-- 	<span ng-if="dcmsAndCrmSuccess.happened" class="textSuccessCB"><span class="menu right-tick"></span>{{dcmsAndCrmSuccess.msg}}</span> -->
+						<div ng-if="permFlag">
+							<div ng-if="replacementValue == 'False'">
+								<span ng-if="dcmsAndCrmSuccess.happened" class="text-center size-20" ng-bind-html="dcmsAndCrmSuccess.msg">
+									<span class="img-right-tick"></span>
+								</span>
+								<span ng-if="dcmsAndCrmError.happened" class="textErrorCB">{{dcmsAndCrmError.msg}}</span>
+							</div>
+							<div ng-if="replacementValue == 'True'">
+								<span ng-if="reissueSuccess.happened" class="text-center size-20" ng-bind-html="reissueSuccess.msg">
+									<span class="img-right-tick"></span>
+								</span>
+								<span ng-if="reissueError.happened" class="textErrorCB">{{reissueError.msg}}</span>
+							</div>
+						</div>
+						<div ng-if="!permFlag">
+							<span ng-if="dcmsAndCrmSuccess.happened" class="text-center size-20" ng-bind-html="dcmsAndCrmSuccess.msg">
+								<span class="img-right-tick"></span>
+							</span>
+							<span ng-if="dcmsAndCrmError.happened" class="textErrorCB">{{dcmsAndCrmError.msg}}</span>
+						</div>
+					</div>
+					<div class="note" ng-if="dcmsAndCrmSuccess.happened && !reissueError.happened" ng-show="screen != 'unblock'">Note:</div>
+					<div class="note-detail" ng-if="dcmsAndCrmSuccess.happened" ng-show="screen == 'block'">
+						<div>Your card has been temporarily blocked. You can come and unblock your card anytime once you find it.</div>
+					</div>
+					<div class="note-detail" ng-if="dcmsAndCrmSuccess.happened" ng-show="screen == 'permanentBlock'">
+						<div ng-if="replacementValue == 'False'">
+							<div>To get a new card please call us on 1800-419-4332</div>
+						</div>
+						<div ng-if="replacementValue == 'True'">
+							<div ng-if="reissueSuccess.happened">Your card ending {{detail1.last4digitAccNo}} has been blocked permanently. You will get your new card within the next 7 days at your registered address.</div>
+						</div>
+					</div>
+					<!-- 	<div class="note-detail" ng-if="dcmsAndCrmSuccess.happened" ng-show="screen == 'unblock'">
+                <div>Your card haƒs been unblocked!.
+
+                </div>
+            </div> -->
+					<div class="idfc-otp-bottom-border"></div>
+					<div class="text-center">
+						<button class="redViewStatusBtn idfc-btn idfc-btn-primary" ng-click="cardSummaryTransfer()">{{'ViewSummary'|translate}}</button>
+					</div>
+				</div>
+				<!--msg div end-->
+			</div>

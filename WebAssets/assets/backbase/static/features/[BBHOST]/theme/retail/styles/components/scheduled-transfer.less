@@ -1,0 +1,168 @@
+.lp-scheduled-transfer {
+	width: 100%;
+
+	.lp-st-section {
+		margin-bottom: 10px;
+	}
+
+	.lp-st-caption {
+		padding: 5px;
+		width: 30%;
+	}
+
+	.lp-st-control {
+		width: 70%;
+	}
+
+	.lp-st-frequency, .lp-st-end-on {
+		width: 100%;
+
+		.dropdown {
+
+			.btn {
+				text-align: left;
+			}
+
+			.dropdown-menu {
+				li {
+					border: none;
+
+					a {
+						padding-left: 5px;
+					}
+
+					&.dropdown-header {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.lp-st-every {
+
+		.lp-st-every-input {
+			width: 30px;
+			margin-right: 10px;
+			text-align: center;
+		}
+
+		.lp-st-control {
+			padding-top: 5px;
+		}
+	}
+
+	.lp-st-interval {
+
+		.lp-st-interval-menu {
+			width: 100%;
+
+			button {
+				border: 1px solid @btn-default-border;
+				padding: 6px 0px;
+
+				&:focus {
+					outline: 1px solid #0088CC;
+					box-shadow: 0 0 3px #0088CC;
+				}
+			}
+
+			&.weekly {
+				button {
+					width: 14.2%;
+					margin-right: 1px;
+					border-radius: 0px;
+				}
+
+				button:first-of-type {
+					border-top-left-radius: @border-radius-base;
+					border-bottom-left-radius: @border-radius-base;
+				}
+
+				button:last-of-type {
+					border-top-right-radius: @border-radius-base;
+					border-bottom-right-radius: @border-radius-base;
+				}
+			}
+
+			&.monthly {
+				button {
+					margin: 0px;
+					width: 14.286%;
+					border-radius: 0px;
+				}
+
+				button:first-of-type {
+					border-top-left-radius: @border-radius-base;
+				}
+
+				button:nth-child(7) {
+					border-top-right-radius: @border-radius-base;
+				}
+
+				button:nth-child(29) {
+					border-bottom-left-radius: @border-radius-base
+				}
+
+				button:last-of-type {
+					border-bottom-right-radius: @border-radius-base;
+				}
+			}
+
+			&.yearly {
+
+				button {
+					width: 25%;
+					margin-right: 1px;
+					margin: 0px;
+					border-radius: 0px;
+				}
+
+				button:first-of-type {
+					border-top-left-radius: @border-radius-base;
+				}
+
+				button:nth-child(4) {
+					border-top-right-radius: @border-radius-base;
+				}
+
+				button:nth-child(9) {
+					border-bottom-left-radius: @border-radius-base;
+				}
+
+				button:last-of-type {
+					border-bottom-right-radius: @border-radius-base;
+				}
+
+			}
+		}
+
+	}
+
+	.lp-st-start-date, .lp-st-end-date {
+
+		.lp-st-control.calendar {
+			position: relative;
+
+			input {
+				padding-right: 26px;
+
+				&::-ms-clear {
+					display: none;
+				}
+
+				&[readonly] {
+					cursor: default;
+					background-color: white;
+				}
+			}
+		}
+
+		.calendar-icon {
+			cursor: pointer;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
+	}
+}

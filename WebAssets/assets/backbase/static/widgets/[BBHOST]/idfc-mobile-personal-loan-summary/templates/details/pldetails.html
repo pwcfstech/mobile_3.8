@@ -1,0 +1,341 @@
+<div data-template="Personal Loan Details">
+    <div ng-if="plLoanSummaryCtrl.errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <div class="text-danger text-center" ng-if="plLoanSummaryCtrl.error.happened">{{ plLoanSummaryCtrl.error.msg }}</div>
+
+    <div ng-hide="plLoanSummaryCtrl.error.happened">
+        <div class="pl-details">
+            <div class="yellowBackground-details">
+			<div class="row">
+			<div class="col-xs-6 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row">
+                        <div class="col-xs-12; heading">Loan account no.</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 number-text1">
+                            <span>{{plLoanSummaryCtrl.loanDetailData.lnAcctNb}}</span>
+                        </div>
+                    </div>
+                </div>
+			
+			<div class="col-xs-6 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row">
+                        <div class="col-xs-12; heading">Next EMI date</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 number-text1">
+                            <span>{{plLoanSummaryCtrl.loanDetailData.nxtDueDt}}</span>
+                        </div>
+                    </div>
+                </div>
+				</div>
+				<div class="row">
+			<div class="col-xs-6 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row">
+                        <div class="col-xs-12; heading">EMI amount</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 number-text1">
+                            <span class="rupee-symbol-span"></span><span>{{plLoanSummaryCtrl.loanDetailData.emi}}</span>
+                        </div>
+                    </div>
+                </div>
+
+            	<div class="col-xs-6 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row">
+                        <div class="col-xs-12; heading">Balance Tenure</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 number-text1">
+                            <span>{{plLoanSummaryCtrl.loanDetailData.rmngTnure}} months</span>
+                        </div>
+                    </div>
+                </div>
+				</div>
+					<div class="row">		
+			 <div class="col-xs-6 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row">
+                        <div class="col-xs-12; heading">EMI end date</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 number-text1">
+                            <span>{{plLoanSummaryCtrl.loanDetailData.intrstEndDt}}</span>
+                        </div>
+                    </div>
+                </div>		
+				 <div class="col-xs-6 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">&nbsp;</div>		
+                </div>
+                <!--div class="col-xs-12 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row heading">Loan account no.</div>
+                    <div class="row number-text1">
+                        {{plLoanSummaryCtrl.loanDetailData.lnAcctNb}}
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row heading">Next EMI date </div>
+                    <div class="row number-text1">{{plLoanSummaryCtrl.loanDetailData.nxtDueDt}}</div>
+                </div>
+
+                <div class="col-xs-12 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row heading">EMI amount</div>
+                    <div class="row number-text1"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.emi}}</span></div>
+                </div>
+
+                <div class="col-xs-12 col-sm-15 text-center border-right-solid-gray hidden-xs">
+                    <div class="row heading">Balance tenure</div>
+                    <div class="row number-text1">
+                        {{plLoanSummaryCtrl.loanDetailData.rmngTnure}} months
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-15 text-center hidden-xs">
+                    <div class="row heading">Last EMI date</div>
+                    <div class="row number-text1">{{plLoanSummaryCtrl.loanDetailData.intrstEndDt}}</div>
+                </div-->
+            </div>
+        </div>
+
+        <div class="row custom_row pldetail_row">
+
+            <div class="col-xs-12 col-sm-5 pie-center detail-graph-padding-bottom">
+                <div class="pieContainer">
+                    <div class="pieBackground"></div>
+
+                    <div id="pieSliceBlue" class="hold">
+                        <div id="loanGraph" class="pie"></div>
+                    </div>
+                    <div id="pieSliceBlue2" class="hold">
+                        <div id="loanGraph2" class="pie"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 detail-xs-padding-left left-categry detail-loan-space-p">
+                <div class="row border-bottom-solid-gray pldetail_col">
+                    <div class="col-sm-4 col-xs-12 pl-p-top-10">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="circle-details circle-green-details pull-left"></div>
+					
+					
+                            <div class="heading2 pull-left">
+                                <span>LOAN PAID</span>
+				<i class="lp-icon customCircle ng-scope" tooltip="The amount includes penal charges (if any)." tooltip-trigger="click" tooltip-append-to-body="true">i</i>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 pull-right sub-sub-title right-padding-zero"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.amtPd}}</span></div>
+                    </div>
+					
+			                    <div class="col-sm-8 col-xs-12 pl-padding-xs">
+                        <div class="row sub-sub-title2">
+                            <div class="col-md-6 pull-left font-size-85">Principal</div>
+                            <!--<div class="pull-left pl-p-left-45">:</div>-->
+                            <div class="col-md-6 pull-right pl-p-left-35 pl-details-data font-size-detailsText"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.prncplPd}}</span></div>
+                        </div>
+
+                        <div class="row sub-sub-title2">
+                            <div class="col-md-6 pull-left font-size-85">Interest</div>
+                            <!--<div class="pull-left pl-p-left-51">:</div>-->
+                            <div class="col-md-6 pull-right pl-p-left-35 pl-details-data font-size-detailsText"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.intrstPd}}</span></div>
+                        </div>
+                    </div>
+
+                </div>			
+                <!--div class="row border-bottom-solid-gray pldetail_col">
+                    <div class="col-sm-4 col-xs-12 pl-p-top-10 padding-right-0">
+                        <div class="row">
+                            <div class="circle-details circle-green-details pull-left"></div>
+                            <div class="heading2 pull-left">
+                                <span>LOAN PAID</span>
+				<i class="lp-icon customCircle ng-scope" tooltip="The amount includes penal charges (if any)." tooltip-trigger="click" tooltip-append-to-body="true">i</i>
+                            </div>
+                        </div>
+
+                        <div class="row sub-sub-title"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.amtPd}}</span></div>
+                    </div>
+
+                    <div class="col-sm-8 col-xs-12 pl-padding-xs">
+                        <div class="row sub-sub-title2">
+                            <div class="pull-left font-size-85">Principal</div>
+                            <div class="pull-left pl-p-left-45">:</div>
+                            <div class="pull-left pl-p-left-35 pl-details-data font-size-detailsText"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.prncplPd}}</span></div>
+                        </div>
+
+                        <div class="row sub-sub-title2">
+                            <div class="pull-left font-size-85">Interest</div>
+                            <div class="pull-left pl-p-left-51">:</div>
+                            <div class="pull-left pl-p-left-35 pl-details-data font-size-detailsText"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.intrstPd}}</span></div>
+                        </div>
+                    </div>
+
+                </div-->
+
+                                <div class="row border-bottom-solid-gray pl-p-top-10 pldetail_col">
+                    <div class="col-xs-12 col-sm-4 pl-p-top-10">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="circle-details circle-orange pull-left legnd-align"></div>
+                            <div class="heading2 pull-left">
+                				<span>CURRENT OUTSTANDING</span>
+                				<span class="i-align"><i class="lp-icon customCircle ng-scope" tooltip="This includes Overdue charges (if any). For details please refer Overdue amount field." tooltip-trigger="click" tooltip-append-to-body="true">i</i></span>
+
+                			</div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6 pull-right sub-sub-title right-padding-zero">
+                            <span class="rupee-symbol-span"></span>
+                            <span> {{plLoanSummaryCtrl.loanDetailData.availBal}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-8 col-xs-12 pl-padding-xs">
+                        <div class="row sub-sub-title2 pl-padding-top-15">
+                            <div class="col-md-6 pull-left font-size-85">Principal</div>
+                            <!--<div class="pull-left pl-p-left-45">:</div>-->
+                    <div class="col-md-6 pull-right pl-p-left-35 pl-details-data font-size-detailsText"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.prncplOtstnd}}</span></div>
+                        </div>
+
+                        <!-- Commented as merge code with Preprod  // Jay // Mobile 2.5.1 // Mobile Banking-->
+                        <!-- <div class="row sub-sub-title2 pl-padding-top-15">
+                            <div class="col-md-6 pull-left font-size-85">Interest</div>
+                            <div class="col-md-6 pull-right pl-p-left-35 pl-details-data font-size-detailsText"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.intrstOtstnd}}</span></div>
+                        </div> -->
+                    </div>
+                </div>
+
+
+				<div class="row  pl-p-top-10 pldetail_col">
+                    <div class="col-xs-12 col-sm-4 pl-p-top-10">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="pull-left circle-details circle-violet"></div>
+                            <div class="pull-left heading2">
+				<span>OVERDUE AMOUNT</span>
+			    	<i class="lp-icon customCircle ng-scope" tooltip="The amount includes penal charges (if any)." tooltip-trigger="click" tooltip-append-to-body="true">i</i>
+ 			    </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 pull-right sub-sub-title right-padding-zero"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.amtOvrDue}}</span></div>
+                    </div>
+
+                    <div class="col-sm-8 col-xs-12 pl-padding-xs">
+                        <div class="row sub-sub-title2">
+                            <div class="col-md-6 pull-left font-size-85">Principal</div>
+                           <!-- <div class="pull-left pl-p-left-45">:</div>-->
+                            <div class="col-md-6 pull-right pl-p-left-35 pl-details-data font-size-detailsText"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.prncplDue}}</span></div>
+                        </div>
+
+                        <div class="row sub-sub-title2">
+                            <div class="col-md-6 pull-left font-size-85">Interest</div>
+                            <!--<div class="pull-left pl-p-left-51">:</div>-->
+                            <div class="col-md-6 pull-right pl-p-left-35 pl-details-data font-size-detailsText"><span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.intrstDue}}</span></div>
+                        </div>
+
+                        <div class="row sub-sub-title2">
+                            <div class="col-md-6 pull-left font-size-85">Other Charges</div>
+                           <!-- <div class="pull-left pl-p-left-17">:</div>-->
+                            <div class="col-md-6 pull-right pl-p-left-35 pl-details-data font-size-detailsText"><span class="rupee-symbol-span"></span><span>{{plLoanSummaryCtrl.loanDetailData.dueChrg}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row custom_row margin-top-20">
+           <div class="yellowBackground-details">
+                <div class="row">
+                <div class="col-xs-6 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row">
+                        <div class="col-xs-12; heading">Sanctioned amount</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 number-text1">
+                            <span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.snctndAmt}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-15 text-center border-right-solid-gray detail-xs-padding-bottom">
+                    <div class="row">
+                        <div class="col-xs-12; heading">Disbursed amount</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 number-text1">
+                            <span class="rupee-symbol-span"></span><span> {{plLoanSummaryCtrl.loanDetailData.dsbrsdAmt}}</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="row">
+
+                <div class="col-xs-6 col-sm-15 text-center border-right-solid-gray">
+                    <div class="row">
+                        <div class="col-xs-12; heading">Rate of interest</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 number-text1" ng-if="plLoanSummaryCtrl.loanDetailData.intrstRt!='NA'">
+                            {{plLoanSummaryCtrl.loanDetailData.intrstRt}}%
+                        </div>
+                        <div class="col-xs-12 number-text1" ng-if="plLoanSummaryCtrl.loanDetailData.intrstRt=='NA'">
+                            {{plLoanSummaryCtrl.loanDetailData.intrstRt}}%
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-sm-15 text-center border-right-solid-gray">
+                    <div class="row">
+                        <div class="col-xs-12; heading">Product name</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 number-text1">
+                            {{plLoanSummaryCtrl.loanDetailData.pdctNm}}
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="row">
+				
+				<div class="col-xs-6 col-sm-15 text-center border-right-solid-gray detail-xs-padding-top">
+                    <div class="row">
+                        <div class="col-xs-12; heading">Disbursement Date</div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 number-text1">
+                            {{plLoanSummaryCtrl.loanDetailData.dsbrsmtDt}}
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div>&nbsp;</div>
+
+        <div class="row custom_row">
+            <div class="col-xs-12 col-sm-3 float-right pl-button-margin">
+                <input ng-disabled="plLoanSummaryCtrl.loanDetailData.acctSts == 'C'" name="Search" type="button" value="Repayment Schedule" class="btn-red" ng-click="plLoanSummaryCtrl.openPersonalRepaymentSchd()" />
+            </div>
+
+            <div class="col-xs-12 col-sm-3 float-right pl-button-margin">
+                <input name="Search" type="button" value="Loan Statement" class="btn-red" ng-click="plLoanSummaryCtrl.openPersonalLoanStmt()" />
+            </div>
+
+            <div class="col-xs-12 col-sm-2 float-right pl-button-margin">
+                <input name="Back" type="button" value="Back" class="back-grey" ng-click="plLoanSummaryCtrl.backToSummary()" />
+            </div>
+        </div>
+        <div>&nbsp;</div>
+    </div>
+</div>

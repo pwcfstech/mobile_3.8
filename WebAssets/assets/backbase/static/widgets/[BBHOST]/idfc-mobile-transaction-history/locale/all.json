@@ -1,0 +1,44 @@
+{
+    "en-US": {
+	"Biller_label":"Biller",
+	"All_Label":"All",
+	"Submit_Label":"SUBMIT",
+	"DateFrom_Label":"Date From",
+	"DateTo_Label":"Date To",
+	"Rupee":"Rs.",
+        "PaidOn":"Date",
+	  "Amount":"Amount"
+	
+    },
+    "en-IN": {
+	"Biller_label":"Biller",
+	"All_Label":"All",
+	"Submit_Label":"SUBMIT",
+	"DateFrom_Label":"Date From",
+	"DateTo_Label":"Date To",
+	"Rupee":"Rs.",
+        "PaidOn":"Date",
+	  "Amount":"Amount"
+    },
+  "en-GB": {
+	"Biller_label":"Biller",
+	"All_Label":"All",
+	"Submit_Label":"SUBMIT",
+	"DateFrom_Label":"Date From",
+	"DateTo_Label":"Date To",
+	"Rupee":"Rs.",
+	"PaidOn":"Date",
+	"Amount":"Amount"
+  },
+	"en-CA": {
+		"Biller_label":"Biller",
+		"All_Label":"All",
+		"Submit_Label":"SUBMIT",
+		"DateFrom_Label":"Date From",
+		"DateTo_Label":"Date To",
+		"Rupee":"Rs.",
+		"PaidOn":"Date",
+		"Amount":"Amount"
+
+	}
+}

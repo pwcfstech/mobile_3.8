@@ -1,0 +1,409 @@
+<div class="lp-widget-content lp-widget-body  bib-wrapper widget-body panel-body">
+    <div ng-controller="GoldDetailsController as goldDetailsCtrl">
+        <div ng-if="goldDetailsCtrl.errorSpin">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+        </div>
+        <div class="lp-alerts">
+            <div alert="alert" ng-repeat="alert in goldDetailsCtrl.alerts" type="alert.type" close="closeAlert($index)" ng-bind="alert.msg"></div>
+        </div>
+		<div ng-hide="goldDetailsCtrl.serviceError">
+        <div ng-show="goldDetailsCtrl.saveSuccess" class="successMsg-div">
+            <!--<small class="glyphicon glyphicon-ok btn-tick"></small>-->
+			<div class="tickMarkDiv">
+				<img class="goldBond-pdf-img" ng-src="{{goldDetailsCtrl.tickIcon}}"/>
+			</div>
+            <div class="successMsg congratsMsg"><label lp-i18n="Congrats!"></label></div>
+            <div class="successMsg successMsg-label" ><label lp-i18n="Your request for Gold Bonds purchase has been received."></label></div>
+            <div class="successMsg successMsg-label" ><label lp-i18n="Your request number is"></label> 
+                <span class="successMsg-serviceNo">{{goldDetailsCtrl.srNumber}}</span>.
+				<label class="successMsg successMsg-label" lp-i18n="You can check the status of the request under Track Service Request"></label>
+            </div>
+        </div> 
+
+        <div class="lg-div">
+            <div class="info-panel-div">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 gold_l_width">
+                        <label class="info-panel-label gold_le"  lp-i18n="Total amount"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label gold_r_width">
+                        <span>
+                            <label class="rupee-symbol-span" ></label>
+                            <label class="info-panel-content gold_re " ng-bind= "goldDetailsCtrl.investmentDetails.totalAmount"></label>
+                        </span>
+
+
+
+                        <label class="rupee-symbol-span" ></label>						
+						
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 gold_l_width">
+                        <label class="info-panel-label gold_le"  lp-i18n="Gold Bond for"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label gold_r_width">
+                        <label class="info-panel-content gold_re" ng-bind="goldDetailsCtrl.investmentDetails.quantity"></label>
+                        <span class="gold_re">grams</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 gold_l_width">
+                        <label class="info-panel-label gold_le" lp-i18n="Debit account"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label gold_r_width">
+                        <label class="info-panel-content gold_re" ng-bind="goldDetailsCtrl.investmentDetails.account"></label>    
+                        
+                        
+                    </div>
+                </div>
+               
+				<div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 gold_l_width">
+                        <label class="info-panel-label gold_le" lp-i18n="DEMAT Account"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label gold_r_width">
+                        <label class="info-panel-content gold_re" ng-bind="goldDetailsCtrl.investmentDetails.dematAccount" ng-if="goldDetailsCtrl.investmentDetails.dematAccount"></label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-panel-div">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 gold_l_width">
+                        <label class="info-panel-label gold_le" lp-i18n="Applicant Name"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label gold_r_width">
+                        <label class="info-panel-content gold_re" ng-bind="goldDetailsCtrl.investmentDetails.name"></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 gold_l_width">
+                        <label class="info-panel-label gold_le" lp-i18n="Email address"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label gold_r_width">
+                        <label class="info-panel-content gold_re" style="word-break: break-word;" ng-bind="goldDetailsCtrl.investmentDetails.email"></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 gold_l_width">
+                        <label class="info-panel-label gold_le" lp-i18n="Contact no."></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label gold_r_width">
+                        <label class="info-panel-content gold_re" ng-bind="goldDetailsCtrl.investmentDetails.mblNo_UI"></label>
+                    </div>
+                </div>
+				
+				 <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 gold_l_width">
+                        <label class="info-panel-label gold_le" lp-i18n="Investment Date"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label gold_r_width">
+                        <label class="info-panel-content gold_re" ng-bind="goldDetailsCtrl.purchaseDate"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sm-div">
+            <div class="info-panel-div">
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label class="info-panel-label" lp-i18n="Gold Bond for"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label">
+                        <label class="info-panel-content" ng-bind="goldDetailsCtrl.investmentDetails.quantity"></label>
+                        <span class="grams-span">grams</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label class="info-panel-label" lp-i18n="Debit account"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label">
+                        <label class="info-panel-content" ng-bind="goldDetailsCtrl.investmentDetails.account"></label>
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div  class="info-panel-div">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label class="info-panel-label" lp-i18n="Total amount"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label">
+                        <span>
+                            <label class="rupee-symbol-span" ></label>
+                            <label class="info-panel-content" ng-bind="goldDetailsCtrl.investmentDetails.totalAmount"></label>
+                        </span>
+
+
+                    </div>
+                </div>
+				
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label class="info-panel-label" lp-i18n="DEMAT Account"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label">
+                        <label class="info-panel-content" ng-bind="goldDetailsCtrl.investmentDetails.dematAccount" ng-if="goldDetailsCtrl.investmentDetails.dematAccount"></label>
+                    </div>
+                </div>
+            </div>
+            </hr>
+
+            <div class="info-panel-div-sec">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label class="info-panel-label" lp-i18n="Applicant Name"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label">
+                        <label class="info-panel-content" ng-bind="goldDetailsCtrl.investmentDetails.name"></label>
+                    </div>
+                </div>
+            <!-- </div>
+
+            <div class="info-panel-div-sec"> -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label class="info-panel-label" lp-i18n="Email address"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label">
+                        <label class="info-panel-content" ng-bind="goldDetailsCtrl.investmentDetails.email"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-panel-div-sec">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label class="info-panel-label" lp-i18n="Contact no."></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label">
+                        <label class="info-panel-content" ng-bind="goldDetailsCtrl.investmentDetails.mblNo_UI"></label>
+                    </div>
+                </div>
+                
+            <!-- </div>
+			
+			<div class="info-panel-div-sec"> -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label class="info-panel-label" lp-i18n="Investment Date"></label>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-separator-left">:</div>
+                    <div class="col-md-6 col-lg-6 col-sm-6 content-label">
+                        <label class="info-panel-content" ng-bind="goldDetailsCtrl.purchaseDate"></label>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <!--</hr>-->
+             <div class="separator-div">
+                            <!--<div class="row button-row"></div> -->
+                        </div>
+        <div class="terms-div" ng-hide="goldDetailsCtrl.terms">
+            <!--<label lp-i18n="By clicking 'Purchase' you confirm that you have read" class="terms-label"></label>
+            <a href="#" ng-click="goldDetailsCtrl.openTermsAndConditions()" lp-i18n="Terms & Condition, EUIN document & FUTCA Document" class="terms-link"></a>-->
+			<input type="checkbox" ng-model="goldDetailsCtrl.investmentDetails.tnCCheckbox" ng-change="goldDetailsCtrl.tnCIsChecked()" class="check-tearms" />
+            <span><label lp-i18n=" I have read and understood" class="terms-label"></label></span>
+            <span><a href="#" id="myBtn" ng-click="goldDetailsCtrl.openGoldPopup()" lp-i18n="the features of the scheme including rights and duties of investors. Terms and Conditions apply." class="terms-link"></a></span>
+			<div class="goldInvst-err-msg">
+				<small class="text-danger" ng-show="goldDetailsCtrl.investmentDetails.tnCCheckboxError"
+						lp-i18n="Please accept the terms and conditions before you proceed"></small>
+			</div>
+        </div>
+
+        <div ng-show="goldDetailsCtrl.done">
+            <label  class="mail-msg-div" lp-i18n="This is an electronically generated receipt and need not be signed. You shall receive the Sovereign Gold Bond’s certificate on your email id from RBI after verification of your application."></label>
+        </div>
+        <!--<div class="separator-div">
+                &lt;!&ndash;<div class="row button-row"></div> &ndash;&gt;
+        </div>-->
+        <div class="row button-row bib-form-button button-desk" ng-hide="goldDetailsCtrl.purchaseDone">
+            <div class="col-sm-6 col-md-6 button-supporter">&nbsp;</div>
+            <div class="col-sm-6 col-md-6 text-right form-button-parent">
+                <button type="submit" aria-label="Submit" lp-i18n="Back"
+                        class="btn btn-primary secondary-btn-btn" name="Back"
+                        ng-click="goldDetailsCtrl.goBackToMainPage()">
+                </button>
+                <button type="submit" aria-label="Submit" lp-i18n="Purchase"
+                        class="btn btn-primary primary-btn-btn" style="margin-left:0% !important;" name="Purchase"
+                        ng-click="goldDetailsCtrl.saveGoldInvestmentDetails()">
+                </button>
+            </div>
+        </div>
+
+        <div class="row button-row bib-form-button button-mob" ng-hide="goldDetailsCtrl.purchaseDone">
+            <div class="col-sm-6 col-md-6 button-supporter">&nbsp;</div>
+            <div class="col-sm-6 col-md-6 text-right form-button-parent">
+                <button type="submit" aria-label="Submit" lp-i18n="Purchase"
+                        class="btn btn-primary primary-btn-btn" name="Purchase"
+                        ng-click="goldDetailsCtrl.saveGoldInvestmentDetails()">
+                </button>
+                <button type="submit" aria-label="Submit" lp-i18n="Back"
+                        class="btn btn-primary secondary-btn-btn" name="Back"
+                        ng-click="goldDetailsCtrl.goBackToMainPage()">
+                </button>
+            </div>
+        </div>
+
+        <div class="row button-row bib-form-button" ng-show="goldDetailsCtrl.done" style="border-top:none !important;">
+			<div class="errorDivEmail panel-body text-error" ng-if="goldDetailsCtrl.error.happened" lp-i18n="Your e-mail ID is not registered hence we are unable to send the cyber receipt. Please update your e-mail ID under My Profile section instantly."></div>
+			<div class="errorDivEmail panel-body text-success" ng-if="goldDetailsCtrl.emailSent" lp-i18n="Your Sovereign Gold Bond cyber receipt has been emailed to you successfully at your registered e-mail ID."></div>
+             <div class="separator-div">
+               <!-- <div class="row button-row"></div> -->
+           </div>
+            <div class="col-sm-6 col-md-6 text-right form-button-parent">
+                <button type="submit" aria-label="Submit" lp-i18n="Done"
+                        class="btn btn-primary primary-btn-btn" style="margin-left:0% !important;" name="Done"
+                        ng-click="goldDetailsCtrl.goToMainPage();">
+                </button>
+            </div>
+
+            <div class="col-sm-6 col-md-6 button-supporter receipt-desk">
+                <a alt="Email" class="gold-bonds-anchor">
+                    <img class=" goldBond-pdf-img" id="email" tooltip="Email" ng-src="{{goldDetailsCtrl.mailIcon}}"  ng-click="goldDetailsCtrl.sendEmail('email')"/>
+                </a>
+                 <!--<a alt="Print" class="gold-bonds-anchor">
+                    <img class=" goldBond-pdf-img" id="email" tooltip="Print" ng-src="{{goldDetailsCtrl.printIcon}}" ng-click="goldDetailsCtrl.downloadPDF('print');"/>
+                </a>
+                <a alt="Download PDF" class="gold-bonds-anchor">
+                    <img class="goldBond-pdf-img" id="DownLoad" tooltip="Download" ng-src="{{goldDetailsCtrl.downlloadIcon}}" ng-click="goldDetailsCtrl.downloadPDF('download')"/>
+                </a>-->
+            </div>
+			<!--<div class="col-sm-6 col-md-6 button-supporter receipt-mob">-->
+				<!--<a alt="Email" class="gold-bonds-anchor">-->
+					<!--<img class=" goldBond-pdf-img" id="email" tooltip="Email" ng-src="{{goldDetailsCtrl.mailIcon}}"  ng-click="goldDetailsCtrl.sendEmail('email')"/>-->
+				<!--</a>-->
+				<!--<a alt="Print" class="gold-bonds-anchor">-->
+					<!--<img class=" goldBond-pdf-img" id="print" tooltip="Print" ng-src="{{goldDetailsCtrl.printIcon}}" ng-click="goldDetailsCtrl.downloadPDF('print');"/>-->
+				<!--</a>-->
+				<!--<a alt="Download PDF"class="gold-bonds-anchor" >-->
+					<!--<img class="goldBond-pdf-img" id="DownLoad" tooltip="Download" ng-src="{{goldDetailsCtrl.downlloadIcon}}" ng-click="goldDetailsCtrl.downloadPDF('download')"/>-->
+				<!--</a>-->
+			<!--</div>-->
+        </div>
+        
+          </div>	
+
+
+
+<div id="goldModal" class="goldBondpopup goldmodal"> 
+
+ <!-- Modal content -->
+  <div class="goldmodal-content">
+
+  <div class="goldmodal-header">      
+	 <div class="popupHeader">
+		<label> DECLARATION AND TERMS & CONDITIONS </label>
+        <span class="goldmodal-close" id="pop_span" ng-click="goldDetailsCtrl.closeGoldPopup()">x</span>
+	 </div>
+	  
+  </div>
+
+    <div class="goldmodal-body">
+      <div class="gbScrollPopup" id="style-2">
+		<div><h4 class="gbPopupMarginContent gbSideHeading"><b>Declaration</b></h4><div class="gbDdeclarationDashedLine"></div></div>
+		<br/>
+		<div class="gbPopupMarginContent">
+			I/We hereby declare and undertake that<br/><br/>
+			<ol class="gbMarginList">
+				<li>my/our aggregate investment in Sovereign Gold bonds does not exceed 4000 Grams during the current financial year<br/><br/></li>
+				<li>the Information furnish in this application form is correct<br/><br/></li>
+				<li>I have read and understood the features of the scheme, the details of information for the investors as well as rights and duties of investors.<br/></li>
+			</ol>
+		</div>
+		
+		<div><h4 class="gbPopupMarginContent gbSideHeading2"><b>Terms and Conditions</b></h4><div class="gbDdeclarationDashedLine2"></div></div>
+		<br/>
+		<div class="gbPopupMarginContent">
+			<ol class="gbMarginList">
+				<li>The Sovereign Gold Bond (SGB) product is a third party product offered by RBI and IDFC Bank is not liable or responsible and shall not be held responsible or liable for the product.<br/><br/></li>
+				<li>Only application received within the range of, 1 grams and 4000 grams, shall be accepted.<br/><br/></li>
+				In case of insufficient funds in the account, the request will not be processed.<br/><br/></li>
+				<li>Only Single holding mode is allowed for online mode of the SGB product. The subscription to SGB shall be made in the name of the account holder who is applying for SGB under his/her login.<br/><br/></li>
+				<li>The nomination details for the corresponding account from which funds are debited (funding account) will automatically be applicable, provided that the nominee details are updated in IDFC Bank's system. Other details required by RBI for the purpose of issuance of SGB (e.g. Bank account number, address, contact details, PAN no etc.) shall be provided as per the details captured under the funding account.<br/><br/></li>
+				<li>The account number from where the funds are debited for subscribing for sovereign gold bond, those account number will be taken for receiving the interest pertaining to SGB also Maturity redemption will also happen in the same account.<br/><br/></li>
+				<li>If the application is rejected from RBI on account of breach for the maximum investment unit in the respective financial year permissible clause, then IDFC bank will not be held liable.<br/></li>
+			</ol>
+		</div>
+		<div><h4 class="gbPopupMarginContent gbSideHeading3"><b>Rights of the Investors</b></h4><div class="gbDdeclarationDashedLine3"></div></div>
+		<br/>
+		<div class="gbPopupMarginContent">
+			<ol class="gbMarginList">
+				<li>Holding Certificate will be issued to the investor by Reserve Bank of India. <br/><br/></li>
+				<li>The interest on the bond is paid half-yearly. The servicing of the Interest will be done through the bank A/c provided in the Application for or in through the A/c linked to the demat, as the case may be.<br/><br/></li>
+				<li>Application forms for investments under Sovereign Gold Bonds are available on the website at <a href="https://myidfcbank.com">https://myidfcbank.com</a><br/><br/></li>
+				<li>A sole holder or all the joint holders may nominate maximum of two nominees to the rights of the bonds.<br/><br/></li>
+				<li>The nomination will be registered at the Office of Issue and a Certificate of Registration will be issued to the holder.<br/><br/></li>
+				<li>The nomination can be altered by registering a fresh nomination.<br/><br/></li>
+				<li>The existing nomination can be cancelled by a request to the Office of Issue.<br/></li>
+			</ol>
+		</div>
+		<div><h4 class="gbPopupMarginContent gbSideHeading4"><b>Information for Investors of Sovereign Gold Bonds 2016</b></h4><div class="gbDdeclarationDashedLine4"></div></div>
+		<br/>
+		<div class="gbPopupMarginContent">
+			<ol class="gbMarginList">
+				<li><b>Category of Investor: </b>The Bonds will be restricted for sale to resident Indian entities including individuals, HUFs, trusts, charitable institutions and Universities.<br/><br/></li>
+				<li><b>Limit of investment: </b>Minimum subscription 1 Grams and Maximum investment 4000 Grams per investor per annum.<br/><br/></li>
+				<li><b>Date of Issue of bonds: </b>Date of issue of bond will be the same which is inscribed on the holding certificate.<br/><br/></li>
+				<li><b>Interest Option: </b>Half yearly Interval, will be served directly in to the account mentioned in the application form or in the Account linked with the Demat a/c.<br/><br/></li>
+				<li><b>Post Maturity Interest: </b>Post Maturity Interest is not payable.<br/><br/></li>
+				<li><b>Bank account: </b>It is mandatory for the investors to provide bank account details to facilitate payment of interest /maturity value.<br/><br/></li>
+				<li><b>Nomination Facility: </b>The sole Holder or all the joint holders may nominate a maximum of two persons as nominee.<br/><br/></li>
+				<li><b>Maturity period: </b>8 years from date of issue.<br/><br/></li>
+				<li><b>Premature redemption: </b>Allowed on the coupon dates from the 5th year of issuance.<br/><br/></li>
+				<li><b>Tradability: </b>Trading of these bonds on exchanges/NDS-OM shall be notified.<br/><br/></li>
+				<li><b>Loans from banks against the security of these bonds: </b>The holders of the said securities shall be entitled to create pledge, hypothecation or lien in favour of scheduled banks.<br/><br/></li>
+			</ol>
+		</div>  
+	</div>	
+    </div>
+
+   <div class="goldmodal-footer">
+      <button type="submit" id="pop_done" ng-click="goldDetailsCtrl.closeGoldPopup()" aria-label="Submit" lp-i18n="Done"  class="btn btn-primary primary-btn-btn gbButton" name="Done" style="width:100px !important;margin-top:25px;margin-left:0px !important;">
+		</button>
+    </div>
+ </div>
+
+
+
+
+
+
+</div>
+
+		  
+ </div>			  
+		  
+ </div>			  

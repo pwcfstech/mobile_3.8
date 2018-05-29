@@ -1,0 +1,39 @@
+<div ng-controller="ListOfDepositDetailsController" class="lp-open-deposits">
+	<div class="lp-alerts" tabindex="-1">
+		<div class="alert alert-danger depositsClosure-ng-cloak ng-cloak"
+			ng-show="fiModel.errors.length > 0">
+			<p ng-repeat="error in fiModel.errors">
+				<i class="lp-icon lp-icon-alert-error"></i> <span
+					lp-message="error.captionCode" lp-bundle="messages"></span>
+			</p>
+		</div>
+		<div class="alert alert-warning depositsClosure-ng-cloak ng-cloak"
+			ng-show="fiModel.warnings.length > 0">
+			<p ng-repeat="warning in fiModel.warnings">
+				<i class="lp-icon lp-icon-alert-error"></i> <span
+					lp-message="warning.captionCode" lp-bundle="messages"></span>
+			</p>
+		</div>
+	</div>
+	<div id="errorCustom"></div>
+	<!--<div id="wizardId">
+		<div lp-wizard="wizard" next-step="wizardNextStep"
+			previous-step="wizardPreviousStep" go-to-step="goToWizardStep"
+			get-active-step="getActiveWizardStep">
+			<div lp-wizard-step="wizard-step" heading="List of Deposits">
+				<div ng-include="partialsDir + 'ListofDeposits.html'"></div>
+			</div>
+			<div lp-wizard-step="wizard-step" heading="Congrats">
+				<div ng-include="partialsDir + 'Congrats.html'"></div>
+			</div>
+		</div>
+	</div>-->
+	<div lp-wizard="wizard" next-step="wizardNextStep" previous-step="wizardPreviousStep" go-to-step="goToWizardStep" get-active-step="getActiveWizardStep">
+		<div lp-wizard-step="wizard-step" heading="List of Deposits">
+			<div ng-include="partialsDir + 'ListofDeposits.html'"></div>
+		</div>
+		<div lp-wizard-step="wizard-step" heading="Congrats">
+			<div ng-include="partialsDir + 'Congrats.html'"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,19 @@
+<!--<div ng-controller="OpenDepositsWizardController" class="panel panel-default">  -->
+    <div wizard="wizard" next-step="wizardNextStep" previous-step="wizardPreviousStep" go-to-step="goToWizardStep" get-active-step="getActiveWizardStep">
+			<div wizard-step="wizard-step" heading="Update PAN">
+                <div ng-include="partialsDir + 'UpdatePAN.html'"></div>
+            </div>
+            <div wizard-step="wizard-step" heading="Enter/View Deposit Details">
+                <div ng-include="partialsDir + 'DepositDetails.html'"></div>
+            </div>
+            <div wizard-step="wizard-step" heading="Nominee Details">
+                <div ng-include="partialsDir + 'NomineeDetails.html'"></div>
+            </div>
+			<div wizard-step="wizard-step" heading="Accept Terms & Conditions">
+                <div ng-include="partialsDir + 'T&C.html'"></div>
+            </div>
+			<div wizard-step="wizard-step" heading="Congrats">
+                <div ng-include="partialsDir + 'Congrats.html'"></div>
+            </div>
+        </div>
+<!--</div>-->

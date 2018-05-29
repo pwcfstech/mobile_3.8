@@ -1,0 +1,205 @@
+<div class="ng-cloak generateApin-panelwidth" lp-responsive="lp-responsive" role="application">
+	<div class="lp-widget-content panel-body">
+		<div class="lp-alerts">
+			<div class="alert_msg" alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><span class="img_icon"><img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+<img ng-src="{{invalid_icon}}"/></span>{{alert.msg}}
+			</div>
+		</div>
+		<div class="text-danger" ng-show="OTPError" style="text-align:center">
+			That's the wrong OTP code
+		</div>
+	</div>
+	<div ng-show="openConfirmAPIN &amp;&amp; !serviceError">
+		<div data-ng-include="templates.confirm"></div>
+	</div>
+	<div ng-hide="openConfirmAPIN || serviceError">
+		<div ng-hide="showDebitForm">
+			<div id="pinGenerateForm">
+				<form novalidate="" class="generateApin-form-horizontal form-horizontal" role="form" name="UcicForm" id="firstform">
+					<div lp-field="lp-field" label="UCIC_label" class="generateApin-marginalign generateApin-button-marginBottom ucicclass lp-field form-group" tip="{{'Tip_UCIC'|translate}}">
+						<div>
+							<input class="generateApin-form-control form-control ipwidth inputClass cust-id" type="tel" name="UCIC" ng-model="control.ucic.value" ng-pattern="/^[0-9]*$/" loading="isLoading" required="true" />
+							<small class="text-danger error-message-display" ng-show="UcicForm.submitted &amp;&amp; UcicForm.UCIC.$error.required">{{'Error_UCIC_Required'|translate}}
+							</small>
+							<small class="text-danger error-message-display" ng-show="UcicForm.UCIC.$error.pattern">{{'Error_UCIC_Pattern'|translate}}
+							</small>
+							<small class="text-danger error-message-display" ng-show="UcicForm.submitted &amp;&amp;errors['ucicCheck'] &amp;&amp;!(UcicForm.UCIC.$error.required) &amp;&amp;!(UcicForm.UCIC.$error.pattern) ">
+								{{'Error_UCIC_Length'|translate}}
+							</small>
+						</div>
+					</div>
+
+					<div lp-field="lp-field" label="MOB_NUM_Label"  class="generateApin-marginalign generateApin-button-marginBottom ucicclass lp-field form-group" tip="{{'MOB_NUM_Tip'|translate}}">
+						<div>
+							<input class="generateApin-form-control form-control ipwidth inputClass cust-id" ng-minlength="10" type="tel" maxlength="10" name="mobile" id="mobile" ng-model="control.mobile.value" ng-pattern="/^[0-9]*$/" loading="isLoading" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" required="true" />
+							<small class="text-danger error-message-display" ng-show="UcicForm.submitted &amp;&amp; UcicForm.mobile.$error.required">
+								{{'Error_MOB_NUM_Required'|translate}}
+
+							</small>
+							<small class="text-danger error-message-display" ng-show="UcicForm.mobile.$error.pattern">
+								{{'Error_MOB_NUM_Pattern'|translate}}
+							</small>
+							<small class="text-danger error-message-display" ng-show="UcicForm.mobile.$error.minlength">
+								Mobile Number should be 10 digits.
+							</small>
+
+						</div>
+					</div>
+
+					<div class="borderLine"></div>
+					<div class="generateApin-div-td-dep-ab generateApin-button-margin">
+						<button class="btn btn-primary generateApin-generateApin-btn-align primary-btn-apingen primary-btn-btn btnNext ipwidth" ng-click="UcicForm.submitted=true ; openDebitForm(UcicForm.$valid)" type="submit">
+							{{'btn_Next'|translate|uppercase}}
+						</button>
+						<button type="button" class="btn btn-primary generateApin-generateApin-btn-align secondary-btn-apingen secondary-btn-btn btnClear ipwidth" ng-click="UcicForm.submitted=false ; resetUCICForm()">{{'btn_Clear'|translate|uppercase}}
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div ng-show="showDebitForm">
+			<div id="debitForm">
+				<form novalidate="" class="generateApin-form-horizontal form-horizontal" role="form" name="debitCardForm" id="secondform">
+					<div class="form-group debitformgroup">
+						<div class="generateApin-floatLeft generateApin-form-div generateApin-margin">
+							<div class="generateApin-icon">
+								<span lp-i18n="{{'Debit_Number'|translate}}" class="generateApin-label-span"></span>
+								<i class="lp-icon infoIcon ng-scope manualIcon1" tooltip="{{'Tip_CardNumber'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+									<img src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+							</div>
+						</div>
+						<div class="generateApin-floatLeft">
+							<div class="debitInput"><input class="generateApin-form-control form-control cardInput" type="tel" name="cardNo" ng-model="control.cardNumber.value" ng-pattern="/^[0-9]*$/" loading="isLoading" ng-keyup="validateCardFirstSixDigits(control.cardNumber.value)" ng-disabled="lockFields || cancelTransaction" required="true" />
+							</div>
+							<div class="generateApin-error-message-align">
+								<small class="text-danger" ng-show="debitCardForm.submitted &amp;&amp; debitCardForm.cardNo.$error.required">
+									{{'Error_CardNumber_Required'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.cardNo.$error.pattern">{{'Error_CardNumber_Pattern'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.submitted &amp;&amp; errors['debitCheck'] &amp;&amp; !(debitCardForm.cardNo.$error.pattern) &amp;&amp; !(debitCardForm.cardNo.$error.required)">
+									{{'Error_CardNumber_Length'|translate}}
+								</small>
+								<small class="text-danger" ng-show="errors['debitCardNumberCheck'] &amp;&amp; !(debitCardForm.cardNo.$error.pattern) &amp;&amp; !(debitCardForm.cardNo.$error.required)">
+									{{'Error_CardNumber_Invalid'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.cardNo.digits">{{'Error_CardNumber_FirstSixDigits'|translate}}</small>
+							</div>
+						</div>
+					</div>
+					<input style="display:none" type="text" name="fakeusernameremembered"/>
+					<input style="display:none" type="password" name="fakepasswordremembered"/>
+					<div class="form-group debitformgroup monthYearform">
+						<div class="generateApin-floatLeft generateApin-form-div generateApin-margin">
+							<div class="mth-margin"><span lp-i18n="{{'Month_Label'|translate}}" class="generateApin-label-span"></span></div>
+						</div>
+						<div class="generateApin-floatLeft">
+							<div class="debitInput mth-input">
+								<select class="generateApin-form-control IDFC-dropdown form-control generateApin-dropdown-month ipwidth inputClass" ng-model="control.expiryMonth.value" ng-options="item as item for item in expiryMonthList" ng-change="save('expiryMonth', control.expiryMonth.value)" ng-disabled="lockFields || cancelTransaction"/>
+							</div>
+							<div class="generateApin-floatLeft generateApin-form-div generateApin-margin">
+								<div class="marginTop"><span lp-i18n="{{'Year_Label'|translate}}" class="generateApin-label-span"></span></div>
+								<i class="lp-icon infoIcon ng-scope manualIcon3" tooltip="{{'Tip_Year'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+									<img src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+							</div>
+							<div class="debitInput">
+								<select id="yearSelect" class="generateApin-form-control IDFC-dropdown form-control generateApin-dropdown-year ipwidth inputClass" ng-model="control.expiryYear.value" ng-options="item as item for item in expiryYearList" ng-change="save('expiryYear', control.expiryYear.value)" ng-disabled="lockFields || cancelTransaction"/>
+							</div>
+							<div class="generateApin-error-message-align">
+								<small class="text-danger" ng-show="debitCardForm.submitted &amp;&amp; debitCardForm.month.$error.required">
+									{{'Error_ExpiryMonth_Required'|translate}}
+								</small>
+								<small class="text-danger" ng-show="checkMonth">{{'Error_ExpiryMonth_Invalid'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.month.$error.pattern">{{'Error_ExpiryMonth_Pattern'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.month.$error.maxlength">{{'Error_ExpiryMonth_MaxLength'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.submitted &amp;&amp; debitCardForm.year.$error.required">
+									{{'Error_ExpiryYear_Required'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.year.$error.pattern">{{'Error_ExpiryYear_Pattern'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.year.$error.maxlength">{{'Error_ExpiryYear_MaxLength'|translate}}
+								</small>
+								<small class="text-danger" ng-show="checkYear  ">{{'Error_ExpiryYear_Invalid'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.submitted &amp;&amp;errors['expirycheck'] ">
+									{{'Error_ExpiryFields'|translate}}
+								</small>
+							</div>
+						</div>
+					</div>
+					<div class="form-group debitformgroup">
+						<div class="generateApin-floatLeft generateApin-form-div generateApin-margin">
+							<div class="generateApin-icon">
+								<span lp-i18n="{{'CVV_Label'|translate}}" class="generateApin-label-span"></span>
+								<i class="lp-icon infoIcon ng-scope manualIcon4" tooltip="{{'Tip_CVV'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+									<img src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+							</div>
+						</div>
+						<div class="generateApin-floatLeft">
+							<div class="debitInput">
+								<input class="generateApin-form-control form-control cardInput" type="tel" style="-webkit-text-security:disc" name="CVV" ng-pattern="/^[0-9]*$/" ng-model="control.cvv.value" loading="isLoading" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" ng-disabled="lockFields || cancelTransaction" required="true"/>
+							</div>
+							<div class="generateApin-error-message-align">
+								<small class="text-danger" ng-show="debitCardForm.submitted &amp;&amp; debitCardForm.CVV.$error.required">
+									{{'Error_CVV_Required'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.CVV.$error.pattern &amp;&amp; !(debitCardForm.CVV.$error.required)&amp;&amp; !(debitCardForm.CVV.$error.maxlength)">
+									{{'Error_CVV_Pattern'|translate}}
+								</small>
+								<small class="text-danger" ng-show="debitCardForm.submitted &amp;&amp;errors['cvvCheck'] &amp;&amp; !(debitCardForm.CVV.$error.required) &amp;&amp; !(debitCardForm.CVV.$error.pattern) &amp;&amp; !(debitCardForm.CVV.$error.maxlength)">
+									{{'Error_CVV_Length'|translate}}
+								</small>
+							</div>
+						</div>
+					</div>
+					<div class="borderLine1"></div>
+					<div class="generateApin-div-td-dep-ab text-center otpbuttonForm" id="btnConfirmApin1" ng-show="OTPFlag">
+						<button class="btn btn-primary generateApin-btn-align primary-btn-apingen primary-btn-btn btnNext ipwidth" ng-click="debitCardForm.submitted=true; submitForm(debitCardForm.$valid,debitCardForm)" type="submit" name="createAPIN">{{'btn_Next'|translate|uppercase}}
+						</button>
+						<button type="button" class="btn btn-primary generateApin-btn-align secondary-btn-apingen secondary-btn-btn btnClear ipwidth" ng-click="debitCardForm.submitted=false; resetCardForm()">{{'btn_Clear'|translate|uppercase}}
+						</button>
+					</div>
+				</form>
+			</div>
+			<div ng-hide="OTPFlag" class="generateApin-otv-div">
+				<h4>
+					<div class="text-success sucessOTP" ng-show="success.happened" style="text-align:center">
+						<div class="img_padding"><img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+							<img ng-src="{{tick}}"/>
+						</div>
+						{{ success.msg }}
+					</div>
+					<div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+				</h4>
+				<form name="OTPform" class="generateApin-form-horizontal form-horizontal otpform1">
+					<div class="otp-label-generateApin" lp-field="lp-field" label="Mobile_Label" tip="">
+						<div>
+							<input class="generateApin-form-control form-control ipwidth inputClass" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true"/>
+						</div>
+					</div>
+					<input style="display:none" type="text" name="fakeusernameremembered"/>
+					<input style="display:none" type="password" name="fakepasswordremembered"/>
+					<div class="otp-label-generateApin otpLabelDiv" id="OtpInput" lp-field="lp-field" label="OTP_Label" tip="{{'Tip_OTP'|translate}}">
+						<div>
+							<input class="generateApin-form-control form-control ipwidth inputClass" type="tel" name="otp" style="-webkit-text-security:disc" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="control.otpValue" required="true" ng-disabled="cancelTransaction" style="width: 197px; -webkit-text-security:disc;"/>
+							<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+							<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+							<small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+							<small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+						</div>
+					</div>
+					<div class="generateApindiv-td-dep-ab">
+						<div id="btnConfirmApin2" class="otp-generateApin-btn text-center">
+							<button class="btn btn-primary generateApin-btn-align primary-btn-apingen primary-btn-btn ipwidth btnNext btnNext1" ng-disabled="cancelTransaction" type="submit" id="verifyOTP-btn-generate-apin" name="verifyOTP" ng-click="OTPform.submitted=true; verifyOTP(OTPform.$valid)">{{'btn_Next'|translate|uppercase}}</button>
+							<button class="btn btn-primary generateApin-btn-align primary-btn-apingen secondary-btn-btn ipwidth btnClear btnClear1" ng-disabled="cancelTransaction" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

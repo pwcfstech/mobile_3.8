@@ -1,0 +1,40 @@
+.lp-badges {
+  padding: 4px 7px;
+  position: absolute;
+  color: @btn-primary-color;
+  border: 1px solid @btn-primary-color;
+  -webkit-box-shadow: 0px 0px 0px 1px @panel-default-border;
+  -moz-box-shadow: 0px 0px 0px 1px @panel-default-border;
+  box-shadow: 0px 0px 0px 1px @panel-default-border;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+ }
+
+// animation
+@keyframes fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.showBadge {
+  animation: fade 1s;
+  -webkit-animation: fade 1s;
+}
+
+.lp-badges-alert {
+  background-color: @brand-danger;
+}
+
+.lp-badges-info {
+  background-color: @alert-info-text;
+}
+
+.lp-badges-success {
+  background-color: @state-success-text;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- add theme -->
+    <link rel="stylesheet" href="bower_components/theme/themes/default/css/base.css">
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+    <!-- add main libs only dev required -->
+    <script>window.requirejs || document.write("<script src='bower_components/requirejs/require.js'>\x3C/script>");</script>
+    <script>window.jQuery || document.write("<script src='bower_components/jquery/dist/jquery.js'>\x3C/script>");</script>
+    <script>window.angular || document.write("<script src='bower_components/angular/angular.js'>\x3C/script>");</script>
+    <script src="bower_components/config/requirejs.conf.js"></script>
+
+    <script>
+    require(['base', 'mock'], function (base, mock) {
+        window.b$ = { portal: mock.Portal({ }) };
+        window.bd = mock.Bd({});
+        window.launchpad = window.launchpad || {};
+        window.launchpad.i18n = {
+            path: 'bower_components/config/i18n',
+            mergedFiles: true
+        };
+        mock.Widget({ // Returns Promise.
+            model: './model.xml',
+            view: document.body,
+            preferences: {
+                // Override preferences from model.xml
+                'src': './index.dev.html',
+                'some-pref': 'some-value',
+            }
+        }).then(function(__WIDGET__) {
+            base.requireWidget(__WIDGET__, 'scripts/main');
+        });
+    });
+    </script>
+
+</head>
+
+<body ng-controller="MainCtrl as mainCtrl" class="lp-idfc-travel-insurance" ng-cloak="true">
+
+    <h1>idfc-travel-insurance</h1>
+
+    <div class="source_section">
+        <h2>Default</h2>
+
+        <markdown>
+            Components description with **markdown**.
+        </markdown>
+
+        <code class="src-html">
+            <lp-template src="'templates/main.ng.html'"></lp-template>
+        </code>
+
+        <div class="source_example">
+            <lp-template src="'templates/main.ng.html'"></lp-template>
+        </div>
+    </div>
+
+</body>
+</html>

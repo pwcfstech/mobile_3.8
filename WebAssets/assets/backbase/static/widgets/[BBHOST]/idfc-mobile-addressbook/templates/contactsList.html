@@ -1,0 +1,10 @@
+<table class="no-margin-bottom table" >
+    <tbody ng-repeat="contact in contactsModel.contacts | filter: { nickName: search } | orderBy: 'nickName' track by contact.id" ng-class="{selected: contactsModel.selected == contact.id}">
+        <tr class="cursor-pointer borderbottom" ng-click="selectContact(contact)" ng-class="{'selected-contact': contactsModel.currentContact === contact}">
+            <td class="col-xs-9 valign-middle break-word"><span class="pratz-bene-name-list">{{contact.nickName}}</span></td>
+        </tr>
+    </tbody>
+</table>
+<span ng-show="widgetSize === 'small' && contactsModel.contacts.length === 0">
+    <lp-template src="'templates/contactsNone.html'"></lp-template>
+</span>

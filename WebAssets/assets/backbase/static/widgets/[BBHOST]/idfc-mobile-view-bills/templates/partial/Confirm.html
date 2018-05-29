@@ -1,0 +1,208 @@
+<div ng-hide="paySuccess">
+	<div>
+		<div class="payBill-confirm-upper-div">
+			<div class="clearfix">
+				<div>
+					<div class="pull-left" style="margin-left:8%">
+						<div>
+							<div class="accounts-status-font accounts-status head-float marginBottom">
+								<label for="accountType" class="label-font head-float billpay-confirm-label-width" style="font-size:14pt!important;font-family:gotham_medium!important;color:#4A4A4A">Bill
+									Details</label>
+							</div>
+						</div>
+						<div>
+							<div class="accounts-status-font accounts-status head-float">
+								<label for="accountType" class="label-font fontFamily head-float billpay-confirm-label-width">Nickname</label><br>
+								<label name="accountType" class="head-float fontDetail fontFamily add-acc-type-add addressbook-select labelBottom IDFC-dropdown add-bill-auth">{{selectedBill.bllrShrtNm}}</label>
+							</div>
+						</div>
+						<div>
+							<div class="accounts-status-font accounts-status head-float">
+								<label for="accountType" class="label-font fontFamily head-float billpay-confirm-label-width">Bill
+									Name</label><br>
+								<label name="accountType" class="head-float fontDetail fontFamily add-acc-type-add addressbook-select IDFC-dropdown labelBottom add-bill-auth">{{selectedBill.billerNamefromDB}}</label>
+							</div>
+						</div>
+						<div>
+							<div class="accounts-status-font accounts-status head-float">
+								<label for="accountType" class="label-font head-float billpay-confirm-label-width fontFamily">Status</label><br>
+								<label name="accountType" class="head-float add-acc-type-add addressbook-select IDFC-dropdown labelBottom add-bill-auth fontFamily fontDetail">{{selectedBill.bllSts}}</label>
+							</div>
+						</div>
+						<div>
+							<div class="accounts-status-font accounts-status head-float">
+								<label for="accountType" class="label-font head-float billpay-confirm-label-width fontFamily">Location</label><br>
+								<label name="accountType" class="head-float add-acc-type-add addressbook-select IDFC-dropdown labelBottom add-bill-auth fontDetail fontFamily">{{selectedBill.billerLocationfromDB}}</label>
+							</div>
+						</div>
+						<div>
+							<div class="accounts-status-font accounts-status head-float">
+								<label for="accountType" class="label-font head-float billpay-confirm-label-width fontFamily">Category</label><br>
+								<label name="accountType" class="head-float add-acc-type-add addressbook-select labelBottom IDFC-dropdown add-bill-auth fontDetail fontFamily">{{selectedBill.billerCategoryfromDB}}</label>
+							</div>
+						</div>
+						<div ng-repeat="selectedAuth in selectedAuthList">
+							<div class="accounts-status-font accounts-status head-float">
+								<label for="accountType" class="label-font fontFamily head-float billpay-confirm-label-width">{{selectedAuth.authLable}}</label><br>
+								<label name="accountType" class="head-float add-acc-type-add addressbook-select IDFC-dropdown add-bill-auth fontDetail fontFamily">{{selectedAuth.authVal}}</label>
+							</div>
+						</div>
+					</div>
+					<div class="pull-right text-right bill-pay-confirm-right-block" style="text-align:center!important;width:100%">
+						<div class="borderLine1"></div>
+						<div class="h3 lp-account-amount amtDiv">
+							<span class="sr-only">Bill Amount</span>
+							<span class="RupeeSymbol">&#8377;</span>
+							<span>{{showBillAmt | currency:' '}}</span>
+						</div>
+						<div class="lp-account-bal fontFamily">
+<span class="balanceAdjust balance-class fontSize" style="">Due
+On</span><span class="colonAdjust colon-class">:</span><span class="fontSize">{{selectedBill.billDueDt|date:'dd MMMM yyyy'}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<form name="payBillConfirmationForm">
+			<div class="add-bill-aaount-for-pay payBill-confirm-lower-div formDiv">
+				<div>
+					<div class="add-floatLeft add-form-div billconfirm-details">
+						<label class="fontSize add-bill-label form-labels labelClass">Enter the Amount</label>
+					</div>
+					<div class="">
+						<div>
+							<span class="RupeeSymbol rupeeCustom">&#8377;</span>
+							<input type="tel" name="pmtamt" id="pmtamt" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" class="addficiary-control add-bill-select-left ipHeight text-right fontFamily ip-fontSize bigInputBox" ng-pattern="/^[ (0-9)]*[\.]?[ (0-9)]*$/" ng-maxlength="10" ng-class="{lpinputerror: submitted && addContact.name.$error.required && addContact.name.$error.maxlength}" ng-model="selectedBill.editedBillAmt" required ng-disabled="selectedBill.billerType == 'BILLER'" /><label class="lbl-decimal">.</label>
+							<input type="tel" id="pmtamt1" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" ng-model="selectedBill.decimalAmount" ng-pattern="/^[ (0-9)]*$/" onCut="return false" class="addficiary-control add-bill-select-left ipHeight fontFamily smallTxtBox ip-fontSize boxShadowNone ip-fontSize" ng-maxlength="2" ng-class="{lpinputerror: submitted && addContact.name.$error.required && addContact.name.$error.maxlength}" required ng-disabled="selectedBill.billerType == 'BILLER'" />
+						</div>
+						<div role="alert" class="viewBill-error">
+<span class="error text-danger1" ng-show="payBillConfirmationForm.pmtamt.$error.required">
+Looks like you skipped entering Payment Amount</span>
+						</div>
+						<div role="alert" class="viewBill-error">
+<span class="error text-danger1" ng-show="payBillConfirmationForm.pmtamt.$error.maxlength">
+Please Enter a Valid Payment Amount.</span>
+						</div>
+						<div role="alert" class="viewBill-error">
+<span class="error text-danger1" ng-show="payBillConfirmationForm.pmtamt.$error.pattern">
+Please Enter a Valid Payment Amount.</span>
+						</div>
+						<div role="alert" class="viewBill-error">
+<span class="error text-danger1" ng-show="selectedBill.editedBillAmt > selectedBill.availableBalance">
+You dont have enough in your account to pay this bill. Please add money to your account or choose a different account.</span>
+						</div>
+						<div role="alert" class="viewBill-error">
+<span class="error text-danger1" ng-show="selectedBill.editedBillAmt <= 0 ">
+Payment Amount can't be Zero.</span>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="add-floatLeft add-form-div billconfirm-details topClass">
+						<label for="accountType" class="add-bill-label fontSize labelClass">Account for Payment</label>
+					</div>
+					<div class="">
+						<div>
+							<select id="accountType" name="accountType" class="accNoLeft addficiary-control selectClass ipWidth ipHeight add-acc-type-add addressbook-select IDFC-dropdown add-bill-select-left" ng-model="selectedBill.debitAccount" ng-maxlength="50" ng-options="debitaccount.id as debitaccount.id for debitaccount in debitAccountsListforBill" />
+							<div class="rupeeBalance fontSize"><span class="rupee-symbol-span"></span><label class="fontavlBalance">{{selectedBill.availableBalance | currency:' '}}</label></div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="add-floatLeft add-form-div billconfirm-details">
+						<label class="add-bill-label fontSize labelClass">Note</label>
+					</div>
+					<div>
+						<input class="ipWidth ipHeight borderClass bottomZero boxShadowNone note-input" id="paybilldesc" type="text" ng-maxlength="50" my-maxlength="5" ng-model="selectedBill.billPayDescription" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false"/>
+						<div role="alert"class="viewBill-error">
+<span class="error text-danger1" ng-show="payBillConfirmationForm.description.$error.maxlength">
+Invalid description</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="borderLine"></div>
+
+			 <!-- RSA changes by Xebia starts -->
+
+                <div ng-show="showDenyMessage">
+                    <div class="rsa-deny-message">
+                        {{cqObject.RSA_DENY_MESSAGE}} 
+                    </div>
+                </div>
+
+                <div ng-show="showCancelTransactionMessage">
+                    <div class="rsa-cancel-transaction-message">
+                            {{cqObject.CANCEL_TRANSACTION}} 
+                    </div>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                class="rsa-margin-top" type="submit" name="No"
+                                ng-click="cancelRSATransaction()">Okay</button>
+                    </div>
+                </div>
+
+                <div ng-show="showSetupCQMessage">
+                    <p>
+                        <center class="rsa-setupCQMessage">{{cqObject.SETUP_CQ_MESSAGE}}
+                        </center>
+                    </p>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="Yes"
+                                ng-click="showSetupCQ()">Update Now</button>
+
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="No"
+                                ng-click="showSetupCQMessage = false; showCancelTransactionMessage = true;">Cancel</button>
+                    </div>
+                </div>
+
+                <div ng-hide="hideQuesFlag" class="rsa-border-div">
+                    
+                    <div ng-bind="showCQError" class="rsa-cancel-transaction-message">
+                    </div>
+
+                    <!-- <form name="Questionform" class="form-horizontal"> -->
+                        <div ng-if="showQuestionDiv">
+                            
+                                <div class="rsa-margin-top">
+                                    <label ng-bind="challengeQuestions" class="rsa-bold-font"></label>
+                                    <input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer"
+                                    ng-model="challengeQuestion.answer"
+                                    required="true"/>
+                                </div>
+                            
+                             
+                            <div class="rsa-text-center rsa-margin-bottom">
+                                <button class="rsa-button btn btn-primary primary-btn-btn primary-btn-ft"
+                                    type="submit" name="verifyAnswers"
+                                    ng-click="verifyCQAnswer()"
+                                    ng-disabled="!(challengeQuestion.answer)"
+                                    lp-i18n="Submit Answer">  
+                                </button>
+                            </div>
+                        </div>
+
+                        <div ng-show="showWrongAnswerMessage" class="rsa-button" >
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="tryAgain"
+                                ng-click="fetchCQ()">Try Again</button>
+                        </div>
+
+                    <!-- </form> -->
+                </div>
+
+        <!-- RSA changes by Xebia ends -->
+			
+			<div class="pay-btn-div" style="">
+				<button class="btn btn-primary primary-btn-btn ng-binding billDetails-Confirm-prm-button btnPay" ng-click="clickPayConfirm(selectedBill,payBillConfirmationForm.$valid)" type="submit" name="proceed" ng-show="isPayAllowed" ng-disabled="payBillConfirmationForm.pmtamt.$error.required">Pay</button>
+			</div>
+			<div style="clear:none" class="disClaimerClass fontSize">
+				<div style="color:#ff8f1b;font-family:gotham_medium!important">Disclaimer:</div>
+				<div class="fontFamily" style="color:#AEAEAE">This bill can be paid twice as
+					it's 'presentment' or 'presentment & payment' type of biller.</div>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,50 @@
+<div class="row2">
+    
+    <div class="yellowBackground" ng-if="lapSoaCtrl.names.length==0">
+      <div ng-show="lapSoaCtrl.error.happened" ng-bind="lapSoaCtrl.error.msg" class="text-danger"></div>
+    </div>
+	 <div class="yellowBackground" ng-if="lapSoaCtrl.names.length>0">
+      <div class="col-sm-5 col-lg-5 padding">
+        <div class="form-group">
+          <label for="inputEmail" class="col-md-5 control-label-pl LoanANpadding">{{'Lbl_Loan_Account'|translate}}</label>
+          <div class="col-md-7">
+            <select class="form-control" id="exampleSelect1" ng-model="lapSoaCtrl.selectedName" ng-change="lapSoaCtrl.getLoanStmtByAccNo(lapSoaCtrl.selectedName,true,0)" ng-options="x for x in lapSoaCtrl.names">
+              <option value= "" ng-if="lapSoaCtrl.names.length>1" >{{'SELECT_ACC_NO'|translate}}</option>
+            </select>			
+            </div>
+          </div>
+        </div>     
+        <div class="col-sm-3 col-lg-3 padding">
+          <div class="form-group">
+            <label for="inputPassword" class="col-md-5 control-label-pl LoanANpadding">{{'Lbl_From_Date'| translate}}</label>
+            <div class="col-md-7">
+              <input id="txtFromDate"   ng-click="lapSoaCtrl.openFromDateCalendar($event)" type="text" required="true" name="scheduleFromLoanDate" ng-model="lapSoaCtrl.dates.fromDate" datepicker-popup="dd/MMM/yyyy" is-open="lapSoaCtrl.persistFromDate.opened" datepicker-options="dateOptions" tabindex="0" placeholder="{{'Lbl_select_date' | translate}}" aria-label="select date"  class="input-boxes rep-acc-date-inputfeild-lapsoa" show-button-bar="false" readonly="readonly"/><span ng-click="lapSoaCtrl.openFromDateCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon cal-icon-position-lapsoa" min-date="lapSoaCtrl.disbrsDt" max-date="lapSoaCtrl.dates.todaysDate"></span>
+          </div>
+        </div>
+      </div>      
+      <div class="col-sm-3 col-lg-3 padding">
+        <div class="form-group">
+          <label for="inputLabel3" class="col-md-5 control-label-pl LoanANpadding">{{'Lbl_To_Date' |translate}}</label>
+          <div class="col-md-7">
+            <input id="txtToDate" ng-click="lapSoaCtrl.openToDateCalendar($event)"  type="text" required="true" name="scheduleToLoanDate" ng-model="lapSoaCtrl.dates.toDate" datepicker-popup="dd/MMM/yyyy" is-open="lapSoaCtrl.persistToDate.opened" datepicker-options="dateOptions" min-date="lapSoaCtrl.dates.fromDate" tabindex="0" placeholder="{{'Lbl_select_date' | translate}}" aria-label="select date" class="input-boxes rep-acc-date-inputfeild-lapsoa" show-button-bar="false" readonly="readonly"/><span ng-click="lapSoaCtrl.openToDateCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon cal-icon-position-lapsoa"  max-date="lapSoaCtrl.dates.todaysDate"></span>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class="form-group buttonAlign-margin">
+          <div class="col-md-12 padding">
+           <input id="Search" name="Search" type="button" value="{{'Btn_Search' | translate}}" ng-click="lapSoaCtrl.filterAccounts()"  class="red buttonWidth"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 textAlign-center marginMsg" ng-if="lapSoaCtrl.error.happened && lapSoaCtrl.transactionEmpty" >
+   			<small ng-bind="lapSoaCtrl.error.msg"></small>
+			</div>
+
+      <div class="col-md-12 textAlign-center marginMsg" ng-if="lapSoaCtrl.error.happened && lapSoaCtrl.pdfError" >
+        <small ng-bind="lapSoaCtrl.error.msg"></small>
+			</div>
+	
+    </div>
+</div>

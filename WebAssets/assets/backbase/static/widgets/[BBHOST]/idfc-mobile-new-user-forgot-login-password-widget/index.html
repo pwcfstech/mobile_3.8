@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main')"
+    class="lp-idfc-new-user-forgot-login-password-widget" ng-controller="NewUserCtrl">
+<div ng-show="errorSpin">
+    <div class="panel-message loading-panel" role="alert">
+        <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+        <span class="sr-only">Busy</span>
+    </div>
+</div>
+<div class="ng-cloak forgotPassword-panelwidth">
+    <div class="lp-widget-content">
+        <div class="panel-heading">
+            <h4 style="text-align:center"><span style="font-weight:bold"></span></h4>
+            <div class="lp-alerts">
+                <div class="alert_msg" alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><span class="img_icon"><img class="img-width" src="../../../features/[BBHOST]/theme-idfc/images/invalid_xxxhdpi.png"/>
+<img ng-src="{{invalid_xxxhdpi}}"/></span>{{alert.msg}}
+                </div>
+                <div class="text-success sucessOTP" ng-show="success.happened" style="text-align:center">
+                    <div class="img_padding">
+                        <img src="../../../features/[BBHOST]/theme-idfc/images/tick.png"/>
+                        <img ng-src="{{tick}}"/>
+                    </div>
+                    {{success.msg }}
+                </div>
+                <div class="text-danger" ng-show="error.happened1">{{ error.msg }}</div>
+                <div class="text-danger text-danger-New" ng-show="error.happened">
+                    <div class="text-danger-icon">
+                        <img src="../../../features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+                        <img ng-src="{{invalid_icon}}"/>
+                    </div>
+                    <div class="dangerText">{{ error.msg }}</div>
+                </div>
+                <div class="text-danger" ng-show="OTPError" style="text-align:center">That's the wrong OTP code</div>
+            </div>
+            <div class="lp-widget-body">
+                <div ng-if="ShowForgotPasswordForm">
+                    <div data-ng-include="templates.forgotPassword"></div>
+                </div>
+                <div ng-if="!ShowForgotPasswordForm">
+                    <div ng-hide="showDebitForm">
+                        <div id="newRegistrationForm1">
+                            <form novalidate="" class="forgetPassword-form-horizontal form-horizontal" role="form" name="UsenameForm" id="firstform">
+                                <div lp-field="lp-field" label="Username_Label" class="forgotPassword-label forgotPassword-input-width-text text-center" tip="Please provide your Username ">
+                                    <div>
+                                        <input class="form-control_Password forgetPassword-inp-width" type="text" name="username" ng-model="control.username.value" loading="isLoading" required="true"/>
+                                        <small class="text-danger" ng-show="UsenameForm.submitted &amp;&amp; UsenameForm.username.$error.required ">
+                                            Username
+                                            is required.
+                                        </small>
+                                        <small class="text-danger" ng-show="UsenameForm.submitted &amp;&amp; errors['ucicCheck'] &amp;&amp; !(UsenameForm.username.$error.required) &amp;&amp; !(UsenameForm.username.$error.pattern)">
+                                            Please Enter Correct Username
+                                        </small>
+                                    </div>
+                                </div>
+                                <div lp-field="lp-field" label="Mobile_Label" class="forgotPassword-label forgotPassword-input-width-text text-center" tip="Please provide your Mobile Number ">
+                                    <div>
+                                        <input type="tel"  ng-minlength="10"  class="form-control_Password forgetPassword-inp-width" id="mobile" name="mobile" ng-model="control.mobile.value" ng-pattern="/^[0-9]*$/" maxlength="10" loading="isLoading" required="true" autocomplete="off"/>
+                                        <small class="text-danger" ng-show="UsenameForm.submitted &amp;&amp; UsenameForm.mobile.$error.required ">
+                                            Mobile Number is required.
+                                        </small>
+                                        <small class="text-danger" ng-show="UsenameForm.mobile.$error.pattern">
+                                            Please Enter Correct Mobile Number !
+                                        </small>
+                                        <small class="text-danger" ng-show="UsenameForm.mobile.$error.minlength">
+                                            Mobile Number should be 10 digits.
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="borderTop"></div>
+                                <div class="forgetPassword-div-td-dep-ab forgetPassword-button-margin text-center" ng-show="btnFlag">
+                                    <button class="btn btn btn-primary forgetPassword-primary-btn-forgot marginTopNext" ng-disabled="frezeSubmitAttempt()" ng-click="UsenameForm.submitted=true ;openDebitForm(UsenameForm.$valid)" type="submit">Next
+                                    </button>
+                                    <button type="button" class="btn btn-primary forgetPassword-secondary-btn-forgot forgetPassword-button-font marginTopClear" ng-disabled="frezeSubmitAttempt()" ng-click="resetUsernameForm(); UsenameForm.submitted=false;">Clear
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div ng-hide="hideOTPFlag" class="forgetPassword-otv-div">
+                    <h4>
+                    </h4>
+                    <form name="OTPform" class="forgetPassword-form-horizontal form-horizontal forgot-paasword-label labelBelowOTP labelNew">
+                        <div lp-field="lp-field" label="Mobile_Label" tip="">
+                            <div>
+                                <input class="form-control_Password mob-input" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true"/>
+                            </div>
+                        </div>
+                        <input style="display:none" type="text" name="fakeusernameremembered"/>
+                        <input style="display:none" type="password" name="fakepasswordremembered"/>
+                        <div lp-field="lp-field" label="OTP_Label" tip="{{'Tip_OTP'|translate}}">
+                            <div id="OtpInput">
+                                <input class="form-control_Password" type="tel" name="otp" autocomplete="off" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="control.otpValue" required="true" style="width:76.25%;-webkit-text-security:disc"/>
+                                <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">
+                                    {{'Error_Required_OTP'|translate}}
+                                </small>
+                                <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">
+                                    {{'Error_Invalid_Length_OTP'|translate}}
+                                </small>
+                                <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">
+                                    {{'Error_Invalid_Length_OTP'|translate}}
+                                </small>
+                                <small class="text-danger" ng-show="OTPform.otp.$error.pattern">
+                                    {{'Error_Invalid_OTP'|translate}}
+                                </small>
+                            </div>
+                        </div>
+                        <div class="forgetPassword-div-td-dep-ab">
+                            <div class="forgotPassword-child-btn text-center">
+
+                                <button class="btn btn-primary btn-align forgetPassword-primary-btn-forgot marginTopNext" type="submit" name="verifyOTP"  ng-disabled="lockFieldsOTP" id="verifyOTP-btn-forgot-password" ng-click="OTPform.submitted=true; verifyQuestionOTP(OTPform.$valid, 'OTP'); submitfunction()">
+                                    {{'btn_Submit'|translate}}
+                                </button>
+                                <button class="btn btn-primary btn-align forgetPassword-secondary-btn-forgot forgetPassword-resend-margin marginTopClear" type="button" name="resendOTP" ng-disabled="stop" ng-click="generateOTP('resend'); resendfunction()">{{'btn_ResendOTP'|translate}}
+                                </button>
+
+                                <!--<button class="btn btn-primary btn-align forgetPassword-primary-btn-forgot marginTopNext" type="submit" name="verifyOTP"  ng-disabled="lockFieldsOTP" ng-click="OTPform.submitted=true; verifyQuestionOTP(OTPform.$valid, 'OTP'); submitfunction()">-->
+                                    <!--{{'btn_Submit'|translate}}-->
+                                <!--</button>-->
+                                <!--<button class="btn btn-primary btn-align forgetPassword-secondary-btn-forgot forgetPassword-resend-margin marginTopClear" type="button" name="resendOTP" ng-disabled="stop" ng-click="generateOTP('resend'); resendfunction()">{{'btn_ResendOTP'|translate}}-->
+                                <!--</button>-->
+                              <!--  <button class="btn btn-primary btn-align forgetPassword-primary-btn-forgot marginTopNext" type="submit" name="verifyOTP" id="verifyOTP-btn-forgot-password" ng-click="OTPform.submitted=true; verifyQuestionOTP(OTPform.$valid, 'OTP')">
+                                    {{'btn_Submit'|translate}}
+                                </button>
+                                <button class="btn btn-primary btn-align forgetPassword-secondary-btn-forgot forgetPassword-resend-margin marginTopClear" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}
+                                </button>-->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            <!-- RSA changes by Xebia start -->
+
+                <div ng-show="showDenyMessage">
+                    <div class="rsa-deny-message">
+                        {{cqObject.RSA_DENY_MESSAGE}} 
+                    </div>
+                </div>
+
+                <div ng-show="showCancelTransactionMessage">
+                    <div class="rsa-cancel-transaction-message">
+                            {{cqObject.CANCEL_TRANSACTION}} 
+                    </div>
+                </div>
+
+                <div ng-show="showSetupCQMessage">
+                    <p>
+                        <center class="rsa-setupCQMessage">{{cqObject.SETUP_CQ_MESSAGE}}
+                        </center>
+                    </p>
+                    <div class="rsa-button">
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="Yes"
+                                ng-click="showSetupCQ()">Update Now</button>
+
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="No"
+                                ng-click="showSetupCQMessage = false; showCancelTransactionMessage = true;">Cancel</button>
+                    </div>
+                </div>
+
+                <div ng-hide="hideQuesFlag" class="rsa-border-div">
+                    
+                    <div ng-bind="showCQError" class="rsa-cancel-transaction-message">
+                    </div>
+
+                    <!-- <form name="Questionform" class="form-horizontal"> -->
+                        <div ng-if="showQuestionDiv">
+                            
+                                <div class="rsa-margin-top">
+                                    <label ng-bind="challengeQuestions" class="rsa-bold-font"></label>
+                                    <input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer"
+                                    ng-model="challengeQuestion.answer"
+                                    required="true"/>
+                                </div>
+                            
+                             
+                            <div class="rsa-text-center rsa-margin-bottom">
+                                <button class="rsa-button btn btn-primary primary-btn-btn primary-btn-ft"
+                                    type="submit" name="verifyAnswers"
+                                    ng-click="verifyCQAnswer()"
+                                    ng-disabled="!(challengeQuestion.answer)"
+                                    lp-i18n="Submit Answer">  
+                                </button>
+                            </div>
+                        </div>
+
+                        <div ng-show="showWrongAnswerMessage" class="rsa-button" >
+                            <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                type="submit" name="tryAgain"
+                                ng-click="fetchCQ()">Try Again</button>
+                        </div>
+
+                    <!-- </form> -->
+                </div>
+
+            <!-- RSA changes by Xebia ends -->
+
+                <div ng-hide="hideCombineFlag" class="forgetPassword-otpques-div">
+                    <h4>
+                    </h4>
+                    <form name="mainform" class="forgetPassword-form-horizontal form-horizontal">
+                        <div>
+                            <div lp-field="lp-field" label="Mobile_Label" tip="" class="otp-lp-field">
+                                <div>
+                                    <input class="form-control_Password" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" style="float:left;width:38%"/>
+                                </div>
+                            </div>
+                            <input style="display:none" type="text" name="fakeusernameremembered"/>
+                            <input style="display:none" type="password" name="fakepasswordremembered"/>
+                            <div lp-field="lp-field" label="OTP_Label" class="otp-lp-field otp-lp-field-last" tip="Please enter 6 digit one time password">
+                                <div>
+                                    <input class="form-control_Password" type="tel" name="otp" autocomplete="off" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="otpValue" required="true" style="width:38%;-webkit-text-security:disc"/>
+                                    <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+                                    <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                    <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                    <small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="otp-lp-field otp-lp-field-last">
+                            <div ng-if="showQuestionDiv">
+                                <div ng-repeat="question in challengeQuestions" style="margin-top:20px">
+                                    <label>{{question.questionText}} </label>
+                                    <input class="form-control_Password" type="text" name="answer" placeholder="Enter answer" ng-model="challengeQuesAnswers[$index].answer" required="true" ng-disabled="isChallengeDisabled" style="width:60%"/>
+                                    <input type="hidden" ng-value="question.questionId" ng-model="challengeQuesAnswers[$index].question" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="forgetPassword-div-td-dep-ab">
+                            <button class="btn btn-primary btn-align forgetPassword-secondary-btn-forgot secondary-btn-btn" type="button" name="clearOTP" ng-click="cancelOTP()">{{'btn_Cancel'|translate}}
+                            </button>
+                            <button class="btn btn-primary btn-align forgetPassword-secondary-btn-forgot secondary-btn-btn" type="button" name="clearOTP" ng-click="clearOTPQUES()">{{'btn_Clear'|translate}}</button>
+                            <!--<button class="btn btn-primary btn-align forgetPassword-primary-btn-forgot primary-btn-btn" type="submit" name="verifyAnswers_otp" ng-click="mainform.submitted=true; verifyQuestionOTP(mainform.$valid, 'OTPANDQUESTION')"> Submit </button>
+                            <button class="btn btn-primary btn-align forgetPassword-secondary-btn-forgot secondary-btn-btn" type="button" name="resendOTP" ng-click="readSMS('resend')">{{'btn_ResendOTP'|translate}}</button>-->
+                            <button class="btn btn-primary btn-align forgetPassword-primary-btn-forgot primary-btn-btn" type="submit" name="verifyAnswers_otp"  ng-disabled="lockFieldsOTP"  ng-click="mainform.submitted=true; verifyQuestionOTP(mainform.$valid, 'OTPANDQUESTION'); submitfunction()"> Submit </button>
+                            <button class="btn btn-primary btn-align forgetPassword-secondary-btn-forgot secondary-btn-btn" type="button" name="resendOTP" ng-disabled="stop" ng-click="generateOTP('resend'); resendfunction()">{{'btn_ResendOTP'|translate}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./scripts/rsa.js"></script>
+</html>

@@ -1,0 +1,16 @@
+{namespace templates_PanelContainer}
+/**
+ * Lays out container for a simple panel to be a child for a Deck Container
+ * @param item Item in context
+ */
+{template .PanelContainer}
+	<div data-pid="{$item.name}" id="{$item.name}" class="bp-container bp-ui-dragRoot tab-pane">
+		<div class="bp-area --area lp-panel-mainarea">
+			{if not($item.preferences.loadChildren and $item.preferences.loadChildren.value == 'false') and $item.children}
+				{foreach $child in $item.children}
+					{include($child) |noAutoescape}
+				{/foreach}
+			{/if}
+		</div>
+	</div>
+{/template}

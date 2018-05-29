@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="gotham_book.ttf">
+            <string>GothamBook</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewDialog">
+            <connections>
+                <outlet property="message" destination="h51-7b-hgg" id="qaz-4W-ZXr"/>
+                <outlet property="okBtn" destination="Ot1-e0-c40" id="ZOl-uR-4dU"/>
+                <outlet property="popupview" destination="qG4-u8-7cR" id="ou9-8q-NKs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qG4-u8-7cR">
+                    <rect key="frame" x="37" y="150" width="247" height="181"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOh-oI-qVZ">
+                            <rect key="frame" x="0.0" y="107" width="247" height="1"/>
+                            <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="eH3-P5-PEF"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-e0-c40">
+                            <rect key="frame" x="14" y="122" width="220" height="48"/>
+                            <color key="backgroundColor" red="0.87924647331237793" green="0.35609596967697144" blue="0.4455714225769043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="K67-hD-Sx4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="14"/>
+                            <state key="normal" title="OK"/>
+                            <connections>
+                                <action selector="okBtnClick:" destination="-1" eventType="touchUpInside" id="a3D-J4-OI7"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You already have MPIN. You can use the same for any reference.Please try usng the same on all devices " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h51-7b-hgg">
+                            <rect key="frame" x="14" y="24" width="220" height="50"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="GothamBook" family="Gotham Book" pointSize="14"/>
+                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="EOh-oI-qVZ" secondAttribute="trailing" id="302-hq-v6j"/>
+                        <constraint firstAttribute="trailing" secondItem="Ot1-e0-c40" secondAttribute="trailing" constant="13" id="7st-i9-kgn"/>
+                        <constraint firstItem="Ot1-e0-c40" firstAttribute="centerX" secondItem="qG4-u8-7cR" secondAttribute="centerX" id="FD7-5I-Ej9"/>
+                        <constraint firstAttribute="bottom" secondItem="Ot1-e0-c40" secondAttribute="bottom" constant="11" id="GRl-Ij-lus"/>
+                        <constraint firstItem="Ot1-e0-c40" firstAttribute="leading" secondItem="qG4-u8-7cR" secondAttribute="leading" constant="14" id="LEU-Vi-mJj"/>
+                        <constraint firstItem="h51-7b-hgg" firstAttribute="top" secondItem="qG4-u8-7cR" secondAttribute="top" constant="24" id="MXE-oG-aLi"/>
+                        <constraint firstItem="EOh-oI-qVZ" firstAttribute="leading" secondItem="qG4-u8-7cR" secondAttribute="leading" id="Nmw-tB-SRh"/>
+                        <constraint firstItem="h51-7b-hgg" firstAttribute="leading" secondItem="qG4-u8-7cR" secondAttribute="leading" constant="14" id="PnJ-Hm-pm8"/>
+                        <constraint firstAttribute="height" constant="181" id="cTT-uc-yiE"/>
+                        <constraint firstAttribute="trailing" secondItem="Ot1-e0-c40" secondAttribute="trailing" constant="13" id="iGA-qI-hXk"/>
+                        <constraint firstItem="Ot1-e0-c40" firstAttribute="top" secondItem="EOh-oI-qVZ" secondAttribute="bottom" constant="14" id="jMV-yq-rpm"/>
+                        <constraint firstItem="EOh-oI-qVZ" firstAttribute="centerX" secondItem="qG4-u8-7cR" secondAttribute="centerX" id="lvp-0k-JhZ"/>
+                        <constraint firstAttribute="trailing" secondItem="h51-7b-hgg" secondAttribute="trailing" constant="13" id="t3v-AJ-YqM"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qG4-u8-7cR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="37" id="9pV-kK-ntg"/>
+                <constraint firstItem="qG4-u8-7cR" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="MAc-Xc-0se"/>
+                <constraint firstItem="qG4-u8-7cR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dH3-5c-WFD"/>
+                <constraint firstAttribute="trailing" secondItem="qG4-u8-7cR" secondAttribute="trailing" constant="36" id="eni-3I-eyn"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

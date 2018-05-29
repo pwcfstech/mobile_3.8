@@ -1,0 +1,119 @@
+<div class="col-sm-12 mob-scroll">
+   <table class="soa-table table-show table-condensed table-bordered table-striped">
+
+<!--Using the same table to show both Home Load Details and Home Saver Loan dedatils-->
+
+      <!--Table Header for Home Loan Details-->
+      <tr class="table-headers" ng-if="soaCtrl.showHomeLoanDetails">
+         <th class="color-header-white th-date-width padding-l2percent text-left font-14 font-medium table-header-yellow" lp-i18n="Transaction Date"></th>
+         <th class="text-left color-header-white font-14 font-medium  table-header-yellow th-des-width" lp-i18n="Description"></th>
+         <th class=" hidden-xs color-header-white text-right font-14 font-medium  table-header-yellow"><span lp-i18n="Debit Amount"></span> ( <span
+            class="rupee-symbol-span margin-right-1-per"></span>)
+         </th>
+         <th class="hidden-xs color-header-white text-right font-14 font-medium  table-header-yellow"><span lp-i18n="Credit Amount"></span> ( <span
+            class="rupee-symbol-span margin-right-1-per"></span>)
+         </th>
+         <th class="color-header-white font-14 font-medium th-amt-width text-right table-header-yellow"><span lp-i18n="Amount"></span>
+          <!-- ( <span
+            class="rupee-symbol-span margin-right-1-per"></span>) -->
+         </th>
+      </tr>
+
+      <!--Table Header for Home SAVER Loan Details-->
+      <tr class="table-headers" ng-if="soaCtrl.showHomeSaverLoanDetails">
+         <th class="color-header-white th-date-width padding-l2percent text-left font-14 font-medium table-header-yellow">
+           <span lp-i18n="Date"></span>
+         </th>
+         <th class="text-left color-header-white font-14 font-medium  table-header-yellow th-des-width">
+           <span lp-i18n="Description"></span>
+         </th>
+         <th class="hidden-xs hidden-sm color-header-white font-14 font-medium padding-l2percent table-header-yellow">
+           <span lp-i18n="Cr/Dr"></span>
+         </th>
+           <th class="color-header-white font-14 font-medium th-amt-width text-right table-header-yellow">
+             <span lp-i18n="Amount"></span> <!-- ( <span class="rupee-symbol-span"></span>) -->
+         </th>
+         <th class="hidden-xs hidden-sm color-header-white th-amt-width padding-r2percent text-right font-14 font-medium  table-header-yellow">
+           <span lp-i18n="Balance"></span> <!-- ( <span class="rupee-symbol-span"></span>) -->
+       </th>
+      </tr>
+
+      <!--Table Body for Home Loan Details-->
+      <tbody ng-if="soaCtrl.showHomeLoanDetails">
+         <tr ng-repeat="transactionDtl in soaCtrl.transactionDtls | limitTo:soaCtrl.paginationLimit()"
+            class="font-12 font-book color-dark-gray table-idfc-gen-tr">
+            <td class="padding-l2percent text-left "><span ng-bind="transactionDtl.txnDt"></span></td>
+            <td class="text-left"><span ng-bind="transactionDtl.prtclrs"></span>
+            </td>
+            <td class="text-right  hidden-xs"><span lp-amount="transactionDtl.dbt"></span></td>
+            <td class="text-right  hidden-xs"><span lp-amount="transactionDtl.crdt"></span></td>
+            <!-- <td class="padding-r2percent text-right"><span lp-amount="transactionDtl.bal"></span>
+            </td> -->
+            <td class=" text-right" ng-class="transactionDtl.creditDebitIndicator === 'DBIT' ? 'soaAmtRed' : 'soaAmtGreen'">
+              <span ng-class="transactionDtl.creditDebitIndicator === 'DBIT'?'cr-symbol-span':'db-symbol-span'"></span>
+              <span class="rupee-symbol-span margin-right-1-per"></span>
+              <span lp-amount="transactionDtl.bal"></span>
+            </td>
+
+
+
+         </tr>
+      </tbody>
+
+      <!--Table Body for Home SAVER Loan Details-->
+      <tbody ng-if="soaCtrl.showHomeSaverLoanDetails">
+         <tr ng-repeat="transactionDtl in soaCtrl.transactionDtls | limitTo:soaCtrl.paginationLimit()"
+            class="font-12 font-book color-dark-gray table-idfc-gen-tr">
+            <td class=" text-left padding-l2percent"><span ng-bind="transactionDtl.bookingDateTime"></span></td>
+            <td class=" text-left th-des-width"><span ng-bind="transactionDtl.description"></span></td>
+            <td class=" text-left hidden-xs hidden-sm padding-l2percent" ng-class="transactionDtl.creditDebitIndicator === 'DBIT' ? 'soaAmtRed' : 'soaAmtGreen'">
+              <span ng-bind="transactionDtl.creditDebitIndicator === 'DBIT' ? 'Dr' : 'Cr'"></span>
+            </td>
+            <td class=" text-right" ng-class="transactionDtl.creditDebitIndicator === 'DBIT' ? 'soaAmtRed' : 'soaAmtGreen'">
+            <span ng-class="transactionDtl.creditDebitIndicator === 'DBIT'?'cr-symbol-span':'db-symbol-span'"></span>
+            <span class="rupee-symbol-span margin-right-1-per"></span>
+              <span lp-amount="transactionDtl.transactionAmount"></span>
+            </td>
+            <td class=" padding-r2percent text-right hidden-xs hidden-sm"><span ng-bind=soaCtrl.formatNumber(transactionDtl.balanceAmount)></span></td>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+
+
+
+<div class="row margin-right-0" ng-if="soaCtrl.hasMoreItemsToShow() || soaCtrl.showSuccessMessagePDFEmail || soaCtrl.showPrintEmailPdfOptions">
+
+  <!-- Load More -->
+  <div class="col-xs-6 col-sm-4 float-left"> <!--ng-if="soaCtrl.hasMoreItemsToShow()"-->
+  		<input name="+ Load More" type="button" value="+ Load more" class="btn-whitePop-Soa"
+             ng-click="soaCtrl.showMoreItems()" ng-if="soaCtrl.hasMoreItemsToShow()">
+  </div>
+
+
+  <!-- Print/Download/Email buttons -->
+  <div class="col-xs-5 col-sm-3 col-lg-3 padding0 pull-right">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footerButton" ng-if="soaCtrl.showPrintEmailPdfOptions">
+        <input name="Mail" type="button" value="" class="mailButton" ng-click="soaCtrl.Emailadvice()"><!-- ng-click="plRsCtrl.emailAdvice()" ng-if="plRsCtrl.detail.length>0" -->
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footerButton" ng-if="!soaCtrl.isMobileDevice && soaCtrl.showPrintEmailPdfOptions">
+        <input name="Print" type="button" value="" class="printButton" ng-click="soaCtrl.printPDF()"  tooltip="Print" tooltip-placement="top">
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footerButton" ng-if="!soaCtrl.isMobileDevice && soaCtrl.showPrintEmailPdfOptions">
+        <input name="Download" type="button" value="" class="downButton" ng-click="soaCtrl.PDFGeneration()" tooltip="Download" tooltip-placement="top">
+      </div>
+  </div>
+
+
+
+
+
+  <!-- success message-->
+  <div class="col-xs-12 col-sm-4 successEmailMsg " id="emailSuccessMsg">
+     <small class="color-green font-12" ng-bind="soaCtrl.messagePDFEmail" ng-if="soaCtrl.showSuccessMessagePDFEmail"></small>
+     <small class="color-pink font-12" ng-bind="soaCtrl.messagePDFEmail" ng-if="soaCtrl.showFailMessagePDFEmail"></small>
+  </div>
+
+
+</div>

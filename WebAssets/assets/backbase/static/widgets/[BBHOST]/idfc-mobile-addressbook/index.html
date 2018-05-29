@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Address Book</title>
+    <link rel="stylesheet" type="text/css" href="styles/base.css"/>
+</head>
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main')"  ng-controller="ContactsController as contactsCtrl">
+<div ng-show="contactsModel.errorSpin">
+    <div class="panel-message loading-panel" role="alert">
+        <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+        <span class="sr-only">Busy</span>
+    </div>
+</div>
+    <div lp-template="'templates/addressbook.html'"></div>
+
+</body>
+<script src="scripts/rsa.js"></script>
+</html>

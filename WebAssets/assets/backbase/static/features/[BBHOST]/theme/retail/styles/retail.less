@@ -1,0 +1,46 @@
+
+// todo: move banking specific less from universal to here
+
+// Path variables.
+//--------------------
+
+// Used for imports in less.
+@base-dir:                     '../../';
+
+// Import universal.
+@import "@{base-dir}universal/styles/universal.less";
+
+// Used for references to media in CSS (base-path should point to launchpad-theme).
+@base-path:                    '../../../';
+@banking-path:                 '@{base-path}retail/';
+@banking-image-path:           '@{banking-path}images/';
+@banking-font-path:            '@{banking-path}fonts/';
+
+// Banking components.
+//---------------------
+@import "components/account-changed.less";
+@import "components/account-iban-input.less";
+@import "components/account-select.less";
+@import "components/account-us-input.less";
+@import "components/accounts-tree.less";
+@import "components/accounts-tiles.less";
+@import "components/message-center.less";
+@import "components/otp-check.less";
+@import "components/p2p-enrollment.less";
+@import "components/p2p-list-view.less";
+@import "components/payment-modes.less";
+@import "components/payment-reference.less";
+@import "components/pfm-category.less";
+@import "components/scheduled-transfer.less";
+@import "components/search.less";
+@import "components/transactions-list-authorizations.less";
+
+@import "widgets/accounts-dropdown.less";
+@import "widgets/alert-messages.less";
+@import "widgets/ebill-add.less";
+@import "widgets/estatement-list.less";
+@import "widgets/portfolio-aggregated-view.less";
+@import "widgets/portfolio-assets.less";
+@import "widgets/portfolio-minimap.less";
+@import "widgets/portfolio-performance.less";
+@import "widgets/transactions-search.less";

@@ -1,0 +1,217 @@
+<form id="forPanel" ng-model="contactsModel.currentContact" name="addContact" novalidate="" ng-submit="confirmAddContact(addContact.$valid)" class="contact-form">
+	<div id="panelBody" class="col-contact-form panel-body bene-pad-left">
+		<div>
+			<div class="floating">
+				<input type="radio" name="beneficiaryType" id="intraBank" ng-model="contactsModel.currentContact.beneficiaryType" value="OWN" />
+				<label for = "intraBank" class="label-font">{{'Lbl_Beneficiary_Within'|translate}} <strong class="str">{{'Lbl_Beneficiary_IDFC'|translate}}</strong> {{'Lbl_Beneficiary_Bank'|translate}}</label>
+				<input type="radio" name="beneficiaryType" id="thirdParty" ng-model="contactsModel.currentContact.beneficiaryType" value="OTH" />
+				<label for = "thirdParty" class="label-font">{{'Lbl_Beneficiary_Outside'|translate}} <strong class="str">{{'Lbl_Beneficiary_IDFC'|translate}}</strong> {{'Lbl_Beneficiary_Bank'|translate}}</label>
+			</div>
+		</div>
+	</div>
+	<div ng-show="contactsModel.currentContact.beneficiaryType" id="addCont" class="panel-body no-padding-top">
+		<input style="display:none" type="text" name="fakeusernameremembered"/>
+		<input style="display:none" type="password" name="fakepasswordremembered"/>
+		<div class="form-group form-group-New">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="name" class="label-font" lp-i18n="{{'Lbl_Beneficiary_Name'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<div><input type="text" name="name" id="name" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+							onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control" ng-pattern="/^[a-zA-Z0-9\_\- ]*$/" ng-maxlength="50" ng-class="{lpinputerror: submitted && addContact.name.$error.required && addContact.name.$error.maxlength}" ng-model="contactsModel.currentContact.name" placeholder="{{'Beneficiary Name'|translate}}" required="" />
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="submitted && addContact.name.$error.required">{{'Error_Required_Beneficiary_Name'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.name.$error.maxlength">{{'Error_Maxlength_Beneficiary_Name'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.name.$error.pattern">{{'Error_Text_Beneficiary_Name'|translate}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<div class="form-group form-group-New">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="nickName" class="label-font" class="label-font" lp-i18n="{{'Lbl_Beneficiary_Nick_Name'|translate}}"> </label>
+			</div>
+			<div class="bene-floatLeft">
+				<div>
+					<input type="text" name="nickName" id="nickName" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control" ng-pattern="/^[a-zA-Z]*$/" ng-maxlength="15" ng-class="{lpinputerror: submitted && addContact.nickName.$error.required && addContact.nickName.$error.maxlength}" ng-model="contactsModel.currentContact.nickName" placeholder="Nick Name" required=""/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="submitted && addContact.nickName.$error.required">{{'Error_Required_Beneficiary_Nick_Name'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.nickName.$error.maxlength">>{{'Error_Maxlength_Beneficiary_Nick_Name'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.nickName.$error.pattern">{{'Error_Text_Beneficiary_Nick_Name'|translate}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="account" class="label-font" lp-i18n="{{'Lbl_Account_Number'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<div>
+					<input type="text" id="account" name="account" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control" ng-minlength="5" ng-maxlength="30"
+						   ng-pattern="/^[a-zA-Z0-9]*$/" ng-class="{lpinputerror: submitted && addContact.account.$error.required && addContact.account.$error.maxlength}" ng-model="contactsModel.currentContact.account" placeholder="Account Number" required="" style="-webkit-text-security:disc"/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="submitted && addContact.account.$error.required">{{'Error_Required_Account_Number'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && addContact.account.$error.minlength">{{'Error_Minlength_Account_Number'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.account.$error.maxlength">{{'Error_MAXlength_Account_Number'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && !addContact.account.$error.minlength && !addContact.account.$error.required && !idfcAccountValid"><label ></label>{{'Error_Length_IDFC_Account_Number'|translate}}&nbsp;</small>
+				<!--	<small class="text-danger" ng-show="!submitted && !idfcAccountMaxLength">{{'Error_Maxlength_IDFC_Account_Number'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="!otherAccountValid"><label ></label>{{'Error_Maxlength_Account_Number'|translate}}&nbsp;</small> -->
+					<small class="text-danger" ng-show="addContact.account.$error.pattern">{{'Error_Invalid_Account_Number'|translate}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="confirmAccount" class="label-font" lp-i18n="{{'Lbl_Confirm_Account_Number'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<div>
+					<input type="text" id="confirmAccount" name="confirmAccount" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" ng-minlength="5" ng-maxlength="30" ng-pattern="/^[a-zA-Z0-9]*$/" pw-check="account" class="beneficiary-control" ng-class="{lpinputerror: submitted && addContact.confirmAccount.$error.required && addContact.confirmAccount.$error.maxlength && addContact.transferLimit.$error.number && addContact.confirmAccount.$error.pwmatch}" ng-model="contactsModel.currentContact.confirmAccount" placeholder="Confirm Account Number" required="" />
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="submitted && addContact.confirmAccount.$error.required">{{'Error_Required_Confirm_Account_Number'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && addContact.confirmAccount.$error.minlength">{{'Error_Minlength_Confirm_Account_Number'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.confirmAccount.$error.maxlength">{{'Error_MAXlength_Confirm_Account_Number'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.confirmAccount.$error.pattern">{{'Error_Invalid_Confirm_Account_Number'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && errors['acntNumber']">{{'Error_Match_Account_Number'|translate}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<div class="form-group form-group-New" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="bankName" class="label-font" lp-i18n="{{'Lbl_Bank_Name'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<div>
+					<select id="bankName" name="bankName" class="beneficiary-control IDFC-dropdown" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" ng-model="contactsModel.currentContact.bankName" ng-options="item as item for item in contactsModel.banksList"/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH' && submitted && errors['bankNameReq']">{{'Error_Required_Bank_Name'|translate}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'">
+		<!-- modified -->
+			<div class=" form-group-New bene-floatLeft bene-form-div ifsc-label-light" ng-if="contactsModel.currentContact.bankName == '' || contactsModel.currentContact.bankName == 'Select'">
+				<label for="ifscCode" class="label-font" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" lp-i18n="{{'Lbl_IFSC_Code'|translate}}" ></label>
+				<!--i class="lp-icon infoIcon ng-scope" tooltip="{{'Tip_IFSC_Code'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true" ><img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i-->
+			</div>
+			<div class=" form-group-New bene-floatLeft bene-form-div" ng-if="contactsModel.currentContact.bankName != 'Select'">
+				<label for="ifscCode" class="label-font" ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" lp-i18n="{{'Lbl_IFSC_Code'|translate}}" ></label>
+				<i class="lp-icon infoIcon ng-scope" tooltip="{{'Tip_IFSC_Code'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true" ><img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+			</div>
+			<div class="bene-floatLeft">
+				<div>
+					<input ifsc-char ng-trim="false" maxlength="11" type="text" id="ifscCode" name="ifscCode" autofill="off"
+						autocorrect="off" autocapitalize="off" autocomplete="off"
+						onpaste="return false;" onCopy="return false" onCut="return false"
+						class="beneficiary-control" ng-pattern="/^[a-zA-Z0-9]*$/"
+						ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'"
+						ng-maxlength="11"
+						ng-class="{lpinputerror: submitted && addContact.ifscCode.$error.required && addContact.ifscCode.$error.maxlength}"
+						ng-model="contactsModel.currentContact.ifscCode"	placeholder="IFSC"
+						ng-required="contactsModel.currentContact.beneficiaryType == 'OTH'" />
+				</div>
+				<div>
+				<div ng-show="!contactsCtrl.bankDetails.count" class="ifsc-code-find-block left-align" id="ifsc_help_info_link"><small class="find-title f-weight400">Not Sure? Find <a ng-if="contactsModel.currentContact.bankName.length > '0' && contactsModel.currentContact.bankName != 'Select'" style="cursor:pointer;" ui-sref="/" ng-click="contactsCtrl.goToSearchIFSCpage();" class="ifsc-code-link"><strong>IFSC</strong></a><span ng-if="contactsModel.currentContact.bankName == '' || contactsModel.currentContact.bankName == 'Select'" class="ifsc-code-not-link"><strong>IFSC</strong></span><strong> here</strong></div>		
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="submitted && addContact.ifscCode.$error.required"><label ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" ></label>{{'Error_Required_IFSC_Code'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.ifscCode.$error.maxlength"><label ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" ></label>{{'Error_Maxlength_IFSC_Code'|translate}}&nbsp;</small>
+					<!--small class="text-danger" ng-show="addContact.ifscCode.$error.pattern"><label ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'" ></label>{{'Error_Pattern_IFSC_Code'|translate}}&nbsp;</small-->
+					<small class="text-danger" ng-show="submitted && errors['ifscError'] && contactsModel.currentContact.beneficiaryType == 'OTH'" ng-if="!contactsCtrl.bankDetails.count"><label ng-show="contactsModel.currentContact.beneficiaryType == 'OTH'"></label>{{'Error_Format_IFSC_Code'|translate}}&nbsp;</small>
+				</div>
+				<!-- Need to be modified -->
+				<div class="text-danger" ng-show="contactsCtrl.ifscValidateErrors['invalidIFSC'] || contactsCtrl.savedIfscValidateErrors" lp-i18n="Invalid IFSC. Please provide valid IFSC">&nbsp;</div>
+				<!-- <div class="text-danger" lp-i18n="Invalid IFSC Code. Please provide valid IFSC Code">&nbsp;</div> -->
+				<div class="bnf-bank-name-error-block" ng-if="contactsCtrl.bankDetails.count" ><p class="bnf-bank-name-error-bank"><strong>{{contactsCtrl.bankDetails.bankName}}</strong></p>
+				<p class="bnf-bank-name-error-bank"><strong>{{contactsCtrl.bankDetails.branchName | lowercase}}</strong></p>
+				<span class="bnf-bank-name-error-bank"><strong>{{contactsCtrl.bankDetails.branchAdd | lowercase}}</strong></span>
+				</div>
+				<!-- <div class="bnf-bank-name-error-block"><p class="bnf-bank-name-error-bank"><strong>ICICI Bank</strong></p> -->
+				<!-- <p class="bnf-bank-name-error-bank"><strong>Netaji Road</strong></p> -->
+				<!-- <span class="bnf-bank-name-error-location"><strong>Tirupati, Andhrapradesh</strong></span> -->
+				<!-- </div> -->
+				<!-- till this   -->
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class=" form-group-New bene-floatLeft bene-form-div">
+				<label for="accountType" class="label-font" lp-i18n="{{'Lbl_Account_Type'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<div>
+					<select id="accountType" name="accountType" class="beneficiary-control bene-acc-type-add addressbook-select IDFC-dropdown" ng-model="contactsModel.currentContact.accountType" ng-options="item.value as item.text for item in contactsModel.accountTypeOptions"/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="submitted && errors['accountTypeReq']">{{'Error_Required_Account_Type'|translate}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class=" form-group-New bene-floatLeft bene-form-div">
+				<label for="transferLimit" class="label-font" lp-i18n="{{'Lbl_Payee_Limit'|translate}}" ></label>
+				<i class="lp-icon infoIcon ng-scope" tooltip="{{'Tip_Payee_Limit'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true" ><img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+			</div>
+			<div class="bene-floatLeft">
+				<div>
+					<input type="tel" id="transferLimit" name="transferLimit" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control" ng-pattern="/^[0-9]{1,8}(\.[0-9]{1,2})?$/" ng-class="{lpinputerror: (submitted && addContact.transferLimit.$error.required) && addContact.transferLimit.$error.maxlength && addContact.transferLimit.$error.number}" ng-model="contactsModel.currentContact.transferLimit" placeholder="Payee Limit" required/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="submitted && addContact.transferLimit.$error.required">{{'Error_Required_Payee_Limit'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.transferLimit.$error.maxlength">{{'Error_Maxlength_Payee_Limit'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && addContact.transferLimit.$error.number">{{'Error_Invalid_Payee_Limit'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="addContact.transferLimit.$error.pattern">{{'Error_Format_Payee_Limit'|translate}}&nbsp;</small>
+					<small class="text-danger" lp-i18n="Payee Limit Required" ng-show="testANDTwo(submitted, errors['transferLimit'])">&nbsp;</small>
+					<small class="text-danger" ng-show="paymentLimitErrorMessage">{{payeeLimitErrorDisplayMessage}}&nbsp;</small>
+
+				</div>
+			</div>
+		</div>
+		<!--commented email and phone number-->
+		<!--<div class="form-group">
+			<div class="form-group-New bene-floatLeft bene-form-div">
+				<label for="email" class="label-font" lp-i18n="{{'Lbl_Email'|translate}}"></label>
+			</div>
+			<div class="bene-floatLeft">
+				<div>
+					<input type="text" name="email" id="email" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control" ng-maxlength="50" ng-model="contactsModel.currentDetails['email']" placeholder="{{'Beneficiary Email ID'|translate}}"/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="addContact.email.$error.maxlength"><label ></label>{{'Error_Maxlength_Email'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && !addContact.email.$error.maxlength && errors['email']"><label ></label>{{'Error_Format_Email'|translate}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class=" form-group-New bene-floatLeft bene-form-div">
+				<label for="phone" class="label-font" lp-i18n="{{'Lbl_Phone'|translate}}"></label>
+			</div>
+			<div class="bene-floatLeft">
+				<div class="inputSelect country">
+					<select id="countryCodes" name="countryCodes" class="beneficiary-control bene-phn-cont-code IDFC-dropdown" ng-model="contactsModel.currentContact.countryCode" ng-options="item as item for item in contactsModel.countryCodesList"/>
+					<span class="glyph-icon"> <span class="glyphicon glyphicon-menu-down"></span></span>
+					<input type="tel" name="phone" id="phone" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control bene-phn-no-input" ng-maxlength="10" ng-pattern="/^[0-9]*$/" ng-model="contactsModel.currentDetails['phone']" placeholder="{{'Mobile No.'|translate}}"/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger" ng-show="!errors['phone'] && addContact.phone.$error.maxlength"><label ></label>{{'Error_Maxlength_Phone'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="!errors['phone'] && addContact.phone.$error.pattern"><label ></label>{{'Error_Invalid_Phone'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && errors['countryCodeReq']"><label ></label>{{'Error_Required_Country_Code'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && errors['phone']"><label ></label>{{errors['phone']}}&nbsp;</small>
+				</div>
+			</div>
+		</div>-->
+	</div>
+	<div class="bene-div-td-dep-ab text-center">
+		<button  ng-show="contactsModel.currentContact.beneficiaryType" class="btn btn-primary primary-btn-btn ng-binding" ng-click="submitted=true" type="submit" name="proceed">{{'btn_Proceed'|translate}}</button>
+		<button type="button" class="btn btn-primary secondary-btn-btn ng-binding" ng-click="cancelForm()">{{'btn_Cancel'|translate}}</button>
+	</div>
+</form>

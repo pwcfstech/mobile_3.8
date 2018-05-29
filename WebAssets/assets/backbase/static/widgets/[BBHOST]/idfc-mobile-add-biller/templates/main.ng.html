@@ -1,0 +1,276 @@
+<div class="ng-cloak"  ng-controller="addBillerCtrl">
+    <div ng-show="errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <div class="lp-alerts" ng-if="error.happened">
+        <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}
+        </div>
+    </div>
+    <div ng-show="ConfirmBillerDetailsflg">
+        <div data-ng-include="template.ConfirmBillerDetails"></div>
+    </div>
+    <form name="addBillerForm" ng-submit="submitAddBiller(addBillerForm.$valid)" novalidate="">
+        <div ng-hide="ConfirmBillerDetailsflg">
+            <div class="add-error-msg" ng-if="error.happened">{{error.msg}}</div> <!-- 3.5 change -->
+            <div class="form-group">
+                <div class="add-floatLeft add-form-div">
+                    <span for="Category" class=" add-bill-label">Category</span>
+                </div>
+                <div class="add-floatLeft">
+                    <div>
+                        <select id="Category" name="Category" class="addficiary-control add-acc-type-add addressbook-select IDFC-dropdown add-bill-select-left" ng-model="billerCategorySelected" ng-options="item.category as item.category for item in billerCategoryMaster.list">
+                            <option value="">{{'Select Category'}}</option>
+                        </select>
+                        <div role="alert" class="add-biller-message">
+                            <span ng-show="billerCategoryReq">{{errorMessageBillerCategory}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="add-floatLeft add-form-div">
+                    <span for="Provider" class=" add-bill-label">Provider</span>
+                </div>
+                <div class="add-floatLeft">
+                    <div>
+                        <select id="Provider" name="Provider" class="addficiary-control add-acc-type-add addressbook-select IDFC-dropdown add-bill-select-left" ng-model="billerProviderSelected" ng-options="item as item.billerName for item in billerProviderMaster">
+                            <option value="">Select Provider</option>
+                        </select>
+                        <div role="alert" class="add-biller-message">
+                            <span ng-show="billerProviderReq">{{errorMessageBillerProvider}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="add-floatLeft add-form-div">
+                    <span for="name" class="add-bill-label">Nickname</span>
+                </div>
+                <div class="add-floatLeft-addBiller">
+                    <div>
+                        <input maxlength="15" type="text" name="nickName" id="name" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false;" onCopy="return false" onCut="return false" class="addficiary-control add-bill-select-left" ng-pattern="/^[ a-zA-Z0-9]*$/" ng-maxlength="50" ng-class="{lpinputerror: submitted && addContact.name.$error.required && addContact.name.$error.maxlength}" ng-model="billerNickName" placeholder="Nickname" required />
+                        <div role="alert" class="add-alert">
+                            <span class="error" ng-show="submitted && addBillerForm.nickName.$error.required">{{'error_nickname'|translate}}</span>
+                            <!--submitted added-->
+                            <span class="error" ng-show="submitted && addBillerForm.nickName.$error.pattern">Special Characters are not allowed in nickname.</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div ng-show="billerProviderSelected.authenticatorCount>=1">
+                <div class="form-group">
+                    <div class="add-floatLeft add-form-div">
+                        <span class="add-bill-label label-width">{{billerProviderSelected.authenticatorLable1}}</span>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="text" name="auth1" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="addficiary-control add-bill-select-left" ng-model="authenticator1" placeholder={{billerProviderSelected.authenticatorLable1}} required="true" />
+                        </div>
+                        <div class="add-biller-message"><small ng-show="check1" role="alert">
+                            {{billerProviderSelected.authenticatorMessage1}}
+                        </small>
+                        </div>
+                        <div role="alert" class="add-biller-message">
+                            <span ng-show="submitted && addBillerForm.auth1.$error.required">{{'errorMsg1'|translate}}{{billerProviderSelected.authenticatorLable1}}{{'errorMsg2'|translate}}</span>
+                            <!--submitted added-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="billerProviderSelected.authenticatorCount>=2">
+                <div class="form-group">
+                    <div class="add-floatLeft add-form-div">
+
+                        <span class="add-bill-label label-width">{{billerProviderSelected.authenticatorLable2}}</span>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="text" name="auth2" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="addficiary-control add-bill-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern" ng-model="authenticator2" placeholder={{billerProviderSelected.authenticatorLable2}} required />
+                        </div>
+                        <div class="add-biller-message"><small ng-show="check2" role="alert">
+                            {{billerProviderSelected.authenticatorMessage2}}
+                        </small>
+                        </div>
+                        <div role="alert" class="add-biller-message">
+                            <span ng-show="submitted && addBillerForm.auth2.$error.required">{{'errorMsg1'|translate}}{{billerProviderSelected.authenticatorLable2}}{{'errorMsg2'|translate}}</span>
+                            <!--submitted added-->
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div ng-show="billerProviderSelected.authenticatorCount>=3">
+                <div class="form-group">
+                    <div class="add-floatLeft add-form-div">
+
+                        <span class="add-bill-label">{{billerProviderSelected.authenticatorLable3}}</span>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="text" name="auth3" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="addficiary-control add-bill-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern" ng-model="authenticator3" placeholder={{billerProviderSelected.authenticatorLable3}} required />
+                        </div>
+                        <div class="add-biller-message"><small ng-show="check3	" role="alert">
+                            {{billerProviderSelected.authenticatorMessage3}}
+                        </small>
+                        </div>
+                        <div role="alert" class="add-biller-message">
+                            <span ng-show="submitted && addBillerForm.auth3.$error.required">{{'errorMsg1'|translate}}{{billerProviderSelected.authenticatorLable3}}{{'errorMsg2'|translate}}</span>
+                            <!--submitted added-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div ng-show="billerProviderSelected.authenticatorCount>=4">
+                <div class="form-group">
+                    <div class="add-floatLeft add-form-div">
+
+                        <span class="add-bill-label">{{billerProviderSelected.authenticatorLable4}}</span>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="text" name="auth4" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="addficiary-control add-bill-select-left addBiller-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern" ng-model="authenticator4" placeholder={{billerProviderSelected.authenticatorLable4}} required />
+                        </div>
+                        <div class="add-biller-message"><small ng-show="check4" role="alert">
+                            {{billerProviderSelected.authenticatorMessage4}}</small>
+                        </div>
+                        <div role="alert" class="add-biller-message">
+                            <span ng-show="submitted && addBillerForm.auth4.$error.required">{{'errorMsg1'|translate}}{{billerProviderSelected.authenticatorLable4}}{{'errorMsg2'|translate}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="billerProviderSelected.authenticatorCount>=5">
+                <div class="form-group">
+                    <div class="add-floatLeft add-form-div">
+                        <span class="add-bill-label">{{billerProviderSelected.authenticatorLable5}}</span>
+                    </div>
+                    <div>
+                        <div>
+                            <input type="text" name="auth5" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="addficiary-control add-bill-select-left addBiller-control addBiller-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern" ng-model="authenticator5" placeholder={{billerProviderSelected.authenticatorLable5}} required />
+                        </div>
+                        <div class="add-biller-message"><small ng-show="check5" role="alert">
+                            {{billerProviderSelected.authenticatorMessage5}}
+                        </small>
+                        </div>
+                        <div role="alert" class="add-biller-message">
+                            <span class="add-biller-message" ng-show="submitted && addBillerForm.auth5.$error.required">{{'errorMsg1'|translate}}{{billerProviderSelected.authenticatorLable5}}{{'errorMsg2'|translate}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-hide="false">
+                <div class="add-floatLeft add-form-div autopaypadding">
+                    <div class="add-check-outer-div">
+                        <input type="checkbox" class="add-set-check" name="setAutoPayFlag" id="setAutoPayFlag" for="name" class="add-bill-input" ng-model="setAutoPayFlag" ng-change='loadAccounts();' value="true" />
+                        <label for="setAutoPayFlag" class="add-bill-label add-bill-check marginzero autopaytop">Set for Auto Pay</label>
+                    </div>
+                </div>
+                <div class="add-bill-span add-amount autopaymessage"><span class="add-amount-msg">The amount will be paid to the biller from the  start date at the set frequency</span>
+                </div>
+            </div>
+            <div ng-show="setAutoPayFlag" class="add-setautoflag">
+                <div class="form-group">
+                    <div class="add-floatLeft add-form-div">
+                        <span for="account" class=" add-bill-label label-width">Account for Payment </span> </div>
+                    <div class="add-floatLeft-addBiller">
+                        <div>
+                            <select id="account" name="account" class="addficiary-control add-acc-type-add addressbook-select IDFC-dropdown add-bill-select-left" ng-model="accountSelected" ng-options="item.id as item.id for item in accountList">
+                                <option value="">{{'Select Account No'}}</option>
+                            </select>
+                        </div>
+                        <div role="alert" class="add-biller-message">
+                            <span ng-show="submitted && accountSelectedFlag">{{'errorMsg1'|translate}}Account{{'errorMsg2'|translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="billerProviderSelected.billerType=='PAYEE'" class="form-group top-padding">
+                    <div class="add-floatLeft-addBiller addBiller-form-div ">
+                        <span for="Frequency" class=" add-bill-label">Frequency</span>
+                    </div>
+                    <div class="add-floatLeft-addBiller">
+                        <div>
+                            <select id="Frequency" name="Frequency" class="addficiary-control add-acc-type-add addressbook-select IDFC-dropdown add-bill-select-left" ng-model="frequency" ng-options="item.frequency as item.frequency for item in frequencyMaster.list">
+                                <option value="">{{'Select Frequency'}}</option>
+                            </select>
+                        </div>
+                        <div role="alert" class="add-biller-message">
+                            <span class="add-biller-message" ng-show="submitted && frequencySelectedFlag">{{'errorMsg1'|translate}}Frequency{{'errorMsg2'|translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group top-padding">
+                    <div class="add-floatLeft-addBiller addBiller-form-div ">
+                        <span for="fromDate" class=" add-bill-label" style="clear: left;">Start date</span>
+                    </div>
+                    <div class="add-floatLeft-addBiller">
+                        <div>
+                            <input ng-click="openFromCalendar($event)" required="required" type="text" name="fromDate" ng-model="fromDate" ng-change="changeFromDate()" datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="todaysDate" is-open="isOpenDate1" class="addficiary-control add-bill-input-drop addBiller-select-left" lp-future-time="" id="fromDate" datepicker-options="dateOptionsFrom" show-button-bar="false" tabindex="0" placeholder="Select Date" placeholder="Select Date" aria-label="{{'Select_Date'|translate}}" />
+                            <span ng-click="openFromCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon  add-bill-calendar" ng-class="{'calendar-display': errorSpin == true}" datepicker-popup="dd-MMM-yyyy" readonly="readonly"></span>
+                        </div>
+                        <div role="alert" class="add-biller-message">
+                            <span class="add-biller-message" ng-show="submitted && addBillerForm.fromDate.$error.required">{{'errorMsg1'|translate}}From Date{{'errorMsg2'|translate}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="billerProviderSelected.billerType=='PAYEE'">
+                    <div class="form-group top-padding">
+                        <div class="add-floatLeft-addBiller addBiller-form-div ">
+                            <span for="toDate" class=" add-bill-label" style="clear: left;">End Date</span>
+                        </div>
+                        <div class="add-floatLeft-addBiller"><!--ng-disabled="disableDateCheck"-->
+                            <div>
+                                <input ng-click="openToCalendar($event)" required="required" type="text" name="toDate" ng-model="toDate" ng-change="changeFromTo()" datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="datecheck" max-date="mind" is-open="isOpenDate2" class="addficiary-control add-bill-input-drop addBiller-select-left" lp-future-time="" id="toDate" datepicker-options="dateOptionsTo" show-button-bar="false" tabindex="0" placeholder="Select Date" aria-label="{{'Select_Date'|translate}}" />
+                                <span ng-click="openToCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon  add-bill-calendar " datepicker-popup="dd-MMM-yyyy" ng-disabled="true" readonly="readonly"></span> </div>
+                            <div role="alert" class="add-biller-message">
+                                <span class="add-biller-message" ng-show="submitted && addBillerForm.toDate.$error.required">{{'errorMsg1'|translate}}End Date{{'errorMsg2'|translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group top-padding">
+                    <div class="add-floatLeft add-form-div autopaypadding">
+                        <input type="checkbox" name="setLimitAmtFlag" id="setLimitAmtFlag" for="setLimitAmtFlag" class="add-set-check" ng-model="setLimitAmtFlag" value="false" /><!--ng-disabled="billerProviderSelected.billerType=='PAYEE'"-->
+                        <label for="setLimitAmtFlag" class=" add-bill-label-main add-bill-check">Set Amount</label>
+                    </div>
+                    <div ng-show="setLimitAmtFlag" class="panel-body no-padding-top">
+                        <div class="add-floatLeft add-form-div autopaypadding">
+                            <div>
+                                <input id="amount" name="amount" class="add-bill-inr addficiary-control add-bill-select-left" ng-model="amount" ng-disabled="submitcheck" ng-options="item.value as item.text for item in contactsModel.accountTypeOptions  disabled" />
+                                <span class="add-inr-main">INR</span>
+                            </div>
+                            <div role="alert" class="add-biller-message">
+                                <span class="add-biller-message" ng-show="submitted && limitAmountSelectedFlag">{{'errorMsg1'|translate}} Amount {{'errorMsg2'|translate}}</span>
+                                <!--submitted added-->
+                                <span class="add-biller-message"  ng-show="submitted && limitAmountPatternFlag ">{{'Error_Amount_Pattern'|translate}}</span>
+                                <span class="add-biller-message" ng-show="submitted && limitAmountMaxlengthFlag">{{'Error_Amount_Maxlength'|translate}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add-biller-disclaimer">
+                <div>
+                    <div>
+                        <hr/>
+                        <button class="btn btn-primary primary-btn-btn ng-binding buttonclass" ng-click="submit(addBillerForm.nickName.$valid,addBillerForm.auth1.$valid,addBillerForm.auth2.$valid,addBillerForm.auth3.$valid,addBillerForm.auth4.$valid,addBillerForm.auth5.$valid);submitted=true;" type="submit" name="proceed">ADD BILLER</button>
+                        <button class="btn btn-primary secondary-btn-btn ng-binding" ng-disabled="errorSpin" ng-click="isClear1=true; isClear2=true; isClear3=true; isClear4=true; isClear5=true; clearValues(); submitted=false;" name="Clear">CLEAR</button>
+                    </div>
+                    <div class="disclaimermain">
+                        <div class="disclaimerheadingfont">Disclaimer :
+                        </div>
+                        <div class="descriptionfont">The Status of your biller registration can be seen in your Manage Billers section:</div>
+                        <div class="descriptionfont">i. SUCCESS means the registration is successful</div>
+                        <div class="descriptionfont">ii. IN PROGRESS means we still haven't got a confirmation from the Bill service provider</div>
+                        <div class="descriptionfont">iii. FAILED means the verification of your biller details failed, please re-add this biller with correct details</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

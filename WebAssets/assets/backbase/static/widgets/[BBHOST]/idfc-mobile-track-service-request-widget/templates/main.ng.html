@@ -1,0 +1,137 @@
+<div class="ng-cloak" >
+    <div class="text-danger" ng-if="error.happened" style="text-align:center">{{ error.msg }}</div>
+    <div ng-hide="globalerror">
+        <div class="lp-widget-content">
+            <div class="lp-widget-body widget-body panel-body panelBody">
+                <div id="limitForm">
+                    <form novalidate="" class="form-horizontal" role="form" name="limitmanagementForm" id="limitmanagementForm">
+                        <div lp-field="lp-field" label="SR_Number" ng-hide="success.happened">
+                            <div class="track-service-request-input">
+                                <input class="" type="tel" name="srNo" ng-model="serviceRequest.srNo" loading="isLoading" ng-pattern="/^[a-zA-Z0-9]*$/" />
+                                <small class="text-danger pull-left" ng-show="srError">{{'Req_SR_No'|translate}}</small>
+                                <small class="text-danger pull-left" ng-show="limitmanagementForm.srNo.$error.pattern">{{'Valid_SR_No'|translate}}</small>
+                            </div>
+                        </div>
+                        <div lp-field="lp-field" label="SR_Status" ng-hide="success.happened">
+                            <select id="srStatus" name="srStatus" class="status-dropdown glyphicon glyphicon-menu-down IDFC-dropdown" ng-model="serviceRequest.status" ng-options="status.name for status in srStatus" ng-change="changeStatus(serviceRequest.status)">
+                                <option value="">{{'Select_Status'|translate}}</option>
+                            </select>
+                        </div>
+                        <div name="submitForm" id="submitForm" class="" ng-hide="success.happened">
+                            <div class="borderLine"></div>
+                            <button class="btn btn-sm btn-primary primary-btn-track btn_search" type="submit" name="search" ng-click="fetchServiceRequest()">{{'Search'|translate}}</button>
+                            <button type="button" class="secondary-btn-track btn_clear" ng-click="doTheBack()">{{'Clear'|translate}}</button>
+                        </div>
+                        <div><input type="hidden" ng-model="serviceRequest.statusHidden" /></div>
+                        <div class="lp-transfers-container" id="SrList" ng-show="SRList.length>0">
+                            <table width="100%" class="track-table-heading" ng-hide="(success.happened)">
+                                <tr>
+                                    <th class="track-main-heading track-main-Service">Service Request Number
+                                    </th>
+                                    <th class="track-main-heading">Status
+                                    </th>
+                                </tr>
+                            </table>
+                            <ul class="list-group panel panel-default">
+                                <li class="list-group-item clearfix" ng-repeat="sr in filtered =( SRList | filter:serviceRequest.statusHidden)">
+                                    <div class="row" ng-click="getDetails(sr);" ng-hide="success.happened">
+                                        <table width="100%" class="track-table-heading formating">
+                                            <tr class="bothTrack borderBottomClass">
+                                                <td class="track-main-content"> {{sr.id}}
+                                                </td>
+                                                <td class="track-main-content status-content">{{sr.sts}}
+                                                    <span class="glyphicon glyphicon-chevron-right glyph-color myglyphicon" ng-hide="success.happened &amp;&amp; sucess.id===sr.id"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="lp-transfers-container track-top track-table-scroll" ng-show="success.happened &amp;&amp; success.id===sr.id">
+                                        <ul class="list-group panel panel-default track-ul-width">
+                                            <li class="noborder">
+                                                <div width="100%" class="track-table-heading">
+                                                    <div>
+                                                        <div class="track-heading-width">{{'AccountNumber'|translate}}
+                                                        </div>
+                                                        <div class="content-width acct-style" ng-repeat="srData in SRData">
+                                                            {{srData.acctNb}}
+                                                        </div>
+                                                        <div class="track-heading-width">{{'Category'|translate}}
+                                                        </div>
+                                                        <div class="content-width cat-style" ng-repeat="srData in SRData">
+                                                            {{srData.ctgry}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="track-heading-width">{{'SubCategory'|translate}}
+                                                    </div>
+                                                    <div class="content-width subcat-style" ng-repeat="srData in SRData">
+                                                        {{srData.sbCtgry}}
+                                                    </div>
+                                                    <div class="track-heading-width">{{'CreateDate'|translate}}
+                                                    </div>
+                                                    <div class="content-width sdate-style" ng-repeat="srData in SRData">
+                                                        <span ng-bind="convertToDate(srData.rprtdDt)"></span>
+                                                    </div>
+                                                    <div class="track-heading-width">{{'ModifiedDate'|translate}}
+                                                    </div>
+                                                    <div class="content-width edate-style" ng-repeat="srData in SRData">
+                                                        <span ng-bind="convertToDate(srData.lstMdfdDt) "></span>
+                                                    </div>
+                                                    <div class="track-heading-width">{{'Comments'|translate}}
+                                                    </div>
+                                                    <div class="noBorderClass content-width cmmnt-style" ng-repeat="srData in SRData">
+                                                        <span>{{srData.cmmts}}</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div ng-show="filtered.length==0" style="text-align:center">Sorry. No (open/closed) service requests are seen against your user name.</div>
+                        </div>
+                        <div class="lp-transfers-container track-top track-table-scroll" ng-show="success.happened &amp;&amp; success.id===serviceRequest.srNo">
+                            <ul class="list-group panel panel-default track-ul-width">
+                                <li>
+                                    <div width="100%" class="track-table-heading">
+                                        <div id="mydiv">
+                                            <div class="track-heading-width">{{'AccountNumber'|translate}}
+                                            </div>
+                                            <div class="content-width acct-style" ng-repeat="srData in SRData">
+                                                {{srData.acctNb}}
+                                            </div>
+                                            <div class="track-heading-width">{{'Category'|translate}}
+                                            </div>
+                                            <div class="content-width cat-style" ng-repeat="srData in SRData">
+                                                {{srData.ctgry}}
+                                            </div>
+                                        </div>
+                                        <div class="track-heading-width">{{'SubCategory'|translate}}
+                                        </div>
+                                        <div class="content-width subcat-style" ng-repeat="srData in SRData">
+                                            {{srData.sbCtgry}}
+                                        </div>
+                                        <div class="track-heading-width">{{'CreateDate'|translate}}
+                                        </div>
+                                        <div class="content-width sdate-style" ng-repeat="srData in SRData">
+                                            <span ng-bind="convertToDate(srData.rprtdDt)"></span>
+                                        </div>
+                                        <div class="track-heading-width">{{'ModifiedDate'|translate}}
+                                        </div>
+                                        <div class="content-width edate-style" ng-repeat="srData in SRData">
+                                            <span ng-bind="convertToDate(srData.lstMdfdDt) "></span>
+                                        </div>
+                                        <div class="track-heading-width">{{'Comments'|translate}}
+                                        </div>
+                                        <div class="content-width cmmnt-style" ng-repeat="srData in SRData">
+                                            <span>{{srData.cmmts}}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

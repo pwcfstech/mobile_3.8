@@ -1,0 +1,14 @@
+<section id="main">
+    <header>
+        <div class="error" ng-show="templates.happened">
+            {{authMesssage}}
+        </div>
+        <h1>Fingerprint </h1>
+        <p>{{fingerPrintMsg}}</p>
+        <span class="avatar"><img ng-src={{imagePath}} alt=""/></span>
+    </header>
+
+    <footer ng-show="showSetupFingerPrint">
+        <button class="red" ng-click="setupFingerprint();" type="submit">ENABLE NOW</button>
+    </footer>
+</section>

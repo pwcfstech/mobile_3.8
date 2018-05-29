@@ -1,0 +1,33 @@
+<div class="personal-loan-container">
+	<div class="row">
+		 
+		 <div class="yellowBackground">
+		  <div class="col-sm-12 col-lg-6 padding" ng-if="plRsCtrl.loanAccExist">
+			<div class="form-group">
+			  <label for="loanAccNum" class="col-md-5 control-label">{{'LOAN_ACC_NO'|translate}}</label>
+			  <div class="col-md-7">
+				<select id="accountNumberId" name="accountNumberId" class="input-boxes form-control IDFC-dropdown rep-account-request-input" 
+				ng-model="plRsCtrl.selectedAccountNumber" ng-options="item for item in plRsCtrl.loanAccountNumbers" ng-change="plRsCtrl.getLoanDetailsByAccNo(plRsCtrl.selectedAccountNumber)">
+					<option value= "" ng-if="plRsCtrl.loanAccountNumbers.length>1">{{'SELECT_ACC_NO'|translate}}</option>
+				</select>
+			  </div>
+			</div>
+		  </div>
+		   <div class="col-sm-12 col-lg-12 textAlign-center" ng-if="plRsCtrl.noEmailRegistered">
+			 <small ng-show="plRsCtrl.noEmailRegistered" class="text-danger">{{'NO_EMAIL_ERR'|translate}}</small>
+		   </div>
+		   <div class="col-md-12 textAlign-center" ng-if="plRsCtrl.noTransactionError">
+			<small ng-show="plRsCtrl.noTransactionError" class="text-danger">{{'NO_TRANS_AVAILABLE'|translate}}</small>
+			</div>
+			<div class="col-md-12 textAlign-center" ng-if="plRsCtrl.noLoanAccounts">
+				<small ng-show="plRsCtrl.noLoanAccounts" class="text-danger">{{'NO_LOAN_ACC'|translate}}</small>
+			</div>
+			<div class="col-md-12 textAlign-center" ng-if="plRsCtrl.noPendingLoans">
+				<small ng-show="plRsCtrl.noPendingLoans" class="text-danger">{{'NO_PENDING_LOANS'|translate}}</small>
+			</div>
+			<div class="col-md-12 textAlign-center" ng-if="plRsCtrl.serviceError">
+				<small ng-show="plRsCtrl.serviceError" class="text-danger">{{plRsCtrl.error.msg}}</small>
+			</div>
+		 </div>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+
+<div class="" >
+  <!-- error Spin -->
+  
+<div ng-controller="LAPAccountStmt as lapSoaCtrl" ng-click="lapSoaCtrl.hideCalendar();">
+	
+	<div ng-if="lapSoaCtrl.errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span
+				class="sr-only">Busy</span>
+		</div>
+	</div>
+
+	<div class="container paddingNone" >
+	
+		<div ng-include="lapSoaCtrl.templates.header"></div>		
+		
+		
+		<div ng-include="lapSoaCtrl.templates.details"></div>		
+		
+		
+		<div ng-include="lapSoaCtrl.templates.footer"></div>		
+		
+	</div>
+	
+	
+</div>
+</div>

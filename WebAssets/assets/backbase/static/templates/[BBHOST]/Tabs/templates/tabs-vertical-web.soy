@@ -1,0 +1,41 @@
+{namespace templates_Tabs}
+/**
+ * Tabs Container
+ * @param item Item in context
+ */
+{template .Tabs}
+{let $active: $item.preferences.state.value /}
+{let $title: $child.preferences.title ? $child.preferences.title.value : '' /}
+<div class="bp-container bp-ui-dragRoot row" data-pid="{$item.name}" style="min-height:50px">
+
+	<!-- Nav tabs -->
+	<div class="col-md-3">
+	<ul class="nav nav-tabs nav-stacked" role="tablist">
+		{for $i in range(0, length($item.children))}
+			{foreach $child in $item.children}
+				{if parseInt($child.preferences.area.value) == $i}
+				<li class="--tab{if $child.name == $item.preferences.state.value} active{/if}" data-id="{$child.name}">
+					<a role="tab" data-toggle="tab" class="--lp-i18n" data-lp-i18n="{$title}">{$title}</a>
+				</li>
+				{/if}
+			{/foreach}
+		{/for}
+	</ul>
+	</div>
+
+	<!-- Tab panes -->
+	<div class="col-md-9">
+	<div class="tab-content">
+		{for $i in range(0, length($item.children))}
+		<div class="--area bp-area tab-pane active">
+			{foreach $child in $item.children}
+				{if parseInt($child.preferences.area.value) == $i and $child.name == $active}
+					{include($child) |noAutoescape}
+				{/if}
+			{/foreach}
+		</div>
+		{/for}
+	</div>
+	</div>
+</div>
+{/template}

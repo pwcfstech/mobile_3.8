@@ -1,0 +1,180 @@
+.ng-modal-overlay {
+    /* A dark translucent div that covers the whole screen */
+    position:absolute;
+    z-index:4;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:#000000;
+    opacity: 0.8;
+}
+
+.modal-backdrop {
+    bottom: 0;
+}
+
+.ng-modal-dialog-content {
+    padding:15px 35px;
+    text-align: left;
+}
+.ng-modal-dialog .lp-contacts-header {
+    padding-bottom: 15px;
+}
+
+.modal {
+    display: block;
+    position: absolute;
+    overflow: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal-dialog {
+    position: fixed;
+    left: 50%;
+    margin-top: 70px;
+    z-index:5;
+}
+
+.lp-modal {
+    .modal-dialog {
+        position: relative;
+        margin-top: 20px;
+    }
+}
+
+.modal-content {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.modal-body {
+    padding: 10px 20px;
+}
+.modal-header {
+    border-bottom:0;
+    padding: 15px 15px 0;
+}
+.modal-footer {
+    border-top:0;
+    margin-top:0;
+    padding: 10px 20px 20px;
+}
+
+@media (min-width: @screen-sm) {
+    .modal-dialog {
+        width: 60%;
+        margin-left: -30%;
+    }
+}
+@media (min-width: @screen-sm) and (max-width: @screen-md) {
+    .iban-img, .cheque-img {
+        width: 100%;
+    }
+}
+@media (max-width: @screen-sm) {
+    .modal-dialog {
+        width: 90%;
+        margin-left: -45%;
+    }
+
+    .modal-centered {
+        position: fixed;
+        top: 3%;
+        right: 3%;
+        left: 3%;
+        bottom: 3%;
+        width: auto;
+        margin: 0;
+
+        .modal-body {
+            height: 60%;
+            max-height: 350px;
+            padding: 15px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+}
+@media (max-width: @screen-xs) {
+    .iban-img, .cheque-img {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: @screen-sm) {
+    .modal-centered {
+        position: fixed;
+        text-align: center;
+        &:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: " ";
+            height: 100%;
+        }
+        &>.modal-dialog {
+            width: auto;
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+        &.fade>.modal-dialog {
+            -webkit-transform: scale(0.9);
+            -moz-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            transform: scale(0.9);
+            opacity: 0;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+        &.fade.in>.modal-dialog {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+            //-webkit-transform: translate3d(0, -300px, 0);
+            //transform: translate3d(0, -300px, 0);
+            opacity: 1;
+        }
+    }
+}
+
+.modal-mobile {
+    top: auto;
+    position: fixed;
+    padding: 10px;
+
+    .modal-dialog {
+        position: relative;
+        width: 100%;
+        left: 0;
+        right:0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+    }
+    .modal-content {
+        background-color: transparent;
+        border: 0;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    &.fade>.modal-dialog {
+        bottom: -20em;
+        opacity: 0;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+    &.fade.in>.modal-dialog {
+        bottom: 0;
+        opacity: 1;
+    }
+}

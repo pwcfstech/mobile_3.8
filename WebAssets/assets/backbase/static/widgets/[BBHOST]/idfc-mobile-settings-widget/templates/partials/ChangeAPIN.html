@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang=en>
+    <meta charset=UTF-8>
+    <title></title>
+</head>
+<body>
+<div ng-if=showSuccessForm>
+    <div data-ng-include=templates.successful></div>
+</div>
+<div id=confirmPinForm ng-hide=showSuccessForm class=maxWidth>
+    <form novalidate class="settings-form-horizontal form-horizontal settings-pin-set" role=form name=confirmAPINForm id=firstform>
+        <div label=OldAPIN_Label class=maxWidth>
+            <span lp-i18n="{{'OldAPIN_Label'|translate}}" class="settings-label-span setting-margin-left"> </span>
+            <i class="lp-icon infoIcon ng-scope manualIcon11"tooltip="{{'Tip_OldAPIN'|translate}}" tooltip-trigger="click" tooltip-append-to-body=true>
+                <img src=static/features/[BBHOST]/theme-idfc/images/info_hdpi.png></i>
+            <div class=maxWidth>
+                <input class="settings-form-control-APIN form-control inputWidth" type=tel name=oldAPIN ng-model=controlAPIN.oldApin.value ng-pattern=/^[0-9]*$/ loading=isLoading autofill=off autocorrect=off autocapitalize=off autocomplete=off onpaste="return false" onCopy="return false" onCut="return false" required=true />
+                <small class=text-danger ng-show="confirmAPINForm.submitted &amp;&amp; confirmAPINForm.oldAPIN.$error.required">{{'Error_OldAPIN_Required'|translate}}</small>
+                <small class=text-danger ng-show=confirmAPINForm.oldAPIN.$error.pattern>{{'Error_OldAPIN_Pattern'|translate}}</small>
+                <small class=text-danger ng-show="confirmAPINForm.submitted &amp;&amp; errors['oldPinCheck'] &amp;&amp; !(confirmAPINForm.APIN.$error.pattern) &amp;&amp; !(confirmAPINForm.APIN.$error.required)">{{'Error_OldAPIN_Length'|translate}}</small>
+            </div>
+        </div>
+        <div label=NEW_APIN_Label class=maxWidth>
+            <span lp-i18n="{{'NEW_APIN_Label'|translate}}" class="settings-label-span setting-margin-left"> </span>
+            <i class="lp-icon infoIcon ng-scope manualIcon11"tooltip="{{'Tip_NewAPIN'|translate}}" tooltip-trigger="click" tooltip-append-to-body=true>
+                <img src=static/features/[BBHOST]/theme-idfc/images/info_hdpi.png></i>
+            <div class=maxWidth>
+                <input class="settings-form-control-APIN form-control inputWidth" type=tel name=APIN ng-model=controlAPIN.apin.value ng-pattern=/^[0-9]*$/ loading=isLoading autofill=off autocorrect=off autocapitalize=off autocomplete=off onpaste="return false" onCopy="return false" onCut="return false" required=true />
+                <small class=text-danger ng-show="confirmAPINForm.submitted &amp;&amp; confirmAPINForm.APIN.$error.required">{{'Error_NewAPIN_Required'|translate}}</small>
+                <small class=text-danger ng-show=confirmAPINForm.APIN.$error.pattern>{{'Error_NewAPIN_Pattern'|translate}}</small>
+                <small class=text-danger ng-show="confirmAPINForm.submitted &amp;&amp; errors['pinCheck'] &amp;&amp; !(confirmAPINForm.APIN.$error.pattern) &amp;&amp; !(confirmAPINForm.APIN.$error.required)">{{'Error_NewAPIN_Length'|translate}}</small>
+            </div>
+        </div>
+        <div label=Confirm_APIN class=maxWidth>
+            <span lp-i18n="{{'Confirm_APIN'|translate}}" class="settings-label-span setting-margin-left"> </span>
+            <i class="lp-icon infoIcon ng-scope manualIcon11" tooltip="{{'Tip_ConfirmAPIN'|translate}}" tooltip-trigger="click" tooltip-append-to-body=true>
+                <img src=static/features/[BBHOST]/theme-idfc/images/info_hdpi.png></i>
+            <div class=maxWidth>
+                <input class="settings-form-control-APIN form-control inputWidth" type=tel name=CApin ng-pattern=/^[0-9]*$/ ng-model=controlAPIN.confirmApin.value loading=isLoading autofill=off autocorrect=off autocapitalize=off autocomplete=off onpaste="return false" onCopy="return false" onCut="return false" required=true />
+                <small class=text-danger ng-show="confirmAPINForm.submitted &amp;&amp; confirmAPINForm.CApin.$error.required">{{'Error_ConfirmAPIN_Required'|translate}}</small>
+                <small class=text-danger ng-show="confirmAPINForm.CApin.$error.pattern ">{{'Error_ConfirmAPIN_Pattern'|translate}}</small>
+                <small class=text-danger ng-show="confirmAPINForm.submitted &amp;&amp; errors['confirmAPIN']">
+                    <span class=confirmNotMatch>{{'Error_ConfirmAPIN_NotMatch'|translate}}</span>
+                    <span>{{'Error_ConfirmAPIN_NotMatch1'|translate}}</span>
+                </small>
+            </div>
+        </div>
+        <div class="settings-div-td-dep-ab maxWidth">
+            <button class="btn btn-primary settings-btn-align primary-btn-setting primary-btn-btn settingBtn btnRed" ng-click="confirmAPINForm.submitted=true ; confirmChangeAPINForm(confirmAPINForm.$valid)" type=submit>{{'btn_Confirm'|translate}}</button>
+            <button type=button class="btn btn-primary settings-btn-align secondary-btn-setting secondary-btn-btn settingBtn btnGrey" ng-click="confirmAPINForm.submitted=false ;resetChangeApinForm()">{{'btn_Clear'|translate}}</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

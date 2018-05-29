@@ -1,0 +1,268 @@
+<div ng-controller="DepositDetailsController">
+	<div class="panel panel-default" ng-if="fiModel.selected">
+		<div class="panel-heading selected-fi">
+			<div class="col-xs-2 col-lg-1">
+				<span><i class="lp-icon lp-icon-expense-planning"></i></span>
+			</div>
+			<div class="col-xs-10 col-xs-11">
+				<span class="h4">Enter Deposit Details</span><br />
+			</div>
+		</div>
+	</div>
+	<div class="btn-group btn-group-justified">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default btn-filter" ng-class="{'active': typeFilters.term.selected}" ng-click="openTermDeposit()">
+				<div class="filter-row col-xs-12 col-md-3"><i class="lp-icon lp-icon-building"></i></div>
+				<div class="filter-row push col-xs-12 col-md-9">Term Deposit</div>
+			</button>
+		</div>
+		<div class="btn-group">
+			<button type="button" class="btn btn-default btn-filter" ng-class="{'active': typeFilters.recurring.selected}" ng-click="openRecurringDeposit()">
+				<div class="filter-row col-xs-12 col-md-3"><i class="lp-icon lp-icon-credit-card"></i></div>
+				<div class="filter-row push col-xs-12 col-md-9">Recurring Deposit</div>
+			</button>
+		</div>
+	</div>
+	<div progress-indicator="progress-indicator" is-loading="fiModel.isConnecting" class="opendeposit-panel-body panel-body">
+		<form class="form-horizontal" ng-submit="submitDetails()" tabindex="0">
+			<div id="termsDepositDiv" ng-controller="DepositDetailsController">
+				<table width="100%" style="border-spacing:10px">
+					<tr>
+						<td colspan="2">
+							<input type="radio" ng-model="deposit.type" value="Standard Term Deposit" checked="checked"/><span>Standard Term Deposit</span>
+						</td>
+						<!--<td colspan="2">-->
+							<!--<input type="radio" ng-model="deposit.type" value="Tax Saver Term Deposit"/><span>Tax Saver Term Deposit</span>-->
+						<!--</td>-->
+					</tr>
+					<tr>
+						<td colspan="2">
+							Debit Account Number*
+						</td>
+						<td colspan="2">
+							<select id="AccountNumber" ng-model="AccountNumber">
+								<option value="red">NL56ABNA098765</option>
+								<option value="green">NL55ASDNA098765</option>
+								<option value="blue">NL54ABNA098765</option>
+							</select>
+						</td>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Amount of Deposit*
+						</td>
+						<td colspan="2">
+							<input type="tel" ng-model="deposit.amount"/>
+							{{deposit.amount | currency:' '}}
+						</td>
+						<td>
+							<a href="#">Deposit Interest Rates</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Deposit Type*
+						</td>
+						<td colspan="2">
+							<select id="DepositType" ng-model="DepositType">
+								<option value="red">Cumulative Term deposit</option>
+								<option value="green">Traditional Monthly Interest Payout</option>
+								<option value="blue">Traditional Quarterly Interest Payout</option>
+								<option value="green">Traditional Half yearly Interest Payout</option>
+								<option value="blue">Traditional Annual Interest Payout</option>
+							</select>
+						</td>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Tenure of Deposit*
+						</td>
+						<td>
+							<input type="tel" value="Year"/>
+						</td>
+						<td>
+							<input type="tel" value="Days"/>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Rate of Interest
+						</td>
+						<td colspan="2">
+							<input type="text" value="10.00%" disabled="disabled"/>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							PAN
+						</td>
+						<td colspan="2">
+							<input type="text" value="ABCDE1234F" disabled="disabled"/>
+						</td>
+						<td>
+							<a href="#">Update PAN</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Auto Renewal
+						</td>
+						<td>
+							<input type="radio" ng-model="deposit.type" value="yes"/><span>Yes</span>
+						</td>
+						<td>
+							<input type="radio" ng-model="deposit.type" value="no"/><span>No</span>
+						</td>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><button type="submit" class="btn btn-primary primary-btn-open-od" ng-click="calculate()">Calculate</button></td>
+						<td> <button type="submit" class="btn btn-primary primary-btn-open-od">Submit</button></td>
+						<td><button type="submit" class="btn btn-primary secondary-btn-open-od" ng-click="clear()">Clear</button></td>
+						<td></td>
+					</tr>
+				</table>
+				<h4>Maturity Details</h4>
+				<table border="1" width="100%">
+					<tr>
+						<td width="50%">Maturity Date</td>
+						<td width="50%">
+							<div id="tdDate"></div>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">Interest Payable</td>
+						<td width="50%">
+							<div id="tdInterest"></div>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">Maturity Amount</td>
+						<td width="50%">
+							<div id="tdAmount"></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="recurringDepositDiv" class="recurringDepositDiv">
+				<table width="100%" style="border-spacing:10px">
+					<tr>
+						<td colspan="2">
+							Debit Account Number*
+						</td>
+						<td colspan="2">
+							<select ng-model="AccountNumber">
+								<option value="red">NL56ABNA098765</option>
+								<option value="green">NL55ASDNA098765</option>
+								<option value="blue">NL54ABNA098765</option>
+							</select>
+						</td>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Installation Amount*
+						</td>
+						<td colspan="2">
+							<input type="tel"/>
+						</td>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Debit Date*
+						</td>
+						<td colspan="2">
+							<input type="text" disabled="disabled" value="Day of the month"/>
+						</td>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Tenure of Deposit*
+						</td>
+						<td>
+							<input type="tel" value="Year"/>
+						</td>
+						<td>
+							<input type="tel" value="Days"/>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Rate of Interest
+						</td>
+						<td colspan="2">
+							<input type="text" value="10.00%" disabled="disabled"/>
+						</td>
+						<td> <a href="#">Deposit Interest Rates</a></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							PAN
+						</td>
+						<td colspan="2">
+							<input type="text" value="ABCDE1234F" disabled="disabled"/>
+						</td>
+						<td>
+							<a href="#">Update PAN</a>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							Auto Renewal
+						</td>
+						<td>
+							<input type="radio" ng-model="deposit.type" value="yes"/><span>Yes</span>
+						</td>
+						<td>
+							<input type="radio" ng-model="deposit.type" value="no"/><span>No</span>
+						</td>
+						<td>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><button type="submit" class="btn btn-primary" ng-click="calculate()">Calculate</button></td>
+						<td> <button type="submit" class="btn btn-primary">Submit</button></td>
+						<td><button type="submit" class="btn btn-primary" ng-click="clear()">Clear</button></td>
+						<td></td>
+					</tr>
+				</table>
+				<h4>Maturity Details</h4>
+				<table border="1" width="100%">
+					<tr>
+						<td width="50%">Maturity Date</td>
+						<td width="50%">
+							<div id="rdDate"></div>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">Interest Payable</td>
+						<td width="50%">
+							<div id="rdInterest"></div>
+						</td>
+					</tr>
+					<tr>
+						<td width="50%">Maturity Amount</td>
+						<td width="50%">
+							<div id="rdAmount"></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,62 @@
+<div class="ng-cloak lp-widget-body widget-body" ng-controller="MyController">
+    <div ng-if="errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <div class="lp-alerts">
+        <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+    </div>
+    <div ng-hide="serviceError">
+        <div ng-if="showCategoryForm">
+            <div ng-if="nominee" ng-include="template.nominee"></div>
+            <div ng-if="chequebook" ng-include="template.chequebook"></div>
+        </div>
+        <div ng-hide="showCategoryForm" ng-show="serviceRequestForm">
+            <form name="createServiceReqForm" novalidate="">
+                <div class="servicerequest-heading"></div>
+                <div id="rcorners2" class="serviceRequest-dep-parent-div">
+                    <div class="serviceRequest-div-tr-dep">
+                        <div class="serviceRequest-clear-div-child" style="visibility:hidden;display:none !important;">
+                            <div class="serviceRequest-div-td-dep serviceRequest-font-label-dep">
+                                <label> {{'Product'|translate}} </label>
+                            </div>
+                            <div class="serviceRequest-div-td-dep ">
+                                <select ng-model="model.categories" class="form-control IDFC-dropdown"
+                                        ng-options="item as item for item in categoryList"
+                                        ng-click="checkCategory()">
+                                    <option value="">{{'Select_Product'|translate}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="serviceRequest-sub-cat-show category-createservicerequest personalheight">
+                        <div class="divDetails"><span class="details">Update Personal Details</span></div>
+                        <ul>
+                            <li ng-repeat="categ in subcategoryListPersonal">
+                                <div ng-model="model.subCategoryList" ng-click="openForm(categ)" class="categoryShift">
+                                    <div class="categFont">{{categ}}
+                                        <img  class="imgRight" src="static/features/[BBHOST]/theme-idfc/images/arrow_right.png"/>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="serviceRequest-sub-cat-show category-createservicerequest otherheight">
+                        <div class="divDetails"><span class="details">Other Requests</span></div>
+                        <ul>
+                            <li ng-repeat="categ in subcategoryListOther">
+                                <div ng-model="model.subCategoryList" ng-click="openForm(categ)" class="categoryShift">
+                                    <div class="categFont">{{categ}}
+                                        <img  class="imgRight" src="static/features/[BBHOST]/theme-idfc/images/arrow_right.png"/>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

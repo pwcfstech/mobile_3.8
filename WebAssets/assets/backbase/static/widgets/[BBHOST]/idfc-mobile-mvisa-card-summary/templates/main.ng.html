@@ -1,0 +1,13 @@
+<div ng-controller="MvisaPaymentController as mVisaPaymentCtrl">
+    
+	<div ng-if="errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+			<span class="sr-only">Busy</span>
+		</div>
+	</div>	
+    <!--img ng-src="{{mVisaPaymentCtrl.state.icon}}" alt="{{mVisaPaymentCtrl.state.title}}" /-->
+	<div ng-if="mVisaPaymentCtrl.showCards" data-ng-include="mVisaPaymentCtrl.template.cards"></div>
+	<div ng-if="mVisaPaymentCtrl.showCardSummary" data-ng-include="mVisaPaymentCtrl.template.summary"></div>
+	<div ng-if="mVisaPaymentCtrl.showPaymentPage" data-ng-include="mVisaPaymentCtrl.template.payment"></div>
+</div>

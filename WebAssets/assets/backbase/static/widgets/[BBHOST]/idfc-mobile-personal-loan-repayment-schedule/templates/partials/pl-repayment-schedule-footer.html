@@ -1,0 +1,30 @@
+<div class="padding-bottom-20">
+    <div class="row">
+        
+        <div class="col-sm-10 col-lg-10 width leftFloat">
+            <input name="+ Load More" type="button" value="+ Load more" class="btn-whitePop" ng-click="plRsCtrl.showMore()" ng-if="plRsCtrl.limit<plRsCtrl.detail.length"/>
+        </div>
+        
+        <div class="col-sm-2 col-lg-2 padding0 pull-right">
+            <div class="col-sm-4 col-lg-4 footerButton">
+                <input name="Mail" type="button" value=""  class="mailButton" ng-click="plRsCtrl.emailAdvice()"   />
+                
+            </div>
+            <div class="col-sm-4 col-lg-4 footerButton">
+                <input name="Print" type="button" value=""  class="printButton" ng-click="plRsCtrl.printPdf()" ng-if="!plRsCtrl.isMobileDevice && plRsCtrl.detail.length>0" tooltip="Print your repayment schedule" tooltip-placement="top"/>
+            </div>
+            <div class="col-sm-4 col-lg-4 footerButton">
+                <input name="Download" type="button" value=""  class="downButton" ng-click="plRsCtrl.pdfGeneration()" ng-if="!plRsCtrl.isMobileDevice && plRsCtrl.detail.length>0" tooltip="Download your repayment schedule" tooltip-placement="top"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row" id="emailSuccessMsg">
+        <div class="col-sm-12 col-lg-12 successEmailMsg succCenter successMessagePlRep">
+            <small ng-show="plRsCtrl.emailSuccess" class="text-success">{{'EMAIL_SUCCESS'|translate}}</small>
+        </div>
+        <div class="col-sm-12 col-lg-12 textAlign-center succCenter successMessagePlRep">
+            <small ng-show="plRsCtrl.emailFail" class="text-danger">{{'EMAIL_FAIL'|translate}}</small>
+        </div>	 
+    </div> 
+</div>

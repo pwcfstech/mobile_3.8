@@ -1,0 +1,612 @@
+.lp-deposits-closure .panel {
+    border: 0;
+    margin: 0
+}
+
+.lp-deposits-closure .panel-body.fi-list {
+    padding: 0
+}
+
+.lp-deposits-closure .list-group {
+    margin: 0;
+    border-radius: 0
+}
+
+.lp-deposits-closure .list-group .list-group-item {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    position: relative;
+    top: 0
+}
+
+.idfc-account-closure {
+    padding-top: 13px!important
+}
+
+.lp-deposits-closure .transitioning {
+    z-index: 10
+}
+
+.lp-deposits-closure .transitioning .h4 {
+    font-size: 18px
+}
+
+.lp-deposits-closure .fi-icon {
+    font-size: 30px
+}
+
+.lp-deposits-closure .panel-heading.context {
+    padding: 0 15px;
+    border-bottom: 0
+}
+
+.lp-deposits-closure .selected-fi {
+    min-height: 65px
+}
+
+.lp-deposits-closure .panel-heading.selected-fi {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.lp-deposits-closure .alert {
+    margin-bottom: 0
+}
+
+.lp-deposits-closure .selected-fi i {
+    font-size: 30px
+}
+
+.lp-deposits-closure .btn-filter {
+    margin-top: 10px;
+    min-height: 55px;
+    overflow: hidden;
+    padding: 6px 0
+}
+
+@media (max-width:992px) {
+    .lp-deposits-closure .btn-filter {
+        min-height: 90px
+    }
+}
+
+.lp-deposits-closure .filter-row {
+    height: 50%
+}
+
+.lp-deposits-closure .filter-row i {
+    font-size: 30px
+}
+
+.lp-deposits-closure .filter-row.push {
+    margin-top: 6px
+}
+
+.lp-deposits-closure .filters {
+    margin-top: 10px
+}
+
+.lp-deposits-closure .connection-feedback {
+    height: 80px
+}
+
+.depositsClosure-div-td-dep-ab {
+    float: right;
+    padding-right: 2%;
+    text-align: right;
+    position: relative;
+    min-width: 32%;
+    padding-top: 5px;
+    margin-right: 5px
+}
+
+.depositsClosure-dep-messages {
+    max-width: 260px
+}
+
+.depositsClosure-div-tr-dep {
+    clear: both;
+    position: relative;
+    height: 100%;
+    padding-bottom: 10px
+}
+
+.depositsClosure-div-td-dep {
+    text-align: left;
+    position: relative;
+    padding-left: 12.5%!important;
+    padding-right: 12.5%!important;
+    padding-top: 5px;
+    font-family: gotham_book, Calibri
+}
+
+.depositsClosure-div-td-dep-ab {
+    float: right;
+    padding-right: 2%;
+    text-align: right;
+    position: relative;
+    min-width: 60%;
+    padding-top: 5px;
+    margin-right: 5px
+}
+
+.idfc-goback-closure {
+    margin-right: 1px!important;
+    position: relative;
+    float: right
+}
+
+.idfc-decline-closure {
+    margin-right: 1px!important;
+    position: relative;
+    float: right;
+    padding-left: 1%
+}
+
+.idfc-accept-closure {
+    margin-right: 1px!important;
+    position: relative;
+    padding-left: 1%
+}
+
+.depositsClosure-dep-radio {
+    margin: 0!important
+}
+
+.depositsClosure-dep-parent-div {
+    border-spacing: 10px;
+    height: 100%
+}
+
+.depositsClosure-font-label-dep {
+    font-weight: 700;
+    font-family: gotham_bold, Calibri!important;
+    font-size: 14px;
+    color: #333
+}
+
+.depositsClosure-span-margin {
+    margin-right: 10px
+}
+
+.depositsClosure-clear-both {
+    clear: both
+}
+
+.depositsClosure-max-align-width {
+    width: 122%!important
+}
+
+.primary-btn-closure {
+    font-family: gotham_book, Calibri!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    width: 100%!important;
+    background-color: #fc637f!important;
+    padding: 16px!important;
+    border: none!important;
+    margin-top: 12px!important
+}
+
+.secondary-btn-closure {
+    font-family: gotham_book, Calibri!important;
+    background-color: #ebe9eb!important;
+    width: 100%!important;
+    font-size: 12px!important;
+    color: #000!important;
+    border: none!important;
+    padding: 16px!important;
+    margin-top: 12px!important
+}
+
+.closure-link {
+    color: #969!important
+}
+
+.closure-text {
+    padding-left: 8.75%!important;
+    padding-right: 8.75%!important;
+    font-family: gotham_medium;
+    font-size: 14px!important;
+    color: #333!important
+}
+
+.common-closure {
+    margin-left: 281px!important;
+    width: 275px
+}
+
+.depositsClosure-congrats {
+    width: 190px!important;
+    margin-left: 45px!important
+}
+
+.depositsClosure-ng-cloak {
+    display: none!important
+}
+
+.depositClosure-style-top {
+    margin-top: -2%
+}
+
+.depositClosure-radio-margin {
+    font-family: gotham_book, Calibri!important;
+    display: inline-block;
+    height: 14px!important;
+    width: 19%!important;
+    vertical-align: bottom!important;
+    box-shadow: 0 #fff!important;
+    border-color: #fff!important
+}
+
+.depositClosure-parent-radio-btn {
+    min-height: 30px;
+    padding-left: 12.5%!important
+}
+
+.depositClosure-txt-wrap {
+    white-space: normal!important;
+    word-wrap: break-word
+}
+
+.specialColor {
+    background-color: #fc637f!important
+}
+
+.text-danger {
+    color: #d0021b
+}
+
+.wizard-wrapper .wizard-step-number-active {
+    background-color: #ffc62e!important;
+    color: #fff!important
+}
+
+.depositsClosure-div-td-dep-ab {
+    float: none!important;
+    min-width: 100%!important
+}
+
+.glyphicon-arrow-right:before {
+    content: "\2212";
+    color: #ebe9eb
+}
+
+.wizard-wrapper .wizard-step-number {
+    background-color: #ebe9eb;
+    color: #000;
+    width: 30px!important;
+    border: 1px solid #eaeaea;
+    border-radius: 1.8em!important;
+    position: inherit;
+    margin-top: 23px!important;
+    z-index: 999
+}
+
+.perpendicular {
+    border-radius: 0!important
+}
+
+.wizard-wrapper .wizard-step-heading {
+    text-align: left;
+    padding-left: 4.5%!important;
+    font-family: gotham_medium!important;
+    font-size: 10px!important;
+    font-weight: 700
+}
+
+.withamt {
+    width: 76.23%!important
+}
+
+.glyphicon {
+    line-height: 3!important;
+    font-size: initial!important
+}
+
+.btn-primary {
+    width: 79.23%!important;
+    padding-top: 2.5%!important;
+    padding-bottom: 2.5%!important;
+    margin-bottom: 0!important
+}
+
+select {
+    padding-left: 12.5%!important;
+    padding-right: 12.5%!important;
+    float: none!important
+}
+
+input {
+    width: 76.23%!important
+}
+
+input[type="radio"] {
+    vertical-align: middle
+}
+
+.marginTopNext {
+    margin-top: 12.5%!important;
+    text-transform: uppercase;
+    border-radius: 2px!important
+}
+
+.marginTopClear {
+    margin-top: 3.1%!important;
+    text-transform: uppercase;
+    border-radius: 2px!important
+}
+
+.margin0 {
+    margin-right: 0!important
+}
+
+.labelText {
+    font-size: 14px!important;
+    font-family: gotham_medium!important;
+    color: #4a4a4a!important;
+    padding-left: 12.5%!important;
+    margin-top: 5.93%!important;
+    margin-bottom: 4px!important
+}
+
+.sucessOTP {
+    padding-right: 6.8%!important;
+    padding-left: 6.8%!important;
+    font-size: 14px!important;
+    font-family: "gotham_book"!important
+}
+
+.text-center {
+    text-align: center
+}
+
+.labelBelowOTP {
+    margin-top: 6.56%
+}
+
+.labelTopBottom {
+    margin-top: 5.93%!important;
+    margin-bottom: 4px!important
+}
+
+.text-danger {
+    display: block;
+    font-size: 12px!important;
+    text-align: left;
+    padding-right: 10%!important;
+    padding-left: 1.5%!important
+}
+
+.col-sm-6 {
+    padding-left: 0!important;
+    padding-right: 0!important
+}
+
+.panel-heading {
+    padding: 0!important
+}
+
+.panel-body {
+    padding: 0!important
+}
+
+.wizard-wrapper .wizard-step-heading {
+    /* width: 0!important */
+}
+
+.wizard-wrapper .wizard-step {
+    width: 75px!important;
+}
+
+.label {
+    padding-left: 0!important
+}
+
+.dropdown .dropdown-small:focus,
+.form-control:focus {
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    border-color: #c6cfd9!important
+}
+
+@media only screen and (max-device-width:240px) {
+    input {
+        height: 26px!important
+    }
+    .btn-primary {
+        height: 36px!important;
+        line-height: 16px!important
+    }
+    input[type="radio"] {
+        height: 12px!important;
+        width: 16px!important
+    }
+    .panel-heading {
+        height: 60px!important
+    }
+    .wizard-wrapper .wizard-step-number {
+        height: 23px!important;
+        padding-top: 2px!important
+    }
+    .wizard-wrapper .wizard-step-heading {
+        margin-top: 9px!important
+    }
+    .glyphicon {
+        top: 11px!important
+    }
+    .ul-text {
+        font-size: 9px!important
+    }
+    .succmsg {
+        margin-top: 83px!important
+    }
+    .congratslabel {
+        top: 75px!important
+    }
+    .img_padding {
+        top: 60px
+    }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+    input {
+        height: 35px!important
+    }
+    .btn-primary {
+        height: 48px!important;
+        line-height: 16px!important
+    }
+    input[type="radio"] {
+        height: 16px!important;
+        width: 16px!important
+    }
+    .wizard-wrapper .wizard-step-number {
+        height: 30px!important;
+        padding-top: 5px!important
+    }
+    .panel-heading {
+        height: 80px!important
+    }
+    .wizard-wrapper .wizard-step-heading {
+        margin-top: 12px!important
+    }
+    .glyphicon {
+        top: 15px!important
+    }
+    .ul-text {
+        font-size: 12px!important
+    }
+    .succmsg {
+        margin-top: 110px!important
+    }
+    .congratslabel {
+        top: 100px!important
+    }
+    .img_padding {
+        top: 80px
+    }
+}
+
+.padLeft {
+    padding-left: 12.5%!important
+}
+
+.opendeposit-NoteDiv>h5 {
+    color: #ffc62c
+}
+
+.opendeposit-NoteDiv li {
+    color: #bcb9b8
+}
+
+.ul-text {
+    font-family: gotham_book!important;
+    color: #aeaeae!important;
+    padding-left: 5%
+}
+
+.wizard-step-container:nth-child(1)>.wizard-step {
+    text-align: right;
+    position: relative;
+}
+
+/*.wizard-step-container:nth-child(2)>.wizard-active-step {
+    margin-left: 3%
+}*/
+
+select {
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png)!important;
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%
+}
+
+.img_padding {
+    position: relative;
+    text-align: center
+}
+
+.congratslabel {
+    position: relative;
+    font-family: gotham_medium;
+    text-align: center;
+    color: #4a4a4a!important;
+    font-size: 14px!important;
+    font-weight: bolder
+}
+
+.panelborder {
+    border: solid 0!important
+}
+
+.panel-heading {
+    border: solid 0!important;
+    border-color: #fff!important
+}
+
+.wizard-wrapper .wizard-step-arrow {
+    color: #eaeaea!important
+}
+
+.mypanel {
+    margin-bottom: 0!important
+}
+
+.heading-text {
+    display: inline!important;
+    /* position: relative!important; */
+    float: left
+}
+
+.wizard-wrapper .wizard-step-done {
+    background-color: #5cb85c!important;
+    border-color: #4cae4c;
+    color: #fff!important
+}
+
+.wizard-wrapper .wizard-step-number {
+    left: -15px;
+    position: relative;
+}
+
+.wizard-wrapper .wizard-step-arrow {
+    -webkit-transform: scaleX(6)!important;
+    left: -4px
+}
+
+#subbtn {
+    margin-top: 34%!important
+}
+
+.wizard-step:nth-child(2) {
+    position: relative;
+    left: 7px;
+}
+
+.secondwizard {
+    left: -206px!important
+}
+
+.wizard-wrapper .wizard-step-heading {
+    /* position: fixed!important; */
+}
+
+.lastbtn {
+    margin-top: -12%!important
+}
+
+.borderLine {
+    margin-top: 35%
+}
+
+/* Xebia Refactoring */
+label {
+    font-family: gotham_bold,Calibri!important;
+}
+
+.labelText {
+    margin-left: 0% !important;
+}

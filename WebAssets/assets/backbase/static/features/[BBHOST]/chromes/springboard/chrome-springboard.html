@@ -1,0 +1,32 @@
+<div id="{{widgetInstanceId}}" data-pid="{{widgetInstanceId}}" class="bp-widget bp-ui-dragRoot lp-springboard-widget lp-springboard-widget-live">
+    <div class="bp-widget-head lp-widget-head lp-springboard-widget-head {{#enableDND}}bp-ui-dragGrip{{/enableDND}}">
+
+        <!-- Springboard Tile Button -->
+        <button class="lp-springboard-tile-chrome" data-action="lp-springboard-widget-maximize" aria-label="Open {{widgetTitle}}">
+            <span class="lp-springboard-tile-icon">{{#pref.icon}}<i class="lp-icon lp-icon-{{pref.icon.value}}"></i>{{/pref.icon}}</span>
+            <div class="lp-springboard-tile-title" data-lp-i18n="{{widgetTitle}}">{{widgetTitle}}</div>
+        </button>
+
+        <!-- Springboard Maximized Chrome -->
+        <div class="lp-springboard-maximized-chrome">
+            <div class="lp-springboard-widget-title" tabindex="0" data-lp-i18n="{{widgetTitle}}">{{widgetTitle}}</div>
+            <div class="lp-widget-controls clearfix">
+                {{#showDelete}}
+                <button class="lp-widget-control lp-widget-control-close pull-right" data-action="widget-close" title="Remove {{widgetTitle}}">
+                    <i class="lp-icon lp-icon-cross"></i>
+                </button>
+                {{/showDelete}}
+                <button class="lp-widget-control lp-widget-control-maximize pull-right" title="Maximize {{widgetTitle}}" data-action="lp-springboard-widget-maximize">
+                    <i class="lp-icon lp-icon-arrow-up-right"></i>
+                </button>
+                <button class="lp-widget-control lp-widget-control-restore pull-right" title="Restore {{widgetTitle}}" data-action="lp-springboard-widget-restore">
+                    <i class="lp-icon lp-icon-arrow-down-left"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="bp-widget-pref"></div>
+    <div class="lp-springboard-widget-body-wrap">
+        <div class="bp-widget-body lp-springboard-widget-body">{{{widgetContent}}}</div>
+    </div>
+</div>

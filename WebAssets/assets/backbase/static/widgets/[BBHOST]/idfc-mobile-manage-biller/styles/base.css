@@ -1,0 +1,666 @@
+.lp-loyalty .row {
+    margin-bottom: 10px
+}
+
+.lp-desc-list {
+    margin: 0 0 0 10px
+}
+
+.lp-desc-list>dt {
+    min-width: 60%;
+    text-align: left
+}
+
+.lp-desc-list>dd {
+    margin-left: 0
+}
+
+.track-button-style {
+    text-align: center!important;
+    width: 100%!important;
+    margin-left: -10.5%
+}
+
+.track-sts-align {
+    text-indent: 13%;
+    text-align: center
+}
+
+@media (min-width:818px) and (max-width:991px) {
+    #limitForm .col-sm-3 {
+        min-width: 50%
+    }
+}
+
+@media (min-width:768px) and (max-width:817px) {
+    #limitForm .col-sm-3 {
+        min-width: 60%
+    }
+}
+
+@media (min-width:992px) {
+    #limitForm .col-sm-3 {
+        min-width: 38%
+    }
+}
+
+.track-button-style {
+    width: 50%;
+    text-align: right
+}
+
+@media (min-width:601px) and (max-width:767px) {
+    #limitForm .control-label {
+        float: left;
+        min-width: 38%;
+        padding-top: 7px
+    }
+}
+
+@media (min-width:466px) and (max-width:600px) {
+    #limitForm .control-label {
+        float: left;
+        min-width: 48%;
+        padding-top: 7px
+    }
+}
+
+@media (max-width:465px) {
+    #limitForm .control-label {
+        float: left;
+        min-width: 60%;
+        padding-top: 7px
+    }
+}
+
+@media (max-width:767px) {
+    #limitForm .field-area {
+        width: 50%;
+        float: left
+    }
+}
+
+@media (min-width:630px) and (max-width:767px) {
+    .track-button-style {
+        width: 80%;
+        text-align: right
+    }
+}
+
+@media (min-width:600px) and (max-width:630px) {
+    .track-button-style {
+        width: 85%;
+        text-align: right
+    }
+}
+
+.track-list {
+    width: 12.333333%!important
+}
+
+@media (min-width:530px) and (max-width:600px) {
+    .track-button-style {
+        width: 95%;
+        text-align: right
+    }
+}
+
+.form-dropDown {
+    display: block;
+    width: 100%;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0
+}
+
+.primary-btn-track {
+    font-family: gotham_book, calibri!important;
+    font-size: 11px!important;
+    color: #fff!important;
+    background-color: #FB637E!important;
+    padding: 5px!important;
+    border: none!important
+}
+
+.secondary-btn-track {
+    height: 45px;
+    margin-bottom: 10px!important;
+    font-family: gotham_book, calibri!important;
+    background-color: #EAEAEA!important;
+    font-size: 15px!important;
+    color: #000!important;
+    border: none!important;
+    position: relative;
+    padding: 16px!important;
+    margin-right: 7px!important;
+    border-radius: 3px!important
+}
+
+.sr-list {
+    color: #333!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 14px!important;
+    margin-left: 18%
+}
+
+.or {
+    color: #333!important;
+    font-family: gotham bold!important;
+    font-size: 14px!important;
+    font-weight: 700
+}
+
+div.label-font label span {
+    font-family: gotham_book
+}
+
+.IDFC-dropdown:focus {
+    color: #333!important;
+    font-weight: 700!important;
+    background-color: #f9f4fa!important
+}
+
+.track-service-request-input {
+    width: 197px!important
+}
+
+.idfcCursorPointer {
+    cursor: pointer!important
+}
+
+.idfcTableHeader {
+    margin-top: 1%!important;
+    margin-bottom: 1%!important
+}
+
+.idfcListBorderNone {
+    border-left: none!important;
+    border-right: none!important;
+    border-bottom: none!important
+}
+
+.idfcPaddingLeft {
+    padding-left: 2%
+}
+
+.idfcPaddingRight {
+    padding-right: 4%
+}
+
+.idfcSearchButton {
+    height: 40px!important;
+    margin-left: 12px;
+    background-color: #969!important;
+    color: #FFF;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding: 11px 12px 6px!important
+}
+
+.idfcClearButton {
+    height: 40px!important;
+    margin-left: 12px;
+    background-color: #666!important;
+    color: #FFF;
+    display: inline-block;
+    margin-bottom: 0!important;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding-top: 11px!important
+}
+
+.idfcHeaderSpacing {
+    margin-left: -2%!important
+}
+
+.idfcLabelSpacing {
+    margin-left: -30%!important
+}
+
+.idfcFloatLeft {
+    float: left!important
+}
+
+.idfcSubmitForm {
+    width: 62%!important;
+    float: right!important;
+    margin-top: -6.6%!important
+}
+
+.idfcDropDownButton button {
+    height: 40px!important
+}
+
+.idfcTableHeaderFontStyle {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif!important;
+    font-size: 14px!important;
+    font-weight: 700!important
+}
+
+.idfcTabularDetails {
+    border-bottom: none!important;
+    border-left: none!important;
+    border-right: none!important;
+    border-top: 1px solid #ddd!important
+}
+
+.caretdown {
+    border-bottom: 4px solid #969;
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+    margin-top: 8px
+}
+
+.caretup {
+    border-top: 4px solid #969;
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+    margin-top: 8px
+}
+
+span.sr-status {
+    float: right;
+    margin-right: 20%
+}
+
+.track-heading-width {
+    width: 16%!important;
+    height: 60px;
+    text-align: left;
+    background-color: RGBA(234, 234, 234, 1);
+    font-weight: 700;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: 14px;
+    padding-left: 30px
+}
+
+.content-width {
+    width: 16%!important;
+    font: 12px gotham_book;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word
+}
+
+.track-table-heading-tbl {
+    border-spacing: 10px;
+    text-align: left
+}
+
+.cat-style {
+    padding-left: 25px
+}
+
+.id-style {
+    text-indent: 22%
+}
+
+.track-top {
+    margin-top: 1%
+}
+
+.bgcolor-style {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd
+}
+
+.track-main-content {
+    width: 35%;
+    text-align: center;
+    font-size: 16px;
+    color: #4A4A4A
+}
+
+.list-group-item {
+    padding: 0
+}
+
+.status-content {
+    text-indent: -1%
+}
+
+.track-table-scroll {
+    overflow: scroll
+}
+
+.track-table-align {
+    margin-left: 0;
+    margin-top: -30px
+}
+
+.track-ul-width {
+    min-width: 520px
+}
+
+.track-table-heading tr {
+    height: 50px
+}
+
+.billerClass {
+    font-family: gotham_book, Calibri!important;
+    font-size: 16px!important;
+    line-height: 27px!important;
+    font-weight: Normal!important;
+    color: #4A4A4A
+}
+
+.menu {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    color: #fb637e;
+    float: right
+}
+
+.menu-down:before {
+    content: "\e259"
+}
+
+.menu-up:before {
+    content: "\e260"
+}
+
+.manage-expanded {
+    background-color: RGBA(234, 234, 234, 1)
+}
+
+.track-table-heading-left {
+    border-spacing: 10px;
+    text-align: left;
+    margin-left: 10%
+}
+
+.track-main-content-left {
+    width: 35%;
+    text-align: left;
+    font-size: 16px;
+    color: #4A4A4A;
+    position: relative;
+    font-family: gotham_book, calibri;
+    left: 17px;
+    line-height: 27px!important;
+    font-weight: Normal!important
+}
+
+.track-main-content-left-pad {
+    width: 35%;
+    text-align: left;
+    font-size: 16px;
+    color: #4A4A4A;
+    padding-left: 30%;
+    position: relative;
+    font-family: gotham_book, calibri;
+    left: 17px;
+    line-height: 27px!important;
+    font-weight: Normal!important
+}
+
+.details-header {
+    margin-top: 36px;
+    position: relative;
+    bottom: 20px;
+    font-family: gotham_book, calibri;
+    font-size: 20px;
+    text-align: center
+}
+
+.header-row-text {
+    font-size: 20px;
+    font-family: gotham_book, calibri
+}
+
+.confirm-span {
+    position: relative;
+    left: 21%;
+    top: 50px;
+    font-size: 18px;
+    color: #4A4A4A;
+    font-family: gotham_book, calibri;
+    word-wrap: break-word;
+    word-break: break-word
+}
+
+.manage-biller-confirm-div {
+    margin-top: 44%;
+    padding-left: 11%;
+    padding-right: 12%
+}
+
+.error-message-position {
+    word-wrap: break-word;
+    padding-top: 6px;
+    height: 83px
+}
+
+.track-main-heading {
+    text-align: left;
+    color: #4a4a4a;
+    font-family: gotham_medium;
+    font-size: 12px;
+    padding-top: 5%;
+    padding-bottom: 5%
+}
+
+.track-main-content {
+    color: #4a4a4a;
+    font-family: gotham_medium;
+    font-size: 12px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    word-wrap: break-word;
+    text-align: left
+}
+
+.subContent {
+    word-wrap: break-word;
+    color: #4a4a4a;
+    font-family: gotham_book;
+    font-size: 14px;
+    padding-left: 12%!important;
+    padding-right: 12%!important
+}
+
+.head1 {
+    color: #9b9b9b;
+    font-family: gotham_book;
+    font-size: 11px;
+    padding: 3% 12% 1%!important
+}
+
+.subContent1 {
+    color: #4a4a4a;
+    font-family: gotham_book;
+    font-size: 14px;
+    padding-left: 9%!important;
+    padding-right: 9%!important
+}
+
+.head2 {
+    color: #9b9b9b;
+    font-family: gotham_book;
+    font-size: 10px;
+    padding: 3% 9% 1%!important
+}
+
+.bgColor {
+    background-color: rgba(234, 234, 234, 0.5);
+    padding-top: 3%;
+    padding-bottom: 5%
+}
+
+.lightbgGray {
+    background-color: rgba(234, 234, 234, 0.5);
+    border-bottom: solid 1px #eaeaea
+}
+
+.glyphicon-menu-right {
+    color: #fb637e!important
+}
+
+.leftRightBorder {
+    border-left: solid 1px rgba(174, 174, 174, 0.5);
+    border-right: solid 1px rgba(174, 174, 174, 0.5)
+}
+
+.floatRight {
+    float: right
+}
+
+.borderBtm {
+    border-bottom: solid 1px #eaeaea
+}
+
+#firstDiv,
+.showdel {
+    overflow-x: hidden;
+    background-color: #fff
+}
+
+.text-success {
+    color: #54db7b!important
+}
+
+.borderLine {
+    background-color: #eaeaea;
+    height: 2px;
+    width: 100%;
+    margin-top: 10%
+}
+
+.borderLine1 {
+    background-color: #eaeaea;
+    height: 2px;
+    width: 100%;
+    margin-top: 10%
+}
+
+.borderLine2 {
+    background-color: #eaeaea;
+    height: 2px;
+    width: 100%;
+    margin-top: 57%
+}
+
+#deleteBtn button,
+#confirmDelete button,
+#okBtn button {
+    width: 82%!important;
+    height: 48px!important;
+    text-transform: uppercase;
+    font-size: 14px!important;
+    font-family: gotham_book!important;
+    border-radius: 2px!important;
+    margin-bottom: 5%;
+    margin-right: 0!important
+}
+
+#deleteBtn,
+#okBtn {
+    margin-top: 6%
+}
+
+#confirmDelete {
+    margin-top: 6%
+}
+
+.secondary-btn-btn {
+    background-color: #eaeaea!important;
+    color: #000!important
+}
+
+.text-center {
+    text-align: center
+}
+
+.congrts {
+    font-family: gotham_medium;
+    font-size: 14px;
+    color: #4a4a4a;
+    margin-top: 4%
+}
+
+.congrts1 {
+    font-family: gotham_book;
+    font-size: 14px;
+    color: #4a4a4a;
+    margin-top: 3%
+}
+
+.hoverdiv:hover {
+    background-color: #FFF3E8;
+    color: #795045
+}
+
+@media only screen and (max-device-width:240px) {
+    .track-main-heading,
+    .track-main-content {
+        font-size: 9px!important
+    }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+    .track-main-heading,
+    .track-main-content {
+        font-size: 12px!important
+    }
+}
+
+@media(min-device-width:481px) and (max-device-width:640px) {
+    .track-main-heading,
+    .track-main-content {
+        font-size: 14px!important
+    }
+}
+
+.col-xs-4 {
+    width: 33.33333333% !important;
+}
+
+#widget-root {
+    height: 70vh;
+}

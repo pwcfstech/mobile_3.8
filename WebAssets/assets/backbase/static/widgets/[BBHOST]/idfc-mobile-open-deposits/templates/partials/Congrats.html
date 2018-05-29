@@ -1,0 +1,50 @@
+<div ng-controller="CongratsController">
+    <!-- Loading indicator -->
+    <div ng-if="errorSpin">
+        <div class="loading-panel" role="alert">
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <div class="panel panel-default" ng-if="fiModel.selected">
+        <div class="panel-heading selected-fi">
+            <div class="col-xs-2 col-lg-1">
+                <span ng-show="fiModel.selected.isConnecting"><i class="lp-icon {{fiModel.selected.icon}}"></i></span>
+                <span ng-show="!fiModel.selected.isConnecting"><i class="glyphicon glyphicon-ok"></i></span>
+            </div>
+            <div class="col-xs-10 col-xs-11">
+                <div ng-show="fiModel.selected.isConnecting">
+                    <span class="h4">{{fiModel.selected.name}}</span><br />
+                    <span>{{'Lbl_Terms_Wait_Around'|translate}}</span>
+                </div>
+                <div ng-show="!fiModel.selected.isConnecting">
+                    <span>{{'Lbl_Account_Success'|translate}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lp-alerts">
+        <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+    </div>
+    <div class="opendeposit-panel-body panel-body"  ng-hide="serviceError" >
+
+        <div class="tickDiv">
+            <img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+            <img ng-src="{{tick}}"/>
+        </div>
+        <div class="connection-feedback CongratsDiv CongratsDiv1">
+            <p class="h4 text-center" ng-show="!fiModel.selected.isConnecting" ng-model="tdAcccountNumber">
+            <div class="congratsText text-center"><strong>{{'Lbl_Account_Created1'|translate}}</strong></div>
+            <div class="smallCongratsText text-center">
+                {{'Lbl_Account_Created2'|translate}}
+                {{'Lbl_Account_No_Is'|translate}}
+            </div>
+            <div class="account-color text-center">{{tdAcccountNumber}}</div>
+            </p>
+            <p ng-show="fiModel.selected.isConnecting">{{'Title_Terms_msg1'|translate}}<br /> {{'Title_Terms_msg2'|translate}}<br /><a>{{'Title_Terms_msg3'|translate}}   {{fiModel.selected.name}}</a></p>
+        </div>
+        <div class="borderTop margin-border-top"></div>
+        <div class="text-center div-td-button-pad-od">
+            <button type="button" ng-click="restartWizard()" class="btn-margin inputHeight btnWidth marginTopNext btn btn-primary primary-btn-btn">{{'Lbl_Create_Another_Account'|translate}}</button>
+        </div>
+    </div>
+</div>

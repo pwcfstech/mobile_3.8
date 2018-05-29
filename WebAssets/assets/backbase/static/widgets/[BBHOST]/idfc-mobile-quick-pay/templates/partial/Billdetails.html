@@ -1,0 +1,605 @@
+<div ng-show="billForm">
+	<div data-ng-include="template.bill"></div>
+</div>
+<div ng-if="errorSpin">
+	<div class="panel-message loading-panel" role="alert" style="height:142%!important">
+		<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+		<span class="sr-only">Busy</span>
+	</div>
+</div>
+<div ng-hide="billForm">
+	<div clas="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+			<div class="quick-floatLeft col-md-6 col-sm-6 col-xs-6">
+				<label for="" class="quick-bill-label">Category</label>
+			</div>
+			<div class="quick-floatLeft col-md-6 col-sm-6 col-xs-6">
+				<label name="" class="quick-bill-select-left">{{billerCategory}}</label>
+			</div>
+		</div>
+	</div>
+	<div clas="row">
+		<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+			<div class="quick-floatLeft col-md-6 col-sm-6 col-xs-6">
+				<label for="" class="quick-bill-label">Provider</label>
+			</div>
+			<div class="quick-floatLeft col-md-6 col-sm-6 col-xs-6">
+				<label name="" class="quick-bill-select-left">{{billerProvider.billerName}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group" ng-show="billerProvider.authenticatorCount>=1">
+		<div class="quick-floatLeft quick-form-div">
+			<label for="" class="quick-bill-label">{{billerProvider.authenticatorLable1}}</label>
+		</div>
+		<div class="quick-floatLeft">
+			<div><label name="" class="quick-bill-select-left">{{authenticator1}}</label> </div>
+		</div>
+	</div>
+	<div class="form-group" ng-show="billerProvider.authenticatorCount>=2">
+		<div class="quick-floatLeft quick-form-div">
+			<label for="" class="quick-bill-label">{{billerProvider.authenticatorLable2}}</label>
+		</div>
+		<div class="quick-floatLeft">
+			<div><label name="" class="quick-bill-select-left">{{authenticator2}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group" ng-show="billerProvider.authenticatorCount>=3">
+		<div class="quick-floatLeft quick-form-div">
+			<label for="" class="quick-bill-label">{{billerProvider.authenticatorLable3}}</label>
+		</div>
+		<div class="quick-floatLeft">
+			<div><label name="" class="quick-bill-select-left">{{authenticator3}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group" ng-show="billerProvider.authenticatorCount>=4">
+		<div class="quick-floatLeft quick-form-div">
+			<label for="" class="quick-bill-label">{{billerProvider.authenticatorLable4}}</label>
+		</div>
+		<div class="quick-floatLeft">
+			<div><label name="" class="quick-bill-select-left">{{authenticator4}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="quick-floatLeft quick-form-div">
+			<label for="" class="quick-bill-label">Amount</label>
+		</div>
+		<div class="quick-floatLeft">
+			<div><label name="" class="quick-bill-select-left">{{amountEntered | currency:' '}}</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="quick-floatLeft quick-form-div">
+			<label for="" class="quick-bill-label"> Select Account for Payment</label>
+		</div>
+		<div class="quick-floatLeft">
+			<div>
+				<label name="accountType" class="quick-bill-select-left">{{selectedAccountNumber}}</label>
+				<label name="accountType" class="quick-bill-select-left"></label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="quick-floatLeft quick-form-div">
+			<input type="checkbox" name="" id="" for="" class="quick-bill-input" ng-model="termcondition" value="true" ng-disabled="!hideOTPFlag" />
+			<label for="" class="quick-bill-label">Agree to the terms and conditions</label>
+			<div class="quick-floatLeft" style="max-width:0%"><div class="quick-auto"><span class="quick-bill-span"></span></div>
+			</div>
+		</div>
+		<div class="quick-div-td-dep-ab" ng-show="hideOTPFlag">
+			<button ng-disabled="termcondition" type="button" class="btn btn-primary secondary-btn-btn ng-binding" ng-click="cancelForm()">Back</button>
+			<button ng-show="termcondition" class="btn btn-primary primary-btn-btn ng-binding" ng-click="callOtp()" type="submit" name="proceed">Submit</button>
+		</div>
+	</div>
+	<div ng-hide="hideOTPFlag">
+		<form name="OTPform" ng-submit="validateAndQuickPay(OTPform.$valid)">
+			<div class="quick-bill-otp-message">
+				<div class="text-success">
+					OTP has been successfully sent to your registered mobile number{{customerMobMasked}}
+				</div>
+				<div class="text-danger" ng-show="otpError.happened" style="text-align:center">{{
+					otpError.msg }}</div>
+				<div>
+					<div lp-field="lp-field" label="OTP_Label" tip="{{'Tip_OTP'|translate}}">
+						<div>
+							<input type="password" name="otp" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" class="ecommerce-login addbiller-form-control form-control addBiller-otp-input-width" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-model="otpValue" ng-maxlength="6" placeholder="Password" required="" />
+							<small class="text-danger" style="width:38%" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+							<small class="text-danger" style="width:38%" ng-show="OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}
+							</small>
+							<small class="text-danger" style="width:38%" ng-show="OTPform.otp.$error.maxlength">
+								{{'Error_Invalid_Length_OTP'|translate}}
+							</small>
+							<small class="text-danger" style="width:38%" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}
+							</small>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="quick-div-td-dep-ab">
+				<button type="button" class="btn btn-primary secondary-btn-btn ng-binding" ng-click="readSMS('resend')">Resend OTP</button>
+				<button class="btn btn-primary primary-btn-btn ng-binding" type="submit" name="proceed">Submit</button>
+			</div>
+		</form>
+	</div>
+	<div class="quick-biller-confirm-div ng-hide" ng-show="failurePage">
+		<div style="width:85%"><span class="confirm-span confirm-new ng-binding ng-hide" ng-show="payBillError.happened">Failure, <span style="color:#FF8F1B" class="ng-binding"></span><span class="ng-binding"></span><span style="color:#FF8F1B" class="ng-binding"></span><span style="color:#000000" class="ng-binding"></span></span></div>
+		<div class="quick-div-td-dep-ab quick-button-left" style="margin-top:41px!important">
+			<button class="btn btn-primary secondary-btn-btn ng-binding" ng-click="goBack()" type="submit" name="proceed">Pay Another Bill</button>
+		</div>
+	</div>
+	<div class="quick-div-td-dep-ab quick-button-left" style="margin-top:41px!important">
+		<button class="btn btn-primary secondary-btn-btn ng-binding" ng-click="goBack()" type="submit" name="proceed">Pay Another Bill</button>
+	</div>
+	<div id="main" ng-show="SuccessPage" class="ng-hide">
+		<div class="quick-biller-confirm-div">
+			<div style="width:75%;text-align:center"><span class="confirm-span confirm-new ng-binding ng-hide" ng-show="payBill.happened"> <img style="margin-right:11px" height="17" width="25" alt="quick-pay Widget" title="quick-pay Widget" src="static/features/[BBHOST]/theme-idfc/images/tick.png">Success, <span style="color:#FF8F1B" class="ng-binding"></span><span class="ng-binding"></span><span style="color:#FF8F1B" class="ng-binding"></span><span style="color:#000000" class="ng-binding"></span></span></div>
+			<div ng-show="billerProvider.authenticatorCount>=1" class="ng-hide">
+				<div class="form-group quickpay-center-aligned">
+					<div class="quick-floatLeft quick-form-div">
+						<span for="" class="quick-bill-label ng-binding"></span>
+					</div>
+					<div class="quick-floatLeft quick-confirm-bill">
+						<div><span class="quick-bill-select-left ng-binding"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-show="billerProvider.authenticatorCount>=2" class="ng-hide">
+				<div class="form-group quickpay-center-aligned">
+					<div class="quick-floatLeft quick-form-div">
+						<span for="" class="quick-bill-label ng-binding"></span>
+					</div>
+					<div class="quick-floatLeft quick-confirm-bill">
+						<div><span class="quick-bill-select-left ng-binding"></span></div>
+					</div>
+				</div>
+			</div>
+			<div ng-show="billerProvider.authenticatorCount>=3" class="ng-hide">
+				<div class="form-group quickpay-center-aligned">
+					<div class="quick-floatLeft quick-form-div">
+						<span for="" class="quick-bill-label ng-binding"></span>
+					</div>
+					<div class="quick-floatLeft quick-confirm-bill">
+						<div><span class="quick-bill-select-left ng-binding"></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="quick-div-td-dep-new quick-button-left" ng-hide="payBill.hideAddBiller || setAddBillFlag" style="padding-top:11%">
+				<button class="btn btn-primary secondary-btn-btn1 ng-binding" ng-click="goBack()" type="submit" name="proceed" style="margin-top:-0%!important">Pay Another Bill</button>
+			</div>
+			<div class="quick-div-td-dep-ab-addbi-cnf ng-hide" ng-show="payBill.hideAddBiller">
+				<button type="button" class="btn btn-primary primary-btn-btn ng-binding" ng-click="openManageBiller()">Manage Biller</button>
+				<button class="btn btn-primary secondary-btn-btn ng-binding" ng-click="openAddBiller()" type="submit" name="proceed">Add Another</button>
+			</div>
+		</div>
+		<div ng-hide="addbillerFlag" class="">
+			<div class="" style="margin-left:42px" ng-hide="payBill.hideAddBiller">
+				<form novalidate="" class="form-horizontal ng-pristine ng-invalid ng-invalid-required" role="form" name="addBillerPage" id="addBillerPage">
+					<div class="form-group quick-pay-margin-left">
+						<div class="quick-floatLeft quick-form-div">
+							<div class="quick-check-outer-div">
+								<input type="checkbox" class="quick-set-check ng-pristine ng-valid" name="setAddBillFlag" id="setAddBillFlag" ng-model="setAddBillFlag" ng-value="setAddBillFlag" value="false">
+								<span for="setAddBillFlag" class="quick-bill-label quick-bill-check">Add as Biller</span></div>
+						</div>
+						<div class="quick-floatLeft quick-confirm-bill quick-pay-margin">
+							<div>
+								<span class="add-bill-select-left">Saves bills and pay them easily</span></div>
+						</div>
+					</div>
+					<div ng-show="setAddBillFlag" class="ng-hide">
+						<div ng-show="billerCategory=='POSTPAID' || billerCategory =='Postpaid' || billerCategory =='postpaid' " class="form-group quickpay-form-align ng-hide">
+							<div class="quick-floatLeft quick-form-div">
+								<span for="" class="quick-bill-label quick-pay-addBiller-margin ng-binding">Provider</span>
+							</div>
+							<div class="quick-floatLeft">
+								<div>
+									<select name="" class="quick-control quick-acc-type-quick addressbook-select IDFC-dropdown quick-bill-select-left ng-pristine ng-invalid ng-invalid-required" ng-model="billerSelected" ng-options="item as item.billerName for item in billerSelectionList" required=""><option value="" class="ng-binding">Select Provider</option></select>
+								</div>
+							</div>
+						</div>
+						<div class="form-group quickpay-form-align">
+							<div class="quick-floatLeft quick-form-div">
+								<span class="quick-bill-label quick-pay-addBiller-margin ng-binding">Nickname</span>
+							</div>
+							<div class="quick-floatLeft">
+								<div style="position:relative;top:2px"><input maxlength="15" type="text" name="billerNickname" class="quick-control quick-bill-select-left ng-pristine ng-valid ng-valid-required" ng-model="billerNickName" placeholder="Nickname" ng-required="setAddBillFlag"></div>
+								<div class="quick-bill-message">
+									<small class="text-danger ng-binding ng-hide" ng-show="addBillerPage.submitted &nbsp;&amp;&amp; addBillerPage.billerNickname.$error.required">Nickname is required</small>
+								</div>
+							</div>
+						</div>
+						<div ng-show="billerSelected.authenticatorCount>=1" class="ng-hide">
+							<div class="form-group quickpay-form-align">
+								<div class="quick-floatLeft quick-form-div">
+									<span class="quick-bill-label quick-pay-addBiller-margin ng-binding"></span>
+								</div>
+								<div class="quick-floatLeft">
+									<div><input ng-disabled="disableCheck1" type="text" name="auth1" ng-class="{lpinputerror: submitted &amp;&amp; addContact.name.$error.required}" class="quick-control quick-bill-select-left ng-pristine ng-valid ng-valid-required" ng-model="authenticator1" placeholder="" ng-required="billerSelected.authenticatorCount>=1"></div>
+									<div class="quick-bill-message"><small ng-show="check1" role="alert" class="ng-binding ng-hide">
+									</small>
+									</div>
+									<div role="alert" class="add-alert">
+										<span class="error ng-hide" ng-show="submitted &amp;&amp; addBillerForm.auth1.$error.required">Required!</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ng-show="billerSelected.authenticatorCount>=2" class="ng-hide">
+							<div class="form-group quickpay-form-align">
+								<div class="quick-floatLeft quick-form-div">
+									<span class="quick-bill-label quick-pay-addBiller-margin ng-binding"></span>
+								</div>
+								<div class="quick-floatLeft">
+									<div><input ng-disabled="disableCheck2" type="text" name="auth2" ng-class="{lpinputerror: submitted &amp;&amp; addContact.name.$error.required}" class="quick-control quick-bill-select-left ng-pristine ng-valid ng-valid-required" ng-model="authenticator2" placeholder="" ng-required="billerSelected.authenticatorCount>=2"></div>
+									<div class="quick-bill-message"><small ng-show="check2" role="alert" class="ng-binding ng-hide">
+									</small>
+									</div>
+									<div role="alert" class="add-alert">
+										<span class="error ng-hide" ng-show="submitted &amp;&amp; addBillerForm.auth1.$error.required">Required!</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ng-show="billerSelected.authenticatorCount>=3" class="ng-hide">
+							<div class="form-group quickpay-form-align">
+								<div class="quick-floatLeft quick-form-div">
+									<span class="quick-bill-label quick-pay-addBiller-margin ng-binding"></span>
+								</div>
+								<div class="quick-floatLeft">
+									<div><input ng-disabled="disableCheck3" type="text" name="auth3" ng-class="{lpinputerror: submitted &amp;&amp; addContact.name.$error.required}" class="quick-control quick-bill-select-left ng-pristine ng-valid-maxlength ng-valid-pattern ng-valid ng-valid-required" ng-model="authenticator3" placeholder="" ng-required="billerSelected.authenticatorCount>=3"></div>
+									<div class="quick-bill-message"><small ng-show="check3" role="alert" class="ng-binding ng-hide">
+									</small>
+									</div>
+									<div role="alert" class="add-alert">
+										<span class="error ng-hide" ng-show="submitted &amp;&amp; addBillerForm.auth2.$error.required">Required!</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ng-show="billerSelected.authenticatorCount>=4" class="ng-hide">
+							<div class="form-group quickpay-form-align">
+								<div class="quick-floatLeft quick-form-div">
+									<span class="quick-bill-label quick-pay-addBiller-margin ng-binding"></span>
+								</div>
+								<div class="quick-floatLeft">
+									<div><input type="text" name="auth4" ng-class="{lpinputerror: submitted &amp;&amp; addContact.name.$error.required}" class="quick-control quick-bill-select-left ng-pristine ng-valid-maxlength ng-valid-pattern ng-valid ng-valid-required" ng-model="authenticator4" placeholder="" ng-required="billerSelected.authenticatorCount>=4"></div>
+									<div class="quick-bill-message"><small ng-show="check4" role="alert" class="ng-binding ng-hide">
+									</small>
+									</div>
+									<div role="alert" class="add-alert">
+										<span class="error ng-hide" ng-show="submitted &amp;&amp; addBillerForm.auth3.$error.required">Required!</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ng-show="billerSelected.authenticatorCount>=5" class="ng-hide">
+							<div class="form-group quickpay-form-align">
+								<div class="quick-floatLeft quick-form-div">
+									<span class="quick-bill-label quick-pay-addBiller-margin ng-binding"></span>
+								</div>
+								<div class="quick-floatLeft">
+									<div><input type="text" name="auth5" ng-class="{lpinputerror: submitted &amp;&amp; addContact.name.$error.required}" class="quick-control quick-bill-select-left ng-pristine ng-valid-maxlength ng-valid-pattern ng-valid ng-valid-required" ng-model="authenticator5" placeholder="" ng-required="billerSelected.authenticatorCount>=5"></div>
+									<div class="quick-bill-message"><small ng-show="check5" role="alert" class="ng-binding ng-hide">
+									</small>
+									</div>
+									<div role="alert" class="add-alert">
+										<span class="error ng-hide" ng-show="submitted &amp;&amp; addBillerForm.auth4.$error.required">Required!</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group quick-pay-margin-left">
+							<div class="quick-floatLeft quick-form-div">
+								<div class="quick-check-outer-div">
+									<input type="checkbox" class="quick-set-check ng-pristine ng-valid" name="setAutoPayFlag" id="setAutoPayFlag" ng-click="checkFrequencyFromDb()" for="name" ng-model="setAutoPayFlag" ng-value="setAutoPayFlag" value="false">
+									<span class="setAutoPayAlignment ng-binding" for="setAutoPayFlag">Set for Auto Pay</span></div>
+							</div>
+						</div>
+						<div ng-show="setAutoPayFlag" class="ng-hide">
+							<div class="form-group" style="margin-top:20px">
+								<div class="quick-floatLeft quick-form-div" style="max-width:0">
+									<span for="" class="quick-bill-label quick-pay-addBiller-margin ng-binding">Account for Payment</span>
+								</div>
+								<div class="quick-floatLeft">
+									<div>
+										<select name="selectedAccount" class="quick-control quick-acc-type-quick quickressbook-select IDFC-dropdown quick-bill-select-left ng-pristine ng-valid ng-valid-required" ng-model="billerpPaymentAccount" ng-options="a.id as a.id for a in acccountNumbers" ng-required="setAutoPayFlag"><option value="" class="ng-binding">Account</option><option value="0" label="10000004238">10000004238</option><option value="1" label="10000338513">10000338513</option></select>
+									</div>
+									<div class="quick-bill-message">
+										<small class="text-danger ng-binding ng-hide" ng-show="addBillerPage.submitted &nbsp;&amp;&amp; addBillerPage.selectedAccount.$error.required">Please select a Account Number</small>
+									</div>
+								</div>
+							</div>
+							<div ng-show="billerProvider.billerType=='PAYEE' ||billerProvider.billerType=='Payee' " class="ng-hide">
+								<div class="form-group ng-hide" ng-show="billerProvider.billerType=='PAYEE' ||billerProvider.billerType=='Payee' ">
+									<div class="quick-floatLeft quick-form-div">
+										<span for="Frequency" class="quick-bill-label quick-pay-addBiller-margin ng-binding">Frequency</span>
+									</div>
+									<div class="quick-floatLeft">
+										<div>
+											<select id="Frequency" name="Frequency" class="quick-control quick-acc-type-quick quickressbook-select IDFC-dropdown quick-bill-select-left ng-pristine ng-valid ng-valid-required" ng-model="frequency" ng-options="item.frequency as item.frequency for item in frequencyMaster.list" ng-required="payeeBillType"><option value="" class="ng-binding">Select Frequency</option></select>
+										</div>
+										<div role="alert" class="quick-bill-message">
+											<small class="text-danger ng-binding ng-hide" ng-show="addBillerPage.submitted &nbsp;&amp;&amp; addBillerPage.Frequency.$error.required">Frequency_Required</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="quick-floatLeft quick-form-div">
+									<span for="fromDate" class="quick-bill-label quick-pay-addBiller-margin ng-binding" style="clear:left">Start date</span>
+								</div>
+								<div class="quick-floatLeft">
+									<div style="float:left">
+										<input ng-click="openFromCalendar($event)" type="text" name="fromDate" ng-model="fromDate" ng-change="changeFromDate()" datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="todaysDate" is-open="isOpenDate1" class="quick-control quick-bill-select-left ng-isolate-scope ng-pristine ng-valid-date ng-valid ng-valid-required" lp-future-time="" id="fromDate" datepicker-options="dateOptionsFrom" show-button-bar="false" tabindex="0" placeholder="Select Date" ng-required="setAutoPayFlag" aria-label="Select_Date"><ul class="dropdown-menu lp-datepicker ng-pristine ng-valid ng-valid-date-disabled" ng-style="{display: (isOpen &amp;&amp; 'block') || 'none', top: position.top+'px', left: position.left+'px'}" ng-keydown="keydown($event)" datepicker-popup-wrap="" ng-model="date" ng-change="dateSelection()" style="display:none">
+										<li ng-transclude=""><div ng-switch="datepickerMode" role="application" ng-keydown="keydown($event)" datepicker="" min-date="minDate" class="ng-isolate-scope">
+											<table role="grid" aria-labelledby="datepicker-0KR-6233-title" aria-activedescendant="datepicker-0KR-6233-5" daypicker="daypicker" ng-switch-when="day" tabindex="0">
+												<thead>
+												<tr>
+													<th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="move(-1)" tabindex="-1"><i class="lp-icon lp-icon-angle-left"></i></button></th>
+													<th colspan="5"><button style="width:100%" id="datepicker-0KR-6233-title" role="heading" aria-live="assertive" aria-atomic="true" type="button" class="btn btn-default btn-sm" ng-click="toggleMode()" tabindex="-1"><strong class="ng-binding">April 2016</strong></button></th>
+													<th><button type="button" class="btn btn-default btn-sm pull-right" ng-click="move(1)" tabindex="-1"><i class="lp-icon lp-icon-angle-right"></i></button></th>
+												</tr>
+												<tr>
+													<th ng-show="showWeeks" class="text-center ng-hide"></th>
+													<th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Sunday" class="ng-binding">Sun</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Monday" class="ng-binding">Mon</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Tuesday" class="ng-binding">Tue</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Wednesday" class="ng-binding">Wed</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Thursday" class="ng-binding">Thu</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Friday" class="ng-binding">Fri</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Saturday" class="ng-binding">Sat</small></th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr ng-repeat="row in rows track by $index" class="ng-scope">
+													<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+													<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-0" aria-disabled="true">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">27</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-1" aria-disabled="true">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">28</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-2" aria-disabled="true">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">29</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-3" aria-disabled="true">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">30</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-4" aria-disabled="true">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">31</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-5" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm active" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-info">01</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-6" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">02</span></button>
+												</td>
+												</tr><tr ng-repeat="row in rows track by $index" class="ng-scope">
+													<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+													<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-7" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">03</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-8" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">04</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-9" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">05</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-10" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">06</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-11" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">07</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-12" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">08</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-13" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">09</span></button>
+												</td>
+												</tr><tr ng-repeat="row in rows track by $index" class="ng-scope">
+													<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+													<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-14" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">10</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-15" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">11</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-16" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">12</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-17" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">13</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-18" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">14</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-19" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">15</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-20" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">16</span></button>
+												</td>
+												</tr><tr ng-repeat="row in rows track by $index" class="ng-scope">
+													<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+													<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-21" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">17</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-22" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">18</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-23" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">19</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-24" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">20</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-25" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">21</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-26" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">22</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-27" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">23</span></button>
+												</td>
+												</tr><tr ng-repeat="row in rows track by $index" class="ng-scope">
+													<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+													<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-28" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">24</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-29" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">25</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-30" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">26</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-31" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">27</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-32" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">28</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-33" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">29</span></button>
+												</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KR-6233-34" aria-disabled="false">
+													<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">30</span></button>
+												</td>
+												</tr>
+												</tbody>
+											</table>
+										</div></li>
+									</ul>
+										<span ng-click="openFromCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon quick-bill-calendar quick-bill-select-left ng-isolate-scope" datepicker-popup="dd-MMM-yyyy" readonly="readonly"></span>
+										<div role="alert" class="quick-bill-message">
+											<small class="text-danger ng-binding ng-hide" ng-show="addBillerPage.submitted &nbsp;&amp;&amp; addBillerPage.fromDate.$error.required">Start Date is Required</small>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div ng-show="billerProvider.billerType=='PAYEE' ||billerProvider.billerType=='Payee' " class="ng-hide">
+								<div class="form-group">
+									<div class="quick-floatLeft quick-form-div">
+										<span for="toDate" class="quick-bill-label quick-pay-addBiller-margin ng-binding" style="clear:left">End Date</span>
+									</div>
+									<div class="quick-floatLeft">
+										<div style="float:left">
+											<input ng-click="openToCalendar($event)" type="text" name="toDate" ng-model="toDate" ng-change="changeFromTo()" datepicker-popup="dd-MMM-yyyy" readonly="readonly" min-date="datecheck" max-date="mind" is-open="isOpenDate2" class="quick-control quick-bill-select-left ng-isolate-scope ng-pristine ng-valid-date ng-valid ng-valid-required" lp-future-time="" id="toDate" ng-required="payeeBillType" datepicker-options="dateOptionsTo" show-button-bar="false" tabindex="0" placeholder="Select Date" aria-label="Select_Date"><ul class="dropdown-menu lp-datepicker ng-pristine ng-valid ng-valid-date-disabled" ng-style="{display: (isOpen &amp;&amp; 'block') || 'none', top: position.top+'px', left: position.left+'px'}" ng-keydown="keydown($event)" datepicker-popup-wrap="" ng-model="date" ng-change="dateSelection()" style="display:none">
+											<li ng-transclude=""><div ng-switch="datepickerMode" role="application" ng-keydown="keydown($event)" datepicker="" min-date="minDate" max-date="maxDate" class="ng-isolate-scope">
+												<table role="grid" aria-labelledby="datepicker-0KT-5207-title" aria-activedescendant="datepicker-0KT-5207-5" daypicker="daypicker" ng-switch-when="day" tabindex="0">
+													<thead>
+													<tr>
+														<th><button type="button" class="btn btn-default btn-sm pull-left" ng-click="move(-1)" tabindex="-1"><i class="lp-icon lp-icon-angle-left"></i></button></th>
+														<th colspan="5"><button style="width:100%" id="datepicker-0KT-5207-title" role="heading" aria-live="assertive" aria-atomic="true" type="button" class="btn btn-default btn-sm" ng-click="toggleMode()" tabindex="-1"><strong class="ng-binding">April 2016</strong></button></th>
+														<th><button type="button" class="btn btn-default btn-sm pull-right" ng-click="move(1)" tabindex="-1"><i class="lp-icon lp-icon-angle-right"></i></button></th>
+													</tr>
+													<tr>
+														<th ng-show="showWeeks" class="text-center ng-hide"></th>
+														<th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Sunday" class="ng-binding">Sun</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Monday" class="ng-binding">Mon</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Tuesday" class="ng-binding">Tue</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Wednesday" class="ng-binding">Wed</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Thursday" class="ng-binding">Thu</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Friday" class="ng-binding">Fri</small></th><th ng-repeat="label in labels track by $index" class="text-center ng-scope"><small aria-label="Saturday" class="ng-binding">Sat</small></th>
+													</tr>
+													</thead>
+													<tbody>
+													<tr ng-repeat="row in rows track by $index" class="ng-scope">
+														<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+														<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-0" aria-disabled="true">
+															<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">27</span></button>
+														</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-1" aria-disabled="true">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">28</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-2" aria-disabled="true">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">29</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-3" aria-disabled="true">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">30</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-4" aria-disabled="true">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm btn-muted" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1" disabled="disabled"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-muted">31</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-5" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm active" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding text-info">01</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-6" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">02</span></button>
+													</td>
+													</tr><tr ng-repeat="row in rows track by $index" class="ng-scope">
+														<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+														<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-7" aria-disabled="false">
+															<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">03</span></button>
+														</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-8" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">04</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-9" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">05</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-10" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">06</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-11" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">07</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-12" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">08</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-13" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">09</span></button>
+													</td>
+													</tr><tr ng-repeat="row in rows track by $index" class="ng-scope">
+														<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+														<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-14" aria-disabled="false">
+															<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">10</span></button>
+														</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-15" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">11</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-16" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">12</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-17" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">13</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-18" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">14</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-19" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">15</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-20" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">16</span></button>
+													</td>
+													</tr><tr ng-repeat="row in rows track by $index" class="ng-scope">
+														<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+														<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-21" aria-disabled="false">
+															<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">17</span></button>
+														</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-22" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">18</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-23" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">19</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-24" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">20</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-25" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">21</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-26" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">22</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-27" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">23</span></button>
+													</td>
+													</tr><tr ng-repeat="row in rows track by $index" class="ng-scope">
+														<td ng-show="showWeeks" class="text-center h6 ng-hide"><em class="ng-binding"></em></td>
+														<td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-28" aria-disabled="false">
+															<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">24</span></button>
+														</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-29" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">25</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-30" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">26</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-31" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">27</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-32" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">28</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-33" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">29</span></button>
+													</td><td ng-repeat="dt in row track by dt.date" class="text-center ng-scope" role="gridcell" id="datepicker-0KT-5207-34" aria-disabled="false">
+														<button type="button" style="width:100%" class="btn btn-default btn-sm" ng-class="{'btn-muted': dt.secondary, 'btn-info': dt.selected, active: isActive(dt)}" ng-click="select(dt.date)" ng-disabled="dt.disabled" tabindex="-1"><span ng-class="{'text-muted': dt.secondary, 'text-info': dt.current}" class="ng-binding">30</span></button>
+													</td>
+													</tr>
+													</tbody>
+												</table>
+											</div></li>
+										</ul>
+											<span ng-click="openToCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon quick-bill-calendar quick-bill-select-left ng-isolate-scope" datepicker-popup="dd-MMM-yyyy" readonly="readonly"></span>
+											<div role="alert" class="quick-bill-message">
+												<small class="text-danger ng-binding ng-hide" ng-show="addBillerPage.submitted &nbsp;&amp;&amp; addBillerPage.toDate.$error.required">End Date is Required</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="quick-floatLeft quick-form-div">
+									<input ng-disabled="billerProvider.billerType=='PAYEE'" type="checkbox" name="setLimitAmtFlag" ng-model="setLimitAmtFlag" class="label-font quick-bill-input ng-pristine ng-valid" style="margin-left:39%;margin-bottom:5px">
+									<span class="label-font quick-bill-label quick-pay-addBiller-margin ng-binding" style="margin-left:-45%">Set Limit</span>
+								</div>
+								<div ng-show="setLimitAmtFlag" class="">
+									<div class="quick-floatLeft">
+										<div><input type="text" name="limitAmt" style="width:196px" class="quick-control quick-bill-select-left ng-pristine ng-valid-maxlength ng-valid-pattern ng-valid ng-valid-required" ng-pattern="/^[(0-9)]*[\.]?[(0-9)]*$/" ng-maxlength="15" ng-required="payeeBillType" ng-model="limitAmount" placeholder="Set Amount">
+											<span class="quick-inr">INR</span>
+										</div>
+										<div role="alert" class="quick-bill-message">
+											<small class="text-danger ng-binding ng-hide" ng-show="addBillerPage.submitted &nbsp;&amp;&amp; addBillerPage.limitAmt.$error.required">Limit Amount Is Required</small>
+											<small class="text-danger ng-binding ng-hide" ng-show="addBillerPage.limitAmt.$error.pattern">Please enter digits</small>
+											<small class="text-danger ng-binding ng-hide" ng-show="addBillerPage.limitAmt.$error.maxlength">Maximum length is 15</small>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="quick-div-td-dep-ab quick-button-left">
+							<button type="button" class="btn btn-primary primary-btn-btn11 ng-binding" ng-click="addBillerPage.submitted=true;addBiller(addBillerPage.$valid,addBillerPage)">Add Biller</button>
+							<button type="button" class="btn btn-primary secondary-btn-btn11 ng-binding" ng-click="goBack()">Pay Another Bill</button>
+						</div>
+					</div>
+					<div ng-show="addBillerError.happened" class="ng-hide">
+						<div class="quick-biller-confirm-div">
+							<div style="width:81%"><span class="confirm-span ng-binding"></span></div>
+						</div>
+					</div>
+				</form>
+				<div class="quick-div-td-dep-ab quick-button-left" style="margin-top:41px!important">
+					<button class="btn btn-primary secondary-btn-btn ng-binding" ng-click="goBack()" type="submit" name="proceed">Pay Another Bill</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

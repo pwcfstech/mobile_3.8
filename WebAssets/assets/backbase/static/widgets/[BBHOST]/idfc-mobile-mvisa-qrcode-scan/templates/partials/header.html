@@ -1,0 +1,11 @@
+<div class="top-username-pin">
+
+        <div class="user-block" ng-click="scanAndPayCtrl.triggerClickEvent('qr')">QR code</div>
+        <div class="switchContainer">
+            <div class="switcH">
+                <switch id="toggleSwitch" name="enabled" ng-model="intOnOff" ng-change="scanAndPayCtrl.setPayMode()" ng-swipe-left="scanAndPayCtrl.triggerClickEvent('swipe')" ng-swipe-right="scanAndPayCtrl.triggerClickEvent()"></switch>
+            </div>
+        </div>
+        <div class="mpin-block" ng-click="scanAndPayCtrl.triggerClickEvent('key')">Payee key</div>
+
+</div>

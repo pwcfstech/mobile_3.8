@@ -1,0 +1,147 @@
+<div ng-controller="RDClosureDetails">
+	<!--after main div -->
+	<div ng-if="errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+			<span class="sr-only">Busy</span>
+		</div>
+	</div>
+	<div class="lp-alerts">
+		<div alert="alert" ng-repeat="alert in alerts" type="alert.type">{{alert.msg}}</div>
+	</div>
+	<div ng-show="noAcc" class="noAccounts">
+		<br>
+		<span class="noAccountsMessage">{{msgnodata}}</span>
+		<button class="btn btn-primary secondary-btn-closure secondary-btn-btn create-new" ng-model="linkForCreateRD" ng-click="openRd()" >{{'Lbl_Link_CreateRd'|translate}}</button>
+	</div>
+	<div progress-indicator="progress-indicator" is-loading="fiModel.isConnecting" class="panel-body" ng-hide="successClose || noAcc">
+		<!--main div end started-->
+		<form class="form-horizontal" tabindex="0">
+			<div class="depositsClosure-dep-parent-div depositClosure-style-top">
+				<div class="depositsClosure-div-tr-dep" ng-if="bydefaultOne">
+					<div class="depositsClosure-div-td-dep-acc ">
+						<label class="labelText" for="account name" lp-i18n="Lbl_Account_Number" style="" id="account name"></label>
+						<!--<i class="lp-icon infoIcon ng-scope" tooltip="{{'Tip_Copy'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true"><img src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>-->
+					</div>
+					<div class="depositsClosure-div-td-dep PadLeft">
+						<select class="depositsClosure-val-min-width IDFC-dropdown" ng-model="tdAcountNumberId" ng-change="fetchDetail(tdAcountNumberId)">
+							<option value='' selected="selected">Select</option>
+							<option ng-repeat="existingdeposit in accno" ng-selected="$first" ng-value="existingdeposit.id">{{ existingdeposit.id}}</option>
+						</select>
+					</div>
+				</div>
+				<!-- bydefault select div end-->
+				<div class="depositsClosure-div-tr-dep" ng-hide="bydefaultOne">
+					<div class="depositsClosure-div-td-dep-acc ">
+						<label class="labelText" for="account name"  lp-i18n="Lbl_Account_Number" style="line-height:35px;" ></label>
+					</div>
+					<div class="depositsClosure-div-td-dep">
+						<select id="tdAccountNumber"  required="true" name="tdAccountNumber" class="depositsClosure-val-min-width IDFC-dropdown" style="width:25%;" ng-model="tdAcountNumberId" ng-options="existingDeposit.id as existingDeposit.id for existingDeposit in accno" ng-change="fetchDetail(tdAcountNumberId)">
+							<option value= "">{{'Select_Account_Number'|translate}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div ng-show="summarydiv" class="depositsClosure-div-tr-dep">
+				<div class="depositsClosure-div-tr-dep">
+					<table class="close-recur-dep-table" ng-repeat="existingDeposit in accno" ng-if="existingDeposit.id==tdAcountNumberId">
+						<tbody>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det">
+
+								<span>{{'Lbl_Current_Balance'|translate}}</span>
+								<span class="colon"> : </span>
+							</th>
+							<td class="table-childtd-width-dp-det td-dp-det">
+								<span class="rupee-symbol-span"></span>
+								<span ng-model="currBalance">{{existingDeposit.availableBalance | currency:' '}}</span></td>
+						</tr>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det"> <span>&shy;{{'Lbl_Maturity_Date'|translate}}&shy;</span>
+								<span class="colon"> : </span>
+							</th>
+							<td class="table-childtd-width-dp-det td-dp-det"><span ng-model="maturityDate">&shy;{{existingDeposit.mtDt| date:'dd-MMM-yyyy'}}&shy;</span></td>
+						</tr>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det"><span>Maturity Amount</span>
+								<span class="colon"> : </span>
+							</th>
+							<td class="table-childtd-width-dp-det td-dp-det">
+								<span class="rupee-symbol-span"></span>
+								<span ng-model="maturityAmount">{{existingDeposit.mtVl | currency:' '}}</span>
+							</td>
+						</tr>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det"><span>{{'Lbl_install_Amount'|translate}}</span>
+								<span class="colon"> : </span>
+							</th>
+							<td class="table-childtd-width-dp-det td-dp-det">
+								<span class="rupee-symbol-span"></span>
+								<span ng-model="installamt">{{existingDeposit.instlmntAmt | currency:' ' }}</span></td>
+						</tr>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det"> <span>{{'Lbl_Repayment_Account_Number'|translate}}</span>
+								<span class="colon"> : </span>
+							</th>
+							<td class="table-childtd-width-dp-det td-dp-det"><span ng-model="repaymentAccountNumber">{{existingDeposit.rpymntAcctNmbr}}</span></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div ng-show="bydefaultOne" class="depositsClosure-div-tr-dep">
+				<div class="depositsClosure-div-tr-dep">
+					<table class="close-recur-dep-table" ng-repeat="existingDeposit in accno">
+						<tbody>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det"><span>{{'Lbl_Current_Balance'|translate}}</span></th>
+							<td class="table-childtd-width-dp-det td-dp-det"><span class="rupee-symbol-span"></span><span ng-model="currBalance">{{existingDeposit.availableBalance | currency:' '}}</span> </td>
+						</tr>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det"> <span>&shy;{{'Lbl_Maturity_Date'|translate}}&shy;</span></th>
+							<td class="table-childtd-width-dp-det td-dp-det"><span ng-model="maturityDate">&shy;{{existingDeposit.mtDt| date:'dd-MMM-yyyy'}}&shy;</span></td>
+						</tr>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det"><span>Maturity Amount</span></th>
+							<td class="table-childtd-width-dp-det td-dp-det"><span class="rupee-symbol-span"><span ng-model="maturityAmount">{{existingDeposit.mtVl | currency:' '}}</span></td>
+						</tr>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det"><span>{{'Lbl_install_Amount'|translate}}</span></th>
+							<td class="table-childtd-width-dp-det td-dp-det"><span class="rupee-symbol-span"><span ng-model="installamt">{{existingDeposit.instlmntAmt | currency:' ' }}</span></td>
+						</tr>
+						<tr class="gen-dep-det">
+							<th scope="row" class="table-childth-width-dp-det th-dp-det"> <span>{{'Lbl_Repayment_Account_Number'|translate}}</span></th>
+							<td class="table-childtd-width-dp-det td-dp-det"><span ng-model="repaymentAccountNumber">{{existingDeposit.rpymntAcctNmbr}}</span></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div ng-show="summarydiv || bydefaultOne " class="depositsClosure-div-tr-dep dep-pen-row">
+				<div class="borderLine1"></div>
+				<div class="dep-pen-right text-center beforeCloseBtn">
+					<button type="button" class="btn btn-primary secondary-btn-closure secondary-btn-btn buttondivMob" ng-click="closingRD()">{{'close'|translate}}</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<!--main div end-->
+	<div class="depositsClosure-dep-parent-div"  ng-show="successClose">
+		<div class="depositsClosure-div-tr-dep text-center">
+			<div class="img_padding">
+				<img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+				<img ng-src="{{tick}}"/>
+			</div>
+			<label class="congrts">Congratulations!</label>
+		</div>
+		<div class="depositsClosure-div-tr-dep succesMsg">
+			<div style="">{{'Lbl_Success1 '|translate}}</div>
+			<div style="">{{nickName }}</div>
+			<div  style="">{{'Lbl_Success2'|translate}}</div>
+			<div class="text-center closDeposit">
+				<div class="borderLine"></div>
+				<button class="btn btn-primary primary-btn-closure primary-btn-btn " ng-click="closeAccount()">{{'CloseAnotherAccount'|translate}}</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Stacked Area Chart component</title>
+    <link href="bower_components/theme/themes/default/css/base.css" rel="stylesheet"/>
+    <link href="../../../styles/base.css" rel="stylesheet"/>
+    <!-- include core -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.js"></script>
+    <script src="bower_components/config/requirejs.conf.js"></script>
+    <!-- create the demo -->
+    <script>
+        require([
+            'base',
+            './scripts/main'
+        ], function (base, comp) {
+
+            var parseDate = d3.time.format('%Y%m').parse;
+
+            function getDate(d) {
+                return parseDate(d.date);
+            }
+
+            function getValue(d) {
+                return d.assets;
+            }
+
+            var demo = base.createModule('demo.stacked-area-chart', [comp.name])
+                .controller('MainCtrl', ['$http', function ($http) {
+                    var ctrl = this;
+
+                    $http.get('mock/data.json').then(function (res) {
+                        ctrl.options = {
+                            data: res.data,
+                            parsers: {
+                                x: getDate,
+                                y: getValue
+                            },
+                            formatters: {
+                                x: d3.time.format('%Y')
+                            }
+                        };
+                    });
+                }]);
+
+            base.bootstrap(document.body, [demo.name]);
+        });
+    </script>
+    <style>
+        markdown {
+            display: none;
+        }
+
+        .lp-stacked-area-chart {
+            height: 290px;
+        }
+    </style>
+</head>
+<body>
+
+<markdown>
+    <% include README.md %>
+</markdown>
+
+<div ng-controller="MainCtrl as mainCtrl">
+    <lp-stacked-area-chart options="mainCtrl.options"></lp-stacked-area-chart>
+</div>
+
+</body>
+</html>

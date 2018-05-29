@@ -1,0 +1,23 @@
+<div id="{{widgetInstanceId}}" data-pid="{{widgetInstanceId}}"
+    class="bp-widget {{#enableDND}}bp-ui-dragRoot{{/enableDND}} lp-chrome-launcher-tab lp-chrome-launcher-tab-hidden"
+    xmlns="http://www.w3.org/1999/html">
+    <div class="bp-widget-pref"></div>
+
+    <!-- Tab Part -->
+    <div class="bp-widget-head lp-launcher-tab bp-ui-dragGrip">
+        <a class="clearfix" role="button" href="#{{widgetInstanceId}}-body">
+            <span class="lp-launcher-tab-icon pull-left">{{#pref.icon}}<i class="lp-icon lp-icon-{{pref.icon.value}}"></i>{{/pref.icon}}</span>
+            <span class="lp-launcher-tab-text pull-left">{{widgetTitle}}</span>
+            <span class="lp-launcher-tab-arrow pull-right"><i class="lp-icon lp-icon-angle-right"></i></span>
+        </a>
+    </div>
+
+    <!-- Main widget -->
+    <div class="lp-launcher-tab-widget bp-widget-head lp-widget-head widget widget-default" id="{{widgetInstanceId}}-body">
+        <div class="widget-heading hidden-xs">
+            <button type="button" class="close hidden-xs" tabindex="0" data-action="lp-tab-hide" aria-hidden="true">&times;</button>
+            <h3 class="widget-title lp-launcher-chrome-title">{{#pref.icon}}<i class="lp-icon lp-icon-{{pref.icon.value}}"></i>{{/pref.icon}}{{widgetTitle}}</h3>
+        </div>
+        <div class="bp-widget-body">{{{widgetContent}}}</div>
+    </div>
+</div>

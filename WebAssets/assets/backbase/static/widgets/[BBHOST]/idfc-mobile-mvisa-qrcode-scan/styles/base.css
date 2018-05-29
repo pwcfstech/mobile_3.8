@@ -1,0 +1,187 @@
+/*----------------------------------------------------------------*/
+/* Import Custom component widget
+/*----------------------------------------------------------------*/
+
+/*----------------------------------------------------------------*/
+/* Basic widget styles
+/*----------------------------------------------------------------*/
+
+/*.lp-idfc-mvisa-qrcode-scan {
+
+
+}*/
+
+/*common*/
+
+
+.restrictHorizontal {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.btnNext {
+    background-color: #fb637e!important;
+    opacity: 1!important;
+    width: 77.77%!important;
+    border-radius: 2px!important;
+    height: 45px!important;
+    font-size: 18px!important;
+    color: #fff;
+    margin-left:11%;
+    /*margin-bottom:10%;*/
+    outline: none !important;
+    border: 1px solid transparent;
+}
+
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn{
+    margin:0;
+
+}
+
+/*toggle*/
+.top-username-pin{
+width:90%;
+margin:0 auto;
+padding:21px 0px 32px;
+text-align:center;
+color:#000;
+font-size:18px;}
+
+.top-username-pin div{
+display:inline-block;
+position:relative;
+font-size: 14px !important;
+font-family: gotham_medium !important;
+}
+
+.top-username-pin .user-block{
+margin-left: 3.5%;
+font-weight:400;
+text-transform:uppercase;
+
+}
+
+.user-block{
+    text-transform:none!important;
+    font-size: 14px !important;
+    font-family: gotham_medium !important;
+
+
+/*Production Issue*/
+    position:relative;
+    left:-10px;
+}
+
+.top-username-pin .pin-block{
+    width: 60%;
+    max-width: 57px;
+    background-color: #fff;
+    height: 2px;
+    margin: 0 9px;
+	position:relative;
+	top:-4px;}
+
+.top-username-pin .pin-block:before{
+       position: absolute;
+    top: -10px;
+    left: -4px;
+    background: #ffc72c;
+    width: 21px;
+    height: 21px;
+    border-radius: 55%;
+    content: "";
+    box-shadow: 0px 3px 2px #ac5f7a;
+	cursor:pointer;
+}
+
+
+/*pay manually*/
+.payFormStartBorder{
+    margin-top:0;
+    background-color: #eaeaea !important;
+    height: 1px !important;
+}
+
+.payFormEndBorder{
+    margin-top:3%;
+    background-color: #eaeaea !important;
+    height: 1px !important;
+    margin-bottom:5%;
+}
+
+/* @media (max-width:416px) {
+    .payeeForm-alignInput label {
+        width: 100% !important;
+        margin-left: -12%!important;
+        margin-bottom: -1% !important;
+    }
+} XEBIA REFACTORING */
+
+@media (max-width:416px) {
+    .payeeForm-alignInput label {
+        width: 100% !important;
+        margin-left: -8%!important;
+        margin-bottom: -1% !important;
+    }
+}
+
+@media (min-width:417px) and (max-width:550px) {
+    .payeeForm-alignInput label {
+        width: 38%;
+    }
+}
+
+.payeeForm-alignInput {
+    padding-top: 0;
+    margin-left:12%!important;
+}
+
+.payeeForm-alInput {
+    margin-right: -24.5% !important;
+    margin-bottom: 0! important;
+}
+
+.payeeForm-alInput label i {
+    top: 1px
+}
+
+.payeeForm-Inputbox {
+    width: 85%;
+    height:45px !important;
+    -webkit-appearance: none !important;
+}
+
+.text-left-float {
+    float: left;
+    text-align: left;
+    margin-right: 10%;
+}
+
+.form-group {
+     margin-bottom: 0px !important;
+}
+
+.labelText {
+    font-size: 14px !important;
+    font-family: gotham_medium !important;
+    color: #4a4a4a !important;
+    padding-left: 12% !important;
+    margin-top: 3.93% !important;
+    margin-bottom: 4px !important;
+ }
+
+.serviceErrorMargin{
+        margin-top: 10%;
+}
+
+.payeeForm-alInput {
+    margin-right: -6.5% !important;
+}
+
+.payeeForm-alignInput {
+    margin-left: 7%!important;
+}
+
+.form-control, a {
+    font-size: 12px!important;
+}

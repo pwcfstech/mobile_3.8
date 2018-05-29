@@ -1,0 +1,331 @@
+<div class="top-wrapper">
+    <!-- error Spin -->
+    <!--<div ng-if="errorSpin">
+		<div class="panel-message loading-panel" role="alert"> <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span class="sr-only">Busy</span> </div>
+	</div>-->
+    <!-- error Spin -->
+    <div ng-class="responsiveClass">
+        <div class="top-username-pin">
+            <div class="user-block">Username</div>
+            <!--			<div class="pin-block" data-ng-click="loginWithMpin()"></div>
+			<div class="mpin-block" ng-click="loginWithMpin()">MPIN 
+				<span ng-if="!mpinFlag">new</span>
+			</div>-->
+            <!--(change is switch)Toggle needs to work as a toggle. Right now it's an image. On click it should change the position as well as user should be able to slide it -->
+            <div class="switchContainer">
+                <div class="switcH">
+                    <switch id="toggleSwitch" name="enabled" ng-model="IntOnOff" class="green" ng-change="loginWithMpin()" ng-swipe-left="triggerClickEvent()" ng-swipe-right="triggerClickEvent()"></switch>
+                </div>
+            </div>
+            <div class="mpin-block" ng-click="loginWithMpin()">MPIN
+                <span ng-if="!mpinFlag">new</span>
+            </div>
+            <!--(change is switch)Toggle needs to work as a toggle. Right now it's an image. On click it should change the position as well as user should be able to slide it -->
+        </div>
+        <div id="alert-overlay" ng-show="bibAlertRestrict">
+            <div>
+                <p id="alert-message">Mobile banking services are currently not available to business banking accounts. Please use
+                    <br>
+                    <a style="color:blue" href="https://my.idfcbank.com/start">https://my.idfcbank.com/start</a>
+                </p>
+                <button id="alert-ok-btn" ng-click="closeAlert();">OK</button> <!-- 3.5 change -->
+            </div>
+        </div>
+        <div class="white-main-login">
+            <div class="alert alert-error login-alert" ng-show="loginerror">
+                <div alert="alert">
+                    <i class="lp-icon lp-icon-alert-warning"></i>{{loginerror}}
+                </div>
+            </div>
+            <div class="lp-widget-content loginbody">
+                <div class="login-widget panel-body">
+                    <div class="">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <!--	<div class="text-center logoImg">
+								<img src="static/features/[BBHOST]/theme-idfc/images/design-login.png"/>
+							</div>-->
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="Links text-center">
+                                    <h1 class="welMargin">Welcome!</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form name="loginForm" ng-show="showUserNamePassword">
+                        <input style="display:none" type="text" name="fakeusernameremembered" />
+                        <input style="display:none" type="password" name="fakepasswordremembered" />
+                        <div class="field-holder form-group text-center">
+                            <label class="sr-only" for="j_username">Username</label>
+                            <input class="" type="text" name="j_username" id="j_username" placeholder="Username" ng-model="user.id" ng-required="true" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" />
+                            <div class="">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label>
+                                        <div class="linksMargin">
+                                            <a ng-click="goToForgotUsername()" href="#">Forgot Username</a>
+                                        </div>
+                                    </label>
+                                    <!--<div class="userLine"></div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-holder form-group text-center">
+                            <label class="sr-only" for="j_password">Password</label>
+                            <input class="" type="password" name="j_password" id="j_password" placeholder="Password" ng-model="user.password" required="true" autofill="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" />
+                            <div class="">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label>
+                                        <div class="linksMargin">
+                                            <a ng-click="goToForgotPassword()" href="#">Forgot Password</a>
+                                        </div>
+                                    </label>
+                                    <!--<div class="forgotLine"></div>-->
+                                </div>
+                            </div>
+                            <div>
+                                <small class="text-danger spacing-error" ng-show="loginForm.submitted &amp;&amp; loginForm.j_password.$error.required &amp;&amp; !loginForm.captchacode.$error.required &amp;&amp; !loginForm.captchacode">Password is required</small>
+                            </div>
+                        </div>
+
+                        <!-- version 3.5 changes captcha -->
+                       <div  ng-show="showCaptcha">
+
+                           <div class="field-holder form-group text-center" ng-show="showmobinput">
+                               <label class="sr-only" for="mobileNum">Mobile</label>
+                               <input class="ng-dirty ng-pristine ng-invalid ng-invalid-required ng-valid-minlength" type="text" id="mobileNum" name="mobileNum" placeholder="Enter Mobile Number"  ng-model="user.mobileN"  maxlength="10" ng-minlength="10" ng-pattern="/^[0-9]*$/"  onpaste="return false;"  ng-change="setMobileNum(user.mobileN);" oncopy="return false" oncut="return false" loading="isLoading" required="true" autocomplete="off" /> <br>
+                               <small class="text-danger spacing-error"  ng-show="loginForm.submitted &amp;&amp; loginForm.mobileNum.$error.required">Mobile Number is required.</small>
+                               <small class="text-danger spacing-error"  ng-show="loginForm.submitted &amp;&amp; loginForm.mobileNum.$error.min">Mobile Number Should be of 10 digits.</small>
+                               <small class="text-danger spacing-error"  ng-show="loginForm.submitted &amp;&amp; loginForm.mobileNum.$error.pattern">Enter digits only.</small>
+                           </div>
+
+                            <div class="field-holder form-group text-center">
+                                <label class="sr-only ng-scope" translate="Captcha">Captcha</label>
+                                <div class="captcha-panel">
+                                    <div class="captcha-left-panel">
+                                     <img class="form-control captcha-img" src="{{captchaSrc}}">
+                                    </div>
+                                    <div class="captcha-right-panel">
+                                        <a class="refresh-btn" href="#"><span ng-click="regenerateCaptcha();" class="glyphicon glyphicon-refresh refresh-size" title="Refresh"></span>
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                           <div class="field-holder form-group text-center">
+                               <label class="sr-only" for="captchacode">Enter Captcha</label>
+                               <input class="ng-dirty ng-pristine ng-invalid ng-invalid-required" type="text" id="captchacode" name="captchacode"  ng-model="user.captcha"  ng-change="setCaptcha(user.captcha);" placeholder="Enter Captcha" maxlength="10" onpaste="return false;" oncopy="return false" oncut="return false" loading="isLoading" required="true" autocomplete="off"/> <br>
+                               <small class="text-danger spacing-error" ng-show="loginForm.submitted &amp;&amp; loginForm.captchacode.$error.required">Captcha is required.</small>
+                           </div>
+
+                        </div>
+                        <!-- version 3.5 changes over captcha  -->
+						
+						<!-- RSA changes by Xebia starts -->
+
+                        <div ng-hide="hideQuesFlag" class="rsa-login-border">
+
+                            <form name="Questionform" class="form-horizontal">
+                                <div ng-if="showQuestionDiv">
+                                    <!-- <div ng-repeat="question in loginCtrl.challengeQuestions"> -->
+                                        <!-- <label>{{question.questionText}} </label> -->
+                                        <label class="rsa-login-label">{{challengeQuestions}} </label>
+                                        <input class="form-control" type="text" name="answer"
+                                               placeholder="Enter answer" autocomplete="off"
+                                               ng-model="challengeQuestion.answer"
+                                               required="true" />
+
+                                    <!-- </div> -->
+
+                                    <div class="rsa-login-button">
+                                        <button class="btn btn-primary btn-align primary-btn-forgot primary-btn-btn"
+                                                type="submit" name="verifyAnswers"
+                                                ng-click="verifyRsaLogin(Questionform.$valid,credentialType)"
+                                                ng-disabled="!(challengeQuestion.answer)">
+                                            Submit Answer
+                                        </button>
+                                    </div>
+                                 </div>
+                            </form>
+
+                            <div ng-show="showWrongAnswerMessage" class="rsa-login-button">
+                                        <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                                            type="submit" name="tryAgain"
+                                            ng-click="fetchCQ()">Try Again</button>
+                            </div>
+
+                        </div>
+
+                    <!-- RSA changes by Xebia ends -->
+
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="red btnNext btn btn-sm btn-primary btn-submit-login" ng-click="loginForm.submitted=true; doLogin(user.id, user.password)" ng-disabled="! allowSubmit()">LOGIN</button> <!-- 3.5 change docustomLogin change to doLogin-->
+                        </div>
+                        
+                    </form>
+                    <div ng-show="!mVisaFlag" class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="Links text-center">
+                                <a ng-click="goToCreateDebitCard()" href="#">Generate Debit Card Pin</a>
+                                <div class="debitLine"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="!mVisaFlag" class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="Links text-center">
+                                <a ng-click="goToCreateUsername()" href="#">Create Username</a>
+                                <div class="creatLine"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="!mVisaFlag" class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="Links text-center">
+                                <a ng-click="goToApplyNow()" href="#">NOT A CUSTOMER? APPLY NOW</a>
+                                <div class="forgotLine"></div>
+                            </div>
+                        </div>
+                    </div>
+<!--                    <div ng-show="!mVisaFlag" class="row">-->
+<!--                        <div class="col-md-12 col-sm-12 col-xs-12">-->
+<!--                            <div class="Links text-center">-->
+<!--                                <a href="//upiApp" ng-click="setUPiFlag()">IDFC BANK UPI</a>-->
+<!--                                <div class="upiLinkLine"></div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <!-- Added by Kriti PwC- for mVisa -->
+                    <div ng-show="!mVisaFlag" class="form-group text-center">
+                        <button type="submit" class="purpleBtn btn btn-sm btn-primary btn-submit-login" ng-click="scanAndPay()">
+                            <div class="col-xs-12">
+                                <div class="col-xs-5 scanImgMargin">
+                                    <img src="static/features/[BBHOST]/theme-idfc/images/scan.png">
+                                </div>
+                                <div class="scanAndPayTextAlign">
+                                    SCAN AND PAY
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <!--<div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="Links text-center" ng-click="goToSetupMpin()">SETUP MPIN</a></div>
+                            <div class="creatLine"></div>
+                        </div>
+                    </div>-->
+                    <div ng-hide="hideOTPFlag" class="otp-div">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h4>
+										<div class="text-success" ng-show="success.happened" style="text-align:center">{{ success.msg }}</div>
+										<div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+									</h4>
+                            </div>
+                        </div>
+                        <form name="OTPform">
+                            <div lp-field="lp-field" label="Mobile_Label" class="field-holder form-group text-center" tip="">
+                                <div>
+                                    <input type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+                                </div>
+                            </div>
+                            <input style="display:none" type="password" name="fakepasswordremembered" />
+                            <div lp-field="lp-field" label="OTP_Label" class="field-holder form-group text-center" tip="{{'Error_Invalid_Length_OTP'|translate}}">
+                                <div>
+                                    <input type="password" name="otp" autocomplete="off" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="otpDetails.otpValue" required="true" />
+                                    <small class="text-danger" style="width:38%" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+                                    <small class="text-danger" style="width:38%" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                    <small class="text-danger" style="width:38%" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                    <small class="text-danger" style="width:38%" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <button class="btn-whitePop btnNext btnNext-grey btn btn-sm" type="button" name="clearOTP" ng-click="clearOTP()">{{'btn_Clear'|translate}}</button>
+                                <button class="red btnNext btn btn-sm btn-primary" style="margin-top:2%; margin-bottom:2%;" type="submit" name="verifyOTP" id="verifyOTP-btn-login" ng-click="OTPform.submitted=true; verifyRsaLogin(OTPform.$valid,credentialType)">{{'btn_Submit'|translate}}</button>
+                                <button class="btn-whitePop btnNext btnNext-grey btn btn-sm" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+                            </div>
+                        </form>
+                    </div>
+
+            
+
+                    <!-- <div ng-hide="hideQuesFlag">
+                        <form name="Questionform" class="form-horizontal">
+                            <div ng-if="showQuestionDiv">
+                                <div ng-repeat="question in challengeQuestions">
+                                    <label>{{question.questionText}}</label>
+                                    <input class="form-control" type="text" name="answer" placeholder="Enter answer" autocomplete="false" ng-model="challengeQuesAnswers[$index].answer" required="true" ng-disabled="isChallengeDisabled" />
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-align primary-btn-forgot primary-btn-btn" style="margin-left:50px;margin-top:10px" type="submit" name="verifyAnswers" ng-click="Questionform.submitted=true; verifyRsaLogin(Questionform.$valid,credentialType)">Submit Answers</button>
+                        </form>
+                    </div> -->
+                    <!-- new development-->
+                    <!--		<div ng-hide="rdView">
+
+
+						&lt;!&ndash;main-login&ndash;&gt;
+						<div class="top-username-pin">
+							<div class="user-block">Username</div>
+							<div class="link-pin"></div>
+							<div class="mpin-block">MPIN<span>new</span></div>
+						</div>
+
+
+						<div class="white-main-login">
+							<div class="jet-setup"></div>
+
+							<div class="login2-main-form">
+								<h1 class="setup-txt">Want faster Login?</h1>
+								<p class="enjoy-txt">Enjoy faster login with MPIN </p>
+								<div class="field-holder">
+									<input type="submit" value="Setup MPIN" class="red">
+								</div>
+							</div>
+						</div>
+					</div>-->
+                    <!-- new development-->
+                    <div ng-hide="hideCombineFlag">
+                        <h4>
+								<div class="text-success" ng-show="success.happened" style="text-align:center">{{ success.msg }}</div>
+								<div class="text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+							</h4>
+                        <form name="mainform" class="form-horizontal">
+                            <div>
+                                <div lp-field="lp-field" label="Mobile_Label" tip="" class="otp-lp-field">
+                                    <div>
+                                        <input class="form-control" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+                                    </div>
+                                </div>
+                                <input style="display:none" type="text" name="fakeusernameremembered" />
+                                <input style="display:none" type="password" name="fakepasswordremembered" />
+                                <div lp-field="lp-field" label="OTP_Label" class="otp-lp-field otp-lp-field-last" tip="Please enter 6 digit one time password">
+                                    <div>
+                                        <input class="form-control" type="password" name="otp" autocomplete="false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="otpDetails.otpValue" required="true" style="width:100%" />
+                                        <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+                                        <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                        <small class="text-danger" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+                                        <small class="text-danger" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="otp-lp-field otp-lp-field-last">
+                                <div ng-if="showQuestionDiv">
+                                    <div ng-repeat="question in challengeQuestions" style="margin-top:20px">
+                                        <label>{{question.questionText}}</label>
+                                        <input class="form-control" type="text" name="answer" placeholder="Enter answer" autocomplete="off" ng-model="challengeQuesAnswers[$index].answer" required="true" ng-disabled="isChallengeDisabled" style="width:60%" />
+                                        <input type="hidden" ng-value="question.questionId" ng-model="challengeQuesAnswers[$index].question" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="div-td-dep-ab">
+                                <button class="btn btn-primary btn-align secondary-btn-forgot secondary-btn-btn" style="margin-top:10px" type="button" name="clearOTP" ng-click="clearOTPQUES()">{{'btn_Clear'|translate}}</button>
+                                <button class="btn btn-primary btn-align primary-btn-forgot primary-btn-btn" style="margin-top:10px" type="submit" name="verifyAnswers_otp" ng-click="mainform.submitted=true; verifyRsaLogin(mainform.$valid, credentialType)">{{'btn_Submit'|translate}}</button>
+                                <button class="btn btn-primary btn-align secondary-btn-forgot primary-btn-btn" style="margin-top:10px" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+{namespace templates_PageLayoutContainer}
+/**
+ * Div Layout
+ * @param item Item in context
+ */
+{template .PageLayoutContainer}
+    <div class="bp-container bp-ui-dragRoot lp-page-layout-container container" data-pid="{$item.name}">
+        <header class="lp-page-header clearfix">
+            <div class="bp-area lp-header-left --area">
+                {foreach $child in $item.children}
+                    {if parseInt($child.preferences.area.value) == 0}
+                        {include($child) |noAutoescape}
+                    {/if}
+                {/foreach}
+            </div>
+            <div class="bp-area lp-header-right --area">
+                {foreach $child in $item.children}
+                    {if parseInt($child.preferences.area.value) == 1}
+                        {include($child) |noAutoescape}
+                    {/if}
+                {/foreach}
+            </div>
+        </header>
+        <div class="lp-page-main clearfix">
+            <div class="bp-area --area">
+                {foreach $child in $item.children}
+                    {if parseInt($child.preferences.area.value) == 2}
+                        {include($child) |noAutoescape}
+                    {/if}
+                {/foreach}
+            </div>
+        </div>
+        <footer class="lp-page-footer">
+            <div class="bp-area --area">
+                {foreach $child in $item.children}
+                    {if parseInt($child.preferences.area.value) == 3}
+                        {include($child) |noAutoescape}
+                    {/if}
+                {/foreach}
+            </div>
+        </footer>
+    </div>
+{/template}

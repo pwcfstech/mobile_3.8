@@ -1,0 +1,47 @@
+<div ng-controller="CloseDepositController">
+<!-- Loading indicator -->
+    <div ng-if="errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+	<!--  Alerts -->
+     <div class="lp-alerts">
+        <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+       </div>
+		
+		<div ng-hide="serviceError">
+	<div class="panel panel-default" ng-if="fiModel.selected">
+		<div class="panel-heading selected-fi">
+			<div class="col-xs-2 col-lg-1">
+				<span ng-show="fiModel.selected.isConnecting"><i class="lp-icon {{fiModel.selected.icon}}"></i></span>
+				<span ng-show="!fiModel.selected.isConnecting"><i class="glyphicon glyphicon-ok"></i></span>
+			</div>
+			<div class="col-xs-10 col-xs-11">
+				<div ng-show="fiModel.selected.isConnecting">
+					<span class="h4">{{fiModel.selected.name}}</span><br />
+					<span>Set up may take a few minutes... No need for you to wait around!</span>
+				</div>
+				<div ng-show="!fiModel.selected.isConnecting">
+					<span>{{'Terms'|translate}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body">
+		<div class="connection-feedback">
+			<p class="h4 text-center closure-text" ng-show="!fiModel.selected.isConnecting">{{'Terms_Conditions'|translate}}</p>
+			<p ng-show="fiModel.selected.isConnecting">This may take a while,<br /> no need for you to wait around!<br /><a>Cancel adding {{fiModel.selected.name}}</a></p>
+		</div>
+		<div class=" idfc-accept-closure">
+		<button ng-click="wizardNextStepPause()" class="btn btn-primary  primary-btn-closure">{{'Accept'|translate}}</button></div>
+	<div class=" idfc-decline-closure">
+		<button type="button" ng-click="restartWizard()" class="btn btn-link  secondary-btn-closure">{{'Decline'|translate}}</button></div>
+		
+		<div class=" idfc-goback-closure">
+		<button type="button" ng-click="wizardPreviousStep()" class="btn btn-link  secondary-btn-closure">{{'Go_Back'|translate}}</button>
+	</div>
+	</div>
+	</div>
+</div>

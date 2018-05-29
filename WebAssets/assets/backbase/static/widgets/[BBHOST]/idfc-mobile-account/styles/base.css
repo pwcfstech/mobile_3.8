@@ -1,0 +1,410 @@
+/*
+.account-pull-right{padding-bottom:10%!important}.dropdown{background-image:url(../../../../../idfc/images/dropdown_arrow_down.png)!important;-webkit-appearance:none!important;background-repeat:no-repeat;background-position:97% 50%;width:10%;height:10px;position:absolute;margin-top:1%!important;right:20px!important}.dropup{background-image:url(../../../../../idfc/images/dropdown_arrow_up.png)!important;-webkit-appearance:none!important;background-repeat:no-repeat;background-position:97% 50%;width:10%;height:10px;position:absolute;margin-top:1%!important;right:20px!important}.lp-accounts .panel-launcher span.caret{margin-top:3%!important;right:20px!important}.panel-launcher > .panel-heading{color:#fff!important}.lp-launcher-tab{border-left:0}.list-group-item .lp-icon{background-color:transparent!important}.panel-launcher .panel-heading .panel-round{border-top-right-radius:0!important;border-top-left-radius:0!important;border-bottom-right-radius:0!important;border-bottom-left-radius:0!important}.panel-launcher .panel-heading.panel-round{border-bottom-right-radius:0!important;border-bottom-left-radius:0!important}.panel-launcher .panel-heading{border-top-right-radius:0!important;border-top-left-radius:0!important}.panel-heading{border-bottom:0 solid transparent;padding-bottom:10px!important;padding-top:10px!important}.acclab{padding-top:1%!important;margin-right:-15px}.pull-left{font-family:Gotham_Book!important;font-size:100%!important;height:17px!important;margin-left:4.3%!important;margin-top:3%!important;font-weight:700;color:#4a4a4a}.pull-left1{font-family:Gotham_Book!important;font-size:100%!important;margin-left:4.3%!important;margin-top:3%!important;font-weight:700;color:#fff;text-transform:uppercase}.labelAcc{color:#000!important;font-weight:700}.acctTab1{margin-top:31.25%;width:100%;height:127px;color:#eaeaea}.pull-accbal{color:#aeaeae;size:3.75%;margin-left:4.3%!important;margin-top:3%!important;font-family:Gotham_Book}.label_status{float:right;color:#fff;height:20px;width:20%!important;margin-right:4%!important;text-align:center;font-family:Gotham_Medium!important;font-size:100%!important;border-radius:3px}.label_status-green{float:right;color:#fff;height:20px;width:40%!important;margin-right:4%!important;text-align:center;font-family:Gotham_Medium!important;font-size:100%!important;border-radius:3px;background-color:#39ca74;padding:1% 5%}.label_status-red{float:right;color:#fff;height:20px;width:50%!important;margin-right:4%!important;text-align:center;font-family:Gotham_Medium!important;font-size:100%!important;border-radius:3px;background-color:red;padding:1% 5%}.pull-right-account{width:95.31%;height:30px;margin-left:4.3%;margin-top:4.75%!important;font-size:180%!important;font-family:Gotham_Light;padding-bottom:7%}.amount-span{display:inline;font-family:inherit}.lp-accounts .panel-launcher{position:relative}.lp-accounts .panel-group{margin-bottom:0}.lp-accounts .grouped-account p{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin:0;font-family:gotham_book;font-size:12px;font-weight:400;margin-left:0}.lp-accounts span.group-totals,.lp-accounts .grouped-account span.account-balance{margin-right:10px;font-size:12px}.lp-accounts .grouped-account span.account-icon{width:10%;margin-right:2%;margin-top:2px}.lp-accounts .panel-launcher span.caret{position:absolute;right:4px;margin-top:3%}.submenuIdfc{margin-left:15px!important;font-family:gotham_book;font-weight:700;font-size:12px}.alerts-accounts-error{font-size:85%!important;color:#a94442!important;padding-top:4%!important;padding-bottom:4%!important;margin-left:8%!important;float:left}.lpaccount-grp-ttl-crncy{float:left}.trans-rupee-hold{position:relative;right:-4px}.accounts-status-font{font-weight:700}.accounts-status-margin,.account-width{min-width:100px}.accounts-status{float:right;margin-right:3px;width:100%}.lp-account-bal{display:block!important}.head-float{float:left}.panel-launcher > .panel-heading{background-color:#C98BDB!important}@media only screen and (max-device-width:240px){      input
+      {           height:26px!important}      .pull-left
+      {           height:14px!important;font-size:8px!important}       .label_status-green
+       {           height:15px!important;font-size:8px!important} .label_status-red
+       {           height:15px!important;font-size:8px!important}.pull-right-account
+ {           height:23px!important;font-size:18px!important}.pull-accbal{font-family:Gotham_Book;font-size:8px!important}.accTab1{height:120px!important}}@media(min-device-width:320px) and (max-device-width:480px){      input
+      {          height:35px!important}  .pull-left
+      {           height:19px!important;font-size:24px!important}       
+     .label_status-green
+       {           height:20px!important;font-size:10px!important} .label_status-red
+       {           height:20px!important;font-size:10px!important}.pull-right-account
+ {           height:30px!important;font-size:24px!important}.pull-accbal{font-size:11px!important}.accTab1{height:130px!important}}@media screen and (device-aspect-ratio: 23){.labelAcc{font-size:14px}}@media screen and (device-aspect-ratio: 4071){.labelAcc{font-size:14px}}@media screen and (device-aspect-ratio: 375667){.labelAcc{font-size:15px}}@media screen and (device-aspect-ratio: 169){.labelAcc{font-size:16px}.panel-launcher .panel-heading .panel-round{border-top-right-radius:0!important;border-top-left-radius:0!important;border-bottom-right-radius:0!important;border-bottom-left-radius:0!important}.accTab1{height:150px!important}}.RupeeSymbol { color: #000;  font-size: 23px;  font-family: gotham_book;  font-weight: lighter;  position: relative;  top: -1px}*/
+
+.homesaver-withdrawal {
+    font-size: 18px!important
+}
+
+.account-pull-right {
+    padding-bottom: 10%!important
+}
+
+.dropdown {
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/dropdown_arrow_down.png)!important;
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    width: 10%;
+    height: 10px;
+    position: absolute;
+    margin-top: 1%!important;
+    right: 20px!important
+}
+
+.dropup {
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/dropdown_arrow_up.png)!important;
+    -webkit-appearance: none!important;
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
+    width: 10%;
+    height: 10px;
+    position: absolute;
+    margin-top: 1%!important;
+    right: 20px!important
+}
+
+.lp-accounts .panel-launcher span.caret {
+    margin-top: 3%!important;
+    right: 20px!important
+}
+
+.panel-launcher>.panel-heading {
+    color: #fff!important
+}
+
+.lp-launcher-tab {
+    border-left: 0
+}
+
+.list-group-item .lp-icon {
+    background-color: transparent!important
+}
+
+.panel-launcher .panel-heading .panel-round {
+    border-top-right-radius: 0!important;
+    border-top-left-radius: 0!important;
+    border-bottom-right-radius: 0!important;
+    border-bottom-left-radius: 0!important
+}
+
+.panel-launcher .panel-heading.panel-round {
+    border-bottom-right-radius: 0!important;
+    border-bottom-left-radius: 0!important
+}
+
+.panel-launcher .panel-heading {
+    border-top-right-radius: 0!important;
+    border-top-left-radius: 0!important
+}
+
+.panel-heading {
+    border-bottom: 0 solid transparent;
+    padding-bottom: 10px!important;
+    padding-top: 10px!important
+}
+
+.acclab {
+    padding-top: 1%!important;
+    margin-right: -15px
+}
+
+.pull-left {
+    font-family: Gotham_Book!important;
+    font-size: 100%!important;
+    height: 17px!important;
+    margin-left: 4.3%!important;
+    margin-top: 3%!important;
+    font-weight: 700;
+    color: #4a4a4a
+}
+
+.pull-left1 {
+    font-family: Gotham_Book!important;
+    font-size: 100%!important;
+    margin-left: 4.3%!important;
+    margin-top: 3%!important;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase
+}
+
+.labelAcc {
+    color: #000!important;
+    font-weight: 700
+}
+
+.acctTab1 {
+    margin-top: 31.25%;
+    width: 100%;
+    height: 127px;
+    color: #eaeaea
+}
+
+.pull-accbal {
+    color: #aeaeae;
+    size: 3.75%;
+    margin-left: 4.3%!important;
+    margin-top: 3%!important;
+    font-family: Gotham_Book
+}
+
+.label_status {
+    float: right;
+    color: #fff;
+    height: 20px;
+    width: 20%!important;
+    margin-right: 4%!important;
+    text-align: center;
+    font-family: Gotham_Medium!important;
+    font-size: 100%!important;
+    border-radius: 3px
+}
+
+.label_status-green {
+    float: right;
+    color: #fff;
+    height: 20px;
+    width: 40%!important;
+    margin-right: 4%!important;
+    text-align: center;
+    font-family: Gotham_Medium!important;
+    font-size: 100%!important;
+    border-radius: 3px;
+    background-color: #39ca74;
+    padding: 1% 5%
+}
+
+.label_status-red {
+    float: right;
+    color: #fff;
+    height: 20px;
+    width: 50%!important;
+    margin-right: 4%!important;
+    text-align: center;
+    font-family: Gotham_Medium!important;
+    font-size: 100%!important;
+    border-radius: 3px;
+    background-color: red;
+    padding: 1% 5%
+}
+
+.pull-right-account-homesaver {
+    width: 95.31%;
+    height: 55px;
+    margin-left: 4.3%;
+    font-family: Gotham_Light;
+    padding-bottom: 7%
+}
+
+.pull-right-account {
+    width: 95.31%;
+    height: 30px;
+    margin-left: 4.3%;
+    margin-top: 4.75%!important;
+    font-size: 180%!important;
+    font-family: Gotham_Light;
+    padding-bottom: 7%
+}
+
+.amount-span-homesaver-withdrawal {
+    display: inline;
+    font-size: 180%!important;
+    font-family: Gotham_Light;
+}
+
+.amount-span {
+    display: inline;
+    font-family: inherit
+}
+
+.lp-accounts .panel-launcher {
+    position: relative
+}
+
+.lp-accounts .panel-group {
+    margin-bottom: 0
+}
+
+.lp-accounts .grouped-account p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+    font-family: gotham_book;
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 0
+}
+
+.lp-accounts span.group-totals,
+.lp-accounts .grouped-account span.account-balance {
+    margin-right: 10px;
+    font-size: 12px
+}
+
+.lp-accounts .grouped-account span.account-icon {
+    width: 10%;
+    margin-right: 2%;
+    margin-top: 2px
+}
+
+.lp-accounts .panel-launcher span.caret {
+    position: absolute;
+    right: 4px;
+    margin-top: 3%
+}
+
+.submenuIdfc {
+    margin-left: 15px!important;
+    font-family: gotham_book;
+    font-weight: 700;
+    font-size: 12px
+}
+
+.alerts-accounts-error {
+    font-size: 85%!important;
+    color: #a94442!important;
+    padding-top: 4%!important;
+    padding-bottom: 4%!important;
+    margin-left: 8%!important;
+    float: left
+}
+
+.lpaccount-grp-ttl-crncy {
+    float: left
+}
+
+.trans-rupee-hold {
+    position: relative;
+    right: -4px
+}
+
+.accounts-status-font {
+    font-weight: 700
+}
+
+.accounts-status-margin,
+.account-width {
+    min-width: 100px
+}
+
+.accounts-status {
+    float: right;
+    margin-right: 3px;
+    width: 100%
+}
+
+.lp-account-bal {
+    display: block!important
+}
+
+.head-float {
+    float: left
+}
+
+.panel-launcher>.panel-heading {
+    background-color: #C98BDB!important
+}
+
+@media only screen and (max-device-width:240px) {
+    input {
+        height: 26px!important
+    }
+    .pull-left {
+        height: 14px!important;
+        font-size: 8px!important
+    }
+    .label_status-green {
+        height: 15px!important;
+        font-size: 8px!important
+    }
+    .label_status-red {
+        height: 15px!important;
+        font-size: 8px!important
+    }
+    .pull-right-account-homesaver {
+        height: 55px!important;
+    }
+    .pull-right-account {
+        height: 23px!important;
+        font-size: 18px!important
+    }
+    .pull-accbal {
+        font-family: Gotham_Book;
+        font-size: 8px!important
+    }
+    .accTab1 {
+        /*height:120px!important*/
+    }
+}
+
+/*Xebia Refactoring*/
+// @media(min-device-width:320px) and (max-device-width:480px) {
+//     input {
+//         height: 35px!important
+//     }
+//     .pull-left {
+//         height: 19px!important;
+//         font-size: 24px!important
+//     }
+//     .label_status-green {
+//         height: 20px!important;
+//         font-size: 10px!important
+//     }
+//     .label_status-red {
+//         height: 20px!important;
+//         font-size: 10px!important
+//     }
+//     .pull-right-account-homesaver {
+//         height: 60px!important;
+//     }
+//     .pull-right-account {
+//         height: 30px!important;
+//         font-size: 24px!important
+//     }
+//     .pull-accbal {
+//         font-size: 11px!important
+//     }
+//     .accTab1 {
+//         /*height:130px!important*/
+//     }
+// }
+
+@media screen and (device-aspect-ratio: 23) {
+    .labelAcc {
+        font-size: 14px
+    }
+}
+
+@media screen and (device-aspect-ratio: 4071) {
+    .labelAcc {
+        font-size: 14px
+    }
+}
+
+@media screen and (device-aspect-ratio: 375667) {
+    .labelAcc {
+        font-size: 15px
+    }
+}
+
+@media screen and (device-aspect-ratio: 169) {
+    .labelAcc {
+        font-size: 16px
+    }
+    .panel-launcher .panel-heading .panel-round {
+        border-top-right-radius: 0!important;
+        border-top-left-radius: 0!important;
+        border-bottom-right-radius: 0!important;
+        border-bottom-left-radius: 0!important
+    }
+    .accTab1 {
+        /*height:150px!important*/
+    }
+}
+
+.RupeeSymbol {
+    color: #000;
+    font-size: 23px;
+    font-family: gotham_book;
+    font-weight: 400;
+    position: relative;
+    top: -1px
+}
+
+.footer-label {
+    position: fixed;
+    bottom: 10px;
+    left: 5px;
+}
+
+.margin-sup {
+    margin-left: -8px;
+}
+
+.body-height {
+    /* overflow: auto; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

@@ -1,0 +1,339 @@
+<div ng-controller="noLoanApplyNowCtrl as noLoanApplyNowCtrl">
+
+  <div ng-if="noLoanApplyNowCtrl.errorSpin">
+    <div class="panel-message loading-panel" role="alert">
+      <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span
+        class="sr-only">Busy</span>
+    </div>
+  </div>
+  <div class="text-danger text-center margin-5-per" ng-if="noLoanApplyNowCtrl.error.happened">{{ noLoanApplyNowCtrl.error.msg }}</div>
+
+  <div class="container">
+	
+	<div class="row">
+	   <div class="col-sm-12 col-lg-12 text-center widget-heading-apply-now">
+           <img ng-src="{{noLoanApplyNowCtrl.financial_Product}}" alt="" class="image-css-for-logo" />
+        </div>
+    </div>
+
+<div ng-if="noLoanApplyNowCtrl.defaultLandingPage">
+	<div class="row">
+		<div class="col-sm-12 text-center">
+        		<div class="form-group">
+          		<h4><b>Sorry, you do not hold this product. Select a loan, you want to apply</b></h4>
+        		</div>
+      		</div>      
+	</div>    
+
+	<div class="row margin-bottom-submit">
+            <div class="col-md-5 hidden-xs"></div>
+            <div class="col-md-6 col-xs-12">            
+                <label class="for-radio-label">
+                    <input type="radio" class="for-radio-align" ng-model="value" value="32" ng-change="noLoanApplyNowCtrl.selectLoanType(value)" /> Home Loan
+                </label>
+                </br>
+                <label class="for-radio-label">
+                    <input type="radio" ng-model="value" value="107" ng-change="noLoanApplyNowCtrl.selectLoanType(value)"  class="for-radio-align"/> LAP(Loan Against Property)
+                </label>
+            </br>
+                <label class="for-radio-label" >
+                    <input type="radio" ng-model="value"  value="33" ng-change="noLoanApplyNowCtrl.selectLoanType(value)" class="for-radio-align"/> Personal Loan
+                </label>            
+            </div>
+            <div class="col-md-1 hidden-xs"></div>
+        </div>
+
+
+
+</div>
+
+    <div ng-if="noLoanApplyNowCtrl.defaultApplyNow">
+      <div class="row text-right">
+        <div class="col-md-9 hidden-xs"></div>
+        <div class="col-md-3 margin-bottom-submit">
+        <input type="button" value="Apply Now" class="btn btn-sm btn-primary btn-submit-login ng-binding" ng-click="noLoanApplyNowCtrl.applyNowClick()">
+        </div>    
+      </div>      
+    </div>
+
+  <div ng-if="noLoanApplyNowCtrl.srAvailable">
+
+	<div class="row margin-top-5-per">
+	   <div class="col-sm-12 col-lg-12 text-center">
+           <img ng-src="{{noLoanApplyNowCtrl.wip}}" alt="" class="image-css-for-logo" />
+        </div>
+    </div>
+
+
+	<div class="row margin-top-10p margin-bottom-10-per">
+      <div>
+        <div class="col-sm-12 text-center">
+          <div class="form-group">
+            <h4>You have already applied for this product!</h4>
+		<h5>Your Lead ID is <b>{{noLoanApplyNowCtrl.srID}}</b></h5>
+	            
+          </div>
+        </div>     
+      </div>
+    </div>
+
+
+  </div>
+
+  <div ng-if="noLoanApplyNowCtrl.srCreateSucess">
+<!--    <div class="image-devider"></div> -->
+	<div class="row margin-top-40-per">
+	   <div class="col-sm-12 col-lg-12 text-center">
+           <img ng-src="{{noLoanApplyNowCtrl.completed}}" alt="" class="image-css-for-logo" />
+        </div>
+    </div>
+
+
+	<div class="row margin-bottom-10-per margin-top-10-per">
+      <div>
+        <div class="col-sm-12 text-center">
+          <div class="form-group">
+            <h4>Thank you for showing interest. We will get in touch with you shortly. </br></h4>
+		<h5 class="margin-top-5-per">Your Lead reference number is <b>{{noLoanApplyNowCtrl.srID}}</b></h5>
+	   
+          </div>
+        </div>     
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <div ng-if="noLoanApplyNowCtrl.newSrNumber">
+
+    <div class="common-overlay-content saving-apply">
+      <div class="apply-form-input text-center">
+        <p>Give us a few details so that we can get in touch.</p>
+          <p></p>
+      </div>
+
+      <form novalidate=""  name="forms.ApplyNowForm" class="applyNowForm" >
+        <div class="inner-applyNowForm">
+          <div class="row">
+            <div class="col-md-2 hidden-xs"></div>
+            <div class="col-md-8">
+              <div class="form-group form-group-no-margin-bottom">
+                <label for="product-name" class="col-md-4 control-label  text-left LoanANpadding ng-binding">Product</label>
+                <div class="col-md-8">
+                  <input class="form-control apply-now-form-label-text" id="productName" name="productName" placeholder="Product Name" ng-model="noLoanApplyNowCtrl.applyNow.prdCd" type="text" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 hidden-xs"></div>
+          </div>
+        
+
+        <div class="row">
+          
+          <div class="col-md-2 hidden-xs"></div>
+          <div class="col-md-8">
+              <div class="form-group form-group-no-margin-bottom">
+                <label for="salutation" class="col-md-4 control-label  text-left LoanANpadding ng-binding">Salutation</label>
+                <div class="col-md-8">
+			<select name="salutations"
+                                ng-model="noLoanApplyNowCtrl.applyNow.salutation"
+                                ng-options="salutation.salutationName as salutation.salutationName for salutation in noLoanApplyNowCtrl.salutationArray"
+                                required class="form-control apply-now-form-label-text select-dropdown">
+                            <option value="">Select your salutation</option>
+                        </select>
+
+                </div>
+              </div>
+            </div>            
+            <div class="col-md-2 hidden-xs"></div>
+          
+        </div>
+
+
+	<div class="row">
+		<div class="col-md-2 hidden-xs"></div>
+		<div class="col-md-8">
+	        <div class="">
+		<div class="col-md-4"></div>
+		<div class="col-md-8">
+              <small class="text-danger error-msg-no-loan mobile-number-error-margin-2" ng-if="forms.ApplyNowForm.salutations.$error.required">
+                    Please Select salutation.
+              </small>			
+		</div>
+		</div>
+		</div>
+		<div class="col-md-2 hidden-xs"></div>
+	</div>	
+
+        <div class="row">
+          
+          <div class="col-md-2 hidden-xs"></div>
+          <div class="col-md-8">
+            <div class="form-group form-group-no-margin-bottom">
+              <label for="first-name" class="col-md-4 control-label  text-left LoanANpadding ng-binding">First name</label>
+              <div class="col-md-8">
+                <input class="form-control apply-now-form-label-text" id="first-name" name="first-name" placeholder="First Name" ng-model="noLoanApplyNowCtrl.applyNow.frstNm" type="text" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 hidden-xs"></div>
+          
+          </div>
+        <div class="row">
+          
+            <div class="col-md-2 hidden-xs"></div>
+            <div class="col-md-8">
+              <div class="form-group form-group-no-margin-bottom">
+                <label for="last-name" class="col-md-4 control-label LoanANpadding ng-binding">Last name</label>
+                <div class="col-md-8">
+                  <input class="form-control apply-now-form-label-text" id="last-name" name="last-name" placeholder="Last Name" ng-model="noLoanApplyNowCtrl.applyNow.lstNm" type="text" disabled>
+                </div>
+              </div>
+            </div>            
+            <div class="col-md-2 hidden-xs"></div>
+          
+        </div>
+
+        <div class="row">
+          
+            <div class="col-md-2 hidden-xs"></div>
+            <div class="col-md-8">
+              <div class="form-group form-group-no-margin-bottom">
+                <label for="email-address" class="col-md-4 control-label  text-left LoanANpadding ng-binding">Email address</label>
+                <div class="col-md-8">
+                  <input type="email" class=" form-control apply-now-form-label-text margin-top-1-per" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"  maxlength="50" placeholder="example@idfc.com" name="email" ng-model="noLoanApplyNowCtrl.applyNow.emlAddr"  autofill="off" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" required>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 hidden-xs">
+            </div>
+          
+        </div>
+
+	<div class="row">
+		<div class="col-md-2 hidden-xs"></div>
+		<div class="col-md-8 Mobile-Number-merge">
+	        <div class="">
+		<div class="col-md-4"></div>
+		<div class="col-md-8">
+			<small class="text-danger error-msg-no-loan mobile-number-error-margin-2" ng-if="forms.ApplyNowForm.email.$error.pattern">
+              	Please Enter Valid Email Id.
+            		</small>
+            		<small class="text-danger error-msg-no-loan mobile-number-error-margin-2" ng-if="forms.ApplyNowForm.email.$error.required">
+              	Email Id is required.
+            		</small>
+		</div>
+		</div>
+		</div>
+		<div class="col-md-2 hidden-xs"></div>
+
+	</div>
+
+
+	<div class="row">
+          
+            <div class="col-md-2 hidden-xs"></div>
+
+            <div class="col-md-8">
+              <div class="form-group form-group-no-margin-bottom">
+                <label for="mobile-number" class="col-md-4 control-label text-left LoanANpadding ng-binding">Mobile Number</label>
+                <div class="col-md-8 margin-top-minus-4-per">
+
+		   <div class="form-group form-group-no-margin-bottom">
+			<div class="col-xs-2 padding-right-left-0 margin-top-2-per mobil-prefix-width">
+				<input  class="form-control apply-now-form-label-text" type="tel"  placeholder="+91" ng-model="noLoanApplyNowCtrl.applyNow.mobNbPrefix" disabled>
+			</div>
+			<div class="col-xs-10 padding-right-0 mobil-number-width">
+				 <input  class="form-control apply-now-form-label-text margin-top-4-per" type="tel" ng-minlength="10" maxlength="10" name="mobile" placeholder="Mobile number" ng-model="noLoanApplyNowCtrl.applyNow.mobNb" ng-pattern="/^[7-9][0-9]{9}$/" onpaste="return false" onCopy="return false" onCut="return false" required>
+			</div>	
+			</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 hidden-xs">
+            </div>
+          
+        </div>
+
+		<div class="row">
+		<div class="col-md-2 hidden-xs"></div>
+		<div class="col-md-8 Mobile-Number-merge">
+	        <div class="">
+		<div class="col-md-4"></div>
+		<div class="col-md-8">
+	              <small class="text-danger mobile-number-error-margin-2" ng-if="forms.ApplyNowForm.mobile.$error.pattern">
+       	         Please Enter Correct Mobile Number.
+              	</small>
+              	<small class="text-danger mobile-number-error-margin-2" ng-if="forms.ApplyNowForm.mobile.$error.minlength">
+                	Mobile Number should be 10 digits.
+              	</small>
+              	<small class="text-danger mobile-number-error-margin-2" ng-if="forms.ApplyNowForm.mobile.$error.required">
+                	Mobile Number is required.
+              	</small>
+		</div>
+		</div>
+		</div>
+		<div class="col-md-2 hidden-xs"></div>
+
+	</div>	
+
+
+
+        <div class="row">
+          
+            <div class="col-md-2 hidden-xs"></div>
+
+            <div class="col-md-8">
+              <div class="form-group form-group-no-margin-bottom">
+                <label for="pincode" class="col-md-4 control-label  text-left LoanANpadding ng-binding">City</label>
+                <div class="col-md-8 margin-top-2p">
+                   <select name="cities"
+                                ng-model="noLoanApplyNowCtrl.applyNow.city"
+                                ng-options="city.cityName as city.cityName for city in noLoanApplyNowCtrl.cityArray"
+                                required class="form-control apply-now-form-label-text select-dropdown">
+                            <option value="">Select your city</option>
+                        </select>
+                </div>
+              </div>
+            </div>             
+            <div class="col-md-2 hiddem-xs">
+            </div>
+          </div>
+        
+	<div class="row">
+		<div class="col-md-2 hidden-xs"></div>
+		<div class="col-md-8 Mobile-Number-merge">
+	        <div class="">
+		<div class="col-md-4"></div>
+		<div class="col-md-8">
+              <small class="text-danger error-msg-no-loan mobile-number-error-margin-2 margin-bottom-3" ng-if="forms.ApplyNowForm.cities.$error.required">
+                    Please Select City.
+              </small>			
+		</div>
+		</div>
+		</div>
+		<div class="col-md-2 hidden-xs"></div>
+	</div>
+
+
+        </hr>
+
+      <div class="row text-center">
+          
+        <div class="col-md-7 hidden-xs"></div>
+        <div class="col-md-5 margin-bottom-submit">
+            <input type="button" value="Submit"  ng-disabled="forms.ApplyNowForm.$invalid" class="btn btn-primary primary-btn-btn create-sr-submit-css " ng-click="noLoanApplyNowCtrl.newSRApplyNow(noLoanApplyNowCtrl.applyNow)">
+            <input type="button" value="Cancel"  class="btn back-grey cancel-button-css" ng-click="noLoanApplyNowCtrl.backToLoans()">
+
+        </div>    
+      </div>
+
+      </form>    
+    </div>    
+  </div>
+
+
+
+ </div>
+</div>

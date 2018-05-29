@@ -1,0 +1,20 @@
+{
+  "name": "theme",
+  "version": "5.0.1",
+  "description": "Launchpad Theme",
+  "private": true,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "svn",
+    "url": ""
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bb-cli": "^0.3.0",
+    "flatten-deps": "^0.2.2"
+  }
+}

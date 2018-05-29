@@ -1,0 +1,15 @@
+buy motor insurance ::
+---------------------------------------------
+Request URL:http://125.22.109.56:7003//rs/v1/getILInsuranceBenefits
+Request Method:POST
+Status Code:404 Not Found
+Remote Address:125.22.109.56:7003
+Referrer Policy:no-referrer-when-downgrade
+
+formdata :
+--------------------
+PRODCODE: 3001
+
+travel : 
+--------------
+4129_S

@@ -1,0 +1,94 @@
+.lp-account-select {
+
+	button.dropdown-toggle, ul.dropdown-menu {
+
+		.lp-acct-detail {
+			padding-top: 7px;
+			color: inherit;
+		}
+
+		.lp-acct-from {
+			width: 40px;
+			font-size: 90%;
+			font-weight: bold;
+			padding-top: 2px;
+		}
+
+		.lp-acct-name {
+		  color: inherit;
+		}
+
+		.lp-account-amount {
+		  color: inherit;
+		}
+
+		.lp-account-bal {
+		  color: inherit;
+		}
+	}
+
+	button.dropdown-toggle {
+		text-align: left;
+		border-radius: 0px;
+		border: none;
+
+		padding-top: 15px;
+		padding-bottom: 15px;
+
+		.caret {
+			position: absolute;
+			top:45%;
+			right: 5px;
+		}
+
+		.lp-acct-name {
+			font-weight: bold;
+		}
+	}
+
+	ul.dropdown-menu {
+		.lp-acct-from span {
+			visibility: hidden;
+		}
+	}
+
+	.lp-large-account-select-size ul.dropdown-menu, .lp-small-account-select-size ul.dropdown-menu {
+		li {
+			a {
+				padding: 15px 25px 15px 12px;
+			}
+		}
+	}
+
+	.lp-small-account-select-size button.dropdown-toggle .lp-acct-num,
+	.lp-normal-account-select-size button.dropdown-toggle .lp-acct-num,
+	.lp-small-account-select-size button.dropdown-toggle .lp-account-bal,
+	.lp-normal-account-select-size button.dropdown-toggle .lp-account-bal,
+	.lp-small-account-select-size button.dropdown-toggle .lp-acct-from,
+	.lp-normal-account-select-size button.dropdown-toggle .lp-acct-from,
+	.lp-small-account-select-size ul.dropdown-menu .lp-acct-from,
+	.lp-normal-account-select-size ul.dropdown-menu .lp-acct-from{
+		display: none;
+
+	}
+
+	.lp-small-account-select-size button.dropdown-toggle .lp-acct-detail,
+	.lp-normal-account-select-size button.dropdown-toggle .lp-acct-detail,
+	.lp-small-account-select-size button.dropdown-toggle .lp-account-amount,
+	.lp-normal-account-select-size button.dropdown-toggle .lp-account-amount {
+		padding-top: 0px;
+	}
+
+
+	.lp-large-account-select-size button.dropdown-toggle, .lp-large-account-select-size ul.dropdown-menu {
+		.lp-acct-name {
+			font-size: 110%;
+			font-weight: bold;
+		}
+
+		.lp-account-amount {
+			font-size: 200%;
+			font-weight: bold;
+		}
+	}
+}

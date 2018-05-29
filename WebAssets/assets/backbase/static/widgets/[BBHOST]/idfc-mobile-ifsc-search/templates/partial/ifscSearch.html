@@ -1,0 +1,90 @@
+<!--div class="error-msg"><span class="crs-icon">x</span>Sorry our machines are not talking to each other. Humans are trying to fix the problem. Please try after sometime!</div--> 
+<!--  Alerts -->
+<div>
+   <div class="error-msg-mob" alert="alert" ng-repeat="alert in ifscSearchCtrl.alerts"
+      type="alert.type" close="ifscSearchCtrl.closeAlert($index)"
+      ><span class="crs-icon">x</span>{{alert.msg}}</div>
+</div>
+<form ng-model="ifscSearchCtrl.contactsModel.currentContact.ifscSearch" name="searchBranch" novalidate="" ng-submit="ifscSearchCtrl.findBranch(searchBranch.$valid)" class="contact-form">
+
+   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">   
+      <div class="row bg-color-mob">
+	  <div class="heading-txt-mob">
+            <!--input type="text" class="form-style" name="bankName" ng-model="ifscSearchCtrl.contactsModel.currentContact.ifscSearch.bankName" ng-disabled="true"><br-->
+			{{ifscSearchCtrl.contactsModel.currentContact.ifscSearch.bankName}}
+	  </div>
+         <div class="col-xs-11 label-color-mob pad-right7-5">
+            {{'BR_NAME_LBL'|translate}} <span class="optn-color">{{'OPT_LBL'|translate}}</span><br>
+            <div class="text-success">
+               <input ifsc-char-search ng-minlength="3" ng-maxlength="30" class="form-style-mob" maxlength="30" type="text" name="branchName" ng-model="ifscSearchCtrl.contactsModel.currentContact.ifscSearch.branchName">
+               <div ng-show="submitted && searchBranch.branchName.$error.minlength || submitted && searchBranch.branchName.$error.maxlength"><small class="charctr-msg" lp-i18n="Please provide minimum 3 characters for the search">&nbsp;</small></div></div>
+               
+               <!-- div class="txt-style" id="my-content">{{ifscSearchCtrl.searchKeys.branchName}}</div -->
+         </div>
+		 <!-- <div class="col-xs-5 label-color-mob pad-left7-5">IFSC Code<br> -->
+		 <!-- <input ifsc-char-search ng-trim="false" class="form-style-mob" maxlength="11" ng-pattern="/^[a-zA-Z0-9]*$/" required name="ifscCode" type="text" ng-model="ifscSearchCtrl.contactsModel.currentContact.ifscSearch.ifscCode"> -->
+            
+            <!-- <!-- div class="txt-style" id="my-content">{{ifscSearchCtrl.searchKeys.bankName}}</div> -->
+         <!-- </div> -->
+         <div class="col-xs-1 label-color left0" ng-disabled="ifscSearchCtrl.disableFindBtn" ng-click="submitted=true">
+		 <button type="submit" class="find-btn-mob left0"><span class="glyphicon glyphicon-search icon-color"></span></button>
+		 
+		 </div>
+      </div>
+	  <div class="clear-fix"></div>
+      <div class="row">
+	  
+      <div class="bg-white-mob" ng-if="!ifscSearchCtrl.initialHit">{{ifscSearchCtrl.countOfAllRecord}} {{'BRANCHES_LBL'|translate}}</div>
+      <table>
+		  <thead>
+			  <tr>
+			  <th colspan="4" class="select-txt-mob">Select a branch</th>
+			  </tr>
+		  </thead>
+		  <tbody>
+		 				  
+			  <tr ng-repeat="item in ifscSearchCtrl.pagedItems track by $index" ng-click="ifscSearchCtrl.contactsModel.currentContact.ifscSearch.bankData=item.ifscCode; ifscSearchCtrl.contactsModel.currentContact.ifscSearch.itemIndex=$index; ifscSearchCtrl.setBankDetails();">  
+			   		  
+			  <td data-th="" class="td-align-left-mob" align="left">
+						<input type="radio" id="{{item.ifscCode}}" name="bankData" ng-value="item.ifscCode" ng-model="ifscSearchCtrl.contactsModel.currentContact.ifscSearch.bankData" ng-hide="true">
+						 <!--Branch-->
+						 <div>
+						 <div class="td-align-left-bold-mob">{{item.branchName}}</div>
+					
+						 <!--Address-->
+						 <div class="td-align-left-normal-mob">{{item.branchAdd}}</div>
+					
+						 <!--IFSC-->
+						 
+						 <div class="td-align-left-bold-mob">{{item.ifscCode}}</div>
+						 </div>
+						 </td>
+						 <td data-th="" class="td-align-left-mob">
+						 <span class="glyphicon glyphicon-chevron-right right-arrw"></span>
+						 
+						 </td>
+					</tr>
+		  </tbody>
+      </table>
+	  </div>
+	  
+	 <div ng-if="ifscSearchCtrl.total" class="bottom-brd1" align="center">
+	        <a href="#" class="btn-loadmore" ng-click="ifscSearchCtrl.loadMore()" ng-show="ifscSearchCtrl.nextPageDisabledClass()">+ Load more</a>
+		</div>
+		
+      <div ng-if="ifscSearchCtrl.emptyRecord">
+		  <div ng-if="!ifscSearchCtrl.initialHit" style="text-align:center;">
+		  <br><br>
+			  <div class="bg-white1" align="center">
+				  <span class="sorry-txt" lp-i18n="Sorry!"></span><br>
+				  <span class="sorry-msg-mob" lp-i18n="Couldn't find what you were looking for."></span><br>
+				  <span class="sorry-msg-mob" lp-i18n="Please change search values and try again"/>
+				  </span>
+			  </div>
+		  </div>   
+	  </div>  
+	  	
+	
+      
+   </div>
+</form>

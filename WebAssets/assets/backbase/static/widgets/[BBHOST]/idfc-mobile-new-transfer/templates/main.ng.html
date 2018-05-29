@@ -1,0 +1,248 @@
+<div class="lp-widget-body ng-cloak widget-body" ng-class="responsiveClass" ng-controller="NewTransferController as mainCtrl">
+	<div ng-show="mainCtrl.loading || (accountsModel.accounts.length <= 0 && allowLoading)" class="ng-scope"> <!-- || accountsModel.accounts.length <= 0 3.5 change -->
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+			<span class="sr-only">Busy</span>
+		</div>
+	</div>
+	<div id="javaRequiredDiv"></div>
+	<div id="appletContainer"></div>
+	<div lp-transaction-update-layout="paymentOrder"></div>
+ <div class="server-error-cross" ng-if= "error.msg != null && error.msg.length > '0'">
+<div class="error-msg-mob error-message-v-middle">
+<div class="server-error-message"><span class="crs-icon server-error-cross-icon">x</span>{{error.msg}}</div> <!-- 3.5 change removed hardcoded message-->
+</div>
+</div>
+<!-- <div class="server-error-cross"> -->
+		<!-- <div class="error-msg-mob error-message-v-middle"> -->
+		  <!-- <div class="server-error-message"><span class="crs-icon server-error-cross-icon">x</span>Sorry our machines are not talking to each other. Humans are trying to fix it. Please try after sometime.</div> -->
+		<!-- </div> -->
+<!-- </div> -->
+	<div ng-hide="globalerror">
+		<div class="lp-widget-content">
+			<div ng-hide="tranferAllowed" class="resMOP"><i class="resMOPIcon lp-icon lp-icon-alert-warning"></i> <div><span lp-i18n="messages.allowedFundTransfer"></span></div></div>
+			<div ng-show="tranferAllowed">
+			<div class="lp-alerts" lp-focus-on="lp.retail.new-transfer.errors" tabindex="-1">
+				<div class="alert alert-danger" ng-show="accountsModel.error || paymentOrderModel.error || p2pService.error">
+					<p ng-show="paymentOrderModel.error"><i class="lp-icon lp-icon-alert-error"></i> <span lp-i18n="messages.{{paymentOrderModel.error}}"></span></p>
+					<p ng-show="accountsModel.error"><i class="lp-icon lp-icon-alert-error"></i> <span lp-i18n="messages.{{accountsModel.error}}"></span></p>
+					<p ng-show="p2pService.error"><i class="lp-icon lp-icon-alert-error"></i> <span lp-i18n="messages.{{p2pService.error}}"></span></p>
+				</div>
+				<div class="alert alert-warning ft-alert-warning" ng-show="paymentOrderForm.submitted && paymentOrderForm.$invalid && ((paymentOrder.isScheduledTransfer && paymentOrderForm.scheduledTransfer.$error.endDateBeforeStartDate) || (paymentOrder.isScheduledTransfer && paymentOrderForm.scheduledTransfer.$error.intervalsRequired) || (paymentOrder.isScheduledTransfer && paymentOrderForm.repeatEvery.$error.nonZero) || (paymentOrder.isScheduledTransfer && paymentOrderForm.timesToRepeat.$error.nonZero) || (paymentOrder.isScheduledTransfer && paymentOrderForm.endDate.$error.lpFutureTime) || (paymentOrder.isScheduledTransfer && paymentOrderForm.endDate.$error.date) || (paymentOrder.isScheduledTransfer && paymentOrderForm.startDate.$error.lpFutureTime) || (paymentOrder.isScheduledTransfer && paymentOrderForm.startDate.$error.date) || (!paymentOrder.isScheduledTransfer && paymentOrderForm.scheduleDate.$error.lpFutureTime) || (!paymentOrder.isScheduledTransfer && paymentOrderForm.scheduleDate.$error.date) || paymentOrderForm.instructedAmount.$error.lpCurrencyMaxLength || paymentOrderForm.instructedAmount.$error.lpCurrencyFormat)">
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrderForm.instructedAmount.$error.lpCurrencyFormat"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.invalidAmount"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrderForm.instructedAmount.$error.lpCurrencyMaxLength"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.maxlengthAmount"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; !paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.scheduleDate.$error.date"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.invalidDate"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; !paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.scheduleDate.$error.lpFutureTime"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.futureDate"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.startDate.$error.date"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.invalidStartDate"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.startDate.$error.lpFutureTime"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.futureStartDate"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.endDate.$error.date"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.invalidEndDate"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.endDate.$error.lpFutureTime"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.futureEndDate"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.timesToRepeat.$error.nonZero"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.timesToRepeatNonZero"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.repeatEvery.$error.nonZero"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.repeatEveryNonZero"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.scheduledTransfer.$error.intervalsRequired"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.intervalRequired"></span></p>
+					<p ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrder.isScheduledTransfer &amp;&amp; paymentOrderForm.scheduledTransfer.$error.endDateBeforeStartDate"><i class="lp-icon lp-icon-alert-warning"></i> <span lp-i18n="messages.endDateBeforeStartDate"></span></p>
+				</div>
+				<div>
+					<p ng-show="BeneAdderror.happened" class="lp-icon lp-icon-alert-warning">{{BeneAdderror.msg}}</p>
+				</div>
+				<div class="alert alert-warning ft-alert-warning" ng-show="paymentOrderForm.submitted && (limitFlag ||  errorsInvalidMode || errorsNewBen['benlimitError'] || errors['benWithIn24Limit'] || errors['benLimit'] ||  errorsBenAmountLimit['amountGreaterThanBenLimit'] || errorsBenCreationFutureTrans['benCreationFutureTransError'] || errorsSameFromToAccount['sameFromToAccountError'] || ben.accountNotMacthed || fromAccountLienFlag || fromAccountDormantFlag)" >
+					<div>
+						<p ng-show="limitFlag" ng-model="limitError" class="lp-icon lp-icon-alert-warning">{{limitError}}</p>
+					</div>
+					<div>
+						<p ng-show="errorsInvalidMode" class="lp-icon lp-icon-alert-warning"><span lp-i18n="messages.errorsInvalidMode"></span></p>
+					</div>
+					<div>
+						<p ng-show="errorsNewBen['benlimitError']" class="lp-icon lp-icon-alert-warning"><span lp-i18n="messages.beneAmtExceedBenLimit"></span></p>
+					</div>
+					<div>
+						<p ng-show="errors['benWithIn24Limit']" class="lp-icon lp-icon-alert-warning"><span lp-i18n="messages.bene24HrsLimitForNewAddedBen"></span></p>
+					</div>
+					<!--<div><p ng-show="paymentOrderForm.submitted &amp;&amp; errors['benLimit']" class="lp-icon lp-icon-alert-warning">You have exceeded the total daily limit for funds transfer to this beneficiary</p></div>-->
+					<div><p ng-show="paymentOrderForm.submitted &amp;&amp; errors['benLimit']" class="lp-icon lp-icon-alert-warning">Sorry! Cannot proceed with the transaction as it exceeds the daily limit for the beneficiary. Kindly click on ‘Add/View Beneficiaries’ to change the limit</p></div>
+					<div>
+						<p ng-show="errorsBenAmountLimit['amountGreaterThanBenLimit']" class="lp-icon lp-icon-alert-warning"><span lp-i18n="messages.amountGreaterThanBenLimit"></span></p>
+					</div>
+					<div>
+						<p ng-show="errorsBenCreationFutureTrans['benCreationFutureTransError']" class="lp-icon lp-icon-alert-warning"><span lp-i18n="messages.benCreationFutureTransWait"></span></p>
+					</div>
+					<div>
+						<p ng-show="errorsSameFromToAccount['sameFromToAccountError']" class="lp-icon lp-icon-alert-warning"><span lp-i18n="messages.sameFromToAccount"></span></p>
+					</div>
+					<div>
+						<p ng-show="ben.accountNotMacthed" ng-model="accountNotMacthedError" class="lp-icon lp-icon-alert-warning">{{accountNotMacthedError}}</p>
+					</div>
+					<div>
+						<p ng-show="fromAccountLienFlag" class="lp-icon lp-icon-alert-warning"><span lp-i18n="messages.fromAccountLienError"></span></p>
+					</div>
+					<div>
+						<p ng-show="fromAccountDormantFlag" class="lp-icon lp-icon-alert-warning"><span lp-i18n="messages.fromAccountDormantError"></span></p>
+					</div>
+				</div>
+			</div>
+			<fieldset ng-disabled="paymentOrder.update">
+				<div class="clearfix" role="application">
+					<div ng-show="accountsModel.accounts.length > 0">
+						<div lp-accounts-select="lp-accounts-select" ng-model="accountsModel.selected" lp-accounts="accountsModelBeneDD.accounts" name="accountId" ng-change="onAccountChange()" class="idfcHeaderDropDown"></div>
+					</div>
+				</div>
+			</fieldset>
+			<form name="paymentOrderForm" novalidate="" class="form form-horizontal" ng-class="{'submitted':paymentOrderForm.submitted}" ng-submit="submitForm()" ng-show="tranferAllowed"><!---->					<div class="form-contents" style="overflow-x: hidden;" role="application">
+					<input type="hidden" name="uuid" ng-model="paymentOrder.uuid" />
+					<div class="clearfix">
+						<div id="accountNumberTab" class="col-xs-12 col-sm-12 col-md-7 lp-payment-method-tabs pull-right">
+							<div class="lp-payment-method-tab-area">
+								<ul tabset="tabset">
+									<li tab="tab" active="activeTransferTab.bank" select="setPaymentOrderType(poTypeEnum.bank)" class="acntNumberTab upcoming-obligation fundtrans-li-width">
+										<span tab-heading="tab-heading" class="tab-heading agenda" lp-i18n="Account Number"></span>
+										<fieldset>
+											<div ng-switch="usTransfer">
+												<div ng-switch-when="false">
+													<div class="noMarginBottom">
+														<div class="ft-floatLeft form-div"><label lp-i18n="Beneficiary_Name_Label"></label></div>
+														<div counter-party-filter="counter-party-filter" ng-model="paymentOrder.counterpartyName"
+															 name="counterpartyName"
+															 lp-contacts="contactsModel.contacts"
+															 lp-accounts="accountsModel.accounts"
+															 on-select="updateCounterparty"
+															 ng-required="activeTransferTab.bank">
+														</div>
+														<p><small ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrderForm.counterpartyName.$error.required" class ="text-danger general-ifsc-code"><span lp-i18n="messages.requiredName"></span></small></p>
+													</div>
+													<div class="benAcNo"  ng-if="activeTransferTab.bank && paymentOrder.counterpartyIban" >
+														Beneficiary Account No. :&nbsp;<span name="accnum">{{paymentOrder.counterpartyIban}}</span>
+													</div>
+												</div>
+												<div ng-switch-when="true" class="form-group">
+													<div us-account-input="us-account-input"
+														 name="counterpartyAccount"
+														 ng-model="paymentOrder.counterpartyAccount"
+														 lp-country-list="internationalTransferCountryList"
+														 lp-transfer-type="paymentOrder.type"
+														 modal="toggleRoutingNumberModal">
+													</div>
+												</div>
+											</div>
+										</fieldset>
+									</li>
+									<li tab="tab" active="activeTransferTab.newBeneficiary" class="upcoming-obligation fundtrans-li-width">
+										<span tab-heading="tab-heading"  class="tab-heading agenda" lp-i18n="Beneficiary_Details"></span>
+										<div id="addben1" ng-include="addbenurl" ng-show="activeTransferTab.newBeneficiary"></div>
+										<div id="hiddenftflagdiv" style = "visibility:hidden">
+										</div>
+									</li>
+									<hr class="row tabBottomHorizontalRow">
+								</ul>
+								<div class="clearfix">
+									<div class="enteredAmount col-xs-12">
+										<div class="col-xs-12">
+											<div class="form-group">
+												<div class="ft-floatLeft form-div"><label lp-i18n="Transfer_Amount_Label"></label></div>
+												<div lp-currency-amount-input="lp-currency-amount"
+													 ng-model="paymentOrder.instructedAmount"
+													 lp-currency-list="currencyModel"
+													 lp-payment-order="paymentOrder"
+													 lp-disable-currency-selection="disableCurrencySelection"
+													 name="instructedAmount"
+													 required="required"
+													 modal="toggleExchangeRateModal">
+												</div>
+												<small ng-show="amountLimitFlag" ng-model="amountLimitError" class ="text-danger">{{amountLimitError}}</small>
+												<small ng-show="amountIntLimitFlag" ng-model="amountIntLimitError" class ="text-danger">{{amountIntLimitError}}</small>
+												<small ng-show="paymentOrderForm.submitted &amp;&amp; errorsAmt['amountLessThanOne'] &amp;&amp; !paymentOrderForm.instructedAmount.$error.lpAmountRequired" class ="text-danger" ><span class="general-ifsc-code"lp-i18n="messages.amountLessThanOnemsg"></span></small>
+
+												<p><small ng-show="paymentOrderForm.submitted &amp;&amp; errorsNewBen['NewBeneficiaryLimit']" class="text-danger"><span class="general-ifsc-code" lp-i18n="messages.beneOneTimeTransferAmtLimit"></span></small></p>
+												<p><small ng-show="paymentOrderForm.submitted &amp;&amp; paymentOrderForm.instructedAmount.$error.lpAmountRequired" class ="text-danger" ><span class="general-ifsc-code" lp-i18n="messages.requiredAmount"></span></small></p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<fieldset class="scheduled-transfer" ng-show="transferLater && !activeTransferTab.newBeneficiary" ng-disabled="paymentOrder.update">
+									<div scheduled-transfer="scheduled-transfer"  ng-model="paymentOrder.scheduledTransfer" lp-form-name="new-transfer-form" class="idfcDropdownWidth"></div>
+								</fieldset>
+								<div class="transferDescription col-xs-12">
+									<div class="ft-floatLeft form-div"><label lp-i18n="Description_Label"></label></div>
+									<div lp-payment-ref-description="lp-payment-ref-description" class="idfcDescription"
+										 name="counterpartyReference"
+										 ng-model="paymentOrder"
+										 hide-payment-reference="usTransfer || paymentOrder.type !== poTypeEnum.bank">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="transferMode"  class="btn-group">
+							<label class="btn btn_newTransfer" ng-model="radioModel" btn-radio="'IMPS'" ng-click="change_Tooltip('IMPS')" ng-disabled = "impsAmtValidationflag">{{'IMPS'|translate}}</label>
+							<label class="btn btn_newTransfer" ng-model="radioModel" btn-radio="'NEFT'" ng-click="change_Tooltip('NEFT')">{{'NEFT'|translate}}</label>
+							<label class="btn btn_newTransfer btn-rtg" ng-model="radioModel" btn-radio="'RTGS'" ng-click="change_Tooltip('RTGS')" ng-disabled = "rtgsAmtValidationflag" ng-show="isRTGSEnabled">{{'RTGS'|translate}}</label>
+
+							<i class="lp-icon infoIcon ng-scope new-transfer-tip" tooltip-placement="left" tooltip="{{tooltip_msg}}" tooltip-trigger="click" tooltip-append-to-body="true" >
+								<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="20" height="20"></i>
+						</div>
+					</div>
+				</div>
+				<!--<div class="ft-NoteDiv">
+					<h5>Daily funds transfer limits -</h5>
+					<ul>
+						<li>{{'Note1'|translate}}</li>
+						<li>{{'Note2'|translate}}</li>
+					</ul>
+				</div>-->
+				<!-- added by lalita -->
+				<div class="ft-NoteDiv">
+					<h5>Note:</h5>
+					<ol>
+						<li>{{'Note'|translate}}</li>
+						<ul style="margin-left: 15px;">
+							<li style="list-style-type:disc">{{'Minimum_Limit_Note'|translate}}</li>
+							<li style="list-style-type:disc">{{LimitDivMessage}}</li>
+						</ul>
+						<li>{{'NEFT_RTGS_Timing_Note'|translate}}</li>
+						<ul style="margin-left: 15px;">
+							<li style="list-style-type:disc">{{'NEFT_Timing_Note'|translate}}</li>
+							<li style="list-style-type:disc">{{'RTGS_Timing_Note'|translate}}</li>
+						</ul>
+						<li>{{'IMPS_Timing_Note'|translate}}</li>
+					</ol>
+				</div>
+				<div class="widget-footer widget-new-footer">
+
+					<div ng-hide="paymentOrder.update" class="pull-left checkbox save-to-contacts">
+						<label>
+							<input aria-label="{{'Save to Contacts'|translate}}?" type="checkbox" ng-model="paymentOrder.saveContact" ng-change="onSaveContactsChange()" ng-disabled="!activeTransferTab.newBeneficiary" ng-show="activeTransferTab.newBeneficiary"/><span class="ft-save-beneficiary" lp-i18n="Save to Beneficiary" title="Check to Save to Beneficiary" ng-show="activeTransferTab.newBeneficiary"></span>
+						</label>
+					</div>
+
+
+
+					<div ng-hide="paymentOrder.update" class="col-xs-12">
+						<div class="ft-for-submit" ng-hide="transferLater && !activeTransferTab.newBeneficiary">
+							<button type="submit" aria-label="Submit Transfer" class="btn btn-primary primary-btn-newtransfer idfcActionSearchButton" name="submitForm" ng-click="submitForm($event)" lp-i18n="Transfer_Now_Button_Label" ng-disabled="BeneAdderror.happened || errorsBenCreationFutureTrans['benCreationFutureTransError']"></button>
+						</div>
+						<div class="ft-for-confirm" ng-show="transferLater && !activeTransferTab.newBeneficiary">
+							<button type="submit" aria-label="Submit Transfer" class="btn btn-primary primary-btn-newtransfer idfcActionSearchButton" name="submitForm" ng-click="submitForm($event)" lp-i18n="Transfer_Later_Button_Confirm_Label" ng-disabled="BeneAdderror.happened || errorsBenCreationFutureTrans['benCreationFutureTransError']"></button>
+						</div>
+						<div class="ft-for-later" ng-hide="activeTransferTab.newBeneficiary || transferLater">
+							<button type="button" aria-label="Transfer Later" class="btn btn-primary secondary-btn-newtransfer idfcActionClearButton" name="transferLater" ng-click="performToScheduledTransfer()" lp-i18n="Transfer_Later_Button_Label" ng-disabled="BeneAdderror.happened || errorsBenCreationFutureTrans['benCreationFutureTransError']"></button>
+						</div>
+						<div class="for-clear">
+							<button name="resetForm"
+									aria-label="Clear form"
+									class="btn btn-primary secondary-btn-newtransfer idfcActionClearButton"
+									ng-disabled="paymentOrderForm.$pristine"
+									ng-click="resetForm()"
+									type="button"
+									lp-i18n="Clear">
+							</button>
+						</div>
+					</div>
+					<div ng-show="paymentOrder.update">
+						<button name="cancel" aria-label="Cancel transfer" class="btn btn-link secondary-btn-newtransfer idfcActionClearButton" ng-click="cancelForm()" data-action="lp-tab-hide" type="button" lp-i18n="Cancel"></button>
+						<button type="submit" aria-label="Submit Changes" class="btn btn-primary primary-btn-newtransfer idfcActionSearchButton" name="submitForm" ng-click="submitForm($event, true)" lp-i18n="Submit Changes"></button>
+					</div>
+					<div ng-show="errors.updateServerError" class="text-danger pull-left" lp-i18n="Updating: Server error!"></div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>

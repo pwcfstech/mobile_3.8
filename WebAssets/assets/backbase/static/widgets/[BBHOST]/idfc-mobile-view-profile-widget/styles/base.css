@@ -1,0 +1,1559 @@
+.profile-tooltip {
+    margin-left: 10px;
+    float: left
+}
+
+.space-margin-btn
+{
+    margin-top: 4%!important;
+}
+
+.profile-tip {
+    margin-left: 1%!important;
+    padding-left: 11%!important
+}
+
+.profile-tip-A {
+    margin-left: 1%!important
+}
+
+#otpcolor:focus {
+    border-color: #c98bdb!important
+}
+
+.borderTop {
+    background-color: #eaeaea!important;
+    height: 1px!important;
+    margin-top: 6%!important
+}
+
+.btn-primary {
+    border-radius: 2px!important
+}
+
+.profileContact-check-control {
+    -webkit-appearance: none;
+    -webkit-text-fill-color: #737373;
+    opacity: 1!important;
+    display: block;
+    width: 77%!important;
+    word-break: break-word;
+    word-wrap: break-word;
+    min-height: 40px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    margin-left: 12%;
+    background-color: #f2f2f2;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 2px!important
+}
+
+.lp-icon {
+    font-family: lp-icons, gotham_book, Calibri!important;
+    z-index: 10;
+    cursor: pointer!important;
+    color: #fb627e!important
+}
+
+.lp-editable-edit {
+    position: absolute;
+    top: 10px;
+    right: 27%!important
+}
+
+.profilecompletion {
+    margin-left: 11%!important;
+    margin-right: 14%!important;
+    margin-top: 5%
+}
+
+.customCircle {
+    border-radius: 9px;
+    color: #FB637E!important;
+    box-sizing: border-box;
+    border: 1px solid #FB637E;
+    margin-left: 2px;
+    padding: 0 6px
+}
+
+.lp-icon {
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal
+}
+
+.lp-field .lp-icon-info-sign {
+    border-radius: 8px!important;
+    color: #fff!important;
+    padding: -4px 0 0!important
+}
+
+.profileContact-chk-tr-dep {
+    clear: both;
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+.profileContact-chk-td-dep {
+    float: left;
+    padding-right: 3%;
+    text-align: left;
+    position: relative;
+    width: 100%
+}
+
+.colororange {
+    color: orange
+}
+
+.profileContact-chk-parent-div {
+    border-spacing: 10px;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden
+}
+
+.profileContact-font-label-chk {
+    font-family: gotham_bold, Calibri!important;
+    font-weight: 700!important;
+    font-size: 14px!important;
+    padding-top: 16px;
+    padding-top: 4%
+}
+
+.example {
+    text-align: left!important;
+    margin-left: 11%;
+    width: 100%!important
+}
+
+.profileContact-tip-span {
+    float: left;
+    width: 10%;
+    position: relative;
+    left: -13px;
+    top: -19px;
+    top: 0px
+}
+
+@media all and (-ms-high-contrast: none) {
+     ::-ms-backdrop,
+    .profileContact-tip-span {
+        top: 0
+    }
+}
+
+.profileContact-label-span {
+    float: left;
+    font-weight: 700
+}
+
+.profileContact-chk-tip-parent {
+    width: 300px;
+    word-break: break-word;
+    word-wrap: break-word
+}
+
+.profileContact-tip-label-height {
+    height: 40px
+}
+
+.lp-editable-edit {
+    position: absolute;
+    top: 15px;
+    right: 18%!important
+}
+
+.profileContact-form-horizontal .control-label {
+    padding-top: 0!important
+}
+
+.profileContact-text-danger {
+    padding-left: 10px
+}
+
+.profileContact-chk-td-dep div {
+    margin-top: 0
+}
+
+.profileContact-status-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #eaeaea;
+    position: relative;
+    border-radius: 4px;
+    clear: both
+}
+
+.profileContact-otp-div {
+    border: 0!important;
+    padding-bottom: 5%;
+    min-height: 190px
+}
+
+.profileContact-btn-align {
+    margin-right: 6%
+}
+
+.profileContact-div-td-dep-ab {
+    float: right;
+    padding-right: 2%;
+    text-align: right;
+    position: relative;
+    min-width: 60%;
+    padding-top: 0;
+    margin-right: 5px;
+    margin-top: -1%!important
+}
+
+.profileContact-bar-color {
+    color: #fff;
+    font-size: 12px;
+    height: 100%;
+    border-radius: 4px;
+    line-height: 20px;
+    background-color: #39ca74!important;
+    text-align: center;
+    transition: width .6s ease 0
+}
+
+.profileContact-barName {
+    font-size: 12px;
+    height: 100%;
+    line-height: 20px;
+    text-align: center;
+    transition: width .6s ease 0;
+    margin-right: 3%
+}
+
+.profileContact-aadhar-style {
+    margin-left: 150%;
+    margin-top: -14%
+}
+
+.profileContact-editable-style {
+    font-family: gotham_bold, Calibri!important;
+    font-weight: 700!important
+}
+
+.profileContact-fieldset-width {
+    width: 100%
+}
+
+.profileContact-otp-child {
+    float: right
+}
+
+.profileContact-otp-input-width {
+    width: 38%
+}
+
+.profile-tip {
+    float: left;
+    margin-left: 10%;
+    padding-left: 11%!important
+}
+
+.clearfix:before,
+.clearfix:after,
+.dl-horizontal dd:before,
+.dl-horizontal dd:after,
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after,
+.form-horizontal .form-group:before,
+.form-horizontal .form-group:after,
+.btn-toolbar:before,
+.btn-toolbar:after,
+.btn-group-vertical>.btn-group:before,
+.btn-group-vertical>.btn-group:after,
+.nav:before,
+.nav:after,
+.navbar:before,
+.navbar:after,
+.navbar-header:before,
+.navbar-header:after,
+.navbar-collapse:before,
+.navbar-collapse:after,
+.pager:before,
+.pager:after,
+.panel-body:before,
+.panel-body:after,
+.modal-footer:before,
+.modal-footer:after,
+.widget:before,
+.widget:after,
+.widget-body:before,
+.widget-body:after,
+.widget-heading:before,
+.widget-heading:after,
+.widget-footer:before,
+.widget-footer:after {
+    display: none!important
+}
+
+@media (max-width: 992px) {
+    .profileContact-label-width {
+        margin-left: 0
+    }
+}
+
+@media (min-width: 856px) and (max-width: 881px) {
+    .profileContact-editable-align {
+        margin-left: -7%;
+        left: -12%
+    }
+}
+
+@media (min-width: 768px) {
+    .profileContact-editable-width .col-sm-6 {
+        width: 0
+    }
+    .profileContact-editable-width .text-danger {
+        width: 270px!important
+    }
+}
+
+@media (min-width: 1201px) {
+    .profileContact-editable-align {
+        margin-left: 0
+    }
+}
+
+@media (min-width: 1100px) and (max-width: 1200px) {
+    .profileContact-editable-align {
+        margin-left: -12%
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1099px) {
+    .profileContact-editable-align {
+        margin-left: -14%
+    }
+}
+
+@media (min-width: 768px) and (max-width: 855px) {
+    .profileContact-editable-align {
+        margin-left: -9%;
+        left: -12%
+    }
+}
+
+@media (min-width: 522px) and (max-width: 767px) {
+    .profileContact-editable-align {
+        margin-left: -3%
+    }
+    .profileContact-otp-div {
+        border: 0!important;
+        padding-bottom: 5%;
+        min-height: 190px
+    }
+    .profileContact-otp-input-width {
+        width: 62%
+    }
+}
+
+@media (max-width: 521px) {
+    .profileContact-editable-align {
+        margin-left: -6%;
+        left: 3%
+    }
+    .profileContact-otp-div {
+        border: 0!important;
+        padding-bottom: 5%;
+        min-height: 190px
+    }
+}
+
+@media (min-width: 856px) and (max-width: 991px) {
+    .profileContact-editable-align {
+        margin-left: -11%;
+        left: -8%
+    }
+}
+
+@media only screen and (max-device-width:240px) {
+    .lp-icon-pencil {
+        background-image: url(../../../../features/[BBHOST]/theme-idfc/images/edit_mdpi.png)!important;
+        height: 14px;
+        width: 15px;
+        top: 11px
+    }
+}
+
+@media(min-device-width:481px) and (max-device-width:640px) {
+    .lp-icon-pencil {
+        background-image: url(../../../../features/[BBHOST]/theme-idfc/images/edit_hdpi.png)!important;
+        height: 20px;
+        width: 21px;
+        top: 11px
+    }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+    .lp-icon-pencil {
+        background-image: url(../../../../features/[BBHOST]/theme-idfc/images/edit_mdpi.png)!important;
+        height: 19px;
+        width: 20px;
+        top: 13px
+    }
+    .customCircle {
+        border-radius: 9px;
+        padding: 0 5px
+    }
+    .input-group .form-control,
+    .input-group-addon,
+    .input-group-btn {
+        display: inherit
+    }
+    .emailmargin>.lp-field>.col-sm-6>.lp-field-help>.text-muted {
+        margin-right: 30%!important
+    }
+    .profileContact-form-div-edit>.input-group>.form-control {
+        margin-left: -4%!important;
+        width: 100%!important
+    }
+    .profileContact-form-div-edit>.input-group>.input-group-btn {
+        display: inherit!important;
+        width: 78.5%!important
+    }
+    .profileContact-form-div-edit>div>.input-group>.form-control {
+        margin-left: -4%!important;
+        width: 113%!important;
+        margin-top: -6%!important
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn {
+        width: 120%!important
+    }
+    .lp-icon-remove {
+        color: #4a4a4a!important
+    }
+    .lp-editable input[readonly] {
+        width: 85.5%;
+        margin-top: -9%
+    }
+    .lp-icon-ok-sign {
+        color: #fff!important;
+        height: 30px
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiesreset {
+        background-color: #eaeaea!important;
+        margin-right: 4%!important;
+        margin-left: -8%!important;
+        width: 57%!important
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiessubmit {
+        background-color: #fb637e!important;
+        color: #fff!important;
+        width: 57%!important
+    }
+    .text-muted {
+        color: #777;
+        text-align: left!important;
+        float: left;
+        padding-left: 10.25%
+    }
+    .panel-body {
+        padding: 0!important
+    }
+    .profileContact-form-horizontal>fieldset>.form-group>label {
+        width: 100%!important;
+        text-align: left!important;
+        margin-left: 12%!important
+    }
+    .profileContact-form-horizontal>fieldset>.form-group>input {
+        margin-left: 12%!important
+    }
+    .profileContact-form-horizontal>.modal-footer>div>.primary-btn-btn {
+        width: 94%!important;
+        margin-left: 4%!important;
+        border-radius: 2px!important
+    }
+    .profileContact-form-horizontal>.modal-footer>div>.secondary-btn-btn {
+        width: 94%!important;
+        margin-left: 4%!important;
+        background-color: #eaeaea!important;
+        color: #000;
+        border-radius: 2px!important
+    }
+    .lp-widget-body {
+        overflow-x: hidden;
+        width: 100%!important
+    }
+    .sucessOTP {
+        width: 100%!important;
+        padding-right: 6.8%!important;
+        padding-left: 6.8%!important;
+        font-family: gotham_book!important
+    }
+    .img_padding {
+        margin-top: 6.25%!important;
+        margin-bottom: 4%!important
+    }
+    .text-center {
+        text-align: center!important
+    }
+    .profileContact-otp-div>h4>.text-success>.img_padding {
+        width: 100%!important
+    }
+    .profileContact-otp-div>.profileContact-form-horizontal>.lp-field>label {
+        width: 100%!important;
+        margin-left: -3%!important
+    }
+    .profileContact-otp-div>.profileContact-form-horizontal>.lp-field>.col-sm-6>div>input {
+        margin-left: 9%!important;
+        width: 83%!important;
+        letter-spacing: 1.7px
+    }
+    .profileContact-otp-div>.profileContact-form-horizontal>.lp-field>.col-sm-6>div>small {
+        padding-left: 9%!important;
+        width: 100%!important;
+        float: left;
+        margin-top: 2%;
+        margin-bottom: 2%
+    }
+    .profileContact-form-horizontal>.profileContact-div-td-dep-ab {
+        float: left!important;
+        width: 100%;
+        padding-right: 23%;
+        min-width: 60%;
+        padding-top: 0;
+        margin-right: 5px
+    }
+    .profileContact-form-horizontal>.profileContact-div-td-dep-ab>.profileContact-otp-child>.primary-btn-btn {
+        width: 84%!important;
+        margin-left: 14.5%;
+        border-radius: 2px!important
+    }
+    .profileContact-form-horizontal>.profileContact-div-td-dep-ab>.profileContact-otp-child>.secondary-btn-btn {
+        width: 84%!important;
+        margin-left: 14.5%;
+        background-color: #eaeaea!important;
+        color: #000
+    }
+    .profileContact-form-horizontal>.profilecompletion>.percent {
+        width: 100%!important;
+        margin-left: 50%;
+        color: #4a4a4a!important;
+        font-family: gotham_book!important;
+        font-size: 12px!important;
+        margin-right: 0!important
+    }
+    .profileContact-form-div-edit>div>.input-group>input {
+        letter-spacing: 1.7px
+    }
+    .profileContact-form-horizontal>fieldset>.form-group>.profileContact-check-control {
+        letter-spacing: 1.7px;
+        letter-spacing: 1.7px
+    }
+    .aadharedit,
+    .emailedit,
+    .panedit {
+        padding-left: 11%
+    }
+    .editaadhartip {
+        margin-top: 0!important
+    }
+    .aadhartextarea {
+        margin-top: 0!important;
+        margin-left: 2%!important
+    }
+    .emailedit>div>.input-group {
+        width: 82%!important
+    }
+    .emailedit>div>.input-group>input {
+        letter-spacing: 0!important;
+        margin-top: -5%!important;
+        margin-bottom: 0!important
+    }
+    .tooltip.top .tooltip-arrow {
+        margin-left: -5px!important;
+        top: 28px!important;
+        bottom: -38px;
+        border-top-color: #c6cfd9!important;
+        transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -o-transform: rotate(180deg)
+    }
+    .tooltip-inner {
+        position: absolute!important;
+        width: 160px!important;
+        max-width: 160px!important;
+        height: auto;
+        margin-left: -79px!important;
+        top: 33px!important;
+        background-color: #c6cfd9!important;
+        color: #4a4a4a!important;
+        font-size: 10px;
+        font-family: gotham_book!important
+    }
+    .profileContact-form-div>div>.input-group {
+        margin-left: 1%!important;
+        width: 83.5%!important;
+        margin-top: -6%!important
+    }
+    .profileContact-form-div>div>.input-group>.input-group-btn {
+        width: 90%!important
+    }
+    .profileContact-form-div>div>.input-group>.input-group-btn>.propertiesreset {
+        background-color: #eaeaea!important;
+        margin-right: 4%!important;
+        margin-left: -8%!important;
+        width: 57%!important
+    }
+    .profileContact-form-div>div>.input-group>.input-group-btn>.propertiessubmit {
+        background-color: #fb637e!important;
+        color: #fff!important;
+        width: 57%!important
+    }
+    .profileContact-chk-tr-dep>div>.col-sm-6>.lp-field-help {
+        margin-bottom: -11%!important
+    }
+    .profileContact-form-horizontal>div>fieldset>.form-group>label {
+        width: 100%!important;
+        text-align: left!important;
+        margin-left: 12%!important
+    }
+    .profileContact-form-horizontal>div>fieldset>.form-group>input {
+        margin-left: 12%!important
+    }
+    .profileContact-form-div>div>input-group {
+        width: 75%
+    }
+    .profileContact-chk-td-dep textarea {
+        font-family: gotham_book
+    }
+    .profileContact-chk-td-dep input {
+        font-family: gotham_book
+    }
+    .profileContact-form-div>div>input {
+        font-family: gotham_book
+    }
+    .profileContact-form-div>div>div>input {
+        font-family: gotham_book
+    }
+    .profileContact-form-div-edit>div>input {
+        font-family: gotham_book
+    }
+    .profileContact-form-div-edit>div>div>input {
+        font-family: gotham_book
+    }
+    .profileContact-form-horizontal {
+        font-family: gotham_book
+    }
+    .emailexample>.lp-field>.col-sm-6>.lp-field-help>small {
+        margin-right: 31%!important
+    }
+    .has-feedback>input {
+        width: 76.25%
+    }
+    .profileContact-form-horizontal>.profilecompletion>.percent {
+        margin-left: 59%!important
+    }
+    div.profileContact-form-div.margin.textareawidth.lp-editable.ng-scope.ng-isolate-scope.ng-pristine.ng-invalid.ng-invalid-required {
+        margin-top: -10px;
+        padding-left: 11%
+    }
+    div.profileContact-form-div-edit.textareawidth.margin.aadharedit.lp-editable.ng-scope.ng-isolate-scope.ng-pristine.ng-valid {
+        margin-top: -10px;
+        padding-left: 11%
+    }
+    div.profileContact-form-div-edit.margin.textareawidth.lp-editable.ng-scope.ng-isolate-scope.ng-pristine.ng-valid {
+        margin-top: -10px;
+        padding-left: 11%
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiesreset {
+        background-color: #eaeaea;
+        margin-right: 4%!important;
+        margin-left: -8%!important;
+        width: 57%!important
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiessubmit {
+        background-color: #fb637e;
+        color: #fff!important;
+        width: 57%!important
+    }
+    .profileContact-form-div-edit>div>.input-group {
+        width: 81.5%
+    }
+    .profileContact-form-horizontal>.borderTop {
+        margin-bottom: 15px
+    }
+}
+
+@media (max-width: 493px) {
+    .profileContact-chk-td-dep {
+        padding-right: 3%;
+        text-align: left;
+        position: relative;
+        min-width: 42%
+    }
+    .input-group .form-control,
+    .input-group-addon,
+    .input-group-btn {
+        display: inherit
+    }
+    .emailmargin>.lp-field>.col-sm-6>.lp-field-help>.text-muted {
+        margin-right: 30%!important;
+        padding-bottom: 5%
+    }
+    .profileContact-form-div-edit>.input-group>.form-control {
+        margin-left: -4%!important;
+        width: 100%!important
+    }
+    .profileContact-form-div-edit>.input-group>.input-group-btn {
+        display: inherit!important;
+        width: 78.5%!important;
+        border-radius: 2px!important
+    }
+    .emailexample>.lp-field>.col-sm-6>.lp-field-help>.text-muted {
+        padding-bottom: 5%
+    }
+    .lp-editable input[readonly] {
+        width: 85.5%;
+        margin-top: -9%
+    }
+    .profileContact-form-div-edit>div>.input-group>.form-control {
+        margin-left: -4%!important;
+        width: 113%!important;
+        margin-top: -6%!important
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn {
+        width: 92%!important;
+        border-radius: 2px!important
+    }
+    .text-muted {
+        color: #777;
+        text-align: left!important;
+        float: left;
+        padding-left: 14%
+    }
+    .lp-icon-remove {
+        color: #4a4a4a!important
+    }
+    .lp-icon-ok-sign {
+        color: #fff!important;
+        height: 30px
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiesreset {
+        background-color: #eaeaea;
+        margin-right: 4%!important;
+        margin-left: -8%!important;
+        width: 57%!important
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiessubmit {
+        background-color: #fb637e;
+        color: #fff!important;
+        width: 57%!important
+    }
+    .panel-body {
+        padding: 0!important
+    }
+    .profileContact-form-horizontal>fieldset>.form-group>label {
+        width: 100%!important;
+        text-align: left!important;
+        margin-left: 12%!important
+    }
+    .profileContact-form-horizontal>fieldset>.form-group>input {
+        margin-left: 12%!important
+    }
+    .profileContact-form-horizontal>.modal-footer>div>.primary-btn-btn {
+        width: 94%!important;
+        margin-left: 4%!important;
+        border-radius: 2px!important
+    }
+    .profileContact-form-horizontal>.modal-footer>div>.secondary-btn-btn {
+        width: 94%!important;
+        margin-left: 4%!important;
+        background-color: #eaeaea!important;
+        border-radius: 2px!important;
+        color: #000
+    }
+    .lp-widget-body {
+        overflow-x: hidden;
+        width: 100%!important
+    }
+    .sucessOTP {
+        width: 100%!important;
+        padding-right: 6.8%!important;
+        padding-left: 6.8%!important;
+        font-family: gotham_book!important
+    }
+    .img_padding {
+        margin-top: 6.25%!important
+    }
+    .text-center {
+        text-align: center!important
+    }
+    .profileContact-otp-div>h4>.text-success>.img_padding {
+        width: 100%!important
+    }
+    .profileContact-otp-div>.profileContact-form-horizontal>.lp-field>label {
+        width: 100%!important;
+        margin-left: -3%!important
+    }
+    .profileContact-otp-div>.profileContact-form-horizontal>.lp-field>.col-sm-6>div>input {
+        margin-left: 9%!important;
+        width: 83%!important;
+        letter-spacing: 1.7px
+    }
+    .profileContact-otp-div>.profileContact-form-horizontal>.lp-field>.col-sm-6>div>small {
+        padding-left: 9%!important;
+        width: 100%!important;
+        float: left;
+        margin-top: 2%;
+        margin-bottom: 2%
+    }
+    .profileContact-form-horizontal>.profileContact-div-td-dep-ab {
+        float: left!important;
+        width: 100%;
+        padding-right: 23%;
+        min-width: 60%;
+        padding-top: 0;
+        margin-right: 5px
+    }
+    .profileContact-form-horizontal>.profileContact-div-td-dep-ab>.profileContact-otp-child>.primary-btn-btn {
+        width: 84%!important;
+        margin-left: 14.5%;
+        border-radius: 2px!important
+    }
+    .profileContact-form-horizontal>.profileContact-div-td-dep-ab>.profileContact-otp-child>.secondary-btn-btn {
+        width: 84%!important;
+        margin-left: 14.5%;
+        background-color: #eaeaea!important;
+        color: #000;
+        border-radius: 2px!important
+    }
+    .profileContact-form-horizontal>.profilecompletion>.percent {
+        width: 100%!important;
+        margin-left: 50%;
+        color: #4a4a4a!important;
+        font-family: gotham_book!important;
+        font-size: 12px!important;
+        margin-right: 0!important
+    }
+    .profileContact-form-div-edit>div>.input-group>input {
+        letter-spacing: 1.7px
+    }
+    .profileContact-form-horizontal>fieldset>.form-group>.profileContact-check-control {
+        letter-spacing: 1.7px;
+        letter-spacing: 1.7px
+    }
+    /* .aadharedit,
+    .emailedit,
+    .panedit {
+        padding-left: 11%
+    } Xebia Refactoring commented */
+    .aadharedit,
+    .emailedit,
+    .panedit {
+        padding-left: 12.5% !important
+    }
+    .editaadhartip {
+        margin-top: 0!important
+    }
+    .aadhartextarea {
+        margin-top: 0!important;
+        margin-left: 2%!important
+    }
+    .emailedit>div>.input-group {
+        width: 78%!important
+    }
+    .emailedit>div>.input-group>input {
+        letter-spacing: 0!important;
+        margin-top: -5%!important;
+        margin-bottom: 0!important
+    }
+    .tooltip.top .tooltip-arrow {
+        margin-left: -5px!important;
+        top: 28px!important;
+        bottom: -38px;
+        border-top-color: #c6cfd9!important;
+        transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -o-transform: rotate(180deg)
+    }
+    .tooltip-inner {
+        position: absolute!important;
+        width: 160px!important;
+        max-width: 160px!important;
+        height: auto;
+        margin-left: -79px!important;
+        top: 33px!important;
+        background-color: #c6cfd9!important;
+        color: #4a4a4a!important;
+        font-size: 10px;
+        font-family: gotham_book!important
+    }
+    .profileContact-form-div>div>.input-group {
+        margin-left: 1%!important;
+        width: 83.5%!important;
+        margin-top: -6%!important
+    }
+    .profileContact-form-div>div>.input-group>.input-group-btn {
+        width: 90%!important;
+        border-radius: 2px!important
+    }
+    .profileContact-form-div>div>.input-group>.input-group-btn>.propertiesreset {
+        background-color: #eaeaea!important;
+        margin-right: 4%!important;
+        margin-left: -8%!important;
+        width: 57%!important
+    }
+    .profileContact-form-div>div>.input-group>.input-group-btn>.propertiessubmit {
+        background-color: #fb637e!important;
+        color: #fff!important;
+        width: 57%!important
+    }
+    .profileContact-chk-tr-dep>div>.col-sm-6>.lp-field-help {
+        margin-bottom: -11%!important
+    }
+    .profileContact-form-horizontal>div>fieldset>.form-group>label {
+        width: 100%!important;
+        text-align: left!important;
+        margin-left: 12%!important
+    }
+    .profileContact-form-horizontal>div>fieldset>.form-group>input {
+        margin-left: 12%!important
+    }
+    .profileContact-form-div>div>input-group {
+        width: 75%
+    }
+    .profileContact-chk-td-dep textarea {
+        font-family: gotham_book
+    }
+    .profileContact-chk-td-dep input {
+        font-family: gotham_book
+    }
+    .profileContact-form-div>div>input {
+        font-family: gotham_book
+    }
+    .profileContact-form-div>div>div>input {
+        font-family: gotham_book
+    }
+    .profileContact-form-div-edit>div>input {
+        font-family: gotham_book
+    }
+    .profileContact-form-div-edit>div>div>input {
+        font-family: gotham_book
+    }
+    .profileContact-form-horizontal {
+        font-family: gotham_book
+    }
+    .profileContact-chk-td-dep>.lp-field>.col-sm-6>.lp-field-help>.text-muted {
+        margin-right: 34%!important
+    }
+    .has-feedback>input {
+        width: 76.25%
+    }
+    .profileContact-form-horizontal>.profilecompletion>.percent {
+        margin-left: 59%!important
+    }
+    .customCircle {
+        border-radius: 9px;
+        padding: 0 5px
+    }
+    div.profileContact-form-div-edit.textareawidth.margin.aadharedit.lp-editable.ng-scope.ng-isolate-scope.ng-pristine.ng-valid {
+        margin-top: -10px
+    }
+    div.profileContact-form-div-edit.margin.textareawidth.lp-editable.ng-scope.ng-isolate-scope.ng-pristine.ng-valid {
+        margin-top: -10px
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiesreset {
+        background-color: #eaeaea;
+        margin-right: 4%!important;
+        margin-left: -8%!important;
+        width: 57%!important
+    }
+    .profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiessubmit {
+        background-color: #fb637e;
+        color: #fff!important;
+        width: 57%!important
+    }
+    .profileContact-form-div-edit>div>.input-group {
+        width: 81.5%
+    }
+    .profileContact-form-horizontal>.borderTop {
+        margin-bottom: 15px
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .profileContact-otp-input-width {
+        width: 62%
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (-webkit-min-device-pixel-ratio: 2) {
+    .ng-binding {
+        margin-right: 16%
+    }
+    .labelText {
+        margin-top: 0!important
+    }
+    .clearfix:before,
+    .clearfix:after,
+    .dl-horizontal dd:before,
+    .dl-horizontal dd:after,
+    .container:before,
+    .container:after,
+    .container-fluid:before,
+    .container-fluid:after,
+    .row:before,
+    .row:after,
+    .form-horizontal .form-group:before,
+    .form-horizontal .form-group:after,
+    .btn-toolbar:before,
+    .btn-toolbar:after,
+    .btn-group-vertical>.btn-group:before,
+    .btn-group-vertical>.btn-group:after,
+    .nav:before,
+    .nav:after,
+    .navbar:before,
+    .navbar:after,
+    .navbar-header:before,
+    .navbar-header:after,
+    .navbar-collapse:before,
+    .navbar-collapse:after,
+    .pager:before,
+    .pager:after,
+    .panel-body:before,
+    .panel-body:after,
+    .modal-footer:before,
+    .modal-footer:after,
+    .widget:before,
+    .widget:after,
+    .widget-body:before,
+    .widget-body:after,
+    .widget-heading:before,
+    .widget-heading:after,
+    .widget-footer:before,
+    .widget-footer:after {
+        display: none!important
+    }
+    .profileContact-tip-label-height {
+        height: 30px
+    }
+    .profileContact-font-label-chk {
+        padding-top: 0
+    }
+    .emailmargin>div.profileContact-chk-td-dep.profileContact-font-label-chk.margin.profileContact-tip-label-height>div.profile-tip.profile-tip-A,
+    div.margintop>div>div.profileContact-chk-td-dep.margin.profileContact-font-label-chk.profileContact-tip-label-height>div.profile-tip.profile-tip-A {
+        margin-left: 0!important
+    }
+    .emailPositioning {
+        margin-top: 10%!important
+    }
+    .lp-editable input[readonly] {
+        margin-top: -5%!important
+    }
+}
+
+.input-group .form-control,
+.input-group-addon,
+.input-group-btn {
+    display: inherit
+}
+
+.emailmargin>.lp-field>.text-center>.lp-field-help>.text-muted {
+    margin-right: 31%
+}
+
+.profileContact-form-div-edit>.input-group>.form-control {
+    margin-left: -4%!important;
+    width: 100%!important
+}
+
+.profileContact-form-div-edit>.input-group>.input-group-btn {
+    display: inherit!important;
+    width: 78.5%!important;
+    border-radius: 2px!important
+}
+
+.profileContact-form-div-edit>div>.input-group>.form-control {
+    margin-left: -4%!important;
+    width: 113%!important;
+    margin-top: -6%!important
+}
+
+.profileContact-form-div-edit>div>.input-group>.input-group-btn {
+    width: 104%!important;
+    border-radius: 2px!important
+}
+
+.lp-icon-remove {
+    color: #4a4a4a!important
+}
+
+.lp-icon-ok-sign {
+    color: #fff!important;
+    height: 30px
+}
+
+.profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiesreset {
+    background-color: #eaeaea;
+    margin-right: 4%!important;
+    margin-left: -8%!important;
+    width: 57%!important
+}
+
+.profileContact-form-div-edit>div>.input-group>.input-group-btn>.propertiessubmit {
+    background-color: #fb637e;
+    color: #fff!important;
+    width: 57%!important
+}
+
+.panel-body {
+    padding: 0!important
+}
+
+.profileContact-form-horizontal>fieldset>.form-group>label {
+    width: 100%!important;
+    text-align: left!important;
+    margin-left: 12%!important
+}
+
+.profileContact-form-horizontal>fieldset>.form-group>input {
+    margin-left: 12%!important
+}
+
+.profileContact-form-horizontal>.modal-footer>div>.primary-btn-btn {
+    width: 94%!important;
+    margin-left: 4%!important;
+    border-radius: 2px!important
+}
+
+.profileContact-form-horizontal>.modal-footer>div>.secondary-btn-btn {
+    width: 94%!important;
+    margin-left: 4%!important;
+    background-color: #eaeaea!important;
+    color: #000;
+    border-radius: 2px!important
+}
+
+.lp-widget-body {
+    overflow-x: hidden;
+    width: 100%!important
+}
+
+.sucessOTP {
+    width: 100%!important;
+    padding-right: 6.8%!important;
+    padding-left: 6.8%!important;
+    font-family: gotham_book!important
+}
+
+.img_padding {
+    margin-top: 6.25%!important
+}
+
+.text-center {
+    text-align: center!important
+}
+
+.profileContact-otp-div>h4>.text-success>.img_padding {
+    width: 100%!important
+}
+
+.profileContact-otp-div>.profileContact-form-horizontal>.lp-field>label {
+    width: 100%!important;
+    margin-left: -6%!important;
+}
+
+.profileContact-otp-div>.profileContact-form-horizontal>.lp-field>.col-sm-6>div>input {
+    margin-left: 4.5%!important;
+    width: 91%!important;
+    letter-spacing: 1.7px
+}
+
+.profileContact-otp-div>.profileContact-form-horizontal>.lp-field>.col-sm-6>div>small {
+    padding-left: 9%!important;
+    width: 100%!important;
+    float: left;
+    margin-top: 2%;
+    margin-bottom: 2%
+}
+
+.profileContact-form-horizontal>.profileContact-div-td-dep-ab {
+    float: left!important;
+    width: 100%;
+    padding-right: 23%;
+    min-width: 60%;
+    padding-top: 0;
+    margin-right: 5px
+}
+
+.profileContact-form-horizontal>.profilecompletion>.percent {
+    width: 100%!important;
+    margin-left: 50%!important;
+    color: #4a4a4a!important;
+    font-family: gotham_book!important;
+    font-size: 12px!important;
+    margin-right: 0!important
+}
+
+.profileContact-form-div-edit>div>.input-group>input {
+    letter-spacing: 1.7px
+}
+
+.profileContact-form-horizontal>fieldset>.form-group>.profileContact-check-control {
+    letter-spacing: 1.7px;
+    letter-spacing: 1.7px
+}
+
+.aadharedit,
+.emailedit,
+.panedit {
+    padding-left: 11%
+}
+
+.editaadhartip {
+    margin-top: 0!important
+}
+
+.aadhartextarea {
+    margin-top: 0!important;
+    margin-left: 2%!important
+}
+
+.emailedit>div>.input-group {
+    width: 82%!important
+}
+
+.emailedit>div>.input-group>input {
+    letter-spacing: 0!important;
+    margin-top: -5%!important;
+    margin-bottom: 0!important
+}
+
+.tooltip.top .tooltip-arrow {
+    margin-left: -5px!important;
+    top: 28px!important;
+    bottom: -38px;
+    border-top-color: #c6cfd9!important;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg)
+}
+
+.tooltip-inner {
+    position: absolute!important;
+    width: 160px!important;
+    max-width: 160px!important;
+    height: auto;
+    margin-left: -79px!important;
+    top: 33px!important;
+    background-color: #c6cfd9!important;
+    color: #4a4a4a!important;
+    font-size: 10px;
+    font-family: gotham_book!important
+}
+
+.profileContact-form-div>div>.input-group>.form-control {
+    margin-left: -4%!important;
+    width: 108%!important;
+    margin-top: -5%!important;
+    letter-spacing: 1.7px
+}
+
+.profileContact-form-div>div>.input-group>.input-group-btn {
+    width: 100%!important;
+    border-radius: 2px!important
+}
+
+.profileContact-form-div>div>.input-group>.input-group-btn>.propertiesreset {
+    background-color: #eaeaea!important;
+    margin-right: 4%!important;
+    margin-left: -8%!important;
+    width: 57%!important
+}
+
+.profileContact-form-div>div>.input-group>.input-group-btn>.propertiessubmit {
+    background-color: #fb637e!important;
+    color: #fff!important;
+    width: 57%!important
+}
+
+.profileContact-chk-tr-dep>div>.col-sm-6>.lp-field-help {
+    margin-bottom: -11%!important
+}
+
+.profileContact-form-horizontal>div>fieldset>.form-group>label {
+    width: 100%!important;
+    text-align: left!important;
+    margin-left: 12%!important;
+    font-family: gotham_medium!important;
+    font-size: 12px!important
+}
+
+.profileContact-form-horizontal>div>fieldset>.form-group>input {
+    margin-left: 12%!important
+}
+
+.profileContact-form-div>div>input-group {
+    width: 75%
+}
+
+.profileContact-chk-td-dep textarea {
+    font-family: gotham_book
+}
+
+.profileContact-chk-td-dep input {
+    font-family: gotham_book
+}
+
+.profileContact-form-div>div>input {
+    font-family: gotham_book
+}
+
+.profileContact-form-div>div>div>input {
+    font-family: gotham_book
+}
+
+.profileContact-form-div-edit>div>input {
+    font-family: gotham_book
+}
+
+.profileContact-form-div-edit>div>div>input {
+    font-family: gotham_book
+}
+
+.profileContact-form-horizontal {
+    font-family: gotham_book
+}
+
+.has-feedback>input {
+    width: 100%
+}
+
+.profileContact-fieldset-width .profileContact-chk-tr-dep textarea,
+.profileContact-fieldset-width .profileContact-chk-tr-dep input,
+.anotherTextarea .profileContact-chk-tr-dep textarea,
+.anotherTextarea .profileContact-chk-tr-dep input {
+    margin-bottom: 3%!important
+}
+
+input {
+    border-radius: 2px!important
+}
+
+.labelTop {
+    margin-top: 5%!important
+}
+
+.sucessOTP {
+    padding-right: 6.8%!important;
+    padding-left: 6.8%!important;
+    font-size: 14px!important;
+    font-family: gotham_book!important;
+    color: #39ca74
+}
+
+.OtpInput input {
+    background-color: #fff!important;
+    margin-bottom: 0!important
+}
+
+button {
+    text-transform: uppercase!important
+}
+
+.lp-editable input[readonly] {
+    width: 85.5%;
+    margin-top: -9%
+}
+
+.emailexample>.lp-field>.col-sm-6>.lp-field-help>.text-muted {
+    padding-bottom: 5%
+}
+
+.text-danger {
+    color: #d0021b;
+    padding-left: 11%;
+    text-align: left;
+    width: 88%
+}
+
+.profileContact-div-td-dep-ab {
+    padding-right: 0!important
+}
+
+.profileContact-otp-child {
+    float: none!important;
+    text-align: center;
+    margin-top: 5%!important
+}
+
+.profileContact-otp-child button {
+    margin-left: 0!important;
+    width: 80%!important;
+    margin-right: 0!important
+}
+
+@media screen and (device-aspect-ratio: 23) {
+    .text-muted {
+        color: #777;
+        text-align: left!important;
+        float: left;
+        padding-left: 10.25%
+    }
+}
+
+.form-control {
+    box-shadow: inset 0 0 0!important
+}
+
+.lp-icon-pencil {
+    cursor: pointer;
+    right: 18%!important;
+    /*background-position: left -20%;*/
+    background-repeat: no-repeat
+}
+
+.lp-icon-pencil:before {
+    content: ""!important
+}
+
+.panMsgBottom {
+    margin-bottom: 2%!important
+}
+
+
+/* 12 Sept 2016*/
+
+.aadhaarTnC {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 12px;
+    color: #AEAEAE;
+}
+
+.aadhaarTnCsub{
+    margin-left: 15vw;
+    font-weight: normal;
+}
+
+/* Xebia Refactoring begins */
+
+.lp-icon-pencil {
+    right: 18%!important;
+    top: 53px !important;
+}
+
+.col-sm-3,
+.col-sm-6 {
+    position: inherit !important;
+}
+
+div.profileContact-form-div-edit.margin.textareawidth.lp-editable.ng-scope.ng-isolate-scope.ng-pristine.ng-valid {
+    margin-top: 0px !important;
+}
+
+.input-group-btn:last-child>.btn {
+    background-color: #eaeaea !important;
+    margin-right: 4%!important;
+    margin-left: 0%!important;
+    width: 57%!important;
+}
+
+.input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {
+    background-color: #fb637e!important;
+    color: #fff!important;
+    width: 57%!important;
+}
+
+.btn {
+    display: inline-block !important;
+    margin-bottom: 0 !important;
+    font-weight: normal !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    touch-action: manipulation !important;
+    cursor: pointer !important;
+    background-image: none !important;
+    border: 1px solid transparent !important;
+    white-space: nowrap !important;
+    padding: 6px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.42857143 !important;
+    border-radius: 2px !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+    }
+
+.emailmargin .profile-tip {
+    padding-left: 14.5% !important;
+}
+
+/* Xebia Refactoring */
+.emailedit>div>.input-group {
+    padding-top: 8%;
+}
+
+.emailexample .col-sm-6 {
+    padding-left: 0px !important;
+    padding-right: 5px !important;
+}
+
+.emailexample .lp-field.form-group {
+    margin-left: -3% !important;
+}
+
+.emailexample .text-muted {
+    padding-left: 17%;
+}
+
+.emailexample .text-danger {
+    padding-left: 14%;
+}
+
+.profileContact-label-span {
+    margin-left: -7% !important;
+}
+
+.input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {
+    background-color: #eaeaea!important;
+    color: black !important;
+}
+
+.lp-field-help {
+    width: 360px;
+}
+
+.mobile-otp-label span {
+    margin-left: 11.5% !important;
+}
+
+.hide-aadhar .col-sm-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.hide-aadhar .col-sm-3 {
+    margin-left: 0%!important;
+}
+
+.hide-aadhar .profile-tip {
+    padding-left: 14%!important;
+}
+
+.edit-icon-fix .lp-icon-pencil {
+    padding: 8px;
+}
+

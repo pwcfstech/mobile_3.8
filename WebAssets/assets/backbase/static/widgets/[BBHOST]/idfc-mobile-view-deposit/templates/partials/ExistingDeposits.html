@@ -1,0 +1,344 @@
+<div ng-controller="ExistingDepositsController">
+    <div data-ng-include="template"></div>
+    <div ng-if="errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <div class="panel panel-default min-width-dp-det" ng-if="fiModel.selected">
+        <div class="panel-heading selected-fi">
+            <div class="col-xs-2 col-lg-1">
+                <span><i class="lp-icon lp-icon-expense-planning"></i></span>
+            </div>
+            <div class="col-xs-10 col-xs-11">
+                <span class="h4">{{'Lbl_General_Details'|translate}}</span><br/>
+            </div>
+        </div>
+    </div>
+    <div ng-show="errornoData">
+        <br>
+        <small class="text-danger error-alignment">{{msgnodata}}</small>
+    </div>
+    <div ng-show="errornoData" style="text-align:center">
+        <span><button type="button" class="btn btn-primary primary-btn-closure primary-btn-btn ng-binding" ng-click="openDepositWidget()">{{'Create New'|translate}}</button></span>
+    </div>
+    <div class="lp-alerts">
+        <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+    </div>
+    <div id="ExistingDepositForm" class="panel-body" ng-hide="errornoData">
+        <form class="form-horizontal" name="depositDetailsForm" ng-submit="submitDetails()" tabindex="0">
+            <div class="backgroundGray" ng-hide="nextpage || !backbutton">
+                <div class="padacc heading-width-dp-det th-dp-det">{{'Lbl_Account_Number'|translate}}</div>
+                <div class="heading-width-dp-det th-dp-det padAmt maturity-pad-left">{{'Lbl_Maturity_amount'|translate}}
+                    <span>(</span>
+                    <span class="rupee-symbol-span"></span>
+                    <span>)</span>
+                </div>
+                <div class="heading-width-dp-det th-dp-det padBlnc">{{'Lbl_Current_Balance'|translate}}
+                    <span>(</span>
+                    <span class="rupee-symbol-span"></span>
+                    <span>)</span>
+                </div>
+            </div>
+            <div lazy-loader="lazy-loader" class="list-view tab-width-dp-det" style="padding:0!important">
+                <div ng-repeat="existingDeposit in existingDeposits" class="list-group-item list-view-row cursor-pointer transition-fi-dp-det" style="border-bottom:solid 1px white!important" tabindex="0" ng-keypress="openDepositDetails(existingDeposit)">
+                    <div class="Innerinfo OnlyTopPad" style="border-bottom:solid 1px #eaeaea!important" ng-click="openDepositDetails(existingDeposit)" ng-hide="nextpage || !backbutton">
+                        <div class="table-maintd-width-dp-det td-dp-det">
+                            <span>{{existingDeposit.id}}</span>
+                        </div>
+                        <div class="table-maintd-width-dp-det td-dp-det td-main-deposit-type">
+                            <span>{{existingDeposit.alias}}</span>
+                        </div>
+                        <div class="table-maintd-width-dp-det maturity-amt-padding-dp-det td-dp-det">
+                            <span>{{existingDeposit.mtVl | currency:' '}}</span>
+                        </div>
+                        <div class="padLeft widthTrm table-maintd-width-dp-det principal-amt-padding-dp-det td-dp-det">
+                            <span>{{existingDeposit.availableBalance | currency:' '}}</span>
+                        </div>
+                        <div>
+                            <img id="arrowRight" src="static/features/[BBHOST]/theme-idfc/images/Dropdownright1_mdpi.png">
+                        </div>
+                    </div>
+                    <div ng-show="existingDeposit.showfullerror">
+                        <div class="td-dp-det" colspan="10" ng-hide="!backbutton">
+                            <small class="text-danger error-alignment">{{msgerrfetchDetail}}</small>
+                        </div>
+                    </div>
+                    <div ng-show="existingDeposit.showfull">
+                        <div class="td-dp-det table-border-dp-det" colspan="10" ng-show="nextpage || !backbutton">
+                            <div class="innerClass-dd firstView">
+                                <div class="tab-width-dp-det child-table-position">
+                                    <div class="text-upper">
+                                        <div colspan="8" class="th-dp-det title-color-dp-det width100 bgPink">
+                                            <span> {{'Lbl_General_Details'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="margin0 gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead">
+                                            <span>{{'Lbl_Branch'|translate}}</span>
+                                        </div>
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead">
+                                            <span>{{'Lbl_Deposit_Type'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det subrow-height">
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding">
+                                            <span>{{tmpexistingDeposits.brch}}</span>
+                                        </div>
+                                        <div class="table-childtd-width-dp-det td-dp-det OnlyPadLeft Subpadding">
+                                            <span>{{tmpexistingDeposits.prod}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding mainHead">
+                                            <span>{{'Lbl_Opening_Date'|translate}}</span>
+                                        </div>
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding mainHead">
+                                            <span>{{'Lbl_Deposit_Amount'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det subrow-height">
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding">
+                                            <span>{{tmpexistingDeposits.openDt| date:'dd-MMM-yyyy'}}</span>
+                                        </div>
+                                        <div class="table-childtd-width-dp-det OnlyPadLeft Subpadding">
+                                            <span ng-class="{'rupee-symbol-span':existingDeposit.currency === 'INR'}"> </span>
+                                            <span>{{tmpexistingDeposits.availBal | currency:' '}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding mainHead">
+                                            <span>{{'Lbl_Deposit_Period'|translate}}</span>
+                                        </div>
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding mainHead">
+                                            <span>{{'Lbl_Interest_Rate'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det subrow-height">
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad">
+                                            <span>{{tmpexistingDeposits.termLgth}} days</span>
+                                        </div>
+                                        <div class="table-childtd-width-dp-det td-dp-det OnlyPadLeft Subpadding OnlyBtmPad">
+                                            <span>{{tmpexistingDeposits.crIntRate}}%</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding mainHead">
+                                            <span>{{'Lbl_Debit_Account_No'|translate}}</span>
+                                        </div>
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding mainHead">
+                                            <span>{{'Lbl_Mode_Of_Operation'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det subrow-height">
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad">
+                                            <span>{{tmpexistingDeposits.srcAcctNum}}</span>
+                                        </div>
+                                        <div class="table-childtd-width-dp-det td-dp-det OnlyPadLeft Subpadding OnlyBtmPad">
+                                            <span>{{tmpexistingDeposits.mop}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding mainHead">
+                                            <span>{{'Lbl_Repayment_Account_Number'|translate}}</span>
+                                        </div>
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding mainHead">
+                                            <span>Current Balance</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det subrow-height">
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad">
+                                            <span>{{tmpexistingDeposits.srcAcctNum}}</span>
+                                        </div>
+                                        <div class="table-childtd-width-dp-det td-dp-det OnlyPadLeft Subpadding OnlyBtmPad">
+                                            <span ng-class="{'rupee-symbol-span':existingDeposit.currency === 'INR'}"> </span>
+                                            <span>{{tmpexistingDeposits.availBal  | currency:' '}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding mainHead">
+                                            <span>Lien Applied ?</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det subrow-height">
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad">
+                                            <span>{{lienApplied}}</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="text-upper marginTop">
+                                        <div colspan="8" class="th-dp-det title-color-dp-det width100 bgPink">
+                                            <span>{{'Lbl_Holder_Details'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="padding:0;">
+                                        <div class="col-md-12 col-xs-12 col-sm-12">
+                                            <div class="col-md-6 col-xs-6 col-sm-6 inHead1 ">Primary Holder</div>
+                                            <div class="col-md-6 col-xs-6 col-sm-6 inHead1 " ng-if="tmpexistingDeposits.jointName1!=null">Secondary Holder 1</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12">
+                                            <div class="col-md-6 col-xs-6 col-sm-6 inContent1 ">{{tmpexistingDeposits.custName }}</div>
+                                            <div class="col-md-6 col-xs-6 col-sm-6 inContent1 " ng-if="tmpexistingDeposits.jointName1!=null">{{tmpexistingDeposits.jointName1 }}</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12">
+                                            <div class="col-md-6 col-xs-6 col-sm-6 inHead1 " ng-if="tmpexistingDeposits.jointName2 != null && tmpexistingDeposits.jointName2 != ''">Secondary Holder 2</div>
+                                            <div class="col-md-6 col-xs-6 col-sm-6 inHead1 " ng-if="tmpexistingDeposits.jointName3 != null && tmpexistingDeposits.jointName3 != ''">Secondary Holder 3</div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12 col-sm-12">
+                                            <div class="col-md-6 col-xs-6 col-sm-6 inContent1 " ng-if="tmpexistingDeposits.jointName2 != null && tmpexistingDeposits.jointName2 != ''">{{tmpexistingDeposits.jointName2 }}</div>
+                                            <div class="col-md-6 col-xs-6 col-sm-6 inContent1 " ng-if="tmpexistingDeposits.jointName3 != null && tmpexistingDeposits.jointName3 != ''">{{tmpexistingDeposits.jointName3 }}</div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="margin0 gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead">
+                                            <span>{{'Lbl_Primary_Holder'|translate}}</span>
+                                        </div>
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead" ng-if="tmpexistingDeposits.jointName1!=null">
+                                            <span>Secondary Holder 1</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det">
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad">
+                                            &lt;!&ndash; <span>{{tmpexistingDeposits.maturityDate | date:'dd-MMM-yyyy' }}</span>&ndash;&gt;
+                                            <span>{{tmpexistingDeposits.custName }}</span>
+                                        </div>
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad" ng-if="tmpexistingDeposits.jointName1!=null">
+                                            <span>{{tmpexistingDeposits.jointName1 }}</span>
+                                            &lt;!&ndash;<br>
+                                            <span ng-show="tmpexistingDeposits.jointName2!=null">{{tmpexistingDeposits.jointName2 }}</span>&ndash;&gt;
+                                        </div>
+
+                                    </div>
+                                    <div class="margin0 gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead" ng-if="tmpexistingDeposits.jointName2!=null">
+                                            <span>Secondary Holder 2</span>
+                                        </div>
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead" ng-if="tmpexistingDeposits.jointName3!=null">
+                                            <span>Secondary Holder 3</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det">
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad" ng-if="tmpexistingDeposits.jointName2!=null">
+                                            &lt;!&ndash; <span>{{tmpexistingDeposits.maturityDate | date:'dd-MMM-yyyy' }}</span>&ndash;&gt;
+                                            <span>{{tmpexistingDeposits.jointName2 }}</span>
+                                        </div>
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad" ng-if="tmpexistingDeposits.jointName3!=null">
+                                            <span>{{tmpexistingDeposits.jointName3 }}</span>
+                                            &lt;!&ndash;<br>
+                                            <span ng-show="tmpexistingDeposits.jointName2!=null">{{tmpexistingDeposits.jointName2 }}</span>&ndash;&gt;
+                                        </div>
+
+                                    </div>-->
+
+
+                                    <div class="text-upper marginTop">
+                                        <div colspan="8" class="th-dp-det title-color-dp-det width100 bgPink">
+                                            <span>{{'Lbl_Maturity_Details'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="margin0 gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead">
+                                            <span>{{'Lbl_Maturity_Date'|translate}}</span>
+                                        </div>
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead">
+                                            <span>On Maturity</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det">
+                                        <div class="table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad">
+                                            <!-- <span>{{tmpexistingDeposits.maturityDate | date:'dd-MMM-yyyy' }}</span>-->
+                                            <span>{{tmpexistingDeposits.matDt| date:'dd-MMM-yyyy' }}</span>
+                                        </div>
+                                        <div class="marginTop3 table-childtd-width-dp-det td-dp-det Subpadding OnlyBtmPad">
+                                            <span>{{tmpexistingDeposits.maturityInst}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-upper marginTop">
+                                        <div colspan="8" class="th-dp-det title-color-dp-det width100 bgPink">
+                                            <span>{{'Lbl_Nominee_Details'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div ng-show="nomineeExists" class="gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead">
+                                            <span>Nominee Name</span>
+                                        </div>
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead">
+                                            <span>Relationship</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det" ng-show="nomineeExists">
+                                        <div class="nomineename table-childtd-width-dp-det td-dp-det Subpadding">
+                                            <span>{{tmpexistingDeposits.nomName}}</span>
+                                        </div>
+                                        <div class="nomineerelation table-childtd-width-dp-det td-dp-det Subpadding">
+                                            <span>{{tmpexistingDeposits.nomRelatn}}</span>
+                                        </div>
+                                    </div>
+                                    <div ng-show="nomineeExists" class="gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead">
+                                            <span>Date of Birth</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det" ng-show="nomineeExists">
+                                        <div class="nomineename table-childtd-width-dp-det td-dp-det Subpadding">
+                                            <span>{{tmpexistingDeposits.nomDob| date:'dd-MMM-yyyy'}}</span>
+                                        </div>
+
+                                    </div>
+                                    <div ng-show="!nomineeExists"class="OnlyTopBtm marginTop">
+                                        <div class="depositDetails-addNomineeRow Subpadding">
+                                            <medium class="error-alignment nomineeText OnlyTopPad OnlyBtmPad">{{'Error_No_Nominee_Exists'|translate}}</medium>
+                                        </div>
+                                    </div>
+
+                                    <div class="addNominee" ng-show="!nomineeExists" ng-click="addNominee()"> Click here to Add Nominee</div>
+                                    <!-- <div ng-show="showNotification">
+                                         <div colspan="8" class="text-center td-dp-det Subpadding">
+                                             <small class="emailMsg">{{successMessagePDFEmail}}</small>
+                                         </div>
+                                     </div>-->
+                                    <div class="text-upper marginTop" ng-show="guardExists">
+                                        <div colspan="8" class="th-dp-det title-color-dp-det width100 bgPink">
+                                            <span>Guardian Details</span>
+                                        </div>
+                                    </div>
+                                    <div ng-show="guardExists" class="gen-dep-det row-height">
+                                        <div class="table-childth-width-dp-det th-dp-det Subpadding OnlyTopPad mainHead">
+                                            <span>Guardian Name</span>
+                                        </div>
+                                    </div>
+                                    <div class="gen-dep-det" ng-show="guardExists">
+                                        <div class="nomineename table-childtd-width-dp-det td-dp-det Subpadding">
+                                            <span>{{tmpexistingDeposits.guardName}}</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="td-dp-det text-center">
+                                            <a ng-click="Emailadvice(existingDeposit)"><img class="deposit-dp-det" id="followbutton1" src="static/features/[BBHOST]/theme-idfc/images/email_xxxhdpi.png" /></a>
+                                        </div>
+                                    </div>
+                                    <div class="row noMargin">
+                                        <div class="col-xs-12 marginTop5 text-center">
+                                            <small class='email-success-rd-msg-class'>{{successMessagePDFEmail}} <span ng-show="noMail"><a class="emailModLink" ng-click="goToEmailMod()">click here</a>.</span></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center groupBtn topBtm" id="confirmBlock">
+                                <!--<div class="borderTop"></div>-->
+                                <button class="btn btn-primary primary-btn-deposit-det primary-btn-btn" ng-click="openNewDeposit(existingDeposit)" ng-disabled="disableDuplicateButton">
+                                    {{'Lbl_Copy'|translate}}
+                                </button>
+                                <i class="lp-icon infoToolTip infoIcon ng-scope" tooltip="{{'Tip_Duplicate'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+                                    <img src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

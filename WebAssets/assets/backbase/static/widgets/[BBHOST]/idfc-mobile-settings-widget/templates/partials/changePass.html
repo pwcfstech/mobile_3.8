@@ -1,0 +1,26 @@
+<form novalidate="" class="settings-form-horizontal maxWidth form-horizontal" role="form" name="oldPwdForm" id="secondForm">
+    <span lp-i18n="{{'Old_Password'|translate}}" class="settings-label-span setting-margin-left"> </span>
+    <div label="Enter_Old_Password" class="maxWidth">
+        <i class="lp-icon infoIcon ng-scope manualIcon11" tooltip="{{'Tip_Old_Password'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+            <img class="toolTipImg" src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"></i>
+        <div class="maxWidth">
+            <input class="settings-form-control form-control" type="password" name="oldPwd" ng-model="controlPass.oldPassword.value" loading="isLoading" required="true" ng-disabled="ShowForgotPasswordForm && !isMpinLoginFlag"/>
+            <small class="text-danger" ng-show="oldPwdForm.submitted &amp;&amp; oldPwdForm.oldPwd.$error.required">Password is required.</small>
+            <small class="text-danger" ng-show="oldPwdForm.submitted &amp;&amp; errors['oldPasswordCheck'] &amp;&amp; !errors['oldPwdForm'] &amp;&amp; !(oldPwdForm.oldPwd.$error.required)">
+                {{'Error_Password_Length'|translate}}
+            </small>
+            <small class="text-danger" ng-show="oldPwdForm.submitted &amp;&amp; errors['invalidPassword']">
+                {{'Error_Invalid_Old_PWD'|translate}}
+            </small>
+        </div>
+    </div>
+    <div ng-hide="ShowForgotPasswordForm || isMpinLoginFlag" class="settings-button-alignForm maxWidth">
+        <button class="btn btn-sm btn-primary primary-btn-setting primary-btn-btn settingBtn btnRed" ng-click="oldPwdForm.submitted=true ; openChangePasswordForm(oldPwdForm.$valid)" type="submit">Next
+        </button>
+        <button type="button" class="btn btn-primary settings-btn-align secondary-btn-setting secondary-btn-btn settingBtn btnGrey" ng-click="resetOldPasswordForm(); oldPwdForm.submitted=false;">
+            Clear
+        </button>
+        <!--<button type=button class="btn btn-sm btn-primary settings-btn-clear secondary-btn-setting secondary-btn-btn settingBtn btnGrey" ng-click=changeMpin()>Change mpin1</button>
+        <img ng-src="{{changempinImagePath}}" alt="" data-ng-click="changeMpin()"/>-->
+    </div>
+</form>

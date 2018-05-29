@@ -1,0 +1,223 @@
+<div ng-controller="NomineeDetailsController">
+	<div ng-show="noAcc" class="">
+		<span class="ng-binding">{{validnom}}</span>
+	</div>
+	<div class="panel panel-default" ng-if="fiModel.selected">
+		<div class="panel-heading selected-fi">
+			<div class="col-xs-2 col-lg-1">
+				<span><i class="lp-icon lp-icon-expense-planning"></i></span>
+			</div>
+			<div class="col-xs-10 col-xs-11">
+				<span class="h4">{{'Lbl_Nominee_Details'|translate}}</span><br />
+			</div>
+		</div>
+	</div>
+	<!--<div class="lp-alerts">
+		<div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+	</div>-->
+	<div class="lp-alerts">
+		<div class="alert_msg" alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><span class="img_icon"><img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+     <img ng-src="{{invalid_icon}}"/></span>{{alert.msg}}</div>
+	</div>
+	<div progress-indicator="progress-indicator" is-loading="fiModel.isConnecting" class="opendeposit-panel-body panel-body" ng-hide="serviceError">
+		<form class="form-horizontal" name="nomineeDetailsForm" ng-submit="submitted=true; submitNomineeDetails(nomineeDetailsForm.$valid)" tabindex="0" novalidate>
+			<div ng-show="error.happened" class="alert_msg"><span class="img_icon">
+      <img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+        <img ng-src="{{invalid_icon}}"/></span>{{error.msg}}
+			</div>
+			<div id="termsDepositDiv" class="dep-margin-opendeposit">
+				<div class="dep-parent-div-od">
+					<div class="div-tr-dep-opendeposit">
+						<div class="labelText div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+							{{'Lbl_Nominee_Required'|translate}}
+						</div>
+						<div class="padLeft radioBtn1 div-td-dep-opendeposit">
+							<input type="radio" ng-model="nominee.nomineeId" class="deposittype opendeposit-dep-radio" value="True" ng-checked="false" ng-click="showNomineeDetails()"/><span class="radioBtn span-radio-space span-margin-opendeposit font-label-dep-od">{{'Nominee_Required_Yes'|translate}} </span>
+							<input type="radio" ng-model="nominee.nomineeId" class="deposittype opendeposit-dep-radio" value="False" ng-checked="true" ng-click="hideNomineeDetails()"/><span class="radioBtn span-margin-opendeposit font-label-dep-od">{{'Nominee_Required_No'|translate}}</span>
+						</div>
+					</div>
+
+					<div class="padding-20" ng-if="showNoNomMessage"><br>
+						No, I do not wish to nominate anyone on my behalf at this moment. I understand the advantage of nomination and the consequences of not nominating anyone to my account.
+					</div>
+
+					<div id="copyNominee" class="div-tr-dep-opendeposit">
+						<div class="labelText div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+							{{'Lbl_Copy_Nominee'|translate}}
+						</div>
+						<div class="padLeft radioBtn1 div-td-dep-opendeposit">
+							<input type="radio" ng-model="nominee.debitnomineeId" class="deposittype opendeposit-dep-radio" value="True" ng-checked="false" ng-click="fetchDebitAccountNomineeDetails()"/><span class="radioBtn span-radio-space span-margin-opendeposit font-label-dep-od">{{'Nominee_Required_Yes'|translate}} </span>
+							<input type="radio" ng-model="nominee.debitnomineeId" class="deposittype opendeposit-dep-radio" value="False" ng-checked="true" ng-click="disableDebitAccountNominee()"/><span class="radioBtn span-margin-opendeposit font-label-dep-od">{{'Nominee_Required_No'|translate}}</span>
+						</div>
+					</div>
+				</div>
+				<div id="nomineeDetails">
+					<div class="dep-parent-div-od">
+						<div class="div-tr-dep-opendeposit">
+							<div class="labelText div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+								{{'Lbl_Nominee_Name'|translate}}
+							</div>
+							<div class="div-td-dep-opendeposit">
+								<input ng-readonly="debitNomineeFlag" type="text" class="inputWidth inputHeight opendeposit-form-control form-control" name="nomineeName" ng-model="nominee.nomineeName" ng-minlength="1" ng-maxlength="40" ng-pattern="/^[a-zA-Z\s]*$/" required=""/>
+								<div class="dep-messages-opendeposit">
+									<small class="text-danger" ng-show="nomineeDetailsForm.nomineeName.$error.maxlength">{{'Error_NomineeName_Max_Length'|translate}}</small>
+									<small class="text-danger" ng-show="nomineeDetailsForm.nomineeName.$error.pattern">{{'Error_NomineeName_Contains_Alphabets'|translate}}</small>
+									<small class="text-danger" ng-show="submitted && nomineeDetailsForm.nomineeName.$error.required">{{'Error_Required_Nominee_Name'|translate}}</small>
+								</div>
+							</div>
+						</div>
+						<div ng-hide="debitNomineeDob" class="div-tr-dep-opendeposit">
+							<div class="labelText div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+								{{'Lbl_Nominee_DOB'|translate}}
+							</div>
+							<div class="div-tr-dep-opendeposit date-picker">
+								<input ng-readonly="debitNomineeFlag" type="text" class="inputWidth inputHeight opendeposit-form-control form-control" name="nomineedateOfBirth" ng-model="nominee.nomineeDOB" />
+							</div>
+						</div>
+						<div ng-show="debitNomineeDob" class="div-tr-dep-opendeposit">
+							<div class="labelText div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+								{{'Lbl_Nominee_DOB'|translate}}
+							</div>
+							<div class="div-td-dep-opendeposit">
+								<div class="date-picker">
+									<input ng-readonly="true" ng-click="open($event,'opened1')" type="text" id="nomineeDOB" name="nomineeDOB" ng-model="nominee.nomineeDOB" ng-readonly="nominee.nomineeDOB" ng-keypress="open($event,'opened1')" ng-change="hideGuardianDetail()" ng-required="debitNomineeFlag" readonly="readonly" class="inputWidth inputHeight opendeposit-form-control form-control" datepicker-popup="dd-MMM-yyyy" is-open="opened1" datepicker-options="dateOptionsForm" show-button-bar="false" tabindex="0" placeholder="Select" aria-label="select date" max-date="futureDateMax"/>
+									<span ng-click="open($event,'opened1')" class="lp-icon lp-icon-calendar calendar-icon date-cal-dob-od"></span>
+									<div class="dep-messages-opendeposit">
+										<small class="text-danger" ng-show="submitted && nomineeDetailsForm.nomineeDOB.$error.required">{{'Lbl_Nom_DOB_Mandatory'|translate}}</small>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="labelText relationship-top div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+								{{'Lbl_Nominee_Relationship'|translate}}
+							</div>
+							<div class="div-td-dep-opendeposit">
+								<select ng-readonly="debitNomineeFlag" id="relationId" class="selectValue inputWidth inputHeight form-control opendeposit-form-control select-width-nom-od IDFC-dropdown" ng-model="nominee.relationship" name="relationId" ng-options="item as item for item in relationnameList" required>
+									<option value="">{{'Lbl_Nom_Select_Relation'|translate}}</option>
+								</select>
+								<div class="dep-messages-opendeposit nominee-error-msg">
+									<small class="text-danger" ng-show="submitted && nomineeDetailsForm.relationId.$error.required">{{'Lbl_Nom_Relationship_Mandatory'|translate}}</small>
+								</div>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="labelText labelText1 div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+								{{'Lbl_Nom_Address1'|translate}}
+							</div>
+							<div class="div-td-dep-opendeposit">
+								<input placeholder="Line 1" ng-readonly="debitNomineeFlag" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="address1" ng-model="nominee.nomineeAddressLine1" ng-maxlength="40" required/>
+								<div class="err-Msg-bottom dep-messages-opendeposit">
+<span class="text-danger" ng-show="nomineeDetailsForm.address1.$invalid">
+<small class="" ng-show="nomineeDetailsForm.address1.$error.maxlength">{{'Error_Nom_Address1_Max_Length'|translate}}</small>
+<small class="" ng-show="submitted && nomineeDetailsForm.address1.$error.required">{{'Error_Required_Nominee_Add1'|translate}}</small>
+<small class="" ng-show="nomineeDetailsForm.address1.$error.pattern">{{'Error_Address_Special_Characters'|translate}}</small>
+</span>
+								</div>
+							</div>
+						</div>
+						<div class="div-td-dep-opendeposit">
+							<input placeholder="Line 2" ng-readonly="debitNomineeFlag" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="address2" ng-model="nominee.nomineeAddressLine2" ng-maxlength="40"/>
+							<div class="err-Msg-bottom dep-messages-opendeposit">
+<span class="text-danger" ng-show="nomineeDetailsForm.address2.$invalid">
+<small class="" ng-show="nomineeDetailsForm.address2.$error.maxlength">{{'Error_Nom_Address1_Max_Length'|translate}}</small>
+<small class="" ng-show="submitted && nomineeDetailsForm.address2.$error.required">{{'Error_Required_Nominee_Add2'|translate}}</small>
+<small class="" ng-show="nomineeDetailsForm.address2.$error.pattern">{{'Error_Address_Special_Characters'|translate}}</small>
+</span>
+							</div>
+						</div>
+						<div class="div-td-dep-opendeposit">
+							<input placeholder="City" ng-readonly="debitNomineeFlag" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="city" ng-model="nominee.nomineeCity" ng-pattern="/^[a-zA-Z\s]*$/" ng-maxlength="40"/>
+							<div class="dep-messages-opendeposit nominee-error-msg">
+<span class="text-danger" ng-show="nomineeDetailsForm.city.$invalid">
+<small ng-show="nomineeDetailsForm.city.$error.maxlength">{{'Lbl_Nom_City_Max_Length'|translate}}</small>
+<small class="" ng-show="nomineeDetailsForm.city.$error.pattern"> {{'Error_City_Contains_Alphabets'|translate}}</small>
+<small class="" ng-show="submitted && nomineeDetailsForm.city.$error.required">{{'Error_Required_Nominee_City'|translate}}</small>
+</span>
+							</div>
+						</div>
+						<div class="div-td-dep-opendeposit">
+							<select ng-readonly="debitNomineeFlag" id="stateId" class="selectValue inputWidth inputHeight form-control opendeposit-form-control select-width-nom-od IDFC-dropdown" ng-model="nominee.nomineeState" name="stateId" ng-options="item as item for item in states">
+								<option value="">{{'Lbl_Nom_Select_State'|translate}}</option>
+							</select>
+							<div class="dep-messages-opendeposit nominee-error-msg">
+								<small class="text-danger" ng-show="submitted && nomineeDetailsForm.stateId.$error.required">{{'Error_Required_Nominee_State'|translate}}</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="nomineeGuardianDetails">
+					<div class="dep-parent-div-od">
+						<div class="div-tr-dep-opendeposit">
+							<div class="labelText div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee">
+								{{'Lbl_Guardian_Details'|translate}}
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-dep-opendeposit">
+								<input ng-readonly="debitNomineeFlag" type="text" placeholder="Guardian Name" class="inputWidth inputHeight form-control opendeposit-form-control" name="guardianName" id="guardianName" ng-model="nominee.guardianName" ng-pattern="/^[a-zA-Z\s]*$/" ng-maxlength="40" ng-required="showNominee"/>
+								<div class="dep-messages-opendeposit">
+									<small class="text-danger" ng-show="submitted && nomineeDetailsForm.guardianName.$error.required"> {{'Lbl_Guardian_Name_Mandatory'|translate}}</small>
+									<small class="text-danger" ng-show="nomineeDetailsForm.guardianName.$error.maxlength"> {{'Error_Guardian_Name_Max_Length'|translate}}</small>
+									<small class="text-danger" ng-show="nomineeDetailsForm.guardianName.$error.pattern">{{'Error_Guardian_Name_Contains_Alphabets'|translate}}</small>
+								</div>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="labelText div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee div-address-address">
+								{{'Lbl_Guardian_Address'|translate}}
+							</div>
+							<div class="div-td-dep-opendeposit">
+								<input ng-readonly="debitNomineeFlag" placeholder="Line 1" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="guardianAddress1" ng-model="nominee.guardianAddress1" ng-pattern="/^[ a-zA-Z0-9-_./]*$/" ng-maxlength="40" ng-required="showGuardianAdd1"/>
+								<div class="dep-messages-opendeposit nominee-error-msg">
+<span class="text-danger text-danger1" ng-show="nomineeDetailsForm.guardianAddress1.$invalid">
+<small class="text-danger text-danger1" ng-show="nomineeDetailsForm.guardianAddress1.$error.maxlength">{{'Error_Nom_Address1_Max_Length'|translate}}</small>
+<small class="text-danger text-danger1" ng-show="submitted && nomineeDetailsForm.guardianAddress1.$error.required">{{'Error_Required_Guardian_Address1'|translate}}</small>
+<small class="text-danger text-danger1" ng-show="nomineeDetailsForm.guardianAddress1.$error.pattern">{{'Error_Address_Special_Characters'|translate}}</small>
+</span>
+								</div>
+							</div>
+							<div class="div-td-dep-opendeposit">
+								<input ng-readonly="debitNomineeFlag" placeholder="Line 2" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="guardianAddress2" ng-model="nominee.guardianAddress2" ng-pattern="/^[ a-zA-Z0-9-_./]*$/" ng-maxlength="40" ng-required="showGuardianAdd1"/>
+								<div class="dep-messages-opendeposit nominee-error-msg">
+<span class="text-danger text-danger1" ng-show="nomineeDetailsForm.guardianAddress2.$invalid">
+<small class="text-danger text-danger1" ng-show="nomineeDetailsForm.guardianAddress2.$error.maxlength">{{'Error_Nom_Address1_Max_Length'|translate}}</small>
+<small class="text-danger text-danger1" ng-show="submitted && nomineeDetailsForm.guardianAddress2.$error.required">{{'Error_Required_Guardian_Address2'|translate}}</small>
+<small class="text-danger text-danger1" ng-show="nomineeDetailsForm.guardianAddress2.$error.pattern">{{'Error_Address_Special_Characters'|translate}}</small>
+</span>
+								</div>
+							</div>
+							<div class="div-td-dep-opendeposit">
+								<input ng-readonly="debitNomineeFlag" placeholder="City" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="guardianCity" ng-model="nominee.guardianCity" ng-maxlength="40"/>
+								<div class="dep-messages-opendeposit nominee-error-msg">
+<span class="text-danger text-danger1" ng-show="nomineeDetailsForm.guardianCity.$invalid">
+<small class="text-danger text-danger1" ng-show="nomineeDetailsForm.guardianCity.$error.maxlength">{{'Lbl_Nom_City_Max_Length'|translate}}</small>
+<small class="text-danger text-danger1" ng-show="submitted && nomineeDetailsForm.guardianCity.$error.required">{{'Error_Required_Guardian_City'|translate}}</small>
+<small class="text-danger text-danger1" ng-show="nomineeDetailsForm.guardianCity.$error.pattern"> {{'Error_City_Contains_Alphabets'|translate}}</small>
+</span>
+								</div>
+							</div>
+							<div class="div-td-dep-opendeposit">
+								<select ng-readonly="debitNomineeFlag" id="guardianStateId" class="inputWidth inputHeight form-control opendeposit-form-control select-width-nom-od IDFC-dropdown selectValue" ng-model="nominee.guardianState" name="guardianStateId" ng-options="item as item for item in states">
+									<option value="">{{'Lbl_Nom_Select_State'|translate}}</option>
+								</select>
+								<div class="dep-messages-opendeposit nominee-error-msg">
+									<small class="text-danger" ng-show="submitted && nomineeDetailsForm.guardianStateId.$error.required">{{'Error_Required_Guardian_State'|translate}}</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="text-center div-td-dep-ab-opendeposit div-td-button-pad-od div-margin-top">
+						<button type="submit" class="inputHeight btnWidth marginRight0 marginTopNext btn btn-primary primary-btn-open-od primary-btn-btn" ng-hide="showSubmit" ng-disabled="error.happened">{{'btn_Next'|translate}}</button>
+						<button name="skip" class="inputHeight btnWidth skip-btn-top textUpper marginRight0 btn btn-primary primary-btn-btn" ng-click="skipNomineeDetails()" ng-show="showSkipBtn" type="button">{{'btn_Skip'|translate}}
+						</button>
+						<button name="skip" class="inputHeight btnWidth skip-btn-top1 textUpper marginRight0 btn btn-primary primary-btn-btn" ng-click="skipNomineeDetails()" ng-show="showSkipBtn1" type="button">{{'btn_Skip'|translate}}
+						</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

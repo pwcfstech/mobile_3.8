@@ -1,0 +1,219 @@
+/* Build with bb-lp-cli @ v1.2.1 */
+
+.header-height {
+    height: 94px
+}
+
+.lp-navbar-advanced .navbar {
+    z-index: 99;
+    position: fixed
+}
+
+.lp-navbar-advanced .launcher-toggle {
+    margin-left: 5px;
+    width: auto
+}
+
+.div-bank-tag-logout {
+    float: right
+}
+
+.lp-navbar-advanced .launcher-logo {
+    margin-top: -8px
+}
+
+.lp-navbar-advanced .launcher-toggle .launcher-logo {
+    height: 14px
+}
+
+.lp-navbar-advanced .navbar-brand.active-page {
+    float: none;
+    margin: 0
+}
+
+.lp-navbar-advanced .launcher-toggle .badge {
+    margin-left: 10px
+}
+
+.lp-navbar-advanced.design-mode .navbar {
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    left: 0
+}
+
+.nav-icon.navbar-left .glyphicon.glyphicon-list {
+    padding: 0 5px
+}
+
+.lp-navbar-advanced .animation-arrow .animate {
+    position: relative
+}
+
+.lp-navbar-advanced .animation-arrow span,
+.lp-navbar-advanced .animation-none span {
+    transition: all .7s ease;
+    -webkit-transition: all .7s ease;
+    -moz-transition: all .7s ease;
+    -ms-transition: all .7s ease;
+    -o-transition: all .7s ease
+}
+
+.lp-navbar-advanced .animation-arrow span.bar-first {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    margin-top: 5px
+}
+
+.lp-navbar-advanced .animation-arrow span.bar-second {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    width: 70%;
+    margin-left: 8px;
+    margin-top: 4px
+}
+
+.lp-navbar-advanced .animation-arrow span.bar-third {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    width: 70%;
+    margin-left: -1px;
+    margin-top: -2px
+}
+
+.lp-navbar-advanced span.bar-first {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg)
+}
+
+.lp-navbar-advanced span.bar-second {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg)
+}
+
+.lp-navbar-advanced span.bar-third {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg)
+}
+
+.lp-navbar-advanced .lp-transparency-scroll {
+    transition: opacity .7s ease;
+    -webkit-transition: opacity .7s ease;
+    -moz-transition: opacity .7s ease;
+    -ms-transition: opacity .7s ease;
+    -o-transition: opacity .7s ease;
+    opacity: .5
+}
+
+.lp-navbar-advanced .lp-hide-show-scroll {
+    transition: min-height .3s ease;
+    -webkit-transition: min-height .3s ease;
+    -moz-transition: min-height .3s ease;
+    -ms-transition: min-height .3s ease;
+    -o-transition: min-height .3s ease;
+    min-height: 0;
+    height: 0
+}
+
+.lp-navbar-advanced .lp-hide-show-scroll * {
+    display: none !important
+}
+
+.logout-usr-details {
+    margin-left: -15px;
+    color: #333333;
+    z-index: 9999;
+    position: relative;
+    width: 47%;
+    height: 100%;
+    font-family: gotham_book, bold, Calibri !important;
+    float: right;
+    padding-top: 1%
+}
+
+.menu-icon-logout {
+    width: 100%;
+    display: block
+}
+
+.cross-icon-logout {
+    display: none
+}
+
+@media (min-width:220px) and (max-width:530px) {
+    .logout-usr-details {
+        margin-left: -15px;
+        color: #333333;
+        z-index: 9999;
+        position: relative;
+        width: 33%;
+        height: 100%;
+        font-family: gotham_book, bold, Calibri !important;
+        float: right;
+        padding-top: 1%
+    }
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #ffffff ! important
+}
+
+.navbar-toggle {
+    background-color: #ffffff !important
+}
+
+@media (min-width:220px) and (max-width:600px) {
+    .header-height {
+        height: 60px
+    }
+    .lp-navbar-advanced .launcher-logo {
+        height: 45px;
+        margin-top: -8px
+    }
+    .menu-icon-logout {
+        width: 50%;
+        display: block
+    }
+}
+
+@media (max-width:350px) {
+    .div-bank-tag-logout {
+        float: none !important
+    }
+    .navbar-brand {
+        padding: 0 !important;
+        padding-top: 3% !important
+    }
+}
+
+
+/*# sourceMappingURL=base.css.map */
+
+/*Xebia Refactoring begins */
+.btn-submit-login {
+    width: 70%!important;
+    font-family: gotham_book,Calibri!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background-color: #FB637E!important;
+    padding: 8px!important;
+    border: none!important;
+}

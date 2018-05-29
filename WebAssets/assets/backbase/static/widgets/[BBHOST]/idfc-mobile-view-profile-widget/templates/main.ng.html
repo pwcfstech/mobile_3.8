@@ -1,0 +1,344 @@
+<div class="ng-cloak">
+	<div class="lp-widget-content">
+		<div class="lp-alerts">
+			<div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+		</div>
+		<div ng-hide="serviceError">
+			<div class="lp-widget-body widget-body panel-body">
+				<div ng-show="showServiceRequestNo" style="text-align:center; margin-top: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
+    font-weight: bolder;
+    color: black;">
+					<div class="img_padding">
+						<img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+						<img ng-src="{{tick}}"/>
+					</div>
+					<div>
+						{{successMessage}}
+						<br>
+							<span>{{'SR_Label'|translate}}</span>
+							<span class="colororange">{{serviceRequestNo}}</span>
+						<!--<span>Your service request has been successfully accepted. Please note the service request number - {{serviceRequestNo}}. You can check the status under track service request.</span> -->
+						</div>
+						<br>
+							<div class="borderTop"></div>
+						</br>
+						<div>
+							<button type="submit" aria-label="Submit" class="btn btn-primary primary-btn-btn" name="submitForm" ng-click="showServiceRequestNo=false;profileContactForm=true;view()" lp-i18n="View_Profile"></button>
+						</div>
+					</div>
+
+
+				<div ng-show="showError" style="text-align: center; margin-top: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
+    font-weight: bolder;
+    color: black;"> <!-- 3.5 change -->
+					<div>
+						<span ng-bind="errmsg"></span>
+					</div>
+					<br>
+					<br>
+					<div>
+						<button type="submit" aria-label="Submit"
+								class="btn btn-primary primary-btn-btn" name="submitForm"
+								ng-click="viewProfile()"
+								lp-i18n="View Profile"></button>
+					</div>
+				</div>
+					<div ng-show="showConfirmationForm">
+						<form novalidate="" class="profileContact-form-horizontal form-horizontal" role="form" name="confirmationForm" id="confirmationForm">
+							<fieldset ng-disabled="true">
+								<div ng-show="panflag" class="form-group labelTop">
+									<label for="Pan" lp-i18n="Pan" style="width:40%;text-align:right"></label>
+									<input type="text" id="pan" name="pan" class="profileContact-check-control" style="width:30%;text-align:left;margin-left:1%" ng-model="control.pan.value" required="true" />
+								</div>
+							</fieldset>
+							<!-- 12 Sept 2016 -->
+							<fieldset ng-disabled="true">
+								<div ng-show="aadharflag" class="form-group labelTop">
+									<label for="aadhar" lp-i18n="Aadhaar" style="width:40%;text-align:right"></label>
+									<input class="profileContact-check-control" type="text" id="aadhar" name="aadhar" style="width:30%;text-align:left;margin-left:1%" ng-model="control.aadhar.value" required="true" />
+								</div>
+								<span ng-show="aadharflag"> <!--addhar message change-->
+									<p class="aadhaarTnC">1. I submit my Aadhaar number and voluntarily give my consent to:</p>
+									<p class="aadhaarTnC" style="padding-left:3%;">Use my Aadhaar Details to authenticate me from UIDAI.</p>
+									<p class="aadhaarTnC" style="padding-left:3%;">Use my Mobile Number mentioned below for sending SMS Alerts to me.</p>
+									<p class="aadhaarTnC" style="padding-left:3%;"> Link the Aadhaar Number to all my existing/new/future accounts and customer profile (CIF) with your Bank.</p>
+									<p class="aadhaarTnC">2. I have been explained about the nature of information that may be shared upon authentication. I have been given to understand that my information submitted to the bank herewith shall not be used for any purpose other than mentioned above, or as per requirements of law.</p>
+									<p class="aadhaarTnC">3. I hereby declare that all the above information voluntarily furnished by me is true, correct and complete.</p>
+									<!--<p class="aadhaarTnC">1. Link it to this bank account</p>
+									<p class="aadhaarTnC">2. Receive all Direct Benefit Transfers (DBT) from Government of India in this account</p>
+									<p class="aadhaarTnC">3. Use my Aadhaar details to authenticate me</p>
+									<p class="aadhaarTnC">4. Use my mobile number for sending SMS alerts to me</p>
+									<p class="aadhaarTnC">Information submitted to bank will not be used for any purpose other than those mentioned above.</p>-->
+								</span>
+							</fieldset>
+							<div ng-show="emailFlag" class="labelTop">
+								<fieldset ng-disabled="true">
+									<div class="form-group">
+										<label for="OldEmail" lp-i18n="Old_Email" style="width:40%;text-align:right"></label>
+										<input type="text" id="OldEmail" name="OldEmail" class="profileContact-check-control" style="width:30%;text-align:left;margin-left:1%" ng-model="control.oldEmailAddress.value" required="true" />
+									</div>
+								</fieldset>
+								<fieldset ng-disabled="true">
+									<div class="form-group">
+										<label for="newEmail" lp-i18n="New_Email" style="width:40%;text-align:right"></label>
+										<input class="profileContact-check-control" type="text" id="newEmail" name="newEmail" style="width:30%;text-align:left;margin-left:1%" ng-model="control.emailAddress.value" required="true" />
+									</div>
+								</fieldset>
+							</div>
+							<div class="borderTop"></div>
+							<div ng-show="OTPFlag" class="modal-footer">
+								<div>
+									<button type="submit" aria-label="Submit" class="btn btn-primary primary-btn-btn" name="submitForm" ng-click="confirmationForm.submitted=true;submitProfileEmailConfirmForm(confirmationForm.$valid)" lp-i18n="Submit"></button>
+									<button type="submit" aria-label="Submit" class="btn space-margin-btn btn-primary secondary-btn-btn" name="cancel" ng-click="GoBack()" lp-i18n="Cancel"></button>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div ng-show="profileContactForm">
+						<form class="profileContact-form-horizontal form-horizontal" role="form" name="contactForm">
+							<div ng-hide="showAadhar" style="text-align: center;    margin-top: 2%; padding-left: 1%; padding-right: 1%;"> <!--3.5 aadhaar-->
+								<span lp-i18n="As per RBI guidelines, it is mandatory to update your Aadhaar details with your bank. Kindly update your Aadhaar number below." </span>
+							</div>
+							<div class="profilecompletion">
+								<span lp-i18n="{{'Profile_Completion'|translate}}" class="profileContact-barName"></span>
+								<span class="percent">{{control.percentComplete}}</span>
+								<div class="progress1 profileContact-status-bar">
+									<div id="progress-bar1" class="profileContact-bar-color"></div>
+								</div>
+							</div>
+							<div class="borderTop"></div>
+							<div class="profileContact-chk-parent-div">
+								<fieldset class="profileContact-fieldset-width" ng-disabled="true">
+									<div class="profileContact-chk-tr-dep">
+										<div class="profileContact-chk-td-dep margin profileContact-font-label-chk profileContact-tip-label-height">
+											<div class="profile-tip profile-tip-A tooltip-inner-AC">
+												<span lp-i18n="{{'Permanent_Address_Label'|translate}}" class="profileContact-label-width"></span>
+												<span>
+													<i class="lp-icon infoIcon" tooltip="{{'tip_permanent_address' | translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+														<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+													</span>
+												</div>
+											</div>
+											<div class="profileContact-chk-td-dep textareawidth">
+												<div>
+													<textarea class="profileContact-check-control" type="text" ng-model="permanentaddress.addressLine1.value" required="true" />
+												</div>
+												<div>
+													<textarea class="profileContact-check-control" type="text" ng-model="permanentaddress.addressLine2.value" required="true" />
+												</div>
+												<div>
+													<input class="profileContact-check-control" type="text" ng-model="permanentaddress.country.value" required="true" />
+												</div>
+												<div>
+													<input class="profileContact-check-control" type="text" ng-model="permanentaddress.state.value" required="true" />
+												</div>
+												<div>
+													<input class="profileContact-check-control" type="text" ng-model="permanentaddress.city.value" required="true" />
+												</div>
+												<div>
+													<input class="profileContact-check-control" type="text" ng-model="permanentaddress.pin.value" required="true" />
+												</div>
+											</div>
+										</div>
+									</fieldset>
+									<fieldset ng-disabled="true" class="anotherTextarea">
+										<div class="profileContact-chk-tr-dep">
+											<div class="profileContact-chk-td-dep margin profileContact-font-label-chk profileContact-tip-label-height">
+												<div class="profile-tip profile-tip-A tooltip-inner-AC">
+													<span lp-i18n="{{'Communication_Address_Label'|translate}}" class="profileContact-label-width"></span>
+													<span>
+														<i class="lp-icon infoIcon" tooltip="{{'tip_communication_addr'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+															<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+														</span>
+													</div>
+												</div>
+												<div class="profileContact-chk-td-dep textareawidth">
+													<div>
+														<textarea class="profileContact-check-control" type="text" ng-model="address.addressLine1.value" validate="address.addressLine1.validate(value)" ng-change="compare()" loading="isLoading" required="true" />
+													</div>
+													<div>
+														<textarea class="profileContact-check-control" type="text" ng-model="address.addressLine2.value" validate="address.addressLine2.validate(value)" ng-change="compare()" loading="isLoading" required="true" />
+													</div>
+													<div>
+														<input class="profileContact-check-control" type="text" ng-model="address.country.value" ng-change="compare()" loading="isLoading" />
+													</div>
+													<div>
+														<input class="profileContact-check-control" type="text" ng-model="address.state.value" ng-options="val.value as val.text for val in address.state.options" ng-change="compare()" loading="isLoading" />
+													</div>
+													<div>
+														<input class="profileContact-check-control" type="text" ng-model="address.city.value" validate="address.city.validate(value)" ng-change="compare()" loading="isLoading" required="true" />
+													</div>
+													<div>
+														<input class="profileContact-check-control" type="tel" ng-model="address.pin.value" validate="address.pin.validate(value)" ng-change="compare()" loading="isLoading" required="true" />
+													</div>
+												</div>
+											</div>
+										</fieldset>
+										<fieldset ng-disabled="true">
+											<div class="profileContact-chk-tr-dep">
+												<div class="profileContact-chk-td-dep margin profileContact-font-label-chk profileContact-tip-label-height">
+													<div class="profile-tip">
+														<span lp-i18n="{{'Primary_Mobile_Number_Label'|translate}}" class="profileContact-label-width"></span>
+														<span>
+															<i class="lp-icon infoIcon" tooltip="{{'tip_primary_mbl_no'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+																<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+															</span>
+														</div>
+													</div>
+													<div class="profileContact-chk-td-dep textareawidth">
+														<input class="profileContact-check-control" type="tel" ng-model="control.phoneNumber.value" validate="control.phoneNumber.validate(value)" ng-change="save('phoneNumber', control.phoneNumber.value)" loading="isLoading" required="true" />
+													</div>
+												</div>
+											</fieldset>
+											<fieldset ng-disabled="true">
+												<div class="profileContact-chk-tr-dep">
+													<div class="profileContact-chk-td-dep margin profileContact-font-label-chk profileContact-tip-label-height">
+														<div class="profile-tip profile-tip-A">
+															<span lp-i18n="{{'Landline_Number_Office_Label'|translate}}" class="profileContact-label-width"></span>
+															<span>
+																<i class="lp-icon infoIcon" tooltip="{{'tip_landline_no'|translate}}&#9786;" tooltip-trigger="click" tooltip-append-to-body="true">
+																	<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+																</span>
+															</div>
+														</div>
+														<div class="profileContact-chk-td-dep textareawidth">
+															<input class="profileContact-check-control" type="text" ng-model="control.olNumber.value" validate="control.olNumber.validate(value)" ng-change="save('olNumber', control.olNumber.value)" loading="isLoading" required="true" />
+														</div>
+													</div>
+												</fieldset>
+												<div ng-show="showPan">
+													<fieldset ng-disabled="true">
+														<div class="profileContact-chk-tr-dep">
+															<div class="profileContact-chk-td-dep margin profileContact-font-label-chk profileContact-tip-label-height">
+																<div class="profile-tip profile-tip-A panedit">
+																	<span lp-i18n="{{'PAN_Label'|translate}}" class="profileContact-label-width"></span>
+																</div>
+																<div class="profile-tooltip" id="tooltip-pan">
+																	<i class="lp-icon infoIcon" tooltip="{{'tip_pan'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+																		<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+																	</div>
+																</div>
+																<div class="profileContact-chk-td-dep textareawidth">
+																	<input class="profileContact-check-control" type="text" ng-model="control.pan.value" validate="control.pan.validate(value)" required="true" />
+																</div>
+															</div>
+														</fieldset>
+													</div>
+													<div ng-show="panInfoMsg">
+														<div class="panMsgBottom text-danger ng-scope">
+															<small class="ng-binding">{{'Pan_Update_msg'|translate}}</small>
+														</div>
+													</div>
+													<div ng-hide="showPan">
+														<div class="profileContact-chk-tr-dep">
+															<div class="profileContact-chk-td-dep profileContact-font-label-chk margin profileContact-tip-label-height">
+																<div class="profile-tip tooltip-pan">
+																	<span lp-i18n="{{'PAN_Label'|translate}}" class="profileContact-label-span profileContact-editable-style profileContact-label-width"></span>
+																</div>
+																<div class="profile-tooltip" id="tooltip-pan">
+																	<i class="lp-icon infoIcon" tooltip="{{'tip_pan'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+																		<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+																	</div>
+																</div>
+																<div>
+																	<div lp-field="lp-field" label="" errors="control.pan.errors" help="Pan_Example" error-messages="errorMessages">
+																		<div class="profileContact-form-div margin panedit textareawidth" lp-control="lp-control" ng-model="control.pan.value" validate="control.pan.validate(value)" ng-change="submitProfilePanForm()" loading="isLoading" required="true"></div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div ng-show="showAadhar">
+															<fieldset ng-disabled="true">
+																<div class="profileContact-chk-tr-dep">
+																	<div class="profileContact-chk-td-dep profileContact-font-label-chk textareawidth profileContact-tip-label-height">
+																		<div class="profile-tip profile-tip-A margin aadharedit">
+																			<span lp-i18n="{{'AADHAR_Label'|translate}}" class="profileContact-label-width"></span>
+																		</div>
+																		<div class="profile-tooltip tooltip-aadhaar editaadhartip">
+																			<i class="lp-icon infoIcon" tooltip="{{'tip_aadhaar'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+																				<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+																			</div>
+																		</div>
+																		<div class="profileContact-chk-td-dep textareawidth margin aadhartextarea">
+																			<input class="profileContact-check-control margin textareawidth" type="tel" ng-model="control.aadhar.value" validate="control.aadhar.validate(value)" required="true" />
+																		</div>
+																	</div>
+																</fieldset>
+															</div>
+															<div ng-hide="showAadhar" class="margintop hide-aadhar">
+																<div class="profileContact-chk-tr-dep">
+																	<div class="profileContact-chk-td-dep margin profileContact-font-label-chk profileContact-tip-label-height">
+																		<div class="profile-tip profile-tip-A">
+																			<span lp-i18n="{{'AADHAR_Label'|translate}}" class="profileContact-label-span profileContact-editable-style profileContact-label-width"></span>
+																		</div>
+																		<div class="profile-tooltip tooltip-aadhaar">
+																			<i class="lp-icon infoIcon" tooltip="{{'tip_aadhaar'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+																				<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+																			</div>
+																		</div>
+																		<div label="" lp-field="lp-field" errors="control.aadhar.errors" help="Aadhar_Example" error-messages="errorMessages" class="edit-icon-fix">
+																			<div class="profileContact-form-div-edit textareawidth margin aadharedit" lp-control="lp-control" type="tel" ng-model="control.aadhar.value" validate="control.aadhar.validate(value)" ng-change="submitProfileAadhaarForm()" loading="isLoading"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="profileContact-chk-tr-dep emailexample emailPositioning">
+																	<div class="profileContact-chk-td-dep emailmargin profileContact-font-label-chk margin profileContact-tip-label-height">
+																		<div class="profile-tip profile-tip-A">
+																			<span lp-i18n="{{'Primary_Email_id_Label'|translate}}" class="profileContact-label-span profileContact-label-width"></span>&nbsp; 
+																			<span>
+																				<i class="lp-icon infoIcon" tooltip="{{'tip_email_id'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true">
+																					<img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" width="15" height="15"></i>
+																				</span>
+																			</div>
+																		</div>
+																		<div lp-field="lp-field" label="" help="Email_Example" errors="control.emailAddress.errors" error-messages="errorMessages" class="edit-icon-fix">
+																			<div lp-control="lp-control" class="profileContact-form-div-edit margin emailedit textareawidth" ng-model="control.emailAddress.value" validate="control.emailAddress.validate(value)" loading="isLoading" ng-change="submitProfileEmailForm()"></div>
+																		</div>
+																	</div>
+																</div>
+															</form>
+														</div>
+														<div ng-hide="OTPFlag" class="profileContact-otp-div">
+															<h4>
+																<div class="text-success sucessOTP text-center" ng-show="success.happened" style="text-align:center">
+																	<div class="img_padding">
+																		<img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+																		<img ng-src="{{tick}}"/>
+																	</div>{{ success.msg }} 
+																</div>
+																<div class="profileContact-text-danger text-danger" ng-show="error.happened" style="text-align:center">{{ error.msg }}</div>
+															</h4>
+															<form name="OTPform" class="OtpInput profileContact-form-horizontal form-horizontal">
+																<div  ng-if="removeCustomerMobile" lp-field="lp-field" label="Mobile_Label" tip="" class="mobile-otp-label">
+																	<div>
+																		<input class="form-control form-control-A profileContact-otp-input-width" type="text" name="OTPMobile" ng-model="customerMobMasked" ng-disabled="true" />
+																	</div>
+																</div>
+																<div lp-field="lp-field" label="OTP_Label" tip="{{'OTP_Tip'|translate}}" class="mobile-otp-label">
+																	<div>
+																		<input style="display:none" type="text" name="fakeusernameremembered" />
+																		<input style="display:none" type="password" name="fakepasswordremembered" />
+																		<input class="form-control form-control-A profileContact-otp-input-width" type="tel" name="otp" style="-webkit-text-security:disc" autofill="off" autocorrect="off" autocapitalize="off" id="otpcolor" autocomplete="off" onpaste="return false" onCopy="return false" onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6" ng-model="control.otpValue" required="true" />
+																		<small class="profileContact-text-danger text-danger" style="width:38%" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.required">{{'Error_Required_OTP'|translate}}</small>
+																		<small class="profileContact-text-danger text-danger" style="width:38%" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.minlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+																		<small class="profileContact-text-danger text-danger" style="width:38%" ng-show="OTPform.submitted &amp;&amp; OTPform.otp.$error.maxlength">{{'Error_Invalid_Length_OTP'|translate}}</small>
+																		<small class="profileContact-text-danger text-danger" style="width:38%" ng-show="OTPform.otp.$error.pattern">{{'Error_Invalid_OTP'|translate}}</small>
+																	</div>
+																</div>
+																<div class="profileContact-div-td-dep-ab">
+																	<div class="profileContact-otp-child">
+																		<button class="btn btn-primary profileContact-btn-align primary-btn-btn" type="submit" name="verifyOTP" id="verifyOTP-btn-profile-widget" ng-click="OTPform.submitted=true; submitFormOTP(OTPform.$valid)">{{'btn_Submit'|translate}}</button>
+																		<button class="btn space-margin-btn btn-primary profileContact-btn-align secondary-btn-btn" type="button" name="resendOTP" ng-click="generateOTP('resend')">{{'btn_ResendOTP'|translate}}</button>
+																	</div>
+																</div>
+															</form>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>

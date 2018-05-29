@@ -1,0 +1,84 @@
+//
+//  constant.h
+//  IDFC UAT
+//
+//  Created by Taral Soni on 21/07/16.
+//  Copyright © 2016 IDFC Bank. All rights reserved.
+//
+
+#ifndef constant_h
+#define constant_h
+
+#define MARKETING_FLAG @"MARKETING_FLAG"
+#define SETUP_MPIN_FLAG @"SETUP_MPIN_FLAG"
+#define LOGIN_TYPE  @"LOGIN_TYPE"
+#define APP_VERSION_VIEW_FLAG @"APP_VERSION_VIEW_FLAG"
+#define APP_VERSION_STATUS @"APP_VERSION_STATUS"
+#define IS_BLACK_LISTED @"IS_BLACK_LISTED"
+#define BLACKLIST_MESSAGE @"BLACKLIST_MESSAGE"
+#define ACTIVE_VERSION_NO @"ACTIVE_VERSION_NO"
+#define GRACE_PERIOD @"GRACE_PERIOD"
+#define VERSION_UPGRADE_MESSAGE @"VERSION_UPGRADE_MESSAGE"
+#define APP_DOWNLOAD_LINK @"APP_DOWNLOAD_LINK"
+#define FP_KEY_FOR_TOKEN @"FP_KEY_FOR_TOKEN"
+#define FP_TOKEN @"FP_TOKEN"
+#define FP_SETUP_FLAG @"FP_SETUP_FLAG"
+#define NEW_VERSION_DESCRIPTION @"NEW_VERSION_DESCRIPTION"
+#define DEVICE_ID @"DEVICE_ID"
+#define PAGE_MPIN_LOGIN @"PAGE_MPIN_LOGIN"
+#define PUSH_NOTIFICATION_TOKEN @"PUSH_NOTIFICATION_TOKEN"
+#define PUSH_NOTIFICATION_FLAG @"PUSH_NOTIFICATION_FLAG"
+#define PAGE_LOGOUT @"PAGE_LOGOUT"
+#define PAGE_NOTIFICATIONS @"PAGE_NOTIFICATIONS"
+
+#define PAGE_REF_ID @"PAGE_REF_ID"
+#define FIRST_PAGE @"FIRST_PAGE"
+
+/*Mobile 2.5*/
+#define PAGE_NORMAL_LOGIN @"PAGE_NORMAL_LOGIN"
+#define PAGE_APPLYNOW @"PAGE_APPLYNOW"
+#define ASSET_FLAG @"ASSET_FLAG"
+#define ASSET_LANDING_PAGE @"ASSET_LANDING_PAGE"
+#define ASSET_TYPE @"ASSET_TYPE"
+#define HOME_LOANS @"HOME_LOANS"
+#define PERSONAL_LOANS @"PERSONAL_LOANS"
+#define LAP_LOANS @"LAP_LOANS"
+#define APPLY_NOW_TYPE @"APPLY_NOW_TYPE"
+#define HS_FLAG @"HS_FLAG"
+#define TOUCH3D_VALUE @"TOUCH3D_VALUE"
+#define ACCOUNTS3D_VALUE @"ACCOUNTS3D_VALUE"
+#define BILLPAY3D_VALUE @"BILLPAY3D_VALUE"
+#define FUNDSTRANSFER3D_VALUE @"FUNDSTRANSFER3D_VALUE"
+#define QUICKPAY3D_VALUE @"QUICKPAY3D_VALUE"
+#define LOGOUT_MARKETING @"LOGOUT_MARKETING"
+/*Mobile 2.5 end*/
+
+#define ErrTAG 111//No internet
+
+//UAT
+//Update-URLs
+//#define DEVICE_FOOTPRINT_URL @"http://10.5.4.13:7003/rs/deviceFootPrint"
+//#define UPDATE_USER_PREFERENCE_URL @"http://10.5.4.13:7003/rs/updateUserPreference"
+//#define DEVICE_FOOTPRINT_URL @"http://192.168.37.32:7003/rs/deviceFootPrint"
+//#define UPDATE_USER_PREFERENCE_URL @"http://192.168.37.32:7003/rs/updateUserPreference"
+
+//Pre prod
+//#define DEVICE_FOOTPRINT_URL @"http://10.5.8.135:7113/rs/deviceFootPrint"
+//#define UPDATE_USER_PREFERENCE_URL @"http://10.5.8.135:7113/rs/updateUserPreference"
+
+//Production
+//#define DEVICE_FOOTPRINT_URL @"https://my.idfcbank.com/rs/deviceFootPrint"
+#define DEVICE_FOOTPRINT_URL @"https://my.idfcbank.com/rs/deviceFootPrintSSL"
+#define UPDATE_USER_PREFERENCE_URL @"https://my.idfcbank.com/rs/updateUserPreference"
+
+#pragma mark - mVisa
+#define MVISA_QR_JSON @"MVISA_QR_JSON"
+#define MVISA_LOGIN_FLAG @"MVISA_LOGIN_FLAG"
+#define MVISA_SCAN_N_PAY_FLAG @"MVISA_SCAN_N_PAY_FLAG"
+
+
+/** Mobile 3.0**/
+#define LAST_APP_VERSION @"LAST_APP_VERSION"
+#define SHOW_MARKETING_FLAG @"SHOW_MARKETING_FLAG"
+
+#endif /* constant_h */

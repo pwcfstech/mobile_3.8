@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main');"
+   class="lp-idfc-open-deposits" ng-controller="OpenDepositsWidgetController">
+    <div ng-show="errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon loadSpinner"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+    <div lp-template="'templates/main.ng.html'"></div>
+</body>
+<!--<script src="scripts/pdf.js"></script>-->
+<!--<script src="scripts/pdf.worker.js"></script>-->
+</html>
+
+

@@ -1,0 +1,568 @@
+.lp-idfc-health-insurance .health-panel-footer-width {
+    width: 21%
+}
+.panel-message {
+    position:fixed !important;
+    top:0px;
+    left:0px;
+ }
+.lp-idfc-health-insurance .allFontStyle {
+    font-family: gotham_book!important;
+    font-size: 14px!important;
+    line-height: 22px!important;
+    color: #4a4a4a!important;
+    width: 300px;
+    height: 22px;
+    margin: 9px 0 11px;
+    text-align: center
+}
+.lp-idfc-health-insurance .margin-auto {
+    width: 100%;
+    height: 42px;
+    margin: 0 0 20px;
+    background-color: #efeeff
+}
+.lp-idfc-health-insurance .health-insurance-calculate-panel {
+    border: 1px solid #fec52f;
+    height: 141px;
+    margin: 0 40px 31px
+}
+.lp-idfc-health-insurance .health-calculate-image-div {
+    display: inline-block
+}
+.lp-idfc-health-insurance .health-calculate-text {
+    display: inline-block;
+    margin-left: 18px;
+    margin-top: 10px;
+    text-align: left;
+    vertical-align: middle;
+    width: 287px
+}
+.lp-idfc-health-insurance .health-calculate-label {
+    color: #4a4a4a;
+    display: block;
+    font-family: gotham_book!important;
+    font-size: 20px!important;
+    line-height: 22px!important;
+    text-align: left
+}
+.lp-idfc-health-insurance .health-second-panel-text {
+    color: #4a4a4a;
+    font-family: gotham_book!important;
+    font-size: 14px!important;
+    line-height: 18px!important;
+    text-align: center;
+    vertical-align: top;
+    width: 150px
+}
+.lp-idfc-health-insurance .health-panel-images-hospital,
+.lp-idfc-health-insurance .health-panel-images-list,
+.lp-idfc-health-insurance .health-panel-images-maternityCover,
+.lp-idfc-health-insurance .health-panel-images-taxBenefits {
+    margin-bottom: 9px
+}
+.lp-idfc-health-insurance .health-insurance-panel-second {
+    height:auto;
+    text-align: center
+}
+.lp-idfc-health-insurance .health-insurance-third-panel-A {
+    border: 1px solid #fec52f;
+    display: inline-block;
+    margin-right: 2%;
+    width: 48%
+}
+.lp-idfc-health-insurance .health-insurance-third-panel-B {
+    border: 1px solid #fec52f;
+    display: inline-block;
+    /*height: 352px;*/
+    margin: 0;
+    width: 48%
+}
+.lp-idfc-health-insurance .health-panel-third-images {
+    margin: 44px 0 15px
+}
+.lp-idfc-health-insurance .health-text {
+    color: #4a4a4a!important;
+    font-family: gotham_book!important;
+    font-size: 18px;
+    text-align: center;
+    line-height: 32px;
+    /*height: 32px;*/
+    width: 219.9px
+}
+.lp-idfc-health-insurance .health-panel-third-buttons {
+    background-color: #f9f7ef;
+    margin-top: 44px
+}
+.lp-idfc-health-insurance .health-insurance-panel-button-first {
+    width: 100% !important;
+}
+.lp-idfc-health-insurance .health-insurance-panel-button-first.primary-btn-btn {
+    margin-right: 0!important;
+    height: 42px
+}
+.lp-idfc-health-insurance .health-panel-image-list {
+    height: 63px;
+    width: 62px
+}
+.lp-idfc-health-insurance .health-panel-footer-image {
+    margin-bottom: 20px
+}
+.lp-idfc-health-insurance .health-panel-footer-text {
+    color: #4a4a4a;
+    font-family: gotham_book;
+    font-size: 12px!important;
+    text-align: center;
+    vertical-align: top;
+    width: 168px;
+    height: 14px;
+    cursor: pointer;
+    cursor: hand;
+    line-height: 14px!important
+}
+.lp-idfc-health-insurance .expertNumberDiv {
+    margin-top: 0!important
+}
+.lp-idfc-health-insurance .health-footer {
+    display: inline-block;
+    margin: 47px 20px 0
+}
+.lp-idfc-health-insurance .health-insurance-third-div {
+    display: inline-block;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    width: 100%
+}
+.lp-idfc-health-insurance .health-insurance-panel {
+    background-image: url(../../images/globalHeroImageGradiant.png);
+    height: 152.8px;
+    text-align: center;
+    display: none
+}
+.lp-idfc-health-insurance .health-insurance-panel label {
+    color: #fff;
+    font-family: gotham_book!important;
+    font-size: 24px!important;
+    line-height: 32px!important;
+    margin: 45px 0 43.8px;
+    text-align: center!important;
+    width: 748px;
+    height: 64px
+}
+.lp-idfc-health-insurance .health-calculate-image-main-div {
+    margin-top: 29px;
+    text-align: center
+}
+.lp-idfc-health-insurance .handSymbol {
+    cursor: pointer;
+    cursor: hand
+}
+.lp-idfc-health-insurance .health-expert-text {
+    color: #FB637E
+}
+.lp-idfc-health-insurance .disclaimer-link {
+    color: #fb637e;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.lp-idfc-health-insurance .mobile-view {
+    display: none
+}
+.lp-idfc-health-insurance .desktop-view {
+    display: block
+}
+.lp-idfc-health-insurance .health-calculate-link {
+    color: #fb637e;
+    display: block;
+    font-family: gotham_book!important;
+    font-size: 20px!important;
+    cursor: pointer;
+    cursor: hand
+}
+.lp-idfc-health-insurance .calculate-hyperlink {
+    text-decoration: none
+}
+.lp-idfc-health-insurance .health-second-panel-images {
+    margin-bottom: 13px;
+    height: 70px!important
+}
+.lp-idfc-health-insurance .health-second-panel-div {
+    display: inline-block;
+    width: 21%;
+    text-align: center
+}
+.lp-idfc-health-insurance .health-footer-text {
+    width: 100%;
+    font-size: 13px!important;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word
+}
+.lp-idfc-health-insurance .health-insurance-panel-footer {
+    margin: auto;
+    text-align: center
+}
+.lp-idfc-health-insurance .health-panel-footer {
+    margin: 0 0 15px;
+    width: 19%;
+    display: inline-block
+}
+.lp-idfc-health-insurance .health-insurance-panel-button {
+    width: 100% !important;
+}
+.lp-idfc-health-insurance .health-insurance-panel-button.secondary-btn-btn {
+    background: #EAEAEA!important;
+    width: 100%;
+    margin: 0!important;
+    height: 42px
+}
+@media only screen and (min-width: 240px) and (max-width: 480px) {
+    .lp-idfc-health-insurance .health-panel-image-list,
+    .lp-idfc-health-insurance .health-panel-images-hospital,
+    .lp-idfc-health-insurance .health-panel-images-list,
+    .lp-idfc-health-insurance .health-panel-images-maternityCover,
+    .lp-idfc-health-insurance .health-panel-images-taxBenefits {
+        height: 50px
+    }
+    .lp-idfc-health-insurance .health-insurance-panel-second {
+        /*margin: 31px 0 5px 20px*/
+        margin:0;
+        border:none;
+        height:auto;
+    }
+    .lp-idfc-health-insurance .health-insurance-third-panel-A,
+    .lp-idfc-health-insurance .health-insurance-third-panel-B {
+        border: 1px solid #fec52f;
+        width: 100%;
+        margin: 0 0 20px
+    }
+    .lp-idfc-health-insurance .health-panel-third-images {
+        /*margin: 24px 0;
+        height: 59px*/
+        margin: 15px 25px 25px 25px;
+    }
+    .lp-idfc-health-insurance .health-text {
+        color: #4a4a4a!important;
+        font-family: gotham_book!important;
+        font-size: 18px!important;
+        line-height: 22px!important;
+        text-align: center;
+        width: 187px;
+        padding: 25px 25px 0px 25px !important;
+    }
+    .lp-idfc-health-insurance .health-insurance-calculate-panel {
+        border: 1px solid #fec52f;
+        height: 203px;
+        margin: 0 20px 31px;
+        text-align: center
+    }
+    .lp-idfc-health-insurance .health-second-panel-text {
+        color: #4a4a4a;
+        font-family: gotham_book!important;
+        font-size: 10px!important;
+        line-height: 12px!important;
+        text-align: center;
+        vertical-align: top;
+        width: 123px
+    }
+    .lp-idfc-health-insurance .health-insurance-panel label {
+        color: #fff;
+        font-family: gotham_book!important;
+        font-size: 18px!important;
+        line-height: 22px!important;
+        margin: 41px 0 43px;
+        text-align: center;
+        height: 66px;
+        width: 320px
+    }
+    .lp-idfc-health-insurance .health-calculate-text {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+        width: 100%;
+        margin-left: 0;
+        padding-left: 20px;
+        padding-right: 20px
+    }
+    .lp-idfc-health-insurance .health-second-panel-div {
+        display: inline-block;
+        width: auto;
+        margin-left: 0
+    }
+    .lp-idfc-health-insurance .disclaimer-link {
+        color: #fb637e;
+        /*margin-left: 25%;*/
+        font-family: gotham_book!important;
+        font-size: 12px!important
+    }
+    .lp-idfc-health-insurance .health-expert-text {
+        color: #FB637E;
+        font-size: 10px!important
+    }
+    .lp-idfc-health-insurance .health-panel-third-buttons {
+        background-color: #f9f7ef;
+        margin-top: 0
+    }
+    .lp-idfc-health-insurance .scroll-mobile {
+        margin: 0px 0 20px 20px;
+        overflow-x: scroll;
+        max-width: 318px;
+        max-width: calc(100vw - 40px);
+        -webkit-overflow-scrolling: touch;
+    }
+    .lp-idfc-health-insurance .scroll-mobile::-webkit-scrollbar {
+        width: 12px;
+        background-color: #fff;
+    }
+
+    .lp-idfc-health-insurance .scroll-mobile::-webkit-scrollbar-thumb {
+         border-radius: 20px;
+         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #eee;
+    }
+
+    .lp-idfc-health-insurance .scroll-mobile::-webkit-scrollbar-track {
+        border-radius: 20px;
+        background-color: #fff;
+    }
+    .lp-idfc-health-insurance .health-panel-second-main {
+        display: inline-flex;
+        padding-bottom: 10px
+    }
+    .lp-idfc-health-insurance .allFontStyle {
+        font-family: gotham_book!important;
+        font-size: 12px!important;
+        color: #4a4a4a!important
+    }
+    .lp-idfc-health-insurance .mobile-view {
+        display: block;
+        padding: 25px;
+    }
+    .lp-idfc-health-insurance .desktop-view {
+        display: none
+    }
+    .lp-idfc-health-insurance .health-calculate-image {
+        margin: 23px 0 0
+    }
+    .lp-idfc-health-insurance .health-calculate-label {
+        color: #4a4a4a;
+        display: block;
+        font-family: gotham_book!important;
+        font-size: 14px!important;
+        line-height: normal!important;
+        margin-left: 0;
+        text-align: center
+    }
+    .lp-idfc-health-insurance .health-calculate-link {
+        color: #fb637e;
+        display: block;
+        font-family: gotham_book!important;
+        font-size: 14px!important;
+        margin-left: 38%;
+        font-weight: 700!important;
+        cursor: pointer;
+        cursor: hand
+    }
+    .lp-idfc-health-insurance .health-panel-footer-image {
+        height: 50px;
+        margin-bottom: 10px
+    }
+    .lp-idfc-health-insurance .health-panel-footer-text {
+        color: #4a4a4a!important;
+        font-family: gotham_medium!important;
+        font-size: 10px!important;
+        line-height: 12px!important;
+        text-align: center;
+        width: 55px;
+        cursor: pointer;
+        cursor: hand;
+        margin-bottom: 23px
+    }
+    .lp-idfc-health-insurance .health-panel-footer {
+        float: left;
+        display: inline-block;
+        margin: 0;
+        width: 33.3%
+    }
+    .lp-idfc-health-insurance .marginLeft {
+        margin-left: 16%
+    }
+    .lp-idfc-health-insurance .health-footer {
+        display: block;
+        margin: 0
+    }
+    .lp-idfc-health-insurance .health-insurance-third-div {
+        display: block;
+        height: auto;
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center
+    }
+    .lp-idfc-health-insurance .health-insurance-panel-button {
+        width: 80%
+    }
+    .lp-idfc-health-insurance .health-mobile-images {
+        height: 50px
+    }
+}
+@media only screen and (min-width: 280px) and (max-width: 340px) {
+    .lp-idfc-health-insurance .life-calculate-image {
+        margin: 23px 105px 0
+    }
+    .lp-idfc-health-insurance .health-mobile-images {
+        height: 50px
+    }
+    .lp-idfc-health-insurance .health-insurance-panel label {
+        color: #fff;
+        font-family: gotham_book!important;
+        font-size: 18px!important;
+        line-height: 22px!important;
+        margin: 41px 0 43px;
+        text-align: center;
+        height: 66px;
+        width: 320px
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 800px) {
+    .lp-idfc-health-insurance .col-sm-7 {
+        width: 100%!important
+    }
+}
+.lp-idfc-health-insurance .cursor-none {
+    cursor: default
+}
+.lp-idfc-health-insurance .helthButton {
+    margin: 0!important
+}
+.lp-idfc-health-insurance .helthpopupHeader {
+    color: #fff!important;
+    background-color: #969!important;
+    border-color: #969!important
+}
+.lp-idfc-health-insurance .helthpopupHeader .close {
+    position: relative;
+    left: -17px;
+    color: #fff;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    -webkit-appearance: none;
+    float: right;
+    opacity: 1;
+    font-style: normal
+}
+.lp-idfc-health-insurance .helthpopupHeader label {
+    font-weight: 700!important;
+    color: #fff;
+    display: block;
+    text-align: center;
+    padding-top: 10px!important;
+    padding-bottom: 5px!important
+}
+.lp-idfc-health-insurance .helthmodal {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    padding-top: 300px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, .4)
+}
+.lp-idfc-health-insurance .helthmodal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 60%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: .4s;
+    animation-name: animatetop;
+    animation-duration: .4s
+}
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+    .lp-idfc-health-insurance .helthmodal {
+        display: none;
+        position: fixed;
+        z-index: 50;
+        padding-top: 130px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: #000;
+        background-color: rgba(0, 0, 0, .4)
+    }
+    .lp-idfc-health-insurance .helthmodal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 95%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: .4s;
+        animation-name: animatetop;
+        animation-duration: .4s
+    }
+}
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+.lp-idfc-health-insurance .helthmodal-close {
+    color: #fff;
+    float: right;
+    font-size: 22px;
+    font-weight: 700;
+    left: -14px;
+    position: relative;
+    top: -37px
+}
+.lp-idfc-health-insurance .helthmodal-close:focus,
+.lp-idfc-health-insurance .helthmodal-close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer
+}
+.lp-idfc-health-insurance .helthmodal-header {
+    color: #fff!important;
+    background-color: #969!important;
+    border-color: #969!important
+}
+.lp-idfc-health-insurance .helthmodal-body {
+    font-family: Helvetica!important;
+    font-weight: 400;
+    padding: 12px 12px 0
+}
+.lp-idfc-health-insurance .helthmodal-footer {
+    height: 105px;
+    padding: 15px 12px;
+    text-align: center
+}

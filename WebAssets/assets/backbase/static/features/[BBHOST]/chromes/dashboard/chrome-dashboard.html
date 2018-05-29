@@ -1,0 +1,48 @@
+<div data-pid="{{widgetInstanceId}}" id="{{widgetInstanceId}}" class="bp-widget lp-widget bp-ui-dragRoot lp-chrome panel-chrome">
+    <div class="bp-widget-head lp-widget-head bp-ui-dragGrip clearfix">
+        <ul class="bp-widget-head-left clearfix">
+            <li class="bp-widget-head-left-list-item">
+                <a class="bp-chrome-button bp-widget-act-min">
+                    <span class="bp-button-in"></span>
+                </a>
+            </li>
+        </ul>
+        <ul class="bp-widget-head-center clearfix">
+            <li class="bp-widget-head-center-list-item">
+                <div class="bp-widget-title">{{widgetTitle}}</div>
+            </li>
+        </ul>
+        <ul class="bp-widget-head-right clearfix">
+            <li class="bp-widget-head-right-list-item">
+                <a data-action="widget-preferences" data-fields="be.forms.Preferences.UserPreferenceField" data-form="be.portalClientExt.PortalManagerPreferencesForm" data-anim="be.animation.flipContainer" class="bp-chrome-button bp-widget-act-max bp-button-preferences">
+                   <span class="bp-button-in"></span>
+                </a>
+            </li>
+            <li class="bp-widget-head-right-list-item lp-button-maximize">
+                <a data-action="widget-maximize" class="bp-chrome-button bp-widget-act-max bp-button-maximize">
+                   <span class="bp-button-in"></span>
+                </a>
+            </li>
+            <li class="bp-widget-head-right-list-item lp-button-restore">
+                <a data-action="widget-restore" class="bp-chrome-button bp-widget-act-restore bp-button-restore">
+                    <span class="bp-button-in"></span>
+                </a>
+            </li>
+            <li class="bp-widget-head-right-list-item">
+                <a data-action="widget-refresh" class="bp-chrome-button bp-widget-act-refresh bp-button-refresh">
+                    <span class="bp-button-in"></span>
+                </a>
+            </li>
+            {{#showDelete}}
+                <li class="bp-widget-head-right-list-item">
+                    <a data-action="widget-close" class="bp-chrome-button bp-widget-act-close bp-button-close">
+                       <span class="bp-button-in"></span>
+                    </a>
+                </li>
+            {{/showDelete}}
+        </ul>
+    </div>
+    <div class="bp-widget-pref lp-widget-pref"></div>
+    <div class="bp-widget-body lp-widget-body">{{{widgetContent}}}</div>
+    <div class="bp-widget-foot lp-widget-foot"></div>
+</div>

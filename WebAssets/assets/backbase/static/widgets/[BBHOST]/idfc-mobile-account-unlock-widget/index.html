@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:g="http://www.backbase.com/2008/gadget" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/xml; charset=UTF-8" />
+    <link rel="stylesheet" href="styles/base.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main')" class="lp-idfc-account-unlock-widget" ng-controller="NewUserCtrl as newUserCtrl">
+    <div ng-show="newUserCtrl.errorSpin">
+        <div class="forgetPassword-panel-message panel-message forgetPassword-loading-panel loading-panel" role="alert">
+            <i class="forgetPassword-lp-icon lp-icon forgetPassword-lp-icon-spinner2 lp-icon-spinner2 forgetPassword-lp-spin lp-spin forgetPassword-loading-icon loading-icon"></i>
+            <span class="forgetPassword-sr-only" lp-i18n="Busy"></span>
+        </div>
+    </div>
+    <div class="ng-cloak forgotPassword-panelwidth"  >
+        <div class="lp-widget-content">
+            <div class="panel-heading">
+                <!--<div class="alert alert-error login-alert" ng-show="loginerror">-->
+                    <!--<div alert="alert">-->
+                        <!--<i class="lp-icon lp-icon-alert-warning"></i> Your password has been expired.-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="lp-alerts">
+                    <div class="alert alert-error login-alert" ng-show="newUserCtrl.showAlerts" ng-repeat="alert in newUserCtrl.alerts" close="closeAlert($index)">
+                        <div alert="alert">
+                            <i class="lp-icon lp-icon-alert-warning"></i> {{alert.msg}}
+                        </div>
+                    </div>
+                </div>
+                <div class="lp-widget-body ">
+                    <div>
+                        <div data-ng-include="newUserCtrl.templates.accountUnlock"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

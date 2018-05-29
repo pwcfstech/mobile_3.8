@@ -1,0 +1,1008 @@
+/* Build with bb-lp-cli @ v1.1.0 */
+
+.lp-loyalty .row {
+    margin-bottom: 10px
+}
+/* Personal Loan changes start */
+/*.row {
+    margin-left: 0;
+    margin-right: 0
+}
+*/
+.lp-desc-list {
+    margin: 0 0 0 10px
+}
+
+.lp-desc-list>dt {
+    min-width: 60%;
+    text-align: left
+}
+
+.lp-lc--main {
+    font-weight: normal !important
+}
+
+.lp-desc-list>dd {
+    margin-left: 0
+}
+
+.track-button-style {
+    text-align: center !important;
+    width: 100% !important;
+    margin-left: -10.5%
+}
+
+.track-sts-align {
+    text-indent: 13%;
+    text-align: center
+}
+
+@media (min-width:818px) and (max-width:991px) {
+    #limitForm .col-sm-3 {
+        min-width: 50%
+    }
+}
+
+@media (min-width:768px) and (max-width:817px) {
+    #limitForm .col-sm-3 {
+        min-width: 60%
+    }
+}
+
+@media (min-width:992px) {
+    #limitForm .col-sm-3 {
+        min-width: 38%
+    }
+}
+
+.track-button-style {
+    width: 50%;
+    text-align: right
+}
+
+@media (min-width:601px) and (max-width:767px) {
+    #limitForm .control-label {
+        float: left;
+        min-width: 38%;
+        padding-top: 7px
+    }
+}
+
+@media (min-width:466px) and (max-width:600px) {
+    #limitForm .control-label {
+        float: left;
+        min-width: 48%;
+        padding-top: 7px
+    }
+}
+
+@media (max-width:465px) {
+    #limitForm .control-label {
+        float: left;
+        min-width: 60%;
+        padding-top: 7px
+    }
+}
+
+@media (max-width:767px) {
+    #limitForm .field-area {
+        width: 50%;
+        float: left
+    }
+}
+
+@media (min-width:630px) and (max-width:767px) {
+    .track-button-style {
+        width: 80%;
+        text-align: right
+    }
+}
+
+@media (min-width:600px) and (max-width:630px) {
+    .track-button-style {
+        width: 85%;
+        text-align: right
+    }
+}
+
+.track-list {
+    width: 12.333333% ! important
+}
+
+@media (min-width:530px) and (max-width:600px) {
+    .track-button-style {
+        width: 95%;
+        text-align: right
+    }
+}
+
+.form-dropDown {
+    display: block;
+    width: 100%;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s
+}
+
+.primary-btn-track {
+    font-family: gotham_book, calibri !important;
+    font-size: 14px !important;
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    padding: 16px !important;
+    border: none !important
+}
+
+.secondary-btn-track {
+    height: 52px;
+    font-family: gotham_book, calibri !important;
+    background-color: #666666 !important;
+    font-size: 12px !important;
+    color: #ffffff !important;
+    border: none !important;
+    position: relative;
+    padding: 16px !important;
+    margin-right: 7px !important;
+    border-radius: 3px !important
+}
+
+.sr-list {
+    color: #333333 !important;
+    font-family: gotham_book, Calibri !important;
+    font-size: 14px !important;
+    margin-left: 18%
+}
+
+.or {
+    color: #333333 !important;
+    font-family: gotham bold !important;
+    font-size: 14px !important;
+    font-weight: bold
+}
+
+div.label-font label span {
+    font-family: gotham_book
+}
+
+label {
+    font-family: gotham_book, Calibri !important;
+    font-size: 16px;
+    font-weight: normal !important
+}
+
+.IDFC-dropdown:focus {
+    color: #333333 !important;
+    font-weight: bold !important;
+    background-color: #f9f4fa !important
+}
+
+.track-service-request-input {
+    width: 197px ! important
+}
+
+.idfcCursorPointer {
+    cursor: pointer !important
+}
+
+.idfcTableHeader {
+    margin-top: 1% !important;
+    margin-bottom: 1% !important
+}
+
+.idfcListBorderNone {
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important
+}
+
+.idfcPaddingLeft {
+    padding-left: 2%
+}
+
+.idfcPaddingRight {
+    padding-right: 4%
+}
+
+.idfcSearchButton {
+    height: 40px !important;
+    margin-left: 30px;
+    background-color: #969 !important;
+    color: #FFF;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding-right: 12px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding-top: 11px !important
+}
+
+.idfcClearButton {
+    height: 40px !important;
+    margin-left: 12px;
+    background-color: #666 !important;
+    color: #FFF;
+    display: inline-block;
+    margin-bottom: 0 !important;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding-top: 11px !important
+}
+
+.idfcHeaderSpacing {
+    margin-left: -2% !important
+}
+
+.idfcLabelSpacing {
+    margin-left: -30% !important
+}
+
+.idfcFloatLeft {
+    float: left !important
+}
+
+.idfcSubmitForm {
+    width: 62% !important;
+    float: right !important;
+    margin-top: -6.6% !important
+}
+
+.idfcDropDownButton button {
+    height: 40px !important
+}
+
+.idfcTableHeaderFontStyle {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: bold !important
+}
+
+.idfcTabularDetails {
+    border-bottom: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 1px solid #ddd !important
+}
+
+.caretdown {
+    border-bottom: 4px solid #996699;
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+    margin-top: 8px
+}
+
+.caretup {
+    border-top: 4px solid #996699;
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+    margin-top: 8px
+}
+
+span.sr-status {
+    float: right;
+    margin-right: 20%
+}
+
+.track-heading-width {
+    width: 16% !important;
+    text-align: left;
+    background-color: #ddb8dd ! important;
+    font: 12px gotham_book;
+    font-weight: bold;
+    word-wrap: break-word;
+    word-break: break-word
+}
+
+.content-width {
+    width: 16% !important;
+    font: 12px gotham_book;
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word
+}
+
+.track-table-heading {
+    border-spacing: 10px;
+    text-align: left;
+    background-color: #DDB8DD;
+    line-height: 1.42857;
+    height: 50px
+}
+
+.track-table-body {
+    border-spacing: 10px;
+    text-align: left
+}
+
+.repay-main-heading-int-date {
+    text-align: left;
+    font-weight: bold;
+    padding-left: 7px;
+    width: 15%
+}
+
+.repay-main-heading-opn-blc {
+    text-align: right;
+    font-weight: bold;
+    width: 19%
+}
+
+.repay-main-heading-prncpl {
+    text-align: right;
+    font-weight: bold;
+    width: 12%
+}
+
+.repay-main-heading-emiAmt {
+    text-align: right;
+    font-weight: bold;
+    width: 22%;
+    padding-right: 2px
+}
+
+.repay-main-heading-int {
+    text-align: right;
+    font-weight: bold;
+    width: 13%;
+    padding-right: 10px
+}
+
+.repay-main-heading-crntBlc {
+    text-align: right;
+    font-weight: bold;
+    width: 0;
+    padding-right: 10px
+}
+
+.cat-style {
+    padding-left: 25px
+}
+
+.id-style {
+    text-indent: 22%
+}
+
+.track-top {
+    margin-top: 1%
+}
+
+#RepayList {
+    margin-top: 1%
+}
+
+.rep-acc-date-label {
+    font-family: gotham_book, Calibri !important;
+    font-size: 16px
+}
+
+.rep-block-display {
+    padding-top: 20px;
+    margin-left: -12px;
+    padding-bottom: 10px
+}
+
+.rep-acc-fromdate-feild {
+    padding-right: 164px
+}
+
+.date_select {
+    width: 58% ! important;
+    margin-top: -5px;
+    float: left
+}
+
+.cal-icon-position {
+    margin-left: -22px;
+    position: relative;
+    top: -4px
+}
+
+.rep-acc-date-inputfeild {
+    height: 35px;
+    width: 160px;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+    padding-left: 10px
+}
+
+.repay-li-to-inbox input,
+.repay-li-from-inbox input {
+    height: 33px !important;
+    width: 160px;
+    border: 1px solid #cccccc !important;
+    border-radius: 4px !important;
+    padding-left: 11px
+}
+
+.lp-icon-calendar:before {
+    content: "\e636" !important
+}
+
+.list-group-item:first-child {
+    border-top-right-radius: initial;
+    border-top-left-radius: initial
+}
+
+.idfcSubmitButton {
+    margin-left: 75px;
+    background-color: #fb637e !important;
+    color: #FFF;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding: 10px
+}
+
+.text-danger {
+    color: #A94442;
+    font-weight: bold !important
+}
+
+.primary-btn-repay-acct {
+    background-color: #fb637e !important
+}
+
+.lp-pending-message {
+    line-height: 350px;
+    padding: 0
+}
+
+.rep-acc-date-feild {
+    padding-right: 140px
+}
+
+.show-more-link {
+    text-align: center;
+    cursor: pointer
+}
+
+.rep-acc-todate-feild {
+    padding-left: 50px
+}
+
+.input-div {
+    width: 165px
+}
+
+.repay-main-heading {
+    text-align: center;
+    font-weight: bold
+}
+
+.rep-account-request-input {
+    width: 160px ! important;
+    height: 33px !important
+}
+
+.repay-main-content {
+    width: 35%;
+    text-align: right;
+    padding: 10px
+}
+
+.repay-main-content-date {
+
+    text-align: left;
+    width: 15%;
+}
+
+.repay-main-content-int {
+    width: 13%
+}
+
+.repay-main-content-opnBlc {
+    width: 19%;
+    text-align: right;
+    padding-left: 0
+}
+
+.repay-main-content-pncpl {
+    text-align: right;
+    width: 12%
+}
+
+.repay-main-content-emiAmt {
+    text-align: right;
+    width: 21%
+}
+
+.repay-main-content-closingBalance {
+    text-align: right;
+    width: 10%
+}
+
+.table-striped-repay:nth-child(odd) {
+    background: #F3F3F3
+}
+
+.table-striped-repay:nth-child(even) {
+    background: #E5E5E5
+}
+
+.text-amount {
+    text-align: right
+}
+
+.widget-body {
+    min-height: 300px
+}
+
+.list-group-item {
+    padding: 0
+}
+
+.status-content {
+    text-indent: -1%
+}
+
+.track-table-scroll {
+    overflow: scroll
+}
+
+.track-ul-width {
+    min-width: 520px
+}
+
+.marginBottom {
+    margin-bottom: 10px
+}
+
+@media (max-width:768px) {
+    .submitBut {
+        margin-bottom: 10px
+    }
+}
+
+@media (min-width:768px) {
+    .submitBut {
+        float: left
+    }
+}
+
+@media (max-width:650px) {
+    .tableDiv {
+        overflow-x: scroll
+    }
+    .track-table-heading-media {
+        border-spacing: 10px;
+        text-align: left;
+        width: 261%
+    }
+    .panel-default-media {
+        border-color: #ddd;
+        width: 263%
+    }
+}
+
+.container-input-soa {
+    margin-left: 15px
+}
+
+.container-input-soa .input-boxes {
+    margin-bottom: 15px
+}
+
+.container-input-soa .span-font {
+    font-size: 16px;
+    font-family: gotham_book, Calibri !important;
+    line-height: 33px
+}
+
+@media (max-width:768px) {
+    .rep-account-request-input {
+        width: 95% !important
+    }
+    .rep-acc-date-inputfeild {
+        width: 95%
+    }
+    .idfcSubmitButton {
+        width: 95%;
+        margin-left: 0
+    }
+    .container-input-soa .span-font {
+        line-height: inherit
+    }
+    .mob-scroll {
+        overflow-x: scroll
+    }
+}
+
+@media (min-width:768px) {
+    .container-input-soa .to-date-desk {
+        margin-left: 140px;
+        top: -40px
+    }
+}
+
+.rs-widget-body {
+    min-height: 150px
+}
+
+.rs-panel-body {
+    padding: 15px
+}
+
+@media (min-width:992px) {
+    .col-md-2.rep-toDate {
+        width: 11.666667%
+    }
+}
+
+.error-transactions {
+    font-weight: bold !important
+}
+
+.successEmailMsg {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Sheldon */
+.loan-yellow-bg{
+    background-color: rgba(255, 239, 192, 0.6);
+    padding: 30px 5% 29px 5%;
+    margin: 0 auto;
+    width: 100%;
+};
+
+.font-medium{
+    font-family: Gotham_Medium !important;
+    font-weight: normal !important;
+}
+
+.font-14{
+    font-size: 12px !important;
+}
+
+.font-book{
+    font-family: Gotham_Book !important;
+    font-weight: normal !important;
+}
+
+.font-12{
+    font-size: 12px !important;
+}
+
+.color-red{
+    color: rgba(255,0,0,1);
+}
+
+.color-green{
+    color: rgba(65,117,5,1);
+}
+
+.color-dark-gray{
+    color: rgba(74,74,74,1);
+}
+
+.color-pink{
+    color: rgba(251,99,126,1);
+}
+
+.line-height-40{
+    line-height: 40px !important;
+}
+
+.input-box-width{
+   width: 100% !important;
+}
+
+.padding0{
+  padding:0px;
+}
+
+.padding2em{
+  padding:2em;
+}
+
+.padding-bottom-2em{
+  padding-bottom:2em;
+}
+
+.padding-top-2em{
+  padding-top:2em;
+}
+
+.lp-icon-calendar:before {
+    content: "\e636" !important
+}
+.dt-cal-icon-from {
+    position: relative;
+    top: 8px;
+    margin-left: -18px;
+    z-index: 10;
+    cursor: pointer
+}
+.lp-icon {
+    vertical-align: middle;
+    color: #FB637E !important
+}
+
+.cal-icon-position-homesoa {
+    right:26px;
+    position: absolute;
+    top: 35%;
+}
+
+.btn-primary {
+    color: #ffffff;
+    border-color: #2e6da4;
+    background-color: #FB637E !important;
+    font-family: gotham_book !important;
+    font-size: 13px!important;
+    border-style: none !important;
+
+}
+
+.soa-submit-height {
+    height: 40px;
+    width: 91px;
+    padding: 0px !important;
+}
+
+@media only screen and (max-width: 1300px){
+    .soa-submit-height {
+        width: 65px!important;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobileFixLabel {
+        width: 100%;
+        float: left !important
+    }
+    .mobileFixDate {
+        float: left;
+        width: 100%;
+        margin-bottom: 10px
+    }
+    .mobileFixFloatRight {
+        float: right;
+    }
+
+    .mobileFixTopPadding1em {
+        padding-top:1em;
+    }
+
+    .mobileFixTopPadding2em {
+            padding-top:2em;
+        }
+}
+
+.replayment-table {
+    width: 100%;
+    border-spacing: 10px;
+    text-align: left !important;
+    color: #333333
+}
+
+.table-show {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+.table-headers {
+    height: 50px !important
+}
+
+.padding-l2percent{
+    padding-left: 2% !important;
+}
+
+.padding-r2percent{
+    padding-right: 2% !important;
+}
+
+.color-light-gray-bg{
+    background-color: rgba(234, 234, 234, 0.5);
+}
+
+.btn-loadMore{
+    background-color: rgba(221,227,233,1) !important;
+    height: 30px;
+    width: 150px;
+    box-shadow:none;
+    border:none;
+    border-radius: 0px;
+    color:rgba(251,99,126,1);
+    margin-bottom:1em;
+}
+
+.label-soa {
+    font-size: 14px !important;
+    font-family: gotham_book !important;
+    color: rgba(74, 74, 74, 1);
+}
+
+.footerButton {
+    width: auto !important;
+    padding-right: 0.1em;
+    padding-left: 0.1em;
+    float: right;
+}
+
+.mailButton{
+    background:url(../../../../features/[BBHOST]/theme-idfc/images/mailN.png) no-repeat top center;
+    height: 20px;
+    border: none;
+    float:left;
+    width:20px;
+    margin:23px 1.2em 19px 0em;
+}
+
+.printButton{
+    background:url(../../../../features/[BBHOST]/theme-idfc/images/print.png) no-repeat top center;
+        height: 20px;
+        border: none;
+		float:left;
+		width:20px;
+		margin:23px 1.2em 19px 0em;
+}
+.downButton{
+    background:url(../../../../features/[BBHOST]/theme-idfc/images/down.png) no-repeat top center;
+        height: 20px;
+        border: none;
+		float:left;
+		width:20px;
+		margin:23px 1.2em 19px 0;
+}
+
+.padding-right-25px{
+  padding-right: 25px;
+}
+
+.showMoreBtn-lf{
+	margin-left: 2%;
+}
+
+.color-white-bg {
+    background-color: white !important;
+}
+
+.padding-top-10px{
+  padding-top: 10px;
+}
+
+@media (max-width:767px){
+    .line-height-40{
+        line-height: 20px !important;
+            padding-top: 10px;
+    }
+    .input-box-width{
+        width: 100% !important;
+    }
+    .text-left-xs{
+        text-align: left !important;
+    }
+    .padding-top-10px{
+        padding-top: 0px !important;
+    }
+    .mob-scroll {
+        overflow-x: hidden
+    }
+}
+
+.table-idfc-gen-tr {
+    border-bottom: 1px solid rgba(216,216,216,1) !important;
+    height: 40px;
+    background-color: white !important;
+    cursor: default !important;
+
+}
+
+.table-bordered td {
+
+	border: 1px solid #ffffff !important;
+	}
+
+.table-bordered th {
+	background:rgba(255, 239, 192, 1);
+	color:#393939;
+	font-weight: bold;
+	border: 1px solid #ffffff !important;
+	}
+
+.cursor-pointer{
+  cursor: pointer !important;
+}
+.restrictHorizontal{
+width:100%;
+overflow-x:hidden;
+}
+
+.successEmailMsg {
+    text-align: center!important;
+    margin-top: 1.7%!important;
+    font-weight: normal!important;
+    z-index: 99!important;
+    position: absolute!important;
+    margin-left:4%;
+}
+
+.succCenter{
+
+    position: absolute;
+    text-align: center;
+    margin-top: 1.7%;
+}
+
+.successMessageRSoa{
+      position: relative!important;
+
+    margin: -3em auto 0!important;
+    /* margin: 2% auto 0!important; */
+    text-align: center!important;
+    /* word-wrap: normal; */
+        width: 98%;
+	display: inline-block;
+    clear: both;
+}
+.lp-icon-angle-right:before {
+    color: #fb637e !important;
+    font-size: 13px;
+}
+
+.lp-icon-angle-left:before {
+    color: #fb637e !important;
+    font-size: 13px;
+}
+
+@media (min-width: 360px) {
+
+  /*  .col-xs-4 {
+        width: 33.333% !important;
+    }
+    */
+}
+
+/*# sourceMappingURL=base.css.map */

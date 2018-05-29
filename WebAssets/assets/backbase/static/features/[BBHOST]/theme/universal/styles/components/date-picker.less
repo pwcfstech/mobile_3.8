@@ -1,0 +1,60 @@
+.lp-datepicker {
+	padding:0;
+	border:5px solid #081303;
+	border-color:rgba(8, 19, 3, 0.4);
+	thead {
+		background:#f0f0f0;
+		color:#c7c7c7;
+		border-left: 1px solid;
+		border-right: 1px solid;
+		th small {
+			font-size:10px;
+		}
+	}
+	thead tr:first-child {
+		background:#343434;
+
+		th {
+			border-color:#343434;
+			height: 23px;
+			border-left: 1px solid;
+			border-right: 1px solid;
+			.btn{
+				border:0 none;
+				background:#343434;
+				color:#fff;
+			}
+		}
+	}
+	.btn {
+		.border-radius(0);
+	}
+	.btn-muted {
+		background:#e7e7e7;
+		color:#c9c9c9;
+	}
+	tbody .btn {
+		border:0 none;
+		&.active {
+			background:#ececec;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+			span {
+				color:#DB1B3B;
+			}
+		}
+	}
+	tbody td {
+		border:1px solid #eee;
+	}
+	table {
+		border-collapse:collapse;
+	}
+}
+
+// move datepicker left on small screen
+.lp-small-size .lp-datepicker {
+	left: -100px !important;
+}
+

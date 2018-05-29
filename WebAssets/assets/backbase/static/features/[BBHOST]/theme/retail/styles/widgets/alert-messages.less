@@ -1,0 +1,90 @@
+.lp-automation-alerts-widget {
+  .automation-show-details-wrapper {
+    background-color: @legend-border-color;
+  }
+
+  .lp-automations-list-wrapper {
+    .no-automations-stored {
+      color: @panel-widget-text;
+    }
+
+    .automation-row {
+      border-bottom: 1px solid @panel-widget-heading-bg;
+      &:hover {
+        background-color: @state-info-bg;
+      }
+      .cell {
+        @media (max-width: @screen-sm-min) {
+          &.switcher {
+            padding-left: 0;
+          }
+          .button-content {
+            display: none;
+          }
+        }
+        .view-details-link {
+          color: @brand-primary;
+        }
+      }
+    }
+
+    .lp-automations-list-hide-show {
+      background-color: @panel-widget-heading-bg;
+      &:hover {
+        background-color: @panel-dark-bg;
+      }
+    }
+  }
+
+  .lp-automations-new-form-wrapper {
+    .selected {
+      background-color: @component-active-bg;
+      color: @component-active-color;
+    }
+    .lp-account-select {
+      border: 1px solid @panel-dark-bg;
+    }
+    @media (max-width: @screen-sm-min) {
+      ul.row li {
+        margin: 0;
+      }
+      .lp-account-select {
+        position: static;
+        height: auto;
+      }
+    }
+  }
+
+  .step-overlay {
+    background-color: @panel-widget-heading-bg;
+  }
+
+  .has-error {
+    color: @state-danger-text;
+  }
+
+  @media (max-width: @screen-sm-min) {
+    min-height: inherit;
+
+    .lp-automations-new-button-wrapper {
+      padding: 0;
+    }
+    .create-button-text-full-view {
+      display: none;
+    }
+    .create-button-text-mobile-view {
+      display: block;
+      transform: translate(25%, 0);
+    }
+    .create-new-button {
+      margin: 0;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      position: fixed;
+      right: 5%;
+      bottom: 5%;
+      box-shadow: 0 0 20px 6px #fff;
+    }
+  }
+}

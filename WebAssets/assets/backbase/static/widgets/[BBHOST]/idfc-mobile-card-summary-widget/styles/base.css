@@ -1,0 +1,760 @@
+.table-border-collapsing {
+    border: 1px solid grey;
+    border-collapse: collapse;
+	text-align: center;
+}
+
+.intro
+{
+	color:#54db7b;
+}
+.danger-status
+{
+	color:#d0021b;
+}
+.table-align
+{
+	margin:1%;
+	width:80%;
+	margin-right:-2%;
+}
+.label-align-limit
+{
+	margin:1%;
+	font-size: 16px;
+	font-weight: bold!important;
+	color:#000000!important;
+}
+.para-style{
+	text-align:left
+}
+.card-details-acc
+{
+	border:1px solid grey;
+	margin:1%;
+	width:98%;
+}
+th.th-dp-det 
+{
+
+
+     font: 14px gotham_book!important;
+     font-weight: bold !important;
+	     padding: 10px;
+		 text-align:center;
+}
+.view-button .view-button{
+background-color: #FB637E!important;
+}
+ .td-alignment
+ {
+ text-align:left!important;
+ }
+td.td-dp-det 
+{
+
+
+     font: 14px gotham_book !important;
+	     padding: 10px;
+		  text-align:center;
+}
+.secondary-btn-closure{
+font-family: gotham_book,Calibri !important;
+  background-color: #666666 !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 12px !important;
+  margin-top:-3px !important;
+
+}
+.lp-deposit-details .panel {
+    border: 0;
+    margin: 0;
+}
+
+.lp-deposit-details .panel-body.fi-list {
+    padding: 0;
+}
+
+.lp-deposit-details .list-group {
+    margin: 0;
+    border-radius: 0;
+}
+
+.lp-deposit-details .list-group .list-group-item {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    position: relative;
+    top:0;
+}
+
+.lp-deposit-details .transitioning {
+   z-index: 10;
+}
+
+.lp-deposit-details .transitioning .h4 {
+    font-size: 18px;
+}
+
+.transition-fi-dp-det   {
+    -moz-transition: top 0.8s, height 0.8s;
+    -webkit-transition: top 0.8s, height 0.8s;
+    -o-transition: top 0.8s, height 0.8s;
+    transition: top 0.8s, height 0.8s;
+}
+
+.lp-deposit-details .fi-icon {
+    font-size: 30px;
+}
+
+.lp-deposit-details .panel-heading.context {
+    padding: 0px 15px;
+    border-bottom: 0;
+}
+
+.lp-deposit-details .selected-fi {
+    min-height: 65px;
+}
+
+.lp-deposit-details .panel-heading.selected-fi {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.lp-deposit-details .alert {
+    margin-bottom: 0px;
+}
+
+.lp-deposit-details .selected-fi i {
+    font-size: 30px;
+}
+
+.lp-deposit-details .btn-filter {
+    margin-top: 10px;
+    min-height: 55px;
+    overflow: hidden;
+    padding: 6px 0;
+}
+
+@media (max-width: 992px) {
+    .lp-deposit-details .btn-filter {
+        min-height: 90px;
+    }
+}
+
+.lp-deposit-details .filter-row {
+    height: 50%;
+}
+
+.lp-deposit-details .filter-row i {
+    font-size: 30px;
+}
+
+.lp-deposit-details .filter-row.push {
+    margin-top: 6px;
+}
+
+.lp-deposit-details .filters {
+    margin-top: 10px;
+}
+
+.lp-deposit-details .connection-feedback {
+    height: 80px;
+}
+.table-head-dp-det{
+/* font-size: 110% !important; */
+font-weight:bold;
+padding: 0 !important;
+padding-top: 18px !important;
+}
+.table-can-padding-dp-det{
+padding:0 !important;
+}
+.table-mainth-width{
+width:25%;
+}
+.table-childth-width-dp-det{
+width:15%;
+font-size: 12px !important;
+padding: 1% !important;
+}
+.table-maintd-width-dp-det{
+width:15%;
+text-align:left;
+}
+.table-childtd-width-dp-det{
+width:15%;
+padding:1% !important;
+  font: 12px gotham_book;
+}
+.table-maturity-head-dp-det{
+  font-weight: bold ! important;
+  padding: 0 !important;
+
+  /* font-size: 110% !important; */
+  }
+.table-maturity-td-dp-det{
+  font-weight: bold;
+  padding: 0 !important;
+  padding-top: 8px !important;
+    font-size: 12px;
+ }
+ .tab-pad-top-dp-det{
+ padding-top:5px !important;
+
+   padding: 0 !important;
+   padding-top: 8px !important;
+    font: 12px gotham_book;
+ }
+ .tab-width-dp-det{
+ width:100%;
+ text-align:left;
+   font-family: gotham_book;
+ }
+ .tab-btn-dp-det{
+ text-align:right;
+ padding-top:20px !important;
+
+ }
+ .min-width-dp-det{
+ min-width:730px;
+} 
+.ng-cloak {
+    display: none !important;
+}
+@media(max-width:767px){
+.th-dt-deposit-type{
+display:none;
+}
+.td-main-deposit-type{
+display:none;
+}
+.td-dp-det,.th-dp-det{
+font-size:12px;
+}
+.heading-width-dp-det {
+  width: 37%;
+  padding-left: 0px;
+  text-indent:0px;
+}
+.principal-amt-padding-dp-det {
+  
+  text-align: right;
+}
+.table-maintd-width-dp-det {
+  width: 302px;
+}
+}
+@media (min-width:561px) and (max-width:767px){
+.principal-amt-padding-dp-det {
+  
+  text-align: right;
+}
+}
+.th-align-right{
+text-align:right;
+}
+.innerClass-dd {
+  position: relative;
+  min-width: 100%;
+  overflow-x: scroll;
+  clear: both;
+  min-height: 343px;
+}
+.child-table-position{
+position:absolute;
+}
+/*green and red box styling */
+.box{
+width:16px;
+height:16px;
+}
+.box-text{
+text-align: left;
+margin-left: 3%;
+margin-top: -2%;
+}
+/*green and red box styling */
+
+/*progress bar styling starts */
+
+.progress-div{
+   margin-top: 3%;
+  
+}
+.progress{
+   width:100%;
+   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0) !important;
+  
+}
+/*progress bar for ie*/
+/* .progress-bar{
+   width:22%;
+  
+} */
+.progress-message{
+   margin-left: 59%;
+}
+
+.progress[value]  {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+
+  /* Get rid of default border in Firefox. */
+  border: none;
+
+  /* Dimensions */
+  width: 250px;
+  height: 20px;
+
+  /* For IE10 */
+  color: blue; 
+}
+
+.progress-paid{
+
+   background-color: #5cb85c !important;
+}
+/*progress bar styling ends */
+
+
+/* recurring-deposit-table start */
+.recur-deposit-sum-table{
+	width:500px;
+	text-align: left !important;
+	color: #333333;
+	overflow-x:auto;
+	overflow-y:auto;
+}
+.recur-deposit-sum-table th{
+		font-weight: bold !important;
+}
+.recur-deposit-sum-table caption{
+		font-style: normal !important;
+		font-weight: bold !important;
+		color: #333333;
+		
+}
+.recur-deposit-sum-table td{
+		padding: 1% 0% !important;
+		font-weight: normal;
+}
+
+.gen-det-table{
+       width: 100%;
+	   line-height: 32px;
+	   text-align: left;
+	   
+}
+.gen-det-table th{
+    width: 50%;
+}
+.gen-det-table td{
+       padding: 1% 0% !important;
+		font-weight: normal;
+		
+}
+.gen-det-table .gen-det-table-cap {
+			color: black;
+			font-style: normal;
+			font-weight: bold !important;
+}
+
+
+.maturity-detail-table{
+   width: 100%;
+   line-height: 32px;
+   text-align: left;
+}
+.maturity-detail-table th{
+	width: 50%;
+}
+.gen-det-table-cap{
+            color: black;
+			font-style: normal;
+			font-weight: bold !important;
+
+}
+
+
+.maturity-detail-table td{
+       padding: 1% 0% !important;
+		font-weight: normal;
+}
+
+.nominee-detail-table{
+    width: 100%;
+    line-height: 32px;
+    text-align: left;
+}
+.nominee-detail-table th{
+	width: 50%;
+}
+
+.nominee-detail-table td{
+       padding: 1% 0% !important;
+		font-weight: normal;
+}
+
+/* recurring-deposit-table end */
+
+/* recurring-summary-page starts */
+.recur-widget{
+
+   padding: 2%;
+   overflow-x:auto;
+   overflow-y:auto;
+
+}
+
+
+
+.rectangle{
+    display: inline-block;
+    float: left;
+}
+
+.summary-deposit-sum-table{
+	width:100%;
+	border-spacing: 10px;
+	text-align: left !important;
+	color: #333333;
+	
+}
+.summary-deposit-sum-table th{
+		font-weight: bold !important;
+		
+}
+.summary-deposit-sum-table caption{
+		font-style: normal !important;
+		font-weight: bold !important;
+		color: #333333;
+		
+}
+
+
+@media(max-width:991px){
+
+.summary-deposit-sum-table{
+	width:500px;
+	border-spacing: 10px;
+	text-align: left !important;
+	color: #333333;
+	overflow-x:auto;
+   overflow-y:auto;
+}
+.recur-widget{
+
+   padding: 1%;
+}
+}
+
+
+
+
+.create-bt{
+    float: right;
+    margin-right: 0%;
+    margin-top: -3%;
+	font-weight: normal;
+}
+.add-bt{
+   font-weight: normal;
+}
+
+.view-bt{
+   float: right;
+}
+.depos{
+   text-align: left;
+   margin-left: 0px;;
+}
+.button-back-pdf-mail-dup{
+  margin: 8px;
+  font-weight: normal;
+  margin-right:2%;
+}
+
+.rupee-symbol-span{
+   font-weight: normal;
+}
+
+
+
+
+@media (max-width:530px){
+
+
+ .recur-widget{
+
+   padding: 1%;
+   }
+    
+
+.recur-deposit-sum-table {
+    width: 200%;
+    text-align: left !important;
+    color: #333333;
+}
+
+.summary-deposit-sum-table {
+    width: 200%;
+    border-spacing: 10px;
+    text-align: left !important;
+    color: #333333;
+}
+
+}
+@media(max-width:767px){
+.th-branch-display{
+  display:none;
+}
+}
+.run{border:1px solid grey;border-collapse:collapse}
+//Done by Dheeraj Mishra
+
+/* Build with bb-lp-cli @ v1.2.1 */
+
+.table-idfc-gen {
+	width: 100%;
+	max-width: 100%;
+	font-family: Gotham_Book;
+}
+
+.table-idfc-gen-th{
+	text-align: center;
+	border-right:1px solid #aeaeae;
+	padding:10px;
+	font-size:16px;
+}
+.table-idfc-gen td{
+padding : 1% 0%;
+}
+.tr-bg-grey {
+	background:#eaeaea;
+}
+
+.tbody-center {
+	text-align:center;
+}
+
+.table-main-td {
+	padding:10px;
+	color:#4a4a4a;
+	font-size:16px;
+	text-align: center;
+	border-bottom: 1px solid #eaeaea;
+}
+
+.table-internal-detail {
+	margin-bottom: -5px;
+    text-align: center;
+    width: 100%;
+	max-width: 100%;
+}
+
+.table-internal-detail td {
+	background-color: #EAEAEA;
+}
+
+.table-internal-detail .div-header {
+	font-size: 16px;
+    color: #4a4a4a;
+    padding: 3% 0;
+}
+
+.table-internal-detail .div-detail {
+	font-size: 13px;
+    color: #4a4a4a;
+    padding: 0 10%;
+    line-height: 1.5;
+}
+
+.div-button {
+	padding: 2% 0;
+}
+
+.button-pink {
+	margin: 10px 0;
+    color: white;
+    background-color: #fb637e;
+    padding: 2% 5%;
+    border-radius: 5px;
+    border: none;
+}
+
+.text-active {
+	color: #0c7b54;
+}
+
+.text-blocked {
+	color: #d0021b;
+}
+
+.tr-detail-main {
+	Background-color:RGBA(201,139,219,0.2);
+}
+
+.tr-detail-main td {
+	/* padding: 1% 3%; */
+}
+
+.tr-detail-main-td {
+	padding: 1% 3%;
+	Background-color:RGBA(234,234,234,1);
+}
+
+.table-daily-limits-detail-crd-summ {
+	margin: 5px 15px;
+    width: 100%;
+    font-family: Gotham_Book;
+	width:100%;
+}
+
+.table-daily-limits-detail-crd-summ tr {
+	line-height: 2.2;
+}
+
+.table-daily-limits-detail-crd-summ th {
+	font-size: 16px;
+	font-family: Gotham_medium;
+}
+
+.table-daily-limits-detail-crd-summ tr {
+	font-size: 14px;
+	font-weight: normal !important;
+}
+
+.div-more-help {
+	padding: 3% 3%;
+	font-family: Gotham_Book;
+}
+
+.div-more-help-head {
+	line-height: 2.2;
+    color: #4A4A4A;
+    font-size: 16px;
+}
+
+.div-more-help-detail {
+	line-height: 1.5;
+    color: #AEAEAE;
+    font-size: 14px;
+}
+
+.div-btn-right {
+    float: right;
+}
+
+.btn-warmPink {
+	padding: 10px 20px;
+    color: white;
+    background-color: #fb637e;
+    border-radius: 2px;
+    border: none;
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+
+
+.btn-grey {
+	padding: 10px 20px;
+    color: black;
+    background-color: #EAEAEA;
+    border-radius: 2px;
+    border: none;
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+
+.menu {
+       position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    color: #fb637e;
+    float: right;
+}
+
+.menu-down:before {
+       content: "\e259";
+}
+
+.menu-up:before {
+       content: "\e260";
+}
+.card-mob {
+	font-family: gotham_book,Calibri !important;
+    font-size: 16px !important;
+    line-height: 27px !important;
+    font-weight: Normal !important;
+    color: #4A4A4A;
+}
+
+@media (max-width: 480px) {
+		.table-daily-limits-detail-crd-summ .purchase-mob {
+			padding-bottom: 36px;
+		}
+		.mob-display-none {
+			display: none;
+			
+		}
+		.mob-width{
+			width:80%;
+		}
+		.card-mob {
+			font-family: gotham_book,Calibri !important;
+			font-size: 13px !important;
+			line-height: 27px !important;
+			font-weight: Normal !important;
+			color: #4A4A4A;
+		}
+		
+	}
+	
+@media (min-width: 480px) { 
+	.mob-display-none {
+	}
+	.mob-display {
+		display: none;
+	}
+	.mob-width{
+			
+			width:43%;
+		}
+}
+b.label-padding-left-crdsm{
+padding-left:2%;
+}
+
+.card-sumBlock > td{
+	padding:0;
+} 
+
+.error{
+border:1px solid #ffc72c;
+background-color:#fff4d5;
+padding:2% 2%;
+font-size:11px;
+color:#a29d8e;
+text-align:center;
+line-height:20px;
+
+}
+.customPadding{
+padding-left:25px;
+position:relative;
+}
+
+.restrictHorizontal{
+width:100%;
+overflow-x:hidden;
+}

@@ -1,0 +1,62 @@
+{
+    "en-US": {
+	"mktg_getstrd" : "Get Started",
+	"Lbl_Loan_Account":"Loan Account no.",
+	"Lbl_From_Date":"From Date",
+	"Lbl_To_Date" : "To Date",
+	"Btn_Search" : "Search",
+	"Lbl_Transaction_Date" : "Transaction Date",
+	"Lbl_Description" : "Description",
+	"Lbl_Debit_Amount" : "Debit Amount",
+	"Lbl_Credit_Amount" : "Credit Amount",
+	"Lbl_Closing_Balance" : "Amount",
+	"Lbl_select_date" : "select date",
+	"SELECT_ACC_NO": "Select",
+	"PL_Heading" : "Loan Statement"
+    },
+    "en-IN": {
+	"mktg_getstrd" : "Get Started",
+	"Lbl_Loan_Account":"Loan Account no.",
+	"Lbl_From_Date":"From Date",
+	"Lbl_To_Date" : "To Date",
+	"Btn_Search" : "Search",
+	"Lbl_Transaction_Date" : "Transaction Date",
+	"Lbl_Description" : "Description",
+	"Lbl_Debit_Amount" : "Debit Amount",
+	"Lbl_Credit_Amount" : "Credit Amount",
+	"Lbl_Closing_Balance" : "Amount",
+	"Lbl_select_date" : "select date",
+	"SELECT_ACC_NO": "Select",
+	"PL_Heading" : "Loan Statement"
+    },
+	"en-GB": {
+		"mktg_getstrd" : "Get Started",
+		"Lbl_Loan_Account":"Loan Account no.",
+		"Lbl_From_Date":"From Date",
+		"Lbl_To_Date" : "To Date",
+		"Btn_Search" : "Search",
+		"Lbl_Transaction_Date" : "Transaction Date",
+		"Lbl_Description" : "Description",
+		"Lbl_Debit_Amount" : "Debit Amount",
+		"Lbl_Credit_Amount" : "Credit Amount",
+		"Lbl_Closing_Balance" : "Amount",
+		"Lbl_select_date" : "select date",
+		"SELECT_ACC_NO": "Select",
+		"PL_Heading" : "Loan Statement"
+	},
+	"en-CA": {
+		"mktg_getstrd" : "Get Started",
+		"Lbl_Loan_Account":"Loan Account no.",
+		"Lbl_From_Date":"From Date",
+		"Lbl_To_Date" : "To Date",
+		"Btn_Search" : "Search",
+		"Lbl_Transaction_Date" : "Transaction Date",
+		"Lbl_Description" : "Description",
+		"Lbl_Debit_Amount" : "Debit Amount",
+		"Lbl_Credit_Amount" : "Credit Amount",
+		"Lbl_Closing_Balance" : "Amount",
+		"Lbl_select_date" : "select date",
+		"SELECT_ACC_NO": "Select",
+		"PL_Heading" : "Loan Statement"
+	}
+}

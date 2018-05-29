@@ -1,0 +1,99 @@
+<div class="lp-accounts ng-cloak" ng-class="responsiveClass">
+    <div class="lp-alerts">
+        <div class="alert alert-error" ng-show="model.error">
+            <p><span lp-i18n="{{model.error}}"></span></p>
+        </div>
+        <div class="alert alert-info" ng-show="assets.loadingNow">
+            <p lp-i18n="Loading..."></p>
+        </div>
+        <div class="alert alert-info" ng-show="assets.noAccountsAvailable">
+            <p lp-i18n="You currently do not have any active current/savings accounts."></p>
+        </div>
+        <small class="alerts-accounts-error" ng-show="globalerror">{{data.msg}}</small>
+    </div>
+    <div class="lp-widget-content" ng-hide="globalerror">
+        <div class="panel-group">
+            <div class="panel-launcher lp-launcher-tab" ng-repeat="group in assets.assetCollection track by $index">
+                <div class="panel-heading panel-round clearfix cursor-pointer" ng-show="showGroups &amp;&amp; group.accounts.length > 0" tabindex="0" ng-click="toggleGroup(group)" style="border-top:1px solid #856c85">
+                    <span class="pull-left1 submenuIdfc" lp-i18n="{{group.title}}"></span>
+                    <span class="dropup" ng-init="grpBalAmt = assets.getGroupTotal(group)" ng-show="!group.isCollapsed"></span>
+                    <span class="dropdown" ng-init="grpBalAmt = assets.getGroupTotal(group)" ng-show="group.isCollapsed"></span>
+                    <span ng-hide="!showTotals" class="group-totals account-pull-right amount-span" lp-amount="grpBalAmt.totalBalance" hide-trailing-zeroes="true" />
+                    <span ng-hide="!showTotals" class="lpaccount-grp-ttl-crncy" ng-class="{'rupee-symbol-span':grpBalAmt.currency === 'INR' }" ng-bind="selectCurrency(grpBalAmt.currency)"></span>
+                </div>
+                <ul class="list-group" ng-hide="group.isCollapsed">
+                    <li class="list-group-item acctTab panel-body cursor-pointer lp-launcher-tab accTab1" ng-repeat="account in group.accounts" ng-click="selectAccount(account, $parent.$index, $index)" ng-class="{selected: model.selected == account.id, 'active idfcTextColor' : $parent.$index == currentParent  &amp;&amp; $index == currentChild}" tabindex="0" role="button" ng-keydown="accountKeydown($event, account.id)">
+<span class="lp-line-item-arrow">
+<i ng-class="{'lp-icon lp-icon-angle-right' : $parent.$index == currentParent  &amp;&amp; $index == currentChild}"></i>
+</span>
+                        <div class="grouped-account clearfix acclab" ng-class="{'bg-danger': account.alerts}">
+                            <span ng-if="group.code === 'card'" class="account-icon lp-icon lp-icon-credit-card pull-left" ng-style="{ color: account.iconColor }"></span>
+                            <p ng-if="group.code !== 'card'" ng-show="showAccountHolderName">{{account.holder}}</p>
+                            <p class="pull-left">A/C : <span class="labelAcc">{{account.id}}</span></p>
+                            <p ng-if="group.code !== 'homesaver'" ng-show="account.status != null">
+                                <span class="label_status-green" ng-model="status" ng-show="account.status == 'ACTIVE'">{{account.status}}</span>
+                                <span class="label_status-red" ng-model="status" ng-show="account.status == 'INACTIVE'">{{account.status}}</span>
+                            </p>
+                        </div>
+                        <div>
+
+                            <div  ng-if="group.code !== 'homesaver'" class="pull-right-account">
+                                <span class="RupeeSymbol">&#8377;</span>
+                                <span ng-if="defaultBalance !== 'current'" class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="account">{{account.availableBalance | currency:' '}}</span>
+                                <span class="margin-sup"  ng-if="defaultBalance !== 'current'"><sup>*</sup></span>
+                                <span ng-if="defaultBalance === 'current'" class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="account">{{account.availableBalance | currency:' '}}</span>
+                                <span class="margin-sup" ng-if="defaultBalance === 'current'"><sup>*</sup></span>
+                            </div>
+
+
+                            <div  ng-if="group.code === 'homesaver'" class="pull-right-account-homesaver">
+                                <span  ng-if="group.code === 'homesaver'" class="homesaver-withdrawal">Available Balance</span>
+                                <p>
+                                <span class="RupeeSymbol" style="font-size:180%!important">&#8377;</span>
+                                <!--<span class="account-balance balance-amount amount-span-homesaver-withdrawal" hide-trailing-zeroes="true" ng-model="account">{{account.availableBalance }}</span>-->
+                                    <span class="account-balance balance-amount amount-span-homesaver-withdrawal" hide-trailing-zeroes="true" ng-model="account">{{account.bookedBalance | currency:' '}}</span>
+                              </p>
+                            </div>
+                            <p ng-if="group.code !== 'card'" ng-show="showAccountType">{{account.product}}</p>
+                            <p ng-if="group.code !== 'card'" ng-show="showAccountHolderCategory">{{account.relationship}}</p>
+                        </div>
+                        <div ng-if="group.code !== 'homesaver'" class="pull-accbal"> Account Balance :
+                            <span ng-if="defaultBalance !== 'current'"></span>
+                            <span ng-if="defaultBalance !== 'current'" class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="account">{{account.availableBalance | currency:' '}}</span>
+                            <span ng-if="defaultBalance === 'current'" class="rupee-symbol-span"></span>
+                            <span ng-if="defaultBalance === 'current'" class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="account">{{account.availableBalance | currency:' ' }}</span>
+                            </br>
+                            Hold Balance :
+                            <span ng-if="defaultBalance !== 'current'"></span>
+                            <span ng-if="defaultBalance !== 'current'" class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="account">{{account.availableBalance}}</span>
+                            <span ng-if="defaultBalance === 'current'" class="rupee-symbol-span"></span>
+                            <span ng-if="defaultBalance === 'current'" class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="$">{{account.holdBalance | currency:' '}}</span>
+                        </div>
+                        <div ng-if="group.code === 'homesaver'" class="pull-accbal" >
+                            Current Outstanding :
+                            <span  class="rupee-symbol-span"></span>
+                            <span  class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="account">{{account.balance | currency:' '}}</span>
+                            </br>
+                            Current Limit :
+                            <span  class="rupee-symbol-span"></span>
+                            <span  class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="account">{{account.drawingPower }}</span>
+                            </br>
+                            Uncleared Funds :
+                            <span  class="rupee-symbol-span"></span>
+                            <span class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="$">{{account.amountUnderRealztion }}</span>
+                            </br>
+                            EMI Amount :
+                            <span  class="rupee-symbol-span"></span>
+                            <span  class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="account">{{account.emiAmount }}</span>
+                            </br>
+                            Next EMI Date :
+                            <span class="account-balance balance-amount amount-span" hide-trailing-zeroes="true" ng-model="$">{{account.nextEMIDate}}</span>
+
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="font-appVersionCheck">
+
+	<div ng-show="showVersionDescription">
+		<p>{{versionDescription}}</p>
+		<button class="btn-whitePop" ng-click="hideVersionDescSection();">
+			<div >OK</div>
+		</button>
+	</div>
+	
+	<div ng-hide="showVersionDescription">
+		<div ng-model="withinGrace" ng-show="showWithinGrace">
+		
+			<p>{{withinGrace.message}}</p>
+			
+			<div ng-repeat="button in withinGrace.buttonList">
+				
+				<button class="btn-whitePop" ng-click="showDetails(button.id, withinGrace.appDetails, withinGrace.updateURL);">
+					<div>{{button.label}}</div>
+				</button>
+		
+			</div>
+		
+		</div>
+		
+		<div ng-model="beyondGrace" ng-show="showBeyondGrace">
+			
+			<p>{{beyondGrace.message}}</p>
+		
+			<div ng-repeat="button in beyondGrace.buttonList">
+				
+				<button class="btn-whitePop" ng-click="showDetails(button.id, beyondGrace.appDetails, beyondGrace.updateURL);">
+					<div>{{button.label}}</div>
+				</button>
+		
+			</div>
+		
+		</div>
+	</div>
+	
+</div>
+

@@ -1,0 +1,59 @@
+.lp-iban {
+	display: table;
+	width: 100%;
+	position: relative;
+
+	.lp-iban-country-dropdown {
+		display: table-cell;
+		width: 65px;
+		padding-right: 10px;
+
+		.dropdown {
+			width: 55px;
+			display: inline-block;
+
+			.dropdown-toggle {
+				.country-name {
+					display: none;
+				}
+			}
+
+			.dropdown-menu {
+
+				>li {
+					border-top: none;
+				}
+
+				.dropdown-search {
+					padding: 5px;
+				}
+			}
+		}
+	}
+	.lp-iban-input {
+		display: table-cell;
+		vertical-align: top;
+
+		input::-ms-clear {
+			display: none;
+		}
+
+		>.glyphicon-remove {
+			cursor: pointer;
+		}
+	}
+	.lp-input-cursor-position-offset {
+		display: none;
+		position: absolute;
+		white-space: nowrap;
+	}
+}
+.lp-iban-info {
+	font-size: 12px;
+
+	.open-popup {
+		top: 2px;
+		left: 5px;
+		cursor: pointer;
+	}
+}

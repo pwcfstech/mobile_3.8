@@ -1,0 +1,38 @@
+@color: @brand-primary;
+@color2: desaturate(@color, 40%);
+
+.portfolio-performance {
+
+  .switch {
+    span {
+      color: lighten(@color2, 35%);
+    }
+  }
+
+  .axis {
+    line {
+      stroke: fadeout(@color2, 85%);
+    }
+
+    text {
+      fill: @color2;
+    }
+  }
+
+  .line {
+    stroke: @color;
+  }
+
+  .dots circle {
+    fill: @color;
+  }
+
+  .bars rect {
+    fill: lighten(@color, 10%);
+
+    &.negative {
+      fill: lighten(@color2, 15%);
+    }
+  }
+
+}

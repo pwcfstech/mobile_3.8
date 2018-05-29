@@ -1,0 +1,43 @@
+<div ng-controller="RDCongratsController">
+    <div class="panel panel-default" ng-if="fiModel.selected">
+        <div class="panel-heading selected-fi">
+            <div class="col-xs-2 col-lg-1">
+                <span ng-show="fiModel.selected.isConnecting"><i class="lp-icon {{fiModel.selected.icon}}"></i></span>
+                <span ng-show="!fiModel.selected.isConnecting"><i class="glyphicon glyphicon-ok"></i></span>
+            </div>
+            <div class="col-xs-10 col-xs-11">
+                <div ng-show="fiModel.selected.isConnecting">
+                    <span class="h4">{{fiModel.selected.name}}</span><br />
+                    <span>{{'Lbl_Terms_Wait_Around'|translate}}</span>
+                </div>
+                <div ng-show="!fiModel.selected.isConnecting">
+                    <span>{{'Lbl_Account_Success'|translate}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lp-alerts">
+        <div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+    </div>
+    <div class="opendeposit-panel-body panel-body"  ng-hide="serviceError" >
+        <div class="connection-feedback">
+            <div class="img_padding text-center"><img
+                    src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+                <img ng-src="{{tick}}"/>
+            </div>
+            <p class="h4 text-center font-congrats" ng-show="!fiModel.selected.isConnecting">{{'Lbl_NewSuccessMessage1'|translate}}</p>
+            <p class="text-center font-rd" ng-show="!fiModel.selected.isConnecting">{{'Lbl_NewSuccessMessage2'|translate}}</p>
+            <p class="text-center font-deposit" ng-show="!fiModel.selected.isConnecting">{{'Lbl_SuccessDepositNumber'|translate}}<span class="successfont">{{rdAccountNumber}}</span></p>
+            <p class="text-center font-deposit" ng-show="!fiModel.selected.isConnecting">{{'Lbl_NewSuccessMessage3'|translate}}<span class="successfont"> &shy;{{formattedDate}}&shy;</span></p>
+            <p ng-show="fiModel.selected.isConnecting">{{'Title_Terms_msg1'|translate}}<br /> {{'Title_Terms_msg2'|translate}}<br /><a>{{'Title_Terms_msg3'|translate}}   {{fiModel.selected.name}}</a></p>
+        </div>
+        <br><br>
+        <div class="div-td-button-pad-od">
+            <div class="borderTop"></div>
+            <button type="button" ng-click="restartWizard()"
+                    class="btn btn-primary primary-btn-open-od primary-btn-btn ng-binding successbutton">{{'Lbl_Create_Another_Account'|translate}}</button>
+            <div ng-click="openView()"
+                 class="btn btn-primary secondary-btn-open-od primary-btn-btn ng-binding successbutton">VIEW</div>
+        </div>
+    </div>
+</div>

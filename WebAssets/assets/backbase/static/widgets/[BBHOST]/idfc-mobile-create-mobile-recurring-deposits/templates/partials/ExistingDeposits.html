@@ -1,0 +1,228 @@
+<div ng-controller="RDSummaryController" class="recur-widget" class="ng-cloak">
+	<div ng-if="errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+			<span class="sr-only">Busy</span>
+		</div>
+	</div>
+	<div data-ng-include="template"></div>
+	<div class="lp-alerts" ng-if="alerts.length!=0" >
+		<div alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</div>
+	</div>
+	<div ng-if="alerts.length===0">
+		<div class="depos" ng-hide="rdView">{{'Lbl_Account_Deposits'|translate}} <span class="border-left">{{existingDeposits.length}}</span></div>
+		<div><button class="btn btn-primary primary-btn-deposit-det primary-btn-btn create-bt" ng-click="navigateToCreate()" ng-hide="rdView">{{'Lbl_CreateNew'|translate}}</button>
+		</div>
+		<div ng-show="errornoData" >
+			<small class="text-danger error-alignment">{{msgnodata}}</small>
+		</div>
+		<div>
+			<div name="depositDetailsForm" ng-submit="submitDetails()" tabindex="0" id="parentDiv" ng-hide="rdView">
+				<table class="summary-deposit-sum-table">
+					<tr>
+						<th >{{'Lbl_Account_Number'|translate}}
+						</th>
+						<th >
+							{{'Lbl_Install_amount'|translate}}
+							( <span class="rupee-symbol-span"></span>)
+						</th>
+						<th >{{'Lbl_Next_Install'|translate}}
+						</th>
+						<th>
+							{{'Lbl_Current_Balance'|translate}}
+							( <span class="rupee-symbol-span"></span>)
+						</th>
+						<th>
+							{{'Lbl_Maturity_amount'|translate}}
+							( <span class="rupee-symbol-span"></span>)
+						</th>
+						<th>{{'Lbl_Blank'|translate}}
+						</th>
+					</tr>
+					<tbody ng-repeat="existingDeposit in existingDeposits" tabindex="0">
+					<tr>
+						<td>
+							<span>{{existingDeposit.id}}</span>
+						</td>
+						<td class="col-amount">
+							<span lp-amount="existingDeposit.instlmntAmt"></span>
+						</td>
+						<td>
+							<span>{{existingDeposit.nxtInstlDueDt | date:'dd-MMM-yyyy' }}</span>
+						</td>
+						<td class="col-amount">
+							<span lp-amount="existingDeposit.availableBalance"></span>
+						</td>
+						<td class="col-amount">
+							<span lp-amount="existingDeposit.mtVl"></span>
+						</td>
+						<td>
+							<button class="btn btn-primary primary-btn-deposit-det primary-btn-btn view-bt" ng-click="openDepositDetails(existingDeposit)">{{'Lbl_Recurring_View'|translate}}
+							</button>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div ng-show="rdView" class="view-page">
+				<TABLE class="recur-deposit-sum-table"
+					   summary="This table displays Recurring deposit summary of a particular account">
+					<Caption class ="recur-deposit-sum-cap">
+						{{'Lbl_Recurring_Deposit_Details'|translate}}
+					</Caption>
+					<TR>
+						<th>{{'Lbl_Account_Number'|translate}}</th>
+						<th>{{'Lbl_Install_amount'|translate}} ( <span class="rupee-symbol-span"></span>)</th>
+						<th>{{'Lbl_Next_Install'|translate}}</th>
+						<th>{{'Lbl_Current_Balance'|translate}} ( <span class="rupee-symbol-span"></span>)</th>
+						<th>{{'Lbl_Maturity_amount'|translate}} ( <span class="rupee-symbol-span"></span>)</th>
+					</TR>
+					<TR>
+						<td>
+							<span >{{existingDepositRowSelected.id}}</span>
+						</td>
+						<td class="col-amount">
+                     <span lp-amount="existingDepositRowSelected.instlmntAmt">
+                     </span>
+						</td>
+						<td>
+                     <span>{{existingDepositRowSelected.nxtInstlDueDt | date:'dd-MMM-yyyy' }}
+                     </span>
+						</td>
+						<td class="col-amount">
+							<span lp-amount="existingDepositRowSelected.availableBalance"></span>
+						</td>
+						<td class="col-amount">
+							<span lp-amount="existingDepositRowSelected.mtVl"></span>
+						</td>
+					</TR>
+				</TABLE>
+				<div class="row">
+					<div class="col-md-6">
+						<table class="gen-det-table"
+							   summary="This table contains general details of RD">
+							<Caption class ="gen-det-table-cap">
+								<span>{{'Lbl_General_Details'|translate}}</span>
+							</Caption>
+							<tr>
+								<th>{{'Lbl_Deposit_Type'|translate}}</th>
+								<td>{{tmpexistingDeposits.product}}</td>
+							</tr>
+							<tr>
+								<th>{{'Lbl_Opening_Date'|translate}}</th>
+								<td>{{tmpexistingDeposits.openingDate| date:'dd-MMM-yyyy'}}</td>
+							</tr>
+							<tr>
+								<th>{{'Lbl_Deposit_Period'|translate}}</th>
+								<td ng-if = "tenureYear === '1' && tenureMonths === '0'">{{tenureYear}} {{'Lbl_year'|translate}}</td>
+								<td ng-if = "tenureYear === '1' && tenureMonths > '1'">{{tenureYear}} {{'Lbl_year'|translate}} {{tenureMonths}} {{'Lbl_months'|translate}}</td>
+								<td ng-if = "tenureYear === '0'">{{tenureMonths}} {{'Lbl_months'|translate}}</td>
+								<td ng-if = "tenureMonths === '0' && tenureYear != '1'">{{tenureYear}} {{'Lbl_years'|translate}}</td>
+								<td ng-if = "tenureYear > '1' && tenureMonths != '0'">{{tenureYear}} {{'Lbl_years'|translate}} {{tenureMonths}} {{'Lbl_months'|translate}}</td>
+							</tr>
+							<tr>
+								<th>{{'Lbl_Interest_Rate'|translate}}</th>
+								<td>{{tmpexistingDeposits.interestRate | number:2}}%</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-md-6">
+						<table class="maturity-detail-table" ng-class="{'intro':tmpexistingDeposits.nomineeNm === null}">
+							<Caption class ="gen-det-table-cap">
+								<span>{{'Lbl_Maturity_Details'|translate}}</span>
+							</Caption>
+							<tr>
+								<th>{{'Lbl_Maturity_Date'|translate}}</th>
+								<td>&shy;{{tmpexistingDeposits.maturityDate | date:'dd-MMM-yyyy' }}&shy;</td>
+							</tr>
+						</table>
+						<table class="nominee-detail-table">
+							<Caption class ="gen-det-table-cap">
+								<span>{{'Lbl_Nominee_Details'|translate}}</span>
+								<button ng-show="!nomineeExists" class="btn btn-primary primary-btn-deposit-det primary-btn-btn add-bt pull-right" ng-click="addNominee()">{{'Lbl_Add_Nominee_Name'|translate}}
+								</button>
+							</Caption>
+							<tr ng-show="nomineeExists">
+								<th>{{'Lbl_Nominee_Reg'|translate}}</th>
+								<td>{{nomineeReg}}</td>
+							</tr>
+							<tr ng-show="nomineeExists">
+								<th>{{'Lbl_Nominee_Name'|translate}}</th>
+								<td>{{tmpexistingDeposits.nomineeNm}}</td>
+							</tr>
+							<tr ng-show="!nomineeExists">
+							<tr ng-show="!nomineeExists">
+								<th>{{'Lbl_Nominee_Reg'|translate}}</th>
+								<td>{{nomineeReg}}</td>
+							</tr>
+							<tr ng-show="!nomineeExists">
+								<th>{{'Lbl_Nominee_Name'|translate}}</th>
+								<td>{{'Lbl_Nominee_Name_Na'|translate}}</td>
+							</tr>
+							</tr>
+						</table>
+					</div>
+					<div class="progress-div">
+						<div class="maturity-date">
+							<div class="maturity-date-text">
+								<span>{{'Lbl_Instalment_message1'|translate}}</span>
+								<span>{{tmpexistingDeposits.maturityDate | date:'dd-MMM-yyyy' }}</span>
+							</div>
+						</div>
+						<div class="maturity-date-arrow">
+							<span class="glyphicon glyphicon-arrow-down" ng-attr-style='margin-left:{{widthtotal}}%;float: right;'></span>
+						</div>
+						<div class="progress" >
+							<div class="progress-bar progress-bar-success" ng-attr-style='width:{{widthPaid}}%;'>
+							</div>
+							<div class="progress-bar progress-bar-danger bar-vertical" ng-attr-style="width:{{widthPending}}%;">
+							</div>
+							<div class="progress-bar progress-bar-danger" ng-attr-style="width:{{widthMaturityPeriod}}%;">
+							</div>
+							</span>
+						</div>
+						<div class="lst-inst-date-arrow">
+							<span class="glyphicon glyphicon-arrow-up" ng-attr-style='margin-left:{{widthPaidNPending}}%; float: left;'></span>
+						</div>
+						<div class="lst-inst-date">
+							<div class="lst-inst-date-text">
+								<span>{{'Lbl_Instalment_date'|translate}}</span>
+								<!-- TODO: Date format has to be checked-->
+								<span>{{lastInstlDate | date:'dd-MMM-yyyy'}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="clearfix" style="display:block; margin-bottom: 5px;">
+							<div class="box" style="background-color:#5cb85c;"></div>
+							<div class="box-text"  >{{'Lbl_Paid'|translate}} <span class="border-left">{{tmpexistingDeposits.pdInstlmnts}} {{'Lbl_Inst'|translate}}</span></div>
+						</div>
+						<div  class="clearfix" style="display:block;">
+							<div id="rectangle" class="box" style="background-color:#d9534f;"></div>
+							<div class="box-text" >{{'Lbl_Pending'|translate}} <span class="border-left">{{tmpexistingDeposits.rmngInstlmnts}} {{'Lbl_Inst'|translate}}</span></div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+					</div>
+				</div>
+				<div>
+					<small class='email-success-rd-msg-class'>{{successMessagePDFEmail}}</small>
+				</div>
+				<div>
+					<button class="btn btn-primary secondary-btn-deposit primary-btn-btn pull-right add-bt" ng-click="rdSummary()">{{'Lbl_back'|translate}}
+					</button>
+					<button class="btn btn-primary primary-btn-deposit-det primary-btn-btn pull-right add-bt" ng-click="Emailadvice(existingDepositRowSelected.id)" title="{{'Lbl_Email_Message'|translate}}">
+						{{'Lbl_EMAIL'|translate}}
+					</button>
+					<button class="btn btn-primary primary-btn-deposit-det primary-btn-btn pull-right add-bt" alt="Generate PDF" ng-click="PDFGeneration(existingDepositRowSelected.id)">{{'Lbl_DOWNLOAD'|translate}}
+					</button>
+					<button class="btn btn-primary primary-btn-deposit-det primary-btn-btn pull-right add-bt" ng-click="DuplicateRd()">{{'Lbl_Copy'|translate}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

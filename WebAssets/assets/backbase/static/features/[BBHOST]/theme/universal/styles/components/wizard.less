@@ -1,0 +1,79 @@
+.wizard-wrapper {
+	.wizard-header {
+		padding: 0;
+	    border: none;
+	}
+	.wizard-header .wizard-header-title {
+		margin-bottom: 15px;
+		margin-top: 0;
+		text-align: left;
+	}
+
+	.wizard-steps {
+		position: relative;
+		padding-bottom: 15px;
+	}
+	.wizard-step {
+		margin: 0 5px;
+		color: @wizard-default-color;
+		white-space: nowrap;
+		width: 1.6em;
+	}
+	.wizard-step-number {
+		margin-right: 5px;
+		border: 1px solid @wizard-default-border;
+		border-radius: 0.8em;
+		display: inline-block;
+		text-align: center;
+		width: 1.6em;
+	}
+    .wizard-step-number-active {
+	    background-color: @wizard-default-bg;
+	    color: @wizard-active-number-color;
+	}
+	.wizard-step-heading {
+		position: absolute;
+		left: 5px;
+		width: 100%;
+	}
+	.wizard-step-arrow {
+		color: #a4a5a0;
+		top: 3px;
+	}
+	.wizard-step-done {
+		background-color: @wizard-done-bg;
+		border-color: @wizard-done-border;
+		color: @wizard-done-color;
+	}
+	.wizard-future-step {
+		border: 1px solid @wizard-future-border;
+	}
+	.wizard-active-step {
+		color: @wizard-active-color;
+	    border-color: @wizard-active-border;
+	}
+	@media (min-width: @screen-sm-min) {
+		.wizard-step {
+			width: auto;
+		}
+		.wizard-steps {
+			padding-bottom: 0;
+		}
+		.wizard-step-heading {
+			position:relative;
+			left: auto;
+		}
+	}
+
+	@media (max-width: @screen-sm-min) {
+
+		.wizard-step-container {
+			display: inline-block;
+		}
+
+		.wizard-header .wizard-header-title {
+			text-align: center;
+		}
+
+	}
+}

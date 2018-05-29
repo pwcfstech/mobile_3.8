@@ -1,0 +1,187 @@
+// mixins
+.incorporateButton() {
+  border: none;
+  background-color: transparent;
+  .box-shadow(none);
+  &:hover {
+    background-color: transparent;
+    .box-shadow(none);
+  }
+  &:active {
+    background-color: transparent;
+    .box-shadow(none);
+  }
+}
+
+// batched search styles
+.lp-search-wrapper {
+  display: table;
+  border: 1px solid @input-group-addon-border-color;
+  .border-radius(5px);
+  width: 100%;
+
+  > div {
+    display: table-cell;
+    vertical-align: middle;
+    border-left: 1px solid @input-group-addon-border-color;
+  }
+
+  > div:first-child {
+    border-left: 0;
+    .border-radius(5px 0 0 5px);
+  }
+
+  > div:last-child {
+    .border-radius(0 5px 5px 0);
+  }
+
+
+  .lp-search-left {
+    width: 5%;
+    text-align: center;
+    .btn {
+      .incorporateButton;
+    }
+    ul.dropdown-menu {
+      min-width: 200px;
+      padding: 10px;
+      .header {
+        margin-bottom: 5px;
+      }
+    }
+    &:hover {
+      background-color: @input-group-addon-bg;
+    }
+  }
+
+
+  .lp-search-tags {
+    overflow: hidden;
+    .lp-tags {
+      display: inline;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+    }
+    .lpTag {
+      display: inline-block;
+      background-color: @input-group-addon-bg;
+      .border-radius(5px);
+      padding: 5px 10px 5px 5px;
+      margin: 3px;
+      .lpTagText {
+        cursor: pointer;
+        font-family: Arial;
+      }
+      .lpTagClose {
+        margin: 0;
+        padding: 0 0 0 5px;
+        opacity: 0.3;
+        cursor: pointer;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    input {
+      .border-radius(0);
+      border: none;
+      .box-shadow(none);
+      min-width: 150px;
+    }
+
+  }
+
+
+
+  .lp-search-right {
+    width: 10%;
+    &:hover {
+      background-color: @input-group-addon-bg;
+    }
+    .sort-select {
+      ul.dropdown-menu {
+        @media (max-width: @screen-sm-min) {
+          right: 0;
+          left: auto;
+        }
+      }
+      button {
+        .incorporateButton;
+        // update the sort dropdown to not collapse in mobile mode
+        i.pull-right {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          .transform(translate(-50%, -50%));
+        }
+      }
+    }
+  }
+
+
+  .lp-transactions-export-btn {
+    width: 10%;
+    &:hover {
+      background-color: @input-group-addon-bg;
+    }
+    button {
+      .incorporateButton;
+    }
+  }
+}
+
+
+// mobile transformations
+// ----------------------
+
+@media (max-width: @screen-sm-min) {
+  .lp-new-transfer .lp-account-select{
+    position: static;
+  }
+
+  .lp-transactions-sticky-header {
+
+    // batched search styles
+    .lp-search-wrapper {
+      position: fixed;
+      right: 0;
+      top: @top-offset + @dd-height;
+      z-index: 9;
+      background-color: white;
+      .border-radius(0);
+    }
+
+    #transactions-tabs {
+      margin-top: @top-offset + @dd-height + @search-height;
+    }
+
+    #transactions-list {
+      margin-top: 0px;
+    }
+
+    .lp-account-select {
+      position: fixed;
+      right: 0;
+      top: @top-offset;
+      height: @dd-height;
+      width: 100%;
+      z-index: 10;
+      background-color: @body-bg;
+    }
+
+    // keep the search visible for large dropdown
+    .lp-large-account-select-size button.dropdown-toggle,
+    .lp-normal-account-select-size button.dropdown-toggle{
+      height: @dd-height;
+    }
+  }
+
+  // Hack: hide 'fixed' elements when go to navbar
+  .lp-launcher-left {
+    .lp-account-select, .lp-search-wrapper {
+        position: static;
+    }
+  }
+
+}

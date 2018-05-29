@@ -1,0 +1,233 @@
+<div class="ng-cloak" ng-controller="LAPSummaryController">
+   <div ng-if="errorSpin">
+      <div class="panel-message loading-panel" role="alert">
+         <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+         <span class="sr-only">Busy</span>
+      </div>
+   </div>
+   <div class="text-danger text-center" ng-if="error.happened">{{ error.msg }}</div>
+   <div ng-show="showPLSummary">
+      <div class="row pl_summary_header_bg" ng-hide="error.happened || hideTopBar" >
+         <div class="row">
+            <div ng-hide="noOpenAccounts" class="text-center col-xs-12 pl-subheading">OVERALL LOAN REPAYMENT STATUS</div>
+            <div ng-hide="openAccounts" class="text-center col-xs-12 pl-subheading">YOU HAVE NO ACTIVE LOANS</div>
+         </div>
+         <div class="text-center padding-top-20" ng-show="noOpenAccounts">
+		<button class="btn-red btn-width"  ng-click="closedLoanApplyNow()">Apply Now</button>
+         </div>
+         <div ng-show="openAccounts">
+            <div class="row padding-left-right-pl-5">
+               <div class="col-xs-12">
+                  <div class="progress">
+                     <div id="progressBar" class="progress-bar" role="progressbar"></div>
+                  </div>
+               </div>
+            </div>
+            <div class="row global-row" >
+               <div class="col-xs-12 col-sm-6 padding-left-pl-5 margin-bottom-custom" >
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <div class="row">
+                           <div class="circle circle-green vcenter pull-left" ></div>
+                           <div class="loan_total_row vcenter pull-left pl-p-left-10">Total amount paid</div>
+                        </div>
+                        <div class="row margin-top-custom pull-left pl-p-left-10">
+                           <div class="loan_total_amount pull-left padding-12-left pl-font-14"><span class="rupee-symbol-span"></span> <span>{{totalAmountPaid}} </span></div>
+                           <div class="loan_prog_perc_comp font-color-green pull-left pl-p-left-10 pl-font-14"><span>{{totalAmountPaidPercentage}}% </span><span class="pl-font-10">completed</span></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 padding-left-pl-5">
+                  <div class="row">
+                     <div class="col-xs-12">
+                        <div class="row">
+                           <div class="circle circle-grey pull-left" ></div>
+                           <div class="loan_total_row  pull-left pl-p-left-10">Total current outstanding</div>
+                        </div>
+                        <div class="row margin-top-custom" style="float:left; padding-left:10px;">
+                           <div class=" padding-12-left loan_total_amount pull-left pl-font-14"><span class="rupee-symbol-span"></span><span> {{totalAmountPayable}}</span></div>
+                           <div class="loan_prog_perc_comp font-color-grey pull-left pl-p-left-10 pl-font-14"><span>{{totalOutstandingPercentage}}% </span><span class="pl-font-10"> remaining</span></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="div_padding_pl">
+         <div class="row  row-eq-height" ng-repeat="loanAccount in loanAccountList" ng-hide="$index%2">
+            <div class="col-sm-6 col-xs-12 loan_indv_margin_left loan-row-margin" ng-click="openLoanDetails(loanAccountList[$index].acctNb)">
+               <div class="row">
+                  <div class="col-xs-12 loan_indv_panel txt-center">
+                     <span class="loan_acct">Loan account no.</span>
+                     <span class="loan_acct_number">{{loanAccountList[$index].acctNb}}</span>
+		     <span class="glyphicon glyphicon-chevron-right loan_detail_arrow arrow-red" tooltip="Click to view details." tooltip-trigger="click" tooltip-append-to-body="true"></span>
+                     <!--span ng-if="loanAccountList[$index].acctSts == 'C'" class="loan_act_closed_status">CLOSED</span-->
+                  </div>
+               </div>
+               <div class="row loan_indv_detail">
+			      <div ng-if="loanAccountList[$index].acctSts == 'C'" class="loan_act_closed_status txt-center">CLOSED</div> 
+                  <div class="col-xs-12 col-sm-12 col-md-3 vcenter pl_graph_xs pl-graph-margin" ng-if="loanAccountList[$index].acctSts != 'C'">
+                     <div class="gauge-container" ng-if="$index%2 == 0">
+                        <div class="gauge-a"></div>
+                        <div class="gauge-c" id="gauge-{{$index}}"></div>
+                        <div class="gauge-b"></div>
+                        <div class="gauge-data">{{loanAccountList[$index].percentage}}%</div>
+                     </div>
+                  </div>
+                  <div class="col-xs-1 pl-graph-margin graph-height" ng-if="loanAccountList[$index].acctSts == 'C'"></div>
+                  <div class="col-xs-12 col-sm-12 col-md-8 vcenter pl-graph-padding-top padding-right-0">
+                     <div class="row div-align">
+                        <div class="col-xs-6 col-md-6 display-inline padding-right-0">
+                           <span class="cirle-data pull-left circle-big circle-green" ng-if="loanAccountList[$index].acctSts != 'C'"></span>
+                           <span class="loan_amount_details loan_font_book vcenter display-inline">Amount paid</span>
+                        </div>
+                        <div class="col-xs-6 col-md-6 vcenter loan_amount_details loan_font_medium display-inline padding-right-0">
+                           <span class="rupee-symbol-span"></span>
+                           <span class="display-inline">{{loanAccountList[$index].amtPdFormatted}}</span>
+                        </div>
+                     </div>
+                     <div class="row div-align" ng-if="loanAccountList[$index].acctSts != 'C'">
+                        <div class="col-xs-6 col-md-6 padding-right-0">
+                           <span class="cirle-data pull-left circle-big circle-grey" ></span>
+                           <span class="loan_amount_details loan_font_book vcenter display-inline">Current outstanding</span>
+                        </div>
+                        <div class="col-xs-6 col-md-6 vcenter loan_amount_details loan_font_medium display-inline padding-right-0">
+                           <span class="rupee-symbol-span"></span>
+                           <span class="display-inline">{{loanAccountList[$index].ttlOutBalFormatted}}</span>
+                        </div>
+                     </div>
+                     <div class="row div-align" ng-if="loanAccountList[$index].acctSts == 'C'">
+                        <div class="col-xs-6 col-md-6  loan_amount_details loan_font_book display-inline padding-right-0">
+                           Loan duration
+                        </div>
+                        <div class="col-xs-6 col-md-6 loan_amount_details loan_font_medium display-inline float-none padding-right-0">
+                           {{loanAccountList[$index].drtn}} months
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row divider"></div>
+               <div class="row loan-indv-emi">
+                  <div class="col-xs-6 loan_EMI">
+                     <div class="pl_indv_loan_headings font-1em">
+                        EMI amount
+                     </div>
+                     <div class="pl_indv_loan_data font-12">
+                         <span class="rupee-symbol-span"></span><span> {{loanAccountList[$index].EMIFormatted}}</span>
+                     </div>
+                  </div>
+                  <div class="col-xs-6 loan_EMI border-left-solid-gray" ng-if="loanAccountList[$index].acctSts != 'C'">
+                     <div class="pl_indv_loan_headings font-1em">
+                        Next EMI date
+                     </div>
+                     <div class="pl_indv_loan_data font-12" ng-if="loanAccountList[$index].displayNxtDueDt">
+                        <!--                        <span class="font-12">In {{loanAccountList[$index].dueDys}} days</span>-->
+                        {{loanAccountList[$index].nxtDueDt}}
+                     </div>
+                     <div class="font-10 text-center" ng-if="!loanAccountList[$index].displayNxtDueDt">- </div>
+                     
+                  </div>
+                  <div class="col-xs-6 loan_EMI border-left-solid-gray" ng-if="loanAccountList[$index].acctSts == 'C'">
+                     <div class="pl_indv_loan_headings font-1em">
+                        Last payment date
+                     </div>
+                     <div class="pl_indv_loan_data font-12" ng-if="loanAccountList[$index].displayLstPayDt" >
+                        {{loanAccountList[$index].lstPayDt}}
+                     </div>
+                     <div class="text-center pl_indv_loan_data font-12" ng-if="!loanAccountList[$index].displayLstPayDt" >
+                        -
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-sm-6 col-xs-12 loan_indv_margin_right loan-row-margin" ng-hide="!loanAccountList[$index+1]"  ng-click="openLoanDetails(loanAccountList[$index+1].acctNb)">
+               <div class="row">
+                  <div class="col-xs-12 loan_indv_panel txt-center">
+                     <span class="loan_acct">Loan account no.</span>
+                     <span class="loan_acct_number">{{loanAccountList[$index+1].acctNb}}</span>
+		     <span class="glyphicon glyphicon-chevron-right loan_detail_arrow arrow-red" tooltip="Click to view details." tooltip-trigger="click" tooltip-append-to-body="true"></span>
+                     <!--span ng-if="loanAccountList[$index+1].acctSts == 'C'" class="loan_act_closed_status">CLOSED</span-->
+                  </div>
+               </div>
+               <div class="row loan_indv_detail">
+			      <div ng-if="loanAccountList[$index+1].acctSts == 'C'" class="loan_act_closed_status txt-center">CLOSED</div>  
+                  <div class="col-xs-12 col-sm-12 col-md-3 vcenter pl_graph_xs pl-graph-margin" ng-if="loanAccountList[$index+1].acctSts != 'C'">
+                     <div class="gauge-container" ng-if="$index%2 == 0">
+                        <div class="gauge-a"></div>
+                        <div class="gauge-c" id="gauge-{{$index+1}}"></div>
+                        <div class="gauge-b"></div>
+                        <div class="gauge-data">{{loanAccountList[$index+1].percentage}}%</div>
+                     </div>
+                  </div>
+                  <div class="col-xs-1 pl_graph_xs pl-graph-margin graph-height" ng-if="loanAccountList[$index+1].acctSts == 'C'"></div>
+                  <div class="col-xs-12 col-sm-12 col-md-8 vcenter pl-graph-padding-top padding-right-0">
+                     <div class="row div-align">
+                        <div class="col-xs-6 col-md-6 display-inline padding-right-0">
+                           <span class="cirle-data circle-big circle-green" ng-if="loanAccountList[$index+1].acctSts != 'C'"></span>
+                           <span class="loan_amount_details loan_font_book vcenter display-inline">Amount paid
+                           </span>
+                        </div>
+                        <div class="display-inline col-xs-6 col-md-6 vcenter loan_amount_details loan_font_medium padding-right-0">
+                           <span class="rupee-symbol-span"></span><span class="display-inline"> {{loanAccountList[$index+1].amtPdFormatted}}</span>
+                        </div>
+                     </div>
+                     <div class="row div-align" ng-if="loanAccountList[$index+1].acctSts != 'C'">
+                        <div class="col-xs-6 col-md-6 display-inline padding-right-0">
+                           <span class="cirle-data circle-big circle-grey" ></span>
+                           <span class="loan_amount_details loan_font_book vcenter display-inline">Current outstanding</span>
+                        </div>
+                        <div class="col-xs-6 col-md-6 vcenter loan_amount_details loan_font_medium display-inline padding-right-0">
+                           <span class="rupee-symbol-span"></span> <span class="display-inline">{{loanAccountList[$index+1].ttlOutBalFormatted}}</span>
+                        </div>
+                     </div>
+                     <div class="row div-align" ng-if="loanAccountList[$index+1].acctSts == 'C'">
+                        <div class="col-xs-6 col-md-6  loan_amount_details loan_font_book display-inline padding-right-0">
+                           Loan duration
+                        </div>
+                        <div class="col-xs-6 col-md-6 loan_amount_details loan_font_medium display-inline float-none padding-right-0">
+                           {{loanAccountList[$index+1].drtn}} months
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row divider"></div>
+               <div class="row loan-indv-emi">
+                  <div class="col-xs-6  loan_EMI">
+                     <div class="pl_indv_loan_headings font-1em">
+                        EMI amount
+                     </div>
+                     <div class="pl_indv_loan_data font-12" >
+                        <span class="rupee-symbol-span"></span><span> {{loanAccountList[$index+1].EMIFormatted}}</span>
+                     </div>
+                  </div>
+                  <div class="col-xs-6 loan_EMI border-left-solid-gray"  ng-if="loanAccountList[$index+1].acctSts != 'C'">
+                     <div class="pl_indv_loan_headings font-1em">
+                        Next EMI date
+                     </div>
+                     <div class="pl_indv_loan_data font-12" ng-if="loanAccountList[$index].displayNxtDueDt">
+                        <!--                        <span class="font-12">In {{loanAccountList[$index+1].dueDys}} days </span>-->
+                        {{loanAccountList[$index+1].nxtDueDt}}
+                     </div>
+                     <div class="font-10 text-center" ng-if="!loanAccountList[$index].displayNxtDueDt">- </div>
+                     
+                  </div>
+                  <div class="col-xs-6 loan_EMI border-left-solid-gray" ng-if="loanAccountList[$index+1].acctSts == 'C'">
+                     <div class="pl_indv_loan_headings font-1em">
+                        Last payment date
+                     </div>
+                     <div class="pl_indv_loan_data font-12" ng-if="loanAccountList[$index].displayLstPayDt" >
+                        {{loanAccountList[$index+1].lstPayDt}}
+                     </div>
+                     <div class="text-center pl_indv_loan_data" ng-if="!loanAccountList[$index].displayLstPayDt">-</div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div ng-show="showPLDetails">
+      <div data-ng-include="template.pldetail"></div>
+   </div>
+</div>

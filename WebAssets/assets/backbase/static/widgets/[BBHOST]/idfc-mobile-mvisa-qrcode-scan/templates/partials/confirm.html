@@ -1,0 +1,361 @@
+<div>
+	<div id = "wrapper">
+		<form name = "mvisaConfirmForm"
+			  class="form-horizontal"
+              ng-model-options="{ allowInvalid: true }"
+			  novalidate
+		>
+		<!--"form-wrapper"-->
+			<section id = "main">
+				<header class="header">
+                    <div class= "col-xs-12">
+						<span class="font-18 font-book">To : </span>
+						<span class = "font-16 font-medium">{{scanAndPayCtrl.mVisaQRJSON.merchantName}}</span>
+					</div>
+				</header>
+				
+				<body>
+					<div lp-field="lp-field" label="Amount" class="payeeForm-alignInput payeeForm-alInput" >
+							<div>
+								<input
+									name="amt"
+									id="txnAmount"
+									ng-model="scanAndPayCtrl.txnAmount"
+                                    type = "tel"
+                                    min="1"
+                                    max="999999.99"
+                                    maxlength="9"
+                                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                    ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+                                    placeholder ="Provide amount (less than 10 lacs)"
+                                    ng-readonly="scanAndPayCtrl.txnAmountReadOnly"
+                                    ng-required=true
+									class="form-control payeeForm-Inputbox"
+									ng-focus="focusTxnAmt=true"
+									ng-init="focusTxnAmt = false"
+									autocomplete="off"
+                                   	/>
+
+                                 <small class="text-danger text-left-float" ng-show="mvisaConfirmForm.amt.$error.number  && focusTxnAmt">Please provide valid amount</small>
+
+                                 <small class="text-danger text-left-float" ng-show="mvisaConfirmForm.amt.$error.pattern  && focusTxnAmt">Please provide valid amount</small>
+
+                                <!--android-->
+								<!--<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.amt.$error.max  && focusTxnAmt">Amount has to be less than 10 lacs</small>
+								<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.amt.$error.min  && focusTxnAmt">Amount has to be greater than 1</small>
+								<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.amt.$error.max && mvisaConfirmForm.amt.$error.pattern  && focusTxnAmt">Amount has to be less than 10 lacs</small>
+                                <small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showTxnAmtError  && !focusTxnAmt">{{scanAndPayCtrl.txnAmtError}}</small>-->
+
+                                <small class="text-danger text-left-float" ng-show="scanAndPayCtrl.validateTxnAmount(scanAndPayCtrl.mvisaConfirmFormSubmitted) && !mvisaConfirmForm.amt.$error.pattern && !mvisaConfirmForm.amt.$error.number">{{scanAndPayCtrl.txnAmtError}}</small>
+
+							</div>
+						</div>
+
+					<div lp-field="lp-field" label="Tip" ng-show="scanAndPayCtrl.showTip" class="payeeForm-alignInput payeeForm-alInput">
+							<div>
+								<input
+									name="tip"
+									id="tipAmount"
+									ng-model="scanAndPayCtrl.tipAmount"
+									type = "tel"
+                                    ng-max="9999.99"
+									maxlength="7"
+									oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+									ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+									ng-required='scanAndPayCtrl.isTipMandatory'
+									ng-readonly = "scanAndPayCtrl.tipReadOnly"
+									placeholder ="Provide amount (less than 10,000)"
+									class="form-control payeeForm-Inputbox"
+									ng-focus="focusTip=true"
+									ng-init="focusTip = false"
+									autocomplete="off"
+                                />
+
+								<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.validateTipAmount(scanAndPayCtrl.mvisaConfirmFormSubmitted) && !mvisaConfirmForm.tip.$error.pattern">{{scanAndPayCtrl.tipAmtError}}</small>
+
+								<!--no required in android bcz type is tel, using validateTipAmount-->
+                                <!--<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.tip.$error.min && focusTip">Tip amount has to be greater than 1</small>
+
+                                <small class="text-danger text-left-float" ng-show="mvisaConfirmForm.tip.$error.min && focusTip">Please enter tip amount</small>-->
+                                 
+                                <!--<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.tip.$error.max && mvisaConfirmForm.amt.$error.pattern && focusTip">Tip has to be less than 1 lac</small>-->
+
+								<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.tip.$error.number">Please enter valid tip</small>
+
+                                <small class="text-danger text-left-float" ng-show="mvisaConfirmForm.tip.$error.pattern">Please enter valid tip amount</small>
+
+							</div>
+					</div>
+
+					<div lp-field="lp-field" label="Remarks" class="payeeForm-alignInput payeeForm-alInput">
+							<div>
+								<input
+									name="remarks"
+									id="remarks"
+									ng-model="scanAndPayCtrl.remarks"
+									type = "text"
+									maxlength = "999"
+									oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+									class="form-control payeeForm-Inputbox"
+									placeholder ="Enter remarks"
+									ng-blur ="scanAndPayCtrl.validateRemarks();focusRemraks=false"
+									ng-focus="focusRemraks=true"
+									ng-init="focusRemraks = false"
+									autocomplete="off"
+                                />
+                                
+							</div>
+						</div>
+
+					<div lp-field="lp-field" label="Bill Number" class="payeeForm-alignInput payeeForm-alInput" ng-show="scanAndPayCtrl.showBillNumber">
+						<div>
+							<input
+								name="billNumber"
+								type="text"
+								maxlength="26"
+								minlength="1"
+								ng-model="scanAndPayCtrl.billNumber"
+								ng-required='scanAndPayCtrl.mVisaQRJSON.isBillIdMandatory'
+								ng-pattern="/^[a-zA-Z0-9-]*$/"
+								ng-readonly = "scanAndPayCtrl.billNumberReadOnly"
+								class="form-control payeeForm-Inputbox"
+								value = "{{scanAndPayCtrl.mVisaQRJSON.billId}}"
+								placeholder ="Provide Bill Number"
+								ng-blur ="scanAndPayCtrl.validateBillNumber();focusBill = false"
+								ng-focus="focusBill=true"
+								ng-init="focusBill = false"
+								autocomplete="off"
+							/>
+                           
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.billNumber.$error.maxlength && focusBill">It should be less than 26 characters</small>
+
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.billNumber.$error.pattern && focusBill">Please remove special characters and spaces</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showBillNumErrInitial && !focusBill">{{scanAndPayCtrl.billNumErrInitial}}</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showBillNumError && !focusBill">{{scanAndPayCtrl.billNumErr}}</small>
+
+						</div>
+					</div>
+
+					<div lp-field="lp-field" label="Mobile Number" class="payeeForm-alignInput payeeForm-alInput" ng-show="scanAndPayCtrl.showMobNumber">
+						<div>
+							<input
+								name="mobNumber"
+								type = "tel"
+								maxlength="10"
+								minlength="10"
+								ng-pattern="/^[0-9]*$/"
+								ng-model = "scanAndPayCtrl.mobNumber"
+								ng-required = "scanAndPayCtrl.mVisaQRJSON.isMobileNumberMandatory"
+								ng-readonly = "scanAndPayCtrl.mobileNumberReadOnly"
+								class="form-control payeeForm-Inputbox"
+								placeholder ="Provide Mobile number"
+								ng-blur ="scanAndPayCtrl.validateMobNumber();focusMob=false"
+								ng-focus="focusMob=true"
+								ng-init="focusMob=false"
+								autocomplete="off"
+							/>
+                           
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.mobNumber.$error.minlength && focusMob">Invalid mobile number</small>
+
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.mobNumber.$error.pattern && focusMob">Invalid mobile number</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showMobNoErrorInitial && !focusMob">{{scanAndPayCtrl.mobileNoErrorInitial}}</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showMobNoError && !focusMob">{{scanAndPayCtrl.mobileNoError}}</small>
+
+						</div>
+					</div>
+
+					<div lp-field="lp-field" label="Store ID" class="payeeForm-alignInput payeeForm-alInput" ng-show="scanAndPayCtrl.showStoreId">
+						<div>
+							<input
+									name="storeId"
+									type="text"
+									ng-model="scanAndPayCtrl.storeId"
+									maxlength="26"
+									minlength= "1"
+									ng-pattern="/^[a-zA-Z0-9]*$/"
+									ng-model="scanAndPayCtrl.storeId"
+									ng-model-options="{ allowInvalid: true,updateOn: 'blur' }"
+									ng-required ="scanAndPayCtrl.mVisaQRJSON.isStoreIdMandatory"
+									ng-readonly = "scanAndPayCtrl.storeIdReadOnly"
+									class="form-control payeeForm-Inputbox"
+									placeholder ="Provide Store Id"
+									ng-blur = "scanAndPayCtrl.validateStoreId(mvisaConfirmForm);focusStore=false"
+									ng-focus="focusStore=true"
+									ng-init="focusStore=false"
+									autocomplete="off"
+							/>
+                            
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.storeId.$error.minlength && focusStore">Please provide Store Id</small>
+
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.storeId.$error.pattern && focusStore">Please remove special characters and spaces</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showStoreIdErrorInitial && !focusStore">{{scanAndPayCtrl.storeIdErrorInitial}}</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showStoreIdError && !focusStore">{{scanAndPayCtrl.storeIdError}}</small>
+
+						</div>
+					</div>
+
+					<div lp-field="lp-field" label="Loyalty Number" class="payeeForm-alignInput payeeForm-alInput" ng-show="scanAndPayCtrl.showLoyaltyNo">
+						<div>
+							<input
+									name="loyaltyNo"
+									type="text"
+									maxlength="26"
+									minlenght = "1"
+									ng-pattern="/^[a-zA-Z0-9]*$/"
+									ng-model="scanAndPayCtrl.loyaltyNo"
+									ng-required = "scanAndPayCtrl.mVisaQRJSON.isLoyaltyNumberMandatory"
+									ng-readonly = "scanAndPayCtrl.loyaltyNumberReadOnly"
+									class="form-control payeeForm-Inputbox"
+									placeholder ="Provide Loyalty Number"
+									ng-blur = "scanAndPayCtrl.validateLoyaltyNumber();focusLoyalty=false"
+									ng-focus="focusLoyalty=true"
+									ng-init="focusLoyalty=false"
+									autocomplete="off"
+							/>
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.loyaltyNo.$error.minlength && focusLoyalty">Please provide Loyalty Number</small>
+
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.loyaltyNo.$error.pattern && focusLoyalty">Please remove special characters and spaces</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showLoyaltyErrorInitial && !focusLoyalty">{{scanAndPayCtrl.loyaltyErrInitial}}</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showLoyaltyErr && !focusLoyalty">{{scanAndPayCtrl.loyaltyErr}}</small>
+						</div>
+					</div>
+
+					<div lp-field="lp-field" label="Reference ID" class="payeeForm-alignInput payeeForm-alInput" ng-show="scanAndPayCtrl.showRefId">
+						<div>
+							<input
+									name="refId"
+									type="text"
+									maxlength="26"
+									autocomplete="off"
+									minlenght = "1"
+									ng-pattern="/^[a-zA-Z0-9]*$/"
+									ng-model="scanAndPayCtrl.refId"
+									ng-required = "scanAndPayCtrl.mVisaQRJSON.isReferenceIdMandatory"
+									ng-readonly = "scanAndPayCtrl.refIdReadOnly"
+									placeholder ="Provide Reference Number"
+									class="form-control payeeForm-Inputbox"
+									ng-blur = "scanAndPayCtrl.validateRefId();focusRef=false"
+									ng-focus="focusRef=true"
+									ng-init="focusRef=false"
+							/>
+
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.refId.$error.minlength && focusRef">It has to be minimum 3 characters</small>
+
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.refId.$error.pattern && focusRef">Please remove special characters and spaces</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showRefErrorInitial && !focusRef">{{scanAndPayCtrl.refErrInitial}}</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showRefErr && !focusRef">{{scanAndPayCtrl.refErr}}</small>
+						</div>
+					</div>
+
+					<div lp-field="lp-field" label="Consumer ID" class="payeeForm-alignInput payeeForm-alInput" ng-show="scanAndPayCtrl.showConsumerId">
+						<div>
+							<input
+									name="consumerId"
+									type="text"
+									autocomplete="off"
+									maxlength="26"
+									minlenght = "1"
+									ng-pattern="/^[a-zA-Z0-9]*$/"
+									ng-model="scanAndPayCtrl.consumerId"
+									ng-required = "scanAndPayCtrl.mVisaQRJSON.isConsumerIdMandatory"
+									ng-readonly = "scanAndPayCtrl.consumerIdReadOnly"
+									class="form-control payeeForm-Inputbox"
+									placeholder ="Provide Consumer Id"
+									value = "{{scanAndPayCtrl.mVisaQRJSON.consumerId}}"
+									ng-blur = "scanAndPayCtrl.validateConsumerId();focusConsumer=false"
+									ng-focus="focusConsumer=true"
+									ng-init="focusConsumer=false"
+							/>
+                            <small class="text-danger text-left-float" ng-show="mvisaConfirmForm.consumerId.$error.minlength && focusConsumer">It has to be minimum 3 characters</small>
+
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.consumerId.$error.pattern && focusConsumer">Please enter valid amount</small><!--Please remoe special characters and spaces</span>-->
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showConsumerErrorInitial && !focusConsumer">{{scanAndPayCtrl.consumerErrInitial}}</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showConsumerErr && !focusConsumer">{{scanAndPayCtrl.consumerErr}}</small>
+
+						</div>
+					</div>
+
+					<div lp-field="lp-field" label="Terminal ID" class="payeeForm-alignInput payeeForm-alInput" ng-show="scanAndPayCtrl.showTerminalId">
+						<div>
+							<input
+									name="terminalId"
+									type="text"
+									maxlength="26"
+									minlenght = "1"
+									autocomplete="off"
+									ng-pattern="/^[a-zA-Z0-9]*$/"
+									ng-model="scanAndPayCtrl.terminalId"
+									ng-required = "scanAndPayCtrl.mVisaQRJSON.isTerminalIdMandatory"
+									ng-readonly = "scanAndPayCtrl.terminalIdReadOnly"
+									class="form-control payeeForm-Inputbox"
+									placeholder ="Provide Terminal Id"
+									value = "{{scanAndPayCtrl.mVisaQRJSON.terminalId}}"
+									ng-blur = "scanAndPayCtrl.validateTerminalId();focusTerminal=false"
+									ng-focus="focusTerminal=true"
+									ng-init="focusTerminal=false"
+							/>
+
+                            
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.terminalId.$error.minlength && focusTerminal">Please provide Terminal Id</small>
+
+							<small class="text-danger text-left-float" ng-show="mvisaConfirmForm.terminalId.$error.pattern && focusTerminal">Please remove special characters and spaces</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showTerminalErrInitial && !focusTerminal">{{scanAndPayCtrl.terminalErrInitial}}</small>
+
+							<small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showTerminalErr && !focusTerminal">{{scanAndPayCtrl.terminalErr}}</small>
+						</div>
+					</div>
+
+                    <div lp-field="lp-field" label="Purpose" class="payeeForm-alignInput payeeForm-alInput" ng-show="scanAndPayCtrl.showPurpose">
+                            <div>
+                                <input
+                                        name="purpose"
+                                        type="text"
+                                        maxlength="26"
+										autocomplete="off"
+                                        minlenght = "1"
+                                        ng-pattern="/^[a-zA-Z0-9]*$/"
+                                        ng-model="scanAndPayCtrl.purpose"
+                                        ng-required = "scanAndPayCtrl.mVisaQRJSON.isPurposeMandatory"
+                                        ng-readonly = "scanAndPayCtrl.purposeReadOnly"
+                                        class="form-control payeeForm-Inputbox"
+                                        placeholder ="Provide Purpose"
+                                        value = "{{scanAndPayCtrl.mVisaQRJSON.purpose}}"
+                                        ng-blur = "scanAndPayCtrl.validatePurpose();focusPurpose=false"
+                                        ng-focus="focusPurpose=true"
+                                        ng-init="focusPurpose=false"
+                                />
+                                <small class="text-danger text-left-float" ng-show="mvisaConfirmForm.purpose.$error.minlength && focusPurpose">Please provide purpose</small>
+
+                                <small class="text-danger text-left-float" ng-show="mvisaConfirmForm.purpose.$error.pattern && focusPurpose">Please remove special characters and spaces</small>
+
+                                <small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showPurposeErrInitial && !focusPurpose">{{scanAndPayCtrl.purposeErrInitial}}</small>
+
+                                <small class="text-danger text-left-float" ng-show="scanAndPayCtrl.showPurposeErr && !focusPurpose">{{scanAndPayCtrl.purposeErr}}</small>
+                            </div>
+                        </div>
+
+                    <div class="payFormEndBorder"></div>
+					<div>
+                        <button class="btnNext"
+                            type="submit" name="confirmBtn"
+                                ng-click=" scanAndPayCtrl.mvisaConfirmFormSubmitted=true; scanAndPayCtrl.validateForm(scanAndPayCtrl.mvisaConfirmForm.$valid);"  lp-i18n="Proceed">
+                        </button>
+                    </div>
+				</body>
+			</section>
+		</form>
+	</div>
+</div>

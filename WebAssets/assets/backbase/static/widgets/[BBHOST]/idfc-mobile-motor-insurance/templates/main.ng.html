@@ -1,0 +1,285 @@
+<!-- Add NG Template here-->
+
+<div>
+	<div ng-if="mainCtrl.errorSpinShow">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+    </div>
+	<!--div class="motor-insurance-panel">
+		<label lp-i18n="Get complete cover for your vehicle and ensure protection against unseen calamities"></label>
+	</div-->
+
+	<div align="center" class="margin-auto">
+		<label class="allFontStyle" lp-i18n="Motor Insurance Solutions"></label>
+	</div>
+	
+	
+	
+	<div class="car-insurance-panel">
+	
+	<div align="center" class="car-image-div">
+		<img ng-src="{{mainCtrl.imagePath}}" class="car-image">
+	</div>
+		
+			<div class="car-text-div" align="center">
+				<h4 lp-i18n="CAR INSURANCE"  class="car-text" align="center"></h4>
+			</div>	
+			<div class="driveDiv">
+				<label lp-i18n="Drive with peace of mind" class="lightShadeFont" align="center"></label>
+			</div>
+		
+			
+				
+		   <div class="four-image-div">
+			
+			
+				<div class="motor-ins-panle-div-hand motor-ins-panle-div">
+					<div class="motor-ins-images">
+						<img ng-src="{{mainCtrl.handPath}}" class="motor-mobile-images" >
+
+					</div>
+					<div class="motor-ins-text-head">
+						<label  lp-i18n="Instant policy Insurance" class="motor-ins-panel-text "></label>
+					</div>
+				</div>
+				<div class="motor-ins-panle-div-garage motor-ins-panle-div">
+					<div class="motor-ins-images">
+						<img ng-src="{{mainCtrl.garagePath}}" class="motor-mobile-images" >
+
+					</div>
+					<div class="motor-ins-text-head">
+						<label  lp-i18n="3300+ Cashless network garages" class="motor-ins-panel-text"></label>
+					</div>
+				</div>
+				
+			
+			
+				<div class="motor-ins-panle-div-gift motor-ins-panle-div">
+					<div class="motor-ins-images">
+						<img ng-src="{{mainCtrl.giftPath}}"  class="motor-mobile-images">
+
+					</div>
+					<div class="motor-ins-text-head">
+						<label  lp-i18n="No claim bonus" class="motor-ins-panel-text "></label>
+					</div>
+				</div>
+
+				<div class="motor-ins-panle-div-assistance motor-ins-panle-div">
+					<div class="motor-ins-images">
+						<img ng-src="{{mainCtrl.assistancePath}}"  class="motor-mobile-images">
+
+					</div>
+					<div class="motor-ins-text-head">
+						<label  lp-i18n="Roadside assistance" class="motor-ins-panel-text "></label>
+					</div>
+				</div>
+			
+			</div>
+			
+			
+			
+			<div class="button-row motorInsuranceBtnRow row">
+				<div class="col-sm-12 col-md-12 col-lg-12 motorMobile" align="center">
+					<button class="btn btn-primary btn-align primary-btn-btn smallbutton motorInsuranceBtn"  ng-click="mainCtrl.getConfirmation('MOTOR_CAR_PRODUCT_CODE')" lp-i18n="Buy Now"></button>
+					<button class="btn btn-primary btn-align secondary-btn-btn bigbutton motorInsuranceBtn" ng-click="mainCtrl.motorSwitchFuction('carKnowMore');" lp-i18n="Know More"></button>
+				</div>
+				<div class="col-sm-12 col-md-12 col-lg-12 motorDesktop" align="center">
+					<button class="btn btn-primary btn-align secondary-btn-btn bigbutton motorInsuranceBtn" ng-click="mainCtrl.motorSwitchFuction('carKnowMore');" lp-i18n="Know More"></button>
+					<button class="btn btn-primary btn-align primary-btn-btn smallbutton motorInsuranceBtn"  ng-click="mainCtrl.getConfirmation('MOTOR_CAR_PRODUCT_CODE')" lp-i18n="Buy Now"></button>
+				</div>
+			</div>
+
+			
+		
+	</div>
+
+	
+	
+		
+		
+	
+	<div class="car-insurance-panel">
+	
+		<div align="center" class="car-image-div">
+			<img ng-src="{{mainCtrl.bikePath}}" class="bike-image">
+		</div>
+		<div class="car-text-div" align="center">
+				<h4 lp-i18n="TWO WHEELER INSURANCE" class="bike-text"  align="center"></h4>
+			</div>
+			<div class="driveDiv">
+				<label lp-i18n="Ride with peace of mind" class="lightShadeFont" align="center"></label>
+			</div>
+
+		
+			<div>
+				<div class="four-image-div">
+				<div class="motor-ins-panle-div-hand motor-ins-panle-div">
+					<div class="motor-ins-images">
+						<img ng-src="{{mainCtrl.handPath}}"  class="motor-mobile-images">
+
+					</div>
+					<div class="motor-ins-text-head">
+						<label  lp-i18n="Instant policy Insurance" class="motor-ins-panel-text lightShadeFont "></label>
+					</div>
+				</div>
+				<div class="motor-ins-panle-div-garage motor-ins-panle-div">
+					<div class="motor-ins-images">
+						<img ng-src="{{mainCtrl.garagePath}}" class="motor-mobile-images">
+
+					</div>
+					<div class="motor-ins-text-head">
+						<label  lp-i18n="2000+ Cashless network garages" class="motor-ins-panel-text lightShadeFont "></label>
+					</div>
+				</div>
+				
+				<div class="motor-ins-panle-div-gift motor-ins-panle-div">
+					<div class="motor-ins-images">
+						<img ng-src="{{mainCtrl.giftPath}}" class="motor-mobile-images">
+
+					</div>
+					<div class="motor-ins-text-head">
+						<label  lp-i18n="No claim bonus" class="motor-ins-panel-text lightShadeFont "></label>
+					</div>
+				</div>
+
+				<div class="motor-ins-panle-div-assistance motor-ins-panle-div">
+				<div class="motor-ins-images">
+						<img ng-src="{{mainCtrl.bikeAssistancePath}}" class="motor-mobile-images">
+
+					</div>
+					<div class="motor-ins-text-head">
+						<label  lp-i18n="Long term cover upto 3 years" class="motor-ins-panel-text lightShadeFont "></label>
+					</div>
+				</div>
+					
+					
+				</div>
+			</div>
+
+			
+			
+			<div class="button-row motorInsuranceBtnRow row">
+				<div class="col-sm-12 col-md-12 col-lg-12 motorMobile" align="center">
+					<button class="btn btn-primary btn-align primary-btn-btn smallbutton motorInsuranceBtn"  ng-click="mainCtrl.getConfirmation('MOTOR_BIKE_PRODUCT_CODE')" lp-i18n="Buy Now"></button>
+					<button class="btn btn-primary btn-align secondary-btn-btn bigbutton motorInsuranceBtn" ng-click="mainCtrl.motorSwitchFuction('bikeKnowMore');" lp-i18n="Know More"></button>
+				</div>
+				<div class="col-sm-12 col-md-12 col-lg-12 motorDesktop" align="center">
+					<button class="btn btn-primary btn-align secondary-btn-btn bigbutton motorInsuranceBtn" ng-click="mainCtrl.motorSwitchFuction('bikeKnowMore');" lp-i18n="Know More"></button>
+					<button class="btn btn-primary btn-align primary-btn-btn smallbutton motorInsuranceBtn"  ng-click="mainCtrl.getConfirmation('MOTOR_BIKE_PRODUCT_CODE')" lp-i18n="Buy Now"></button>
+				</div>
+			</div>
+		
+
+
+		
+	</div>
+	
+	
+	
+	<div class="motor-insurance-panel-footer">
+
+        <div class="motor-footer">
+            <div class="motor-panel-footer">
+                <div align="center" class="motor-panel-footer-image">
+                    <img ng-src="{{mainCtrl.faqPath}}" style="cursor: pointer;" ng-click="mainCtrl.motorSwitchFuction('motorFaq');" class="motor-mobile-images">
+                </div>
+                <div align="center">
+                    <label  lp-i18n="FAQ's" ng-click="mainCtrl.motorSwitchFuction('motorFaq');" class="motor-panel-footer-text"></label>
+                </div>
+            </div>
+            <div class="motor-panel-footer">
+                <div align="center" class="motor-panel-footer-image">
+                    <img ng-src="{{mainCtrl.policyPath}}" style="cursor: pointer;" ng-click="mainCtrl.motorSwitchFuction('motorPolicyWording');" class="motor-mobile-images">
+                </div>
+                <div align="center">
+                    <label  lp-i18n="BROCHURE" ng-click="mainCtrl.motorSwitchFuction('motorPolicyWording');" class="motor-panel-footer-text"></label>
+                </div>
+            </div>
+            <div class="motor-panel-footer">
+                <div align="center" class="motor-panel-footer-image">
+                    <img ng-src="{{mainCtrl.claimPath}}" style="cursor: pointer;" ng-click="mainCtrl.motorSwitchFuction('motorClaim');" class="motor-mobile-images" >
+                </div>
+                <div align="center">
+                    <label  lp-i18n="CLAIM PROCESS" ng-click="mainCtrl.motorSwitchFuction('motorClaim');" class="motor-panel-footer-text"></label>
+                </div>
+            </div>
+            
+            <div class="motor-panel-footer marginLeft">
+                <div align="center" class="motor-panel-footer-image">
+                    <img ng-src="{{mainCtrl.listPath}}" style="cursor: pointer;" ng-click="mainCtrl.motorSwitchFuction('motorList');" class="motor-mobile-images" >
+                </div>
+                <div align="center">
+                    <label  lp-i18n="LIST OF NETWORK GARAGES" ng-click="mainCtrl.motorSwitchFuction('motorList');" class="motor-panel-footer-text"></label>
+                </div>
+            </div>
+            <div class="motor-panel-footer motor-panel-footer-width" style="vertical-align:top;">
+                <div align="center" class="motor-panel-footer-image">
+                    <img ng-src="{{mainCtrl.connectPath}}" class="motor-mobile-images" ng-click="mainCtrl.call('18004194332');">
+                </div>
+                
+				
+				<div align="center">
+					<label  ng-click="mainCtrl.call('18004194332');" lp-i18n="CONNECT TO OUR EXPERT" class="motor-panel-footer-text cursor-none"></label>
+				</div>
+				<!--div class="expertNumberDiv" align="center">
+					<label class="motor-expert-text" lp-i18n="1800 419 4332"></label>
+				</div-->
+            </div>
+        </div>
+    
+
+
+	</div>
+	
+	<div class="disclaimer-txt">
+		<label  ng-click="mainCtrl.motorSwitchFuction('motorDisclaimer');" class="disclaimer-link handSymbol" lp-i18n="Disclaimers & Key Disclosures"></label>
+	</div>
+	
+	<div id="motorModal" class="motormodal"> 
+
+ <!-- Modal content -->
+  <div class="motormodal-content">
+	<div ng-if="mainCtrl.errorSpin">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+    </div>
+  <div class="motormodal-header">      
+	 <div class="motorpopupHeader">
+		<label>DISCLAIMER</label>
+        <span class="motormodal-close" id="motorpop_span" ng-click="mainCtrl.closemotorPopup()">x</span>
+	 </div>
+	  
+  </div>
+
+    <div class="motormodal-body">
+	
+	<div class="lp-alerts">			
+                <div alert="alert" ng-repeat="alert in alerts" type="alert.type"  ng-bind="alert.msg" style="color:red;"></div>
+     </div>
+		
+	
+	<div align="center" id="motrId">
+
+		By clicking on Proceed you will be directed to the website of ICICI Lombard. The information provided on their website is owned and managed by ICICI Lombard and IDFC bank does not bear any responsibility for the same.
+	</div>
+     
+    </div>
+
+   <div class="btn-pop-center">
+     <button id="btn_mot" class="btn btn-primary  primary-btn-btn motorButton"  ng-click="mainCtrl.iLMotorInsurance()" lp-i18n="Proceed">
+	</button>
+     <!--button id="btn_mot" class="btn btn-primary  primary-btn-btn motorButton"  ng-click="mainCtrl.gotoNewTab();" lp-i18n="Proceed">
+	</button--> 
+    </div>
+	<div class="btn-pop-center">
+		<button class="btn btn-primary secondary-btn-btn"  ng-click="mainCtrl.closemotorPopup();" lp-i18n="Cancel"></button>		
+	</div>
+ </div>
+
+</div>
+
+</div>

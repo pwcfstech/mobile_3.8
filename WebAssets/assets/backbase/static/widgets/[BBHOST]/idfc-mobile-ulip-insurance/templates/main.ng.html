@@ -1,0 +1,222 @@
+<!-- Add NG Template here-->
+
+<div>
+
+
+  <div class="ulip-header-insurance-panel" >
+		<label lp-i18n="The good ULIP is finally here. Now just click and invest and safeguard your family's future goal!"></label>
+	</div>
+    
+
+	
+	<div align="center" class="margin-auto">
+		<label class="allFontStyle" lp-i18n="HDFC Life Click2Invest - ULIP"></label>
+	</div>
+	
+	
+    <div class="ulip-insurance-panel">
+
+
+
+        <div class="scroll-mobile">
+            <div class="mobile-view-panel leftmargin">
+                        <div class="ulip-panle-div">
+                            <div class="ulip-images">
+                                <img ng-src="{{mainCtrl.eightPath}}" class="ulip-mobile-images" >
+
+                            </div>
+                            <div class="ulip-text-head">
+                                <label  lp-i18n="Investment Fund Options" class="ulip-panel-text "></label>
+                            </div>
+                        </div>
+                        <div class="ulip-panle-div">
+                            <div class="ulip-images">
+                                <img ng-src="{{mainCtrl.zeroPath}}"  class="ulip-mobile-images">
+                            </div>
+                            <div class="ulip-text-head">
+                                <label  lp-i18n="Administration Charges" class="ulip-panel-text "></label>
+                            </div>
+                        </div>
+                        <div class="ulip-panle-div">
+                            <div class="ulip-images">
+                                <img ng-src="{{mainCtrl.zeropurplePath}}" class="ulip-mobile-images">
+                            </div>
+                            <div class="ulip-text-head">
+                                <label  lp-i18n="Policy Admin Charge" class="ulip-panel-text "></label>
+                            </div>
+                        </div>
+                        <div class="ulip-panle-div">
+                            <div class="ulip-images">
+                                <img ng-src="{{mainCtrl.taxPath}}" class="ulip-mobile-images">
+                            </div>
+                                <div class="ulip-text-head">
+                                    <label  lp-i18n="Tax Savings" class="ulip-panel-text"></label>
+                                </div>
+                        </div>
+                  
+                
+                        <div class="ulip-panle-div" >
+
+                            <div class="ulip-images">
+                                <img ng-src="{{mainCtrl.thirteenPath}}" class="ulip-mobile-images">
+
+                            </div>
+                            <div class="ulip-text-head">
+                                <label  lp-i18n="Fund Management Charges" class="ulip-panel-text "></label>
+                            </div>
+                        </div>
+                        <div class="ulip-panle-div">
+                            <div class="ulip-images">
+                                <img ng-src="{{mainCtrl.tenPath}}" class="ulip-mobile-images">
+                            </div>
+                            <div class="ulip-text-head">
+                                <label  lp-i18n="Life Cover" class="ulip-panel-text "></label>
+                            </div>
+                        </div>
+                        <div class="ulip-panle-div">
+                            <div class="ulip-images">
+                                <img ng-src="{{mainCtrl.fourPath}}" class="ulip-mobile-images">
+                            </div>
+                            <div class="ulip-text-head">
+                                <label  lp-i18n="Free Fund switches" class="ulip-panel-text "></label>
+                            </div>
+                        </div>
+                        <div class="ulip-panle-div">
+                            <div class="ulip-images">
+                                <img ng-src="{{mainCtrl.fourpurplePath}}" class="ulip-mobile-images">
+                            </div>
+                            <div class="ulip-text-head">
+                                <label  lp-i18n="Free Premium Redirections" class="ulip-panel-text "></label>
+                            </div>
+
+                        </div>
+                   
+				</div>
+			</div>
+            <div>
+                <div align="center" class="ulip-button">
+				
+				<!--form  class="mobile-view" id="ulipInsurance"  name="ulipInsurance" method="post" target="_blank" style="display:inline;">
+						<button class="btn btn-primary  primary-btn-btn button-margin" ng-click="mainCtrl.getConfirmation()" lp-i18n="Invest now ">
+						</button>
+						<textarea name="txtRequestData" ng-model="data" id="txtRequestData" cols="100" rows="50" style="display:none;"></textarea>
+					</form-->
+				
+				
+				
+				<button class="btn btn-primary  primary-btn-btn button-margin mobile-view" ng-click="mainCtrl.getConfirmation()" lp-i18n="Invest Now " style="margin-top: 0px;">
+		</button>
+                    <button class="btn btn-secondary secondary-btn-btn button-margin button-know-more" ng-click="mainCtrl.ulipSwitchFuction('ulipKnowMore');" lp-i18n="Know More">
+                    </button>
+		<button class="btn btn-secondary secondary-btn-btn button-margin mobile-view" ng-click="mainCtrl.ulipSwitchFuction('ulipFundOptions');" lp-i18n="Fund Options">
+                    </button>
+					
+					<form  id="ulipInsurance"  name="ulipInsurance" method="post" target="_blank" style="display:inline;">
+
+						<textarea name="txtRequestData" ng-model="data" id="txtRequestData" cols="100" rows="50" style="display:none;"></textarea>
+					</form>
+					
+					
+					 <!--button class="btn btn-secondary secondary-btn-btn button-margin mobile-view " ng-click="" lp-i18n="Fund Options">
+                    </button-->
+					
+					
+                    
+                </div>
+            </div>
+
+        
+
+    </div>
+
+
+
+    <div class="ulip-insurance-panel-footer">
+        <div class="ulip-footer">
+                <div class="ulip-panel-footer">
+                    <div align="center">
+                        <img ng-src="{{mainCtrl.faqPath}}" style="cursor: pointer;" ng-click="mainCtrl.ulipSwitchFuction('ulipFaq');" class="ulip-panel-footer-image">
+                    </div>
+                    <div align="center">
+                        <label  lp-i18n="FAQ's" ng-click="mainCtrl.ulipSwitchFuction('ulipFaq');" class="ulip-panel-footer-text"></label>
+                    </div>
+                </div>
+                <div class="ulip-panel-footer">
+                    <div align="center">
+                        <img ng-src="{{mainCtrl.policyPath}}" style="cursor: pointer;" ng-click="mainCtrl.ulipSwitchFuction('ulipPolicyWording');" class="ulip-panel-footer-image">
+                    </div>
+                    <div align="center">
+                        <label  lp-i18n="BROCHURE" ng-click="mainCtrl.ulipSwitchFuction('ulipPolicyWording');" class="ulip-panel-footer-text"></label>
+                    </div>
+                </div>
+                <div class="ulip-panel-footer">
+                    <div align="center">
+                        <img ng-src="{{mainCtrl.claimPath}}" style="cursor: pointer;" ng-click="mainCtrl.ulipSwitchFuction('ulipClaim');" class="ulip-panel-footer-image">
+                    </div>
+                    <div align="center">
+                        <label  lp-i18n="CLAIM PROCESS" ng-click="mainCtrl.ulipSwitchFuction('ulipClaim');" class="ulip-panel-footer-text"></label>
+                    </div>
+                </div>
+                <div class="ulip-panel-footer ulip-panel-footer-width" style="vertical-align:top;">
+                    <div align="center">
+                        <img ng-src="{{mainCtrl.connectPath}}" class="ulip-panel-footer-image" ng-click="mainCtrl.call('18004194332')">
+                    </div>
+                    <div align="center">
+                        <label ng-click="mainCtrl.call('18004194332')"  lp-i18n="CONNECT TO OUR EXPERT" class="ulip-panel-footer-text cursor-none"></label>
+						
+                    </div>
+                </div>
+        </div>
+    </div>
+	
+	<div class="text-center">
+		<label  ng-click="mainCtrl.ulipSwitchFuction('ulipDiscalimer');" class="disclaimer-link handSymbol" lp-i18n="Disclaimers & Key Disclosures"></label>
+	</div>
+
+	<div id="ulipModal" class="ulipmodal"> 
+
+ <!-- Modal content -->
+  <div class="ulipmodal-content">
+
+  <div class="ulipmodal-header">      
+	 <div class="ulippopupHeader">
+		<label>DISCLAIMER</label>
+        <span class="ulipmodal-close" id="ulippop_span" ng-click="mainCtrl.closeulipPopup()">x</span>
+	 </div>
+	  
+  </div>
+
+    <div class="ulipmodal-body">
+	
+	<div ng-if="mainCtrl.errorSpin">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+    </div>
+
+	<div align="center">
+		By clicking on Proceed you will be directed to the website of HDFC Life. The information provided on their website is owned and managed by HDFC life and IDFC bank does not bear any responsibility for the same.
+	</div>
+     
+    </div>
+
+      <div class="ulipmodal-footer">
+          <button id="btn_travel" class="btn btn-primary  primary-btn-btn travelButton" style="float:right;" ng-click="mainCtrl.getLifeInsuranceQuote()" lp-i18n="Proceed">
+          </button>
+      </div>
+      <div class="ulipmodal-footer">
+          <button class="btn btn-primary secondary-btn-btn travelButton"  ng-click="mainCtrl.closeulipPopup();" lp-i18n="Cancel"></button>
+      </div>
+
+   <!--<div class="ulipmodal-footer">
+     <button class="btn btn-primary  primary-btn-btn ulipButton" ng-click="mainCtrl.getLifeInsuranceQuote()" lp-i18n="Proceed">
+	</button>
+       <button class="btn btn-primary  primary-btn-btn ulipButton" style="background-color:#e7e7e7 !important;color:#000;" ng-click="mainCtrl.closeulipPopup()" lp-i18n="Cancel">
+       </button>
+    </div>-->
+ </div>
+
+</div>
+
+</div>

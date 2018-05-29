@@ -1,0 +1,89 @@
+
+<div class="add-biller-confirm-div" style="margin-top: 40px;">
+    <div style="padding-bottom:20px;">
+        <div ng-show="addCtrl.checkReq(addCtrl.setAutoPayFlag, addCtrl.dataError.customCode=='SET_AUTO_PAY_ERROR' )" style="text-align: CENTER;padding-bottom: 25px;max-width: 1079px; "><span class="confirm-span-autoPay"><img  style="height:17; width:25;" alt="recharge Widget" title="recharge Widget" src="static/features/[BBHOST]/theme-idfc/images/Tick.png"/>
+			<span lp-i18n="Your biller has been added, but registration of your payment instruction failed. You’ll need to delete this biller and add it again to set up your payment instruction."></span>
+		</span></div>
+
+
+        <div class="form-group successAuthenticator-addbiller" >
+            <div class="add-floatLeft-addBiller add-floatLeft-cust1 addBiller-form-div">
+                <label   class=" add-bill-label col-xs-4 col-md-4" lp-i18n="Nickname" ></label>
+            </div>
+            <div class="add-floatLeft-addBiller add-floatLeft-cust add-confirm-bill col-xs-4 col-md-4">
+                <div>
+                    <span class="addBiller-select-left" ng-bind="addCtrl.billerNickName"></span>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="addCtrl.payeeCheck(addCtrl.billerProviderSelected.authenticatorCount, 1)">
+        <div class="form-group successAuthenticator-addbiller" >
+            <div class="add-floatLeft-addBiller add-floatLeft-cust1 addBiller-form-div col-xs-4 col-md-4">
+                <label class=" add-bill-label" ng-bind="addCtrl.billerProviderSelected.authenticatorLable1"></label></div>
+           
+            <div class="add-floatLeft-addBiller add-floatLeft-cust add-success col-xs-4 col-md-4">
+		    <div>
+                <label class="addBiller-select-left addBiller-font-Confirm" ng-bind="addCtrl.authenticator1"></label>
+            </div>
+			</div>
+        </div>
+	</div>
+        <div ng-show="addCtrl.authCheck(addCtrl.billerProviderSelected.authenticatorCount, 2)">
+
+           <div class="form-group successAuthenticator-addbiller" >
+            <div class="add-floatLeft-addBiller add-floatLeft-cust addBiller-form-div col-xs-4 col-md-4">
+                <label class=" add-bill-label" ng-bind="addCtrl.billerProviderSelected.authenticatorLable2"></label>
+            </div>
+             <div class="add-floatLeft-addBiller add-floatLeft-cust add-success col-xs-4 col-md-4">
+		   <div>
+                <label class="addBiller-select-left addBiller-font-Confirm" ng-bind="addCtrl.authenticator2"></label></div>
+
+            </div>
+        </div>
+		</div>
+        <div ng-show="addCtrl.authCheck(addCtrl.billerProviderSelected.authenticatorCount, 3)">
+            <div class="form-group successAuthenticator-addbiller" >
+            <div class="add-floatLeft-addBiller add-floatLeft-cust addBiller-form-div col-xs-4 col-md-4">
+                <label class=" add-bill-label" ng-bind="addCtrl.billerProviderSelected.authenticatorLable3"></label></div>
+           
+             <div class="add-floatLeft-addBiller add-floatLeft-cust add-success col-xs-4 col-md-4">
+		   <div>
+                <label class="addBiller-select-left addBiller-font-Confirm" ng-bind="addCtrl.authenticator3"></label></div>
+            </div>
+        </div>
+</div>
+        <div ng-show="addCtrl.authCheck(addCtrl.billerProviderSelected.authenticatorCount, 4)">
+             <div class="form-group successAuthenticator-addbiller" >
+            <div class="add-floatLeft-addBiller add-floatLeft-cust addBiller-form-div col-xs-4 col-md-4">
+                <label class=" add-bill-label" ng-bind="addCtrl.billerProviderSelected.authenticatorLable4"></label>
+            </div>
+           <div class="add-floatLeft-addBiller add-floatLeft-cust add-success col-xs-4 col-md-4">
+		    <div>
+                <label class="addBiller-select-left addBiller-font-Confirm" ng-bind="addCtrl.authenticator4"></label></div>
+
+            </div>
+        </div>
+		</div>
+        <div ng-show="addCtrl.authCheck(addCtrl.billerProviderSelected.authenticatorCount, 5)">
+            <div class="form-group successAuthenticator-addbiller" >
+            <div class="add-floatLeft-addBiller add-floatLeft-cust addBiller-form-div col-xs-4 col-md-4">
+                <label class=" add-bill-label" ng-bind="addCtrl.billerProviderSelected.authenticatorLable5"></label>
+            </div>
+            <div class="add-floatLeft-addBiller add-floatLeft-cust add-success col-xs-4 col-md-4">
+		    <div>
+                <label class="addBiller-select-left addBiller-font-Confirm" ng-bind="addCtrl.authenticator5"></label>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+	<div class="add-div-td-dep-ab">
+	<div>
+        <button type="button" class=" btn btn-primary primary-btn-btn  ng-binding" ng-click="addCtrl.manageBiller()" lp-i18n="Manage Biller"></button>
+		<button   class="btn btn-primary secondary-btn-btn ng-binding" ng-click="addCtrl.back()"  name="proceed" lp-i18n="Add Another"></button>        
+    </div>
+	</div>

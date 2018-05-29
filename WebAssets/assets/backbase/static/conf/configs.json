@@ -1,0 +1,44 @@
+{
+    "development": {
+        "debugEnable": false
+    },
+    "backbase": {
+        "localModelPath": "$(contextRoot)/static/conf/model.json",
+        "experience": "idfc-mobile-v4",
+        "serverURL": "https://my.idfcbank.com/",
+    },
+    "security": {
+        "allowedDomains": [
+                           "*"
+                           ],
+        "sslPinning": {
+            "certificates": [
+                             "prodSSLCertificate.der",
+                             "ServerCertificate.der"
+                             ],
+            "domainExceptions": [
+                                 "https://www.idfcbank.com"
+                                 ]
+        }
+    },
+    "template": {
+        "extraLibraries": [
+                           "$(contextRoot)/static/features/[BBHOST]/fastclick/fastclick.js",
+                           "$(contextRoot)/static/features/[BBHOST]/launchpad/launchpad-setup.js",
+                           "$(contextRoot)/static/features/[BBHOST]/jquery/dist/jquery.min.js",
+                           "$(contextRoot)/static/features/[BBHOST]/requirejs/require.js",
+                           "$(contextRoot)/static/features/[BBHOST]/angular/angular.min.js",
+                           "$(contextRoot)/static/features/[BBHOST]/config/requirejs.conf.js",
+                           "$(contextRoot)/static/features/[BBHOST]/base/scripts/require-widget.js",
+                           "$(contextRoot)/static/features/[BBHOST]/template-launchpad-page/scripts/main.js"
+                           ],
+        "scripts": [
+                    "if (document.body) { FastClick.attach(document.body); } else { document.addEventListener('DOMContentLoaded', function() { FastClick.attach(document.body); }) }"
+                    ],
+        "styles": [
+                   "$(contextRoot)/static/features/[BBHOST]/theme-idfc/dist/styles/base.min.css",
+                   "$(contextRoot)/static/features/[BBHOST]/theme-mobile-demo/css/global.css",
+                   "$(contextRoot)/static/features/[BBHOST]/theme-mobile-demo/css/ios.css"
+                   ]
+    }
+}

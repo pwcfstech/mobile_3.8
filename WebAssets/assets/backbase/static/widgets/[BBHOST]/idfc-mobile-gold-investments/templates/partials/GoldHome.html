@@ -1,0 +1,117 @@
+<div class="lp-widget-content lp-widget-body  bib-wrapper widget-body panel-body" xmlns="http://www.w3.org/1999/html" ng-controller="GoldHomeController as goldHomeCtrl">
+    <form novalidate name="goldHomeCtrl.goldInvestmentsform" role="form" >
+        <div>
+            <div ng-if="goldHomeCtrl.errorSpin">
+                <div class="panel-message loading-panel" role="alert">
+                    <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                    <span class="sr-only">Busy</span>
+                </div>
+            </div>
+            <div class="lp-alerts">			
+                <div alert="alert" ng-repeat="alert in goldHomeCtrl.alerts" type="alert.type" close="closeAlert($index)" ng-bind="alert.msg"></div>
+            </div>
+			<div ng-hide="goldHomeCtrl.serviceError">
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6 page-content-label">
+                    <label class="gold_h_font" lp-i18n="Grams of Gold"></label>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 page-content-input">
+                    <input type="text" name="quantity" ng-model="goldHomeCtrl.quantity" class="input-val-gold form-control" required="true"
+                           style="float:left;width:80% !important" placeholder="Gold" autocorrect="off" autocapitalize="off" autocomplete="off"
+								onpaste="return false;" onCopy="return false"
+								onCut="return false"/>
+                    <input style="width:20% !important;" class="static-val form-control" type="text" value="grams" readonly />
+                   
+				   <div class="info-panel"> <span lp-i18n="Min. 1g per year, Max."></span> <span style="font-family: webrupee !important; font-size: 13px !important;">4000</span><span lp-i18n="g per year"></span></div>
+                    <div class="goldInvst-err-msg">
+                        <small class="text-danger" ng-show="(goldHomeCtrl.goldInvestmentsform.submitted && goldHomeCtrl.goldInvestmentsform.quantity.$error.required)"
+                                lp-i18n="This field cannot be blank"></small>
+                        <small class="text-danger" ng-show="(goldHomeCtrl.goldInvestmentsform.submitted && goldHomeCtrl.goldInvestmentsform.quantity.$error.pattern)"
+                                lp-i18n="Please enter the correct values"></small>
+                        <small class="text-danger" ng-show="goldHomeCtrl.allowedQuantity"
+                               lp-i18n="Minimum 1 gram and maximum 4000 grams is allowed"></small>
+                        <small class="text-danger" ng-show="goldHomeCtrl.decimalCheck"
+                               lp-i18n="Please enter numeric and non-decimal values only"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6 page-content-label">
+                    <label class="gold_h_font" lp-i18n="Total amount"></label>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 page-content-input">
+                    <input type="text" value="&#8377;" readonly style="width:7% !important;padding: 0px !important;text-align: right;font-size: 15px !important;" class="input-val-gold form-control"/>
+                    <input type="text" ng-model="goldHomeCtrl.totalAmount" class="form-control static-val" ng-disabled="true" style="float:left;width:93% !important;padding-left:2px !important;background-color:#eee;text-align:left;" placeholder="Total amount" autofill="off"
+								autocorrect="off" autocapitalize="off" autocomplete="off"
+								onpaste="return false;" onCopy="return false"
+								onCut="return false"/> 
+                    <div class="info-panel">
+                        <span lp-i18n="Gold bond rate"></span>
+                        <span class="rupee-symbol-span" lp-amount="goldHomeCtrl.perGramRate"></span>
+                        <span lp-i18n="per gram"></span>
+                    </div>
+					<div class="goldInvst-err-msg">
+                        <small class="text-danger" ng-show="goldHomeCtrl.exceedsAmount"
+                               lp-i18n="You don't have that much money! Balance insufficient"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6 page-content-label">
+                    <label class="gold_h_font" lp-i18n="Select account to pay from"></label>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 page-content-input">
+                    <select name="accountNumber" class="goldInvst-check-control IDFC-dropdown" ng-model="goldHomeCtrl.accountNumber"
+                            ng-options="accNumber.id as accNumber.id for accNumber in goldHomeCtrl.accountNumbers" required="true"
+                            ng-change="goldHomeCtrl.getAvailableBalance();" style="float:left">
+							 <option value="">Select Account</option>
+                    </select>
+					<div class="info-panel">
+                        <span lp-i18n="Available balance"></span>
+                        <span ng-class="{'rupee-symbol-span': goldHomeCtrl.avlbal}" lp-amount="goldHomeCtrl.avlbal"></span>
+                    </div>
+                    <div class="goldInvst-err-msg">
+                        <small class="text-danger" ng-show="goldHomeCtrl.goldInvestmentsform.submitted &amp;&amp; goldHomeCtrl.goldInvestmentsform.accountNumber.$error.required"
+                               lp-i18n="Please select the debit account number"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6 page-content-label">
+                    <span style="float:left;"><label class="gold_h_font" lp-i18n="DEMAT account"></label>
+                    <i class="lp-icon infoIcon " tooltip="Gold bond will be credited to this demat account. This field is non-mandatory" tooltip-append-to-body="true" tooltip-trigger="click">
+                    <img class="infoWidth" src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png"></i>
+
+
+
+
+
+					<!-- <i class="lp-icon customCircle" tooltip="Gold bond will be credited to this demat account. This field is non-mandatory" >i</i> -->
+					</span>
+                    <span class="optional" style="display:none;" lp-i18n="(optional)"></span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 page-content-input">
+                    <input type="text" name="dematAccount" ng-model="goldHomeCtrl.dematAccount" class="form-control" style="float:left"
+                           placeholder="16 Digit DP ID" maxlength="16" minlength="16" ng-pattern="/^[0-9IN]{2}[0-9]{14}$/" autofill="off"
+								autocorrect="off" autocapitalize="off" autocomplete="off"
+								onpaste="return false;" onCopy="return false"
+								onCut="return false"/>
+                    <div class="info-panel optional-div" lp-i18n="Optional"></div>
+                    <div class="goldInvst-err-msg">
+                        <small class="text-danger" ng-show="goldHomeCtrl.goldInvestmentsform.submitted &amp;&amp; goldHomeCtrl.goldInvestmentsform.dematAccount.$error.minlength" lp-i18n="Please enter 16 digit valid value"></small>
+                        <small class="text-danger" ng-show="goldHomeCtrl.goldInvestmentsform.submitted &amp;&amp; goldHomeCtrl.goldInvestmentsform.dematAccount.$error.maxlength" lp-i18n="Please enter 16 digit valid value"></small>
+                        <small class="text-danger" ng-show="goldHomeCtrl.goldInvestmentsform.submitted &amp;&amp; goldHomeCtrl.goldInvestmentsform.dematAccount.$error.pattern"
+                               lp-i18n="Please enter your correct demat account number"></small>
+                    </div>
+                </div>
+            </div>
+            <div class="row button-row bib-form-button" style="border-top:none !important;">
+                <button type="submit" aria-label="Submit" lp-i18n="Proceed"
+                        class="btn btn-primary primary-btn-btn" name="Proceed" ng-disabled="goldHomeCtrl.lockFields"
+                        ng-click="goldHomeCtrl.goldInvestmentsform.submitted=true;goldHomeCtrl.proceedToNextWizard(goldHomeCtrl.goldInvestmentsform.$valid); ">
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>

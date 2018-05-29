@@ -1,0 +1,24 @@
+{
+    "en-US": {
+        "noAccounts": "You don't have any."
+    },
+    "en-IN": {
+        "noAccounts": "You don't have any."
+    },
+    "en-GB": {
+        "noAccounts": "You don't have any."
+    },
+    "en-CA": {
+        "noAccounts": "You don't have any."
+    },
+    "nl-NL": {
+        "noAccounts": "You don't have any.",
+        "No accounts available.": "No accounts available.",
+        "Current Accounts": "Current Accounts",
+        "Credit Cards": "Credit Cards",
+        "Investment": "Investment",
+        "Mortgage": "Mortgage",
+        "Loans": "Loans",
+        "You currently do not have any active current/savings accounts.":"You currently do not have any active current/savings accounts."
+    }
+}

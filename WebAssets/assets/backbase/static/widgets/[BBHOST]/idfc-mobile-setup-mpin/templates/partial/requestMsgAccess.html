@@ -1,0 +1,85 @@
+
+<div class="ng-cloak" ng-controller="MpinController" id="wrapper">
+
+	<!-- Wrapper -->
+	<div id="wrapper" ng-show="showInitalPage">
+
+		<!-- Main -->
+		<section id="main">
+
+			<header>
+
+				<span class="avatar"> <input type="email"
+					class="form-control" id="inputEmail" placeholder="Username"></span>
+
+				<span class="avatar"> <input type="email"
+					class="form-control" id="inputEmail" placeholder="Password"></span>
+
+
+			</header>
+
+			<footer>
+
+				<div class="main">
+					<a href=""><button id="login_pop" ng-click="openOtpDialog()" class="red">
+							<div>Verify</div>
+						</button></a>
+				</div>
+
+				<p></p>
+
+
+
+				<!-- popup form #1 -->
+				<a href="#x" class="overlay" id="login_form"></a>
+				<div class="popup">
+					<p>
+						Do you want to allow IDFC bank to <br> read the message and <br>
+						automatically fill in the OTP?
+					</p>
+					<button>
+						<p class="red">Allow</p>
+					</button>
+
+					<button class="whitePop">
+						<p>Deny</p>
+					</button>
+
+					<a class="close" href="#close"></a>
+				</div>
+
+
+			</footer>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+	<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+								
+				
+				function myFunction() {
+					document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+				}
+
+				
+			</script>
+			<script type="text/ng-template" id="templateId">
+    <h1>Template heading</h1>
+    <p>Content goes here</p>
+</script>
+        <div modal-dialog="" show="OTPModalShown" closable="false">
+            <div lp-template="templates.OTPVerify"></div>
+        </div>
+        <div ng-show="showManuaOTPPage">						
+			<div data-ng-include="templates.ManualOpt"></div>
+		</div>
+        <div modal-dialog="" show="showTimerPage" closable="false">						
+			<div lp-template="templates.TimerPage"></div>
+		</div>
+</div>

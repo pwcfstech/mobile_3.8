@@ -1,0 +1,95 @@
+<div class="col-sm-12 mob-scroll padding0">
+
+    <table width="100%" class="replayment-table table-show table-condensed table-bordered"
+           ng-if="loanRepaymentController.showtable">
+
+        <!--table headers -->
+        <tr class="table-headers">
+            <th class="color-dark-gray padding-l2percent text-left font-12 font-medium color-light-gray-bg"
+                lp-i18n="Installment Date"></th>
+
+            <!-- removed from view in mobile view -->
+            <th class="hidden-xs color-dark-gray text-right font-12 font-medium  color-light-gray-bg">
+                <span lp-i18n="Opening Balance"></span>
+            </th>
+
+            <th class="color-dark-gray text-center font-12 font-medium  color-light-gray-bg">
+                <span lp-i18n="EMI Amount"></span>
+            </th>
+
+            <!-- removed from view in mobile view -->
+            <th class="hidden-xs color-dark-gray text-right font-12 font-medium  color-light-gray-bg">
+                <span lp-i18n="Principal"></span>
+            </th>
+
+            <!-- removed from view in mobile view -->
+            <th class="hidden-xs color-dark-gray text-right font-12 font-medium  color-light-gray-bg">
+                <span lp-i18n="Interest"></span>
+            </th>
+
+            <th class="color-dark-gray padding-r2percent text-right font-12 font-medium  color-light-gray-bg">
+                <span lp-i18n="Closing Balance"></span>
+            </th>
+
+        </tr>
+
+        <tbody>
+        <tr ng-repeat="item in loanRepaymentController.loanDetails |limitTo:loanRepaymentController.paginationLimit()  track by $index"
+            class="font-12 font-book color-dark-gray table-idfc-gen-tr">
+            <td class="padding-l2percent">{{item.instDueDate | date:'dd-MMM-yyyy'}}
+            </td>
+
+            <!-- removed from view in mobile view -->
+            <td class="hidden-xs text-amount"><span class="rupee-symbol-span"></span><span
+                    lp-amount="item.openBal"></span></td>
+
+            <td class="text-amount"><span class="rupee-symbol-span"></span><span
+                    lp-amount="item.totAmt"></span></td>
+
+            <!-- removed from view in mobile view -->
+            <td class="hidden-xs text-amount"><span class="rupee-symbol-span"></span><span
+                    lp-amount="item.prinAmt"></span></td>
+
+            <!-- removed from view in mobile view -->
+            <td class="hidden-xs text-amount"><span class="rupee-symbol-span"></span><span
+                    lp-amount="item.intAmt"></span></td>
+
+            <td class="padding-r2percent text-amount"><span class="rupee-symbol-span"></span><span
+                    lp-amount="item.closeBal"></span></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div ng-if="loanRepaymentController.hasMoreItemsToShow() || loanRepaymentController.showPrintEmailPdfOptions">
+
+
+    <!-- success message-->
+    <div class="row">
+        <!-- Load More -->
+        <div class="col-xs-8 col-sm-10 float-left showMoreBtn-lf">
+            <input name="+ Load More" type="button" value="+ Load more" class="btn-loadMore"
+                   ng-if="loanRepaymentController.hasMoreItemsToShow()"
+                   ng-click="loanRepaymentController.showMoreItems()">
+        </div>
+        <div class="col-xs-2 col-sm-2 col-lg-3 padding0 pull-right"
+             ng-show="loanRepaymentController.showPrintEmailPdfOptions">
+
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footerButton">
+                <input name="Mail" type="button" value="" class="mailButton"
+                       ng-click="loanRepaymentController.Emailadvice()">
+            </div>
+        </div>
+    </div>
+
+    <!-- Print/Download/Email buttons -->
+
+    <div class="row" id="emailSuccessMsg">
+        <div class="col-xs-12 col-sm-12 successEmailMsg padding-top-10px ">
+            <span ng-class="loanRepaymentController.emailError? 'color-pink':'color-green'"
+                  ng-bind="loanRepaymentController.successMessagePDFEmail"></span>
+        </div>
+    </div>
+
+</div>

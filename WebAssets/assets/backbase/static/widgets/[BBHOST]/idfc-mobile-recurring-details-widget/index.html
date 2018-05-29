@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>{{'TITLE_Deposit_Details'|translate}}</title>
+
+  <link rel="stylesheet" href="styles/base.css" type="text/css" />
+    <link rel="stylesheet" href="styles/bootstrap.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	    
+</head>
+
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main')"
+    class="lp-idfc-recurring-details-widget" ng-controller="RDSummaryWidgetController">
+<!-- error Spin -->
+<div ng-show="errorSpin">
+    <div class="panel-message loading-panel" role="alert">
+        <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+        <span class="sr-only">Busy</span>
+    </div>
+</div>
+<!-- error Spin -->
+<div lp-template="'templates/main.ng.html'"></div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.lp-stacked-area-chart {
+
+  .domain {
+    fill: none;
+  }
+
+  @colors: #337ab7, #5cb85c, #f0ad4e, #d9534f;
+
+  .loop(@i: 0) when (@i < length(@colors)) {
+    .item-@{i} {
+      fill: extract(@colors, @i + 1);
+    }
+    .loop(@i + 1);
+  } .loop;
+
+}

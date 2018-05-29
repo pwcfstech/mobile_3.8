@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bar Chart component</title>
+    <link href="bower_components/theme/themes/default/css/base.css" rel="stylesheet"/>
+    <link href="../../../styles/base.css" rel="stylesheet"/>
+    <!-- include core -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.js"></script>
+    <script src="bower_components/config/requirejs.conf.js"></script>
+    <!-- create the demo -->
+    <script>
+        require([
+            'base',
+            './scripts/main'
+        ], function (base, comp) {
+
+            function getDate (date){
+                return new Date(date.date);
+            }
+
+            function getValue (data){
+                return data.value;
+            }
+
+            function formatAmount(amount){
+                return '€' + amount;
+            }
+
+            var formatDate = d3.time.format('%B %e');
+            var demo = base.createModule('demo.bar-chart', [comp.name])
+                .controller('MainCtrl', ['$http', function ($http) {
+                    var ctrl = this;
+
+                    $http.get('mock/data.json').then(function (res) {
+                        ctrl.options = {
+                            data: res.data,
+                            height: 250,
+                            padding: [70, 30, 30, 40],
+                            parsers: {
+                                x: getDate,
+                                y: getValue
+                            },
+                            formatters: {
+                                x: d3.time.format('%e'),
+                                y: formatAmount,
+                                tooltip: function(d) {
+                                    return [
+                                        formatDate(getDate(d)),
+                                        formatAmount(getValue(d))
+                                    ].join('<br/>');
+                                }
+                            }
+                        };
+                    });
+                }]);
+
+            base.bootstrap(document.body, [demo.name]);
+        });
+    </script>
+    <style>
+        markdown { display: none; }
+    </style>
+</head>
+<body>
+
+<markdown>
+    <% include README.md %>
+</markdown>
+
+<div ng-controller="MainCtrl as mainCtrl">
+    <lp-bar-chart lp-chart-options="mainCtrl.options"></lp-bar-chart>
+</div>
+
+</body>
+</html>

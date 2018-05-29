@@ -1,0 +1,48 @@
+<div id="wrapper" ng-controller="NotificationCtrl">
+	<div ng-show="errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+			<span class="sr-only">Busy</span>
+		</div>
+	</div>
+	<div class="text-danger text-danger-New" ng-show="error.happened">
+		<div class="text-danger-icon">
+			<img src="static/features/[BBHOST]/theme-idfc/images/error.png"/>
+		</div>
+		<div class="dangerText">{{error.msg}}</div>
+	</div>
+	<section id="main">
+		<header style="padding:0;">
+			<div class="multiselect-demo-container">
+				<div class="demo-container" ng-show="control.firstScreen">
+					<div class="tabs-panels">
+						<div class="tab-panel tab-content" ng-repeat="notification in control.notificationList" ng-click="openNotificationDetails(notification);">
+							<h6>{{notification.notificationText}}</h6>
+							<!-- <p>{{notification.notificationDetail}}</p> -->
+							<p class="twodays">{{notification.sentDate}}</p>
+							<div class="notification-list-cta" ng-if="undefined!=notification.callToAction && null!=notification.callToAction && ''!=notification.callToAction" ng-click="callToAction(notification.callToAction);">Proceed</div>
+							<div class="btn_BorderBtm"></div>
+						</div>
+					</div>
+				</div>
+				<div class="demo-container" ng-show="control.detailScreen || !control.firstScreen">
+					<div class="tab-panel tab-content">
+						<!-- h6 class="notification-hding">{{control.notificationDtls.notificationText}}</h6 -->
+						<p class="notification-dtl">{{control.notificationDtls.notificationDetail}}</p>
+						<!-- p class="twodays">{{control.notificationDtls.sentDate | date:'dd-MMM'}}</p -->
+						<div class="notification-img">
+							<img ng-src="{{control.notificationDtls.imageUrl}}" alt="image"/>
+						</div>
+						<div class="grey-border-notification"></div>
+						<div class="col-md-2 col-xs-12 col-sm-12" style="padding: 5px 0 8px 0; text-align:center;" ng-if="control.showCallToActionBtn">
+							<button class="red notification-gen-btn" name="callToAction" ng-click="callToAction(control.notificationDtls.callToAction)">Proceed</button>
+						</div>
+						<div class="col-md-2 col-xs-12 col-sm-12" style="padding: 5px 0 8px 0; text-align:center;">
+							<button class="notification-back-btn notification-gen-btn btn-whitePop btn-grey" name="backButton" ng-click="goBackToFirstScreen()">Back</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	</section>
+</div>

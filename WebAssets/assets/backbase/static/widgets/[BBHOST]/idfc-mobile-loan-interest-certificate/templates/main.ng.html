@@ -1,0 +1,315 @@
+<div ng-clock class="ng-clock" ng-controller="LoanCertificateController as loanCertCtrl" class="lp-lic-main-page">
+
+	<!--Error Spinner -->
+	<div ng-if="loanCertCtrl.errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span class="sr-only" lp-i18n="Busy"></span>
+		</div>
+	</div>
+
+	<div class="row bg-yellow full-width no-margin">
+
+		<div class="col-md-12 lp-loan-acc-div bg-yellow full-width">
+			<div class="col-md-2 text-left font-book font-14 color-dark-gray padding-top1percent" lp-i18n="Select Loan Account"></div>
+			<div class="col-md-3">
+				<select name="accountNumberId" class="lp-drop-down form-control cursor-pointer IDFC-dropdown" ng-model="loanCertCtrl.NewloanDeatil" ng-options="account.acctNb group by account.loanType for account in loanCertCtrl.loanAccountNumbersDropdwn" ng-change="loanCertCtrl.accountNumberChange()">
+					<!--<option selected="selected" disabled="disabled" lp-i18n="Select one"></option>-->
+				</select>
+
+				<div class="col-xs-12 padding-0" ng-if="loanCertCtrl.loanAcctError">
+					<div class="color-pink font-12 font-medium"  lp-i18n="Please select one loan account"></div>
+				</div>
+			</div>
+			<div class="col-md-2 text-left  font-book font-14 color-dark-gray padding-top1percent" lp-i18n="Select Financial Year"></div>
+			<div class="col-md-3">
+				<select ng-model="loanCertCtrl.loanYear" class="lp-drop-down form-control cursor-pointer IDFC-dropdown" ng-change="loanCertCtrl.yearChange()" ng-options="loadDetail for loadDetail in loanCertCtrl.year">
+					<option value="" lp-i18n="Select one"></option>
+				</select>
+				<div class="col-xs-12 padding-0" ng-if="loanCertCtrl.financialYearError">
+					<div class="color-pink font-12 font-medium"  lp-i18n="Please select a financial year"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-2 mobileFixTopPadding1em">
+				<button type="button" class="btn btn-primary primary-btn-btn lp-lic-submit-btn lic-submit-height" ng-click="loanCertCtrl.submitDiv()" lp-i18n="Submit"></button>
+			</div>
+		</div>
+	</div>
+
+<!-- Applied changes done by kriti for mobile banking 2.5  // Jay // Home saver mobile banking -->
+<div ng-show=loanCertCtrl.previousFinYearDiv class="text-center"><!--previousFinYearDiv-->
+			<img class="scrollerTopStyle" src="static/features/[BBHOST]/theme-idfc/images/scroll1.png"/>
+			<table class="table-daily-limits-detail" style="background-color:#fbfbfb; padding:10px; border:1px solid #f4f4f4!important; width:80%; margin:0 auto;">
+				<tr><td></td></tr>				
+				<tr>
+					<th align="center" valign="middle" style="width:100%; margin:0 auto; text-align:center; padding:15px;">Interest Certificate</th>
+				</tr>
+				<tr>
+					<td align="center" valign="middle">
+						<div class="row">
+							<div class="col-sm-12 linkedAccount">
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">Loan Account No.</li>
+									<li class="dot">:</li>
+									<!--<li class="linkWidth alignTxt bold">{{loanCertCtrl.LoanDetails.acctNb}}</li>-->
+									<li class="linkWidth alignTxt bold">{{loanCertCtrl.NewloanDeatil.acctNb}}</li>
+									<!--<li class="linkWidth alignTxt bold">{{loanCertCtrl.LoanDetails.lnAcctNb}}</li>-->
+								</ul>
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">Time Period</li>
+									<li class="dot">:</li>
+									<li class="linkWidth alignTxt bold">
+										<span>{{loanCertCtrl.startDate}}</span>to 
+										<span>{{loanCertCtrl.endDate}}</span>
+									</li>
+								</ul>
+							</div>
+						</div>						
+						<div class="border-Btm"></div>						
+						<div class="row">
+							<div class="col-sm-12 linkedAccount">
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">
+										<span>{{'Principal'|translate}}</span>
+									</li>
+									<li class="dot">:</li>
+									<li class="linkWidth alignTxt bold">
+										<span class="rupee-symbol-span" ></span>
+										<span lp-amount="loanCertCtrl.LoanDetails.prncplAmt"></span>
+									</li>
+								</ul>
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">
+										<span>{{'Interest'|translate}}</span>
+									</li>
+									<li class="dot">:</li>
+									<li class="linkWidth alignTxt bold">
+										<span class="rupee-symbol-span"></span>
+										<span lp-amount="loanCertCtrl.LoanDetails.intrstAmt"></span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>						
+						<button class="mail" ng-click="loanCertCtrl.Emailadvice()" title="{{'Email_Message'|translate}}"></button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4>
+							<div class="textSuccess" ng-show="loanCertCtrl.emailError" style="text-align:center">{{ loanCertCtrl.successMessagePDFEmail }}</div>
+						</h4>
+					</td>
+				</tr>
+			</table>
+            <img class="scrollerBottomStyle" src="static/features/[BBHOST]/theme-idfc/images/scroll1.png"/>
+		</div>
+		<div ng-show="loanCertCtrl.currentFinYearDiv" class="text-center"><!--currentFinYearDiv-->
+            <img class="scrollerTopStyle" src="static/features/[BBHOST]/theme-idfc/images/scroll1.png"/>
+			<table class="table-daily-limits-detail" style="background-color:#fbfbfb; padding:10px; border:1px solid #f4f4f4; width:80%; margin:0 auto;">
+				<tr>
+					<th align="center" valign="middle" style="width:100%; margin:0 auto; text-align:center; padding:15px;">Interest Certificate</th>
+				</tr>
+				<tr>
+					<td align="center" valign="middle">
+						<div class="row">
+							<div class="col-sm-12 linkedAccount">
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">Loan Account No.</li>
+									<li class="dot">:</li>
+									<!--<li class="linkWidth alignTxt bold">{{loanCertCtrl.NewloanDeatil.acctNb}}</li>-->
+                                    <li class="linkWidth alignTxt bold">{{loanCertCtrl.NewloanDeatil.acctNb}}</li>
+								</ul>
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">Time Period</li>
+									<li class="dot">:</li>
+									<li class="linkWidth alignTxt bold">
+										<span>{{loanCertCtrl.startDate}}</span>to 
+										<span>{{loanCertCtrl.endDate}}</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="border-Btm"></div>
+						<div class="row">
+							<div class="col-sm-12 linkedAccount">
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">
+										<span>{{'Principal Provisional'|translate}}</span>
+									</li>
+									<li class="dot">:</li>
+									<li class="linkWidth alignTxt bold">
+										<span class="rupee-symbol-span"></span>
+										<span lp-amount="loanCertCtrl.LoanDetails.provPrncplAmt"></span>
+									</li>
+								</ul>
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">
+										<span>{{'Interest Provisional'|translate}}</span>
+									</li>
+									<li class="dot">:</li>
+									<li class="linkWidth alignTxt bold">
+										<span class="rupee-symbol-span"></span>
+										<span lp-amount="loanCertCtrl.LoanDetails.provIntrstAmt"></span>
+									</li>
+								</ul>
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">
+										<span>{{'Principal Paid'|translate}}</span>
+									</li>
+									<li class="dot">:</li>
+									<li class="linkWidth alignTxt bold">
+										<span class="rupee-symbol-span"></span>
+										<span lp-amount="loanCertCtrl.LoanDetails.prncplAmt"></span>
+									</li>
+								</ul>
+								<ul style="width:95%; margin:0 auto">
+									<li style="font-family: gotham-medium; color: #9b9b9b; font-size: 12px;" class="linkWidth alignTxt2">
+										<span>{{'Interest Paid'|translate}}</span>
+									</li>
+									<li class="dot">:</li>
+									<li class="linkWidth alignTxt bold">
+										<span class="rupee-symbol-span"></span>
+										<span lp-amount="loanCertCtrl.LoanDetails.intrstAmt"></span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<button class="mail" ng-click="loanCertCtrl.Emailadvice()" title="{{'Email_Message'|translate}}" ></button>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4>
+							<div class="textSuccess" ng-show="loanCertCtrl.emailError" style="text-align:center">{{ loanCertCtrl.successMessagePDFEmail }}</div>
+						</h4>
+					</td>
+				</tr>
+			</table>
+            <img class="scrollerBottomStyle" src="static/features/[BBHOST]/theme-idfc/images/scroll1.png"/>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- <div ng-show="loanCertCtrl.previousFinYearDiv">
+		<table class="interest-cert-table table-show table-condensed" summary="This table contains the details of user corresponding to previous financial year">
+			<tr class="table-headers">
+				<th class="color-dark-gray padding-l2percent text-left font-14 font-medium color-light-gray-bg" lp-i18n="Component"></th>
+				<th class="color-dark-gray padding-l2percent text-left font-14 font-medium color-light-gray-bg" lp-i18n="Start Date"></th>
+				<th class="color-dark-gray padding-l2percent text-left font-14 font-medium color-light-gray-bg" lp-i18n="End Date"></th>
+				<th class="color-dark-gray padding-l2percent text-right font-14 font-medium color-light-gray-bg"><span lp-i18n="Amount"></span>( <span class="rupee-symbol-span"> ) </th>
+			</tr>
+			<tbody>
+				<tr class="color-dark-gray table-idfc-gen-tr">
+					<td class="padding-l2percent"><span lp-i18n="Interest"></span></td>
+					<td><span ng-bind="loanCertCtrl.startDate"></span></td>
+					<td><span ng-bind="loanCertCtrl.endDate"></span></td>
+					<td class="padding-r2percent text-right"><span lp-amount="loanCertCtrl.LoanDetails.intrstAmt"></span></td>
+			</tr>
+			<tr class="color-dark-gray table-idfc-gen-tr">
+				<td class="padding-l2percent"><span lp-i18n="Principal"></span></td>
+				<td><span ng-bind="loanCertCtrl.startDate"></span></td>
+				<td><span ng-bind="loanCertCtrl.endDate"></span></td>
+				<td class="padding-r2percent text-right"><span lp-amount="loanCertCtrl.LoanDetails.prncplAmt"></span></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div ng-show="loanCertCtrl.currentFinYearDiv" class="lp-currentFinYear">
+		<table class="interest-cert-table table-show table-condensed" summary="This table contains the details of user corresponding to current financial year">
+			<tr class="table-headers">
+				<th class="color-dark-gray padding-l2percent text-left font-14 font-medium color-light-gray-bg" lp-i18n="Actual Paid"></th>
+				<th class="color-dark-gray text-left font-14 font-medium color-light-gray-bg" lp-i18n="Start Date"></th>
+				<th class="color-dark-gray text-left font-14 font-medium color-light-gray-bg" lp-i18n="End Date"></th>
+				<th class="color-dark-gray text-right font-14 font-medium color-light-gray-bg">
+					<span lp-i18n="Provisional Amount"></span>( <span class="rupee-symbol-span">)
+				</th>
+				<th class="color-dark-gray padding-r2percent text-right font-14 font-medium color-light-gray-bg">
+					<span lp-i18n="Already Paid"></span>( <span class="rupee-symbol-span"> )
+				</th>
+			</tr>
+			<tbody>
+				<tr class="color-dark-gray table-idfc-gen-tr">
+					<td class="padding-l2percent"><span lp-i18n="Interest"></span></td>
+					<td><span ng-bind="loanCertCtrl.startDate"></span></td>
+					<td><span ng-bind="loanCertCtrl.endDate"></span></td>
+					<td class="text-right"><span lp-amount="loanCertCtrl.LoanDetails.provIntrstAmt"></span></td>
+					<td class="padding-r2percent text-right"><span lp-amount="loanCertCtrl.LoanDetails.intrstAmt"></span></td>
+			</tr>
+			<tr class="color-dark-gray table-idfc-gen-tr">
+				<td class="padding-l2percent"><span lp-i18n="Principal"></span></td>
+				<td><span ng-bind="loanCertCtrl.startDate"></span></td>
+				<td><span ng-bind="loanCertCtrl.endDate"></span></td>
+				<td class="text-right"><span lp-amount="loanCertCtrl.LoanDetails.provPrncplAmt"></span></td>
+				<td class="padding-r2percent text-right"><span lp-amount="loanCertCtrl.LoanDetails.prncplAmt"></span></td>
+			</tr>
+			</tbody>
+		</table>
+	</div> -->
+
+	<!-- Disclaimer Text (Note: Consider start date as April 1st... ) -->
+	<div class="interest-cert-note" ng-if="loanCertCtrl.note">
+		<strong lp-i18n="Note"></strong>
+		<span lp-i18n="Consider the Start date as 1"></span>
+		<sup lp-i18n="st"></sup><span lp-i18n="April or your Loan Disbursement date, whichever is later."></span>
+	</div>
+
+
+	<!--<div class="row" ng-if="loanCertCtrl.button">
+
+	  &lt;!&ndash; Load More &ndash;&gt;
+	  <div class="col-xs-12 col-sm-4 float-left showMoreBtn-lf">
+
+	  </div>
+
+	  &lt;!&ndash; success message&ndash;&gt;
+	  <div class="col-xs-12 col-sm-4 successEmailMsg">
+	     <small ng-class="loanCertCtrl.emailError? 'color-pink':'color-green'" ng-bind="loanCertCtrl.successMessagePDFEmail"></small>
+	  </div>
+
+	  &lt;!&ndash; Print/Download/Email buttons &ndash;&gt;
+	  <div class="col-xs-12 col-sm-3 col-lg-3 padding-right-25px pull-right">
+	      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footerButton">
+	        <input name="Mail" type="button" value="" class="mailButton" ng-click="loanCertCtrl.Emailadvice()" tooltip="Mail this to your registered email ID" tooltip-placement="top">
+	      </div>
+	      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footerButton" ng-if="!loanCertCtrl.isMobileDevice"> &lt;!&ndash;  &ndash;&gt;
+	        <input name="Print" type="button" value="" class="printButton" ng-click="loanCertCtrl.PDFGeneration(true)"  tooltip="Print" tooltip-placement="top">
+	      </div>
+	      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 footerButton" ng-if="!loanCertCtrl.isMobileDevice"> &lt;!&ndash;&ndash;&gt;
+	      	<input name="Download" type="button" value="" class="downButton" ng-click="loanCertCtrl.PDFGeneration(false)" tooltip="Download" tooltip-placement="top">
+	      </div>
+	  </div>
+
+	</div>-->
+
+	<div ng-show="loanCertCtrl.error.happened">
+				 <div class="text-center padding-20px">
+						 <!--<img ng-src="/static/idfc/loans/widgets/idfc-loan-soa/media/error.png" class="text-center">-->
+						 <img ng-src="{{loanCertCtrl.errorImage}}" alt="" class="text-center" />
+				 </div>
+		 <div class="font-14 color-pink text-center padding-bottom-20px">
+		 	<span ng-bind="loanCertCtrl.error.msg"></span>
+		</div>
+	</div>
+
+</div>

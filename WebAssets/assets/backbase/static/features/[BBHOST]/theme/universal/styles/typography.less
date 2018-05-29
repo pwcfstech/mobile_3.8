@@ -1,0 +1,53 @@
+// Headers
+// -------------------------
+
+// h1, h2, h3, h4, h5, h6 {
+//     color: lighten(@brand-primary, 5%);
+// }
+// .lp-dark h1, .lp-dark h2, .lp-dark h3, .lp-dark h4, .lp-dark h5, .lp-dark h6 {
+//     color: darken(@brand-primary, 5%);
+// }
+// .lp-h1 { font-size: @lp-h1 !important; }
+// .lp-h2 { font-size: @lp-h2 !important; }
+// .lp-h3 { font-size: @lp-h3 !important; }
+// .lp-h4 { font-size: @lp-h4 !important; }
+// .lp-h5 { font-size: @lp-h5 !important; }
+// .lp-h6 { font-size: @lp-h6 !important; }
+
+.lp-h1, .lp-h2,
+.lp-h3, .lp-h4,
+.lp-h5, .lp-h6 {
+    margin:0;
+    padding:0;
+    line-height: @line-height-base;
+    color: @text-color;
+}
+
+// for use as classes and tags within widgets and chromes
+// .bp-container:not(.lp-carousel-container)
+
+.panel-chrome-default,
+.panel-widget {
+    .h1, h1 { .lp-h1; }
+    .h2, h2 { .lp-h2; }
+    .h3, h3 { .lp-h3; }
+    .h4, h4 { .lp-h4; }
+    .h5, h5 { .lp-h5; }
+    .h6, h6 { .lp-h6; }
+}
+
+// Taglines
+// -------------------------
+
+.lp-tagline {
+  color: #888888;
+}
+.lp-tagline-banner {
+  font-size: @font-size-base * 1.75;
+  font-family: @font-family-base;
+  margin-bottom: 10px;
+}
+
+.lp-font-small {
+  font-size: @font-size-base * 0.75;
+}

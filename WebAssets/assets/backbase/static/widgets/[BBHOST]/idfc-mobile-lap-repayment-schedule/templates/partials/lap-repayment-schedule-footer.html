@@ -1,0 +1,32 @@
+<div class="padding-bottom-20">
+    <div class="row">
+        
+        
+        <div class="col-sm-10 col-lg-10 width leftFloat">
+            <input name="+ Load More" type="button" value="+ Load more" class="btn-whitePop" ng-click="lapRsCtrl.showMore()" ng-if="lapRsCtrl.limit<lapRsCtrl.detail.length"/>
+        </div>
+        
+        <div class="col-sm-2 col-lg-2 padding0 pull-right">
+            <div class="col-sm-4 col-lg-4 footerButton">
+                <input name="Mail" type="button" value=""  class="mailButton" ng-click="lapRsCtrl.emailAdvice()" /><!-- ng-if="lapRsCtrl.detail.length >0"-->
+            </div>
+            <div class="col-sm-4 col-lg-4 footerButton">
+                <input name="Print" type="button" value=""  class="printButton" ng-click="lapRsCtrl.printPdf()" ng-if="!lapRsCtrl.isMobileDevice && lapRsCtrl.detail.length>0" tooltip="Print your repayment schedule" tooltip-placement="top"/>
+            </div>
+            <div class="col-sm-4 col-lg-4 footerButton">
+                <input name="Download" type="button" value=""  class="downButton" ng-click="lapRsCtrl.pdfGeneration()" ng-if="!lapRsCtrl.isMobileDevice && lapRsCtrl.detail.length>0"  tooltip="Download your repayment schedule" tooltip-placement="top"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row" id="emailSuccessMsg">
+        
+        <div class="col-sm-12 col-lg-12 successEmailMsg succCenter successMessageRSoa noSpacing">
+            <small ng-show="lapRsCtrl.emailSuccess" class="text-success">{{'EMAIL_SUCCESS'|translate}}</small>
+        </div>
+        <div class="col-sm-12 col-lg-12 textAlign-center succCenter successMessageRSoa noSpacing">
+            <small ng-show="lapRsCtrl.emailFail" class="text-danger">{{'EMAIL_FAIL'|translate}}</small>
+        </div>	 
+    </div>
+</div>
+</div>

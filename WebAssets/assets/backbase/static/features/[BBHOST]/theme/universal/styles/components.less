@@ -1,0 +1,140 @@
+//
+// Launchpad Components
+// --------------------------------------------------
+//
+
+@import "components/badges.less";
+@import "components/color-picker.less";
+@import "components/counter-party-filter.less";
+@import "components/currency-amount-input.less";
+@import "components/date-picker.less";
+@import "components/dropdowns.less";
+@import "components/image-filter.less";
+@import "components/input-clear.less";
+@import "components/input-number.less";
+@import "components/input-overflow.less";
+@import "components/list-view.less";
+@import "components/loading-spinner.less";
+@import "components/modal.less";
+@import "components/progress-indicator.less";
+@import "components/smartsuggest.less";
+@import "components/switcher.less";
+@import "components/tags.less";
+@import "components/wizard.less";
+@import "components/new-payment-box.less";
+@import "components/labeled-input-field.less";
+
+// ANIMATED CONTAINERS
+// -------------------------
+
+.slide-down {
+    max-height: 0;
+    overflow: hidden;
+    .two-transitions(max-height 0.5s, background-color 0.5s linear);
+    &.selected {
+        max-height: 1000px;
+        .transition(max-height 0.5s);
+    }
+}
+.checkbox {
+    margin-top: 5px;
+}
+
+.input-append.date .add-on i,
+.input-prepend.date .add-on i {
+    display: block;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+// Places list
+.places-list {
+    .list-view-row {
+        .info {
+            height: @places-list-height;
+        }
+    }
+}
+
+
+
+
+
+
+// Moved from mixins.less / to be verified
+
+
+// BACKGROUNDS
+// --------------------------------------------------
+
+
+
+// Add an alphatransparency value to any background or border color (via Elyse Holladay)
+#translucent {
+  .background(@color: #fff, @alpha: 1) {
+    background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+  }
+  .border(@color: #fff, @alpha: 1) {
+    border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+    .background-clip(padding-box);
+  }
+}
+
+// Fluid-Fixed Rows
+.ff-row {
+    letter-spacing: -0.31em;
+    text-rendering: optimizespeed;
+    display: block;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    & .ff-fluid,
+    & .ff-fixed {
+        display: inline-block;
+        zoom: 1;
+        letter-spacing: normal;
+        word-spacing: normal;
+        vertical-align: top;
+        text-rendering: auto;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+    }
+    & .ff-fluid {
+        width:100%;
+    }
+
+    & .ff-content {
+        zoom: 1;
+        letter-spacing: normal;
+        word-spacing: normal;
+    }
+
+}
+
+.ff-right(@rightwidth) {
+    &.ff-row {
+        padding-right: @rightwidth;
+        padding-left:0;
+    }
+    .ff-fixed {
+        width: @rightwidth;
+        margin-right: -@rightwidth;
+        margin-left:0;
+    }
+}
+
+.ff-left(@leftwidth) {
+    &.ff-row {
+        padding-left: @leftwidth;
+        padding-right:0;
+    }
+    .ff-fixed {
+        width: @leftwidth;
+        margin-left: -@leftwidth;
+        margin-right:0;
+    }
+}
+

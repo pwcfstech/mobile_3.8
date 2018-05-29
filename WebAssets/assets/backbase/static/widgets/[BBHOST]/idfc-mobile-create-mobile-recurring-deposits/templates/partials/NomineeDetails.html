@@ -1,0 +1,293 @@
+<div ng-controller="RDNomineeDetailsController">
+	<div class="panel panel-default" ng-if="fiModel.selected">
+		<div class="panel-heading selected-fi">
+			<div class="col-xs-2 col-lg-1">
+				<span><i class="lp-icon lp-icon-expense-planning"></i></span>
+			</div>
+			<div class="col-xs-10 col-xs-11">
+				<span class="h4">{{'Lbl_Nominee_Details'|translate}}</span><br />
+			</div>
+		</div>
+	</div>
+	<div class="lp-alerts">
+		<div class="alert_msg" alert="alert" ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)"><span class="img_icon"><img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+     <img ng-src="{{invalid_icon}}"/></span>{{alert.msg}}</div>
+	</div>
+	<div progress-indicator="progress-indicator" is-loading="fiModel.isConnecting" class="opendeposit-panel-body panel-body" ng-hide="serviceError">
+		<form class="form-horizontal" name="nomineeDetailsForm" ng-submit="submitted=true; submitNomineeDetails(nomineeDetailsForm.$valid)" tabindex="0" novalidate>
+			<div ng-show="error.happened" class="alert_msg"><span class="img_icon">
+<img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+<img ng-src="{{invalid_icon}}"/></span>{{error.msg}}
+			</div>
+			<div class="nomineeheight">
+				<div id="termsDepositDiv" class="dep-margin-opendeposit">
+					<div class="dep-parent-div-od">
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee nominee-checkbox">
+								<b> Do you want to add nominee?</b>
+							</div>
+							<div class="padLeft radioBtn1 div-td-dep-opendeposit yesNoBtn">
+								<input type="radio" ng-model="nominee.nomineeId" id="addnomineeYes" class="deposittype opendeposit-dep-radio marginradio" value="True" ng-checked="false" ng-click="showNomineeDetails()"/><span class="span-margin-opendeposit font-label-dep-od marginzero">{{'Nominee_Required_Yes'|translate}} </span>
+								<input type="radio" ng-model="nominee.nomineeId" id="addnomineeNo" class="deposittype opendeposit-dep-radio noradio" value="False" ng-checked="true" ng-click="hideNomineeDetails()"/><span class="span-margin-opendeposit font-label-dep-od marginzero">{{'Nominee_Required_No'|translate}}</span>
+							</div>
+						</div>
+					</div>
+
+					<div id="copyNomineeDetailsDiv" class="div-tr-dep-opendeposit nomineepagetwo">
+						<div class="div-td-nomineePage font-label-dep-od nominee-checkbox copywidth">
+							<b> Do you want to copy your savings account nominee to your Recurring deposit? </b>
+						</div>
+						<div class="padLeft radioBtn1 radioBtn2 div-td-dep-opendeposit radiomargin">
+							<input type="radio" ng-model="copynomineegrp" class="deposittype opendeposit-dep-radio nomineeyes" value="True" ng-click="showCopyNomineeDetails()" /><span class="span-margin-opendeposit marginzero font-label-dep-od">Yes</span>
+							<input id="copyNominee" type="radio" ng-model="copynomineegrp" class="deposittype opendeposit-dep-radio nomineeno" value="False" ng-click="hideCopyNomineeDetails()" /><span class="span-margin-opendeposit marginzero font-label-dep-od">No</span>
+						</div>
+					</div>
+
+					<div class="padding-20" ng-if="showNoNomMessage"><br>
+						No, I do not wish to nominate anyone on my behalf at this moment. I understand the advantage of nomination and the consequences of not nominating anyone to my account.
+					</div>
+
+					<div id="nomineeDetailsDiv">
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+								<b> {{'Lbl_Nominee_Name'|translate}} </b>
+							</div>
+							<div class="div-td-nomineePage">
+								<input type="text" class="opendeposit-form-control form-control nomineewidth lineBottm" name="nomineeName" ng-model="nominee.nomineeName" ng-minlength="1" ng-maxlength="40" ng-pattern="/^[a-zA-Z\s]*$/" required=""/>
+								<div class="dep-messages-opendeposit">
+									<small class="text-danger" ng-show="nomineeDetailsForm.nomineeName.$error.maxlength">{{'Error_NomineeName_Max_Length'|translate}}</small>
+									<small class="text-danger" ng-show="nomineeDetailsForm.nomineeName.$error.pattern">{{'Error_NomineeName_Contains_Alphabets'|translate}}</small>
+									<small class="text-danger" ng-show="submitted && nomineeDetailsForm.nomineeName.$error.required">{{'Error_Required_Nominee_Name'|translate}}</small>
+								</div>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+								<b> {{'Lbl_Nominee_DOB'|translate}} </b>
+							</div>
+							<div class="div-td-nomineePage">
+								<div class="pull-left date-picker">
+									<input ng-click="open($event,'opened1')" type="text" id="nomineeDOB" name="nomineeDOB" ng-model="nominee.nomineeDOB" ng-readonly="nominee.nomineeDOB" ng-keypress="open($event,'opened1')" ng-change="hideGuardianDetail()" class="opendeposit-form-control form-control nomineewidth lineBottm" datepicker-popup="dd-MMM-yyyy" is-open="opened1" datepicker-options="dateOptionsForm" ng-required="true" show-button-bar="false" tabindex="0" placeholder="Select" aria-label="Select" max-date="futureDateMax"/>
+									<span ng-click="open($event,'opened1')" class="lp-icon lp-icon-calendar calendar-icon dt-cal-icon"></span>
+									<div class="dep-messages-opendeposit errordob">
+										<small class="text-danger" ng-show="submitted && nomineeDetailsForm.nomineeDOB.$error.required">{{'Lbl_Nom_DOB_Mandatory'|translate}}</small>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+								<b> {{'Lbl_Nominee_Relationship'|translate}} </b>
+							</div>
+							<div class="div-td-nomineePage">
+								<select id="relationId" class="form-control nomineewidth opendeposit-form-control select-width-nom-od IDFC-dropdown" ng-model="nominee.relationship" name="relationId" ng-options="item as item for item in relationnameList" required>
+									<option value="">{{'Lbl_Nom_Select_Relation'|translate}}</option>
+								</select>
+								<div class="dep-messages-opendeposit">
+									<small class="text-danger" ng-show="submitted && nomineeDetailsForm.relationId.$error.required">{{'Lbl_Nom_Relationship_Mandatory'|translate}}</small>
+								</div>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee div-address-address nomineemargin">
+								<b>{{'Lbl_Nom_Address1_Input'|translate}} </b>
+							</div>
+							<div class="div-td-nomineePage">
+								<input type="text" id="addl1" class="form-control nomineewidth opendeposit-form-control" placeholder="Line 1" name="address1" ng-model="nominee.nomineeAddressLine1" ng-maxlength="40" required=""/>
+								<div class="dep-messages-opendeposit">
+<span class="text-danger" ng-show="nomineeDetailsForm.address1.$invalid">
+<small class="text-danger" ng-show="nomineeDetailsForm.address1.$error.maxlength">{{'Error_Nom_Address1_Max_Length'|translate}}</small>
+<small class="text-danger" ng-show="submitted && nomineeDetailsForm.address1.$error.required">{{'Error_Required_Nominee_Add1'|translate}}</small>
+</span>
+								</div>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage">
+								<input type="text" id="addl2" class="form-control nomineewidth opendeposit-form-control lineBottm address-top" name="address2" ng-model="nominee.nomineeAddressLine2" placeholder="Line 2" ng-maxlength="40"/>
+								<div class="dep-messages-opendeposit">
+<span class="text-danger" ng-show="nomineeDetailsForm.address2.$invalid">
+<small class="text-danger" ng-show="nomineeDetailsForm.address2.$error.maxlength">{{'Error_Nom_Address1_Max_Length'|translate}}</small>
+</span>
+								</div>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage">
+								<input type="text" id="addcity1" class="form-control nomineewidth opendeposit-form-control lineBottm address-top" name="city" ng-model="nominee.nomineeCity" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="City" ng-maxlength="40"/>
+								<div class="dep-messages-opendeposit cityWidth">
+<span class="text-danger" ng-show="nomineeDetailsForm.city.$invalid">
+<small ng-show="nomineeDetailsForm.city.$error.maxlength">{{'Lbl_Nom_City_Max_Length'|translate}}</small>
+<small class="text-danger" ng-show="nomineeDetailsForm.city.$error.pattern"> {{'Error_City_Contains_Alphabets'|translate}}</small>
+<small class="text-danger" ng-show="submitted && nomineeDetailsForm.city.$error.required">{{'Error_Required_Nominee_City'|translate}}</small>
+</span>
+								</div>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage">
+								<select id="stateId" class="form-control opendeposit-form-control nomineewidth select-width-nom-od IDFC-dropdown address-top" ng-model="nominee.nomineeState" name="stateId" ng-options="item as item for item in states">
+									<option value="">{{'Lbl_Nom_Select_State'|translate}}</option>
+								</select>
+								<div class="dep-messages-opendeposit">
+									<small class="text-danger" ng-show="submitted && nomineeDetailsForm.stateId.$error.required">{{'Error_Required_Nominee_State'|translate}}</small>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="nomineeGuardianDetailsDiv">
+						<div class="dep-parent-div-od">
+							<div class="div-tr-dep-opendeposit">
+								<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+									<b> {{'Lbl_Guardian_Details'|translate}}</b>
+								</div>
+							</div>
+							<div class="div-tr-dep-opendeposit">
+								<div class="div-td-nomineePage">
+									<input type="text" class="form-control nomineewidth opendeposit-form-control lineBottm" name="guardianName" id="guardianName" placeholder="Guardian Name" ng-model="nominee.guardianName" ng-pattern="/^[a-zA-Z\s]*$/" ng-maxlength="40" ng-required="showNominee"/>
+									<div class="dep-messages-opendeposit">
+										<small class="text-danger" ng-show="submitted && nomineeDetailsForm.guardianName.$error.required"> {{'Lbl_Guardian_Name_Mandatory'|translate}}</small>
+										<small class="text-danger" ng-show="nomineeDetailsForm.guardianName.$error.maxlength"> {{'Error_Guardian_Name_Max_Length'|translate}}</small>
+										<small class="text-danger" ng-show="nomineeDetailsForm.guardianName.$error.pattern">{{'Error_Guardian_Name_Contains_Alphabets'|translate}}</small>
+									</div>
+								</div>
+							</div>
+							<div class="div-tr-dep-opendeposit">
+								<div class="div-td-dep-opendeposit font-label-dep-od div-td-dep-opennominee marginleft1 div-address-address">
+									<b> {{'Lbl_Nom_Address'|translate}} </b>
+								</div>
+								<div class="div-td-nomineePage">
+									<input type="text" placeholder="Line 1" class="form-control nomineewidth opendeposit-form-control" name="guardianAddress1" ng-model="nominee.guardianAddress1" ng-maxlength="40" ng-required="showGuardianAdd1"/>
+									<div class="dep-messages-opendeposit">
+<span class="text-danger" ng-show="nomineeDetailsForm.guardianAddress1.$invalid">
+<small class="text-danger" ng-show="nomineeDetailsForm.guardianAddress1.$error.maxlength">{{'Error_Nom_Address1_Max_Length'|translate}}</small>
+<small class="text-danger" ng-show="submitted && nomineeDetailsForm.guardianAddress1.$error.required">{{'Error_Required_Guardian_Address1'|translate}}</small>
+</span>
+									</div>
+								</div>
+							</div>
+							<div class="div-tr-dep-opendeposit">
+								<div class="div-td-nomineePage">
+									<input type="text" class="form-control nomineewidth lineBottm opendeposit-form-control address-top" placeholder="Line 2" name="guardianAddress2" ng-model="nominee.guardianAddress2" ng-maxlength="40"/>
+									<div class="dep-messages-opendeposit">
+<span class="text-danger" ng-show="nomineeDetailsForm.guardianAddress2.$invalid">
+<small class="text-danger" ng-show="nomineeDetailsForm.guardianAddress2.$error.maxlength">{{'Error_Nom_Address1_Max_Length'|translate}}</small> </span>
+									</div>
+								</div>
+							</div>
+							<div class="div-tr-dep-opendeposit">
+								<div class="div-td-nomineePage">
+									<input type="text" id="addcity" class="form-control opendeposit-form-control nomineewidth lineBottm address-top" name="guardianCity" ng-model="nominee.guardianCity" ng-pattern="/^[a-zA-Z\s]*$/" placeholder="City" ng-maxlength="40" />
+									<div class="dep-messages-opendeposit cityWidth">
+<span class="text-danger" ng-show="nomineeDetailsForm.guardianCity.$invalid">
+<small class="text-danger" ng-show="nomineeDetailsForm.guardianCity.$error.maxlength">{{'Lbl_Nom_City_Max_Length'|translate}}</small>
+<small class="text-danger" ng-show="submitted && nomineeDetailsForm.guardianCity.$error.required">{{'Error_Required_Guardian_City'|translate}}</small>
+<small class="text-danger" ng-show="nomineeDetailsForm.guardianCity.$error.pattern"> {{'Error_City_Contains_Alphabets'|translate}}</small>
+</span>
+									</div>
+								</div>
+							</div>
+							<div class="div-tr-dep-opendeposit">
+								<div class="div-td-nomineePage">
+									<select id="guardianStateId" class="form-control nomineetop opendeposit-form-control nomineewidth select-width-nom-od IDFC-dropdown address-top" ng-model="nominee.guardianState" name="guardianStateId" ng-options="item as item for item in states">
+										<option value="">{{'Lbl_Nom_Select_State'|translate}}</option>
+									</select>
+									<div class="dep-messages-opendeposit">
+										<small class="text-danger" ng-show="submitted && nomineeDetailsForm.guardianStateId.$error.required">{{'Error_Required_Guardian_State'|translate}}</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="copyNomineeValuesDiv">
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+								<b> {{'Lbl_Nominee_Name'|translate}} </b>
+							</div>
+							<div class="div-td-nomineePage">
+								<input ng-readonly="true" type="text" class="inputWidth inputHeight opendeposit-form-control form-control" name="nomineeName" ng-model="nominee.nomineeName" ng-minlength="1" ng-maxlength="40" ng-pattern="/^[a-zA-Z\s]*$/" required=""/>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+								<b>{{'Lbl_Nominee_Relationship'|translate}}</b>
+							</div>
+							<div class="div-td-nomineePage">
+								<input ng-readonly="true" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="relationship" ng-model="nominee.relationship"/>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+								<b>{{'Lbl_Nominee_DOB'|translate}}</b>
+							</div>
+							<div class="div-td-nomineePage">
+								<input ng-readonly="true" type="text" id="nomineeDOB" name="nomineeDOB" ng-model="nominee.nomineeDOB" class="inputWidth inputHeight opendeposit-form-control form-control" placeholder="Select" aria-label="select date" max-date="futureDateMax"/>
+							</div>
+						</div>
+						<div class="div-tr-dep-opendeposit">
+							<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+								<b>Address</b>
+							</div>
+						<div class="div-td-nomineePage">
+
+								<input placeholder="Line 1" ng-readonly="true" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="address1" ng-model="nominee.nomineeAddressLine1" ng-maxlength="40" required/>
+
+						</div>
+						<div class="div-td-nomineePage" style="margin-top:10px !important;">
+
+								<input placeholder="Line 2" ng-readonly="true" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="address2" ng-model="nominee.nomineeAddressLine2" ng-maxlength="40" required/>
+
+						</div>
+						<div class="div-td-nomineePage" style="margin-top:10px !important;">
+
+							<input placeholder="City" ng-readonly="true" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="city" ng-model="nominee.nomineeCity" ng-pattern="/^[a-zA-Z\s]*$/" ng-maxlength="40"/>
+
+						</div>
+						<div class="div-td-nomineePage" style="margin-top:10px !important;">
+
+							<input ng-readonly="true" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="nomineeState" ng-model="nominee.nomineeState"/>
+
+						</div>
+						</div>
+					</div>
+						<div id="copyNomineeGuardianDetails">
+							<div class="div-tr-dep-opendeposit">
+								<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+									<b> Guardian Details </b>
+								</div>
+								<div class="div-td-nomineePage">
+									<input ng-readonly="true" type="text" placeholder="Guardian Name" class="inputWidth inputHeight form-control opendeposit-form-control" name="guardianName" id="guardianName" ng-model="nominee.guardianName" ng-pattern="/^[a-zA-Z\s]*$/" ng-maxlength="40" ng-required="showNominee"/>
+								</div>
+							</div>
+							<div class="div-tr-dep-opendeposit">
+								<div class="div-td-nomineePage font-label-dep-od div-td-dep-opennominee">
+									<b>Guardian Address</b>
+								</div>
+								<div class="div-td-nomineePage">
+									<input ng-readonly="true" placeholder="Line 1" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="guardianAddress1" ng-model="nominee.guardianAddress1" ng-pattern="/^[ a-zA-Z0-9-_./]*$/" ng-maxlength="40" ng-required="showGuardianAdd1"/>
+								</div>
+							</div>
+							<div class="div-td-nomineePage" style="margin-top:10px !important;">
+								<input ng-readonly="true" placeholder="Line 2" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="guardianAddress2" ng-model="nominee.guardianAddress2" ng-pattern="/^[ a-zA-Z0-9-_./]*$/" ng-maxlength="40" ng-required="showGuardianAdd1"/>
+							</div>
+							<div class="div-td-nomineePage" style="margin-top:10px !important;">
+								<input ng-readonly="true" placeholder="City" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="guardianCity" ng-model="nominee.guardianCity" ng-maxlength="40"/>
+							</div>
+							<div class="div-td-nomineePage" style="margin-top:10px !important;">
+								<input ng-readonly="true" type="text" class="inputWidth inputHeight form-control opendeposit-form-control" name="guardianState" ng-model="nominee.guardianState"/>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<div>
+				<div class="div-td-dep-ab-opendeposit div-td-button-pad-od">
+					<div class="borderTop"></div>
+					<button type="submit" class="btn btn-primary primary-btn-open-od primary-btn-btn next btn-rd">{{'btn_Next'|translate}}</button>
+					<button name="resetForm" class="btn btn-primary secondary-btn-open-od btn-rd btn-skip" ng-click="wizardPreviousStep()" type="button">{{'btn_Back'|translate}}
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

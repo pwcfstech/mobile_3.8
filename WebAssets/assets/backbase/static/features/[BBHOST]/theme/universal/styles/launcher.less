@@ -1,0 +1,360 @@
+//
+// Launcher Container
+// --------------------------------------------------
+
+
+
+.lp-g {
+	letter-spacing: -0.31em;
+	/* Webkit: collapse white-space between units; */
+	text-rendering: optimizespeed;
+	/* Webkit: fixes text-rendering: optimizeLegibility; */
+	display: -webkit-flex;
+	-webkit-flex-flow: row wrap;
+	display: -ms-flexbox;
+	-ms-flex-flow: row wrap;
+}
+
+.lp-u {
+	display: inline-block;
+	zoom: 1;
+	letter-spacing: normal;
+	word-spacing: normal;
+	vertical-align: top;
+	text-rendering: auto;
+}
+
+
+// Launcher tab
+// -------------------------
+
+.lp-launcher-tab {
+	background:@navbar-default-bg;
+	border-bottom: 1px solid @navbar-default-border;
+	min-height: @launcher-tab-min-height;
+
+	.border-top-radius(@launcher-tab-border-radius);
+	.border-bottom-radius(@launcher-tab-border-radius);
+
+	.background-transition;
+	a {
+		color: @navbar-default-link-color;
+		.color-transition;
+		display:block;
+		& .lp-launcher-tab-arrow i {
+			.lp-h5;
+			color:inherit;
+		}
+	}
+	&:hover {
+		background: darken(@navbar-default-bg, 5%);
+		& a {
+			color: @navbar-default-link-hover-color;
+		}
+	}
+	&:active {
+		background: darken(@navbar-default-bg, 15%);
+		& a {
+			color: @navbar-default-link-active-color;
+		}
+	}
+	&.active {
+		background: @navbar-default-link-active-bg;
+		& a {
+			color: @navbar-default-link-active-color;
+
+		}
+		&:hover {
+			background: darken(@navbar-default-link-active-bg, 5%);
+			& a {
+				color: @navbar-default-link-active-color;
+			}
+		}
+		&:active {
+			background: darken(@navbar-default-link-active-bg, 10%);
+			& a {
+				color: @navbar-default-link-active-color;
+			}
+		}
+	}
+	& .lp-launcher-tab-icon {
+		.lp-h4;
+		font-family: @icon-font;
+		color:inherit;
+		display: inline-block;
+		width: 36px;
+		.lp-icon {
+			margin: 0 7px 0 10px;
+		}
+	}
+}
+
+// Launcher Tab Panels
+// - used in accounts widget
+//-------------------
+
+.panel-launcher {
+	.panel-variant(@launcher-panel-default-border; @launcher-panel-default-text; @launcher-panel-default-heading-bg; @launcher-panel-default-border);
+	margin: 0px;
+
+	.border-top-radius(@launcher-panel-border-radius);
+	.border-bottom-radius(@launcher-panel-border-radius);
+
+	.list-group {
+		margin: 0;
+
+		.list-group-item {
+			border: 0;
+			border-bottom: 1px solid @list-group-border;
+			padding: @padding-base-vertical @padding-base-horizontal;
+
+			.h4 {
+				.text-overflow();
+			}
+
+			&:last-child {
+				border-bottom: 0;
+			}
+		}
+	}
+
+	.panel-heading {
+		.border-top-radius(@launcher-panel-border-radius);
+		margin: 0;
+
+		&.panel-round {
+			.border-bottom-radius(@launcher-panel-border-radius);
+		}
+	}
+
+	.panel-body {
+		margin: 0;
+	}
+}
+
+
+
+
+// Sidebar
+
+.lp-launcher-tab-arrow,
+.lp-launcher-tab-icon,
+.lp-launcher-tab-text {
+	height:@lp-launcher-tab-height!important;
+	line-height:@lp-launcher-tab-line-height!important;
+}
+.lp-launcher-tab-arrow {
+	margin-right: 10px;
+	margin-top: 2px;
+}
+.lp-launcher-tab-text {
+	overflow: hidden;
+}
+
+
+
+//
+// Launcher Deck Container
+// Mobile first
+// --------------------------------------------------
+
+
+.lp-overlay.lp-launcher-overlay {
+	z-index: auto;
+}
+
+.lp-lc.lp-launcher-left {
+	overflow: hidden;
+}
+
+.lp-lc .lp-launcher-slide,
+.lp-lc .lp-launcher-area.active {
+	display: block;
+}
+
+.lp-lc-animating >.lp-launcher-area {
+	overflow: hidden;
+}
+
+.lp-launcher-slide {
+	>.lp-launcher-area {
+		.transition(max-height .5s cubic-bezier(0, 1, 0.5, 1));
+		backface-visibility: hidden;
+		max-height: 0;
+		height: 0;
+	}
+}
+.lp-launcher-close {
+	>.lp-launcher-area {
+		overflow: hidden;
+		border: 0;
+		margin: 0;
+		padding: 0;
+		min-height: 0;
+	}
+        .lp-launcher-tab-arrow .lp-icon {
+            .lp-icon-angle-down();
+        }
+}
+.lp-launcher-open {
+	>.lp-launcher-area {
+		max-height: 1000px;
+		height: auto;
+	}
+        .lp-launcher-tab-arrow .lp-icon {
+            .lp-icon-angle-up();
+        }
+}
+
+.lp-lc--content {
+	.lp-launcher-area {
+		display: none;
+		&.lp-launcher-area-fixed {
+			position: relative;
+		}
+	}
+	.lp-lc--default {
+		display: block;
+		&.lp-launcher-area-fixed {
+			position: absolute;
+			width: 95%;
+		}
+	}
+}
+
+.lp-launcher-overlay-open .lp-lc--default.lp-launcher-area-fixed {
+	// mimic that default panel is behind the overlay
+	opacity: 0.3;
+	pointer-events: none;
+	// to make sure that nothing is clickable
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+}
+
+.lp-launcher-tab > a {
+	.clearfix;
+}
+
+
+.lp-launcher-tab-hidden {
+	display: block;
+	opacity: 0.7;
+}
+
+
+.lp-lc--main {
+	left: -@launcher-sidebar-width;
+	z-index: 1;
+	position: relative;
+	white-space: nowrap;
+	backface-visibility: hidden;
+
+	.two-transitions(left .3s, right .3s);
+}
+
+.lp-lc--content,
+.lp-lc--left {
+	white-space: normal;
+	float: none;
+	display: inline-block;
+	vertical-align: top;
+}
+.lp-lc--content {
+	min-width: 250px;
+}
+
+.lp-launcher-left {
+	.lp-lc--main {
+		left: 0;
+	}
+}
+
+@media all and (max-width: @screen-xs-max) {
+	.lp-lc {
+		top: -25px;
+	}
+	.lp-page-layout-container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+	.lp-lc {
+		overflow: visible;
+	}
+	.lp-launcher-left {
+		overflow: visible;
+	}
+	// .bd-designMode-null .lp-lc {
+	// 	margin-top: 50px;
+	// }
+	.lp-lc--main {
+		left: auto;
+		.transition(none);
+	}
+}
+
+
+//
+// RTL
+// --------------------------------------------------
+
+[dir="rtl"]{
+
+	.lp-lc--main {
+		left: auto;
+		right: -@launcher-sidebar-width;
+	}
+	.lp-launcher-tab-arrow {
+		margin-right: 0;
+		margin-left: 10px;
+	}
+	.lp-launcher-left {
+		.lp-lc--main {
+			right: 0;
+		}
+	}
+}
+
+
+/* RTL for small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+	[dir="rtl"]{
+		.lp-lc--main {
+			left: auto;
+			right: 0;
+		}
+	}
+}
+
+// Custom classes for sidebar tabs
+.lp-launcher--tabs {
+	.spacer-top {
+		margin-top: 20px;
+	}
+
+	.spacer, .spacer-bottom {
+		margin-bottom: 20px;
+	}
+        .lp-lc-2ndlevel {
+            .lp-launcher-tab {
+                padding-left: 24px;
+                background-color: #f2f2f2;
+            }
+            .lp-launcher-tab-arrow .lp-icon {
+                .lp-icon-angle-right();
+            }
+
+            .lp-launcher-tab-arrow .lp-icon-cross {
+                .lp-icon-cross();
+            }
+        }
+}

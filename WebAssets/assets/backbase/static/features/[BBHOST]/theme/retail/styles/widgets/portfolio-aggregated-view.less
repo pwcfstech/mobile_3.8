@@ -1,0 +1,50 @@
+@color: @brand-primary;
+@inactiveColor: lighten(desaturate(@color, 65%), 40%);
+
+@categoryColors:
+  @color,
+  @brand-success,
+  @brand-warning,
+  @brand-danger,
+  lighten(@color, 20%),
+  lighten(@brand-success, 20%),
+  lighten(@brand-warning, 20%),
+  lighten(@brand-danger, 20%);
+
+.portfolio-aggregated-view {
+
+  .header {
+    li {
+      color: @color;
+      &:not(:last-child) {
+        border-right: 1px solid @inactiveColor;
+      }
+    }
+  }
+
+  .loop(@i: 0) when (@i < length(@categoryColors)) {
+    .cat-@{i} { background: extract(@categoryColors, @i + 1) }
+    .loop(@i + 1);
+  } .loop;
+
+  .bonds {
+    rect {
+      fill: @color;
+    }
+  }
+
+  /**
+   * Footer
+   */
+
+  .footer {
+    li {
+      background: @inactiveColor;
+    }
+
+    .current {
+      background: @color;
+    }
+  }
+
+}

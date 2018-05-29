@@ -1,0 +1,188 @@
+
+<div ng-show="limitMgmtCtrl.ModalhideOTPFlag">
+
+<div ng-if="limitMgmtCtrl.errorSpin">
+	<!--<error-spin></error-spin>-->
+	<div class="panel-message loading-panel" role="alert" style="height:1150px; z-index:20 !important;">
+		<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+		<span class="sr-only">Busy</span>
+	</div>
+</div>
+
+<!-- RSA changes by Xebia start -->
+		<div ng-show="limitMgmtCtrl.cqFlagIntlmt">
+
+            <div ng-show="limitMgmtCtrl.showDenyMessage">
+               <div class="rsa-deny-message">
+                  {{limitMgmtCtrl.cqObject.RSA_DENY_MESSAGE}}   
+               </div>
+            </div>
+
+            <div ng-show="limitMgmtCtrl.showCancelTransactionMessage">
+               <div class="rsa-cancel-transaction-message">
+                     {{limitMgmtCtrl.cqObject.CANCEL_TRANSACTION}}  
+               </div>
+               <div class="rsa-button">
+                     <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                        class="rsa-margin-top" type="submit" name="No"
+                        ng-click="limitMgmtCtrl.cancelRSATransaction()">Okay</button>
+               </div>
+            </div>
+
+            <div ng-show="limitMgmtCtrl.showSetupCQMessage">
+               <p>
+                  <center>{{limitMgmtCtrl.cqObject.SETUP_CQ_MESSAGE}}
+                  </center>
+               </p>
+               <div class="rsa-button">
+                     <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                        type="submit" name="Yes"
+                        ng-click="limitMgmtCtrl.showSetupCQ()">Update Now</button>
+
+                     <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                        type="submit" name="No"
+                        ng-click="limitMgmtCtrl.showSetupCQMessage = false; limitMgmtCtrl.showCancelTransactionMessage = true;">Cancel</button>
+               </div>
+            </div>
+
+            <div ng-hide="limitMgmtCtrl.hideQuesFlag" class="rsa-border-div">
+               
+               <div ng-bind="limitMgmtCtrl.showCQError" class="rsa-cancel-transaction-message">
+               </div>
+
+               <!-- <form name="Questionform" class="form-horizontal"> -->
+                  <div ng-if="limitMgmtCtrl.showQuestionDiv">
+                     
+                        <div class="rsa-margin-top">
+                           <label ng-bind="limitMgmtCtrl.challengeQuestions" class="rsa-bold-font"></label>
+                           <input class="form-control rsa-answer-input" type="text" name="answer" autocomplete="off" placeholder="Enter answer" ng-model="limitMgmtCtrl.challengeQuestionAnswer"
+                           required="true"/>
+                        </div>
+                     
+                      
+                     <div class="rsa-text-center">
+                        <button class="btn btn-primary primary-btn-btn primary-btn-ft rsa-button"
+                           type="submit" name="verifyAnswers"
+                           ng-click="limitMgmtCtrl.verifyCQAnswer('cardSwitchLimit')"
+                           ng-disabled="!(limitMgmtCtrl.challengeQuestionAnswer)"
+                           lp-i18n="Submit Answer">  
+                        </button>
+                     </div>
+                  </div>
+
+                  <div ng-show="limitMgmtCtrl.showWrongAnswerMessage" class="rsa-button" >
+                     <button class="btn btn-primary primary-btn-btn primary-btn-ft"
+                        type="submit" name="tryAgain"
+                        ng-click="limitMgmtCtrl.fetchCQ('cardSwitchLimit')">Try Again</button>
+                  </div>
+
+               <!-- </form> -->
+            </div>
+        </div>    
+    <!-- RSA changes by Xebia ends -->
+
+<div ng-hide="limitMgmtCtrl.offSwitchFLg" class="limt-popup-otp">
+	 <h4>
+		<div class="text-success" ng-show="limitMgmtCtrl.success.happened"
+			style="text-align: center" ng-bind="limitMgmtCtrl.success.msg"></div>
+		<div class="text-danger" ng-show="limitMgmtCtrl.error.happened"
+			style="text-align: center" ng-bind="limitMgmtCtrl.error.msg"></div>
+	</h4>
+	<form name="OTPform" class="form-horizontal otpFormMargimTop otpTipAdjust">
+		<div class="idfc-mainDiv-center">
+	<div lp-field="lp-field" label="Mobile Number" class="idfc-form-label idfc-form-otp-label"
+		tip="">
+		<div>
+			<input class="idfc-form-control idfc-input-otp" type="text" name="OTPMobile"
+				ng-model="limitMgmtCtrl.customerMobMasked" ng-disabled="true"
+				style="float: left" />
+		</div>
+	</div>
+	<input style="display: none" type="text" name="fakeusernameremembered" />
+	<input style="display: none" type="password"
+		name="fakepasswordremembered" />
+	<div lp-field="lp-field" label="OTP" class="idfc-form-label idfc-form-otp-label"
+
+		tip="{{'Please enter the 6 digit OTP we sent to your registered mobile number'|translate}}">
+
+		 <div>
+			<input class="idfc-form-control idfc-input-otp" type="tel" name="otp" autofill="off"
+				autocorrect="off" autocapitalize="off" autocomplete="off"
+				onpaste="return false;" onCopy="return false" onCut="return false"
+				ng-pattern="/^[0-9]*$/" ng-minlength="6" ng-maxlength="6"
+				ng-model="limitMgmtCtrl.otpValue" required="true" style="-webkit-text-security:disc"
+				ng-disabled="limitMgmtCtrl.cancelTransaction || limitMgmtCtrl.xyz"/>
+
+				<small class="text-danger otperr_margin" ng-show="OTPform.otp.$error.required"
+				lp-i18n="OTP is required"></small> 
+				<small class="text-danger otperr_margin" ng-show="OTPform.otp.$error.minlength"
+				lp-i18n="Please enter 6 digit valid value"></small> 
+				<small class="text-danger otperr_margin" ng-show="OTPform.otp.$error.maxlength"
+				lp-i18n="Please enter 6 digit valid value"></small> 
+				<small class="text-danger otperr_margin" ng-show="OTPform.otp.$error.pattern"
+				lp-i18n="Please enter a valid OTP"></small>
+		</div>
+		
+		
+	</div>
+			</div>
+	<div class="limt-popup-buttons" >
+		<button class="red"
+			type="submit" name="verifyOTP" id="verify-btn-switchOnOff"
+			ng-disabled="limitMgmtCtrl.cancelTransaction || limitMgmtCtrl.xyz"
+			ng-click="OTPform.submitted=true; limitMgmtCtrl.submitForm(OTPform, 'OTP');limitMgmtCtrl.submitfunction()"
+		    lp-i18n="Submit"></button>
+
+		<!--<button class="btn-whitePop"-->
+				<!--type="button" name="resendOTP"-->
+				<!--ng-disabled="limitMgmtCtrl.cancelTransaction || limitMgmtCtrl.abc"-->
+				<!--ng-click="limitMgmtCtrl.generateOTP('resend','modalShow');limitMgmtCtrl.resendfunction()"-->
+				<!--lp-i18n="Resend OTP"></button>-->
+
+		<button class="btn-whitePop"
+			type="button" name="resendOTP"
+			ng-disabled="limitMgmtCtrl.cancelTransaction || limitMgmtCtrl.abc"
+			ng-click="limitMgmtCtrl.resendfunction()"
+			lp-i18n="Resend OTP"></button>
+	</div>
+	</form>
+</div>
+
+<!-- Off block-->
+<div ng-show="limitMgmtCtrl.offSwitchFLg">
+	 <form name="OffOTPform" class="form-horizontal">
+	 
+	 <h4>
+		<div class="text-success" ng-show="limitMgmtCtrl.success.happened"
+			style="text-align: center" ng-bind="limitMgmtCtrl.success.msg"></div>
+		<div class="text-danger" ng-show="limitMgmtCtrl.error.happened"
+			style="text-align: center" ng-bind="limitMgmtCtrl.error.msg"></div>
+	</h4>
+	<div class="modal-body">
+		<div class="form-group text-left" style="padding: 2%;">
+					<p>
+						<span translate="Please note that by switching off international usage, you will not be able to use your Debit Card when travelling abroad. You will not be able to use it at International e-Commerce websites either."></span>
+					</p>
+				
+		</div>
+	</div>
+	<div class="modal-footer text-right">
+		<button class="red"
+			type="submit" name="okBtn"
+			ng-click="limitMgmtCtrl.switchOffSubmit();"
+		    lp-i18n="Ok"></button>
+			
+
+		<button class="btn-whitePop marginTOp"
+			type="button" name="cancelBtn"
+			ng-click="limitMgmtCtrl.closePopop();"
+			lp-i18n="Cancel"></button>
+	</div>
+
+	 <!-- -->
+	</form>
+</div>
+<!-- Ends off block-->
+
+</div>
+

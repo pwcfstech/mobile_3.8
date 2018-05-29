@@ -1,0 +1,606 @@
+<!-- Add NG Template here-->
+<div class="ng-cloak bgcolor-style" ng-controller="LoanSummaryController as loanSummaryCtrl">
+
+    <!-- Loading indicator -->
+    <div ng-if="loanSummaryCtrl.errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+    </div>
+
+    <div class="text-danger" ng-if="loanSummaryCtrl.error.happened"
+         style="text-align:center; font-family: gotham_book;">{{ loanSummaryCtrl.error.msg }}
+    </div>
+
+    <!-- user has no Home Loan or Home Saver accoutns -->
+    <div ng-if="loanSummaryCtrl.noHsLoanAccount.happened && loanSummaryCtrl.noLoanAccount.happened" style="text-align:center">{{loanSummaryCtrl.noLoanAccount.msg }}</div>
+
+    <!-- hiding this section as per UAT issue 5422 -->
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color:#fffaea;" ng-if="false">
+        <tr>
+            <td align="center" valign="top"
+                style="text-align:center;width:33.33%;padding-top:15px;padding-bottom:15px">
+                <div style="border-right:1px solid #fdf3d8; ">
+                    <!-- removing col-md-12 -->
+                    <div class="">{{totalDisbursedAmtLakh | number:1}}&nbsp;L</div>
+                    <div class="" style="font-size:11px; color:#a9a59c">
+                        {{'Total_Amount_Disbursed'|translate}}
+                    </div>
+                </div>
+            </td>
+            <td align="center" valign="top"
+                style="text-align:center;width:33.33%;padding-top:15px;padding-bottom:15px">
+                <div style="border-right:1px solid #fdf3d8; ">
+                    <div class="">{{totalAmtPaidLakh | number:1}}&nbsp;L</div>
+                    <div class="" style="font-size:11px; color:#a9a59c">
+                        {{'Total_Amount_Paid'|translate}}
+                    </div>
+                </div>
+            </td>
+            <td align="center" valign="top"
+                style="text-align:center;width:33.33%;padding-top:15px;padding-bottom:15px">
+                <div>
+                    <div class="">{{totalOutstandingAmtLakh | number:1}}&nbsp;L</div>
+                    <div class="" style="font-size:11px; color:#a9a59c; ">
+                        {{'Total_Amount_Outstanding'|translate}}
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div style="width:100%;padding:5px"><!--Ysuhae-->
+        <!-- Home Loan table -->
+        <table class=" table-idfc-gen" ng-hide="loanSummaryCtrl.error.happened || loanSummaryCtrl.noLoanAccount.happened || !loanSummaryCtrl.loanAccountList.length" width="100%">
+            <tbody style="background-color:#ffefc0;text-align: center;font-size: larger;font-family: gotham_book;">
+            <tr>
+                <td class="col-md-7 col-xs-7 col-sm-7 text-left font-13 valign-center no-border padding-left-3"><span>Home Loan Accounts</span></td>
+                <!--<td class="col-md-5 col-xs-5 col-sm-5 text-right font-10 font-light color-pink valign-center no-border hand-curosr padding-right-3">-->
+                <td class="col-md-5 col-xs-5 col-sm-5 text-right font-10 font-light color-pink valign-center no-border hand-curosr padding-right-3">
+                    <div ng-if="loanSummaryCtrl.showHlApplyNow " ng-click="loanSummaryCtrl.openApplyNow()">
+                        <span>Apply Now</span>
+                        <span class="glyphicon glyphicon-chevron-right color-pink apply-now-arrow"></span>
+                    </div>
+                    <!--<div ng-if="loanSummaryCtrl.allHlInactive">-->
+                    <!--<span >No Active Loan</span>-->
+                    <!--</div>-->
+                    <div ng-if="!loanSummaryCtrl.noHlOutStanding">
+                        <div>
+                            <span>Outstanding Amount</span>
+                        </div>
+                        <div>
+                            <span class="rupee-symbol-span color-pink"></span>
+                            <span class="font-14">{{loanSummaryCtrl.hlOutstandingDisplay}}</span>
+                        </div>
+                    </div>
+                    <div ng-if="loanSummaryCtrl.noHlOutStanding">
+                        <span>No Active Loan</span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class=" table-idfc-gen" ng-hide="loanSummaryCtrl.error.happened || loanSummaryCtrl.noLoanAccount.happened" width="100%">
+            <tbody ng-repeat="loanAccount in loanSummaryCtrl.loanAccountList">
+            <tr ng-click="loanSummaryCtrl.openLoanDetails(loanAccount,$index)">
+                <td>
+                    <div style="border:1px solid #dde3e9; border-radius:2px; background-color:#ffffff">
+                        <div style="background-color:#f9f9f9; border-bottom:1px solid #dcdcdc;height: 6em; padding-top:15px;">
+                            <div class="row">
+                                <div class="col-sm-12 linkedAccount">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="95%" style="vertical-align:top;">
+                                                <ul style="padding-left:15px">
+                                                    <!--<li style="font-size:10px;">{{'Loan_Account'|translate}}</li>-->
+                                                    <li style="font-size:11px;">
+                                                        {{'Loan_Account'|translate}}
+                                                    </li>
+                                                    <li style="font-size:10px;text-align: center;">
+                                                        :
+                                                    </li>
+                                                    <li style="font-size:10px;font-weight:600;">
+                                                        {{loanAccount.acctNb}}
+                                                        <!--<span>
+                                                        <span ng-show="!loanAccount.showfull" class="menu menu-down"></span>
+                                                        <span ng-show="loanAccount.showfull" class="menu menu-up"></span>
+                                                        </span>--></li>
+                                                </ul>
+
+                                                <ul style="padding-left:15px">
+                                                    <!-- Start: Change request on 10th April 2017-->
+                                                    <li style="font-size:11px;">Amount Sanctioned
+                                                    </li>
+                                                    <!-- End : Change request on 10th April 2017-->
+                                                    <!--<li style="font-size:10px;">Amount Sanctioned</li>-->
+                                                    <li style="font-size:10px;text-align: center;">
+                                                        :
+                                                    </li>
+                                                    <!-- Start: Change request on 10th April 2017-->
+                                                    <li style="font-size:10px;"><span
+                                                            class="rupee-symbol-span"></span><span
+                                                            style="font-weight:600;"
+                                                            lp-amount="loanAccount.sancAmt"></span>
+
+                                                    </li>
+                                                    <!-- End : Change request on 10th April 2017-->
+
+                                                </ul>
+
+                                            </td>
+                                            <td width="5%">
+                                                <div class="pie-chart-holder">
+                                                    <div class="un-10">
+
+                                                        <pie-chart data="loanAccount.data"
+                                                                   options="loanSummaryCtrl.options"></pie-chart>
+                                                        <!--<pie-chart data="78" options="loanAccount.paidPercent.label">"></pie-chart>-->
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+
+                                    <!--   <ul>
+                                           <li>EMI</li>
+                                           <li style="text-align: center;">:</li>
+                                           <li>{{'Amount_Sanctioned'|translate}} ( <span class="rupee-symbol-span"></span>)</li>
+                                       </ul> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div style=" padding:10px 15px;">
+                            <div class="row">
+
+                                <!-- 12 Sept 2016
+                                 Added col-xs-11 -->
+                                <div class="col-sm-12 col-xs-col-12 linkedAccount">
+                                    <ul>
+                                        <li class="linkWidth loanSubColor">Disbursed Amount</li>
+                                        <li style="text-align: center;">:</li>
+                                        <li><span class="rupee-symbol-span"></span><span
+                                                style="font-weight:600;"
+                                                lp-amount="loanAccount.disbAmt"></span></li>
+                                    </ul>
+                                    <ul>
+                                        <li class="linkWidth loanSubColor">Outstanding Balance</li>
+                                        <li style="text-align: center;">:</li>
+                                        <li><span class="rupee-symbol-span"></span><span
+                                                style="font-weight:600;"
+                                                lp-amount="loanAccount.ttlOutBal"></span></li>
+                                        <!--<li class="alignToRight"><div><p class="menu menu-down"></p></div></li>-->
+                                    </ul>
+
+                                    <ul ng-show=!loanAccount.showfull>
+                                        <li class="alignToRight"><p class="menu menu-down"></p></li>
+                                    </ul>
+                                    <ul ng-show=loanAccount.showfull>
+                                        <li class="alignToRight"><p class="menu menu-up"></p></li>
+                                    </ul>
+                                    <!-- >
+                                        <li class="linkWidth">{{'Outstanding_Amount'|translate}}</li>
+                                        <li style="text-align: center;">:</li>
+                                        <li><span class="rupee-symbol-span"></span><span style="font-weight:600;" lp-amount="loanAccount.ttlOutBal"></span></li>
+                                    </ul>
+                                    <ul>
+                                        <li class="linkWidth">{{'Next_EMI_Date'|translate}}</li>
+                                        <li style="text-align: center;">:</li>
+                                        <li style="font-weight:600;">12 April 2016</li>
+                                    </ul -->
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Home Loan show details-->
+
+            <tr ng-show="loanAccount.showfull">
+
+                <td colspan="4" style="padding:0">
+                    <div class="home-loan-form">
+                        <label class="font-book font-12">{{'Loan_Account'|translate}}</label>
+
+                        <p style="text-align:left;">
+                            {{loanSummaryCtrl.loanDetails.pdctNm}}-{{loanAccount.acctNb}}</p>
+
+                    </div>
+                    <div class="ammount-panel">
+                        <div class="amount"><span>{{'EMI_KEY'|translate}}</span> : <span
+                                class="rupee-symbol-span"></span><span
+                                lp-amount="loanSummaryCtrl.loanDetails.emi"></span></div>
+
+                        <a href="#" ng-class="loanAccount.acctSts === 'Active'? 'activeLink':'inActiveLink'">{{loanAccount.acctSts}}</a>
+                    </div>
+
+
+                    <div class="loan-details"
+                         ng-if="loanSummaryCtrl.loanDetails.dsbrsmtDt.trim()!=='' && loanSummaryCtrl.loanDetails.intrstEndDt.trim()!==''">
+                        <h3>{{'Loan_Progress'|translate}}</h3>
+                    </div>
+
+
+                    <div class="clearfix"
+                         ng-if="loanSummaryCtrl.loanDetails.dsbrsmtDt.trim()!=='' && loanSummaryCtrl.loanDetails.intrstEndDt.trim()!==''"></div>
+
+
+                    <div class="row"><span ng-show="!loanSummaryCtrl.hideCurrentDate"
+                                           id="currentDate-{{$index}}"
+                                           class="currDateStyle slider-date-value curDateColor" style="margin-left: 7%;">{{loanSummaryCtrl.loanSlider.value | date:'MMM,yyyy'}}</span>
+                    </div>
+                    <div class="row padding-left-right-pl-5">
+                        <div class="col-xs-12 padding-left-right-pl-5">
+                            <div class="progress">
+                                <div id="progressBarHL-{{$index}}" class="progress-bar"
+                                     role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row padding-left-right-pl-5 margin-bottom-3-per">
+                        <span class="startDateStyle slider-date-value">{{loanSummaryCtrl.startNum | date:'MMM,yyyy'}}</span>
+                        <span class="endDateStyle slider-date-value">{{loanSummaryCtrl.endNum | date:'MMM,yyyy'}}</span>
+                    </div>
+                    <!-- div class="chart-holder">
+                        <pie-chart data="data1" options="options1"></pie-chart>
+                    </div -->
+
+                    <div class="clearfix"></div>
+
+                    <div class="loan-details font-book font-12" ng-click="loanSummaryCtrl.toggleLoanDtl()">
+                        <h3>{{'Loan_Details'|translate}}</h3>
+                        <p class="menu menu-down" ng-if="!loanSummaryCtrl.showLoanDtlsSection"></p>
+                        <p class="menu menu-up" ng-if="loanSummaryCtrl.showLoanDtlsSection"></p>
+                    </div>
+                    <div class="showborder" ng-if="loanSummaryCtrl.displayLoanDetailsBorder"></div>
+                    <div class="rest-loan" ng-show="loanSummaryCtrl.showLoanDtlsSection">
+                        <div class="left-loan">
+                            <p>{{'Disbursed_Amount'|translate}}</p>
+                            <p>{{'Outstanding Balance'|translate}}</p>
+                            <p>{{'Disbursed_Date'|translate}}</p>
+                            <p>{{'Balance_Tenure'|translate}}</p>
+                            <p>{{'EMI_End_Date'|translate}}</p>
+                            <p>{{'Next_EMI_Date'|translate}}</p>
+                            <p>{{'Interest_Type'|translate}}</p>
+                            <p>{{'Rate_of_Interest'|translate}}</p>
+
+                        </div>
+                        <div class="right-loan">
+                            <p>&nbsp;<span class="rupee-symbol-span" style="font-weight:normal;"></span>
+                                <span lp-amount="loanAccount.disbAmt"></span>
+                            </p>
+                            <p>&nbsp;<span class="rupee-symbol-span" style="font-weight:normal;"></span>
+                                <span lp-amount="loanAccount.ttlOutBal"></span>
+                            </p>
+                            <p>&nbsp;&shy;{{loanSummaryCtrl.loanDetails.dsbrsmtDt | date:'dd MMM,yyyy'}}&shy;</p>
+                            <p>&nbsp;<span>{{loanSummaryCtrl.loanDetails.rmngTnure}}</span>
+                                <span ng-if="loanSummaryCtrl.loanDetails.rmngTnure!=='NA'">{{'Month_Key'|translate}}</span>
+                            </p>
+                            <p>&nbsp;
+                                <span ng-if="loanSummaryCtrl.loanDetails.intrstEndDt!==''">&shy;{{loanSummaryCtrl.loanDetails.intrstEndDt | date:'dd MMM, yyyy'}}&shy;</span>
+                                <span ng-if="loanSummaryCtrl.loanDetails.intrstEndDt===''">&shy;NA&shy;</span>
+                            </p>
+                            <p>&nbsp;&shy;{{loanSummaryCtrl.loanDetails.nxtDueDt | date:'dd MMM,yyyy'}}&shy;</p>
+                            <p>&nbsp;{{loanSummaryCtrl.loanDetails.inrstTyp}}</p>
+                            <p>&nbsp;{{loanSummaryCtrl.loanDetails.intrstRt}}<span ng-if="loanDetails.intrstRt!=='NA'">%</span></p>
+                        </div>
+                    </div>
+
+                    <div class="loan-details" ng-click="loanSummaryCtrl.toggleOverDueDtl()"
+                         style="border-bottom:2px solid #F5F5F5;">
+                        <h3>{{'Overdue_Details'|translate}}</h3>
+                        <p class="menu menu-down" ng-if="!loanSummaryCtrl.overDueDetails"></p>
+                        <p class="menu menu-up" ng-if="loanSummaryCtrl.overDueDetails"></p>
+                    </div>
+                    <div class="rest-loan" ng-show="loanSummaryCtrl.overDueDetails">
+                        <div class="left-loan">
+                            <p>{{'Principal'|translate}}</p>
+                            <p>{{'Interest'|translate}}</p>
+                            <p>{{'Other_Charges'|translate}}</p>
+                            <p>{{'Total_Overdue'|translate}}
+                                <i class="lp-icon infoToolTip infoIcon ng-scope " tooltip="Total Overdue is inclusive of Penal and Tax (if any)" tooltip-trigger="click" tooltip-append-to-body="true">
+                                    <img src="static/features/[BBHOST]/theme-idfc/images/info_hdpi.png" class="lp-icon-small"/></i>
+                            </p>
+
+                        </div>
+                        <div class="right-loan">
+                            <p ng-if="loanSummaryCtrl.loanDetails.prncplDue !== 'NA'"><span
+                                    class="rupee-symbol-span"
+                                    style="font-weight:normal;"></span><span
+                                    lp-amount="loanSummaryCtrl.loanDetails.prncplDue"></span></p>
+                            <p ng-if="loanSummaryCtrl.loanDetails.intrstDue !== 'NA'"><span
+                                    class="rupee-symbol-span"
+                                    style="font-weight:normal;"></span><span
+                                    lp-amount="loanSummaryCtrl.loanDetails.intrstDue"></span></p>
+                            <p ng-if="loanSummaryCtrl.loanDetails.dueChrg !== 'NA'"><span
+                                    class="rupee-symbol-span"
+                                    style="font-weight:normal;"></span><span
+                                    lp-amount="loanSummaryCtrl.loanDetails.dueChrg"></span></p>
+                            <p ng-if="loanSummaryCtrl.loanDetails.amtOvrDue !== 'NA'"><span
+                                    class="rupee-symbol-span"
+                                    style="font-weight:normal;"></span><span
+                                    lp-amount="loanSummaryCtrl.loanDetails.amtOvrDue"></span></p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="button-all">
+                        <a href="#" class="button1"
+                           ng-click="loanSummaryCtrl.openLoanIntWidget(loanAccount)"
+                           ng-if="loanSummaryCtrl.loanDetails.pdctCd !== 'HOME_TOP' && loanSummaryCtrl.loanDetails.pdctCd !== 'YOUTH_TOP'">{{'Interest_Key'|translate}}<br/>{{'Certificate_Key'|translate}}</a>
+                        <a href="#" class="button2"
+                           ng-click="loanSummaryCtrl.openLoanStatementWidget(loanAccount)">{{'Statement_Key'|translate}}</a>
+                        <a href="#" class="button3"
+                           ng-click="loanSummaryCtrl.openLoanRepayemtWidget(loanAccount)">{{'Repayment_Key'|translate}}<br/>{{'Schedule_Key'|translate}}</a>
+                    </div>
+                </td>
+            </tr>
+            <tr class="tr-spacer invisible-border" ng-show="loanAccount.showfull"></tr>
+            </tbody>
+        </table>
+
+        <!-- Home SaverSaver Table -->
+        <!-- loanSummaryCtrl.error.happened || loanSummaryCtrl.noLoanAccount.happened ||ng-hide="!loanSummaryCtrl.hsLoanAccountList.length"  -->
+        <table class=" table-idfc-gen" ng-hide="loanSummaryCtrl.noHsLoanAccount.happened || !loanSummaryCtrl.hsLoanAccountList.length"  width="100%">
+            <tbody style="background-color:#ffefc0;text-align: center;font-size: larger;font-family: gotham_book;">
+            <tr>
+                <td class="col-md-7 col-xs-7 col-sm-7 text-left valign-center no-border font-13 padding-left-3"><span>Short&Sweet Accounts</span></td>
+                <td class="col-md-5 col-xs-5 col-sm-5 text-right font-10 font-light color-pink valign-center no-border hand-curosr padding-right-3">
+                    <div ng-if="loanSummaryCtrl.showHsApplyNow" ng-click="loanSummaryCtrl.openApplyNow()">
+                        <span>Apply Now</span>
+                        <span class="glyphicon glyphicon-chevron-right color-pink apply-now-arrow"></span>
+                    </div>
+                    <!--<div ng-if="loanSummaryCtrl.allHsInactive">-->
+                    <!--<span >No Active Loan</span>-->
+                    <!--</div>-->
+                    <div ng-if="!loanSummaryCtrl.noHsOutStanding">
+                        <div>
+                            <span>Outstanding Amount</span>
+                        </div>
+                        <div>
+                            <span class="rupee-symbol-span color-pink"></span>
+                            <span class="font-14">{{loanSummaryCtrl.hsOutstandingDisplay}}</span>
+                        </div>
+                    </div>
+                    <div ng-if="loanSummaryCtrl.noHsOutStanding && loanSummaryCtrl.hsOutstandingDisplay!=0">
+                        <span class="font-14">{{loanSummaryCtrl.hsOutstandingDisplay}}</span>
+                    </div>
+                    <div ng-if="loanSummaryCtrl.allHsInactive">
+                        <span>No Active Loan</span>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class=" table-idfc-gen" ng-hide="loanSummaryCtrl.noHsLoanAccount.happened" width="100%">
+            <tbody ng-repeat="loanAccount in loanSummaryCtrl.hsLoanAccountList">
+            <tr ng-click="loanSummaryCtrl.openHSDetails(loanAccount,$index)">
+                <td>
+                    <div style="border:1px solid #dde3e9; border-redius:2px; background-color:#ffffff">
+                        <div style="background-color:#f9f9f9; border-bottom:1px solid #dcdcdc;height: 6em; padding-top:15px;">
+                            <div class="row">
+                                <div class="col-sm-12 linkedAccount">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="95%" style="vertical-align:top;">
+                                                <ul style="padding-left:15px">
+                                                    <li style="font-size:11px;">
+                                                        {{'Loan_Account'|translate}}
+                                                    </li>
+                                                    <li style="font-size:10px;text-align: center;">
+                                                        :
+                                                    </li>
+                                                    <li style="font-size:10px;font-weight:600;">
+                                                        {{loanAccount.acctNb}}
+                                                    </li>
+                                                </ul>
+
+                                                <ul style="padding-left:15px">
+                                                    <!-- Start: Change request as on 10 April 2017-->
+                                                    <li style="font-size:11px;">Available Amount
+                                                    </li>
+                                                    <!-- End: Change request as on 10 April 2017-->
+                                                    <li style="font-size:10px;text-align: center;">
+                                                        :
+                                                    </li>
+                                                    <!-- Start: Change request as on 10 April 2017-->
+                                                    <li style="font-size:10px;">
+                                                        <span class="rupee-symbol-span"></span>
+                                                        <span style="font-weight:600;"
+                                                              lp-amount="loanAccount.withdrwalAmount"></span>
+                                                    </li>
+                                                    <!-- End: Change request as on 10 April 2017-->
+                                                </ul>
+
+                                            </td>
+                                            <td width="5%">
+                                                <div class="pie-chart-holder">
+                                                    <div class="un-10">
+                                                        <pie-chart data="loanAccount.data"
+                                                                   options="loanSummaryCtrl.options"></pie-chart>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div style=" padding:10px 15px;">
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-col-12 linkedAccount">
+                                    <ul>
+                                        <li class="linkWidth loanSubColor">Disbursed Amount</li>
+                                        <li style="text-align: center;">:</li>
+                                        <li><span class="rupee-symbol-span"></span><span
+                                                style="font-weight:600;"
+                                                lp-amount="loanAccount.disbAmt"></span></li>
+                                    </ul>
+                                    <ul>
+                                        <li class="linkWidth loanSubColor">Outstanding Balance</li>
+                                        <li style="text-align: center;">:</li>
+                                        <li><span class="rupee-symbol-span"></span><span
+                                                style="font-weight:600;"
+                                                lp-amount="loanAccount.ttlOutBal"></span></li>
+                                    </ul>
+
+                                    <ul ng-show=!loanAccount.showfull>
+                                        <li class="alignToRight"><p class="menu menu-down"></p></li>
+                                    </ul>
+                                    <ul ng-show=loanAccount.showfull>
+                                        <li class="alignToRight"><p class="menu menu-up"></p></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- Home Saver show details-->
+
+            <tr ng-show="loanAccount.showfull">
+                <td colspan="4" style="padding:0">
+                    <div class="home-loan-form">
+
+                        <label>{{'Loan_Account'|translate}}</label>
+
+                        <p style="text-align:left;">
+                            {{loanAccount.productName}}-{{loanAccount.acctNb}}</p>
+
+                    </div>
+                    <div class="ammount-panel">
+                        <div class="amount"><span>{{'EMI_KEY'|translate}}</span> : <span
+                                class="rupee-symbol-span"></span><span
+                                lp-amount="loanAccount.EMI"></span></div>
+
+                        <a href="#" ng-class="loanAccount.acctSts === 'Active' ? 'activeLink':'inActiveLink'">{{loanAccount.acctSts}}</a>
+                    </div>
+
+
+                    <div class="loan-details"
+                         ng-if="loanSummaryCtrl.loanDetails.dsbrsmtDt.trim()!=='' && loanSummaryCtrl.loanDetails.intrstEndDt.trim()!==''">
+                        <h3>{{'Loan_Progress'|translate}}</h3>
+                    </div>
+
+
+                    <div class="clearfix"
+                         ng-if="loanSummaryCtrl.loanDetails.dsbrsmtDt.trim()!=='' && loanSummaryCtrl.loanDetails.intrstEndDt.trim()!==''"></div>
+                    <div class="row"><span ng-show="!loanSummaryCtrl.hideCurrentDate"
+                                           id="currentDate-hs-{{$index}}"
+                                           class="currDateStyle slider-date-value curDateColor" style="margin-left: 7%;">{{loanSummaryCtrl.loanSlider.value | date:'MMM,yyyy'}}</span>
+                    </div>
+                    <div class="row padding-left-right-pl-5">
+                        <div class="col-xs-12 padding-left-right-pl-5">
+                            <div class="progress">
+                                <div id="progressBarHS-{{$index}}" class="progress-bar" role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row padding-left-right-pl-5 margin-bottom-3-per">
+                        <span class="startDateStyle slider-date-value">{{loanSummaryCtrl.startNum | date:'MMM,yyyy'}}</span>
+                        <span class="endDateStyle slider-date-value">{{loanSummaryCtrl.endNum | date:'MMM,yyyy'}}</span>
+                        <!--| date:'MMM,yyyy'-->
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="loan-details" ng-click="loanSummaryCtrl.toggleLoanDtl()">
+                        <h3 class="font-book font-12">{{'Loan_Details'|translate}}</h3>
+                        <p class="menu menu-down" ng-if="!loanSummaryCtrl.showLoanDtlsSection"></p>
+                        <p class="menu menu-up" ng-if="loanSummaryCtrl.showLoanDtlsSection"></p>
+                    </div>
+                    <div class="showborder" ng-if="loanSummaryCtrl.displayLoanDetailsBorder"></div>
+                    <div class="rest-loan" ng-show="loanSummaryCtrl.showLoanDtlsSection">
+                        <div class="left-loan">
+                            <p>{{'Disbursed_Amount'|translate}}</p>
+                            <p>{{'Outstanding Balance'|translate}}</p>
+                            <p>{{'Available_Balance'|translate}}</p>
+                            <p>{{'Uncleared_funds'|translate}}</p>
+                            <p>{{'Current_Limit'|translate}}</p>
+                            <p>{{'Disbursed_Date'|translate}}</p>
+                            <p>{{'Balance_Tenure'|translate}}</p>
+                            <p>{{'EMI_End_Date'|translate}}</p>
+                            <p>{{'Next_EMI_Date'|translate}}</p>
+                            <p>{{'Interest_Type'|translate}}</p>
+                            <p>{{'Rate_of_Interest'|translate}}</p>
+                        </div>
+                        <div class="right-loan">
+                            <p>&nbsp;<span class="rupee-symbol-span"
+                                           style="font-weight:normal;"></span><span lp-amount="loanAccount.disbAmt"></span></p>
+                            <p>&nbsp;<span class="rupee-symbol-span"
+                                           style="font-weight:normal;"></span><span lp-amount="loanAccount.ttlOutBal"></span></p>
+                            <p>&nbsp;<span class="rupee-symbol-span"
+                                           style="font-weight:normal;"></span><span lp-amount="loanAccount.withdrwalAmount"></span></p>
+                            <p>&nbsp;<span class="rupee-symbol-span"
+                                           style="font-weight:normal;"></span><span lp-amount="loanAccount.unclearFunds"></span></p>
+                            <p>&nbsp;<span class="rupee-symbol-span"
+                                           style="font-weight:normal;"></span><span lp-amount="loanAccount.drawingPower"></span></p>
+                            <p>&nbsp;&shy;{{loanAccount.dsbrsmntDt | date:'dd MMM,yyyy'}}&shy;</p>
+                            <p>&nbsp;{{loanAccount.balanceTenure}} month(s)</p>
+                            <p>&nbsp;<span ng-if="loanAccount.intrstEndDt!==''">&shy;{{loanAccount.emiEndDate | date:'dd MMM, yyyy'}}&shy;</span></p>
+                            <p>&nbsp;&shy;{{loanAccount.nxtDueDt | date:'dd MMM, yyyy'}}&shy;</p>
+                            <p>&nbsp;Floating</p> <!-- interest type for Home saver is always floating-->
+                            <p>&nbsp;{{loanAccount.interestRate}}<span ng-if="loanAccount.interestRate!=='NA'">%</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Hiding overdue details for Home Saver
+                    <div class="loan-details" ng-click="loanSummaryCtrl.toggleOverDueDtl()"
+                         style="border-bottom:2px solid #F5F5F5;">
+                        <h3>{{'Overdue_Details'|translate}}</h3>
+                        <p class="menu menu-down" ng-if="!loanSummaryCtrl.overDueDetails"></p>
+                        <p class="menu menu-up" ng-if="loanSummaryCtrl.overDueDetails"></p>
+                    </div>
+                    <div class="rest-loan" ng-show="loanSummaryCtrl.overDueDetails">
+                        <div class="left-loan">
+                            <p>{{'Principal'|translate}}</p>
+                            <p>{{'Interest'|translate}}</p>
+                            <p>{{'Other_Charges'|translate}}</p>
+                            <p>{{'Total_Overdue'|translate}} <i
+                                    class="lp-icon infoToolTip infoIcon ng-scope "
+                                    tooltip="Total Overdue is inclusive of Penal and Tax (if any)"
+                                    tooltip-trigger="click" tooltip-append-to-body="true">
+                                <img src="../../static/features/[BBHOST]/theme-idfc/images/info_hdpi.png"
+                                     class="lp-icon-small"></i></p>
+
+                        </div>
+                        <div class="right-loan">
+                            <p ng-if="loanSummaryCtrl.loanDetails.prncplDue !== 'NA'"><span
+                                    class="rupee-symbol-span"
+                                    style="font-weight:normal;"></span><span
+                                    lp-amount="loanAccount.PrncplOvrDup"></span></p>
+                            <p ng-if="loanSummaryCtrl.loanDetails.intrstDue !== 'NA'"><span
+                                    class="rupee-symbol-span"
+                                    style="font-weight:normal;"></span><span
+                                    lp-amount="loanAccount.IntDup"></span></p>
+                            <p ng-if="loanSummaryCtrl.loanDetails.dueChrg !== 'NA'"><span
+                                    class="rupee-symbol-span"
+                                    style="font-weight:normal;"></span><span
+                                    lp-amount="loanAccount.OtherChrg"></span></p>
+                            <p ng-if="loanSummaryCtrl.loanDetails.amtOvrDue !== 'NA'"><span
+                                    class="rupee-symbol-span"
+                                    style="font-weight:normal;"></span><span
+                                    lp-amount="loanAccount.TtlDup"></span></p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    -->
+                    <div class="button-all">
+                        <a href="#" class="button2"
+                           ng-click="loanSummaryCtrl.openLoanStatementWidget(loanAccount)">{{'Statement_Key'|translate}}</a>
+                        <a href="#" class="button3"
+                           ng-click="loanSummaryCtrl.openLoanRepayemtWidget(loanAccount)">{{'Repayment_Key'|translate}}<br/>{{'Schedule_Key'|translate}}</a>
+                    </div>
+                </td>
+            </tr>
+            <tr class="tr-spacer invisible-border" ng-show="loanAccount.showfull"></tr>
+            </tbody>
+        </table>
+    </div>
+</div>

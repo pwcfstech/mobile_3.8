@@ -1,0 +1,220 @@
+<div ng-if="errorSpin1">
+	<div class="panel-message loading-panel" role="alert" style="height:162%!important">
+		<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+		<span class="sr-only">Busy</span>
+	</div>
+</div>
+<label class="quickbiller-confirm">Success</label>
+<div class="quick-biller-confirm-div">
+	<div><span class="confirm-span" ng-show="payBill.happened">{{payBill.msg}}</span></br>
+		<div><div class="quick-floatLeft quick-form-div">
+			<label for="" class="quick-bill-label">{{billerProvider.authenticatorLable1}}</label>
+		</div>
+			<div class="quick-floatLeft" style="padding-top:6px">
+				<div>{{authenticatorCopy.Authenticator1}}</div>
+			</div>
+		</div>
+		<div ng-show="billerProvider.authenticatorCount>=2">
+			<div class="quick-floatLeft quick-form-div">
+				<label for="" class="quick-bill-label">{{billerProvider.authenticatorLable2}}</label>
+			</div>
+			<div class="quick-floatLeft" style="padding-top:6px">
+				<div>{{authenticatorCopy.Authenticator2}}</div>
+			</div>
+		</div>
+	</div>
+	<div class="quick-div-td-dep-ab" ng-show="payBill.hideAddBiller">
+		<button type="button" class="btn btn-primary primary-btn-btn ng-binding" ng-click="addBiller()">Manage Biller</button>
+		<button class="btn btn-primary secondary-btn-btn ng-binding" ng-click="billForm=true" type="submit" name="proceed">Add Another</button>
+	</div>
+</div>
+<div ng-hide="addbillerFlag">
+	<div class="quick-biller-confirm-div" ng-hide="payBill.hideAddBiller">
+		<div style="position:relative;left:4%">
+			<div style="float:left;min-width:3%">
+				<input type="checkbox" name="" id="" for="" class="quick-bill-input" ng-model="setAddBillFlag" value="OWN" />
+			</div>
+			<div style="float:left;min-width:22%">
+				<label>Add to My Bills</label>
+			</div>
+			<div style="float:left">
+				<label>Saves bills and pay them easily</label>
+			</div>
+		</div>
+		<div ng-show="setAddBillFlag">
+			<div class="form-group">
+				<div class="quick-floatLeft quick-form-div">
+					<label for="nickName" class="quick-bill-label">Nickname</label>
+				</div>
+				<div class="quick-floatLeft">
+					<div><input type="text" name="nickName" id="nickName" class="quick-control quick-bill-select-left" ng-model="billerNickName" placeholder="Nickname" required />
+					</div>
+				</div>
+			</div>
+			<div ng-show="billerSelected.authenticatorCount>=1">
+				<div class="form-group">
+					<div class="quick-floatLeft">
+						<span class="labelText1">{{billerSelected.authenticatorLable1}}</span>
+					</div>
+					<div class="quick-floatLeft">
+						<div><input type="text" name="auth1" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="quick-control quick-bill-select-left" ng-model="authenticator1" placeholder={{billerSelected.authenticatorLable1}} required /></div>
+						<div class="quick-bill-message"><small ng-show="check2" role="alert">
+							{{billerSelected.authenticatorMessage1}}
+						</small></div>
+						<div role="alert" class="add-alert">
+							<span class="error" ng-show="submitted && addBillerForm.auth1.$error.required">Required!</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-show="billerSelected.authenticatorCount>=2">
+				<div class="form-group">
+					<div class="quick-floatLeft">
+						<span class="labelText1">{{billerSelected.authenticatorLable2}}</span>
+					</div>
+					<div class="quick-floatLeft">
+						<div><input type="text" name="auth2" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="addficiary-control add-bill-select-left addBiller-select-left" ng-model="authenticator2" placeholder={{billerSelected.authenticatorLable2}} required /></div>
+						<div class="add-biller-message"><small ng-show="check2" role="alert">
+							{{billerSelected.authenticatorMessage2}}
+						</small></div>
+						<div role="alert" class="add-alert">
+							<span class="error" ng-show="submitted && addBillerForm.auth1.$error.required">Required!</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-show="billerSelected.authenticatorCount>=3">
+				<div class="form-group">
+					<div class="quick-floatLeft">
+						<span class="labelText1">{{billerSelected.authenticatorLable3}}</span>
+					</div>
+					<div class="quick-floatLeft">
+						<div><input type="text" name="auth3" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="addficiary-control add-bill-select-left addBiller-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern" ng-model="authenticator3" placeholder={{billerSelected.authenticatorLable3}} required /></div>
+						<div class="add-biller-message"><small ng-show="check2" role="alert">
+							{{billerSelected.authenticatorMessage3}}
+						</small></div>
+						<div role="alert" class="add-alert">
+							<span class="error" ng-show="submitted && addBillerForm.auth2.$error.required">Required!</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-show="billerSelected.authenticatorCount>=4">
+				<div class="form-group">
+					<div class="quick-floatLeft">
+						<span class="labelText1">{{billerSelected.authenticatorLable4}}</span>
+					</div>
+					<div class="quick-floatLeft">
+						<div><input type="text" name="auth4" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="addficiary-control add-bill-select-left addBiller-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern" ng-model="authenticator4" placeholder={{billerSelected.authenticatorLable4}} required /></div>
+						<div class="add-biller-message"><small ng-show="check4" role="alert">
+							{{billerSelected.authenticatorMessage3}}
+						</small>
+						</div>
+						<div role="alert" class="add-alert">
+							<span class="error" ng-show="submitted && addBillerForm.auth3.$error.required">Required!</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-show="billerSelected.authenticatorCount>=5">
+				<div class="form-group">
+					<div class="quick-floatLeft">
+						<span class="labelText1">{{billerSelected.authenticatorLable5}}</span>
+					</div>
+					<div class="quick-floatLeft">
+						<div><input type="text" name="auth5" ng-class="{lpinputerror: submitted && addContact.name.$error.required}" class="addficiary-control add-bill-select-left addBiller-control addBiller-select-left ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-pattern" ng-model="authenticator5" placeholder={{billerSelected.authenticatorLable5}} required /></div>
+						<div class="add-biller-message"><small ng-show="check4" role="alert">
+							{{billerSelected.authenticatorMessage4}}</small></div>
+						<div role="alert" class="add-alert">
+							<span class="error" ng-show="submitted && addBillerForm.auth4.$error.required">Required!</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="add-floatLeft add-form-div autopaypadding">
+					<div class="add-check-outer-div">
+						<input type="checkbox" name="setAutoPayFlag" id="setAutoPayFlag" ng-click="checkFrequencyFromDb()" for="name" class="quick-bill-input" ng-model="setAutoPayFlag" value="true" /></div><div>
+					<label for="setAutoPayFlag" class="add-bill-label add-bill-check marginzero autopaytop">Set for Auto Pay</label></div>
+				</div>
+				<div class="add-bill-span add-amount autopaymessage">
+					<span class="add-amount-msg">Bill will be paid automatically after it is generated</span>
+				</div>
+			</div>
+			<div ng-show="setAutoPayFlag">
+				<div class="form-group">
+					<div class="add-floatLeft add-form-div">
+						<label for="" class="add-bill-label label-width">Select Account for Payment</label>
+					</div>
+					<div class="add-floatLeft-addBiller">
+						<div>
+							<select name="" class="addficiary-control add-acc-type-add addressbook-select IDFC-dropdown add-bill-select-left" ng-model="billerpPaymentAccount" ng-options="a.id as a.id for a in acccountNumbers">
+								<option value="">{{'Select Account'}}</option></select>
+						</div>
+					</div>
+				</div>
+				<div ng-show="billerProvider.billerType=='PAYEE'" class="form-group">
+					<div class="add-floatLeft-addBiller addBiller-form-div">
+						<label for="Frequency" class="add-bill-label">Frequency</label>
+					</div>
+					<div class="add-floatLeft-addBiller">
+						<div>
+							<select id="Frequency" name="Frequency" class="addBiller-control addBiller-acc-type-add addressbook-select IDFC-dropdown add-bill-frequency-textbox add-set-frequency" ng-model="frequency" ng-options="item.frequency as item.frequency for item in frequencyMaster.list">
+								<option value="">{{'Select Frequency'}}</option></select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="add-floatLeft-addBiller addBiller-form-div">
+						<label for="fromDate" class="add-bill-label" style="clear:left">Start date</label>
+					</div>
+					<div class="add-floatLeft-addBiller">
+						<div style="float:left">
+							<input ng-click="openFromCalendar($event)" required type="text" name="fromDate" ng-model="fromDate" ng-change="changeFromDate()" datepicker-popup="dd/MMM/yyyy" readonly="readonly" min-date="todaysDate" is-open="isOpenDate1"class="addBiller-control add-bill-input-drop addBiller-select-left" lp-future-time="" id="fromDate" datepicker-options="dateOptionsFrom" show-button-bar="false" tabindex="0" placeholder="Select Date" placeholder="Select Date" aria-label="{{'Select_Date'|translate}}"/>
+							<span ng-click="openFromCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon add-bill-calendar" datepicker-popup="dd/MMM/yyyy" readonly="readonly"></span>
+							<div role="alert" class="quick-start">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div ng-show="billerProvider.billerType=='PAYEE'">
+					<div class="form-group">
+						<div class="add-floatLeft-addBiller addBiller-form-div">
+							<label for="toDate" class="add-bill-label" style="clear:left">End Date</label>
+						</div>
+						<div class="add-floatLeft-addBiller">
+							<div style="float:left">
+								<input ng-click="openToCalendar($event)" required="required" type="text" name="toDate" ng-model="toDate" ng-change="changeFromTo()" datepicker-popup="dd/MMM/yyyy" readonly="readonly" min-date="todaysDate" max-date="mind" is-open="isOpenDate2" class="addBiller-control add-bill-input-drop addBiller-select-left" lp-future-time="" id="toDate" datepicker-options="dateOptionsTo" show-button-bar="false" tabindex="0" placeholder="Select Date" aria-label="{{'Select_Date'|translate}}"/>
+<span ng-click="openToCalendar($event)" class="lp-icon lp-icon-calendar calendar-icon add-bill-calendar" datepicker-popup="dd/MMM/yyyy" readonly="readonly">
+</span>
+								<div role="alert" class="quick-start">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="add-floatLeft-addBiller addBiller-form-div">
+						<input ng-disabled="billerProvider.billerType=='PAYEE'" type="checkbox" name="setLimitAmtFlag" for="setLimitAmtFlag" ng-model="setLimitAmtFlag" class="add-bill-input-amount checkbox-position add-set-checkbox" />
+						<label class="add-bill-label-main add-bill-check add-set-amount">Set Limit</label>
+					</div>
+					<div ng-show="setLimitAmtFlag" class="panel-body no-padding-top">
+						<div class="add-floatLeft-addBiller">
+							<div>
+								<input type="text" name="name" id="name" style="width:114px" class="addBiller-control addBiller-acc-type-add addressbook-select IDFC-dropdown add-bill-inr addBiller-select-left" ng-pattern="/^[0-9]*$/" ng-maxlength="50" ng-model="limitAmount" placeholder="Set Amount" required="" />
+								<label>INR</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div ng-show="addBillerError.happened">
+			<div class="">{{addBillerError.msg}}</div>
+		</div>
+	</div>
+</div>
+<div class="quick-div-td-dep-ab">
+	<button type="button" class="btn btn-primary primary-btn-btn ng-binding" ng-click="addBiller()">Add Biller</button>
+	<button class="btn btn-primary secondary-btn-btn ng-binding" ng-click="billForm=true" type="submit" name="proceed">Add Another</button>
+</div>

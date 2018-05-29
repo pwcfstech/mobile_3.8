@@ -1,0 +1,341 @@
+<div class="ng-cloak newuserregistration-panelwidth"
+	ng-controller="NewUserController as newUserRegCtrl">
+
+	<div ng-if="newUserRegCtrl.errorSpin">
+		<div class="panel-message loading-panel" role="alert">
+			<i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i> <span
+				class="sr-only"lp-i18n="Busy"></span>
+		</div>
+	</div>
+
+	<!--  Full Content -->
+	<div class="lp-widget-content">
+		<!--  Alerts -->
+		<div class="lp-alerts">
+			<div alert="alert" ng-repeat="alert in newUserRegCtrl.alerts"
+				type="alert.type" close="newUserRegCtrl.closeAlert($index)" ng-bind="alert.msg"></div>
+
+			<div class="text-danger text-danger-New" ng-show="error.happened">
+				<div class="text-danger-icon">
+					<img src="static/features/[BBHOST]/theme-idfc/images/invalid_icon.png"/>
+					<img ng-src="{{invalid_icon}}"/>
+				</div>
+				<div class="dangerText">{{ alert.msg }}</div>
+			</div>
+		</div>
+		
+		<div class="text-danger" ng-if="newUserRegCtrl.OTPError" style="text-align:center" lp-i18n="That's the wrong OTP code">
+         </div>
+
+		<!--  Body Content -->
+		<div class="lp-widget-body panel-body no-lfet-right-padding"
+			ng-if="!newUserRegCtrl.serviceError">
+
+			<div ng-if="newUserRegCtrl.showRegistrationForm"><!--newUserRegCtrl.showRegistrationForm-->
+				<div data-ng-include="newUserRegCtrl.templates.newUser"></div>
+			</div>
+			<div ng-if="!newUserRegCtrl.showRegistrationForm">
+			<!--<div ng-hide="newUserRegCtrl.showRegistrationForm">-->
+				<!-- <div ng-hide="showTabs"> -->
+				<div id="newRegistrationForm1" ng-if="!newUserRegCtrl.showTabs">
+					<form novalidate=""
+						class="newuserregistration-form-horizontal form-horizontal"
+						role="form" name="UcicForm" id="firstform">
+						<div lp-field="lp-field"  label="Enter Customer ID"
+							class="newuserregistration-margin-align2 newuserregistration-customer-margin lp-field form-group"
+							tip="{{'Your Customer ID is a 10 digit unique reference number found in your welcome kit'|translate}}">
+							<div>
+								<input
+									class="newuserregistration-form-control form-control newuserregistration-margin-customerId"
+									type="tel" name="uid"
+									ng-model="newUserRegCtrl.control.ucic.value"
+									ng-pattern="/^[0-9]*$/" loading="newUserRegCtrl.isLoading"
+									autofill="off" autocorrect="off" autocapitalize="off"
+									autocomplete="off" onpaste="return false;"
+									onCopy="return false" onCut="return false"
+									ng-disabled="newUserRegCtrl.showTabs" required="true"
+                                    ng-click="newUserRegCtrl.forms.customerAccountForm.submitted=false"/>
+									<small
+									class="text-danger error-message-display"
+									ng-show="newUserRegCtrl.requireUcicError && newUserRegCtrl.control.ucic.value == '' "
+									lp-i18n="Enter Customer ID"></small>
+									<small
+									class="text-danger error-message-display" ng-show="newUserRegCtrl.ucicErrorPattern"
+									lp-i18n="Please enter a valid Customer ID.">
+									</small>
+									<small class="text-danger error-message-display"  ng-show="newUserRegCtrl.ucicErrorLength"
+										   lp-i18n="Customer ID should be 10 digits."></small>
+							</div>
+						</div>
+						
+						<div lp-field="lp-field"
+
+                                 label="Mobile Number"
+                                 class="newuserregistration-margin-align2 newuserregistration-mobile-margin"
+                                 tip="Please provide your Mobile Number">
+                                <div>
+
+                                    <input
+                                            class="newuserregistration-form-control form-control newuserregistration-margin-customerId"
+                                            type="tel"
+                                            id="mobilenumber"
+                                            name="mobilenumber"
+                                            ng-model="newUserRegCtrl.control.mobilenumber.value"
+											ng-pattern="/^[0-9]*$/"
+                                            maxlength="10" 
+                                            loading="isLoading"
+                                            required="true" autocomplete="off"/>
+                                    <small class="text-danger error-message-display" ng-show="newUserRegCtrl.requiredMobileNumberError && newUserRegCtrl.control.mobilenumber.value.length == 0">
+                                        Mobile Number is required.
+                                    </small>
+                                    <small class="text-danger error-message-display" ng-show="newUserRegCtrl.mobileNumberErrorLength">
+										Mobile number should be 10 digits.
+
+                                    </small>
+									<small class="text-danger error-message-display" ng-show="newUserRegCtrl.mobileNumberPattern">
+										Please Enter Correct Mobile Number.
+									</small>
+                                </div>
+                         </div>
+						<div class="borderTop" ng-if="!newUserRegCtrl.showTabs"></div>
+						<div
+							class="newuserregistration-button-alignForm newuserregistration-button-margin"
+							ng-if="!newUserRegCtrl.showTabs">
+							<button class="btn btn-primary userreg-next-btn  primary-btn-btn"
+									ng-click="newUserRegCtrl.UcicForm.submitted=true;newUserRegCtrl.openTabs()"
+									type="submit" lp-i18n="Next"></button>
+							<button type="button"
+								class="btn btn-primary newuserregistration-btn-clear userreg-clear-btn secondary-btn-btn"
+								ng-click="newUserRegCtrl.resetUcicForm(); newUserRegCtrl.UcicForm.submitted=false;" lp-i18n="Clear"></button>
+
+						</div>
+					</form>
+				</div>
+				<!-- </div> -->
+
+				<div ng-if="newUserRegCtrl.showTabs" class="tabs-form-paddingmargin"><!--newUserRegCtrl.showTabs-->
+					<div class="marginAdjust">
+						<div id="tabForm" ng-show="newUserRegCtrl.note" lp-i18n="Please select a mode of registration.">
+							</div>
+						<div class="lp-payment-mode-tabs">
+							<ul tabset="tabset" class="payment-mode-tab-area">
+								<li class="borderAdjust newuser-tabs" tab="tab"
+									active="newUserRegCtrl.toggleTabs.newone1"
+									disabled="newUserRegCtrl.cancelTransaction"
+									ng-click="newUserRegCtrl.changeTab();"><span
+									tab-heading="tab-heading" class="tab-heading"
+									lp-i18n="Accounts"></span>
+									<div id="accountForm">
+										<form novalidate=""
+											class="newuserregistration-form-horizontal form-horizontal "
+											role="form" name="customerAccountForm"
+											id="secondForm">
+											<div>{{'Note1'|translate}}</div>  
+											<div lp-field="lp-field" label="Enter Account Number"
+												class="tabDescAccMarginLeft newuserregistration-margin-align newuserregistration-accounts-width"
+												tip="{{'Please enter the 11 digit savings account number found in your cheque book '|translate}}">
+												<div>
+													<input
+														class="accnumber-input-width tabInputMarginLeft newuserregistration-form-control-account form-control newuserregistration-accounts-margin"
+														type="tel" name="accountNo"
+														ng-model="newUserRegCtrl.control.accountNumber.value"
+														maxlenghth="14"
+														ng-pattern="/^[0-9]*$/" loading="newUserRegCtrl.isLoading"
+														ng-disabled="newUserRegCtrl.fieldValidationsOR(newUserRegCtrl.lockFields, newUserRegCtrl.cancelTransaction)"
+														autofill="off" autocorrect="off" autocapitalize="off"
+														autocomplete="off" onpaste="return false;"
+														onCopy="return false" onCut="return false" required="true" />
+													<small
+														class="text-danger newuserRegistration-text-accounts-align"
+														ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.forms.customerAccountForm.submitted, customerAccountForm.accountNo.$error.required)" lp-i18n="Account number is required."></small>
+														
+													<small
+														class="text-danger newuserRegistration-text-accounts-align"
+														ng-if="customerAccountForm.accountNo.$error.pattern" lp-i18n="Please enter a valid account number."></small>
+													<small
+														class="text-danger newuserRegistration-text-accounts-align"
+														ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.forms.customerAccountForm.submitted, newUserRegCtrl.errors['accountCheck'], !(customerAccountForm.accountNo.$error.required), !(customerAccountForm.accountNo.$error.pattern))" lp-i18n="Account Number should be of 11 digits."></small>
+													<small
+														class="text-danger newuserRegistration-text-accounts-align"
+														ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.forms.customerAccountForm.submitted , newUserRegCtrl.errors['validAccount'], !(customerAccountForm.accountNo.$error.required), !(customerAccountForm.accountNo.$error.pattern))" lp-i18n="You have entered a wrong Account Number. Please check and enter the right one."></small>
+												</div>
+											</div>
+
+											<div
+												ng-show="newUserRegCtrl.OTPFlag">
+
+												<button class="btn btn-primary userregform2-next-btn primary-btn-btn"
+													type="submit" name="createContact"
+													ng-click="newUserRegCtrl.forms.customerAccountForm.submitted=true;newUserRegCtrl.openRegistrationForm(customerAccountForm.$valid,'Account')"  lp-i18n="Next"></button>
+												<button type="button"
+														class="btn btn-primary userregform2-clear-btn newuserregistration-btn-clear newuserregistration-secondary-btn-new secondary-btn-btn"
+														ng-click="newUserRegCtrl.forms.customerAccountForm.submitted=false; newUserRegCtrl.resetCustomerAccountForm(); " lp-i18n="Clear"></button>
+											</div>
+										</form>
+									</div></li>
+								<li class="borderAdjust newuser-tabs" tab="tab"
+									active="newUserRegCtrl.toggleTabs.newone2"
+									disabled="newUserRegCtrl.cancelTransaction"
+									ng-click="newUserRegCtrl.changeTab();"><span
+									tab-heading="tab-heading" class="tab-heading"
+									lp-i18n="Debit Cards"></span>
+									<div id="debitCardForm">
+										<form novalidate=""
+											class="newuserregistration-form-horizontal form-horizontal"
+											role="form" name="debitCardForm"
+											id="thirdform">
+											<div lp-field="lp-field" label="Debit Card Number"
+												class="tabDescMarginLeft newuserregistration-debit-align newuserregistration-accounts-margin-debit"
+												tip="{{'Please enter the 16 digit debit card number printed on your debit card'|translate}}">
+
+												<div>
+													<input
+														class="tabInputMarginLeft inputwidth newuserregistration-form-control-debit form-control newuserregistration-margin-left"
+														type="tel" name="cardNo"
+														ng-model="newUserRegCtrl.control.cardNumber.value"
+														ng-pattern="/^[0-9]*$/" loading="newUserRegCtrl.isLoading"
+														ng-keyup="newUserRegCtrl.validateCardFirstSixDigits(newUserRegCtrl.control.cardNumber.value)"
+														ng-disabled="newUserRegCtrl.fieldValidationsOR(newUserRegCtrl.lockFields, newUserRegCtrl.cancelTransaction)"
+														autofill="off" autocorrect="off" autocapitalize="off"
+														autocomplete="off" onpaste="return false;"
+														onCopy="return false" onCut="return false" required="true" />
+													<small
+														class="text-danger newuserRegistration-text-debit-align"
+														ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.forms.debitCardForm.submitted, debitCardForm.cardNo.$error.required)" lp-i18n="Card number is required."></small>
+													<small
+														class="text-danger newuserRegistration-text-debit-align"
+														ng-if="debitCardForm.cardNo.$error.pattern" lp-i18n="Please enter a valid 16 digit Card number."></small>
+													<small
+														class="text-danger newuserRegistration-text-debit-align"
+														ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.forms.debitCardForm.submitted, newUserRegCtrl.errors['debitCheck'], !(debitCardForm.cardNo.$error.required) , !(debitCardForm.cardNo.$error.pattern))" lp-i18n="Card Number should be 16 digit."></small>
+													<small
+														class="text-danger newuserRegistration-text-debit-align"
+														ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.errors['debitCardNumberCheck'] , !(debitCardForm.cardNo.$error.pattern),!(debitCardForm.cardNo.$error.required))" lp-i18n="Are you sure you are looking at your IDFC debit card ? Some of the details seem wrong..."></small>
+													<small
+														class="text-danger newuserRegistration-text-debit-align"
+														ng-if="newUserRegCtrl.forms.debitCardForm.digits" lp-i18n="Invalid DebitCard Number."></small>
+												</div>
+											</div>
+
+											<div
+												ng-show="newUserRegCtrl.OTPFlag">
+												<button class="btn btn-primary userregform2-next-btn  primary-btn-btn"
+													ng-click="newUserRegCtrl.forms.debitCardForm.submitted=true ; newUserRegCtrl.openRegistrationForm(debitCardForm.$valid,'DebitCard')"
+													type="submit" name="createAPIN" lp-i18n="Next" ng-disabled="newUserRegCtrl.disableInvalidCardNext"></button>
+												<button type="button"
+														class="btn btn-primary userregform2-clear-btn newuserregistration-btn-clear newuserregistration-secondary-btn-new  secondary-btn-btn"
+														ng-click="newUserRegCtrl.resetCardForm(); newUserRegCtrl.forms.debitCardForm.submitted=false;" lp-i18n="Clear"></button>
+											</div>
+										</form>
+									</div></li>
+<!-- Code commented - New User Registration Based on Loan Systems : Start-->
+									
+<!--
+				                    <li class="borderAdjust newuser-tabs" tab="tab" active="newUserRegCtrl.toggleTabs.newone3" disabled="newUserRegCtrl.cancelTransaction" ng-click="newUserRegCtrl.changeTab();">
+										<span tab-heading="tab-heading" class="tab-heading"  lp-i18n="Loan Accounts"></span>
+										<div id="loanAccountForm">
+											<form  novalidate="" class="newuserregistration-form-horizontal form-horizontal" role="form" name="newUserRegCtrl.forms.customerLoanForm" id="fourthForm" >
+												<div lp-field="lp-field"
+													label="Enter Loan Account"
+													class="tabDescMarginLeft newuserregistration-debit-align newuserregistration-accounts-margin-debit"
+													tip="{{'Your Loan Account number is printed on your Loan documents'|translate}}">
+													<div>
+														<input
+															class= "tabInputMarginLeft inputwidth newuserregistration-form-control form-control newuserregistration-loan-margin-left"
+															type="tel"
+															name= "loanNo"
+															ng-model="newUserRegCtrl.control.loanAccount.value"
+                                                            ng-click="newUserRegCtrl.forms.customerLoanForm.submitted=false"
+                                                            maxlength="14"
+															ng-pattern="/^[0-9]*$/"
+															ng-disabled="newUserRegCtrl.fieldValidationsOR(newUserRegCtrl.lockFields, newUserRegCtrl.cancelTransaction)"
+															loading="newUserRegCtrl.isLoading"
+															autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off" 
+															onpaste="return false;" onCopy="return false" onCut="return false" 
+															required="true"/>
+															<small class="text-danger newuserRegistration-text-debit-align" ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.forms.customerLoanForm.submitted, newUserRegCtrl.forms.customerLoanForm.loanNo.$error.required)" lp-i18n="Loan Account number is required."></small>
+															<small class="text-danger newuserRegistration-text-debit-align" ng-if="newUserRegCtrl.forms.customerLoanForm.loanNo.$error.pattern" lp-i18n="Please enter a valid loan account number."></small>
+															<small class="text-danger newuserRegistration-text-debit-align" ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.forms.customerLoanForm.submitted, newUserRegCtrl.errors['loanAccountCheck'], !(newUserRegCtrl.forms.customerLoanForm.loanNo.$error.required) , !(newUserRegCtrl.forms.customerLoanForm.loanNo.$error.pattern))" lp-i18n="Account Number should be of 14 digits."></small>
+															<small class="text-danger newuserRegistration-text-debit-align" ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.forms.customerLoanForm.submitted , newUserRegCtrl.errors['validLoanAccount'], !(newUserRegCtrl.forms.customerLoanForm.loanNo.$error.required) , !(newUserRegCtrl.forms.customerLoanForm.loanNo.$error.pattern))" lp-i18n="You have entered a wrong Loan Account Number. Please check and enter the right one."></small>
+													</div>
+												</div>
+												<div  ng-show="newUserRegCtrl.OTPFlag">
+
+													<button class="btn btn-primary userregform2-next-btn primary-btn-btn " ng-click="newUserRegCtrl.forms.customerLoanForm.submitted=true; newUserRegCtrl.openRegistrationForm(newUserRegCtrl.forms.customerLoanForm.$valid, 'LoanAccount')" type="submit" name="createContact" lp-i18n="Next"></button>
+													<button type="button" class="btn btn-primary userregform2-clear-btn newuserregistration-btn-clear newuserregistration-secondary-btn-new  secondary-btn-btn" ng-click= "newUserRegCtrl.resetCustomerLoanForm()" lp-i18n="Clear"></button>
+												</div>
+											</form>
+										</div>
+									</li>
+-->
+<!-- PwC Neha Chandak Code uncommented - New User Registration Based on Loan Systems : End-->
+<!-- Code commented - New User Registration Based on Loan Systems : End-->
+							</ul>
+						</div>
+					</div>
+					<div ng-hide="newUserRegCtrl.OTPFlag"
+						class="newuserregistration-otp-div otp-form-margin"><!--newUserRegCtrl.OTPFlag-->
+						<h4>
+							<div class="text-success"
+								ng-show="newUserRegCtrl.success.happened"
+								style="text-align: center; font-size: 15px;" ng-bind= "newUserRegCtrl.success.msg"></div>
+							<div class="text-danger" ng-show="newUserRegCtrl.error.happened"
+								style="text-align: center" ng-bind="newUserRegCtrl.error.msg"></div>
+						</h4>
+						<form name="OTPform"
+							class="newuserregistration-form-horizontal form-horizontal newuserregistration-otp-align">
+							<div  style="margin-left: 20px;">
+							<div class="otp-label-newuserregistration" lp-field="lp-field"
+								label="Mobile Number" tip="">
+								<div>
+									<input
+										class="otp-input-width newuserregistration-form-control form-control newuserregistration-otp-input"
+										type="text" name="OTPMobile"
+										ng-model="newUserRegCtrl.customerMobMasked" ng-disabled="true"
+										 />
+								</div>
+							</div>
+							<input style="display: none" type="text"
+								name="fakeusernameremembered" /> <input style="display: none"
+								type="password" name="fakepasswordremembered" />
+							<div class="otp-label-newuserregistration" lp-field="lp-field"
+								label="OTP" tip="{{'Please enter the 6 digit OTP we sent to your registered mobile number'|translate}}">
+								<div>
+									<input
+										class="otp-input-width newuserregistration-form-control form-control newuserregistration-otp-input"
+										type="tel" style=" -webkit-text-security:disc;" name="otp" autofill="off" autocorrect="off"
+										autocapitalize="off" autocomplete="off"
+										onpaste="return false;" onCopy="return false"
+										onCut="return false" ng-pattern="/^[0-9]*$/" ng-minlength="6"
+										ng-maxlength="6" ng-model="newUserRegCtrl.otpValue"
+										required="true" ng-disabled="newUserRegCtrl.cancelTransaction"
+										 /> <small class="text-danger otp-error"
+										ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.OTPform.submitted, OTPform.otp.$error.required)" lp-i18n="OTP is required"></small>
+									<small class="text-danger otp-error"
+										ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.OTPform.submitted, OTPform.otp.$error.minlength)" lp-i18n="Please enter 6 digit valid value"></small>
+									<small class="text-danger otp-error"
+										ng-if="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.OTPform.submitted, OTPform.otp.$error.maxlength)" lp-i18n="Please enter 6 digit valid value"></small>
+									<small class="text-danger otp-error"
+										ng-if="OTPform.otp.$error.pattern" lp-i18n="Please enter a valid OTP"></small>
+								</div>
+							</div>
+							</div>
+							<div class="button-alignForm">
+								<div class="otp-newuserregistration-btn">
+									<button id="verifyOTP-btn-user-registration" class="userreg-submit-btn btn btn-primary btn-clear  primary-btn-btn"
+										type="submit" name="verifyOTP"
+										ng-disabled="newUserRegCtrl.cancelTransaction"
+										ng-click="newUserRegCtrl.OTPform.submitted=true; newUserRegCtrl.verifyOTP(OTPform.$valid)" lp-i18n="Submit"></button>
+									<button class="btn userreg-resend-btn btn-primary btn-clear  secondary-btn-btn"
+										type="button" name="resendOTP"
+										ng-disabled="newUserRegCtrl.cancelTransaction"
+										ng-click="newUserRegCtrl.generateOTP('resend')" lp-i18n="Resend OTP"></button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

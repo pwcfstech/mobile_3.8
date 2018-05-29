@@ -1,0 +1,423 @@
+/* Build with bb-lp-cli @ v1.1.0 */
+
+.limitManagement-div-td-dep-ab {
+    /*float: right;*/
+    padding-right: 2%;
+    text-align: center;
+    /*position: relative;*/
+    /*min-width: 60%;*/
+    margin-right: 5px;
+    /*margin-top: -1% !important*/
+}
+
+.limitManagement-primary-btn-limit {
+    font-family: gotham_book, Calibri !important;
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    padding: 16px !important;
+    border: none !important;
+    margin-right: 4px
+}
+
+.limitManagement-secondary-btn-limit {
+    font-family: gotham_book, Calibri !important;
+    background-color: #EAEAEA !important;
+    font-size: 15px !important;
+    color: #000000 !important;
+    border: none !important;
+    padding: 16px !important;
+    margin-right: 7px !important
+}
+
+#limitForm .limit-button-style {
+    width: 112%
+}
+
+@media (max-width:768px) {
+    #limitForm .control-label {
+        float: left
+    }
+    #limitForm .field-area {
+        width: 50%;
+        float: left
+    }
+}
+
+@media (min-width:630px) and (max-width:767px) {
+    #limitForm .limit-button-style {
+        width: 80%
+    }
+}
+
+@media (min-width:600px) and (max-width:630px) {
+    #limitForm .limit-button-style {
+        width: 85%
+    }
+}
+
+@media (min-width:530px) and (max-width:600px) {
+    #limitForm .limit-button-style {
+        width: 95%
+    }
+}
+
+.limitManagement-otp-div {
+    /*border: 1px solid;*/
+    padding-bottom: 5%;
+    min-height: 190px;
+    min-top: 6%
+}
+
+.limitManagement-btn-align {
+    margin-right: 6%
+}
+
+.primary-btn-limit {
+    font-family: gotham_book, Calibri !important;
+    font-size: 14px !important;
+    color: #ffffff !important;
+    background-color: #996699 !important;
+    padding: 16px !important;
+    border: none !important
+}
+
+.secondary-btn-limit {
+    font-family: gotham_book, Calibri !important;
+    background-color: #666666 !important;
+    font-size: 12px !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 16px !important
+}
+
+#limitForm .col-sm-3 {
+    width: 100% !important
+}
+
+#limitForm .col-sm-6 {
+    width: 90% !important;
+    padding-left: 12% !important;
+}
+
+#limitmanagementForm .col-sm-3 {
+    width: 100% !important
+}
+
+#limitmanagementForm .col-sm-6 {
+    width: 90% !important;
+    padding-left: 12% !important;
+}
+
+.idfc-clear-lm {
+    /*height: 40px !important;*/
+    margin-left: 2% !important;
+    display: inline-block;
+    /*margin-bottom: 0 !important;*/
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding-top: 11px !important;
+    width: 79% !important;
+    border-radius: 2px;
+}
+
+.idfc-next-lm {
+   /* height: 40px !important;*/
+    margin-left: 2% !important;
+    background-color: #FB637E !important;
+    color: #FFF;
+    display: inline-block;
+    /*margin-bottom: 0 !important;*/
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding-top: 11px !important;
+    width: 79% !important;
+    border-radius: 2px;
+}
+
+.idfcVerticalAlignLM label {
+    margin-top: 0
+}
+
+.limit-label-font label {
+    font-family: gotham_book, Calibri !important;
+    font-size: 15px !important;
+    /*color: #4a4a4a !important*/
+    color: #1d1d26 !important;
+    padding-top: 1.1em;
+    font-weight: normal!important;
+    padding-right: 5px !important;
+    margin-bottom: 5px;
+}
+
+.limitManagement-input-width {
+    /*min-width: 153px;
+    max-width: 250px;*/
+    height: 35px;
+    width: 100%;
+    font-size: 12px !important;
+    font-family: gotham_book, Calibri !important;
+    color: #4A4A4A !important;
+    margin-top: 3%;
+    border-radius: 2px !important;
+    padding: 4px 10px;
+    color: #4a4a4a !important;
+    border: solid 1px rgba(153,153,153, 0.5) !important;
+    -webkit-appearance: none !important;
+}
+
+@media (max-width:325px) {
+    .idfcVerticalAlignLM label {
+        width: 100% !important
+    }
+}
+
+.limit-label-width {
+    /*margin-bottom: 2%;*/
+    margin-left: 0 !important;
+    margin-top: 2% !important
+}
+
+@media (min-width:325px) {
+    .idfcVerticalAlignLM label {
+        width: 100% !important
+    }
+}
+
+@media (min-width:401px) and (max-width:422px) {
+    .limitManagement-otp-div {
+        height: 402px
+    }
+    .limit-otp-buttons-child {
+        float: right;
+        margin-left: 0;
+        margin-right: 3%;
+        width: 94%;
+    }
+}
+
+@media (min-width:423px) and (max-width:468px) {
+    .limitManagement-otp-div {
+        min-height: 402px
+    }
+    .limit-otp-buttons-child {
+        float: right;
+        margin-left: -10%
+    }
+}
+
+@media (min-width:469px) and (max-width:575px) {
+    .limitManagement-otp-div {
+        min-height: 402px
+    }
+    .limit-otp-buttons-child {
+        float: right;
+        margin-left: -10%
+    }
+}
+
+@media (min-width:576px) and (max-width:601px) {
+    .limitManagement-otp-div {
+        min-height: 383px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:602px) and (max-width:622px) {
+    .limitManagement-otp-div {
+        min-height: 383px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:623px) and (max-width:691px) {
+    .limitManagement-otp-div {
+        min-height: 365px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:692px) and (max-width:769px) {
+    .limitManagement-otp-div {
+        min-height: 425px
+    }
+    .limit-otp-buttons-child {
+        float: left
+    }
+}
+
+@media (min-width:770px) and (max-width:1033px) {
+    .limitManagement-otp-div {
+        min-height: 363px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:1034px) and (max-width:1074px) {
+    .limitManagement-otp-div {
+        min-height: 326px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+@media (min-width:1075px) {
+    .limitManagement-otp-div {
+        min-height: 270px
+    }
+    .limit-otp-buttons-child {
+        float: right
+    }
+}
+
+.limitManagement-otp-label label {
+    float: left;
+    /*width: 45%;*/
+    font-size: 14px !important;
+    
+}
+
+@media (max-width:325px) {
+    .limitManagement-otp-label label {
+        float: left;
+        width: 50%
+    }
+    .limitManagement-otp-div {
+        border: 1px solid;
+        padding-bottom: 5%;
+        min-height: 335px
+    }
+}
+
+.idfcVerticalAlignLM .col-sm-3 {
+    width: 100% !important
+}
+
+.limitManagment-json-div {
+    font-size: 20px !important
+}
+
+.limit-success {
+    font-size: 20px !important;
+    font-family: gotham_book, Calibri !important;
+    color: #4A4A4A !important
+}
+.labelText{
+	margin-top: 0 !important;
+}
+.submit-limit-button{
+	width: 74% !important;
+	margin-left: 7% !important;
+}
+.resend-limit-button{
+    width: 74% !important;
+    margin-left: 7% !important;
+    font-family:gotham_book, Calibri !important;
+    color: #000000 !important;
+    padding-top:10px !important;
+    border:none !important;
+    font-size:14px !important;   
+}
+/*# sourceMappingURL=base.css.map */
+.limitmanagement-otp-div-border{
+    border-top: 1px solid;
+    margin-top: 25%;
+}
+.otp-devider-class{
+    margin-bottom: 5%;
+    border-bottom: 1px solid;
+    padding-bottom: 5%;
+    border-color: #EAEAEA !important;
+}
+.no-devider{
+    border: none;
+}
+.tooltip-inner {
+    position: absolute!important;
+    width: 160px!important;
+    max-width: 160px!important;
+    height: auto;
+    margin-left: -79px!important;
+    top: 33px!important;
+    background-color: #c6cfd9!important;
+    color: #4a4a4a!important;
+    font-size: 10px;
+    font-family: gotham_book!important
+}
+.tooltip.top .tooltip-arrow {
+    margin-left: -5px!important;
+    top: 28px!important;
+    bottom: -38px;
+    border-top-color: #c6cfd9!important;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg)
+}
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+.tooltip.right .tooltip-arrow {
+    border-right-color: #c6cfd9!important
+}
+.tooltip.left .tooltip-arrow {
+    border-left-color: #c6cfd9!important
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #c6cfd9!important
+}
+.customCircle {
+    box-shadow: 0 0 2px #FB637E;
+    color: #FB637E!important;
+    box-sizing: border-box;
+    border: 1px solid #FB637E;
+    margin-left: 2px
+}
+.lp-icon {
+    font-family: lp-icons, gotham_book, Calibri!important;
+    z-index: 10!important;
+    cursor: pointer!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal
+}
+#widget-root {
+    height: 80vh;
+}
+.limitManagement-otp-label label {
+    width: 100%!important;
+    padding-left: 7%!important;
+}

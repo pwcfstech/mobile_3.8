@@ -1,0 +1,22 @@
+{namespace templates_CarouselContainer}
+/**
+ * Lightbox
+ * @param item Item in context
+ */
+{template .CarouselContainer}
+    <div data-pid="{$item.name}" class="bp-container lp-carousel-container bp-ui-dragRoot">
+        <div class="lp-carousel-slides">
+        {let $numLines: parseInt($item.preferences.numSlides.value) /}
+            {for $i in range(0,$numLines)}
+            <div class="bp-area lp-carousel-slide --area" data-area="{$i}">
+              {foreach $child in $item.children}
+                    {if parseInt($child.preferences.area.value) == $i}
+                        {include($child) |noAutoescape}
+                    {/if}
+              {/foreach}
+            </div>
+           {/for}
+        </div>
+    </div>
+{/template}
+

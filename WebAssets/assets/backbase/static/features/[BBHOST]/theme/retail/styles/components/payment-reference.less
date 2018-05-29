@@ -1,0 +1,77 @@
+.lp-payment-ref-description {
+	width: 100%;
+
+	.lp-payment-reference {
+		width: 100%;
+		margin-bottom: 20px;
+		position: relative;
+
+		&.has-feedback {
+			input {
+				font-family: Courier New, Courier, monospace;
+				font-size: 16px;
+			}
+		}
+
+		input::-ms-clear {
+			display: none;
+		}
+
+		.glyphicon-remove {
+			cursor: pointer;
+		}
+
+		.lp-input-cursor-position-offset {
+			display: none;
+			position: absolute;
+			white-space: nowrap;
+		}
+
+	}
+
+	.lp-payment-description {
+		width: 100%;
+
+		.desc-placeholder {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			height: 100%;
+			padding-top: 6px;
+			background: none;
+			padding-left: 12px;
+			width: 100%;
+			color: gray;
+		}
+
+		.lp-payment-description-area {
+			resize: none;
+			height: 80px;
+			width: 100%;
+		}
+	}
+
+	.hover-catcher {
+		position: absolute;
+		top: 0;
+		width: 99%;
+		z-index: 2;
+		cursor: not-allowed;
+		display: none;
+
+		&.refDisabled {
+			height: 34px;
+			display: block;
+		}
+
+		&.descDisabled {
+			top: 55px;
+			height: 80px;
+			display: block;
+		}
+	}
+
+	.info-message {
+		margin-left: 5px;
+	}
+}

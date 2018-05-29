@@ -1,0 +1,37 @@
+<div class="row" ng-if="plRsCtrl.detail.length>0">
+	<div id="no-more-tables">
+   		<table class="col-sm-12 col-md-12 col-xs-12 col-lg-12 table-bordered table-striped table-condensed cf marginWTop">
+			<thead class="cf">
+				<tr>
+					<th class="emi-date-align-repay repay-table-pl-topbtm">{{'INSTLMNT_DT'|translate}}</th>
+					<th class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm hide-tab">{{'OPNG_BAL'|translate}}</th>
+					<th class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm" style="padding:5px;">{{'INSTLMNT_AMT'|translate}}</th>
+					<th class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm hide-tab">{{'PRINCIPAL'|translate}}</th>
+					<th class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm hide-tab">{{'INTEREST'|translate}}</th>
+					<th class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm">{{'CLOSNG_BAL'|translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in plRsCtrl.detail | limitTo: plRsCtrl.limit">
+					<td class="emi-date-align-repay repay-table-pl-topbtm"" data-title="{{'INSTLMNT_DT'|translate}}">{{item.instDueDate | date:'dd MMM yyyy'}}</td>
+					<td data-title="{{'OPNG_BAL'|translate}}" class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm hide-tab">
+						<span class="rupee-symbol-span"></span><span>{{item.openBal}}</span>
+					</td>
+					
+					<td data-title="{{'INSTLMNT_AMT'|translate}}" class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm">
+						<span class="rupee-symbol-span"></span><span>{{item.totAmt}}</span>
+					</td>
+					<td data-title="{{'PRINCIPAL'|translate}}" class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm hide-tab">
+						<span class="rupee-symbol-span"></span><span>{{item.prinAmt}}</span>
+					</td>
+					<td data-title="{{'INTEREST'|translate}}" class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm hide-tab">
+						<span class="rupee-symbol-span"></span><span>{{item.intAmt}}</span>
+					</td>
+					<td data-title="{{'CLOSNG_BAL'|translate}}" class="repay-table-padding-right textAlign-right-Plrs repay-table-pl-topbtm">
+						<span class="rupee-symbol-span"></span><span>{{item.closeBal}}</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div> 

@@ -1,0 +1,22 @@
+{{#contentRef}}
+<div class="lp-enrollment-footer">
+    {{#get_started_prefix}}{{get_started_prefix}}{{/get_started_prefix}}
+    {{#get_started_link}}
+        <span class="get-started">
+            <a href="{{get_started_link}}">{{get_started_link_label}}</a>
+        </span>
+    {{/get_started_link}}
+    {{#get_started_suffix}}{{get_started_suffix}}<br>{{/get_started_suffix}}
+    {{#phone_prefix}}{{phone_prefix}}{{/phone_prefix}}
+    {{#phone}}
+        <span class="phone">{{phone}}</span>
+    {{/phone}}
+    {{#email_prefix}}{{email_prefix}}{{/email_prefix}}
+    {{#email}}
+        <span class="email">
+            <a href="mailto:{{ email }}" target="_top">{{ email_link_label }}</a>
+        </span>
+    {{/email}}
+    {{#email_suffix}}{{email_suffix}}{{/email_suffix}}
+</div>
+{{/contentRef}}

@@ -1,0 +1,140 @@
+.lp-counter-party-filter {
+
+	.name-field {
+		padding-left: 35px;
+	}
+
+	.single-account-selection:hover, .contact-single-account:hover {
+		outline: 1px solid @input-border-focus;
+		cursor: pointer;
+		color: @dropdown-link-hover-color;
+		background-color: @dropdown-link-hover-bg;
+	}
+
+	.filter-contact {
+		border-bottom: 1px solid @dropdown-border;
+		color: @dropdown-link-color;
+
+		.photo-container {
+			display: table-cell;
+			width: 85px;
+			padding-left: 9px;
+			padding-right: 0px;
+		}
+
+		.contact-photo {
+			width: 100%;
+			padding: 5px;
+			display: inline-block;
+		}
+
+		.contact-details {
+			padding-top: 5px;
+			padding-left: 5px;
+			height: 60px;
+
+			.account-info {
+				margin-top: 8px;
+			}
+
+			.contact-name {
+				font-size: 110%;
+				font-weight: bold;
+			}
+		}
+  }
+
+	.counterparty-to {
+		position: absolute;
+		left: 0px;
+		height: 100%;
+		width: 40px;
+		z-index: 2;
+		font-size: 14px;
+		padding: @padding-base-vertical @padding-base-horizontal;
+	}
+
+	ul.filter-list {
+		padding-right: 0;
+	}
+
+	.filter-list {
+		display: block;
+		border: 1px solid @dropdown-border;
+		position: absolute;
+		z-index: 2;
+		max-height: 500px;
+		overflow-y: scroll;
+
+		a.contact-anchor {
+			padding-top: 0;
+			padding-bottom: 0;
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.contact {
+			position: relative;
+
+			.border {
+				position: absolute;
+				height: 99%;
+				width: 10px;
+
+				&.border-my-accounts {
+					border: 1px solid @dropdown-link-color;
+					background-color: @dropdown-link-color;
+				}
+
+				&.border-other {
+					border: 1px solid transparent;
+					background-color: transparent;
+				}
+			}
+		}
+	}
+
+	.contact-account-list {
+		text-align: center;
+		border-top: 1px solid @dropdown-border;
+		width: 100%;
+		cursor: pointer;
+
+		.toggle-accounts {
+			padding: 5px 0px;
+
+			&:hover {
+				outline: 1px solid @input-border-focus;
+				cursor: pointer;
+			}
+		}
+
+		p {
+			margin: 0px;
+		}
+	}
+
+	.contact-accounts {
+		-webkit-transition: max-height 400ms ease;
+		-moz-transition: max-height 400ms ease;
+		transition: max-height 400ms ease;
+		max-height: 0px;
+		overflow: hidden;
+
+		.contact-single-account {
+			text-align: left;
+			overflow: hidden;
+			border-top: 1px solid #cccccc;
+			padding: 3px 0px 0px 14px;
+			margin: 1px;
+
+			p {
+				padding-left: 5px
+			}
+		}
+	}
+
+	.contact-accounts-open {
+		max-height: 1000px;
+	}
+}

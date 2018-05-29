@@ -1,0 +1,11 @@
+<div ng-if="loanRepaymentController.dontShowTable">
+	<div class="text-center padding2em"  ng-if="!loanRepaymentController.error.happened">
+		<img ng-src="{{loanRepaymentController.images.errorImg}}" class="text-center">
+	</div>
+	<div class="text-center" ng-if="loanRepaymentController.noTransactionError">
+		<div class="font-14 color-pink text-center padding-bottom-2em" lp-i18n="There are no upcoming transactions for the given period"></div>
+	</div>
+	<div class="font-14 color-pink text-center padding-bottom-2em" ng-if="loanRepaymentController.noPendingLoansMsg" lp-i18n="You have paid this loan completely, no more payments to make. Can't pay a closed loan."></div>
+	<div class="font-14 color-pink text-center padding-bottom-2em padding-top-2em" ng-if="loanRepaymentController.error.happened" ng-bind="loanRepaymentController.error.msg">
+	</div>
+</div>

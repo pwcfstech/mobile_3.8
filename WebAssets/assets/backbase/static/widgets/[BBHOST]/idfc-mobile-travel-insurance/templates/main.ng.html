@@ -1,0 +1,236 @@
+<!-- Add NG Template here-->
+
+<div>
+	<div ng-if="mainCtrl.errorSpinShow">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+    </div>
+    <!--div class="travel-insurance-panel-header">
+            <label lp-i18n="Safeguarding your travel" > </label>
+    </div-->
+
+	<div align="center" class="margin-auto">
+		<label class="allFontStyle" lp-i18n="Travel Insurance Solutions"></label>
+	</div>
+	
+</div>
+
+<div class="travel-insurance-panel-second">
+    <div class="mobile-travel" >
+        <div class="travel-panel-main  travel-panel-main-mobile">
+            <div class="travel-panle-div">
+                <div class="travel-right">
+                    <img ng-src="{{mainCtrl.handPath}}" class="travel-mobile-images" >
+                </div>
+                <div >
+                    <label  lp-i18n="Instant policy issuance" class="travel-panel-text "></label>
+                </div>
+            </div>
+            <div class="travel-panle-div">
+                <div class="travel-right">
+                    <img ng-src="{{mainCtrl.medicalPath}}"  class="travel-mobile-images">
+                </div>
+                <div >
+                    <label  lp-i18n="Covers medical expenses abroad" class="travel-panel-text "></label>
+                </div>
+            </div>
+            <div class="travel-panle-div">
+                <div class="travel-right">
+                    <img ng-src="{{mainCtrl.lossPath}}"  class="travel-mobile-images">
+                </div>
+                <div >
+                    <label  lp-i18n="Loss of baggage and passport" class="travel-panel-text "></label>
+                </div>
+            </div>
+            <div class="travel-panle-div">
+                <div class="travel-right">
+                    <img ng-src="{{mainCtrl.delayPath}}" class="travel-mobile-images">
+                </div>
+                <div >
+                    <label  lp-i18n="Flight delays and cancellation" class="travel-panel-text "></label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div style="text-align:center;">
+<div class="travel-insurance-button" >
+    <div class="travel-insurance-second travel-insurance-panel-single">
+
+        <div align="center" class="travel-text">
+            <div class="mobile-view" ><label class="travel-bottom-img-text" lp-i18n="Single round trip travel insurance" ></label></div>
+			<div  class="travel-update-img">
+                <img ng-src="{{mainCtrl.singlePath}}" class="travel-image-mobile-single" ></div>
+            <div class="desktop-view"  ><label class="travel-bottom-img-text" lp-i18n="Single round trip travel insurance" ></label></div>
+        </div>
+
+        <div>
+            <div class="travel-panel-buttons" >
+                <div>
+                <div >
+                    <!--button class="btn btn-secondary secondary-btn-btn travel-insurance-btn-first travel-btn " ng-click="mainCtrl.travelSwitchFuction('travelSingleTripKnowMore');" lp-i18n="Know More">
+                    </button>
+                <button class="btn btn-primary  primary-btn-btn travel-insurance-btn travel-btn " ng-click="mainCtrl.getConfirmation('TRAVEL_SINGLE_PRODUCT_CODE');" lp-i18n="Buy Now">
+                </button-->
+                <button class="btn btn-primary travel-insurance-btn-first primary-btn-btn  travel-btn" ng-click="mainCtrl.getConfirmation('TRAVEL_SINGLE_PRODUCT_CODE');" lp-i18n="Buy Now">
+                </button>				
+				<button class="btn btn-secondary travel-insurance-btn secondary-btn-btn  travel-btn" ng-click="mainCtrl.travelSwitchFuction('travelSingleTripKnowMore');" lp-i18n="Know More">
+				</button>
+				
+				</div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="travel-insurance-panel-multiple travel-insurance-second">
+
+        <div align="center" class="car-text">
+		
+		<div class="mobile-view" ><label  class="travel-bottom-img-text" lp-i18n="Multiple round trips travel insurance" ></label></div>
+            <div class="travel-update-img">
+                <img ng-src="{{mainCtrl.multiplePath}}" class="travel-image-mobile-multiple" ></div>
+		<div class="desktop-view" ><label  class="travel-bottom-img-text" lp-i18n="Multiple round trips travel insurance" ></label></div>
+        </div>
+
+        <div>
+            <div class="travel-panel-buttons">
+                <div>
+                    <!--button class="btn btn-secondary secondary-btn-btn travel-insurance-btn-first travel-btn" ng-click="mainCtrl.travelSwitchFuction('travelRoundTripKnowMore');" lp-i18n="Know More">
+                    </button>
+					<button class="btn btn-primary  primary-btn-btn travel-insurance-btn travel-btn" ng-click="mainCtrl.getConfirmation('TRAVEL_MULTIPLE_PRODUCT_CODE');" lp-i18n="Buy Now">
+                </button-->
+					<button class="btn btn-primary travel-insurance-btn-first primary-btn-btn  travel-btn" ng-click="mainCtrl.getConfirmation('TRAVEL_MULTIPLE_PRODUCT_CODE');" lp-i18n="Buy Now">
+                </button>				
+                    <button class="btn btn-secondary travel-insurance-btn secondary-btn-btn  travel-btn" ng-click="mainCtrl.travelSwitchFuction('travelRoundTripKnowMore');" lp-i18n="Know More">
+                    </button>				
+				
+				</div>
+            </div>
+        </div>
+    </div>
+    <div class="travel-insurance-panel-senior travel-insurance-second" >
+
+        <div align="center" class="travel-text">
+	<div class="mobile-view" ><label  class="travel-bottom-img-text" lp-i18n="Senior citizen travel insurance" ></label></div>
+            <div class="travel-update-img">
+                <img ng-src="{{mainCtrl.seniorPath}}" class="travel-image-mobile-senior" ></div>
+	<div class="desktop-view" ><label  class="travel-bottom-img-text" lp-i18n="Senior citizen travel insurance" ></label></div>
+        </div>
+
+        <div>
+            <div class="travel-panel-buttons" >
+                <div>
+                    <!--button class="btn btn-secondary secondary-btn-btn  travel-insurance-btn-first travel-btn" ng-click="mainCtrl.travelSwitchFuction('travelSeniorTripKnowMore');" lp-i18n="Know More">
+                    </button>
+                <button class="btn btn-primary  primary-btn-btn travel-insurance-btn travel-btn" ng-click="mainCtrl.getConfirmation('TRAVEL_SENIOR_PRODUCT_CODE');" lp-i18n="Buy Now">
+                </button-->
+				
+                <button class="btn btn-primary travel-insurance-btn-first primary-btn-btn  travel-btn" ng-click="mainCtrl.getConfirmation('TRAVEL_SENIOR_PRODUCT_CODE');" lp-i18n="Buy Now">
+                </button>				
+                    <button class="btn btn-secondary travel-insurance-btn secondary-btn-btn  travel-btn" ng-click="mainCtrl.travelSwitchFuction('travelSeniorTripKnowMore');" lp-i18n="Know More">
+                    </button>
+				
+				
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<div class="travel-insurance-panel-footer" style="text-align: center;">
+
+
+    <div class="travel-footer">
+            <div class="travel-panel-footer">
+                <div align="center">
+                    <img ng-src="{{mainCtrl.faqPath}}" style="cursor: pointer;" ng-click="mainCtrl.travelSwitchFuction('travelFaq');" class="travel-panel-footer-image">
+                </div>
+                <div align="center">
+                    <label  lp-i18n="FAQ's" ng-click="mainCtrl.travelSwitchFuction('travelFaq');" class="travel-panel-text-bottom "></label>
+                </div>
+            </div>
+            <div class="travel-panel-footer">
+                <div align="center">
+                    <img ng-src="{{mainCtrl.policyPath}}" style="cursor: pointer;" ng-click="mainCtrl.travelSwitchFuction('travelPolicyWording');" class="travel-panel-footer-image">
+                </div>
+                <div align="center">
+                    <label  lp-i18n="BROCHURE" ng-click="mainCtrl.travelSwitchFuction('travelPolicyWording');" class="travel-panel-text-bottom "></label>
+                </div>
+            </div>
+            <div class="travel-panel-footer">
+                <div align="center">
+                    <img ng-src="{{mainCtrl.claimPath}}" style="cursor: pointer;"  ng-click="mainCtrl.travelSwitchFuction('travelClaim');" class="travel-panel-footer-image">
+                </div>
+                <div align="center">
+                    <label  lp-i18n="CLAIM PROCESS" ng-click="mainCtrl.travelSwitchFuction('travelClaim');" class="travel-panel-text-bottom "></label>
+                </div>
+            </div>
+            <div class="travel-panel-footer travel-panel-footer-width" style="vertical-align:top;">
+                <div align="center">
+                    <img ng-src="{{mainCtrl.connectPath}}" class="travel-panel-footer-image" ng-click="mainCtrl.call('18004194332');">
+                </div>
+                <div align="center">
+                    <label ng-click="mainCtrl.call('18004194332');" lp-i18n="CONNECT TO OUR EXPERT" class="travel-panel-text-bottom cursor-none"></label>
+                </div>
+                <!--div class="expertNumberDiv" align="center">
+                    <label class="travel-expert-text" lp-i18n="1800 419 4332"></label>
+                </div-->
+            </div>
+        </div>
+    
+
+</div>
+<div>&nbsp;</div>  
+	<div style="text-align: center;">
+		<label  ng-click="mainCtrl.travelSwitchFuction('travelDisclaimer');" class="disclaimer-link handSymbol" lp-i18n="Disclaimers & Key Disclosures"></label>
+	</div>
+<div id="travelModal" class="travelmodal"> 
+
+ <!-- Modal content -->
+  <div class="travelmodal-content">
+	<div ng-if="mainCtrl.errorSpin">
+            <div class="panel-message loading-panel" role="alert">
+                <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+                <span class="sr-only">Busy</span>
+            </div>
+    </div>	
+  <div class="travelmodal-header">      
+	 <div class="travelpopupHeader">
+		<label>DISCLAIMER</label>
+        <span class="travelmodal-close" id="travelpop_span" ng-click="mainCtrl.closetravelPopup()">x</span>
+	 </div>
+	  
+  </div>
+
+    <div class="travelmodal-body">
+	
+	<div class="lp-alerts">			
+                <div alert="alert" ng-repeat="alert in alerts" type="alert.type"  ng-bind="alert.msg" style="color:red;"></div>
+     </div>
+	
+	
+	<div align="center" id="travId">
+		By clicking on Proceed you will be directed to the website of ICICI Lombard. The information provided on their website is owned and managed by ICICI Lombard and IDFC bank does not bear any responsibility for the same.
+	</div>
+     
+    </div>
+
+   <div class="travelmodal-footer">
+     <button id="btn_travel" class="btn btn-primary  primary-btn-btn travelButton" style="float:right;" ng-click="mainCtrl.iLTravelInsurance()" lp-i18n="Proceed">
+	</button>
+     <!--button id="btn_travel" class="btn btn-primary  primary-btn-btn travelButton" style="float:right;" ng-click="mainCtrl.gotoTab()" lp-i18n="Proceed">
+	</button-->	
+	
+    </div>
+	
+	<div class="travelmodal-footer">
+		<button class="btn btn-primary secondary-btn-btn travelButton"  ng-click="mainCtrl.closetravelPopup();" lp-i18n="Cancel"></button>		
+	</div>	
+ </div>
+
+</div>

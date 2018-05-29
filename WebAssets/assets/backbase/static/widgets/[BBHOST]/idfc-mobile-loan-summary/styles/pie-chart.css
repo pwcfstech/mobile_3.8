@@ -1,0 +1,47 @@
+body { 
+  margin: 0 auto;
+}
+
+.un-10 {
+  height: 1em;
+      border: none;
+      float: center;
+      /* width: 10%; */
+      position: relative;
+         top: -26px!important;
+         /*left: 20%; */
+          right: 5px;
+  /*font-family: monospace;
+  font-size: 10px;
+  fill: green;
+  fill-opacity: 0.8;*/
+
+}
+
+.un-20 {
+  height: 200px;
+  border: 1px solid grey;
+  float: left;
+  width: 200px!important;
+}
+
+.un-30 {
+  height: 300px;
+  border: 1px solid grey;
+  float: left;
+  width: 300px!important;
+}
+
+.un-40 {
+  height: 400px;
+  border: 1px solid grey;
+  float: left;
+  width: 400px!important;
+}
+
+.un-50 {
+  height: 500px;
+  border: 1px solid grey;
+  float: left;
+  width: 500px!important;
+}

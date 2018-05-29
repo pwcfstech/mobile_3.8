@@ -1,0 +1,36 @@
+@color: @brand-primary;
+@bg: @panel-background;
+
+@assetColors:
+  @color,
+  @brand-success,
+  @brand-warning,
+  @brand-danger;
+
+.portfolio-assets {
+  .axis text {
+    fill: desaturate(@color, 40%);
+  }
+
+  .loop(@i: 0) when (@i < length(@assetColors)) {
+    .asset-@{i} {
+      @_color: extract(@assetColors, @i + 1);
+      fill: @_color;
+      background: @_color;
+    }
+    .loop(@i + 1);
+  } .loop;
+
+  .details {
+    background: fadeout(@bg, 80%);
+
+    .line {
+      background: @bg;
+    }
+
+    label {
+      border: 1px solid @bg;
+      color: @bg;
+    }
+  }
+}

@@ -1,0 +1,1173 @@
+.bgcolor {
+    background-color: #efefef
+}
+
+.heading-width-dp-det {
+    width: 25%;
+    padding-left: 10px
+}
+
+.button-class {
+    padding: 10px
+}
+
+.noAccounts {
+    background-color: #F5F5F5;
+    text-align: center
+}
+
+.noAccountsMessage {
+    font-size: 12px!important;
+    color: #A94442
+}
+
+.calendar-icon-nominee {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px
+}
+
+.main-heading {
+    font-size: 16px!important;
+    font-weight: 700
+}
+
+.heading {
+    font-weight: 700
+}
+
+th.th-dp-det {
+    font-weight: 700
+}
+
+.recurringDepositDiv {
+    display: none
+}
+
+.lp-deposit-details .panel {
+    border: 0;
+    margin: 0
+}
+
+.lp-deposit-details .panel-body.fi-list {
+    padding: 0
+}
+
+.lp-deposit-details .list-group {
+    margin: 0;
+    border-radius: 0
+}
+
+.lp-deposit-details .list-group .list-group-item {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    position: relative;
+    top: 0
+}
+
+.lp-deposit-details .transitioning {
+    z-index: 10
+}
+
+.lp-deposit-details .transitioning .h4 {
+    font-size: 18px
+}
+
+.transition-fi-dp-det {
+    -moz-transition: top .8s, height .8s;
+    -webkit-transition: top .8s, height .8s;
+    -o-transition: top .8s, height .8s;
+    transition: top .8s, height .8s
+}
+
+.lp-deposit-details .fi-icon {
+    font-size: 30px
+}
+
+.lp-deposit-details .panel-heading.context {
+    padding: 0 15px;
+    border-bottom: 0
+}
+
+.lp-deposit-details .selected-fi {
+    min-height: 65px
+}
+
+.lp-deposit-details .panel-heading.selected-fi {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.lp-deposit-details .alert {
+    margin-bottom: 0
+}
+
+.lp-deposit-details .selected-fi i {
+    font-size: 30px
+}
+
+.lp-deposit-details .btn-filter {
+    margin-top: 10px;
+    min-height: 55px;
+    overflow: hidden;
+    padding: 6px 0
+}
+
+@media (max-width: 992px) {
+    .lp-deposit-details .btn-filter {
+        min-height: 90px
+    }
+}
+
+.lp-deposit-details .filter-row {
+    height: 50%
+}
+
+.lp-deposit-details .filter-row i {
+    font-size: 30px
+}
+
+.lp-deposit-details .filter-row.push {
+    margin-top: 6px
+}
+
+.lp-deposit-details .filters {
+    margin-top: 10px
+}
+
+.lp-deposit-details .connection-feedback {
+    height: 80px
+}
+
+.close-recur-dep-table {
+    border-spacing: 10px;
+    text-align: left;
+    border: none!important;
+    margin-left: 6%
+}
+
+.dep-pen-cur {
+    margin-left: 41%
+}
+
+.table-head-dp-det {
+    font-weight: 700;
+    padding: 0!important;
+    padding-top: 18px!important
+}
+
+.table-can-padding-dp-det {
+    padding: 0!important
+}
+
+.table-mainth-width {
+    width: 25%
+}
+
+.table-maintd-width-dp-det {
+    width: 22%
+}
+
+.table-maturity-head-dp-det {
+    font-weight: 700!important;
+    padding: 0!important
+}
+
+.table-maturity-td-dp-det {
+    font-weight: 700;
+    padding: 0!important;
+    padding-top: 8px!important;
+    font-size: 12px
+}
+
+.tab-pad-top-dp-det {
+    padding: 0!important;
+    padding-top: 8px!important;
+    font: 12px gotham_book
+}
+
+.tab-width-dp-det {
+    width: 100%;
+    text-align: left;
+    font-family: gotham_book
+}
+
+.tab-btn-dp-det {
+    text-align: right;
+    padding-top: 20px!important
+}
+
+.min-width-dp-det {
+    min-width: 730px
+}
+
+.deposit-details {
+    width: 34px;
+    height: 32px;
+    margin-right: 10px
+}
+
+.deposit-dp-det {
+    width: 34px;
+    height: 32px;
+    margin-right: 10px
+}
+
+.primary-btn-deposit-det {
+    background-color: #FB637E!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 14px!important;
+    padding-right: 16px;
+    padding-top: 16px;
+    border-style: none!important
+}
+
+.secondary-btn-deposit {
+    background-color: #EAEAEA!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 12px!important;
+    padding-right: 16px;
+    padding-top: 16px;
+    border-style: none!important
+}
+
+.ng-cloak {
+    display: none!important
+}
+
+.depositDetails-table-border {
+    border-top: 1px solid #000;
+    padding-top: 15px
+}
+
+.depositDetails-table-bottom {
+    font-weight: 700;
+    padding: 0!important;
+    padding-top: 8px!important
+}
+
+.maturity-amt-padding-dp-det {
+    text-align: right
+}
+
+.principal-amt-padding-dp-det {
+    text-align: right
+}
+
+.caretdown {
+    border-bottom: 4px solid #969;
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+    margin-top: 8px
+}
+
+.caretup {
+    border-top: 4px solid #969;
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+    margin-top: 8px
+}
+
+.gen-dep-det {
+    padding: 0!important;
+    padding-top: 8px!important;
+    font-size: 12px
+}
+
+.table-border-dp-det {
+    border: 4px solid #969
+}
+
+.title-color-dp-det {
+    background-color: #ddb8dd!important
+}
+
+.instruction-table-dp-dt {
+    width: 100%
+}
+
+.nominee-detail-table {
+    width: 15%
+}
+
+.radio-button-dp-det {
+    margin-right: 1%
+}
+
+.depositDetails-addNomineeRow {
+    width: 50%
+}
+
+@media (max-width: 560px) {
+    .principal-amt-padding-dp-det {
+        text-align: right
+    }
+    .maturity-amt-padding-dp-det {
+        text-align: right
+    }
+}
+
+@media (max-width: 767px) {
+    .th-dt-deposit-type {
+        display: none
+    }
+    .td-main-deposit-type {
+        display: none
+    }
+    .td-dp-det,
+    .th-dp-det {
+        font-size: 12px
+    }
+    .heading-width-dp-det {
+        width: 37%;
+        padding-left: 0;
+        text-indent: 0
+    }
+    .principal-amt-padding-dp-det {
+        text-align: right
+    }
+    .table-maintd-width-dp-det {
+        width: 302px
+    }
+}
+
+@media (min-width: 561px) and (max-width: 767px) {
+    .principal-amt-padding-dp-det {
+        text-align: right
+    }
+}
+
+.th-align-right {
+    text-align: right
+}
+
+.innerClass-dd {
+    position: relative;
+    min-width: 100%;
+    overflow-x: scroll;
+    clear: both;
+    min-height: 343px
+}
+
+.child-table-position {
+    position: absolute
+}
+
+@media (max-width: 767px) {
+    .th-branch-display {
+        display: none
+    }
+}
+
+@media (max-width: 991px) {
+    .dep-pen-cur {
+        margin-left: 1%
+    }
+}
+
+.lp-deposits-closure .panel {
+    border: 0;
+    margin: 0
+}
+
+.lp-deposits-closure .panel-body.fi-list {
+    padding: 0
+}
+
+.lp-deposits-closure .list-group {
+    margin: 0;
+    border-radius: 0
+}
+
+.lp-deposits-closure .list-group .list-group-item {
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    position: relative;
+    top: 0
+}
+
+.idfc-account-closure {
+    padding-top: 13px!important
+}
+
+.lp-deposits-closure .transitioning {
+    z-index: 10
+}
+
+.lp-deposits-closure .transitioning .h4 {
+    font-size: 18px
+}
+
+.lp-deposits-closure .fi-icon {
+    font-size: 30px
+}
+
+.lp-deposits-closure .panel-heading.context {
+    padding: 0 15px;
+    border-bottom: 0
+}
+
+.lp-deposits-closure .selected-fi {
+    min-height: 65px
+}
+
+.lp-deposits-closure .panel-heading.selected-fi {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.lp-deposits-closure .alert {
+    margin-bottom: 0
+}
+
+.lp-deposits-closure .selected-fi i {
+    font-size: 30px
+}
+
+.lp-deposits-closure .btn-filter {
+    margin-top: 10px;
+    min-height: 55px;
+    overflow: hidden;
+    padding: 6px 0
+}
+
+@media (max-width: 992px) {
+    .lp-deposits-closure .btn-filter {
+        min-height: 90px
+    }
+}
+
+.lp-deposits-closure .filter-row {
+    height: 50%
+}
+
+.lp-deposits-closure .filter-row i {
+    font-size: 30px
+}
+
+.lp-deposits-closure .filter-row.push {
+    margin-top: 6px
+}
+
+.lp-deposits-closure .filters {
+    margin-top: 10px
+}
+
+.lp-deposits-closure .connection-feedback {
+    height: 80px
+}
+
+.depositsClosure-div-td-dep-ab {
+    float: right;
+    padding-right: 2%;
+    text-align: right;
+    position: relative;
+    min-width: 32%;
+    padding-top: 5px;
+    margin-right: 5px
+}
+
+.depositsClosure-dep-messages {
+    max-width: 260px
+}
+
+.depositsClosure-div-tr-dep {
+    clear: both;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px
+}
+
+.buttonClose {
+    float: left;
+    width: 54px;
+    height: 49px
+}
+
+.depositsClosure-div-td-dep-ab {
+    float: right;
+    padding-right: 2%;
+    text-align: right;
+    position: relative;
+    min-width: 60%;
+    padding-top: 5px;
+    margin-right: 5px
+}
+
+.idfc-goback-closure {
+    margin-right: 1px!important;
+    position: relative;
+    float: right
+}
+
+.idfc-decline-closure {
+    margin-right: 1px!important;
+    position: relative;
+    float: right;
+    padding-left: 1%
+}
+
+.idfc-accept-closure {
+    margin-right: 1px!important;
+    position: relative;
+    float: right;
+    padding-left: 1%
+}
+
+.depositsClosure-dep-radio {
+    margin: 0!important
+}
+
+.depositsClosure-dep-parent-div {
+    border-spacing: 10px;
+    width: 100%;
+    height: 100%;
+    margin-top: 44%
+}
+
+.non-scroll
+{
+   height: 100%;
+   padding-top:44%!important;
+   margin-top: 0% !important;
+}
+
+.depositsClosure-font-label-dep {
+    font-weight: 700;
+    font-family: gotham_bold, Calibri!important;
+    font-size: 14px;
+    color: #333
+}
+
+.depositsClosure-span-margin {
+    margin-right: 10px
+}
+
+.depositsClosure-clear-both {
+    clear: both
+}
+
+.depositsClosure-max-align-width {
+    max-width: 57%
+}
+
+.primary-btn-closure {
+    font-family: gotham_book, Calibri!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background-color: #FB637E!important;
+    border: none!important;
+    margin-top: 12px!important
+}
+
+.secondary-btn-closure {
+    font-family: gotham_book, Calibri!important;
+    font-size: 15px!important;
+    color: #fff!important;
+    border: none!important;
+    margin-top: 12px!important
+}
+
+.create-new {
+    background-color: #FB637E!important;
+    margin-left: 2%;
+    width: 82%; /* Xebia Refactoring */
+}
+
+.closure-link {
+    color: #969!important
+}
+
+.closure-text {
+    font-weight: 700!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 14px!important;
+    color: #333!important
+}
+
+.common-closure {
+    margin-left: 281px!important;
+    width: 275px
+}
+
+.depositsClosure-congrats {
+    width: 190px!important;
+    margin-left: 45px!important
+}
+
+.depositsClosure-ng-cloak {
+    display: none!important
+}
+
+.depositClosure-style-top {
+    margin-top: -2%
+}
+
+.depositClosure-radio-margin {
+    font-family: gotham_book, Calibri!important;
+    float: left;
+    min-width: 134px
+}
+
+.depositClosure-parent-radio-btn {
+    min-height: 30px;
+    margin-left: 2%;
+    float: left
+}
+
+.depositClosure-radio-space {
+    margin-left: 3%
+}
+
+.depositClosure-amount-top {
+    margin-top: 11px
+}
+
+.depositClosure-txt-wrap {
+    white-space: normal!important;
+    word-wrap: break-word
+}
+
+.service-request-div {
+    width: 22%;
+    text-align: left;
+    margin-left: 19%;
+    vertical-align: top
+}
+
+.serviceRequest-div-tr-dep {
+    padding-top: 20px;
+    position: relative;
+    height: 100%;
+    padding-bottom: 10px;
+    float: left;
+    width: 100%
+}
+
+.label-font {
+    font-family: gotham_book, Calibri!important
+}
+
+.serviceRequest-div-td-dep {
+    float: left;
+    padding-right: 10px;
+    text-align: left;
+    position: relative;
+    min-width: 22%;
+    padding-top: 5px
+}
+
+.service-calender {
+    margin-left: 20px!important
+}
+
+.serviceRequest-font-label-dep label {
+    font-weight: 700;
+    padding-top: 11px;
+    margin-left: 9px;
+    float: left
+}
+
+div.label-font label span {
+    font-family: gotham_book
+}
+
+.serviceRequest-dep-parent-div {
+    border-spacing: 10px;
+    width: 100%;
+    min-height: 63px;
+    padding-left: 10%
+}
+
+.serviceRequest-div-td-dep .form-control {
+    width: 170px
+}
+
+.serviceRequest-sub-cat-show {
+    margin-left: 9%;
+    clear: both;
+    top: -70px;
+    position: relative
+}
+
+.serviceRequest-clear-div-child {
+    float: left;
+    min-width: 43%;
+    min-height: 100%
+}
+
+.serviceRequest-check-control {
+    display: block;
+    width: 252px;
+    word-break: break-word;
+    word-wrap: break-word;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.serviceRequest-chk-tr-dep {
+    clear: both;
+    padding-top: 20px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px
+}
+
+.serviceRequest-chk-td-dep {
+    float: left;
+    padding-right: 3%;
+    text-align: left;
+    position: relative;
+    min-width: 40%;
+    padding-top: 5px
+}
+
+.serviceRequest-chk-parent-div {
+    border-spacing: 10px;
+    width: 100%;
+    height: 100%;
+    padding-left: 20%
+}
+
+.serviceRequest-dep-messages {
+    max-width: 188px
+}
+
+.serviceRequest-font-label-chk {
+    font-weight: 700;
+    padding-top: 11px
+}
+
+.serviceRequest-chk-btn {
+    text-align: right;
+    clear: both;
+    padding-top: 20px
+}
+
+.serviceRequest-cal-span {
+    position: relative;
+    top: -29px;
+    left: 85%
+}
+
+.serviceRequest-date-from {
+    width: 120px
+}
+
+.serviceRequest-date-to {
+    width: 120px
+}
+
+.serviceRequest-date-margin {
+    margin-right: 10px
+}
+
+.primary-btn-create-track {
+    font-family: gotham_book, Calibri!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background-color: #FB637E!important;
+    padding: 16px!important;
+    border: none!important
+}
+
+.secondary-btn-create-track {
+    font-family: gotham_book, Calibri!important;
+    background-color: #EAEAEA!important;
+    font-size: 12px!important;
+    color: #fff!important;
+    border: none!important;
+    padding: 16px!important
+}
+
+.serviceRequest-otp-div {
+    border: 1px solid;
+    padding-bottom: 5%;
+    min-height: 190px;
+    margin-top: 6%
+}
+
+.serviceRequest-div-td-dep-ab {
+    float: right;
+    padding-right: 2%;
+    text-align: right;
+    position: relative;
+    min-width: 60%;
+    padding-top: 0;
+    margin-right: 5px;
+    margin-top: -1%!important
+}
+
+.serviceRequest-greycolor {
+    background-color: #d3d3d3
+}
+
+.serviceRequest-wrap-text {
+    word-break: break-word;
+    word-wrap: break-word
+}
+
+.category-createservicerequest {
+    background-color: none!important
+}
+
+.serviceRequest-right-align {
+    float: right
+}
+
+.serviceRequest-fieldset-align {
+    min-width: 100%!important
+}
+
+.serviceRequest-otp-child {
+    float: right
+}
+
+.serviceRequest-otp-input-width {
+    width: 38%
+}
+
+.servicerequest-heading {
+    text-align: center;
+    margin-top: 3px
+}
+
+@media (max-width: 362px) {
+    .serviceRequest-chk-parent-div {
+        border-spacing: 10px;
+        width: 100%;
+        height: 100%;
+        padding-left: 0
+    }
+    .serviceRequest-chk-btn {
+        text-align: right;
+        clear: both
+    }
+    .serviceRequest-otp-div {
+        border: 1px solid;
+        padding-bottom: 40%;
+        min-height: 190px;
+        margin-top: 6%
+    }
+}
+
+.buttondivMob {
+    background-color: #FB647E!important
+}
+
+@media (min-width: 362px) {
+    .serviceRequest-otp-div {
+        border: 1px solid;
+        padding-bottom: 14%;
+        min-height: 190px;
+        margin-top: 6%
+    }
+    .serviceRequest-clear-div-child {
+        float: left;
+        min-width: 43%;
+        min-height: 100px
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .serviceRequest-otp-input-width {
+        width: 50%
+    }
+}
+
+.panel-body {
+    padding: 0!important
+}
+
+.labelText {
+    font-size: 13px!important;
+    font-family: gotham_medium!important;
+    color: #4a4a4a!important;
+    padding-left: 7%!important;
+    margin-top: 5.93%!important;
+    margin-bottom: 0!important
+}
+
+.sucessOTP {
+    padding-right: 6.8%!important;
+    padding-left: 6.8%!important;
+    font-size: 14px!important;
+    font-family: "gotham_book"!important
+}
+
+select {
+    width: 86%!important;
+    height: 48px!important;
+    margin-left: 7%;
+    background-color: #fff!important;
+    border-radius: 2px;
+    -webkit-appearance: none!important;
+    background-image: url(../../../../features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png);
+    background-repeat: no-repeat;
+    background-position: 96% 50%;
+    border-color: #c6cfd9!important;
+    font-family: gotham_book!important;
+    color: #aeaeae
+}
+
+.smallAmnt {
+    font-weight: 600!important
+}
+
+select:focus {
+    letter-spacing: 2px!important
+}
+
+tbody {
+    border: none!important
+}
+
+.table-childth-width-dp-det {
+    width: 42%;
+    font-size: 10px;
+    padding: 1%!important;
+    padding-left: 2%;
+    font-family: gotham_book!important;
+    color: #9b9b9b;
+    padding-top: 4%!important
+}
+
+.table-childtd-width-dp-det {
+    width: 40%;
+    padding: 0!important;
+    font: 10px gotham_book!important;
+    padding-top: 4%!important;
+    padding-left: 4%!important;
+    color: #4a4a4a;
+    font-weight: 600!important
+}
+
+.padLeft {
+    padding-left: 7%
+}
+
+.padLeft .pull-left,
+.padLeft .dep-pen-cur,
+.congrts {
+    font-family: gotham_book!important;
+    font-size: 14px;
+    color: #4a4a4a
+}
+
+.congrts {
+    font-family: gotham_medium!important;
+    font-size: 14px;
+    color: #4a4a4a
+}
+
+.colon {
+    float: right
+}
+
+.dep-pen-right,
+.closDeposit {
+    padding-top: 48%
+}
+
+.dep-pen-right button,
+.closDeposit button {
+    text-transform: uppercase!important;
+    margin: 0!important;
+    width: 85%!important;
+    border-radius: 2px!important;
+    height: 48px!important
+}
+
+.img_padding {
+    margin-bottom: 10px;
+    margin-top: 0!important
+}
+
+.succesMsg {
+    text-align: center;
+    font-family: gotham_medium!important;
+    font-size: 14px;
+    color: #4a4a4a
+}
+
+.tooltip-inner {
+    position: absolute!important;
+    width: 160px!important;
+    max-width: 160px!important;
+    height: auto;
+    margin-left: -79px!important;
+    top: 33px!important;
+    background-color: #c6cfd9!important;
+    color: #4a4a4a!important;
+    font-size: 10px;
+    font-family: gotham_book!important;
+    padding: 18px 20px 20px 21px !important
+}
+
+.tooltip.top .tooltip-arrow {
+    margin-left: -5px!important;
+    top: 28px!important;
+    bottom: -38px;
+    border-top-color: #c6cfd9!important;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg)
+}
+
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #c6cfd9!important
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #c6cfd9!important
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #c6cfd9!important
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #c6cfd9!important
+}
+
+.tooltip.top .tooltip-arrow {
+    bottom: -19px
+}
+
+@media only screen and (max-device-width:240px) {
+    select {
+        height: 42px!important
+    }
+    .panaltyClass {
+        font-size: 11px!important
+    }
+    .table-childth-width-dp-det,
+    .table-childtd-width-dp-det {
+        font-size: 8px!important
+    }
+    .padLeft .pull-left,
+    .padLeft .dep-pen-cur {
+        font-size: 11px!important
+    }
+    .dep-pen-right button {
+        height: 36px!important
+    }
+    .borderLine {
+        margin-bottom: 15px!important
+    }
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+    select {
+        height: 48px!important
+    }
+    .panaltyClass {
+        font-size: 14px!important
+    }
+    .table-childth-width-dp-det,
+    .table-childtd-width-dp-det {
+        font-size: 10px!important
+    }
+    .padLeft .pull-left,
+    .padLeft .dep-pen-cur {
+        font-size: 14px!important
+    }
+    .dep-pen-right button {
+        height: 48px!important
+    }
+    .borderLine {
+        margin-bottom: 20px!important
+    }
+}
+
+@media(min-device-width:481px) and (max-device-width:640px) {
+    select {
+        height: 84px!important
+    }
+    .panaltyClass {
+        font-size: 21px!important
+    }
+    .table-childth-width-dp-det,
+    .table-childtd-width-dp-det {
+        font-size: 12px!important
+    }
+    .padLeft .pull-left,
+    .padLeft .dep-pen-cur {
+        font-size: 21px!important
+    }
+    .dep-pen-right button {
+        height: 72px!important
+    }
+    .borderLine {
+        margin-bottom: 30px!important
+    }
+}
+
+.borderLine {
+    height: 1px!important;
+    background-color: #eaeaea!important
+}
+
+.borderLine1 {
+    height: 1px!important;
+    margin-bottom: 20px!important;
+    background-color: #eaeaea!important;
+    margin-top: 145px!important
+}
+
+.beforeCloseBtn {
+    padding-top: 0!important
+}
+
+.panaltyRs {
+    margin-left: -3%!important
+}
+
+.panaltyClass {
+    font-family: gotham_book!important;
+    color: #4a4a4a!important
+}
+
+.depositsClosure-dep-parent-div .labelText {
+    padding-left: 0 !important;
+}
+#widget-root{
+height:auto !important;
+}

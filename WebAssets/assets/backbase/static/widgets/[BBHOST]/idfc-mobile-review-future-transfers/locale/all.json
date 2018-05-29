@@ -1,0 +1,124 @@
+{
+  "en-US": {
+    "messages": {
+      "NO_PENDING_TRANSFERS": "It looks you haven't set up any standing instructions.",
+      "TRANSFER_FROM": "From:",
+      "TRANSFER_TO": "To:",
+      "VERIFY_P2P": "Verify",
+      "VERIFY_P2P_FULL": "your P2P details",
+      "BUTTON_SUBMIT": "Submit",
+      "BUTTON_NEW_TRANSFER": "Make new transfer",
+      "BUTTON_SUBMIT_ALL": "Submit All",
+      "BUTTON_LANG_EN": "english",
+      "BUTTON_LANG_LT": "lithuanian",
+      "TOTAL_TRANSACTION": "Total: {TRANSACTIONS_NUM, select, 1{one transaction} other{# transactions}}",
+	  "Registered_Mobile": "Mobile Number",
+      "UNSENT_VERIFY_CONTACTDETAILS": "Unsent - please verify your contact details before you continue"
+    },
+	"Error_Invalid_Length_OTP": "Please enter 6 digit valid value",
+	"Error_Invalid_OTP": "Please enter a valid OTP",
+	"Error_OTP_Required": "OTP required",
+	"btn_ResendOTP": "Resend OTP",
+	"btn_Remove": "Verify",
+	"btn_Cancel": "Cancel",
+	"Please_confirm": "Please confirm",
+	"Registered_Mobile": "Mobile Number",
+	"OTP_Text": "OTP",
+    "alerts": {
+      "SUBMITTED": "All transfers have been successfully submitted!",
+      "FAILURE": "Payments could not be submitted"
+    }
+  },
+  "en-IN": {
+    "messages": {
+      "NO_PENDING_TRANSFERS": "It looks you haven't set up any standing instructions.",
+      "TRANSFER_FROM": "From:",
+      "TRANSFER_TO": "To:",
+      "VERIFY_P2P": "Verify",
+      "VERIFY_P2P_FULL": "your P2P details",
+      "BUTTON_SUBMIT": "Submit",
+      "BUTTON_NEW_TRANSFER": "Make new transfer",
+      "BUTTON_SUBMIT_ALL": "Submit All",
+      "BUTTON_LANG_EN": "english",
+      "BUTTON_LANG_LT": "lithuanian",
+      "TOTAL_TRANSACTION": "Total: {TRANSACTIONS_NUM, select, 1{one transaction} other{# transactions}}",
+      "Registered_Mobile": "Mobile Number",
+      "UNSENT_VERIFY_CONTACTDETAILS": "Unsent - please verify your contact details before you continue"
+    },
+    "Error_Invalid_Length_OTP": "Please enter 6 digit valid value",
+    "Error_Invalid_OTP": "Please enter a valid OTP",
+    "Error_OTP_Required": "OTP required",
+    "btn_ResendOTP": "Resend OTP",
+    "btn_Remove": "Verify",
+    "btn_Cancel": "Cancel",
+    "Please_confirm": "Please confirm",
+    "Registered_Mobile": "Mobile Number",
+    "OTP_Text": "OTP",
+    "alerts": {
+      "SUBMITTED": "All transfers have been successfully submitted!",
+      "FAILURE": "Payments could not be submitted"
+    }
+  
+  },
+  "en-GB": {
+    "messages": {
+      "NO_PENDING_TRANSFERS": "It looks you haven't set up any standing instructions.",
+      "TRANSFER_FROM": "From:",
+      "TRANSFER_TO": "To:",
+      "VERIFY_P2P": "Verify",
+      "VERIFY_P2P_FULL": "your P2P details",
+      "BUTTON_SUBMIT": "Submit",
+      "BUTTON_NEW_TRANSFER": "Make new transfer",
+      "BUTTON_SUBMIT_ALL": "Submit All",
+      "BUTTON_LANG_EN": "english",
+      "BUTTON_LANG_LT": "lithuanian",
+      "TOTAL_TRANSACTION": "Total: {TRANSACTIONS_NUM, select, 1{one transaction} other{# transactions}}",
+      "Registered_Mobile": "Mobile Number",
+      "UNSENT_VERIFY_CONTACTDETAILS": "Unsent - please verify your contact details before you continue"
+    },
+    "Error_Invalid_Length_OTP": "Please enter 6 digit valid value",
+    "Error_Invalid_OTP": "Please enter a valid OTP",
+    "Error_OTP_Required": "OTP required",
+    "btn_ResendOTP": "Resend OTP",
+    "btn_Remove": "Verify",
+    "btn_Cancel": "Cancel",
+    "Please_confirm": "Please confirm",
+    "Registered_Mobile": "Mobile Number",
+    "OTP_Text": "OTP",
+    "alerts": {
+      "SUBMITTED": "All transfers have been successfully submitted!",
+      "FAILURE": "Payments could not be submitted"
+    }
+
+  },
+  "en-CA": {
+    "messages": {
+      "NO_PENDING_TRANSFERS": "It looks you haven't set up any standing instructions.",
+      "TRANSFER_FROM": "From:",
+      "TRANSFER_TO": "To:",
+      "VERIFY_P2P": "Verify",
+      "VERIFY_P2P_FULL": "your P2P details",
+      "BUTTON_SUBMIT": "Submit",
+      "BUTTON_NEW_TRANSFER": "Make new transfer",
+      "BUTTON_SUBMIT_ALL": "Submit All",
+      "BUTTON_LANG_EN": "english",
+      "BUTTON_LANG_LT": "lithuanian",
+      "TOTAL_TRANSACTION": "Total: {TRANSACTIONS_NUM, select, 1{one transaction} other{# transactions}}",
+      "Registered_Mobile": "Mobile Number",
+      "UNSENT_VERIFY_CONTACTDETAILS": "Unsent - please verify your contact details before you continue"
+    },
+    "Error_Invalid_Length_OTP": "Please enter 6 digit valid value",
+    "Error_Invalid_OTP": "Please enter a valid OTP",
+    "Error_OTP_Required": "OTP required",
+    "btn_ResendOTP": "Resend OTP",
+    "btn_Remove": "Verify",
+    "btn_Cancel": "Cancel",
+    "Please_confirm": "Please confirm",
+    "Registered_Mobile": "Mobile Number",
+    "OTP_Text": "OTP",
+    "alerts": {
+      "SUBMITTED": "All transfers have been successfully submitted!",
+      "FAILURE": "Payments could not be submitted"
+    }
+  }
+}

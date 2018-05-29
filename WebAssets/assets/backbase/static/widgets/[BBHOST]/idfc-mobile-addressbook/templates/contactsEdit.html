@@ -1,0 +1,129 @@
+<form name="editContact" novalidate="" class="clearfix contact-form" ng-submit="confirmEditContact(editContact.$valid)">
+	<div class="panel-body no-padding-top bene-panel-body">
+		<center class="modify">
+			<label class="label-font" ng-show="contactsModel.currentContact.beneficiaryType=='OWN'"> {{'Lbl_Modifying'|translate}} {{'Lbl_Beneficiary_IDFC_C'|translate}}</label>
+			<label class="label-font" ng-show="contactsModel.currentContact.beneficiaryType=='OTH'"> {{'Lbl_Modifying'|translate}} {{'Lbl_Beneficiary_NON_IDFC'|translate}}</label>
+		</center>
+	</div>
+	<div class="panel-body no-padding-top bene-panel-body" id="modifyCont">
+		<div class="form-group">
+			<div class="bene-floatLeft bene-form-div"><label for="name"  class="label-font" lp-i18n="{{'Lbl_Beneficiary_Name'|translate}}" ></label></div>
+			<div class="bene-floatLeft "><input type="text" name="name" id="name" class="beneficiary-control bene-input-disabled" ng-class="{lpinputerror: submitted && editContact.name.$error.required}" ng-model="contactsModel.currentContact.name" readonly="readonly" /></div>
+		</div>
+		<div class="form-group">
+			<div class="bene-floatLeft bene-form-div"><label for="nickName" class="label-font" lp-i18n="{{'Lbl_Beneficiary_Nick_Name'|translate}}"></label></div>
+			<div class="bene-floatLeft" >
+				<div>
+					<input type="text" name="nickName" id="nickName" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control" ng-pattern="/^[a-zA-Z]*$/" ng-maxlength="15" ng-class="{lpinputerror: submitted && editContact.nickName.$error.required && editContact.nickName.$error.maxlength}" ng-model="contactsModel.currentContact.nickName" placeholder="Nick Name" required=""/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger error-msg-formatting" ng-show="editContact.nickName.$error.required"><label ></label>{{'Error_Required_Beneficiary_Nick_Name'|translate}}&nbsp;</small>
+					<small class="text-danger error-msg-formatting" ng-show="editContact.nickName.$error.maxlength"><label ></label>{{'Error_Maxlength_Beneficiary_Nick_Name'|translate}}&nbsp;</small>
+					<small class="text-danger error-msg-formatting" ng-show="editContact.nickName.$error.pattern"><label ></label>{{'Error_Text_Beneficiary_Nick_Name'|translate}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="account" class="label-font" class="label-font" lp-i18n="{{'Lbl_Account_Number'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<input type="text" name="account" id="account" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+					   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control bene-input-disabled" ng-class="{lpinputerror: submitted && editContact.account.$error.required}" ng-model="contactsModel.currentContact.account" readonly="readonly" />
+			</div>
+		</div>
+		<div class="form-group" ng-show="contactsModel.currentContact.ifscCode">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="bankName" class="label-font" ng-show="contactsModel.currentContact.ifscCode" lp-i18n="{{'Lbl_Bank_Name'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft bene-select-width">
+				<select id="bankName" name="bankName" class="beneficiary-control bene-input-disabled" ng-show="contactsModel.currentContact.ifscCode" ng-model="contactsModel.currentContact.bankName" ng-options="item as item for item in contactsModel.banksList" disabled="disabled"/>
+			</div>
+		</div>
+		<div class="form-group" ng-show="contactsModel.currentContact.ifscCode">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="ifscCode" class="label-font" ng-show="contactsModel.currentContact.ifscCode" lp-i18n="{{'Lbl_IFSC_Code'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft">
+				<input type="text" id="ifscCode" name="ifscCode" class="beneficiary-control bene-input-disabled" ng-show="contactsModel.currentContact.ifscCode" ng-maxlength="11" ng-class="{lpinputerror: submitted }" ng-model="contactsModel.currentContact.ifscCode" placeholder="IFSC Code" readonly="readonly" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="accountType" class="label-font" lp-i18n="{{'Lbl_Account_Type'|translate}}" ></label>
+			</div>
+			<div class="bene-floatLeft bene-select-width">
+				<select id="accountType" name="accountType" class="beneficiary-control bene-acc-type-add bene-input-disabled" ng-model="contactsModel.currentContact.accountType" ng-options="item.value as item.text for item in contactsModel.accountTypeOptions" disabled="disabled"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="transferLimit" class="label-font" lp-i18n="{{'Lbl_Payee_Limit'|translate}}" ></label>
+				<i class="lp-icon infoIcon ng-scope" tooltip="{{'Tip_Payee_Limit'|translate}}" tooltip-trigger="click" tooltip-append-to-body="true" ><img src="static/features/[BBHOST]/theme-idfc/images/info_xxxhdpi.png" height="15" width="15"></i>
+			</div>
+			<div class="bene-floatLeft ">
+				<div>
+					<input type="tel" id="transferLimit" name="transferLimit" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control" ng-pattern="/^[0-9]{1,8}(\.[0-9]{1,2})?$/" ng-class="{lpinputerror: (submitted && editContact.transferLimit.$error.required) && editContact.transferLimit.$error.maxlength && editContact.transferLimit.$error.number && submitted && errors['transferLimit']}" ng-model="contactsModel.currentContact.transferLimit" placeholder="Payee Limit" required/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger error-msg-formatting" ng-show="editContact.transferLimit.$error.required"><label ></label>{{'Error_Required_Payee_Limit'|translate}}&nbsp;</small>
+					<small class="text-danger error-msg-formatting" ng-show="editContact.transferLimit.$error.maxlength"><label ></label>{{'Error_Maxlength_Payee_Limit'|translate}}&nbsp;</small>
+					<small class="text-danger error-msg-formatting" ng-show="editContact.transferLimit.$error.number"><label ></label>{{'Error_Invalid_Payee_Limit'|translate}}&nbsp;</small>
+					<small class="text-danger error-msg-formatting" ng-show="editContact.transferLimit.$error.pattern"><label ></label>{{'Error_Format_Payee_Limit'|translate}}&nbsp;</small>
+					<small class="text-danger error-msg-formatting" ng-show="submitted && errors['transferLimit']"><label ></label>{{'Error_Required_Payee_Limit'|translate}}&nbsp;</small>
+					<small class="text-danger" lp-i18n="Payee Limit Required" ng-show="testANDTwo(submitted, errors['transferLimit'])">&nbsp;</small>
+					<small class="text-danger" ng-show="paymentLimitErrorMessage">{{payeeLimitErrorDisplayMessage}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<!--email and phone number commented-->
+		<!--<div class="form-group">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="email" class="label-font" lp-i18n="{{'Lbl_Email'|translate}}"></label>
+			</div>
+			<div class="bene-floatLeft">
+				<div>
+					<input type="text" name="email" id="email" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control" ng-maxlength="50" ng-model="contactsModel.currentDetails['email']" placeholder="{{'Beneficiary Email ID'|translate}}"/>
+				</div>
+				<div class="bene-error-message-align">
+					<small class="text-danger error-msg-formatting" ng-show="editContact.email.$error.maxlength"><label ></label>{{'Error_Maxlength_Email'|translate}}&nbsp;</small>
+					<small class="text-danger error-msg-formatting" ng-show="errors['email']"><label ></label>{{errors['email']}}&nbsp;</small>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="bene-floatLeft bene-form-div">
+				<label for="phone" class="label-font" lp-i18n="{{'Lbl_Phone'|translate}}"></label>
+			</div>
+			<div class="bene-floatLeft">
+				<div class="inputSelect">
+					<select id="countryCodes" name="countryCodes" class="beneficiary-control bene-phn-cont-code" ng-model="contactsModel.currentContact.countryCode" ng-options="item as item for item in contactsModel.countryCodesList">
+                    </select>
+					<input type="tel" name="phone" id="phone" autofill="off" autocorrect="off" autocapitalize="off" autocomplete="off"
+						   onpaste="return false;" onCopy="return false" onCut="return false" class="beneficiary-control bene-phn-no-input" ng-minlength="10" ng-maxlength="10" ng-pattern="/^[0-9]*$/" ng-model="contactsModel.currentDetails['phone']" placeholder="{{'Mobile No'|translate}}"/>
+				</div>
+				<div class="bene-error-message-align error-msg-mob-no">
+					<small class="text-danger" ng-show="!errors['phone'] && editContact.phone.$error.maxlength"><label ></label>{{'Error_Maxlength_Phone'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="!errors['phone'] && editContact.phone.$error.pattern"><label ></label>{{'Error_Invalid_Phone'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && errors['countryCodeReq']"><label ></label>{{'Error_Required_Country_Code'|translate}}&nbsp;</small>
+					<small class="text-danger" ng-show="submitted && errors['phone']"><label ></label>{{errors['phone']}}&nbsp;</small>
+					<small class="text-danger" ng-show="!errors['phone'] && editContact.phone.$error.minlength">
+						<label ></label>{{'Error_Required_Ten_Digits'|translate}}&nbsp;
+					</small>
+				</div>
+			</div>
+		</div>-->
+		<div class="bene-div-td-dep-ab">
+			<button type="button" class="btn btn-primary secondary-btn-btn ng-bindingn" ng-click="cancelForm()" lp-i18n="{{'btn_Cancel'|translate}}"></button>
+			<button class="btn btn-primary primary-btn-btn ng-binding" ng-click="submitted=true" type="submit" lp-i18n="{{'btn_Update'|translate}}"></button>
+			<button type="button" class="btn btn-primary secondary-btn-btn ng-binding" ng-click="confirmDelete()" lp-i18n="{{'btn_Delete'|translate}}"></button>
+		</div>
+	</div>
+</form>
+</div>
+<div modal-dialog="" show="contactsModel.modalShownDelete" closable="false" style="min-height:400px">
+	<div data-ng-include="deleteConfirmTemplate" style="min-height:auto !important"></div>
+</div>

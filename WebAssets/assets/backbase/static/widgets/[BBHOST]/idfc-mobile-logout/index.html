@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:g="http://www.backbase.com/2008/gadget">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="styles/base.css" />
+</head>
+<body g:onload="requireWidget(__WIDGET__, 'scripts/main');" ng-controller="NavBarAdvancedController" class="lp-navbar-advanced logoutClass" ng-class="{'design-mode': isDesignMode}">
+    <div ng-show="errorSpin">
+        <div class="panel-message loading-panel" role="alert">
+            <i class="lp-icon lp-icon-spinner2 lp-spin loading-icon"></i>
+            <span class="sr-only">Busy</span>
+        </div>
+        <img class="logoutImage" src="../../../../static/features/[BBHOST]/theme-idfc/images/logout.png" width="100%" />
+    </div>
+</body>
+</html>

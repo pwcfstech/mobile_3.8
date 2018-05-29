@@ -1,0 +1,16 @@
+<div class="sucessMsg errorMsg">Failed</div>
+<div class="add-biller-confirm-div">
+    <div class="successMsg1 errorMsg1"><span>Your mobile recharge of <span class="rupee-symbol-span"></span>.{{amount | currency:' '}} for <span class="yellowText">{{rechargeDthProviderSelected}} </span> has been Failed. Please try after some time</span></div>
+    <div class="validatemargin">
+        <div class="form-group">
+            <div class="labelGroup">
+                <label for="SubscriberID" class="labelMB label-font confirmchanges">Subscriber ID:</label>
+                <label name="SubscriberID" class="yellowText labelMB add-acc-type-add addressbook-select add-bill-auth"> {{dthNumber}}</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="marginTopBtn">
+    <div class="borderTop"></div>
+    <button class="btn btn-primary primary-btn-btn ng-binding otpbuttonwidth successbutton" ng-click="doAnotherDth()" type="submit" name="doAnother">ANOTHER RECHARGE</button>
+</div>

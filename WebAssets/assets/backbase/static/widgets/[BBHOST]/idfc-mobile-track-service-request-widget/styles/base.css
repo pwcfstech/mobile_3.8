@@ -1,0 +1,558 @@
+.lp-loyalty .row {
+    margin-bottom: 10px
+}
+
+.lp-desc-list {
+    margin: 0 0 0 10px
+}
+
+.lp-desc-list>dt {
+    min-width: 60%;
+    text-align: left
+}
+
+.lp-desc-list>dd {
+    margin-left: 0
+}
+
+.track-button-style {
+    text-align: center!important;
+    width: 100%!important;
+    margin-left: -10.5%
+}
+
+.track-sts-align {
+    text-indent: 13%;
+    text-align: center
+}
+
+@media (min-width: 818px) and (max-width: 991px) {
+    #limitForm .col-sm-3 {
+        min-width: 50%
+    }
+}
+
+@media (min-width: 768px) and (max-width: 817px) {
+    #limitForm .col-sm-3 {
+        min-width: 60%
+    }
+}
+
+@media (min-width: 992px) {
+    #limitForm .col-sm-3 {
+        min-width: 38%
+    }
+}
+
+.track-button-style {
+    width: 50%;
+    text-align: right
+}
+
+@media (min-width: 601px) and (max-width: 767px) {
+    #limitForm .control-label {
+        float: left;
+        min-width: 38%
+    }
+}
+
+@media (min-width: 466px) and (max-width: 600px) {
+    #limitForm .control-label {
+        float: left;
+        min-width: 48%
+    }
+}
+
+@media (max-width: 465px) {
+    #limitForm .control-label {
+        float: left;
+        min-width: 60%
+    }
+}
+
+@media (min-width: 630px) and (max-width: 767px) {
+    .track-button-style {
+        width: 80%;
+        text-align: right
+    }
+}
+
+@media (min-width: 600px) and (max-width: 630px) {
+    .track-button-style {
+        width: 85%;
+        text-align: right
+    }
+}
+
+.track-list {
+    width: 12.333333%!important
+}
+
+@media (min-width: 530px) and (max-width: 600px) {
+    .track-button-style {
+        width: 95%;
+        text-align: right
+    }
+}
+
+.form-dropDown {
+    display: block;
+    width: 100%;
+    height: 34px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0
+}
+
+.primary-btn-track {
+    font-family: gotham_book!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    background-color: #fb637e!important;
+    border: none!important;
+    height: 48px!important;
+    line-height: 14px!important;
+    margin-bottom: 10px;
+    width: 87.5%!important;
+    text-transform: uppercase;
+    border-radius: 2px!important
+}
+
+.secondary-btn-track {
+    height: 48px;
+    font-family: gotham_book!important;
+    background-color: #eaeaea!important;
+    font-size: 13px!important;
+    color: #000!important;
+    border: none!important;
+    position: relative;
+    border-radius: 2px!important;
+    width: 87.5%!important;
+    text-transform: uppercase
+}
+
+.sr-list {
+    color: #333!important;
+    font-family: gotham_book, Calibri!important;
+    font-size: 14px!important;
+    margin-left: 18%
+}
+
+.or {
+    color: #333!important;
+    font-family: gotham bold!important;
+    font-size: 14px!important;
+    font-weight: 700
+}
+
+div.label-font label span {
+    font-family: gotham_book
+}
+
+.IDFC-dropdown:focus {
+    color: #333!important;
+    font-weight: 700!important;
+    background-color: #f9f4fa!important
+}
+
+.idfcCursorPointer {
+    cursor: pointer!important
+}
+
+.idfcTableHeader {
+    margin-top: 1%!important;
+    margin-bottom: 1%!important
+}
+
+.idfcListBorderNone {
+    border-left: none!important;
+    border-right: none!important;
+    border-bottom: none!important
+}
+
+.idfcPaddingLeft {
+    padding-left: 2%
+}
+
+.idfcPaddingRight {
+    padding-right: 4%
+}
+
+.idfcSearchButton {
+    height: 40px!important;
+    margin-left: 12px;
+    background-color: #969!important;
+    color: #FFF;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding: 11px 12px 6px!important
+}
+
+.idfcClearButton {
+    height: 40px!important;
+    margin-left: 12px;
+    background-color: #666!important;
+    color: #FFF;
+    display: inline-block;
+    margin-bottom: 0!important;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+    -moz-user-select: none;
+    padding-top: 11px!important
+}
+
+.idfcHeaderSpacing {
+    margin-left: -2%!important
+}
+
+.idfcLabelSpacing {
+    margin-left: -30%!important
+}
+
+.idfcFloatLeft {
+    float: left!important
+}
+
+.idfcSubmitForm {
+    width: 62%!important;
+    float: right!important;
+    margin-top: -6.6%!important
+}
+
+.idfcDropDownButton button {
+    height: 40px!important
+}
+
+.idfcTableHeaderFontStyle {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif!important;
+    font-size: 14px!important;
+    font-weight: 700!important
+}
+
+.idfcTabularDetails {
+    border-bottom: none!important;
+    border-left: none!important;
+    border-right: none!important;
+    border-top: 1px solid #ddd!important
+}
+
+.caretdown {
+    border-bottom: 4px solid #969;
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+    margin-top: 8px
+}
+
+.caretup {
+    border-top: 4px solid #969;
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    content: "";
+    display: inline-block;
+    height: 0;
+    vertical-align: top;
+    width: 0;
+    margin-top: 8px
+}
+
+span.sr-status {
+    float: right;
+    margin-right: 20%
+}
+
+.track-heading-width {
+    text-align: left;
+    font-weight: 700;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-family: gotham_book;
+    font-size: 10px;
+    line-height: 11px;
+    color: #9b9b9b;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    margin-top: 20px
+}
+
+.content-width {
+    text-align: left;
+    word-wrap: break-word;
+    word-break: break-all;
+    word-break: break-word;
+    font-size: 14px;
+    font-family: gotham_book;
+    line-height: 15px;
+    color: #666;
+    margin-left: 20px;
+    margin-bottom: 17px
+}
+
+.track-table-heading {
+    border-spacing: 10px;
+    text-align: left;
+    background-color: #fff
+}
+
+.track-table-heading > .bothTrack:hover {
+    color: #ff8f1b!important
+}
+
+.id-style {
+    text-indent: 22%
+}
+
+.lp-transfers-container > .list-group > li > .track-table-heading > div > .track-heading-width:first-child {
+    margin-top: 0!important;
+    padding-top: 20px!important
+}
+
+.bgcolor-style {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd
+}
+
+.track-main-heading {
+    width: 34.375%;
+    text-align: center;
+    font-weight: 700;
+    height: 48px;
+    padding-left: 25px;
+    font-size: 13px;
+    line-height: 14px;
+    color: #4a4a4a;
+    padding-right: 28px;
+    background-color: #eaeaea
+}
+
+.track-main-content {
+    width: 50%;
+    text-align: center
+}
+
+.list-group-item {
+    padding: 0
+}
+
+.status-content {
+    text-indent: -1%
+}
+
+.panel-body {
+    padding: 0!important
+}
+
+@media(min-device-width:320px) and (max-device-width:480px) {
+    .labelText {
+        margin-top: 20px!important;
+        font-size: 12px!important;
+        line-height: 12px!important
+    }
+    input {
+        height: 48px!important;
+        padding: 6px 12px
+    }
+    .status-dropdown {
+        height: 48px!important;
+        font-size: 13px;
+        line-height: 15px
+    }
+    .borderLine {
+        margin-top: 20px
+    }
+    .track-main-content {
+        font-size: 12px;
+        line-height: 12px;
+        height: 43px;
+        font-family: gotham_book!important
+    }
+    select {
+        background-image: url(../../../../../static/features/[BBHOST]/theme-idfc/images/Dropdown_mdpi.png);
+        -webkit-appearance: none!important;
+        background-repeat: no-repeat;
+        background-position: 97% 50%
+    }
+    .primary-btn-track {
+        border-radius: 2px!important
+    }
+    .secondary-btn-track {
+        border-radius: 2px!important
+    }
+    #mydiv {
+        height: 120px!important
+    }
+}
+
+.labelText {
+    /* margin-left: 6.25%!important; Xebia Refactoring commented */
+    margin-left: 9.25%!important;
+    padding-left: 0!important;
+    padding-right: 0!important
+}
+
+input {
+    background-color: #fff;
+    border: 1px solid #c6cfd9;
+    border-radius: 1px!important;
+    margin-bottom: 0!important;
+    font-size:initial;
+    width: 87.5%!important;
+}
+
+.form-group {
+    margin-bottom: 0!important
+}
+
+.status-dropdown {
+    width: 87.5%!important;
+    background-color: #fff;
+    border: 1px solid #c6cfd9;
+    border-radius: 1px!important;
+    color: #aeaeae;
+    font-family: gotham_book;
+    margin-left: 6.25%!important;
+    margin-right: 6.25%!important
+}
+
+#submitForm {
+    margin: 0!important;
+    text-align: center!important
+}
+
+.borderLine {
+    background-color: #eaeaea!important;
+    height: 1px!important;
+    margin-bottom: 0!important
+}
+
+.track-main-Service {
+    border-right: 1px solid #aeaeae
+}
+
+.glyph-icon {
+    position: relative;
+    top: -30px;
+    left: 37%
+}
+
+.glyph-icon .glyphicon {
+    color: #FB637E!important
+}
+
+.list-group {
+    margin-bottom: 0!important
+}
+
+.glyph-color {
+    color: #fb637e
+}
+
+.text-danger {
+    padding-left: 6%!important
+}
+
+.list-group-item:first-child {
+    border-top-right-radius: 0!important;
+    border-top-left-radius: 0!important
+}
+
+.panel {
+    border: 0 solid #fff!important;
+    box-shadow: 0 0 0 #fff!important;
+    border-color: #fff!important;
+    border-radius: 0!important
+}
+
+.panel-default {
+    border-color: #fff!important
+}
+
+.lp-widget-content {
+    overflow-x: hidden!important
+}
+
+.myglyphicon {
+    left: 19%!important
+}
+
+.list-group-item > .row > .track-table-heading > tbody > .bothTrack:hover {
+    color: #ff8f1b!important
+}
+
+.lp-transfers-container > .list-group > .list-group-item > .row > .track-table-heading > .bothTrack:hover {
+    color: #ff8f!important
+}
+
+.btn_search {
+    margin-top: 20px
+}
+
+.btn_clear {
+    margin-bottom: 20px
+}
+
+.noborder {
+    border: 0 solid #fff!important
+}
+
+.formating .myglyphicon {
+    left: 89%!important
+}
+
+.formating .glyphicon {
+    position: absolute;
+    top: 14px
+}
+
+.panelBody {
+    background-color: #fff!important
+}
+
+.borderBottomClass {
+    border-bottom: solid 2px #eaeaea!important
+}
+
+.list-group-item {
+    border: 0 solid #fff!important
+}
+
+/*Xebia Refactoring*/
+.track-service-request-input input {
+    margin-right: 6.25%;
+    margin-left: 6.25%;
+}
+
+button, input, select, textarea {
+    font-family: Gotham_Book, Calibri !important;
+}

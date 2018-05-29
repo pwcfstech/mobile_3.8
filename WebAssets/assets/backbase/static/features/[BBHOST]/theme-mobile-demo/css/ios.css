@@ -1,0 +1,8 @@
+body {
+	font-family: "Helvetica Neue";
+	font-weight: 300;
+}
+
+#widget-root {
+    height: 100vh;
+}

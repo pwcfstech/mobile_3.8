@@ -1,0 +1,137 @@
+	<div ng-show="newUserRegCtrl.showSuccessPage"><!--newUserRegCtrl.showSuccessPage-->
+		<div data-ng-include="newUserRegCtrl.templates.successful"></div>
+	</div>
+
+	<div ng-show="newUserRegCtrl.showPdfForm"><!--newUserRegCtrl.openTermsAndConditions-->
+		<div data-ng-include="newUserRegCtrl.templates.acceptTC"></div>
+	</div>
+
+
+	<div id="registrationForm" ng-hide="newUserRegCtrl.showSuccessForm  || newUserRegCtrl.showPdfForm">
+		<form name="registrationForm" novalidate=""
+			class="newuserregistration-form-horizontal form-horizontal"
+			role="form" id="fifthform">
+			<input style="display: none" type="text"
+				name="fakeusernameremembered" /> <input style="display: none"
+				type="password" name="fakepasswordremembered" />
+
+
+
+
+			<div class="neuserlogin-lastform choose-uname-msg" lp-field="lp-field"
+				label="Choose your User Name and click on Check availability" tip="{{'Your User Name should be alpha numeric, 6 -10 characters long'|translate}}">
+
+				<div class="UsrNameInput">
+					<input class="newuserregistration-form-control form-control inputUsername"
+						type="text" name="lId" ng-click="newUserRegCtrl.resetalert();"
+						ng-model="newUserRegCtrl.control.loginId.value" ng-maxlength="10"
+						loading="isLoading"
+						autofill="off" autocorrect="off" autocapitalize="off"
+						autocomplete="off" onpaste="return false;" onCopy="return false"
+						onCut="return false" required="true" />
+
+
+					<a ng-click="newUserRegCtrl.checkAvailability();" href="" class="checkAvailability row">
+					<u class="chkAvl" lp-i18n="Check availability"></u></a> 
+					<small class="text-danger row error-success-display"
+						ng-show="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.registrationForm.submitted, registrationForm.lId.$error.required)" lp-i18n="Login Id is required."></small>
+					<small class="text-success row error-success-display"
+						ng-show="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.loginIdAvailable, !(newUserRegCtrl.errors['idCheck']))" lp-i18n="Perfect! No one else has thought of that User Name yet. Get it now."></small>
+					<small class="text-danger row error-success-display"
+						ng-show="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.loginIdNotAvailable, !newUserRegCtrl.loginIdAvailable, !(newUserRegCtrl.errors['idCheck']))" lp-i18n="Sorry! Someone got there before you. Think up another User Name."></small>
+					<small class="text-danger row error-success-display"
+						ng-show="registrationForm.lId.$error.maxlength" lp-i18n="Login Id should not be more than 10 characters"></small>
+					<small class="text-danger row error-success-display"
+						ng-show="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.errors['idCheck'], !(registrationForm.lId.$error.maxlength)) " lp-i18n="User Id must be greater than 6 and less than 10 characters, no Special characters, only Alphabet or Alphanumeric."></small>						
+				</div>
+
+			</div>
+
+
+			<div class="newuserregistration-div-suggestion"
+				ng-show="newUserRegCtrl.fieldValidationsOR(newUserRegCtrl.userIdSuggestion1 != '', newUserRegCtrl.userIdSuggestion2 != '', newUserRegCtrl.userIdSuggestion3 != '')">
+				<div lp-i18n="Available:"></div>
+				<div ng-show="newUserRegCtrl.newUserRegCtrl.newUserRegCtrl.userIdSuggestion3 != ''">
+					<input type="radio" name="userIdSuggestions" id="suggestion1"
+						ng-model="newUserRegCtrl.control.loginId.value"
+						value="{{newUserRegCtrl.userIdSuggestion1}}" /> <label for="suggestion1" ng-bind="newUserRegCtrl.userIdSuggestion1"></label>
+				</div>
+				<div ng-show="newUserRegCtrl.userIdSuggestion2 != ''">
+					<input type="radio" name="userIdSuggestions" id="suggestion2"
+						ng-model="newUserRegCtrl.control.loginId.value"
+						value="{{newUserRegCtrl.userIdSuggestion2}}" /> <label for="suggestion2" ng-bind="newUserRegCtrl.userIdSuggestion2"></label>
+				</div>
+				<div ng-show="newUserRegCtrl.userIdSuggestion3 != ''">
+					<input type="radio" name="userIdSuggestions" id="suggestion3"
+						ng-model="newUserRegCtrl.control.loginId.value"
+						value="{{newUserRegCtrl.userIdSuggestion3}}" /> <label for="suggestion3" ng-bind="newUserRegCtrl.userIdSuggestion3"></label>
+				</div>
+			</div>
+
+			<div class="newuserregistration-margin-align2 newuserregistration-customer-margin" lp-field="lp-field"
+				label="Set your Password" tip="{{'Your password should be 6-15 characters, with atleast one number.'|translate}}">
+				<div>
+					<input class="newuserregistration-form-control form-control newuserregistration-margin-customerId set-pwd-input"
+						type="password" name="pass"
+						ng-disabled="newUserRegCtrl.fieldValidationsOR(newUserRegCtrl.enableSubmit, newUserRegCtrl.cancelTransaction)"
+						ng-model="newUserRegCtrl.control.password.value"
+						ng-pattern={{newUserRegCtrl.passwordPolicy}} ng-maxlength="15"
+						loading="isLoading" autofill="off" autocorrect="off"
+						autocapitalize="off" autocomplete="off" onpaste="return false;"
+						onCopy="return false" onCut="return false" required="true" /> <small
+						class="text-danger pwd-form-error"
+						ng-show="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.registrationForm.submitted, registrationForm.pass.$error.required)" lp-i18n="Password is required."></small>
+					<small class="text-danger pwd-form-error"
+						ng-show="registrationForm.pass.$error.maxlength" lp-i18n="Password length should not be more than 15 characters."></small>
+					<small class="text-danger pwd-form-error password-policy-newUser"
+						ng-show="registrationForm.pass.$error.pattern" lp-i18n="Your password should be minimum 6 and maximum 15 characters. It should have at least 1 number."></small>
+					<small class="text-danger pwd-form-error"
+						ng-show="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.registrationForm.submitted, !registrationForm.pass.$error.required, !registrationForm.pass.$error.maxlength, !registrationForm.pass.$error.pattern, newUserRegCtrl.errors['containsLoginId'])" lp-i18n="Password should not contain Login Id."></small>
+				</div>
+			</div>
+			<div class="newuserregistration-margin-align2 newuserregistration-customer-margin" lp-field="lp-field"
+				label="Confirm Password" tip="{{'Please re-enter your password'|translate}}">
+				<div>
+					<input class="newuserregistration-form-control form-control newuserregistration-margin-customerId confirm-pwd-input"
+						type="password" name="confirmPass" ng-click="newUserRegCtrl.resetpass();"
+						   ng-disabled="newUserRegCtrl.fieldValidationsOR(newUserRegCtrl.enableSubmit, newUserRegCtrl.cancelTransaction)"
+						ng-model="newUserRegCtrl.control.confirmPassword.value"
+						loading="isLoading" autofill="off" autocorrect="off"
+						autocapitalize="off" autocomplete="off" onpaste="return false;"
+						onCopy="return false" onCut="return false" required="true" /> <small
+						class="text-danger cnf-pwd-form-error"
+						ng-show="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.registrationForm.submitted, registrationForm.confirmPass.$error.required)" lp-i18n="Please confirm Password."></small>	
+					<small class="text-danger cnf-pwd-form-error"
+						ng-show="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.registrationForm.submitted, !newUserRegCtrl.errors['cancelTransaction'], newUserRegCtrl.errors['confirmPass'])" lp-i18n="Oops. The reconfirm did not reconfirm. Please enter the same password in both boxes."></small>
+					<small class="text-danger cnf-pwd-form-error"
+						ng-show="newUserRegCtrl.fieldValidationsAND(newUserRegCtrl.registrationForm.submitted, newUserRegCtrl.errors['cancelTransaction'])" lp-i18n="Forgot your chosen password so soon? Please go back to Start - you have to start over."></small>
+				</div>
+
+
+			</div>
+		<div class="iagree-margin">
+			<!-- <input type="checkbox" class="new-user-checkbox" name="tnc" ng-model="newUserRegCtrl.control.acceptTnC" id="tnc" ></input> <a class="new-user-terms" href="#" onclick="window.open('./static/pdf/index.html', '_blank');"><u style="margin-left: -10px;" >Terms & Conditions and Schedule of charges"</u></a> governing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usage of the account -->
+			<table>
+				<tr>
+				<td>
+				<input type="checkbox" class="new-user-checkbox" name="tnc" ng-model="newUserRegCtrl.control.acceptTnC" id="tnc" />
+				</td>
+				<td>
+					<div class="termsConditionsDiv">
+						<!--I agree to the<a class="new-user-terms" href="#" onclick="window.open('../../pdf/index.html', '_blank');"><u style="margin-left: -10px;" >Terms & Conditions and Schedule of charges</u></a> governing usage of the account-->
+                              I agree to the<a class="new-user-terms" href ng-click="newUserRegCtrl.openTnC()"><u style="margin-left: -10px;" >Terms & Conditions and Schedule of charges</u></a> governing usage of the account</div>
+				</td>
+				</tr>
+			</table>
+			<span class="text-danger acceptTnC_error" ng-show="!newUserRegCtrl.control.acceptTnC">Please accept Terms and Conditions</span>
+		</div>
+                                                                                                                          
+		<div class="newuserregistration-button-alignForm newuserregistration-button-margin">
+			<button class="btn btn-primary userreg-next-btn  primary-btn-btn"  ng-click="newUserRegCtrl.registrationForm.submitted=true; newUserRegCtrl.registerUser(registrationForm.$valid)" type="submit" lp-i18n="Confirm"></button>
+			<button type="button" class="btn btn-primary newuserregistration-btn-clear userreg-clear-btn secondary-btn-btn"  ng-click= "newUserRegCtrl.resetRegistrationForm();newUserRegCtrl.registrationForm.submitted=false;" lp-i18n="Clear"></button>
+
+		</div>
+			
+			
+		</form>
+	</div>

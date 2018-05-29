@@ -1,0 +1,36 @@
+<!-- <span style="font-family:gotham_bold,calibri" class="addbiller-confirm">Success</span> -->
+<div class="add-biller-confirm-div successchanges">
+    <div class="img_padding zeromargin"><img src="static/features/[BBHOST]/theme-idfc/images/tick.png"/>
+    <img ng-src="{{tick}}"/></div>
+
+    <div><span class="confirm-span congochanges">Congratulations!</span></div>
+    <div><span class="confirm-span" ng-hide="setAutoPayFlag">The biller has been registered</span></div>
+    <div ng-show="setAutoPayFlag"><span class="confirm-span">Your Biller has been added and we will pay your bill automatically every month
+</span></div>
+
+    <div ng-show="billerProviderSelected.authenticatorCount>=1">
+        <div class="form-group">
+            <div class="add-floatLeft">
+                <label class="add-bill-label successchangeslabel congochanges2">{{billerProviderSelected.authenticatorLable1}} :
+                    <span
+                            class="successcolor">{{authenticator1}}</span> </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Authenticator Count 1 Will be Show as default ,other Authenticator will be show in count is greater then 2  -->
+
+        </div>
+
+	<div>
+<!-- 	<hr style="border:1px solid #EAEAEA"> -->
+<!--DEFECT#3467-->
+	<div class="widget-new-footer successfooter">
+        <div class="borderTop"></div>
+        <button type="button" class="btn btn-primary primary-btn-btn  ng-binding" ng-click="manageBiller()">VIEW
+        </button>
+		<button   class="btn btn-primary secondary-btn-btn ng-binding" ng-click="back();billForm=true"
+                  name="proceed">CREATE ANOTHER</button>
+    </div>
+	</div>
+</div>
