@@ -75,19 +75,19 @@ define(function(require, exports) {
                     $scope.showMailSuccess = true;
                     $scope.mailSuccessMsg = args;
                 });
-                $scope.$on('mailSentError', function(event, args) {
-                        		self.errorSpin = false;
-                        		ctrl.loading = false;
-                        		$scope.showMailError = true;
-                        		$scope.mailSuccessMsg = args;
-                                });
-                $scope.$on('mailSentFinally', function(event, args) {
-                                self.errorSpin = false;
-                                ctrl.loading = false;
-                                $scope.showMailError = true;
-                                $scope.mailSuccessMsg = args;
-                                });
-        		//mailSent - Ends Here
+               $scope.$on('mailSentError', function(event, args) {
+                                       		self.errorSpin = false;
+                                       		ctrl.loading = false;
+                                       		$scope.showMailError = true;
+                                       		$scope.mailSuccessMsg = args;
+                                               });
+                               /*$scope.$on('mailSentFinally', function(event, args) {
+                                               self.errorSpin = false;
+                                               ctrl.loading = false;
+                                               $scope.showMailError = true;
+                                               $scope.mailSuccessMsg = args;
+                                               });*/
+                       		//mailSent - Ends Here
 
         var initialize = function() {
             //Session Management Call

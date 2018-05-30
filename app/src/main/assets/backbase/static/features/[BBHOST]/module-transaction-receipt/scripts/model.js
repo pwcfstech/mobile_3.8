@@ -154,8 +154,7 @@ define(function(require, exports, module) {
                 headers: {
                     'Content-Type': 'application/json',
                     // 'Content-Type': 'application/x-www-form-urlencoded;'
-                },
-                responseType: 'arraybuffer'
+                }
             });
             // var servicEndPoint = '/rs/v1/trans-receipt';
             // var request = $http.get(servicEndPoint);
@@ -194,17 +193,21 @@ define(function(require, exports, module) {
             })
             request.error(function(error) {
                 self.errorSpin = false;
-                $rootScope.$broadcast('mailSentError', "Your Email ID is not registered with us. To register,");
+
                 if (error.cd) {
                     // Redirect to login page if session timed out
                     idfcHandler.checkTimeout(error);
                 }
+
+                 if (error.cd == "EMAILERR01") {
+                                    // Redirect to login page if session timed out
+                                    $rootScope.$broadcast('mailSentError', "Your Email ID is not registered with us. To register,");
+                                }
                 self.error = {
                     message: error.statusText
                 };
             });
-            request['finally'](function() {
-            $rootScope.$broadcast('mailSentFinally', "Your Email ID is not registered with us. To register,");
+            request['finally'](function(response, status, headers, config) {
                 self.loading = false;
             });
 

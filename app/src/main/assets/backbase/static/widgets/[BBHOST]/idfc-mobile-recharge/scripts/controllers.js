@@ -51,6 +51,8 @@ define(function(require, exports) {
         }
         // RSA changes by Xebia ends
 
+
+
         gadgets.pubsub.subscribe("native.back", function(evt) {
             console.log(evt.text);
             $scope.errorSpin = false;
@@ -106,7 +108,23 @@ define(function(require, exports) {
             $scope.showMailSuccess = true;
             $scope.mailSuccessMsg = args;
         });
+
+        $scope.$on('mailSentError', function(event, args) {
+            self.errorSpin = false;
+            ctrl.loading = false;
+            $scope.showMailError = true;
+            $scope.mailSuccessMsg = args;
+            });
         //Transaction Receipt - Ends Here
+
+                $scope.goToEmailMod = function() {
+                            localStorage.clear();
+                            localStorage.setItem("navigationFlag",true);
+                            localStorage.setItem("origin","Profile");
+                            localStorage.setItem("target","ReviewTransfer");
+                            localStorage.setItem("navigationData","Email Modification");
+                            gadgets.pubsub.publish('launchpad-retail.profileContactWidgetOpen');
+                        }
 
         var initialize = function() {
             ///////////////////////////////////////////////////
@@ -1610,6 +1628,7 @@ define(function(require, exports) {
            $scope.mobileSdkData = response.data;
          });*/
         var globalPreferences = cxp.mobile.plugins['GlobalVariables']; //3.6 change
+
         if (globalPreferences) {
             var rsaSuccessCallback = function(data) {
                 var rsaObj = data['rsaData'];
@@ -1638,8 +1657,21 @@ define(function(require, exports) {
             $scope.showMailSuccess = true;
             $scope.mailSuccessMsg = args;
         });
+        $scope.$on('mailSentError', function(event, args) {
+                        self.errorSpin = false;
+                        ctrl.loading = false;
+                        $scope.showMailError = true;
+                        $scope.mailSuccessMsg = args;
+                        });
         //mailSent - Ends Here
-
+        $scope.goToEmailMod = function() {
+                    localStorage.clear();
+                    localStorage.setItem("navigationFlag",true);
+                    localStorage.setItem("origin","Profile");
+                    localStorage.setItem("target","ReviewTransfer");
+                    localStorage.setItem("navigationData","Email Modification");
+                    gadgets.pubsub.publish('launchpad-retail.profileContactWidgetOpen');
+                }
         var initialize = function() {
             $scope.showMailSuccess = false; //Transaction Receipt
 
@@ -1784,6 +1816,8 @@ define(function(require, exports) {
             };
 
         };
+
+
 
         $scope.validateRechargeButton = function() {
 

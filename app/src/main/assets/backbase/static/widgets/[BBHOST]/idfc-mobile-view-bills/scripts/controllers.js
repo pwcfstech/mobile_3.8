@@ -90,6 +90,22 @@ define(function(require, exports) {
             $scope.showMailSuccess = true;
             $scope.mailSuccessMsg = args;
         });
+
+        $scope.$on('mailSentError', function(event, args) {
+                        self.errorSpin = false;
+                        ctrl.loading = false;
+                        $scope.showMailError = true;
+                        $scope.mailSuccessMsg = args;
+                        });
+
+        $scope.goToEmailMod = function() {
+                    localStorage.clear();
+                    localStorage.setItem("navigationFlag",true);
+                    localStorage.setItem("origin","Profile");
+                    localStorage.setItem("target","ReviewTransfer");
+                    localStorage.setItem("navigationData","Email Modification");
+                    gadgets.pubsub.publish('launchpad-retail.profileContactWidgetOpen');
+                }
         //mailSent - Ends Here
 
         var initialize = function() {

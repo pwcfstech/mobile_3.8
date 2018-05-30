@@ -33,5 +33,6 @@
     <div class="row col-xs-12" style="text-align:center;padding-left:5%" ng-repeat="item in actions">
         <a ng-click=transReceipt(item.receiptType,item.transType)><span class={{item.className}} ></span></a>
         <span ng-if="showMailSuccess" style="color: #007900;font-size: 14px;">{{mailSuccessMsg}}</span>
+        <small><span ng-if="showMailError" style="color: red;font-size: 14px">{{mailSuccessMsg}}</span><span ng-show="showMailError"><a class="emailModLink" ng-click="goToEmailMod()">click here</a>.</span></small>
     </div>
 </div>
