@@ -1,6 +1,6 @@
 {
   "development": {
-    "debugEnable": true,
+    "debugEnable": false,
     "allowUntrustedCertificates": true
   },
   "backbase": {

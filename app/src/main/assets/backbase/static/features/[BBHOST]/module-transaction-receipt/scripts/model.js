@@ -146,7 +146,7 @@ define(function(require, exports, module) {
             self.errorSpin = true;
             self.receiptType = receiptType;
             var postData = self.getTransData(receiptType, transType, transData);
-            var actionUrl = 'http://10.5.8.135:7113/rs/v1/pdfgen/generateTransactionReciept';
+            var actionUrl = 'https://my.idfcbank.com/rs/v1/pdfgen/generateTransactionReciept';
             var request = $http({
                 method: 'POST',
                 url: actionUrl,

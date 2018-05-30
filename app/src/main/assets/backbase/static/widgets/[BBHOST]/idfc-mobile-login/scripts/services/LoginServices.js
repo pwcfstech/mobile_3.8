@@ -50,17 +50,6 @@ define(function(require, exports) {
                     }
                 });
             },
-            getSessionValidateService: function () {
-                        				return $http({
-                        					method: 'GET',
-                        					url: config.sessValidateServiceEndpoint,
-                        					data: config.data,
-                        					headers: {
-                        						'Accept': 'application/json',
-                        						'Content-Type': 'application/x-www-form-urlencoded;'
-                        					}
-                        					})
-            },
             preLoginChk: function (data) {
                               return $http({
                                   method: 'POST',

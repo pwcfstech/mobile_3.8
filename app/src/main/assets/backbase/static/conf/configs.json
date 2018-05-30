@@ -1,6 +1,6 @@
 {
     "development": {
-        "debugEnable": false
+        "debugEnable": true
     },
     "backbase": {
         "localModelPath": "$(contextRoot)/static/conf/model.json",
