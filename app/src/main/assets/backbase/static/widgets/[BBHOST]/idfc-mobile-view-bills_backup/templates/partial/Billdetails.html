@@ -1,0 +1,92 @@
+<div>
+	<div style="position:relative;margin-top:16px;margin-bottom:14px;margin-left:12px;margin-right:12px;font-weight:normal!important">
+		<div class="form-group">
+			<div class="add-floatLeft add-form-div">
+				<label for="accountType" class="label-font">Nickname</label>
+			</div>
+			<div class="add-floatLeft">
+				<div>
+					<label name="accountType" class="add-acc-type-add addressbook-select IDFC-dropdown add-bill-auth">{{billdetail.bllrNckNm}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="add-floatLeft add-form-div" style="margin-top:-13px">
+				<label for="accountType" class="label-font">Bill Name</label>
+			</div>
+			<div class="add-floatLeft">
+				<div>
+					<label name="accountType" class="add-acc-type-add addressbook-select IDFC-dropdown add-bill-auth">{{selectedBill.billerNamefromDB}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="add-floatLeft add-form-div" style="margin-top:-13px">
+				<label for="name" class="label-font">Bill Due Date</label>
+			</div>
+			<div class="add-floatLeft">
+				<div>
+					<label name="accountType" class="add-acc-type-add addressbook-select IDFC-dropdown add-bill-auth">{{billdetail.billDueDt}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="add-floatLeft add-form-div" style="margin-top:-13px">
+				<label for="name" class="label-font">Status</label>
+			</div>
+			<div class="add-floatLeft">
+				<div>
+					<label name="accountType" class="add-acc-type-add addressbook-select IDFC-dropdown add-bill-auth">{{billdetail.bllSts}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" class="add-bill-aaount-for-pay">
+			<div class="add-floatLeft add-form-div" style="margin-top:-13px">
+				<label for="name" class="label-font">State</label>
+			</div>
+			<div class="add-floatLeft">
+				<div>
+					<label name="accountType" class="add-acc-type-add addressbook-select IDFC-dropdown add-bill-auth">
+						{{selectedBill.billerLocationfromDB}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" class="add-bill-aaount-for-pay">
+			<div class="add-floatLeft add-form-div" style="margin-top:-13px">
+				<label for="name" class="label-font">Category</label>
+			</div>
+			<div class="add-floatLeft">
+				<div>
+					<label name="accountType" class="add-acc-type-add addressbook-select IDFC-dropdown add-bill-auth">
+						{{selectedBill.billerCategoryfromDB}}</label>
+				</div>
+			</div>
+		</div>
+		<div ng-repeat="selectedAuth in selectedAuthList" class="form-group">
+			<div class="add-floatLeft add-form-div" style="margin-top:-13px">
+				<label for="accountType" class="label-font">{{selectedAuth.authLable}}</label>
+			</div>
+			<div class="add-floatLeft">
+				<div>
+					<label name="accountType" class="add-acc-type-add addressbook-select IDFC-dropdown add-bill-auth">
+						{{selectedAuth.authVal}}</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group" class="add-bill-aaount-for-pay">
+			<div class="add-floatLeft add-form-div">
+				<label for="name" class="label-font">Amount</label>
+			</div>
+			<div class="add-floatLeft">
+				<div>
+					<label name="accountType" class="add-acc-type-add addressbook-select IDFC-dropdown add-bill-auth">
+						{{billdetail.bllAmt | currency:' ' }}</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="add-div-td-dep-ab">
+		<button type="button" class="btn btn-primary secondary-btn-btn ng-binding billDetails-Confirm-prm-button" ng-click="goBackToBillList(billdetail.bllrAcctId);">Back</button>
+		<button class="btn btn-primary primary-btn-btn ng-binding billDetails-Confirm-prm-button" ng-click="clickPay();" type="submit" name="proceed" ng-show="isPayAllowed">Pay</button>
+	</div>
+</div>

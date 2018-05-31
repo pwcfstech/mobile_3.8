@@ -482,48 +482,6 @@ define(function(require, exports) {
                     lpCoreBus.publish('launchpad-retail.refreshAccountSummary');
                 }
 
-                var transactionID = $scope.isEmptyVal($scope.payBillSuccessData) ? "-" : $scope.payBillSuccessData;
-
-                var actionUrl = lpCoreUtils.resolvePortalPlaceholders(lpWidget.getPreference("getTxnDateTime"));
-                console.log("Tets URL:", actionUrl);
-                var request = $http({
-                    method: 'POST',
-                    url: actionUrl,
-                    data: JSON.stringify({ txnID: transactionID }),
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json;'
-                    }
-                });
-                request.success(function(response, status, headers, config) {
-                    // Transaction Receipt start
-                    $scope.successItems = {};
-                    $scope.successItems = {
-                        "successMessage": 'Congratulations! Your Payment is successful.',
-                        "transactionReferenceNumber": $scope.isEmptyVal($scope.payBillSuccessData) ? "-" : $scope.payBillSuccessData,
-                        "nameOfTheBiller": $scope.isEmptyVal($scope.selectedBill.billerName) ? "NA" : $scope.selectedBill.billerName,
-                        "nickname": $scope.isEmptyVal($scope.selectedBill.bllrShrtNm) ? "NA" : $scope.selectedBill.bllrShrtNm,
-                        "amountDue": ($scope.isEmptyVal($scope.selectedBill.bllAmt) || $scope.selectedBill.bllAmt == "0.00") ? "" : $scope.selectedBill.bllAmt,
-                        "dueDate": ($scope.isEmptyVal($scope.selectedBill.billDueDt) || $scope.selectedBill.bllAmt == "NA" || $scope.selectedBill.billDueDt == "NA") ? "" : $scope.selectedBill.billDueDt,
-                        "amountPaid": $scope.isEmptyVal($scope.selectedBill.editedBillAmt) ? "-" : $scope.selectedBill.editedBillAmt,
-                        "transactionTimeAndDate": $scope.formatDate(new Date())
-                    }
-
-                    $scope.customFields = {};
-                    $scope.customFields = {
-                        "customField1": $scope.isEmptyVal($scope.billsFound[0]) ? "" : $scope.billsFound[0].authLable,
-                        "customField2": $scope.isEmptyVal($scope.billsFound[1]) ? "" : $scope.billsFound[1].authLable,
-                        "customField3": $scope.isEmptyVal($scope.billsFound[2]) ? "" : $scope.billsFound[2].authLable
-                    }
-
-                    $scope.items = [{ item: 'Transaction Reference No.', value: $scope.successItems.transactionReferenceNumber, display: true }, { item: 'Name of the Biller', value: $scope.successItems.nameOfTheBiller, display: true }, { item: 'Nickname', value: $scope.successItems.nickname, display: true }, { item: ($scope.isEmptyVal($scope.billsFound[0]) ? "" : $scope.billsFound[0].authLable), value: $scope.isEmptyVal($scope.billsFound[0]) ? "" : $scope.billsFound[0].authVal, display: $scope.isEmptyVal($scope.billsFound[0]) ? false : true }, { item: ($scope.isEmptyVal($scope.billsFound[1]) ? "" : $scope.billsFound[1].authLable), value: $scope.isEmptyVal($scope.billsFound[1]) ? "" : $scope.billsFound[1].authVal, display: $scope.isEmptyVal($scope.billsFound[1]) ? false : true }, { item: ($scope.isEmptyVal($scope.billsFound[2]) ? "" : $scope.billsFound[2].authLable), value: $scope.isEmptyVal($scope.billsFound[2]) ? "" : $scope.billsFound[2].authVal, display: $scope.isEmptyVal($scope.billsFound[2]) ? false : true }, { item: 'Amount Due', value: $scope.successItems.amountDue, display: $scope.isEmptyVal($scope.successItems.amountDue) ? false : true, currency: true }, { item: 'Due Date', value: $scope.successItems.dueDate, display: $scope.isEmptyVal($scope.successItems.amountDue) ? false : true }, { item: 'Amount Paid', value: $scope.successItems.amountPaid, display: true, currency: true }, { item: 'Date and Time', value: $scope.successItems.transactionTimeAndDate, display: true }];
-                    $scope.actions = [{ button: "Email", className: "mailButton", transType: "billPay", receiptType: 'email' }];
-                    $scope.buttons = [{ name: "Make Another Payment", className: "btn btn-primary primary-btn-btn ng-binding", param: 'payAgain', style: "height:35px !important; width:100% !important;" }, { name: "Done", className: "btn secondary-btn-btn secondary-btn-ft btn-align review-button", param: 'accountSummary', style: "height:35px !important; width:100% !important;" }];
-                })
-                request.error(function(error) {
-                    console.log("Date txn Date & Time:", error);
-                    self.errorSpin = false;
-                });
 
             });
             res.error(function(data) {
@@ -1177,6 +1135,48 @@ define(function(require, exports) {
                 $scope.paySuccess = true;
                 $scope.successPage = false;
                 $scope.errorSpin = false;
+                 var transactionID = $scope.isEmptyVal($scope.payBillSuccessData) ? "-" : $scope.payBillSuccessData;
+
+                                var actionUrl = lpCoreUtils.resolvePortalPlaceholders(lpWidget.getPreference("getTxnDateTime"));
+                                console.log("Tets URL:", actionUrl);
+                                var request = $http({
+                                    method: 'POST',
+                                    url: actionUrl,
+                                    data: JSON.stringify({ txnID: transactionID }),
+                                    headers: {
+                                        'Accept': 'application/json',
+                                        'Content-Type': 'application/json;'
+                                    }
+                                });
+                                request.success(function(response, status, headers, config) {
+                                    // Transaction Receipt start
+                                    $scope.successItems = {};
+                                    $scope.successItems = {
+                                        "successMessage": 'Congratulations! Your Payment is successful.',
+                                        "transactionReferenceNumber": $scope.isEmptyVal($scope.payBillSuccessData) ? "-" : $scope.payBillSuccessData,
+                                        "nameOfTheBiller": $scope.isEmptyVal($scope.selectedBill.billerName) ? "NA" : $scope.selectedBill.billerName,
+                                        "nickname": $scope.isEmptyVal($scope.selectedBill.bllrShrtNm) ? "NA" : $scope.selectedBill.bllrShrtNm,
+                                        "amountDue": ($scope.isEmptyVal($scope.selectedBill.bllAmt) || $scope.selectedBill.bllAmt == "0.00") ? "" : $scope.selectedBill.bllAmt,
+                                        "dueDate": ($scope.isEmptyVal($scope.selectedBill.billDueDt) || $scope.selectedBill.bllAmt == "NA" || $scope.selectedBill.billDueDt == "NA") ? "" : $scope.selectedBill.billDueDt,
+                                        "amountPaid": $scope.isEmptyVal($scope.selectedBill.editedBillAmt) ? "-" : $scope.selectedBill.editedBillAmt,
+                                        "transactionTimeAndDate": $scope.formatDate(new Date())
+                                    }
+
+                                    $scope.customFields = {};
+                                    $scope.customFields = {
+                                        "customField1": $scope.isEmptyVal($scope.billsFound[0]) ? "" : $scope.billsFound[0].authLable,
+                                        "customField2": $scope.isEmptyVal($scope.billsFound[1]) ? "" : $scope.billsFound[1].authLable,
+                                        "customField3": $scope.isEmptyVal($scope.billsFound[2]) ? "" : $scope.billsFound[2].authLable
+                                    }
+
+                                    $scope.items = [{ item: 'Transaction Reference No.', value: $scope.successItems.transactionReferenceNumber, display: true }, { item: 'Name of the Biller', value: $scope.successItems.nameOfTheBiller, display: true }, { item: 'Nickname', value: $scope.successItems.nickname, display: true }, { item: ($scope.isEmptyVal($scope.billsFound[0]) ? "" : $scope.billsFound[0].authLable), value: $scope.isEmptyVal($scope.billsFound[0]) ? "" : $scope.billsFound[0].authVal, display: $scope.isEmptyVal($scope.billsFound[0]) ? false : true }, { item: ($scope.isEmptyVal($scope.billsFound[1]) ? "" : $scope.billsFound[1].authLable), value: $scope.isEmptyVal($scope.billsFound[1]) ? "" : $scope.billsFound[1].authVal, display: $scope.isEmptyVal($scope.billsFound[1]) ? false : true }, { item: ($scope.isEmptyVal($scope.billsFound[2]) ? "" : $scope.billsFound[2].authLable), value: $scope.isEmptyVal($scope.billsFound[2]) ? "" : $scope.billsFound[2].authVal, display: $scope.isEmptyVal($scope.billsFound[2]) ? false : true }, { item: 'Amount Due', value: $scope.successItems.amountDue, display: $scope.isEmptyVal($scope.successItems.amountDue) ? false : true, currency: true }, { item: 'Due Date', value: $scope.successItems.dueDate, display: $scope.isEmptyVal($scope.successItems.amountDue) ? false : true }, { item: 'Amount Paid', value: $scope.successItems.amountPaid, display: true, currency: true }, { item: 'Date and Time', value: $scope.successItems.transactionTimeAndDate, display: true }];
+                                    $scope.actions = [{ button: "Email", className: "mailButton", transType: "billPay", receiptType: 'email' }];
+                                    $scope.buttons = [{ name: "Make Another Payment", className: "btn btn-primary primary-btn-btn ng-binding", param: 'payAgain', style: "height:35px !important; width:100% !important;" }, { name: "Done", className: "btn secondary-btn-btn secondary-btn-ft btn-align review-button", param: 'accountSummary', style: "height:35px !important; width:100% !important;" }];
+                                })
+                                request.error(function(error) {
+                                    console.log("Date txn Date & Time:", error);
+                                    self.errorSpin = false;
+                                });
                 lpCoreBus.publish('launchpad-retail.refreshAccountSummary');
             });
             xhr.error(function(data) {

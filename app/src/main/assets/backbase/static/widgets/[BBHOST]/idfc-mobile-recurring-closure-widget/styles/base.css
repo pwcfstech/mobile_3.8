@@ -541,13 +541,6 @@ th.th-dp-det {
     margin-top: 44%
 }
 
-.non-scroll
-{
-   height: 100%;
-   padding-top:44%!important;
-   margin-top: 0% !important;
-}
-
 .depositsClosure-font-label-dep {
     font-weight: 700;
     font-family: gotham_bold, Calibri!important;
@@ -1163,10 +1156,6 @@ tbody {
 .panaltyClass {
     font-family: gotham_book!important;
     color: #4a4a4a!important
-}
-
-.depositsClosure-dep-parent-div .labelText {
-    padding-left: 0 !important;
 }
 #widget-root{
 height:auto !important;

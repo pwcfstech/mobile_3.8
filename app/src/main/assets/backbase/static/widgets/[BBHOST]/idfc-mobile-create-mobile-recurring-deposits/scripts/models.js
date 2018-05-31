@@ -31,8 +31,6 @@ define( function (require, exports) {
 subProductType: '',
 accountNumber: '',
 amount: '',
-interestPayout: '',
-interestPayoutTmp: '',
 tenureYears: '',
 tenureDays: '',
 tenureMonths: '',

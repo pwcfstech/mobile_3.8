@@ -1046,11 +1046,7 @@ th.th-dp-det {
     font-size: 100%
 }
 
+/* Xebia Refactoring */
 .primary-btn-deposit-det {
     width: 82% !important;
 }
-
-.loading-icon {
-    margin-top: 35% !important;
-}
-
