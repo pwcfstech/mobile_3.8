@@ -1,10 +1,10 @@
 {
     "development": {
-        "debugEnable": true
+        "debugEnable": false
     },
     "backbase": {
         "localModelPath": "$(contextRoot)/static/conf/model.json",
-        "experience": "idfc-mobile-v4",
+        "experience": "idfc-mobile-v5",
         "serverURL": "https://my.idfcbank.com"
     },
     "security": {
