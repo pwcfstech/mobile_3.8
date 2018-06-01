@@ -162,9 +162,10 @@ define(function(require, exports) {
                 }
                 console.log('$scope.existingDeposits' +
                     $scope.existingDeposits);
-                $scope.errorSpin = false;
+
             }).error(function(data, status, headers, config) {
                 $scope.tdError = true;
+                $scope.errorSpin = false;
                 if (data.cd) {
                     errorIDFC.checkTimeout(data);
                     $scope.serviceError = errorIDFC.checkGlobalError(

@@ -215,6 +215,7 @@ define(function(require, exports, module) {
 
                         }).error(function(data, status, headers, config) {
                             $scope.tdError = true;
+                            $scope.errorSpin = false;
                             if (data.cd) {
                                 errorIDFC.checkTimeout(data);
                                 $scope.serviceError = errorIDFC.checkGlobalError(
